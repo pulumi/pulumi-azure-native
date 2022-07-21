@@ -80,7 +80,7 @@ func AllVersions() AzureProviders {
 		panic(err)
 	}
 
-	providerDefaults, err := ReadV1Version()
+	providerDefaults, err := ReadV2Version()
 	if err != nil {
 		panic(err)
 	}

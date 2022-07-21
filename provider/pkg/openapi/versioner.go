@@ -15,13 +15,13 @@ import (
 	"github.com/segmentio/encoding/json"
 )
 
-func ReadV1Version() (CuratedVersion, error) {
+func ReadV2Version() (CuratedVersion, error) {
 	dir, err := os.Getwd()
 	if err != nil {
 		return nil, err
 	}
-	v1Path := filepath.Join(dir, "versions", "v1.json")
-	return ReadCuratedVersion(v1Path)
+	path := filepath.Join(dir, "versions", "v2.json")
+	return ReadCuratedVersion(path)
 }
 
 func ReadDeprecated() (ProviderVersionList, error) {

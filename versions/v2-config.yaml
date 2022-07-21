@@ -360,19 +360,6 @@ LoadTestService:
     tracking: 2022-04-15-preview
 Logic:
     tracking: "2019-05-01"
-    additions:
-        Agreement: "2016-06-01"
-        Certificate: "2016-06-01"
-        Map: "2016-06-01"
-        Partner: "2016-06-01"
-        RosettaNetProcessConfiguration: "2016-06-01"
-        Schema: "2016-06-01"
-        Session: "2016-06-01"
-        listAgreementContentCallbackUrl: "2016-06-01"
-        listMapContentCallbackUrl: "2016-06-01"
-        listPartnerContentCallbackUrl: "2016-06-01"
-        listSchemaContentCallbackUrl: "2016-06-01"
-        listWorkflowVersionCallbackUrl: "2016-06-01"
 Logz:
     tracking: 2022-01-01-preview
 M365SecurityAndCompliance:
@@ -387,14 +374,6 @@ MachineLearningExperimentation:
     tracking: 2017-05-01-preview
 MachineLearningServices:
     tracking: "2022-05-01"
-    additions:
-        LinkedWorkspace: "2020-03-01"
-        MachineLearningCompute: "2021-04-01"
-        MachineLearningService: "2021-04-01"
-        listMachineLearningComputeKeys: "2021-04-01"
-        listMachineLearningComputeNodes: "2021-04-01"
-        listNotebookKeys: "2021-04-01"
-        listStorageAccountKeys: "2021-04-01"
 Maintenance:
     tracking: "2021-05-01"
 ManagedIdentity:
@@ -427,12 +406,10 @@ Migrate:
         HyperVCollector: "2019-10-01"
         ImportCollector: "2019-10-01"
         MigrateProjectsControllerMigrateProject: "2020-05-01"
-        PrivateEndpointConnection: "2019-10-01"
         PrivateEndpointConnectionControllerPrivateEndpointConnection: "2020-05-01"
         Project: "2019-10-01"
         ServerCollector: "2019-10-01"
         VMwareCollector: "2019-10-01"
-        getProjectKeys: "2018-02-02"
 MixedReality:
     tracking: "2021-01-01"
 MobileNetwork:
@@ -526,7 +503,6 @@ Network:
         VirtualNetworkTap: "2021-08-01"
         VirtualRouter: "2021-08-01"
         VirtualRouterPeering: "2021-08-01"
-        VirtualWAN: "2018-07-01"
         VirtualWan: "2021-08-01"
         VpnConnection: "2021-08-01"
         VpnGateway: "2021-08-01"
@@ -675,9 +651,6 @@ ServiceBus:
     tracking: "2021-11-01"
 ServiceFabric:
     tracking: "2022-01-01"
-    additions:
-        Cluster: "2021-06-01"
-        listClusterUpgradableVersions: "2021-06-01"
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:
