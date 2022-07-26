@@ -181,16 +181,16 @@ $(WORKING_DIR)/sdk/java/go.mod:
 generate_java:: bin/pulumi-java-gen $(WORKING_DIR)/sdk/java/go.mod
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 
-build_java:: .version
+build_java:: .version 
 	cd ${PACKDIR}/java/ && \
 		gradle --console=plain build --version $(shell cat .version)
 
 bin/pulumi-java-gen::
 	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
 
-generate_go::
-	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
-	
+generate_go:: .version
+	$(WORKING_DIR)/bin/$(CODEGEN) go $(shell cat .version)
+
 build_go::
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
 	cd sdk/ && \
