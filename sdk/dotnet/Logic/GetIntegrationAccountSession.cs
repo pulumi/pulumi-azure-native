@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Logic
     }
 
 
-    public sealed class GetIntegrationAccountSessionArgs : Pulumi.InvokeArgs
+    public sealed class GetIntegrationAccountSessionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Logic
         public GetIntegrationAccountSessionArgs()
         {
         }
+        public static new GetIntegrationAccountSessionArgs Empty => new GetIntegrationAccountSessionArgs();
     }
 
-    public sealed class GetIntegrationAccountSessionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIntegrationAccountSessionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Logic
         public GetIntegrationAccountSessionInvokeArgs()
         {
         }
+        public static new GetIntegrationAccountSessionInvokeArgs Empty => new GetIntegrationAccountSessionInvokeArgs();
     }
 
 

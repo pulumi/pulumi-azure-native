@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
     /// State of the myscope setting.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20191101:Setting")]
-    public partial class Setting : Pulumi.CustomResource
+    public partial class Setting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Array of scopes with additional details used by Cost Management in the Azure portal.
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:costmanagement:Setting"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:Setting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
         }
     }
 
-    public sealed class SettingArgs : Pulumi.ResourceArgs
+    public sealed class SettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("cache")]
         private InputList<Inputs.SettingsPropertiesCacheArgs>? _cache;
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
         public SettingArgs()
         {
         }
+        public static new SettingArgs Empty => new SettingArgs();
     }
 }

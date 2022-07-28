@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
     /// <summary>
     /// MAB workload-specific backup item.
     /// </summary>
-    public sealed class MabFileFolderProtectedItemArgs : Pulumi.ResourceArgs
+    public sealed class MabFileFolderProtectedItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the backup set the backup item belongs to
@@ -157,5 +157,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
         public MabFileFolderProtectedItemArgs()
         {
         }
+        public static new MabFileFolderProtectedItemArgs Empty => new MabFileFolderProtectedItemArgs();
     }
 }

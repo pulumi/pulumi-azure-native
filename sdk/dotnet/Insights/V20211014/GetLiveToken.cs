@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20211014
     }
 
 
-    public sealed class GetLiveTokenArgs : Pulumi.InvokeArgs
+    public sealed class GetLiveTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the resource.
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.Insights.V20211014
         public GetLiveTokenArgs()
         {
         }
+        public static new GetLiveTokenArgs Empty => new GetLiveTokenArgs();
     }
 
-    public sealed class GetLiveTokenInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLiveTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the resource.
@@ -49,6 +50,7 @@ namespace Pulumi.AzureNative.Insights.V20211014
         public GetLiveTokenInvokeArgs()
         {
         }
+        public static new GetLiveTokenInvokeArgs Empty => new GetLiveTokenInvokeArgs();
     }
 
 

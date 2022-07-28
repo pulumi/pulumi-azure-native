@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20191201.Inputs
     /// <summary>
     /// Describes a scale-in policy for a virtual machine scale set.
     /// </summary>
-    public sealed class ScaleInPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ScaleInPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules")]
         private InputList<Union<string, Pulumi.AzureNative.Compute.V20191201.VirtualMachineScaleSetScaleInRules>>? _rules;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20191201.Inputs
         public ScaleInPolicyArgs()
         {
         }
+        public static new ScaleInPolicyArgs Empty => new ScaleInPolicyArgs();
     }
 }

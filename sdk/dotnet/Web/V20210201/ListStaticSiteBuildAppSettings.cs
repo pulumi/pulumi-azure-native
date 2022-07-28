@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20210201
     }
 
 
-    public sealed class ListStaticSiteBuildAppSettingsArgs : Pulumi.InvokeArgs
+    public sealed class ListStaticSiteBuildAppSettingsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The stage site identifier.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Web.V20210201
         public ListStaticSiteBuildAppSettingsArgs()
         {
         }
+        public static new ListStaticSiteBuildAppSettingsArgs Empty => new ListStaticSiteBuildAppSettingsArgs();
     }
 
-    public sealed class ListStaticSiteBuildAppSettingsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListStaticSiteBuildAppSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The stage site identifier.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Web.V20210201
         public ListStaticSiteBuildAppSettingsInvokeArgs()
         {
         }
+        public static new ListStaticSiteBuildAppSettingsInvokeArgs Empty => new ListStaticSiteBuildAppSettingsInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
     }
 
 
-    public sealed class ListAccountChannelTypesArgs : Pulumi.InvokeArgs
+    public sealed class ListAccountChannelTypesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Account Name
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         public ListAccountChannelTypesArgs()
         {
         }
+        public static new ListAccountChannelTypesArgs Empty => new ListAccountChannelTypesArgs();
     }
 
-    public sealed class ListAccountChannelTypesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListAccountChannelTypesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Account Name
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         public ListAccountChannelTypesInvokeArgs()
         {
         }
+        public static new ListAccountChannelTypesInvokeArgs Empty => new ListAccountChannelTypesInvokeArgs();
     }
 
 

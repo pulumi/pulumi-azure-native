@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Marketo server dataset.
     /// </summary>
-    public sealed class MarketoObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class MarketoObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public MarketoObjectDatasetArgs()
         {
         }
+        public static new MarketoObjectDatasetArgs Empty => new MarketoObjectDatasetArgs();
     }
 }

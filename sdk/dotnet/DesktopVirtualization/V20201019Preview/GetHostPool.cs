@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201019Preview
     }
 
 
-    public sealed class GetHostPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetHostPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the host pool within the specified resource group
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201019Preview
         public GetHostPoolArgs()
         {
         }
+        public static new GetHostPoolArgs Empty => new GetHostPoolArgs();
     }
 
-    public sealed class GetHostPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHostPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the host pool within the specified resource group
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201019Preview
         public GetHostPoolInvokeArgs()
         {
         }
+        public static new GetHostPoolInvokeArgs Empty => new GetHostPoolInvokeArgs();
     }
 
 

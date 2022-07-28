@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// API Version: 2017-04-18.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Entity Tag
@@ -71,10 +71,10 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Cognitive Services account.
@@ -131,5 +131,6 @@ namespace Pulumi.AzureNative.CognitiveServices
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

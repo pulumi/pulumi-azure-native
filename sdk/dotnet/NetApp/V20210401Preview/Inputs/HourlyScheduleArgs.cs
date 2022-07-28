@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401Preview.Inputs
     /// <summary>
     /// Hourly Schedule properties
     /// </summary>
-    public sealed class HourlyScheduleArgs : Pulumi.ResourceArgs
+    public sealed class HourlyScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates which minute snapshot should be taken
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.NetApp.V20210401Preview.Inputs
         public HourlyScheduleArgs()
         {
         }
+        public static new HourlyScheduleArgs Empty => new HourlyScheduleArgs();
     }
 }

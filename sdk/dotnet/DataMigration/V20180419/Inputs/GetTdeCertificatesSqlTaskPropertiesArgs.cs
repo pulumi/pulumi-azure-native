@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
     /// <summary>
     /// Properties for the task that gets TDE certificates in Base64 encoded format.
     /// </summary>
-    public sealed class GetTdeCertificatesSqlTaskPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class GetTdeCertificatesSqlTaskPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Task input
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
         public GetTdeCertificatesSqlTaskPropertiesArgs()
         {
         }
+        public static new GetTdeCertificatesSqlTaskPropertiesArgs Empty => new GetTdeCertificatesSqlTaskPropertiesArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Compute.V20180601
     }
 
 
-    public sealed class GetVirtualMachineScaleSetArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Compute.V20180601
         public GetVirtualMachineScaleSetArgs()
         {
         }
+        public static new GetVirtualMachineScaleSetArgs Empty => new GetVirtualMachineScaleSetArgs();
     }
 
-    public sealed class GetVirtualMachineScaleSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Compute.V20180601
         public GetVirtualMachineScaleSetInvokeArgs()
         {
         }
+        public static new GetVirtualMachineScaleSetInvokeArgs Empty => new GetVirtualMachineScaleSetInvokeArgs();
     }
 
 

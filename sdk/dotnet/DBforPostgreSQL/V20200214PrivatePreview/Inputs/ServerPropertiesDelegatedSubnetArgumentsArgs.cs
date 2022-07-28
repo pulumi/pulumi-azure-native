@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview.Inputs
 {
 
-    public sealed class ServerPropertiesDelegatedSubnetArgumentsArgs : Pulumi.ResourceArgs
+    public sealed class ServerPropertiesDelegatedSubnetArgumentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// delegated subnet arm resource id.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview.Inputs
         public ServerPropertiesDelegatedSubnetArgumentsArgs()
         {
         }
+        public static new ServerPropertiesDelegatedSubnetArgumentsArgs Empty => new ServerPropertiesDelegatedSubnetArgumentsArgs();
     }
 }

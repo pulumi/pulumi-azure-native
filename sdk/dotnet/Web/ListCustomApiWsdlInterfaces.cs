@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class ListCustomApiWsdlInterfacesArgs : Pulumi.InvokeArgs
+    public sealed class ListCustomApiWsdlInterfacesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The WSDL content
@@ -68,9 +68,10 @@ namespace Pulumi.AzureNative.Web
         public ListCustomApiWsdlInterfacesArgs()
         {
         }
+        public static new ListCustomApiWsdlInterfacesArgs Empty => new ListCustomApiWsdlInterfacesArgs();
     }
 
-    public sealed class ListCustomApiWsdlInterfacesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListCustomApiWsdlInterfacesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The WSDL content
@@ -111,6 +112,7 @@ namespace Pulumi.AzureNative.Web
         public ListCustomApiWsdlInterfacesInvokeArgs()
         {
         }
+        public static new ListCustomApiWsdlInterfacesInvokeArgs Empty => new ListCustomApiWsdlInterfacesInvokeArgs();
     }
 
 

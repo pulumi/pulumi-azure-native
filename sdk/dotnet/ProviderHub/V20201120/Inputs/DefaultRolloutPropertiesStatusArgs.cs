@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class DefaultRolloutPropertiesStatusArgs : Pulumi.ResourceArgs
+    public sealed class DefaultRolloutPropertiesStatusArgs : global::Pulumi.ResourceArgs
     {
         [Input("completedRegions")]
         private InputList<string>? _completedRegions;
@@ -40,5 +40,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public DefaultRolloutPropertiesStatusArgs()
         {
         }
+        public static new DefaultRolloutPropertiesStatusArgs Empty => new DefaultRolloutPropertiesStatusArgs();
     }
 }

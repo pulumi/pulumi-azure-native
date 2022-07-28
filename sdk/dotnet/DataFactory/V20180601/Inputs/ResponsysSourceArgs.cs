@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Responsys source.
     /// </summary>
-    public sealed class ResponsysSourceArgs : Pulumi.ResourceArgs
+    public sealed class ResponsysSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ResponsysSourceArgs()
         {
         }
+        public static new ResponsysSourceArgs Empty => new ResponsysSourceArgs();
     }
 }

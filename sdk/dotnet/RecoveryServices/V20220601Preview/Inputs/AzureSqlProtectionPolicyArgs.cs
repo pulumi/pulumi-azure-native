@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
     /// <summary>
     /// Azure SQL workload-specific backup policy.
     /// </summary>
-    public sealed class AzureSqlProtectionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AzureSqlProtectionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
         public AzureSqlProtectionPolicyArgs()
         {
         }
+        public static new AzureSqlProtectionPolicyArgs Empty => new AzureSqlProtectionPolicyArgs();
     }
 }

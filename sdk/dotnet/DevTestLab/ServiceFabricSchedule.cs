@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// API Version: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:ServiceFabricSchedule")]
-    public partial class ServiceFabricSchedule : Pulumi.CustomResource
+    public partial class ServiceFabricSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the schedule.
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ServiceFabricSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ServiceFabricSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.DevTestLab
         }
     }
 
-    public sealed class ServiceFabricScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ServiceFabricScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the schedule will occur once each day of the week, specify the daily recurrence.
@@ -255,5 +255,6 @@ namespace Pulumi.AzureNative.DevTestLab
         {
             Status = "Disabled";
         }
+        public static new ServiceFabricScheduleArgs Empty => new ServiceFabricScheduleArgs();
     }
 }

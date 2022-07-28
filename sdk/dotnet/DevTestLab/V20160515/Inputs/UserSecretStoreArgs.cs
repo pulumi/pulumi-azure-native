@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties of a user's secret store.
     /// </summary>
-    public sealed class UserSecretStoreArgs : Pulumi.ResourceArgs
+    public sealed class UserSecretStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the user's Key vault.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public UserSecretStoreArgs()
         {
         }
+        public static new UserSecretStoreArgs Empty => new UserSecretStoreArgs();
     }
 }

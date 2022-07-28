@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
     /// <summary>
     /// Configuration values for periodic mode backup
     /// </summary>
-    public sealed class ContinuousModePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ContinuousModePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to indicate type of Continuos backup mode
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
         public ContinuousModePropertiesArgs()
         {
         }
+        public static new ContinuousModePropertiesArgs Empty => new ContinuousModePropertiesArgs();
     }
 }

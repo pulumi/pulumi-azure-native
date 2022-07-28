@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20210201Preview.Inputs
     /// <summary>
     /// The properties of the Azure Storage endpoint for file upload.
     /// </summary>
-    public sealed class StorageEndpointPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class StorageEndpointPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies authentication type being used for connecting to the storage account.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Devices.V20210201Preview.Inputs
         public StorageEndpointPropertiesArgs()
         {
         }
+        public static new StorageEndpointPropertiesArgs Empty => new StorageEndpointPropertiesArgs();
     }
 }

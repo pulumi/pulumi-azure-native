@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
     }
 
 
-    public sealed class GetDatabaseAccountMongoDBDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseAccountMongoDBDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
         public GetDatabaseAccountMongoDBDatabaseArgs()
         {
         }
+        public static new GetDatabaseAccountMongoDBDatabaseArgs Empty => new GetDatabaseAccountMongoDBDatabaseArgs();
     }
 
-    public sealed class GetDatabaseAccountMongoDBDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseAccountMongoDBDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
         public GetDatabaseAccountMongoDBDatabaseInvokeArgs()
         {
         }
+        public static new GetDatabaseAccountMongoDBDatabaseInvokeArgs Empty => new GetDatabaseAccountMongoDBDatabaseInvokeArgs();
     }
 
 

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
     }
 
 
-    public sealed class GetArtifactArgs : Pulumi.InvokeArgs
+    public sealed class GetArtifactArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the blueprint artifact.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public GetArtifactArgs()
         {
         }
+        public static new GetArtifactArgs Empty => new GetArtifactArgs();
     }
 
-    public sealed class GetArtifactInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetArtifactInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the blueprint artifact.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public GetArtifactInvokeArgs()
         {
         }
+        public static new GetArtifactInvokeArgs Empty => new GetArtifactInvokeArgs();
     }
 
 

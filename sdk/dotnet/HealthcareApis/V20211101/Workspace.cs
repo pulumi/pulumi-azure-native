@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101
     /// Workspace resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis/v20211101:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource location.
@@ -142,5 +142,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

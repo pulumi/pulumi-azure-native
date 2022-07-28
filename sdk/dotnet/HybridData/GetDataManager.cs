@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HybridData
     }
 
 
-    public sealed class GetDataManagerArgs : Pulumi.InvokeArgs
+    public sealed class GetDataManagerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.HybridData
         public GetDataManagerArgs()
         {
         }
+        public static new GetDataManagerArgs Empty => new GetDataManagerArgs();
     }
 
-    public sealed class GetDataManagerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataManagerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.HybridData
         public GetDataManagerInvokeArgs()
         {
         }
+        public static new GetDataManagerInvokeArgs Empty => new GetDataManagerInvokeArgs();
     }
 
 

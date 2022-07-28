@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     /// Defines the security admin configuration
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220101:SecurityAdminConfiguration")]
-    public partial class SecurityAdminConfiguration : Pulumi.CustomResource
+    public partial class SecurityAdminConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enum list of network intent policy based services.
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.Network.V20220101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:SecurityAdminConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityAdminConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityAdminConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityAdminConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityAdminConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityAdminConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityAdminConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityAdminConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityAdminConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityAdminConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         }
     }
 
-    public sealed class SecurityAdminConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SecurityAdminConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("applyOnNetworkIntentPolicyBasedServices")]
         private InputList<Union<string, Pulumi.AzureNative.Network.V20220101.NetworkIntentPolicyBasedService>>? _applyOnNetworkIntentPolicyBasedServices;
@@ -149,5 +149,6 @@ namespace Pulumi.AzureNative.Network.V20220101
         public SecurityAdminConfigurationArgs()
         {
         }
+        public static new SecurityAdminConfigurationArgs Empty => new SecurityAdminConfigurationArgs();
     }
 }

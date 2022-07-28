@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview.Inputs
     /// <summary>
     /// Solution properties supported by the OperationsManagement resource provider.
     /// </summary>
-    public sealed class SolutionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SolutionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("containedResources")]
         private InputList<string>? _containedResources;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview.Inputs
         public SolutionPropertiesArgs()
         {
         }
+        public static new SolutionPropertiesArgs Empty => new SolutionPropertiesArgs();
     }
 }

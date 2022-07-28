@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// The properties that are associated with an Azure Storage account with MSI
     /// </summary>
-    public sealed class JobStorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class JobStorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public JobStorageAccountArgs()
         {
         }
+        public static new JobStorageAccountArgs Empty => new JobStorageAccountArgs();
     }
 }

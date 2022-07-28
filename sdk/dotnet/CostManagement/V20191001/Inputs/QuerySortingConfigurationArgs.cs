@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
     /// <summary>
     /// The configuration for sorting in the query.
     /// </summary>
-    public sealed class QuerySortingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class QuerySortingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column to use in sorting.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
         public QuerySortingConfigurationArgs()
         {
         }
+        public static new QuerySortingConfigurationArgs Empty => new QuerySortingConfigurationArgs();
     }
 }

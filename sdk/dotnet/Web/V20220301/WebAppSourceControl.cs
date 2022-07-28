@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     /// Source control configuration for an app.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220301:WebAppSourceControl")]
-    public partial class WebAppSourceControl : Pulumi.CustomResource
+    public partial class WebAppSourceControl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of branch to use for deployment.
@@ -100,20 +100,20 @@ namespace Pulumi.AzureNative.Web.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         }
     }
 
-    public sealed class WebAppSourceControlArgs : Pulumi.ResourceArgs
+    public sealed class WebAppSourceControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of branch to use for deployment.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.Web.V20220301
         public WebAppSourceControlArgs()
         {
         }
+        public static new WebAppSourceControlArgs Empty => new WebAppSourceControlArgs();
     }
 }

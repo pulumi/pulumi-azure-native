@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// The properties of an Active Directory connector resource
     /// </summary>
-    public sealed class ActiveDirectoryConnectorPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryConnectorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Username and password for domain service account authentication.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public ActiveDirectoryConnectorPropertiesArgs()
         {
         }
+        public static new ActiveDirectoryConnectorPropertiesArgs Empty => new ActiveDirectoryConnectorPropertiesArgs();
     }
 }

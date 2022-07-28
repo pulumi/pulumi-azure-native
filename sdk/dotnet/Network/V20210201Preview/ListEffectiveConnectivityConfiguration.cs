@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     }
 
 
-    public sealed class ListEffectiveConnectivityConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class ListEffectiveConnectivityConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public ListEffectiveConnectivityConfigurationArgs()
         {
         }
+        public static new ListEffectiveConnectivityConfigurationArgs Empty => new ListEffectiveConnectivityConfigurationArgs();
     }
 
-    public sealed class ListEffectiveConnectivityConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListEffectiveConnectivityConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public ListEffectiveConnectivityConfigurationInvokeArgs()
         {
         }
+        public static new ListEffectiveConnectivityConfigurationInvokeArgs Empty => new ListEffectiveConnectivityConfigurationInvokeArgs();
     }
 
 

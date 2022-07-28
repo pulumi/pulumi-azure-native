@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200707.Inputs
     /// <summary>
     /// Class for site properties.
     /// </summary>
-    public sealed class SiteSpnPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SiteSpnPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AAD Authority URL which was used to request the token for the service principal.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.OffAzure.V20200707.Inputs
         public SiteSpnPropertiesArgs()
         {
         }
+        public static new SiteSpnPropertiesArgs Empty => new SiteSpnPropertiesArgs();
     }
 }

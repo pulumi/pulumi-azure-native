@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.Inputs
     /// <summary>
     /// Properties of a private endpoint connection.
     /// </summary>
-    public sealed class PrivateEndpointConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private endpoint which the connection belongs to.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HybridCompute.Inputs
         public PrivateEndpointConnectionPropertiesArgs()
         {
         }
+        public static new PrivateEndpointConnectionPropertiesArgs Empty => new PrivateEndpointConnectionPropertiesArgs();
     }
 }

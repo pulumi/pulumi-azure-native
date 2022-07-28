@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
 
-    public sealed class GetDatasetArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The dataset name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public GetDatasetArgs()
         {
         }
+        public static new GetDatasetArgs Empty => new GetDatasetArgs();
     }
 
-    public sealed class GetDatasetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The dataset name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public GetDatasetInvokeArgs()
         {
         }
+        public static new GetDatasetInvokeArgs Empty => new GetDatasetInvokeArgs();
     }
 
 

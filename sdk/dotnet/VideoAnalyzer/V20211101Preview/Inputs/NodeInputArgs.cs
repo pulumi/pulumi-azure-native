@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Describes an input signal to be used on a pipeline node.
     /// </summary>
-    public sealed class NodeInputArgs : Pulumi.ResourceArgs
+    public sealed class NodeInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the upstream node in the pipeline which output is used as input of the current node.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public NodeInputArgs()
         {
         }
+        public static new NodeInputArgs Empty => new NodeInputArgs();
     }
 }

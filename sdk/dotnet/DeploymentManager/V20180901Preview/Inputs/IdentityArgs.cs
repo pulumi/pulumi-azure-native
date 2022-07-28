@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class IdentityArgs : Pulumi.ResourceArgs
+    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Inputs
         public IdentityArgs()
         {
         }
+        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

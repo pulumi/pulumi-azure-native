@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Inputs
     /// <summary>
     /// Parameters to be applied to the cluster-autoscaler when enabled
     /// </summary>
-    public sealed class ManagedClusterPropertiesAutoScalerProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterPropertiesAutoScalerProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Valid values are 'true' and 'false'
@@ -120,5 +120,6 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Inputs
         public ManagedClusterPropertiesAutoScalerProfileArgs()
         {
         }
+        public static new ManagedClusterPropertiesAutoScalerProfileArgs Empty => new ManagedClusterPropertiesAutoScalerProfileArgs();
     }
 }

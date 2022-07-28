@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
     /// The resource definition of this association.
     /// </summary>
     [AzureNativeResourceType("azure-native:customproviders/v20180901preview:Association")]
-    public partial class Association : Pulumi.CustomResource
+    public partial class Association : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The association name.
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:customproviders:Association"},
+                    new global::Pulumi.Alias { Type = "azure-native:customproviders:Association"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
         }
     }
 
-    public sealed class AssociationArgs : Pulumi.ResourceArgs
+    public sealed class AssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the association.
@@ -109,5 +109,6 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
         public AssociationArgs()
         {
         }
+        public static new AssociationArgs Empty => new AssociationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
     /// <summary>
     /// Defines load balancer backend address pool properties.
     /// </summary>
-    public sealed class LBBackendAddressPoolResourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class LBBackendAddressPoolResourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the backend address pool name.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
         public LBBackendAddressPoolResourceSettingsArgs()
         {
         }
+        public static new LBBackendAddressPoolResourceSettingsArgs Empty => new LBBackendAddressPoolResourceSettingsArgs();
     }
 }

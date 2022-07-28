@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
     /// <summary>
     /// Defines the virtual network resource settings.
     /// </summary>
-    public sealed class VirtualNetworkResourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkResourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressSpace")]
         private InputList<string>? _addressSpace;
@@ -87,5 +87,6 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
         public VirtualNetworkResourceSettingsArgs()
         {
         }
+        public static new VirtualNetworkResourceSettingsArgs Empty => new VirtualNetworkResourceSettingsArgs();
     }
 }

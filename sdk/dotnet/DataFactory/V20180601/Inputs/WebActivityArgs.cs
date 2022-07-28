@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Web activity.
     /// </summary>
-    public sealed class WebActivityArgs : Pulumi.ResourceArgs
+    public sealed class WebActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication method used for calling the endpoint.
@@ -139,5 +139,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public WebActivityArgs()
         {
         }
+        public static new WebActivityArgs Empty => new WebActivityArgs();
     }
 }

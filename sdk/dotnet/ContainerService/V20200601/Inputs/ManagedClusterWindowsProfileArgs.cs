@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20200601.Inputs
     /// <summary>
     /// Profile for Windows VMs in the container service cluster.
     /// </summary>
-    public sealed class ManagedClusterWindowsProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterWindowsProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the password of the administrator account. &lt;br&gt;&lt;br&gt; **Minimum-length:** 8 characters &lt;br&gt;&lt;br&gt; **Max-length:** 123 characters &lt;br&gt;&lt;br&gt; **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled &lt;br&gt; Has lower characters &lt;br&gt;Has upper characters &lt;br&gt; Has a digit &lt;br&gt; Has a special character (Regex match [\W_]) &lt;br&gt;&lt;br&gt; **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerService.V20200601.Inputs
         public ManagedClusterWindowsProfileArgs()
         {
         }
+        public static new ManagedClusterWindowsProfileArgs Empty => new ManagedClusterWindowsProfileArgs();
     }
 }

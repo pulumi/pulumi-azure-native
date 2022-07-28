@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// QuickBooks server linked service.
     /// </summary>
-    public sealed class QuickBooksLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class QuickBooksLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access token for OAuth 1.0 authentication.
@@ -115,5 +115,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public QuickBooksLinkedServiceArgs()
         {
         }
+        public static new QuickBooksLinkedServiceArgs Empty => new QuickBooksLinkedServiceArgs();
     }
 }

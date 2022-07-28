@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
     /// </summary>
     [Obsolete(@"Version 2020-06-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition")]
-    public partial class SqlResourceSqlRoleDefinition : Pulumi.CustomResource
+    public partial class SqlResourceSqlRoleDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
@@ -71,19 +71,19 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:SqlResourceSqlRoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:SqlResourceSqlRoleDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
         }
     }
 
-    public sealed class SqlResourceSqlRoleDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class SqlResourceSqlRoleDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -164,5 +164,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
         public SqlResourceSqlRoleDefinitionArgs()
         {
         }
+        public static new SqlResourceSqlRoleDefinitionArgs Empty => new SqlResourceSqlRoleDefinitionArgs();
     }
 }

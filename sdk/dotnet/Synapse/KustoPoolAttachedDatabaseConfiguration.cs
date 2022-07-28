@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse
     /// API Version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:KustoPoolAttachedDatabaseConfiguration")]
-    public partial class KustoPoolAttachedDatabaseConfiguration : Pulumi.CustomResource
+    public partial class KustoPoolAttachedDatabaseConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of databases from the clusterResourceId which are currently attached to the kusto pool.
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class KustoPoolAttachedDatabaseConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class KustoPoolAttachedDatabaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the attached database configuration.
@@ -182,5 +182,6 @@ namespace Pulumi.AzureNative.Synapse
         public KustoPoolAttachedDatabaseConfigurationArgs()
         {
         }
+        public static new KustoPoolAttachedDatabaseConfigurationArgs Empty => new KustoPoolAttachedDatabaseConfigurationArgs();
     }
 }

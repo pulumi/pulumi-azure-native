@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211001.Inputs
     /// <summary>
     /// Information of community gallery if current gallery is shared to community
     /// </summary>
-    public sealed class CommunityGalleryInfoArgs : Pulumi.ResourceArgs
+    public sealed class CommunityGalleryInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Community gallery publisher eula
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Compute.V20211001.Inputs
         public CommunityGalleryInfoArgs()
         {
         }
+        public static new CommunityGalleryInfoArgs Empty => new CommunityGalleryInfoArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
 
-    public sealed class GetmanagedAzResiliencyStatusArgs : Pulumi.InvokeArgs
+    public sealed class GetmanagedAzResiliencyStatusArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         public GetmanagedAzResiliencyStatusArgs()
         {
         }
+        public static new GetmanagedAzResiliencyStatusArgs Empty => new GetmanagedAzResiliencyStatusArgs();
     }
 
-    public sealed class GetmanagedAzResiliencyStatusInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetmanagedAzResiliencyStatusInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public GetmanagedAzResiliencyStatusInvokeArgs()
         {
         }
+        public static new GetmanagedAzResiliencyStatusInvokeArgs Empty => new GetmanagedAzResiliencyStatusInvokeArgs();
     }
 
 

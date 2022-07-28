@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
     /// Data Lake Store account information.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakestore/v20161101:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique identifier associated with this Data Lake Store account.
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datalakestore:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:datalakestore:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -200,7 +200,7 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Lake Store account.
@@ -319,5 +319,6 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

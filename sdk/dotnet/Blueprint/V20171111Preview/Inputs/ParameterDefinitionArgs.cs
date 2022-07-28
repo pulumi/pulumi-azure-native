@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Inputs
     /// <summary>
     /// Represent a parameter with constrains and metadata.
     /// </summary>
-    public sealed class ParameterDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ParameterDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedValues")]
         private InputList<object>? _allowedValues;
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Inputs
         public ParameterDefinitionArgs()
         {
         }
+        public static new ParameterDefinitionArgs Empty => new ParameterDefinitionArgs();
     }
 }

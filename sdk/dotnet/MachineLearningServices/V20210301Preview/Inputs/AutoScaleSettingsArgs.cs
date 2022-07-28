@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
 {
 
-    public sealed class AutoScaleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AutoScaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum number of instances for this deployment.
@@ -46,5 +46,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public AutoScaleSettingsArgs()
         {
         }
+        public static new AutoScaleSettingsArgs Empty => new AutoScaleSettingsArgs();
     }
 }

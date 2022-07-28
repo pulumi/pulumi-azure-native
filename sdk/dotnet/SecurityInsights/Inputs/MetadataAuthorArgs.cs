@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
     /// <summary>
     /// Publisher or creator of the content item.
     /// </summary>
-    public sealed class MetadataAuthorArgs : Pulumi.ResourceArgs
+    public sealed class MetadataAuthorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email of author contact
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         public MetadataAuthorArgs()
         {
         }
+        public static new MetadataAuthorArgs Empty => new MetadataAuthorArgs();
     }
 }

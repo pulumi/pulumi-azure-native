@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
     /// Definition of the source control.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20190601:SourceControl")]
-    public partial class SourceControl : Pulumi.CustomResource
+    public partial class SourceControl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The auto sync of the source control. Default is false.
@@ -106,9 +106,9 @@ namespace Pulumi.AzureNative.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:SourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
         }
     }
 
-    public sealed class SourceControlArgs : Pulumi.ResourceArgs
+    public sealed class SourceControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The auto async of the source control. Default is false.
@@ -201,5 +201,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public SourceControlArgs()
         {
         }
+        public static new SourceControlArgs Empty => new SourceControlArgs();
     }
 }

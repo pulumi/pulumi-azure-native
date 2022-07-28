@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:EnvironmentSpecificationVersion")]
-    public partial class EnvironmentSpecificationVersion : Pulumi.CustomResource
+    public partial class EnvironmentSpecificationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -65,9 +65,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:EnvironmentSpecificationVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:EnvironmentSpecificationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:EnvironmentSpecificationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:EnvironmentSpecificationVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class EnvironmentSpecificationVersionArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentSpecificationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of EnvironmentSpecificationVersion.
@@ -124,5 +124,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public EnvironmentSpecificationVersionArgs()
         {
         }
+        public static new EnvironmentSpecificationVersionArgs Empty => new EnvironmentSpecificationVersionArgs();
     }
 }

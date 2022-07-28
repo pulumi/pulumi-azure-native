@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview.Inputs
     /// <summary>
     /// Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
     /// </summary>
-    public sealed class AccessModeSettingsExclusionArgs : Pulumi.ResourceArgs
+    public sealed class AccessModeSettingsExclusionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview.Inputs
         public AccessModeSettingsExclusionArgs()
         {
         }
+        public static new AccessModeSettingsExclusionArgs Empty => new AccessModeSettingsExclusionArgs();
     }
 }

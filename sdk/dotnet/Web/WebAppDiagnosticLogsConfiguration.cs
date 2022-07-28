@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppDiagnosticLogsConfiguration")]
-    public partial class WebAppDiagnosticLogsConfiguration : Pulumi.CustomResource
+    public partial class WebAppDiagnosticLogsConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Application logs configuration.
@@ -83,20 +83,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDiagnosticLogsConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDiagnosticLogsConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppDiagnosticLogsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WebAppDiagnosticLogsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Application logs configuration.
@@ -165,5 +165,6 @@ namespace Pulumi.AzureNative.Web
         public WebAppDiagnosticLogsConfigurationArgs()
         {
         }
+        public static new WebAppDiagnosticLogsConfigurationArgs Empty => new WebAppDiagnosticLogsConfigurationArgs();
     }
 }

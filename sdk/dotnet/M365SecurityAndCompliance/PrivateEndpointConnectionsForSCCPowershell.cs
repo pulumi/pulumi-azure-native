@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     /// API Version: 2021-03-25-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:m365securityandcompliance:PrivateEndpointConnectionsForSCCPowershell")]
-    public partial class PrivateEndpointConnectionsForSCCPowershell : Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionsForSCCPowershell : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsForSCCPowershell"},
+                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsForSCCPowershell"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         }
     }
 
-    public sealed class PrivateEndpointConnectionsForSCCPowershellArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionsForSCCPowershellArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         public PrivateEndpointConnectionsForSCCPowershellArgs()
         {
         }
+        public static new PrivateEndpointConnectionsForSCCPowershellArgs Empty => new PrivateEndpointConnectionsForSCCPowershellArgs();
     }
 }

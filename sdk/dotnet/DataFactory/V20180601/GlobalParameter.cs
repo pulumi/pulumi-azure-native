@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     /// Global parameters resource type.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory/v20180601:GlobalParameter")]
-    public partial class GlobalParameter : Pulumi.CustomResource
+    public partial class GlobalParameter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag identifies change in the resource.
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datafactory:GlobalParameter"},
+                    new global::Pulumi.Alias { Type = "azure-native:datafactory:GlobalParameter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         }
     }
 
-    public sealed class GlobalParameterArgs : Pulumi.ResourceArgs
+    public sealed class GlobalParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The factory name.
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public GlobalParameterArgs()
         {
         }
+        public static new GlobalParameterArgs Empty => new GlobalParameterArgs();
     }
 }

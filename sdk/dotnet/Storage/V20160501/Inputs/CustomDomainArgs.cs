@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20160501.Inputs
     /// <summary>
     /// The custom domain assigned to this storage account. This can be set via Update.
     /// </summary>
-    public sealed class CustomDomainArgs : Pulumi.ResourceArgs
+    public sealed class CustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Storage.V20160501.Inputs
         public CustomDomainArgs()
         {
         }
+        public static new CustomDomainArgs Empty => new CustomDomainArgs();
     }
 }

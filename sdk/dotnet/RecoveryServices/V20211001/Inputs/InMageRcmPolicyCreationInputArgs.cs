@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
     /// <summary>
     /// InMageRcm policy creation input.
     /// </summary>
-    public sealed class InMageRcmPolicyCreationInputArgs : Pulumi.ResourceArgs
+    public sealed class InMageRcmPolicyCreationInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The app consistent snapshot frequency (in minutes).
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         public InMageRcmPolicyCreationInputArgs()
         {
         }
+        public static new InMageRcmPolicyCreationInputArgs Empty => new InMageRcmPolicyCreationInputArgs();
     }
 }

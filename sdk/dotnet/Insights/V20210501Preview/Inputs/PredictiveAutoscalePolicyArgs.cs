@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview.Inputs
     /// <summary>
     /// The parameters for enabling predictive autoscale.
     /// </summary>
-    public sealed class PredictiveAutoscalePolicyArgs : Pulumi.ResourceArgs
+    public sealed class PredictiveAutoscalePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview.Inputs
         public PredictiveAutoscalePolicyArgs()
         {
         }
+        public static new PredictiveAutoscalePolicyArgs Empty => new PredictiveAutoscalePolicyArgs();
     }
 }

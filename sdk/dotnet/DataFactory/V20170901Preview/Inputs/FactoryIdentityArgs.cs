@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Identity properties of the factory resource.
     /// </summary>
-    public sealed class FactoryIdentityArgs : Pulumi.ResourceArgs
+    public sealed class FactoryIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type. Currently the only supported type is 'SystemAssigned'.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public FactoryIdentityArgs()
         {
         }
+        public static new FactoryIdentityArgs Empty => new FactoryIdentityArgs();
     }
 }

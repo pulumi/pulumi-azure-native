@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// Enabled configuration
     /// </summary>
-    public sealed class EnabledConfigArgs : Pulumi.ResourceArgs
+    public sealed class EnabledConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enabled
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public EnabledConfigArgs()
         {
         }
+        public static new EnabledConfigArgs Empty => new EnabledConfigArgs();
     }
 }

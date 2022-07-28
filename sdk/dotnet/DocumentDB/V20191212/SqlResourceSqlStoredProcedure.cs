@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
     /// </summary>
     [Obsolete(@"Version 2019-12-12 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20191212:SqlResourceSqlStoredProcedure")]
-    public partial class SqlResourceSqlStoredProcedure : Pulumi.CustomResource
+    public partial class SqlResourceSqlStoredProcedure : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource group to which the resource belongs.
@@ -68,26 +68,26 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:SqlResourceSqlStoredProcedure"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:SqlResourceSqlStoredProcedure"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
         }
     }
 
-    public sealed class SqlResourceSqlStoredProcedureArgs : Pulumi.ResourceArgs
+    public sealed class SqlResourceSqlStoredProcedureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -174,5 +174,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
         public SqlResourceSqlStoredProcedureArgs()
         {
         }
+        public static new SqlResourceSqlStoredProcedureArgs Empty => new SqlResourceSqlStoredProcedureArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// Data asset version details.
     /// </summary>
-    public sealed class DataVersionArgs : Pulumi.ResourceArgs
+    public sealed class DataVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Format of dataset.
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public DataVersionArgs()
         {
         }
+        public static new DataVersionArgs Empty => new DataVersionArgs();
     }
 }

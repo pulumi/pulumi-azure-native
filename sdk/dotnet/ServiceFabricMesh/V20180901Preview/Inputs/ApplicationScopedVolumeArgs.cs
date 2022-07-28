@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes a volume whose lifetime is scoped to the application's lifetime.
     /// </summary>
-    public sealed class ApplicationScopedVolumeArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationScopedVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes parameters for creating application-scoped volumes.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public ApplicationScopedVolumeArgs()
         {
         }
+        public static new ApplicationScopedVolumeArgs Empty => new ApplicationScopedVolumeArgs();
     }
 }

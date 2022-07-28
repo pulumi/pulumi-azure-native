@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     /// </summary>
     [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20160515:Disk")]
-    public partial class Disk : Pulumi.CustomResource
+    public partial class Disk : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the disk.
@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Disk"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:Disk"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         }
     }
 
-    public sealed class DiskArgs : Pulumi.ResourceArgs
+    public sealed class DiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When backed by a blob, the name of the VHD blob without extension.
@@ -249,5 +249,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public DiskArgs()
         {
         }
+        public static new DiskArgs Empty => new DiskArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     }
 
 
-    public sealed class GetNetworkFunctionArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkFunctionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network function resource.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.HybridNetwork
         public GetNetworkFunctionArgs()
         {
         }
+        public static new GetNetworkFunctionArgs Empty => new GetNetworkFunctionArgs();
     }
 
-    public sealed class GetNetworkFunctionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkFunctionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network function resource.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         public GetNetworkFunctionInvokeArgs()
         {
         }
+        public static new GetNetworkFunctionInvokeArgs Empty => new GetNetworkFunctionInvokeArgs();
     }
 
 

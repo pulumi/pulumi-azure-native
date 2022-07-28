@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     /// Define the virtualMachineTemplate.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachineTemplate")]
-    public partial class VirtualMachineTemplate : Pulumi.CustomResource
+    public partial class VirtualMachineTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
@@ -198,8 +198,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VirtualMachineTemplate"},
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VirtualMachineTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -221,7 +221,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         }
     }
 
-    public sealed class VirtualMachineTemplateArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the extended location.
@@ -287,5 +287,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public VirtualMachineTemplateArgs()
         {
         }
+        public static new VirtualMachineTemplateArgs Empty => new VirtualMachineTemplateArgs();
     }
 }

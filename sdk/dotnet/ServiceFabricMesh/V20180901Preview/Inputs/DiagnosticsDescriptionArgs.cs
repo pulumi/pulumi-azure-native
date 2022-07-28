@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes the diagnostics options available
     /// </summary>
-    public sealed class DiagnosticsDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticsDescriptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultSinkRefs")]
         private InputList<string>? _defaultSinkRefs;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public DiagnosticsDescriptionArgs()
         {
         }
+        public static new DiagnosticsDescriptionArgs Empty => new DiagnosticsDescriptionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Authorization.V20200701Preview
     }
 
 
-    public sealed class GetPolicyExemptionArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyExemptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the policy exemption to delete.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Authorization.V20200701Preview
         public GetPolicyExemptionArgs()
         {
         }
+        public static new GetPolicyExemptionArgs Empty => new GetPolicyExemptionArgs();
     }
 
-    public sealed class GetPolicyExemptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyExemptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the policy exemption to delete.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Authorization.V20200701Preview
         public GetPolicyExemptionInvokeArgs()
         {
         }
+        public static new GetPolicyExemptionInvokeArgs Empty => new GetPolicyExemptionInvokeArgs();
     }
 
 

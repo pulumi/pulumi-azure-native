@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     /// API Operation details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210101preview:ApiOperation")]
-    public partial class ApiOperation : Pulumi.CustomResource
+    public partial class ApiOperation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the operation. May include HTML formatting tags.
@@ -100,20 +100,20 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiOperation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         }
     }
 
-    public sealed class ApiOperationArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -224,5 +224,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public ApiOperationArgs()
         {
         }
+        public static new ApiOperationArgs Empty => new ApiOperationArgs();
     }
 }

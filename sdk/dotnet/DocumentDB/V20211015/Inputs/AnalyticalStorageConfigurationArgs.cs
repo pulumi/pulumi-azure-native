@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015.Inputs
     /// <summary>
     /// Analytical storage specific properties.
     /// </summary>
-    public sealed class AnalyticalStorageConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticalStorageConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the types of schema for analytical storage.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015.Inputs
         public AnalyticalStorageConfigurationArgs()
         {
         }
+        public static new AnalyticalStorageConfigurationArgs Empty => new AnalyticalStorageConfigurationArgs();
     }
 }

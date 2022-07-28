@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504.Inputs
     /// <summary>
     /// Automanage configuration profile assignment properties.
     /// </summary>
-    public sealed class ConfigurationProfileAssignmentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileAssignmentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Automanage configurationProfile ARM Resource URI.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Automanage.V20220504.Inputs
         public ConfigurationProfileAssignmentPropertiesArgs()
         {
         }
+        public static new ConfigurationProfileAssignmentPropertiesArgs Empty => new ConfigurationProfileAssignmentPropertiesArgs();
     }
 }

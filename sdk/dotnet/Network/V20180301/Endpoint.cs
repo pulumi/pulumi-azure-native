@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20180301
     /// </summary>
     [Obsolete(@"Version 2018-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180301:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of custom headers.
@@ -113,13 +113,13 @@ namespace Pulumi.AzureNative.Network.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170501:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170501:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Network.V20180301
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
         private InputList<Inputs.EndpointPropertiesCustomHeadersArgs>? _customHeaders;
@@ -260,5 +260,6 @@ namespace Pulumi.AzureNative.Network.V20180301
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

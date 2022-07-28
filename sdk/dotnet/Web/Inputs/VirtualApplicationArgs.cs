@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Virtual application in an app.
     /// </summary>
-    public sealed class VirtualApplicationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Physical path.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         public VirtualApplicationArgs()
         {
         }
+        public static new VirtualApplicationArgs Empty => new VirtualApplicationArgs();
     }
 }

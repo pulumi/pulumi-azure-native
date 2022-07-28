@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
     /// <summary>
     /// The SKU of a container registry.
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SKU name of the container registry. Required for registry creation.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

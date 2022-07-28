@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
     }
 
 
-    public sealed class GetHyperVCollectorArgs : Pulumi.InvokeArgs
+    public sealed class GetHyperVCollectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name of a Hyper-V collector within a project.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Migrate.V20191001
         public GetHyperVCollectorArgs()
         {
         }
+        public static new GetHyperVCollectorArgs Empty => new GetHyperVCollectorArgs();
     }
 
-    public sealed class GetHyperVCollectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHyperVCollectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name of a Hyper-V collector within a project.
@@ -67,6 +68,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
         public GetHyperVCollectorInvokeArgs()
         {
         }
+        public static new GetHyperVCollectorInvokeArgs Empty => new GetHyperVCollectorInvokeArgs();
     }
 
 

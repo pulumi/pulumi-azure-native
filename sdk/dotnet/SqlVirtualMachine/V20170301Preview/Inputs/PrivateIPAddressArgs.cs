@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Inputs
     /// <summary>
     /// A private IP address bound to the availability group listener.
     /// </summary>
-    public sealed class PrivateIPAddressArgs : Pulumi.ResourceArgs
+    public sealed class PrivateIPAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private IP address bound to the availability group listener.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Inputs
         public PrivateIPAddressArgs()
         {
         }
+        public static new PrivateIPAddressArgs Empty => new PrivateIPAddressArgs();
     }
 }

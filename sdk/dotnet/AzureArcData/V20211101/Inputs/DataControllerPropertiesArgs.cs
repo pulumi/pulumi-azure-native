@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101.Inputs
     /// <summary>
     /// The data controller properties.
     /// </summary>
-    public sealed class DataControllerPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DataControllerPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101.Inputs
         {
             Infrastructure = Pulumi.AzureNative.AzureArcData.V20211101.Infrastructure.Other;
         }
+        public static new DataControllerPropertiesArgs Empty => new DataControllerPropertiesArgs();
     }
 }

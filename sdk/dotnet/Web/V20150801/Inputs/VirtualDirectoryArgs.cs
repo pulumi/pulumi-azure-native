@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Inputs
 {
 
-    public sealed class VirtualDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualDirectoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("physicalPath")]
         public Input<string>? PhysicalPath { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public VirtualDirectoryArgs()
         {
         }
+        public static new VirtualDirectoryArgs Empty => new VirtualDirectoryArgs();
     }
 }

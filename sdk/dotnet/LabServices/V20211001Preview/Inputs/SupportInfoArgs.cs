@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview.Inputs
     /// <summary>
     /// Support contact information and instructions.
     /// </summary>
-    public sealed class SupportInfoArgs : Pulumi.ResourceArgs
+    public sealed class SupportInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Support contact email address.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview.Inputs
         public SupportInfoArgs()
         {
         }
+        public static new SupportInfoArgs Empty => new SupportInfoArgs();
     }
 }

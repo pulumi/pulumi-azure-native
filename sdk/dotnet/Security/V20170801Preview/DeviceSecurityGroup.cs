@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
     /// The device security group resource
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20170801preview:DeviceSecurityGroup")]
-    public partial class DeviceSecurityGroup : Pulumi.CustomResource
+    public partial class DeviceSecurityGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The allow-list custom alert rules.
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:security:DeviceSecurityGroup"},
-                    new Pulumi.Alias { Type = "azure-native:security/v20190801:DeviceSecurityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:DeviceSecurityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20190801:DeviceSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         }
     }
 
-    public sealed class DeviceSecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class DeviceSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowlistRules")]
         private InputList<Inputs.AllowlistCustomAlertRuleArgs>? _allowlistRules;
@@ -164,5 +164,6 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         public DeviceSecurityGroupArgs()
         {
         }
+        public static new DeviceSecurityGroupArgs Empty => new DeviceSecurityGroupArgs();
     }
 }

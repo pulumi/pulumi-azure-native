@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401.Inputs
     /// <summary>
     /// The Sku description for a namespace
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The capacity of the resource
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

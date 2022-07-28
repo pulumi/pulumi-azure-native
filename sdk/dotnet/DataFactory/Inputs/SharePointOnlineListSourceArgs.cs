@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity source for sharePoint online list source.
     /// </summary>
-    public sealed class SharePointOnlineListSourceArgs : Pulumi.ResourceArgs
+    public sealed class SharePointOnlineListSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SharePointOnlineListSourceArgs()
         {
         }
+        public static new SharePointOnlineListSourceArgs Empty => new SharePointOnlineListSourceArgs();
     }
 }

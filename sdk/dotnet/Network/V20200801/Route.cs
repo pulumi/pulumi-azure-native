@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200801
     /// Route resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200801:Route")]
-    public partial class Route : Pulumi.CustomResource
+    public partial class Route : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The destination CIDR to which the route applies.
@@ -88,47 +88,47 @@ namespace Pulumi.AzureNative.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20150615:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160330:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160601:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160901:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20161201:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170601:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170801:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171101:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180101:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180601:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180701:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:Route"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20150615:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160330:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160601:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:Route"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.Network.V20200801
         }
     }
 
-    public sealed class RouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination CIDR to which the route applies.
@@ -215,5 +215,6 @@ namespace Pulumi.AzureNative.Network.V20200801
         public RouteArgs()
         {
         }
+        public static new RouteArgs Empty => new RouteArgs();
     }
 }

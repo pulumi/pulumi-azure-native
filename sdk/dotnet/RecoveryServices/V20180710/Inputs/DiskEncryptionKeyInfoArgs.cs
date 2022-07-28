@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
     /// <summary>
     /// Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
     /// </summary>
-    public sealed class DiskEncryptionKeyInfoArgs : Pulumi.ResourceArgs
+    public sealed class DiskEncryptionKeyInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The KeyVault resource ARM Id for secret.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
         public DiskEncryptionKeyInfoArgs()
         {
         }
+        public static new DiskEncryptionKeyInfoArgs Empty => new DiskEncryptionKeyInfoArgs();
     }
 }

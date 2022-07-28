@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview
     /// </summary>
     [Obsolete(@"Version 2018-11-02-privatepreview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName")]
-    public partial class ActionRuleByName : Pulumi.CustomResource
+    public partial class ActionRuleByName : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -71,10 +71,10 @@ namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement:ActionRuleByName"},
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:ActionRuleByName"},
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:ActionRuleByName"},
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:ActionRuleByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement:ActionRuleByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:ActionRuleByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:ActionRuleByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:ActionRuleByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview
         }
     }
 
-    public sealed class ActionRuleByNameArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleByNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of action rule that needs to be created/updated
@@ -137,5 +137,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview
         public ActionRuleByNameArgs()
         {
         }
+        public static new ActionRuleByNameArgs Empty => new ActionRuleByNameArgs();
     }
 }

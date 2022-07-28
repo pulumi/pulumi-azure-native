@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
     /// <summary>
     /// A custom preset for encoding audio with the AAC codec.
     /// </summary>
-    public sealed class AudioEncoderAacArgs : Pulumi.ResourceArgs
+    public sealed class AudioEncoderAacArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bitrate, in kilobits per second or Kbps, at which audio should be encoded (2-channel stereo audio at a sampling rate of 48 kHz). Allowed values are 96, 112, 128, 160, 192, 224, and 256. If omitted, the bitrate of the input audio is used.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         public AudioEncoderAacArgs()
         {
         }
+        public static new AudioEncoderAacArgs Empty => new AudioEncoderAacArgs();
     }
 }

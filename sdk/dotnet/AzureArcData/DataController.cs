@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureArcData
     /// API Version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:DataController")]
-    public partial class DataController : Pulumi.CustomResource
+    public partial class DataController : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The extendedLocation of the resource.
@@ -83,11 +83,11 @@ namespace Pulumi.AzureNative.AzureArcData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:DataController"},
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:DataController"},
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:DataController"},
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20211101:DataController"},
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:DataController"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:DataController"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:DataController"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:DataController"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20211101:DataController"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:DataController"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.AzureArcData
         }
     }
 
-    public sealed class DataControllerArgs : Pulumi.ResourceArgs
+    public sealed class DataControllerArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataControllerName")]
         public Input<string>? DataControllerName { get; set; }
@@ -153,5 +153,6 @@ namespace Pulumi.AzureNative.AzureArcData
         public DataControllerArgs()
         {
         }
+        public static new DataControllerArgs Empty => new DataControllerArgs();
     }
 }

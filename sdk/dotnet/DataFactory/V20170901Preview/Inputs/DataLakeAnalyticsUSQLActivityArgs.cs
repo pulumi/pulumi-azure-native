@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Data Lake Analytics U-SQL activity.
     /// </summary>
-    public sealed class DataLakeAnalyticsUSQLActivityArgs : Pulumi.ResourceArgs
+    public sealed class DataLakeAnalyticsUSQLActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string).
@@ -109,5 +109,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public DataLakeAnalyticsUSQLActivityArgs()
         {
         }
+        public static new DataLakeAnalyticsUSQLActivityArgs Empty => new DataLakeAnalyticsUSQLActivityArgs();
     }
 }

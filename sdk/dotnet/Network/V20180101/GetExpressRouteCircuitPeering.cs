@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20180101
     }
 
 
-    public sealed class GetExpressRouteCircuitPeeringArgs : Pulumi.InvokeArgs
+    public sealed class GetExpressRouteCircuitPeeringArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the express route circuit.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Network.V20180101
         public GetExpressRouteCircuitPeeringArgs()
         {
         }
+        public static new GetExpressRouteCircuitPeeringArgs Empty => new GetExpressRouteCircuitPeeringArgs();
     }
 
-    public sealed class GetExpressRouteCircuitPeeringInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExpressRouteCircuitPeeringInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the express route circuit.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Network.V20180101
         public GetExpressRouteCircuitPeeringInvokeArgs()
         {
         }
+        public static new GetExpressRouteCircuitPeeringInvokeArgs Empty => new GetExpressRouteCircuitPeeringInvokeArgs();
     }
 
 

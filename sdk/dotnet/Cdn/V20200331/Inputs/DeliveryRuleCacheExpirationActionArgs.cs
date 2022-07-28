@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
     /// <summary>
     /// Defines the cache expiration action for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleCacheExpirationActionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleCacheExpirationActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
         public DeliveryRuleCacheExpirationActionArgs()
         {
         }
+        public static new DeliveryRuleCacheExpirationActionArgs Empty => new DeliveryRuleCacheExpirationActionArgs();
     }
 }

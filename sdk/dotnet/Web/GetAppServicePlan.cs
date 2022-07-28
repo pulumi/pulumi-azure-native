@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetAppServicePlanArgs : Pulumi.InvokeArgs
+    public sealed class GetAppServicePlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the App Service plan.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Web
         public GetAppServicePlanArgs()
         {
         }
+        public static new GetAppServicePlanArgs Empty => new GetAppServicePlanArgs();
     }
 
-    public sealed class GetAppServicePlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppServicePlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the App Service plan.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Web
         public GetAppServicePlanInvokeArgs()
         {
         }
+        public static new GetAppServicePlanInvokeArgs Empty => new GetAppServicePlanInvokeArgs();
     }
 
 

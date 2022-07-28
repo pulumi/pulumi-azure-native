@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The content link.
     /// </summary>
-    public sealed class ContentLinkArgs : Pulumi.ResourceArgs
+    public sealed class ContentLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content link URI.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public ContentLinkArgs()
         {
         }
+        public static new ContentLinkArgs Empty => new ContentLinkArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Auto pause properties
     /// </summary>
-    public sealed class AutoPausePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AutoPausePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("delayInMinutes")]
         public Input<int>? DelayInMinutes { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public AutoPausePropertiesArgs()
         {
         }
+        public static new AutoPausePropertiesArgs Empty => new AutoPausePropertiesArgs();
     }
 }

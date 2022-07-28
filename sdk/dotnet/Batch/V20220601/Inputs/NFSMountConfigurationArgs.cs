@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20220601.Inputs
 {
 
-    public sealed class NFSMountConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NFSMountConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// These are 'net use' options in Windows and 'mount' options in Linux.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public NFSMountConfigurationArgs()
         {
         }
+        public static new NFSMountConfigurationArgs Empty => new NFSMountConfigurationArgs();
     }
 }

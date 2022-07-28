@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Gets or sets the PrometheusOS provider properties.
     /// </summary>
-    public sealed class PrometheusOSProviderInstancePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrometheusOSProviderInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// URL of the Node Exporter endpoint
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public PrometheusOSProviderInstancePropertiesArgs()
         {
         }
+        public static new PrometheusOSProviderInstancePropertiesArgs Empty => new PrometheusOSProviderInstancePropertiesArgs();
     }
 }

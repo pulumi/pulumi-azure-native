@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Blueprint
     /// API Version: 2018-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint:RoleAssignmentArtifact")]
-    public partial class RoleAssignmentArtifact : Pulumi.CustomResource
+    public partial class RoleAssignmentArtifact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Artifacts which need to be deployed before the specified artifact.
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.Blueprint
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:RoleAssignmentArtifact"},
+                    new global::Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:RoleAssignmentArtifact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Blueprint
         }
     }
 
-    public sealed class RoleAssignmentArtifactArgs : Pulumi.ResourceArgs
+    public sealed class RoleAssignmentArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the blueprint artifact.
@@ -197,5 +197,6 @@ namespace Pulumi.AzureNative.Blueprint
         public RoleAssignmentArtifactArgs()
         {
         }
+        public static new RoleAssignmentArtifactArgs Empty => new RoleAssignmentArtifactArgs();
     }
 }

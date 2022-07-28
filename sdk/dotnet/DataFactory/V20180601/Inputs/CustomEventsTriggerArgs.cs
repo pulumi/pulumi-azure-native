@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Trigger that runs every time a custom event is received.
     /// </summary>
-    public sealed class CustomEventsTriggerArgs : Pulumi.ResourceArgs
+    public sealed class CustomEventsTriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public CustomEventsTriggerArgs()
         {
         }
+        public static new CustomEventsTriggerArgs Empty => new CustomEventsTriggerArgs();
     }
 }

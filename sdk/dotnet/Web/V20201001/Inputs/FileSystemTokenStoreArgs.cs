@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201001.Inputs
 {
 
-    public sealed class FileSystemTokenStoreArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemTokenStoreArgs : global::Pulumi.ResourceArgs
     {
         [Input("directory")]
         public Input<string>? Directory { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
         public FileSystemTokenStoreArgs()
         {
         }
+        public static new FileSystemTokenStoreArgs Empty => new FileSystemTokenStoreArgs();
     }
 }

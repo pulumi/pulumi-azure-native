@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
     /// A private endpoint connection
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20210827:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Group id of the private endpoint.
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.Kusto.V20210827
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kusto:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

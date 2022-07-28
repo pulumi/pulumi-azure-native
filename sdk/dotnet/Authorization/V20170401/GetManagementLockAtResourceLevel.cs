@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Authorization.V20170401
     }
 
 
-    public sealed class GetManagementLockAtResourceLevelArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementLockAtResourceLevelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of lock.
@@ -66,9 +66,10 @@ namespace Pulumi.AzureNative.Authorization.V20170401
         public GetManagementLockAtResourceLevelArgs()
         {
         }
+        public static new GetManagementLockAtResourceLevelArgs Empty => new GetManagementLockAtResourceLevelArgs();
     }
 
-    public sealed class GetManagementLockAtResourceLevelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementLockAtResourceLevelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of lock.
@@ -109,6 +110,7 @@ namespace Pulumi.AzureNative.Authorization.V20170401
         public GetManagementLockAtResourceLevelInvokeArgs()
         {
         }
+        public static new GetManagementLockAtResourceLevelInvokeArgs Empty => new GetManagementLockAtResourceLevelInvokeArgs();
     }
 
 

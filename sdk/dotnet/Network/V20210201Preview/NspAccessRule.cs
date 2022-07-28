@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     /// The NSP access rule resource
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210201preview:NspAccessRule")]
-    public partial class NspAccessRule : Pulumi.CustomResource
+    public partial class NspAccessRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Inbound address prefixes (IPv4/IPv6)
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:NspAccessRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:NspAccessRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         }
     }
 
-    public sealed class NspAccessRuleArgs : Pulumi.ResourceArgs
+    public sealed class NspAccessRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NSP access rule.
@@ -235,5 +235,6 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public NspAccessRuleArgs()
         {
         }
+        public static new NspAccessRuleArgs Empty => new NspAccessRuleArgs();
     }
 }

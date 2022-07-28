@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Drill server dataset.
     /// </summary>
-    public sealed class DrillTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class DrillTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DrillTableDatasetArgs()
         {
         }
+        public static new DrillTableDatasetArgs Empty => new DrillTableDatasetArgs();
     }
 }

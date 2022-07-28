@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
     /// <summary>
     /// Discovery log data type connection.
     /// </summary>
-    public sealed class MCASDataConnectorDataTypesDiscoveryLogsArgs : Pulumi.ResourceArgs
+    public sealed class MCASDataConnectorDataTypesDiscoveryLogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
         public MCASDataConnectorDataTypesDiscoveryLogsArgs()
         {
         }
+        public static new MCASDataConnectorDataTypesDiscoveryLogsArgs Empty => new MCASDataConnectorDataTypesDiscoveryLogsArgs();
     }
 }

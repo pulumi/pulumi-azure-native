@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
     /// An object that represents a scope map for a container registry.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20201101preview:ScopeMap")]
-    public partial class ScopeMap : Pulumi.CustomResource
+    public partial class ScopeMap : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of scoped permissions for registry artifacts.
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:ScopeMap"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:ScopeMap"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ScopeMap"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ScopeMap"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ScopeMap"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ScopeMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:ScopeMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:ScopeMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ScopeMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ScopeMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ScopeMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ScopeMap"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
         }
     }
 
-    public sealed class ScopeMapArgs : Pulumi.ResourceArgs
+    public sealed class ScopeMapArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
@@ -154,5 +154,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
         public ScopeMapArgs()
         {
         }
+        public static new ScopeMapArgs Empty => new ScopeMapArgs();
     }
 }

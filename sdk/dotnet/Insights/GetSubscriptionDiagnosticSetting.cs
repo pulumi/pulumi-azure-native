@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetSubscriptionDiagnosticSettingArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionDiagnosticSettingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the diagnostic setting.
@@ -38,9 +38,10 @@ namespace Pulumi.AzureNative.Insights
         public GetSubscriptionDiagnosticSettingArgs()
         {
         }
+        public static new GetSubscriptionDiagnosticSettingArgs Empty => new GetSubscriptionDiagnosticSettingArgs();
     }
 
-    public sealed class GetSubscriptionDiagnosticSettingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionDiagnosticSettingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the diagnostic setting.
@@ -51,6 +52,7 @@ namespace Pulumi.AzureNative.Insights
         public GetSubscriptionDiagnosticSettingInvokeArgs()
         {
         }
+        public static new GetSubscriptionDiagnosticSettingInvokeArgs Empty => new GetSubscriptionDiagnosticSettingInvokeArgs();
     }
 
 

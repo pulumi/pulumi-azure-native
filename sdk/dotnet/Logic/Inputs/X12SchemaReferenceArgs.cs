@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The X12 schema reference.
     /// </summary>
-    public sealed class X12SchemaReferenceArgs : Pulumi.ResourceArgs
+    public sealed class X12SchemaReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message id.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public X12SchemaReferenceArgs()
         {
         }
+        public static new X12SchemaReferenceArgs Empty => new X12SchemaReferenceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Kubernetes properties
     /// </summary>
-    public sealed class KubernetesPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default instance type
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         {
             Namespace = "default";
         }
+        public static new KubernetesPropertiesArgs Empty => new KubernetesPropertiesArgs();
     }
 }

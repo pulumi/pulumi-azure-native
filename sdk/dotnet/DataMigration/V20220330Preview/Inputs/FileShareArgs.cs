@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// File share information with Path, Username, and Password.
     /// </summary>
-    public sealed class FileShareArgs : Pulumi.ResourceArgs
+    public sealed class FileShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password credential used to connect to the share location.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public FileShareArgs()
         {
         }
+        public static new FileShareArgs Empty => new FileShareArgs();
     }
 }

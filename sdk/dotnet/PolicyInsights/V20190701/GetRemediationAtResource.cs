@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
     }
 
 
-    public sealed class GetRemediationAtResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetRemediationAtResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the remediation.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
         public GetRemediationAtResourceArgs()
         {
         }
+        public static new GetRemediationAtResourceArgs Empty => new GetRemediationAtResourceArgs();
     }
 
-    public sealed class GetRemediationAtResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRemediationAtResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the remediation.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
         public GetRemediationAtResourceInvokeArgs()
         {
         }
+        public static new GetRemediationAtResourceInvokeArgs Empty => new GetRemediationAtResourceInvokeArgs();
     }
 
 

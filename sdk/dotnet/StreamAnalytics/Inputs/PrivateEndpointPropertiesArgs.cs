@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     /// <summary>
     /// The properties associated with a private endpoint.
     /// </summary>
-    public sealed class PrivateEndpointPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("manualPrivateLinkServiceConnections")]
         private InputList<Inputs.PrivateLinkServiceConnectionArgs>? _manualPrivateLinkServiceConnections;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         public PrivateEndpointPropertiesArgs()
         {
         }
+        public static new PrivateEndpointPropertiesArgs Empty => new PrivateEndpointPropertiesArgs();
     }
 }

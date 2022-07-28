@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Recurrence schedule definition
     /// </summary>
-    public sealed class RecurrenceScheduleArgs : Pulumi.ResourceArgs
+    public sealed class RecurrenceScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies end time of schedule in ISO 8601 format.
@@ -71,5 +71,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             ScheduleStatus = "Enabled";
             TimeZone = "UTC";
         }
+        public static new RecurrenceScheduleArgs Empty => new RecurrenceScheduleArgs();
     }
 }

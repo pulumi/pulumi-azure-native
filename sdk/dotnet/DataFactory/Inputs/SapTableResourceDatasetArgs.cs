@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// SAP Table Resource properties.
     /// </summary>
-    public sealed class SapTableResourceDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SapTableResourceDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapTableResourceDatasetArgs()
         {
         }
+        public static new SapTableResourceDatasetArgs Empty => new SapTableResourceDatasetArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Kusto.V20191109
     }
 
 
-    public sealed class GetReadOnlyFollowingDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetReadOnlyFollowingDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Kusto.V20191109
         public GetReadOnlyFollowingDatabaseArgs()
         {
         }
+        public static new GetReadOnlyFollowingDatabaseArgs Empty => new GetReadOnlyFollowingDatabaseArgs();
     }
 
-    public sealed class GetReadOnlyFollowingDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReadOnlyFollowingDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Kusto.V20191109
         public GetReadOnlyFollowingDatabaseInvokeArgs()
         {
         }
+        public static new GetReadOnlyFollowingDatabaseInvokeArgs Empty => new GetReadOnlyFollowingDatabaseInvokeArgs();
     }
 
 

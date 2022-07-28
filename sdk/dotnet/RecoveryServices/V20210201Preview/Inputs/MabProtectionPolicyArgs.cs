@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
     /// <summary>
     /// Mab container-specific backup policy.
     /// </summary>
-    public sealed class MabProtectionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class MabProtectionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
         public MabProtectionPolicyArgs()
         {
         }
+        public static new MabProtectionPolicyArgs Empty => new MabProtectionPolicyArgs();
     }
 }

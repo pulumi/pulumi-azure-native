@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220301
     }
 
 
-    public sealed class ListManagedClusterUserCredentialsArgs : Pulumi.InvokeArgs
+    public sealed class ListManagedClusterUserCredentialsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.ContainerService.V20220301
         public ListManagedClusterUserCredentialsArgs()
         {
         }
+        public static new ListManagedClusterUserCredentialsArgs Empty => new ListManagedClusterUserCredentialsArgs();
     }
 
-    public sealed class ListManagedClusterUserCredentialsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListManagedClusterUserCredentialsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220301
         public ListManagedClusterUserCredentialsInvokeArgs()
         {
         }
+        public static new ListManagedClusterUserCredentialsInvokeArgs Empty => new ListManagedClusterUserCredentialsInvokeArgs();
     }
 
 

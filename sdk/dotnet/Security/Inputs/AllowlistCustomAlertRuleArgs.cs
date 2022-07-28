@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
     /// </summary>
-    public sealed class AllowlistCustomAlertRuleArgs : Pulumi.ResourceArgs
+    public sealed class AllowlistCustomAlertRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowlistValues", required: true)]
         private InputList<string>? _allowlistValues;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public AllowlistCustomAlertRuleArgs()
         {
         }
+        public static new AllowlistCustomAlertRuleArgs Empty => new AllowlistCustomAlertRuleArgs();
     }
 }

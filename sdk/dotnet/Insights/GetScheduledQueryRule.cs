@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetScheduledQueryRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledQueryRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Insights
         public GetScheduledQueryRuleArgs()
         {
         }
+        public static new GetScheduledQueryRuleArgs Empty => new GetScheduledQueryRuleArgs();
     }
 
-    public sealed class GetScheduledQueryRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledQueryRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Insights
         public GetScheduledQueryRuleInvokeArgs()
         {
         }
+        public static new GetScheduledQueryRuleInvokeArgs Empty => new GetScheduledQueryRuleInvokeArgs();
     }
 
 

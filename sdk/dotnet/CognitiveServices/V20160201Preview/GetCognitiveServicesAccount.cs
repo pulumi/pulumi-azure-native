@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
     }
 
 
-    public sealed class GetCognitiveServicesAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetCognitiveServicesAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
         public GetCognitiveServicesAccountArgs()
         {
         }
+        public static new GetCognitiveServicesAccountArgs Empty => new GetCognitiveServicesAccountArgs();
     }
 
-    public sealed class GetCognitiveServicesAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCognitiveServicesAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
         public GetCognitiveServicesAccountInvokeArgs()
         {
         }
+        public static new GetCognitiveServicesAccountInvokeArgs Empty => new GetCognitiveServicesAccountInvokeArgs();
     }
 
 

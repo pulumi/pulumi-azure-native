@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
     }
 
 
-    public sealed class GetvNetPeeringArgs : Pulumi.InvokeArgs
+    public sealed class GetvNetPeeringArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the workspace vNet peering.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
         public GetvNetPeeringArgs()
         {
         }
+        public static new GetvNetPeeringArgs Empty => new GetvNetPeeringArgs();
     }
 
-    public sealed class GetvNetPeeringInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetvNetPeeringInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the workspace vNet peering.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
         public GetvNetPeeringInvokeArgs()
         {
         }
+        public static new GetvNetPeeringInvokeArgs Empty => new GetvNetPeeringInvokeArgs();
     }
 
 

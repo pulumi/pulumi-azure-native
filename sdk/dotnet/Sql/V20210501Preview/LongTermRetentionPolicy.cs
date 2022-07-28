@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
     /// A long term retention policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210501preview:LongTermRetentionPolicy")]
-    public partial class LongTermRetentionPolicy : Pulumi.CustomResource
+    public partial class LongTermRetentionPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The monthly retention policy for an LTR backup in an ISO 8601 format.
@@ -76,14 +76,14 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:LongTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:LongTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:LongTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:LongTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:LongTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:LongTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:LongTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:LongTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:LongTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:LongTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:LongTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:LongTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:LongTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:LongTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:LongTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:LongTermRetentionPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         }
     }
 
-    public sealed class LongTermRetentionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class LongTermRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database.
@@ -158,5 +158,6 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public LongTermRetentionPolicyArgs()
         {
         }
+        public static new LongTermRetentionPolicyArgs Empty => new LongTermRetentionPolicyArgs();
     }
 }

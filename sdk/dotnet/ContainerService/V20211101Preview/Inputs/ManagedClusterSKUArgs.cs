@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20211101Preview.Inputs
     /// <summary>
     /// The SKU of a Managed Cluster.
     /// </summary>
-    public sealed class ManagedClusterSKUArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterSKUArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of a managed cluster SKU.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerService.V20211101Preview.Inputs
         public ManagedClusterSKUArgs()
         {
         }
+        public static new ManagedClusterSKUArgs Empty => new ManagedClusterSKUArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview.Inputs
     /// <summary>
     /// Information about the container service backing the cluster
     /// </summary>
-    public sealed class AcsClusterPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AcsClusterPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of agent nodes in the Container Service. This can be changed to scale the cluster.
@@ -56,5 +56,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview.Inputs
             AgentCount = 2;
             AgentVmSize = "Standard_D2_v2";
         }
+        public static new AcsClusterPropertiesArgs Empty => new AcsClusterPropertiesArgs();
     }
 }

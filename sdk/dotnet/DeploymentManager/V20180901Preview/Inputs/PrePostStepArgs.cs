@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Inputs
     /// <summary>
     /// The properties that define a step.
     /// </summary>
-    public sealed class PrePostStepArgs : Pulumi.ResourceArgs
+    public sealed class PrePostStepArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource Id of the step to be run.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Inputs
         public PrePostStepArgs()
         {
         }
+        public static new PrePostStepArgs Empty => new PrePostStepArgs();
     }
 }

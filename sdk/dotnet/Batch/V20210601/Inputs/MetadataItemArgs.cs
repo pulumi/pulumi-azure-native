@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20210601.Inputs
     /// <summary>
     /// The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
     /// </summary>
-    public sealed class MetadataItemArgs : Pulumi.ResourceArgs
+    public sealed class MetadataItemArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Batch.V20210601.Inputs
         public MetadataItemArgs()
         {
         }
+        public static new MetadataItemArgs Empty => new MetadataItemArgs();
     }
 }

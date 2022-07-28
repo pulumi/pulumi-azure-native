@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
     /// <summary>
     /// Describes the resource range.
     /// </summary>
-    public sealed class ResourceRangeArgs : Pulumi.ResourceArgs
+    public sealed class ResourceRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of the resource.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
         public ResourceRangeArgs()
         {
         }
+        public static new ResourceRangeArgs Empty => new ResourceRangeArgs();
     }
 }

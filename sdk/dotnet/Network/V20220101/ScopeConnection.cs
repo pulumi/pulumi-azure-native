@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     /// The Scope Connections resource
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220101:ScopeConnection")]
-    public partial class ScopeConnection : Pulumi.CustomResource
+    public partial class ScopeConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the scope connection.
@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.Network.V20220101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:ScopeConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:ScopeConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:ScopeConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:ScopeConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:ScopeConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:ScopeConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:ScopeConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:ScopeConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         }
     }
 
-    public sealed class ScopeConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ScopeConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the scope connection.
@@ -148,5 +148,6 @@ namespace Pulumi.AzureNative.Network.V20220101
         public ScopeConnectionArgs()
         {
         }
+        public static new ScopeConnectionArgs Empty => new ScopeConnectionArgs();
     }
 }

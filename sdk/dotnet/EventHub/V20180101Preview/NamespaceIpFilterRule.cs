@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
     /// Single item in a List or Get IpFilterRules operation
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20180101preview:NamespaceIpFilterRule")]
-    public partial class NamespaceIpFilterRule : Pulumi.CustomResource
+    public partial class NamespaceIpFilterRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IP Filter Action
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventhub:NamespaceIpFilterRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:NamespaceIpFilterRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         }
     }
 
-    public sealed class NamespaceIpFilterRuleArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceIpFilterRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP Filter Action
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         public NamespaceIpFilterRuleArgs()
         {
         }
+        public static new NamespaceIpFilterRuleArgs Empty => new NamespaceIpFilterRuleArgs();
     }
 }

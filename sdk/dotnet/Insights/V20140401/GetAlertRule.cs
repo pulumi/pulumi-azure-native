@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Insights.V20140401
     }
 
 
-    public sealed class GetAlertRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Insights.V20140401
         public GetAlertRuleArgs()
         {
         }
+        public static new GetAlertRuleArgs Empty => new GetAlertRuleArgs();
     }
 
-    public sealed class GetAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Insights.V20140401
         public GetAlertRuleInvokeArgs()
         {
         }
+        public static new GetAlertRuleInvokeArgs Empty => new GetAlertRuleInvokeArgs();
     }
 
 

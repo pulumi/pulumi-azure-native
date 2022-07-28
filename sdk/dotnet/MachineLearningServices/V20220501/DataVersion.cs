@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220501:DataVersion")]
-    public partial class DataVersion : Pulumi.CustomResource
+    public partial class DataVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:DataVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:DataVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:DataVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:DataVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:DataVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:DataVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         }
     }
 
-    public sealed class DataVersionArgs : Pulumi.ResourceArgs
+    public sealed class DataVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -123,5 +123,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public DataVersionArgs()
         {
         }
+        public static new DataVersionArgs Empty => new DataVersionArgs();
     }
 }

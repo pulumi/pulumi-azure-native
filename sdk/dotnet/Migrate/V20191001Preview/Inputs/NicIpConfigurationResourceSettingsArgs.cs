@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
     /// <summary>
     /// Defines NIC IP configuration properties.
     /// </summary>
-    public sealed class NicIpConfigurationResourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class NicIpConfigurationResourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("loadBalancerBackendAddressPools")]
         private InputList<Inputs.LoadBalancerBackendAddressPoolReferenceArgs>? _loadBalancerBackendAddressPools;
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
         public NicIpConfigurationResourceSettingsArgs()
         {
         }
+        public static new NicIpConfigurationResourceSettingsArgs Empty => new NicIpConfigurationResourceSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
     /// Metadata resource definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220501preview:Metadata")]
-    public partial class Metadata : Pulumi.CustomResource
+    public partial class Metadata : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creator of the content item.
@@ -178,14 +178,14 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:Metadata"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Metadata"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Metadata"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Metadata"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Metadata"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Metadata"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Metadata"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Metadata"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -207,7 +207,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
         }
     }
 
-    public sealed class MetadataArgs : Pulumi.ResourceArgs
+    public sealed class MetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The creator of the content item.
@@ -374,5 +374,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
         public MetadataArgs()
         {
         }
+        public static new MetadataArgs Empty => new MetadataArgs();
     }
 }

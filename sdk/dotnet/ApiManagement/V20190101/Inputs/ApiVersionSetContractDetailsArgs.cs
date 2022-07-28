@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
     /// <summary>
     /// An API Version Set contains the common configuration for a set of API Versions relating 
     /// </summary>
-    public sealed class ApiVersionSetContractDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ApiVersionSetContractDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of API Version Set.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
         public ApiVersionSetContractDetailsArgs()
         {
         }
+        public static new ApiVersionSetContractDetailsArgs Empty => new ApiVersionSetContractDetailsArgs();
     }
 }

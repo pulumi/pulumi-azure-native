@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.Inputs
     /// <summary>
     ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
     /// </summary>
-    public sealed class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Id of the remote virtual network.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Databricks.Inputs
         public VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs()
         {
         }
+        public static new VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs Empty => new VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs();
     }
 }

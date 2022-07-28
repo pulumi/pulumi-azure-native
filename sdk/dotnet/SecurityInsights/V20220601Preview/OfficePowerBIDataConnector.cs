@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
     /// Represents Office Microsoft PowerBI data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220601preview:OfficePowerBIDataConnector")]
-    public partial class OfficePowerBIDataConnector : Pulumi.CustomResource
+    public partial class OfficePowerBIDataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -90,17 +90,17 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:OfficePowerBIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:OfficePowerBIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:OfficePowerBIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:OfficePowerBIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:OfficePowerBIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:OfficePowerBIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:OfficePowerBIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:OfficePowerBIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:OfficePowerBIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:OfficePowerBIDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:OfficePowerBIDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:OfficePowerBIDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         }
     }
 
-    public sealed class OfficePowerBIDataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class OfficePowerBIDataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -164,5 +164,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         public OfficePowerBIDataConnectorArgs()
         {
         }
+        public static new OfficePowerBIDataConnectorArgs Empty => new OfficePowerBIDataConnectorArgs();
     }
 }

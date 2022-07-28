@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity source for an Office 365 service.
     /// </summary>
-    public sealed class Office365SourceArgs : Pulumi.ResourceArgs
+    public sealed class Office365SourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The groups containing all the users. Type: array of strings (or Expression with resultType array of strings).
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Office365SourceArgs()
         {
         }
+        public static new Office365SourceArgs Empty => new Office365SourceArgs();
     }
 }

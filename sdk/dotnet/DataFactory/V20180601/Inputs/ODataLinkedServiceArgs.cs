@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Open Data Protocol (OData) linked service.
     /// </summary>
-    public sealed class ODataLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class ODataLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the resource you are requesting authorization to use Directory. Type: string (or Expression with resultType string).
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ODataLinkedServiceArgs()
         {
         }
+        public static new ODataLinkedServiceArgs Empty => new ODataLinkedServiceArgs();
     }
 }

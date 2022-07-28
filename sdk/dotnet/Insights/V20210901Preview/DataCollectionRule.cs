@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
     /// Definition of ARM tracked top level resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20210901preview:DataCollectionRule")]
-    public partial class DataCollectionRule : Pulumi.CustomResource
+    public partial class DataCollectionRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource ID of the data collection endpoint that this rule can be used with.
@@ -137,9 +137,9 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights:DataCollectionRule"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRule"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:DataCollectionRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -161,7 +161,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
         }
     }
 
-    public sealed class DataCollectionRuleArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the data collection endpoint that this rule can be used with.
@@ -251,5 +251,6 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
         public DataCollectionRuleArgs()
         {
         }
+        public static new DataCollectionRuleArgs Empty => new DataCollectionRuleArgs();
     }
 }

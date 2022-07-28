@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// The json object containing security policy waf parameters
     /// </summary>
-    public sealed class SecurityPolicyWebApplicationFirewallParametersArgs : Pulumi.ResourceArgs
+    public sealed class SecurityPolicyWebApplicationFirewallParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("associations")]
         private InputList<Inputs.SecurityPolicyWebApplicationFirewallAssociationArgs>? _associations;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public SecurityPolicyWebApplicationFirewallParametersArgs()
         {
         }
+        public static new SecurityPolicyWebApplicationFirewallParametersArgs Empty => new SecurityPolicyWebApplicationFirewallParametersArgs();
     }
 }

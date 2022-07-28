@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:InstancePool")]
-    public partial class InstancePool : Pulumi.CustomResource
+    public partial class InstancePool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
@@ -89,14 +89,14 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:InstancePool"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:InstancePool"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:InstancePool"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:InstancePool"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:InstancePool"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:InstancePool"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:InstancePool"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:InstancePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20180601preview:InstancePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:InstancePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:InstancePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:InstancePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:InstancePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:InstancePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:InstancePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:InstancePool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class InstancePoolArgs : Pulumi.ResourceArgs
+    public sealed class InstancePoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the instance pool to be created or updated.
@@ -177,5 +177,6 @@ namespace Pulumi.AzureNative.Sql
         public InstancePoolArgs()
         {
         }
+        public static new InstancePoolArgs Empty => new InstancePoolArgs();
     }
 }

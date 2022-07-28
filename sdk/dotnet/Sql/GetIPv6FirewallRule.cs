@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetIPv6FirewallRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetIPv6FirewallRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the firewall rule.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Sql
         public GetIPv6FirewallRuleArgs()
         {
         }
+        public static new GetIPv6FirewallRuleArgs Empty => new GetIPv6FirewallRuleArgs();
     }
 
-    public sealed class GetIPv6FirewallRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIPv6FirewallRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the firewall rule.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Sql
         public GetIPv6FirewallRuleInvokeArgs()
         {
         }
+        public static new GetIPv6FirewallRuleInvokeArgs Empty => new GetIPv6FirewallRuleInvokeArgs();
     }
 
 

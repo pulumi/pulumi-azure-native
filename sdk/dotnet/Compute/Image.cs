@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Image")]
-    public partial class Image : Pulumi.CustomResource
+    public partial class Image : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The extended location of the Image.
@@ -95,21 +95,21 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20170330:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20171201:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20181001:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:Image"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:Image"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Compute
         }
     }
 
-    public sealed class ImageArgs : Pulumi.ResourceArgs
+    public sealed class ImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The extended location of the Image.
@@ -190,5 +190,6 @@ namespace Pulumi.AzureNative.Compute
         public ImageArgs()
         {
         }
+        public static new ImageArgs Empty => new ImageArgs();
     }
 }

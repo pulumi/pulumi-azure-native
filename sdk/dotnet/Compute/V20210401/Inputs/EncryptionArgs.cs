@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
     /// <summary>
     /// Encryption at rest settings for disk or snapshot
     /// </summary>
-    public sealed class EncryptionArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
         public EncryptionArgs()
         {
         }
+        public static new EncryptionArgs Empty => new EncryptionArgs();
     }
 }

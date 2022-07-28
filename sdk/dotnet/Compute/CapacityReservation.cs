@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// API Version: 2021-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CapacityReservation")]
-    public partial class CapacityReservation : Pulumi.CustomResource
+    public partial class CapacityReservation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Capacity reservation instance view.
@@ -107,9 +107,9 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:CapacityReservation"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservation"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservation"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:CapacityReservation"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservation"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Compute
         }
     }
 
-    public sealed class CapacityReservationArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the capacity reservation group.
@@ -190,5 +190,6 @@ namespace Pulumi.AzureNative.Compute
         public CapacityReservationArgs()
         {
         }
+        public static new CapacityReservationArgs Empty => new CapacityReservationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Inputs
     /// <summary>
     /// Input properties for patching a Windows machine.
     /// </summary>
-    public sealed class InputWindowsParametersArgs : Pulumi.ResourceArgs
+    public sealed class InputWindowsParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("classificationsToInclude")]
         private InputList<string>? _classificationsToInclude;
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Inputs
         public InputWindowsParametersArgs()
         {
         }
+        public static new InputWindowsParametersArgs Empty => new InputWindowsParametersArgs();
     }
 }

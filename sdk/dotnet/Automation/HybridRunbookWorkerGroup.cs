@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Automation
     /// API Version: 2021-06-22.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:HybridRunbookWorkerGroup")]
-    public partial class HybridRunbookWorkerGroup : Pulumi.CustomResource
+    public partial class HybridRunbookWorkerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Sets the credential of a worker group.
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation/v20210622:HybridRunbookWorkerGroup"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20220222:HybridRunbookWorkerGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20210622:HybridRunbookWorkerGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220222:HybridRunbookWorkerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Automation
         }
     }
 
-    public sealed class HybridRunbookWorkerGroupArgs : Pulumi.ResourceArgs
+    public sealed class HybridRunbookWorkerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -129,5 +129,6 @@ namespace Pulumi.AzureNative.Automation
         public HybridRunbookWorkerGroupArgs()
         {
         }
+        public static new HybridRunbookWorkerGroupArgs Empty => new HybridRunbookWorkerGroupArgs();
     }
 }

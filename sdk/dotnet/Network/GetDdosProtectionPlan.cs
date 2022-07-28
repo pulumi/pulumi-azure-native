@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetDdosProtectionPlanArgs : Pulumi.InvokeArgs
+    public sealed class GetDdosProtectionPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DDoS protection plan.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Network
         public GetDdosProtectionPlanArgs()
         {
         }
+        public static new GetDdosProtectionPlanArgs Empty => new GetDdosProtectionPlanArgs();
     }
 
-    public sealed class GetDdosProtectionPlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDdosProtectionPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DDoS protection plan.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Network
         public GetDdosProtectionPlanInvokeArgs()
         {
         }
+        public static new GetDdosProtectionPlanInvokeArgs Empty => new GetDdosProtectionPlanInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     /// </summary>
     [Obsolete(@"Please use one of the variants: ScheduledTrigger.")]
     [AzureNativeResourceType("azure-native:datashare/v20210801:Trigger")]
-    public partial class Trigger : Pulumi.CustomResource
+    public partial class Trigger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of synchronization on trigger.
@@ -65,11 +65,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         }
     }
 
-    public sealed class TriggerArgs : Pulumi.ResourceArgs
+    public sealed class TriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public TriggerArgs()
         {
         }
+        public static new TriggerArgs Empty => new TriggerArgs();
     }
 }

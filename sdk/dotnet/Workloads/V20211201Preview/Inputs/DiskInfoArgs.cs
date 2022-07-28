@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Disk resource creation details
     /// </summary>
-    public sealed class DiskInfoArgs : Pulumi.ResourceArgs
+    public sealed class DiskInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Disk size in GB
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public DiskInfoArgs()
         {
         }
+        public static new DiskInfoArgs Empty => new DiskInfoArgs();
     }
 }

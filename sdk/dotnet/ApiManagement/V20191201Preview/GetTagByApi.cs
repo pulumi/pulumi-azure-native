@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
     }
 
 
-    public sealed class GetTagByApiArgs : Pulumi.InvokeArgs
+    public sealed class GetTagByApiArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public GetTagByApiArgs()
         {
         }
+        public static new GetTagByApiArgs Empty => new GetTagByApiArgs();
     }
 
-    public sealed class GetTagByApiInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTagByApiInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public GetTagByApiInvokeArgs()
         {
         }
+        public static new GetTagByApiInvokeArgs Empty => new GetTagByApiInvokeArgs();
     }
 
 

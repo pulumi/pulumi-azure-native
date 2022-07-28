@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Source with uploaded location
     /// </summary>
-    public sealed class UploadedUserSourceInfoArgs : Pulumi.ResourceArgs
+    public sealed class UploadedUserSourceInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Relative path of the storage which stores the source
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public UploadedUserSourceInfoArgs()
         {
         }
+        public static new UploadedUserSourceInfoArgs Empty => new UploadedUserSourceInfoArgs();
     }
 }

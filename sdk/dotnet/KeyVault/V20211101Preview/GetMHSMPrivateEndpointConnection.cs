@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview
     }
 
 
-    public sealed class GetMHSMPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetMHSMPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the managed HSM Pool
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview
         public GetMHSMPrivateEndpointConnectionArgs()
         {
         }
+        public static new GetMHSMPrivateEndpointConnectionArgs Empty => new GetMHSMPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetMHSMPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMHSMPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the managed HSM Pool
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview
         public GetMHSMPrivateEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetMHSMPrivateEndpointConnectionInvokeArgs Empty => new GetMHSMPrivateEndpointConnectionInvokeArgs();
     }
 
 

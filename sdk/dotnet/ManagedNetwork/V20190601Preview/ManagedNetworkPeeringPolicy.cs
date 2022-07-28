@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
     /// The Managed Network Peering Policy resource
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy")]
-    public partial class ManagedNetworkPeeringPolicy : Pulumi.CustomResource
+    public partial class ManagedNetworkPeeringPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:managednetwork:ManagedNetworkPeeringPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetwork:ManagedNetworkPeeringPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         }
     }
 
-    public sealed class ManagedNetworkPeeringPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ManagedNetworkPeeringPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public ManagedNetworkPeeringPolicyArgs()
         {
         }
+        public static new ManagedNetworkPeeringPolicyArgs Empty => new ManagedNetworkPeeringPolicyArgs();
     }
 }

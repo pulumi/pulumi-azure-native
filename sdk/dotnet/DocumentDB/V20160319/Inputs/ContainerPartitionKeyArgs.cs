@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319.Inputs
     /// <summary>
     /// The configuration of the partition key to be used for partitioning data into multiple partitions
     /// </summary>
-    public sealed class ContainerPartitionKeyArgs : Pulumi.ResourceArgs
+    public sealed class ContainerPartitionKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the kind of algorithm used for partitioning
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319.Inputs
         {
             Kind = "Hash";
         }
+        public static new ContainerPartitionKeyArgs Empty => new ContainerPartitionKeyArgs();
     }
 }

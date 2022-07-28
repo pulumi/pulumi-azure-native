@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
-    public sealed class LogAnalyticsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LogAnalyticsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("customerId")]
         public Input<string>? CustomerId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         public LogAnalyticsConfigurationArgs()
         {
         }
+        public static new LogAnalyticsConfigurationArgs Empty => new LogAnalyticsConfigurationArgs();
     }
 }

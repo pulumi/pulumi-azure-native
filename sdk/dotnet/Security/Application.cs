@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// API Version: 2022-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// description of the application
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:security/v20220701preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20220701preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Security
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The security Application key - unique key for the standard application
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.Security
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

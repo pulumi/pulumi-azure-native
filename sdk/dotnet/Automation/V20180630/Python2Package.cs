@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20180630
     /// Definition of the module type.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20180630:Python2Package")]
-    public partial class Python2Package : Pulumi.CustomResource
+    public partial class Python2Package : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the activity count of the module.
@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.Automation.V20180630
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation:Python2Package"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Python2Package"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Python2Package"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:Python2Package"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Python2Package"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Python2Package"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Automation.V20180630
         }
     }
 
-    public sealed class Python2PackageArgs : Pulumi.ResourceArgs
+    public sealed class Python2PackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -201,5 +201,6 @@ namespace Pulumi.AzureNative.Automation.V20180630
         public Python2PackageArgs()
         {
         }
+        public static new Python2PackageArgs Empty => new Python2PackageArgs();
     }
 }

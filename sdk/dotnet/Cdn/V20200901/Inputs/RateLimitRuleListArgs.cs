@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// Defines contents of rate limit rules
     /// </summary>
-    public sealed class RateLimitRuleListArgs : Pulumi.ResourceArgs
+    public sealed class RateLimitRuleListArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules")]
         private InputList<Inputs.RateLimitRuleArgs>? _rules;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public RateLimitRuleListArgs()
         {
         }
+        public static new RateLimitRuleListArgs Empty => new RateLimitRuleListArgs();
     }
 }

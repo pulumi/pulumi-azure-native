@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
     /// Represents a Database.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20210601:Database")]
-    public partial class Database : Pulumi.CustomResource
+    public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The charset of the database.
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201105preview:Database"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Database"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201105preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
         }
     }
 
-    public sealed class DatabaseArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The charset of the database.
@@ -129,5 +129,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
         public DatabaseArgs()
         {
         }
+        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 }

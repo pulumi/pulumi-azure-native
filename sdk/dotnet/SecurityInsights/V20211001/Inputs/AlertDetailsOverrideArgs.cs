@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001.Inputs
     /// <summary>
     /// Settings for how to dynamically override alert static details
     /// </summary>
-    public sealed class AlertDetailsOverrideArgs : Pulumi.ResourceArgs
+    public sealed class AlertDetailsOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the format containing columns name(s) to override the alert description
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001.Inputs
         public AlertDetailsOverrideArgs()
         {
         }
+        public static new AlertDetailsOverrideArgs Empty => new AlertDetailsOverrideArgs();
     }
 }

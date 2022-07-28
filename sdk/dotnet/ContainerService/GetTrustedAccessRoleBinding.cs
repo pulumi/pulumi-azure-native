@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
 
-    public sealed class GetTrustedAccessRoleBindingArgs : Pulumi.InvokeArgs
+    public sealed class GetTrustedAccessRoleBindingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ContainerService
         public GetTrustedAccessRoleBindingArgs()
         {
         }
+        public static new GetTrustedAccessRoleBindingArgs Empty => new GetTrustedAccessRoleBindingArgs();
     }
 
-    public sealed class GetTrustedAccessRoleBindingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTrustedAccessRoleBindingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ContainerService
         public GetTrustedAccessRoleBindingInvokeArgs()
         {
         }
+        public static new GetTrustedAccessRoleBindingInvokeArgs Empty => new GetTrustedAccessRoleBindingInvokeArgs();
     }
 
 

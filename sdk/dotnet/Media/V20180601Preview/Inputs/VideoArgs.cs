@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Describes the basic properties for encoding the input video.
     /// </summary>
-    public sealed class VideoArgs : Pulumi.ResourceArgs
+    public sealed class VideoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public VideoArgs()
         {
         }
+        public static new VideoArgs Empty => new VideoArgs();
     }
 }

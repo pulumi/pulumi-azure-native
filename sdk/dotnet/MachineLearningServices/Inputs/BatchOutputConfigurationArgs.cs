@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// Batch inference output configuration.
     /// </summary>
-    public sealed class BatchOutputConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BatchOutputConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Customized output file name for append_row output action.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public BatchOutputConfigurationArgs()
         {
         }
+        public static new BatchOutputConfigurationArgs Empty => new BatchOutputConfigurationArgs();
     }
 }

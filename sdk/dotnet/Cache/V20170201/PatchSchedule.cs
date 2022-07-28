@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cache.V20170201
     /// </summary>
     [Obsolete(@"Version 2017-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cache/v20170201:PatchSchedule")]
-    public partial class PatchSchedule : Pulumi.CustomResource
+    public partial class PatchSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Cache.V20170201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cache/v20160401:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20160401:PatchSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Cache.V20170201
         }
     }
 
-    public sealed class PatchScheduleArgs : Pulumi.ResourceArgs
+    public sealed class PatchScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Redis cache.
@@ -116,5 +116,6 @@ namespace Pulumi.AzureNative.Cache.V20170201
         public PatchScheduleArgs()
         {
         }
+        public static new PatchScheduleArgs Empty => new PatchScheduleArgs();
     }
 }

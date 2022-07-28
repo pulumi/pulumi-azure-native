@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331.Inputs
     /// <summary>
     /// Cosmos DB Cassandra table cluster key
     /// </summary>
-    public sealed class ClusterKeyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cosmos DB Cassandra table cluster key
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331.Inputs
         public ClusterKeyArgs()
         {
         }
+        public static new ClusterKeyArgs Empty => new ClusterKeyArgs();
     }
 }

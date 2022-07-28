@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview.Inputs
     /// <summary>
     /// Import operation configuration information
     /// </summary>
-    public sealed class ServiceImportConfigurationInfoArgs : Pulumi.ResourceArgs
+    public sealed class ServiceImportConfigurationInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the import operation is enabled.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview.Inputs
         public ServiceImportConfigurationInfoArgs()
         {
         }
+        public static new ServiceImportConfigurationInfoArgs Empty => new ServiceImportConfigurationInfoArgs();
     }
 }

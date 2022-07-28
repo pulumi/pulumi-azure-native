@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.Inputs
     /// <summary>
     /// Private link service proxy details.
     /// </summary>
-    public sealed class PrivateLinkServiceProxyArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceProxyArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupConnectivityInformation")]
         private InputList<Inputs.GroupConnectivityInformationArgs>? _groupConnectivityInformation;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.Inputs
         public PrivateLinkServiceProxyArgs()
         {
         }
+        public static new PrivateLinkServiceProxyArgs Empty => new PrivateLinkServiceProxyArgs();
     }
 }

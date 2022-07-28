@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
     /// <summary>
     /// Alexa channel definition
     /// </summary>
-    public sealed class AlexaChannelArgs : Pulumi.ResourceArgs
+    public sealed class AlexaChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         {
             Location = "global";
         }
+        public static new AlexaChannelArgs Empty => new AlexaChannelArgs();
     }
 }

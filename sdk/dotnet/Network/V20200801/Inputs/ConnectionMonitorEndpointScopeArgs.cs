@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
     /// <summary>
     /// Describes the connection monitor endpoint scope.
     /// </summary>
-    public sealed class ConnectionMonitorEndpointScopeArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorEndpointScopeArgs : global::Pulumi.ResourceArgs
     {
         [Input("exclude")]
         private InputList<Inputs.ConnectionMonitorEndpointScopeItemArgs>? _exclude;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
         public ConnectionMonitorEndpointScopeArgs()
         {
         }
+        public static new ConnectionMonitorEndpointScopeArgs Empty => new ConnectionMonitorEndpointScopeArgs();
     }
 }

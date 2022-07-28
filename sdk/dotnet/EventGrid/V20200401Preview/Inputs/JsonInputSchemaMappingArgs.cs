@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
     /// <summary>
     /// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
     /// </summary>
-    public sealed class JsonInputSchemaMappingArgs : Pulumi.ResourceArgs
+    public sealed class JsonInputSchemaMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mapping information for the DataVersion property of the Event Grid Event.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
         public JsonInputSchemaMappingArgs()
         {
         }
+        public static new JsonInputSchemaMappingArgs Empty => new JsonInputSchemaMappingArgs();
     }
 }

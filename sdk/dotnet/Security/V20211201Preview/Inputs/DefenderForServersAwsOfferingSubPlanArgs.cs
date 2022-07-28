@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// configuration for the servers offering subPlan
     /// </summary>
-    public sealed class DefenderForServersAwsOfferingSubPlanArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForServersAwsOfferingSubPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The available sub plans
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public DefenderForServersAwsOfferingSubPlanArgs()
         {
         }
+        public static new DefenderForServersAwsOfferingSubPlanArgs Empty => new DefenderForServersAwsOfferingSubPlanArgs();
     }
 }

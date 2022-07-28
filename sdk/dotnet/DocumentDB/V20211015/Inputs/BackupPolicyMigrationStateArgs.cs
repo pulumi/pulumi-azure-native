@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015.Inputs
     /// <summary>
     /// The object representing the state of the migration between the backup policies.
     /// </summary>
-    public sealed class BackupPolicyMigrationStateArgs : Pulumi.ResourceArgs
+    public sealed class BackupPolicyMigrationStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time at which the backup policy migration started (ISO-8601 format).
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015.Inputs
         public BackupPolicyMigrationStateArgs()
         {
         }
+        public static new BackupPolicyMigrationStateArgs Empty => new BackupPolicyMigrationStateArgs();
     }
 }

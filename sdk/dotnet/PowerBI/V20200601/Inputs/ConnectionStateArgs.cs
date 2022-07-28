@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerBI.V20200601.Inputs
     /// <summary>
     /// ConnectionState information.
     /// </summary>
-    public sealed class ConnectionStateArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actions required (if any).
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.PowerBI.V20200601.Inputs
         public ConnectionStateArgs()
         {
         }
+        public static new ConnectionStateArgs Empty => new ConnectionStateArgs();
     }
 }

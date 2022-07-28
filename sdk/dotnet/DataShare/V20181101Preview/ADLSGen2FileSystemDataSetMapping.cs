@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     /// An ADLS Gen2 file system data set mapping.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping")]
-    public partial class ADLSGen2FileSystemDataSetMapping : Pulumi.CustomResource
+    public partial class ADLSGen2FileSystemDataSetMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The id of the source data set.
@@ -108,11 +108,11 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FileSystemDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2FileSystemDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FileSystemDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2FileSystemDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         }
     }
 
-    public sealed class ADLSGen2FileSystemDataSetMappingArgs : Pulumi.ResourceArgs
+    public sealed class ADLSGen2FileSystemDataSetMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public ADLSGen2FileSystemDataSetMappingArgs()
         {
         }
+        public static new ADLSGen2FileSystemDataSetMappingArgs Empty => new ADLSGen2FileSystemDataSetMappingArgs();
     }
 }

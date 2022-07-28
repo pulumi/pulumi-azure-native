@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     /// <summary>
     /// Auth Secrets for Container App Scale Rule
     /// </summary>
-    public sealed class ScaleRuleAuthArgs : Pulumi.ResourceArgs
+    public sealed class ScaleRuleAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Container App secret from which to pull the auth params.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         public ScaleRuleAuthArgs()
         {
         }
+        public static new ScaleRuleAuthArgs Empty => new ScaleRuleAuthArgs();
     }
 }

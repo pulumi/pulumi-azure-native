@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     }
 
 
-    public sealed class GetNotificationChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=webHookUrl)'
@@ -55,9 +55,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GetNotificationChannelArgs()
         {
         }
+        public static new GetNotificationChannelArgs Empty => new GetNotificationChannelArgs();
     }
 
-    public sealed class GetNotificationChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=webHookUrl)'
@@ -86,6 +87,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GetNotificationChannelInvokeArgs()
         {
         }
+        public static new GetNotificationChannelInvokeArgs Empty => new GetNotificationChannelInvokeArgs();
     }
 
 

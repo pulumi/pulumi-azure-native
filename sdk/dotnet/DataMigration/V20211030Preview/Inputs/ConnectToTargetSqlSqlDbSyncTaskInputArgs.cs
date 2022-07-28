@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Input for the task that validates connection to Azure SQL DB and target server requirements
     /// </summary>
-    public sealed class ConnectToTargetSqlSqlDbSyncTaskInputArgs : Pulumi.ResourceArgs
+    public sealed class ConnectToTargetSqlSqlDbSyncTaskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection information for source SQL Server
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public ConnectToTargetSqlSqlDbSyncTaskInputArgs()
         {
         }
+        public static new ConnectToTargetSqlSqlDbSyncTaskInputArgs Empty => new ConnectToTargetSqlSqlDbSyncTaskInputArgs();
     }
 }

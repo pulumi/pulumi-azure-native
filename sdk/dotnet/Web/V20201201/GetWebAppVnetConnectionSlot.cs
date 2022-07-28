@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20201201
     }
 
 
-    public sealed class GetWebAppVnetConnectionSlotArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppVnetConnectionSlotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Web.V20201201
         public GetWebAppVnetConnectionSlotArgs()
         {
         }
+        public static new GetWebAppVnetConnectionSlotArgs Empty => new GetWebAppVnetConnectionSlotArgs();
     }
 
-    public sealed class GetWebAppVnetConnectionSlotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppVnetConnectionSlotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Web.V20201201
         public GetWebAppVnetConnectionSlotInvokeArgs()
         {
         }
+        public static new GetWebAppVnetConnectionSlotInvokeArgs Empty => new GetWebAppVnetConnectionSlotInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Vpn NatRule mapping.
     /// </summary>
-    public sealed class VpnNatRuleMappingArgs : Pulumi.ResourceArgs
+    public sealed class VpnNatRuleMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address space for Vpn NatRule mapping.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public VpnNatRuleMappingArgs()
         {
         }
+        public static new VpnNatRuleMappingArgs Empty => new VpnNatRuleMappingArgs();
     }
 }

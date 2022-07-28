@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
     /// <summary>
     /// Deployment resource request payload
     /// </summary>
-    public sealed class ResourceRequestsArgs : Pulumi.ResourceArgs
+    public sealed class ResourceRequestsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
         public ResourceRequestsArgs()
         {
         }
+        public static new ResourceRequestsArgs Empty => new ResourceRequestsArgs();
     }
 }

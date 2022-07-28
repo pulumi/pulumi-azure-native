@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20200301.Inputs
 {
 
-    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Batch.V20200301.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
+        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

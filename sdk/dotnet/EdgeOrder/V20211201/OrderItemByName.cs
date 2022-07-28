@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
     /// Represents order item contract
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder/v20211201:OrderItemByName")]
-    public partial class OrderItemByName : Pulumi.CustomResource
+    public partial class OrderItemByName : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Represents shipping and return address for order item
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:edgeorder:OrderItemByName"},
-                    new Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderItemByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder:OrderItemByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderItemByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         }
     }
 
-    public sealed class OrderItemByNameArgs : Pulumi.ResourceArgs
+    public sealed class OrderItemByNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents shipping and return address for order item
@@ -170,5 +170,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         public OrderItemByNameArgs()
         {
         }
+        public static new OrderItemByNameArgs Empty => new OrderItemByNameArgs();
     }
 }

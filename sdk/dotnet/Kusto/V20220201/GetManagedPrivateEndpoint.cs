@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Kusto.V20220201
     }
 
 
-    public sealed class GetManagedPrivateEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedPrivateEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Kusto.V20220201
         public GetManagedPrivateEndpointArgs()
         {
         }
+        public static new GetManagedPrivateEndpointArgs Empty => new GetManagedPrivateEndpointArgs();
     }
 
-    public sealed class GetManagedPrivateEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedPrivateEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Kusto.V20220201
         public GetManagedPrivateEndpointInvokeArgs()
         {
         }
+        public static new GetManagedPrivateEndpointInvokeArgs Empty => new GetManagedPrivateEndpointInvokeArgs();
     }
 
 

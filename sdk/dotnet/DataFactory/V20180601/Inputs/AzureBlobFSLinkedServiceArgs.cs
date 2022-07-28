@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure Data Lake Storage Gen2 linked service.
     /// </summary>
-    public sealed class AzureBlobFSLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureBlobFSLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account key for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureBlobFSLinkedServiceArgs()
         {
         }
+        public static new AzureBlobFSLinkedServiceArgs Empty => new AzureBlobFSLinkedServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20180201.Inputs
     /// <summary>
     /// Database connection string value to type pair.
     /// </summary>
-    public sealed class ConnStringValueTypePairArgs : Pulumi.ResourceArgs
+    public sealed class ConnStringValueTypePairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of database.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Web.V20180201.Inputs
         public ConnStringValueTypePairArgs()
         {
         }
+        public static new ConnStringValueTypePairArgs Empty => new ConnStringValueTypePairArgs();
     }
 }

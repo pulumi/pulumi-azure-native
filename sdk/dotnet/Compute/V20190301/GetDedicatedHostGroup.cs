@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Compute.V20190301
     }
 
 
-    public sealed class GetDedicatedHostGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the dedicated host group.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Compute.V20190301
         public GetDedicatedHostGroupArgs()
         {
         }
+        public static new GetDedicatedHostGroupArgs Empty => new GetDedicatedHostGroupArgs();
     }
 
-    public sealed class GetDedicatedHostGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the dedicated host group.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Compute.V20190301
         public GetDedicatedHostGroupInvokeArgs()
         {
         }
+        public static new GetDedicatedHostGroupInvokeArgs Empty => new GetDedicatedHostGroupInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Inputs
 {
 
-    public sealed class HDInsightPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class HDInsightPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public IP address of the master node of the cluster.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Inputs
         public HDInsightPropertiesArgs()
         {
         }
+        public static new HDInsightPropertiesArgs Empty => new HDInsightPropertiesArgs();
     }
 }

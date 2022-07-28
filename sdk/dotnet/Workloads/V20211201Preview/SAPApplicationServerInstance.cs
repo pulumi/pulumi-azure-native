@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     /// Define the SAP Application Server Instance.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads/v20211201preview:SAPApplicationServerInstance")]
-    public partial class SAPApplicationServerInstance : Pulumi.CustomResource
+    public partial class SAPApplicationServerInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Defines the Application Instance errors.
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:workloads:SAPApplicationServerInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:SAPApplicationServerInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         }
     }
 
-    public sealed class SAPApplicationServerInstanceArgs : Pulumi.ResourceArgs
+    public sealed class SAPApplicationServerInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of SAP Application Server instance.
@@ -217,5 +217,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public SAPApplicationServerInstanceArgs()
         {
         }
+        public static new SAPApplicationServerInstanceArgs Empty => new SAPApplicationServerInstanceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
     /// <summary>
     /// InMageRcm specific enable protection input.
     /// </summary>
-    public sealed class InMageRcmEnableProtectionInputArgs : Pulumi.ResourceArgs
+    public sealed class InMageRcmEnableProtectionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default disk input.
@@ -139,5 +139,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
         public InMageRcmEnableProtectionInputArgs()
         {
         }
+        public static new InMageRcmEnableProtectionInputArgs Empty => new InMageRcmEnableProtectionInputArgs();
     }
 }

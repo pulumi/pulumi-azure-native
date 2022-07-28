@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Attestation.V20201001
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:attestation/v20201001:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.Attestation.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:attestation:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:attestation/v20210601preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:attestation:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:attestation/v20210601preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Attestation.V20201001
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.Attestation.V20201001
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

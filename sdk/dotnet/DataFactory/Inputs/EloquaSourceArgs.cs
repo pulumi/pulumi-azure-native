@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Eloqua server source.
     /// </summary>
-    public sealed class EloquaSourceArgs : Pulumi.ResourceArgs
+    public sealed class EloquaSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public EloquaSourceArgs()
         {
         }
+        public static new EloquaSourceArgs Empty => new EloquaSourceArgs();
     }
 }

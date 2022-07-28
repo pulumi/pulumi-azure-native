@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Hive Server linked service.
     /// </summary>
-    public sealed class HiveLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class HiveLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
@@ -163,5 +163,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HiveLinkedServiceArgs()
         {
         }
+        public static new HiveLinkedServiceArgs Empty => new HiveLinkedServiceArgs();
     }
 }

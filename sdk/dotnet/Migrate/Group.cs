@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Migrate
     /// API Version: 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// For optimistic concurrency control.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001:Group"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:Group"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Migrate
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// For optimistic concurrency control.
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.Migrate
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Command Job limit class.
     /// </summary>
-    public sealed class CommandJobLimitsArgs : Pulumi.ResourceArgs
+    public sealed class CommandJobLimitsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// 
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public CommandJobLimitsArgs()
         {
         }
+        public static new CommandJobLimitsArgs Empty => new CommandJobLimitsArgs();
     }
 }

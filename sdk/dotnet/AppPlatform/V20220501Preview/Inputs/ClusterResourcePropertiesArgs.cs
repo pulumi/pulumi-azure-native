@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Service properties payload
     /// </summary>
-    public sealed class ClusterResourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Purchasing 3rd party product of the Service resource.
@@ -40,5 +40,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         {
             ZoneRedundant = false;
         }
+        public static new ClusterResourcePropertiesArgs Empty => new ClusterResourcePropertiesArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Management.V20200201
     /// </summary>
     [Obsolete(@"Version 2020-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:management/v20200201:HierarchySetting")]
-    public partial class HierarchySetting : Pulumi.CustomResource
+    public partial class HierarchySetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
@@ -71,10 +71,10 @@ namespace Pulumi.AzureNative.Management.V20200201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:management:HierarchySetting"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20200501:HierarchySetting"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20201001:HierarchySetting"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20210401:HierarchySetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:management:HierarchySetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20200501:HierarchySetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20201001:HierarchySetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20210401:HierarchySetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Management.V20200201
         }
     }
 
-    public sealed class HierarchySettingArgs : Pulumi.ResourceArgs
+    public sealed class HierarchySettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
@@ -119,5 +119,6 @@ namespace Pulumi.AzureNative.Management.V20200201
         public HierarchySettingArgs()
         {
         }
+        public static new HierarchySettingArgs Empty => new HierarchySettingArgs();
     }
 }

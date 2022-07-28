@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190430
     /// OpenShift Managed cluster.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20190430:OpenShiftManagedCluster")]
-    public partial class OpenShiftManagedCluster : Pulumi.CustomResource
+    public partial class OpenShiftManagedCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration of OpenShift cluster VMs.
@@ -130,10 +130,10 @@ namespace Pulumi.AzureNative.ContainerService.V20190430
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerservice:OpenShiftManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20180930preview:OpenShiftManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190930preview:OpenShiftManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20191027preview:OpenShiftManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:OpenShiftManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20180930preview:OpenShiftManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190930preview:OpenShiftManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20191027preview:OpenShiftManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190430
         }
     }
 
-    public sealed class OpenShiftManagedClusterArgs : Pulumi.ResourceArgs
+    public sealed class OpenShiftManagedClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentPoolProfiles")]
         private InputList<Inputs.OpenShiftManagedClusterAgentPoolProfileArgs>? _agentPoolProfiles;
@@ -244,5 +244,6 @@ namespace Pulumi.AzureNative.ContainerService.V20190430
         public OpenShiftManagedClusterArgs()
         {
         }
+        public static new OpenShiftManagedClusterArgs Empty => new OpenShiftManagedClusterArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Contains the list of gallery applications that should be made available to the VM/VMSS
     /// </summary>
-    public sealed class ApplicationProfileArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("galleryApplications")]
         private InputList<Inputs.VMGalleryApplicationArgs>? _galleryApplications;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public ApplicationProfileArgs()
         {
         }
+        public static new ApplicationProfileArgs Empty => new ApplicationProfileArgs();
     }
 }

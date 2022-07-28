@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
     }
 
 
-    public sealed class GetReportArgs : Pulumi.InvokeArgs
+    public sealed class GetReportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Report Name.
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         public GetReportArgs()
         {
         }
+        public static new GetReportArgs Empty => new GetReportArgs();
     }
 
-    public sealed class GetReportInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Report Name.
@@ -49,6 +50,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         public GetReportInvokeArgs()
         {
         }
+        public static new GetReportInvokeArgs Empty => new GetReportInvokeArgs();
     }
 
 

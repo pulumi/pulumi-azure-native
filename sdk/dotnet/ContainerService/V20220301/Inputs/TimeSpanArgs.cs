@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220301.Inputs
     /// <summary>
     /// For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
     /// </summary>
-    public sealed class TimeSpanArgs : Pulumi.ResourceArgs
+    public sealed class TimeSpanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end of a time span
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220301.Inputs
         public TimeSpanArgs()
         {
         }
+        public static new TimeSpanArgs Empty => new TimeSpanArgs();
     }
 }

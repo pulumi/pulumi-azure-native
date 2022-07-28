@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
     }
 
 
-    public sealed class ListSaasResourceAccessTokenArgs : Pulumi.InvokeArgs
+    public sealed class ListSaasResourceAccessTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
         public ListSaasResourceAccessTokenArgs()
         {
         }
+        public static new ListSaasResourceAccessTokenArgs Empty => new ListSaasResourceAccessTokenArgs();
     }
 
-    public sealed class ListSaasResourceAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListSaasResourceAccessTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
@@ -49,6 +50,7 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
         public ListSaasResourceAccessTokenInvokeArgs()
         {
         }
+        public static new ListSaasResourceAccessTokenInvokeArgs Empty => new ListSaasResourceAccessTokenInvokeArgs();
     }
 
 

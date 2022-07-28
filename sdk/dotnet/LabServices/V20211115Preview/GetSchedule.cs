@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
     }
 
 
-    public sealed class GetScheduleArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
         public GetScheduleArgs()
         {
         }
+        public static new GetScheduleArgs Empty => new GetScheduleArgs();
     }
 
-    public sealed class GetScheduleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
         public GetScheduleInvokeArgs()
         {
         }
+        public static new GetScheduleInvokeArgs Empty => new GetScheduleInvokeArgs();
     }
 
 

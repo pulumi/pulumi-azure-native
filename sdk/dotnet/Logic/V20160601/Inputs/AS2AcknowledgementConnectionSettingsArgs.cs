@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The AS2 agreement acknowledgement connection settings.
     /// </summary>
-    public sealed class AS2AcknowledgementConnectionSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AS2AcknowledgementConnectionSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to ignore mismatch in certificate name.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public AS2AcknowledgementConnectionSettingsArgs()
         {
         }
+        public static new AS2AcknowledgementConnectionSettingsArgs Empty => new AS2AcknowledgementConnectionSettingsArgs();
     }
 }

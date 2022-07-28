@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridData.V20190601
     /// Job Definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybriddata/v20190601:JobDefinition")]
-    public partial class JobDefinition : Pulumi.CustomResource
+    public partial class JobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.HybridData.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybriddata:JobDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:hybriddata/v20160601:JobDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybriddata:JobDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybriddata/v20160601:JobDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.HybridData.V20190601
         }
     }
 
-    public sealed class JobDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("customerSecrets")]
         private InputList<Inputs.CustomerSecretArgs>? _customerSecrets;
@@ -225,5 +225,6 @@ namespace Pulumi.AzureNative.HybridData.V20190601
         {
             UserConfirmation = Pulumi.AzureNative.HybridData.V20190601.UserConfirmation.NotRequired;
         }
+        public static new JobDefinitionArgs Empty => new JobDefinitionArgs();
     }
 }

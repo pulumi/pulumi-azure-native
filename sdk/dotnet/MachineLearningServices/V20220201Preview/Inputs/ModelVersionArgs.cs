@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Model asset version details.
     /// </summary>
-    public sealed class ModelVersionArgs : Pulumi.ResourceArgs
+    public sealed class ModelVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The asset description text.
@@ -93,5 +93,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             IsArchived = false;
             ModelType = "CustomModel";
         }
+        public static new ModelVersionArgs Empty => new ModelVersionArgs();
     }
 }

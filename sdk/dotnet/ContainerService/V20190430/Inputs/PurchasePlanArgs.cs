@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190430.Inputs
     /// <summary>
     /// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
     /// </summary>
-    public sealed class PurchasePlanArgs : Pulumi.ResourceArgs
+    public sealed class PurchasePlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The plan ID.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ContainerService.V20190430.Inputs
         public PurchasePlanArgs()
         {
         }
+        public static new PurchasePlanArgs Empty => new PurchasePlanArgs();
     }
 }

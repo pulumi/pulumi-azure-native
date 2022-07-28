@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// SSIS property override.
     /// </summary>
-    public sealed class SSISPropertyOverrideArgs : Pulumi.ResourceArgs
+    public sealed class SSISPropertyOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether SSIS package property override value is sensitive data. Value will be encrypted in SSISDB if it is true
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SSISPropertyOverrideArgs()
         {
         }
+        public static new SSISPropertyOverrideArgs Empty => new SSISPropertyOverrideArgs();
     }
 }

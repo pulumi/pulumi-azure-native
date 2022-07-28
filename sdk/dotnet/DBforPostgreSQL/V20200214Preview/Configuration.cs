@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
     /// Represents a Configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20200214preview:Configuration")]
-    public partial class Configuration : Pulumi.CustomResource
+    public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Allowed values of the configuration.
@@ -88,12 +88,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210615privatepreview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210615privatepreview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Configuration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         }
     }
 
-    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the server configuration.
@@ -150,5 +150,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         public ConfigurationArgs()
         {
         }
+        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 }

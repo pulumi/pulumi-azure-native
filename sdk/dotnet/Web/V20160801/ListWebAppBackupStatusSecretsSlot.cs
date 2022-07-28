@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20160801
     }
 
 
-    public sealed class ListWebAppBackupStatusSecretsSlotArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppBackupStatusSecretsSlotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of backup.
@@ -102,9 +102,10 @@ namespace Pulumi.AzureNative.Web.V20160801
         public ListWebAppBackupStatusSecretsSlotArgs()
         {
         }
+        public static new ListWebAppBackupStatusSecretsSlotArgs Empty => new ListWebAppBackupStatusSecretsSlotArgs();
     }
 
-    public sealed class ListWebAppBackupStatusSecretsSlotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppBackupStatusSecretsSlotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of backup.
@@ -181,6 +182,7 @@ namespace Pulumi.AzureNative.Web.V20160801
         public ListWebAppBackupStatusSecretsSlotInvokeArgs()
         {
         }
+        public static new ListWebAppBackupStatusSecretsSlotInvokeArgs Empty => new ListWebAppBackupStatusSecretsSlotInvokeArgs();
     }
 
 

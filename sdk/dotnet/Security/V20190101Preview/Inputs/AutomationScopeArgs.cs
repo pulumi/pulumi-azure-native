@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
     /// <summary>
     /// A single automation scope.
     /// </summary>
-    public sealed class AutomationScopeArgs : Pulumi.ResourceArgs
+    public sealed class AutomationScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resources scope description.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
         public AutomationScopeArgs()
         {
         }
+        public static new AutomationScopeArgs Empty => new AutomationScopeArgs();
     }
 }

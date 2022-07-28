@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

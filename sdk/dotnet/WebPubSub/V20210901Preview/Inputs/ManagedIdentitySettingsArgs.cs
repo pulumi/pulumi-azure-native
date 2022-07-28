@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview.Inputs
     /// <summary>
     /// Managed identity settings for upstream.
     /// </summary>
-    public sealed class ManagedIdentitySettingsArgs : Pulumi.ResourceArgs
+    public sealed class ManagedIdentitySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Resource indicating the App ID URI of the target resource.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview.Inputs
         public ManagedIdentitySettingsArgs()
         {
         }
+        public static new ManagedIdentitySettingsArgs Empty => new ManagedIdentitySettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401.Inputs
     /// <summary>
     /// NetworkProfile represents a network profile.
     /// </summary>
-    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR used for OpenShift/Kubernetes Pods.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401.Inputs
         public NetworkProfileArgs()
         {
         }
+        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// Class to specify which protocols are enabled
     /// </summary>
-    public sealed class EnabledProtocolsArgs : Pulumi.ResourceArgs
+    public sealed class EnabledProtocolsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable DASH protocol or not
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public EnabledProtocolsArgs()
         {
         }
+        public static new EnabledProtocolsArgs Empty => new EnabledProtocolsArgs();
     }
 }

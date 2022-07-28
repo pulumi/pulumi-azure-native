@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701
     /// The SourceControl Configuration object returned in Get &amp; Put response.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration")]
-    public partial class SourceControlConfiguration : Pulumi.CustomResource
+    public partial class SourceControlConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Compliance Status of the Configuration
@@ -136,15 +136,15 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:SourceControlConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701
         }
     }
 
-    public sealed class SourceControlConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SourceControlConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the kubernetes cluster.
@@ -268,5 +268,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701
         {
             OperatorNamespace = "default";
         }
+        public static new SourceControlConfigurationArgs Empty => new SourceControlConfigurationArgs();
     }
 }

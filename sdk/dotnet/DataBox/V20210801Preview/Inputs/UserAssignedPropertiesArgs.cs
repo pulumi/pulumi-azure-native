@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20210801Preview.Inputs
     /// <summary>
     /// User assigned identity properties.
     /// </summary>
-    public sealed class UserAssignedPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class UserAssignedPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Arm resource id for user assigned identity to be used to fetch MSI token.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataBox.V20210801Preview.Inputs
         public UserAssignedPropertiesArgs()
         {
         }
+        public static new UserAssignedPropertiesArgs Empty => new UserAssignedPropertiesArgs();
     }
 }

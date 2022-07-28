@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Specifies a symmetric key for token validation.
     /// </summary>
-    public sealed class ContentKeyPolicySymmetricTokenKeyArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicySymmetricTokenKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key value of the key
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public ContentKeyPolicySymmetricTokenKeyArgs()
         {
         }
+        public static new ContentKeyPolicySymmetricTokenKeyArgs Empty => new ContentKeyPolicySymmetricTokenKeyArgs();
     }
 }

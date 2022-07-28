@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Properties required to create a connection to Azure SQL database Managed instance
     /// </summary>
-    public sealed class MiSqlConnectionInfoArgs : Pulumi.ResourceArgs
+    public sealed class MiSqlConnectionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource id for Azure SQL database Managed instance
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public MiSqlConnectionInfoArgs()
         {
         }
+        public static new MiSqlConnectionInfoArgs Empty => new MiSqlConnectionInfoArgs();
     }
 }

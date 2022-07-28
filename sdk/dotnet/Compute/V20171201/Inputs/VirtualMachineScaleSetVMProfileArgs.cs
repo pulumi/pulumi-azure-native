@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20171201.Inputs
     /// <summary>
     /// Describes a virtual machine scale set virtual machine profile.
     /// </summary>
-    public sealed class VirtualMachineScaleSetVMProfileArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetVMProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Compute.V20171201.Inputs
         public VirtualMachineScaleSetVMProfileArgs()
         {
         }
+        public static new VirtualMachineScaleSetVMProfileArgs Empty => new VirtualMachineScaleSetVMProfileArgs();
     }
 }

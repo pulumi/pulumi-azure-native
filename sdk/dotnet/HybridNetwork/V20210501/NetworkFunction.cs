@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
     /// Network function resource response.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork/v20210501:NetworkFunction")]
-    public partial class NetworkFunction : Pulumi.CustomResource
+    public partial class NetworkFunction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The reference to the device resource. Once set, it cannot be updated.
@@ -142,9 +142,9 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork:NetworkFunction"},
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:NetworkFunction"},
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:NetworkFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:NetworkFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:NetworkFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:NetworkFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         }
     }
 
-    public sealed class NetworkFunctionArgs : Pulumi.ResourceArgs
+    public sealed class NetworkFunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reference to the device resource. Once set, it cannot be updated.
@@ -243,5 +243,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         public NetworkFunctionArgs()
         {
         }
+        public static new NetworkFunctionArgs Empty => new NetworkFunctionArgs();
     }
 }

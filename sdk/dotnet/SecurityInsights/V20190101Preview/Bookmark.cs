@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// Represents a bookmark in Azure Security Insights.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:Bookmark")]
-    public partial class Bookmark : Pulumi.CustomResource
+    public partial class Bookmark : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the bookmark was created
@@ -136,16 +136,16 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:Bookmark"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Bookmark"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Bookmark"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Bookmark"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Bookmark"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Bookmark"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Bookmark"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Bookmark"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Bookmark"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Bookmark"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Bookmark"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Bookmark"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Bookmark"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Bookmark"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Bookmark"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Bookmark"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Bookmark"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Bookmark"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Bookmark"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Bookmark"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -167,7 +167,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         }
     }
 
-    public sealed class BookmarkArgs : Pulumi.ResourceArgs
+    public sealed class BookmarkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bookmark ID
@@ -280,5 +280,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public BookmarkArgs()
         {
         }
+        public static new BookmarkArgs Empty => new BookmarkArgs();
     }
 }

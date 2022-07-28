@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AadIam.V20200301.Inputs
     /// <summary>
     /// A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
     /// </summary>
-    public sealed class TagsResourceArgs : Pulumi.ResourceArgs
+    public sealed class TagsResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AadIam.V20200301.Inputs
         public TagsResourceArgs()
         {
         }
+        public static new TagsResourceArgs Empty => new TagsResourceArgs();
     }
 }

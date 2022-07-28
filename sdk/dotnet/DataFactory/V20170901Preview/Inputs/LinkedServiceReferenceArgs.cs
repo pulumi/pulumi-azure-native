@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Linked service reference type.
     /// </summary>
-    public sealed class LinkedServiceReferenceArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceReferenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameters")]
         private InputMap<object>? _parameters;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public LinkedServiceReferenceArgs()
         {
         }
+        public static new LinkedServiceReferenceArgs Empty => new LinkedServiceReferenceArgs();
     }
 }

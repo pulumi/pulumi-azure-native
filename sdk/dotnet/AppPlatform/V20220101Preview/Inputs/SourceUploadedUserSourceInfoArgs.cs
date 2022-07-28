@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
     /// <summary>
     /// Uploaded Java source code binary for a deployment
     /// </summary>
-    public sealed class SourceUploadedUserSourceInfoArgs : Pulumi.ResourceArgs
+    public sealed class SourceUploadedUserSourceInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Selector for the artifact to be used for the deployment for multi-module projects. This should be
@@ -50,5 +50,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
         public SourceUploadedUserSourceInfoArgs()
         {
         }
+        public static new SourceUploadedUserSourceInfoArgs Empty => new SourceUploadedUserSourceInfoArgs();
     }
 }

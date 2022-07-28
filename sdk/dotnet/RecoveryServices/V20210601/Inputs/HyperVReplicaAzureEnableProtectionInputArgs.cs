@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601.Inputs
     /// <summary>
     /// HyperVReplicaAzure specific enable protection input.
     /// </summary>
-    public sealed class HyperVReplicaAzureEnableProtectionInputArgs : Pulumi.ResourceArgs
+    public sealed class HyperVReplicaAzureEnableProtectionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DiskEncryptionSet ARM Id.
@@ -229,5 +229,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601.Inputs
         public HyperVReplicaAzureEnableProtectionInputArgs()
         {
         }
+        public static new HyperVReplicaAzureEnableProtectionInputArgs Empty => new HyperVReplicaAzureEnableProtectionInputArgs();
     }
 }

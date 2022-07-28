@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// SSIS package execution log location
     /// </summary>
-    public sealed class SSISLogLocationArgs : Pulumi.ResourceArgs
+    public sealed class SSISLogLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The package execution log access credential.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SSISLogLocationArgs()
         {
         }
+        public static new SSISLogLocationArgs Empty => new SSISLogLocationArgs();
     }
 }

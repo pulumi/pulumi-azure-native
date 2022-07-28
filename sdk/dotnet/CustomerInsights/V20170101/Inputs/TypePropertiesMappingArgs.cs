@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
     /// <summary>
     /// Metadata for a Link's property mapping.
     /// </summary>
-    public sealed class TypePropertiesMappingArgs : Pulumi.ResourceArgs
+    public sealed class TypePropertiesMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         ///  Property name on the source Interaction Type.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
         public TypePropertiesMappingArgs()
         {
         }
+        public static new TypePropertiesMappingArgs Empty => new TypePropertiesMappingArgs();
     }
 }

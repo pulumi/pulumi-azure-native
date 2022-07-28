@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
     /// <summary>
     /// Additional information about Azure File Share backup item.
     /// </summary>
-    public sealed class AzureFileshareProtectedItemExtendedInfoArgs : Pulumi.ResourceArgs
+    public sealed class AzureFileshareProtectedItemExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The oldest backup copy available for this item in the service.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
         public AzureFileshareProtectedItemExtendedInfoArgs()
         {
         }
+        public static new AzureFileshareProtectedItemExtendedInfoArgs Empty => new AzureFileshareProtectedItemExtendedInfoArgs();
     }
 }

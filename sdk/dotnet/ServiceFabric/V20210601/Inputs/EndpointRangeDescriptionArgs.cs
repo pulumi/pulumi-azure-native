@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
     /// <summary>
     /// Port range details
     /// </summary>
-    public sealed class EndpointRangeDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class EndpointRangeDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// End port of a range of ports
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
         public EndpointRangeDescriptionArgs()
         {
         }
+        public static new EndpointRangeDescriptionArgs Empty => new EndpointRangeDescriptionArgs();
     }
 }

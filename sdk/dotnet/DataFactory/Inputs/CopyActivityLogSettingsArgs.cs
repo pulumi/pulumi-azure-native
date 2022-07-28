@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Settings for copy activity log.
     /// </summary>
-    public sealed class CopyActivityLogSettingsArgs : Pulumi.ResourceArgs
+    public sealed class CopyActivityLogSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to enable reliable logging. Type: boolean (or Expression with resultType boolean).
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CopyActivityLogSettingsArgs()
         {
         }
+        public static new CopyActivityLogSettingsArgs Empty => new CopyActivityLogSettingsArgs();
     }
 }

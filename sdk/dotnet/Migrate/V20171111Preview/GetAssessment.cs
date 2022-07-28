@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
     }
 
 
-    public sealed class GetAssessmentArgs : Pulumi.InvokeArgs
+    public sealed class GetAssessmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name of an assessment within a project.
@@ -55,9 +55,10 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
         public GetAssessmentArgs()
         {
         }
+        public static new GetAssessmentArgs Empty => new GetAssessmentArgs();
     }
 
-    public sealed class GetAssessmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssessmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name of an assessment within a project.
@@ -86,6 +87,7 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
         public GetAssessmentInvokeArgs()
         {
         }
+        public static new GetAssessmentInvokeArgs Empty => new GetAssessmentInvokeArgs();
     }
 
 

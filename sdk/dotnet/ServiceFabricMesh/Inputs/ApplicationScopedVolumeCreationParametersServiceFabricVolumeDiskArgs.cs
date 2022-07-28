@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
     /// </summary>
-    public sealed class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// User readable description of the volume.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs()
         {
         }
+        public static new ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs Empty => new ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs();
     }
 }

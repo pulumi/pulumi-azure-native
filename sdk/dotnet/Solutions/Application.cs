@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Solutions
     /// API Version: 2019-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The fully qualified path of managed application definition Id.
@@ -185,12 +185,12 @@ namespace Pulumi.AzureNative.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:Application"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:Application"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:Application"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20210701:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20170901:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180601:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -212,7 +212,7 @@ namespace Pulumi.AzureNative.Solutions
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fully qualified path of managed application definition Id.
@@ -301,5 +301,6 @@ namespace Pulumi.AzureNative.Solutions
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

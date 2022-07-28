@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ScVmm
     /// API Version: 2020-06-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:InventoryItem")]
-    public partial class InventoryItem : Pulumi.CustomResource
+    public partial class InventoryItem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the Managed Object name in VMM for the inventory item.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:InventoryItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:InventoryItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.ScVmm
         }
     }
 
-    public sealed class InventoryItemArgs : Pulumi.ResourceArgs
+    public sealed class InventoryItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the inventoryItem.
@@ -152,5 +152,6 @@ namespace Pulumi.AzureNative.ScVmm
         public InventoryItemArgs()
         {
         }
+        public static new InventoryItemArgs Empty => new InventoryItemArgs();
     }
 }

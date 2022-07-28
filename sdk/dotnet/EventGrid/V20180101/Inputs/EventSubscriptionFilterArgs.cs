@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20180101.Inputs
     /// <summary>
     /// Filter for the Event Subscription
     /// </summary>
-    public sealed class EventSubscriptionFilterArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("includedEventTypes")]
         private InputList<string>? _includedEventTypes;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.EventGrid.V20180101.Inputs
         {
             IsSubjectCaseSensitive = false;
         }
+        public static new EventSubscriptionFilterArgs Empty => new EventSubscriptionFilterArgs();
     }
 }

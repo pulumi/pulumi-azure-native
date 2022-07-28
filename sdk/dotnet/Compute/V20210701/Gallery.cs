@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
     /// Specifies information about the Shared Image Gallery that you want to create or update.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20210701:Gallery")]
-    public partial class Gallery : Pulumi.CustomResource
+    public partial class Gallery : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of this Shared Image Gallery resource. This property is updatable.
@@ -94,13 +94,13 @@ namespace Pulumi.AzureNative.Compute.V20210701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:Gallery"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Gallery"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:Gallery"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Gallery"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:Gallery"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:Gallery"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211001:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:Gallery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
         }
     }
 
-    public sealed class GalleryArgs : Pulumi.ResourceArgs
+    public sealed class GalleryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of this Shared Image Gallery resource. This property is updatable.
@@ -175,5 +175,6 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GalleryArgs()
         {
         }
+        public static new GalleryArgs Empty => new GalleryArgs();
     }
 }

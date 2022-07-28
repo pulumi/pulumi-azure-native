@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
     /// <summary>
     /// Asset input port
     /// </summary>
-    public sealed class InputPortArgs : Pulumi.ResourceArgs
+    public sealed class InputPortArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Port data type.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
         {
             Type = "Dataset";
         }
+        public static new InputPortArgs Empty => new InputPortArgs();
     }
 }

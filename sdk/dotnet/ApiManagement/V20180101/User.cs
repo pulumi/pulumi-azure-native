@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
     /// User details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Email address.
@@ -100,20 +100,20 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the type of confirmation e-mail that will be sent to the newly created user.
@@ -213,5 +213,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         {
             State = "active";
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 }

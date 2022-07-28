@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
     }
 
 
-    public sealed class GetScriptArgs : Pulumi.InvokeArgs
+    public sealed class GetScriptArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         public GetScriptArgs()
         {
         }
+        public static new GetScriptArgs Empty => new GetScriptArgs();
     }
 
-    public sealed class GetScriptInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScriptInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         public GetScriptInvokeArgs()
         {
         }
+        public static new GetScriptInvokeArgs Empty => new GetScriptInvokeArgs();
     }
 
 

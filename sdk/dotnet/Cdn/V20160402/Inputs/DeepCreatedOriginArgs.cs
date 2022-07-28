@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20160402.Inputs
     /// <summary>
     /// Deep created origins within a CDN endpoint.
     /// </summary>
-    public sealed class DeepCreatedOriginArgs : Pulumi.ResourceArgs
+    public sealed class DeepCreatedOriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Cdn.V20160402.Inputs
         public DeepCreatedOriginArgs()
         {
         }
+        public static new DeepCreatedOriginArgs Empty => new DeepCreatedOriginArgs();
     }
 }

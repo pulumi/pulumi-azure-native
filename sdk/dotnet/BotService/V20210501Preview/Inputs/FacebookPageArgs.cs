@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
     /// <summary>
     /// A Facebook page for Facebook channel registration
     /// </summary>
-    public sealed class FacebookPageArgs : Pulumi.ResourceArgs
+    public sealed class FacebookPageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public FacebookPageArgs()
         {
         }
+        public static new FacebookPageArgs Empty => new FacebookPageArgs();
     }
 }

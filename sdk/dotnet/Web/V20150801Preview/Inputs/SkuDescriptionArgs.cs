@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// Describes a sku for a scalable resource
     /// </summary>
-    public sealed class SkuDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class SkuDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Current number of instances assigned to the resource
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public SkuDescriptionArgs()
         {
         }
+        public static new SkuDescriptionArgs Empty => new SkuDescriptionArgs();
     }
 }

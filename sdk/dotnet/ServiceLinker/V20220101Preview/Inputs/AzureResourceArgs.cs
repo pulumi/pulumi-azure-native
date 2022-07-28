@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
     /// <summary>
     /// The azure resource info when target service type is AzureResource
     /// </summary>
-    public sealed class AzureResourceArgs : Pulumi.ResourceArgs
+    public sealed class AzureResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Id of azure resource.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
         public AzureResourceArgs()
         {
         }
+        public static new AzureResourceArgs Empty => new AzureResourceArgs();
     }
 }

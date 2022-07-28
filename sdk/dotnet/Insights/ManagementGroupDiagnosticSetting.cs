@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ManagementGroupDiagnosticSetting")]
-    public partial class ManagementGroupDiagnosticSetting : Pulumi.CustomResource
+    public partial class ManagementGroupDiagnosticSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource Id for the event hub authorization rule.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class ManagementGroupDiagnosticSettingArgs : Pulumi.ResourceArgs
+    public sealed class ManagementGroupDiagnosticSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource Id for the event hub authorization rule.
@@ -183,5 +183,6 @@ namespace Pulumi.AzureNative.Insights
         public ManagementGroupDiagnosticSettingArgs()
         {
         }
+        public static new ManagementGroupDiagnosticSettingArgs Empty => new ManagementGroupDiagnosticSettingArgs();
     }
 }

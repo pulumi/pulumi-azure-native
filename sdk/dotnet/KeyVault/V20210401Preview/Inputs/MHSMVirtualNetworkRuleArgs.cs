@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
     /// <summary>
     /// A rule governing the accessibility of a managed hsm pool from a specific virtual network.
     /// </summary>
-    public sealed class MHSMVirtualNetworkRuleArgs : Pulumi.ResourceArgs
+    public sealed class MHSMVirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
         public MHSMVirtualNetworkRuleArgs()
         {
         }
+        public static new MHSMVirtualNetworkRuleArgs Empty => new MHSMVirtualNetworkRuleArgs();
     }
 }

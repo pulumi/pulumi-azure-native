@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Datastore Service Principal secrets.
     /// </summary>
-    public sealed class ServicePrincipalDatastoreSecretsArgs : Pulumi.ResourceArgs
+    public sealed class ServicePrincipalDatastoreSecretsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Service principal secret.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public ServicePrincipalDatastoreSecretsArgs()
         {
         }
+        public static new ServicePrincipalDatastoreSecretsArgs Empty => new ServicePrincipalDatastoreSecretsArgs();
     }
 }

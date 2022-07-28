@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
     /// <summary>
     /// SparkConfig Properties for a Big Data pool powered by Apache Spark
     /// </summary>
-    public sealed class SparkConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SparkConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the spark config properties file.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
         public SparkConfigPropertiesArgs()
         {
         }
+        public static new SparkConfigPropertiesArgs Empty => new SparkConfigPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210601
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210601:ObjectReplicationPolicy")]
-    public partial class ObjectReplicationPolicy : Pulumi.CustomResource
+    public partial class ObjectReplicationPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
@@ -82,14 +82,14 @@ namespace Pulumi.AzureNative.Storage.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storage:ObjectReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:ObjectReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:ObjectReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:ObjectReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:ObjectReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:ObjectReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:ObjectReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:ObjectReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage:ObjectReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:ObjectReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:ObjectReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:ObjectReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:ObjectReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:ObjectReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:ObjectReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:ObjectReplicationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.Storage.V20210601
         }
     }
 
-    public sealed class ObjectReplicationPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ObjectReplicationPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -158,5 +158,6 @@ namespace Pulumi.AzureNative.Storage.V20210601
         public ObjectReplicationPolicyArgs()
         {
         }
+        public static new ObjectReplicationPolicyArgs Empty => new ObjectReplicationPolicyArgs();
     }
 }

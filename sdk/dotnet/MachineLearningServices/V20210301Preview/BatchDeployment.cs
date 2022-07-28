@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:BatchDeployment")]
-    public partial class BatchDeployment : Pulumi.CustomResource
+    public partial class BatchDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Service identity associated with a resource.
@@ -85,9 +85,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:BatchDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:BatchDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:BatchDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:BatchDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:BatchDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:BatchDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         }
     }
 
-    public sealed class BatchDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class BatchDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier for the Batch inference deployment.
@@ -174,5 +174,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public BatchDeploymentArgs()
         {
         }
+        public static new BatchDeploymentArgs Empty => new BatchDeploymentArgs();
     }
 }

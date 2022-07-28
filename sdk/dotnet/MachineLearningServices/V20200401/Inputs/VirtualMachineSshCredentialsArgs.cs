@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200401.Inputs
     /// <summary>
     /// Admin credentials for virtual machine
     /// </summary>
-    public sealed class VirtualMachineSshCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineSshCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password of admin account
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200401.Inputs
         public VirtualMachineSshCredentialsArgs()
         {
         }
+        public static new VirtualMachineSshCredentialsArgs Empty => new VirtualMachineSshCredentialsArgs();
     }
 }

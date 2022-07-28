@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
     }
 
 
-    public sealed class GetPrefixArgs : Pulumi.InvokeArgs
+    public sealed class GetPrefixArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The properties to be expanded.
@@ -55,9 +55,10 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
         public GetPrefixArgs()
         {
         }
+        public static new GetPrefixArgs Empty => new GetPrefixArgs();
     }
 
-    public sealed class GetPrefixInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrefixInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The properties to be expanded.
@@ -86,6 +87,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
         public GetPrefixInvokeArgs()
         {
         }
+        public static new GetPrefixInvokeArgs Empty => new GetPrefixInvokeArgs();
     }
 
 

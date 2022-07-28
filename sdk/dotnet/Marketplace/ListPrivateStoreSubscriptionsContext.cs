@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Marketplace
     }
 
 
-    public sealed class ListPrivateStoreSubscriptionsContextArgs : Pulumi.InvokeArgs
+    public sealed class ListPrivateStoreSubscriptionsContextArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The store ID - must use the tenant ID
@@ -38,9 +38,10 @@ namespace Pulumi.AzureNative.Marketplace
         public ListPrivateStoreSubscriptionsContextArgs()
         {
         }
+        public static new ListPrivateStoreSubscriptionsContextArgs Empty => new ListPrivateStoreSubscriptionsContextArgs();
     }
 
-    public sealed class ListPrivateStoreSubscriptionsContextInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListPrivateStoreSubscriptionsContextInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The store ID - must use the tenant ID
@@ -51,6 +52,7 @@ namespace Pulumi.AzureNative.Marketplace
         public ListPrivateStoreSubscriptionsContextInvokeArgs()
         {
         }
+        public static new ListPrivateStoreSubscriptionsContextInvokeArgs Empty => new ListPrivateStoreSubscriptionsContextInvokeArgs();
     }
 
 

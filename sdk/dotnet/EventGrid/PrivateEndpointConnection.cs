@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// GroupIds from the private link service resource.
@@ -76,13 +76,13 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
@@ -163,5 +163,6 @@ namespace Pulumi.AzureNative.EventGrid
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

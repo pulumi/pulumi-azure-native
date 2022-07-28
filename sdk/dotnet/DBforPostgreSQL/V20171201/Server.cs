@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
     /// Represents a server.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20171201:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,7 +189,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Active Directory identity of the server.
@@ -242,5 +242,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 }

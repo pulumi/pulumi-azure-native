@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
     }
 
 
-    public sealed class GetSecurityContactArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityContactArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the security contact object
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         public GetSecurityContactArgs()
         {
         }
+        public static new GetSecurityContactArgs Empty => new GetSecurityContactArgs();
     }
 
-    public sealed class GetSecurityContactInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityContactInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the security contact object
@@ -49,6 +50,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         public GetSecurityContactInvokeArgs()
         {
         }
+        public static new GetSecurityContactInvokeArgs Empty => new GetSecurityContactInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
     }
 
 
-    public sealed class GetVendorSkuPreviewArgs : Pulumi.InvokeArgs
+    public sealed class GetVendorSkuPreviewArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Preview subscription ID.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         public GetVendorSkuPreviewArgs()
         {
         }
+        public static new GetVendorSkuPreviewArgs Empty => new GetVendorSkuPreviewArgs();
     }
 
-    public sealed class GetVendorSkuPreviewInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVendorSkuPreviewInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Preview subscription ID.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         public GetVendorSkuPreviewInvokeArgs()
         {
         }
+        public static new GetVendorSkuPreviewInvokeArgs Empty => new GetVendorSkuPreviewInvokeArgs();
     }
 
 

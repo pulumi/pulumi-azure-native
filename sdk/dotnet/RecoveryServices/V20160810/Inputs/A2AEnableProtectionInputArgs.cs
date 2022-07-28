@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
     /// <summary>
     /// A2A enable protection input.
     /// </summary>
-    public sealed class A2AEnableProtectionInputArgs : Pulumi.ResourceArgs
+    public sealed class A2AEnableProtectionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fabric specific object Id of the virtual machine.
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
         public A2AEnableProtectionInputArgs()
         {
         }
+        public static new A2AEnableProtectionInputArgs Empty => new A2AEnableProtectionInputArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
     /// Settings with single toggle.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220601preview:EntityAnalytics")]
-    public partial class EntityAnalytics : Pulumi.CustomResource
+    public partial class EntityAnalytics : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The relevant entity providers that are synced
@@ -84,15 +84,15 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:EntityAnalytics"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:EntityAnalytics"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EntityAnalytics"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:EntityAnalytics"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:EntityAnalytics"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:EntityAnalytics"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:EntityAnalytics"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:EntityAnalytics"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:EntityAnalytics"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         }
     }
 
-    public sealed class EntityAnalyticsArgs : Pulumi.ResourceArgs
+    public sealed class EntityAnalyticsArgs : global::Pulumi.ResourceArgs
     {
         [Input("entityProviders")]
         private InputList<Union<string, Pulumi.AzureNative.SecurityInsights.V20220601Preview.EntityProviders>>? _entityProviders;
@@ -156,5 +156,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         public EntityAnalyticsArgs()
         {
         }
+        public static new EntityAnalyticsArgs Empty => new EntityAnalyticsArgs();
     }
 }

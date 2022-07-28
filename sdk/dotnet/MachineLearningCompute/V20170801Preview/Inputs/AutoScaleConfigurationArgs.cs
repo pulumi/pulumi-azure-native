@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
     /// <summary>
     /// AutoScale configuration properties.
     /// </summary>
-    public sealed class AutoScaleConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AutoScaleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of replicas for each service.
@@ -51,5 +51,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
             MinReplicas = 1;
             Status = "Disabled";
         }
+        public static new AutoScaleConfigurationArgs Empty => new AutoScaleConfigurationArgs();
     }
 }

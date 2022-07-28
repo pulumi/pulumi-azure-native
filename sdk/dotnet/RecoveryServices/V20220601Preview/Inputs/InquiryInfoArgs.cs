@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
     /// <summary>
     /// Details about inquired protectable items under a given container.
     /// </summary>
-    public sealed class InquiryInfoArgs : Pulumi.ResourceArgs
+    public sealed class InquiryInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("inquiryDetails")]
         private InputList<Inputs.WorkloadInquiryDetailsArgs>? _inquiryDetails;
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
         public InquiryInfoArgs()
         {
         }
+        public static new InquiryInfoArgs Empty => new InquiryInfoArgs();
     }
 }

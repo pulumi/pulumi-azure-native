@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
     /// <summary>
     /// Valid enum values in case of an enum property.
     /// </summary>
-    public sealed class ProfileEnumValidValuesFormatArgs : Pulumi.ResourceArgs
+    public sealed class ProfileEnumValidValuesFormatArgs : global::Pulumi.ResourceArgs
     {
         [Input("localizedValueNames")]
         private InputMap<string>? _localizedValueNames;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
         public ProfileEnumValidValuesFormatArgs()
         {
         }
+        public static new ProfileEnumValidValuesFormatArgs Empty => new ProfileEnumValidValuesFormatArgs();
     }
 }

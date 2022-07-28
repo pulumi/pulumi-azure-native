@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.Inputs
     /// <summary>
     /// Group specific to the update configuration.
     /// </summary>
-    public sealed class TargetPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TargetPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("azureQueries")]
         private InputList<Inputs.AzureQueryPropertiesArgs>? _azureQueries;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Automation.Inputs
         public TargetPropertiesArgs()
         {
         }
+        public static new TargetPropertiesArgs Empty => new TargetPropertiesArgs();
     }
 }

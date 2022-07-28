@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
     /// <summary>
     /// Rules defining user's geo access within a CDN endpoint.
     /// </summary>
-    public sealed class GeoFilterArgs : Pulumi.ResourceArgs
+    public sealed class GeoFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action of the geo filter, i.e. allow or block access.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
         public GeoFilterArgs()
         {
         }
+        public static new GeoFilterArgs Empty => new GeoFilterArgs();
     }
 }

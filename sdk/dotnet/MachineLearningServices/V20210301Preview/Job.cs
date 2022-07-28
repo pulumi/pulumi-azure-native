@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:Job"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Job"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name and identifier for the Job.
@@ -117,5 +117,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201.Inputs
     /// <summary>
     /// Library requirements for a Big Data pool powered by Apache Spark
     /// </summary>
-    public sealed class LibraryRequirementsArgs : Pulumi.ResourceArgs
+    public sealed class LibraryRequirementsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The library requirements.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Synapse.V20201201.Inputs
         public LibraryRequirementsArgs()
         {
         }
+        public static new LibraryRequirementsArgs Empty => new LibraryRequirementsArgs();
     }
 }

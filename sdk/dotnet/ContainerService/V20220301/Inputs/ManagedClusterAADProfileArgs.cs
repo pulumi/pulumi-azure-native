@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220301.Inputs
     /// <summary>
     /// For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
     /// </summary>
-    public sealed class ManagedClusterAADProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterAADProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminGroupObjectIDs")]
         private InputList<string>? _adminGroupObjectIDs;
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220301.Inputs
         public ManagedClusterAADProfileArgs()
         {
         }
+        public static new ManagedClusterAADProfileArgs Empty => new ManagedClusterAADProfileArgs();
     }
 }

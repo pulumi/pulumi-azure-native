@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
     }
 
 
-    public sealed class GetGatewayCertificateAuthorityArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayCertificateAuthorityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         public GetGatewayCertificateAuthorityArgs()
         {
         }
+        public static new GetGatewayCertificateAuthorityArgs Empty => new GetGatewayCertificateAuthorityArgs();
     }
 
-    public sealed class GetGatewayCertificateAuthorityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayCertificateAuthorityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         public GetGatewayCertificateAuthorityInvokeArgs()
         {
         }
+        public static new GetGatewayCertificateAuthorityInvokeArgs Empty => new GetGatewayCertificateAuthorityInvokeArgs();
     }
 
 

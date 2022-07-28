@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs
     /// <summary>
     /// Migration resource group.
     /// </summary>
-    public sealed class MigrationResourceGroupArgs : Pulumi.ResourceArgs
+    public sealed class MigrationResourceGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs
         public MigrationResourceGroupArgs()
         {
         }
+        public static new MigrationResourceGroupArgs Empty => new MigrationResourceGroupArgs();
     }
 }

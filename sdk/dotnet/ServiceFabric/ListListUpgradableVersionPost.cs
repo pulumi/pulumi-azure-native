@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
 
-    public sealed class ListListUpgradableVersionPostArgs : Pulumi.InvokeArgs
+    public sealed class ListListUpgradableVersionPostArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         public ListListUpgradableVersionPostArgs()
         {
         }
+        public static new ListListUpgradableVersionPostArgs Empty => new ListListUpgradableVersionPostArgs();
     }
 
-    public sealed class ListListUpgradableVersionPostInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListListUpgradableVersionPostInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public ListListUpgradableVersionPostInvokeArgs()
         {
         }
+        public static new ListListUpgradableVersionPostInvokeArgs Empty => new ListListUpgradableVersionPostInvokeArgs();
     }
 
 

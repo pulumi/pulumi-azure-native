@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AadIam
     /// API Version: 2020-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:aadiam:azureADMetric")]
-    public partial class AzureADMetric : Pulumi.CustomResource
+    public partial class AzureADMetric : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:aadiam/v20200701preview:azureADMetric"},
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200701preview:azureADMetric"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.AadIam
         }
     }
 
-    public sealed class AzureADMetricArgs : Pulumi.ResourceArgs
+    public sealed class AzureADMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the azureADMetrics instance.
@@ -125,5 +125,6 @@ namespace Pulumi.AzureNative.AadIam
         public AzureADMetricArgs()
         {
         }
+        public static new AzureADMetricArgs Empty => new AzureADMetricArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
     }
 
 
-    public sealed class GetIscsiTargetArgs : Pulumi.InvokeArgs
+    public sealed class GetIscsiTargetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Disk Pool.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
         public GetIscsiTargetArgs()
         {
         }
+        public static new GetIscsiTargetArgs Empty => new GetIscsiTargetArgs();
     }
 
-    public sealed class GetIscsiTargetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIscsiTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Disk Pool.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
         public GetIscsiTargetInvokeArgs()
         {
         }
+        public static new GetIscsiTargetInvokeArgs Empty => new GetIscsiTargetInvokeArgs();
     }
 
 

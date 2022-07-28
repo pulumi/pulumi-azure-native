@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The batch release criteria.
     /// </summary>
-    public sealed class BatchReleaseCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class BatchReleaseCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The batch size in bytes.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public BatchReleaseCriteriaArgs()
         {
         }
+        public static new BatchReleaseCriteriaArgs Empty => new BatchReleaseCriteriaArgs();
     }
 }

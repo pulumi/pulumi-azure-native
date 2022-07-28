@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
     /// Represents a server group for create.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup")]
-    public partial class ServerGroup : Pulumi.CustomResource
+    public partial class ServerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         }
     }
 
-    public sealed class ServerGroupArgs : Pulumi.ResourceArgs
+    public sealed class ServerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
@@ -357,5 +357,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public ServerGroupArgs()
         {
         }
+        public static new ServerGroupArgs Empty => new ServerGroupArgs();
     }
 }

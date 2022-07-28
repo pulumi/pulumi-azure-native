@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
     /// <summary>
     /// Http listener of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayHttpListenerArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayHttpListenerArgs : global::Pulumi.ResourceArgs
     {
         [Input("customErrorConfigurations")]
         private InputList<Inputs.ApplicationGatewayCustomErrorArgs>? _customErrorConfigurations;
@@ -90,5 +90,6 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
         public ApplicationGatewayHttpListenerArgs()
         {
         }
+        public static new ApplicationGatewayHttpListenerArgs Empty => new ApplicationGatewayHttpListenerArgs();
     }
 }

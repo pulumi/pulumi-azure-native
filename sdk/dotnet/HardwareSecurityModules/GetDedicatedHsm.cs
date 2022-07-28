@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     }
 
 
-    public sealed class GetDedicatedHsmArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHsmArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the dedicated HSM.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         public GetDedicatedHsmArgs()
         {
         }
+        public static new GetDedicatedHsmArgs Empty => new GetDedicatedHsmArgs();
     }
 
-    public sealed class GetDedicatedHsmInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHsmInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the dedicated HSM.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         public GetDedicatedHsmInvokeArgs()
         {
         }
+        public static new GetDedicatedHsmInvokeArgs Empty => new GetDedicatedHsmInvokeArgs();
     }
 
 

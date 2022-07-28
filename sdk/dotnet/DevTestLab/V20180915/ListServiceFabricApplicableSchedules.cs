@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     }
 
 
-    public sealed class ListServiceFabricApplicableSchedulesArgs : Pulumi.InvokeArgs
+    public sealed class ListServiceFabricApplicableSchedulesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public ListServiceFabricApplicableSchedulesArgs()
         {
         }
+        public static new ListServiceFabricApplicableSchedulesArgs Empty => new ListServiceFabricApplicableSchedulesArgs();
     }
 
-    public sealed class ListServiceFabricApplicableSchedulesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListServiceFabricApplicableSchedulesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public ListServiceFabricApplicableSchedulesInvokeArgs()
         {
         }
+        public static new ListServiceFabricApplicableSchedulesInvokeArgs Empty => new ListServiceFabricApplicableSchedulesInvokeArgs();
     }
 
 

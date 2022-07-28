@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview.Inputs
     /// <summary>
     /// Details of the Backend WebProxy Server to use in the Request to Backend.
     /// </summary>
-    public sealed class BackendProxyContractArgs : Pulumi.ResourceArgs
+    public sealed class BackendProxyContractArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password to connect to the WebProxy Server
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview.Inputs
         public BackendProxyContractArgs()
         {
         }
+        public static new BackendProxyContractArgs Empty => new BackendProxyContractArgs();
     }
 }

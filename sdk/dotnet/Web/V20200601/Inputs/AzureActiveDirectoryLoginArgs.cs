@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
-    public sealed class AzureActiveDirectoryLoginArgs : Pulumi.ResourceArgs
+    public sealed class AzureActiveDirectoryLoginArgs : global::Pulumi.ResourceArgs
     {
         [Input("disableWWWAuthenticate")]
         public Input<bool>? DisableWWWAuthenticate { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public AzureActiveDirectoryLoginArgs()
         {
         }
+        public static new AzureActiveDirectoryLoginArgs Empty => new AzureActiveDirectoryLoginArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview.Inputs
     /// <summary>
     /// Http message diagnostic settings.
     /// </summary>
-    public sealed class HttpMessageDiagnosticArgs : Pulumi.ResourceArgs
+    public sealed class HttpMessageDiagnosticArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Body logging settings.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview.Inputs
         public HttpMessageDiagnosticArgs()
         {
         }
+        public static new HttpMessageDiagnosticArgs Empty => new HttpMessageDiagnosticArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate
     /// API Version: 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:ImportCollector")]
-    public partial class ImportCollector : Pulumi.CustomResource
+    public partial class ImportCollector : global::Pulumi.CustomResource
     {
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001:ImportCollector"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:ImportCollector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Migrate
         }
     }
 
-    public sealed class ImportCollectorArgs : Pulumi.ResourceArgs
+    public sealed class ImportCollectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.Migrate
         public ImportCollectorArgs()
         {
         }
+        public static new ImportCollectorArgs Empty => new ImportCollectorArgs();
     }
 }

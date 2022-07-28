@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview.Inputs
     /// <summary>
     /// PCC rule QoS policy
     /// </summary>
-    public sealed class PccRuleQosPolicyArgs : Pulumi.ResourceArgs
+    public sealed class PccRuleQosPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
@@ -58,5 +58,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview.Inputs
             PreemptionCapability = "NotPreempt";
             PreemptionVulnerability = "Preemptable";
         }
+        public static new PccRuleQosPolicyArgs Empty => new PccRuleQosPolicyArgs();
     }
 }

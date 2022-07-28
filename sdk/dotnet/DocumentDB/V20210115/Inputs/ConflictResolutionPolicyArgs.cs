@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115.Inputs
     /// <summary>
     /// The conflict resolution policy for the container.
     /// </summary>
-    public sealed class ConflictResolutionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ConflictResolutionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The conflict resolution path in the case of LastWriterWins mode.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115.Inputs
         {
             Mode = "LastWriterWins";
         }
+        public static new ConflictResolutionPolicyArgs Empty => new ConflictResolutionPolicyArgs();
     }
 }

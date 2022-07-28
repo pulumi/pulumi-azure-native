@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
 {
 
-    public sealed class ResourceConcurrencyControlOptionArgs : Pulumi.ResourceArgs
+    public sealed class ResourceConcurrencyControlOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("policy")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20210501Preview.Policy>? Policy { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         public ResourceConcurrencyControlOptionArgs()
         {
         }
+        public static new ResourceConcurrencyControlOptionArgs Empty => new ResourceConcurrencyControlOptionArgs();
     }
 }

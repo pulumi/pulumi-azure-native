@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     }
 
 
-    public sealed class GetGlobalSchemaArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalSchemaArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public GetGlobalSchemaArgs()
         {
         }
+        public static new GetGlobalSchemaArgs Empty => new GetGlobalSchemaArgs();
     }
 
-    public sealed class GetGlobalSchemaInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalSchemaInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public GetGlobalSchemaInvokeArgs()
         {
         }
+        public static new GetGlobalSchemaInvokeArgs Empty => new GetGlobalSchemaInvokeArgs();
     }
 
 

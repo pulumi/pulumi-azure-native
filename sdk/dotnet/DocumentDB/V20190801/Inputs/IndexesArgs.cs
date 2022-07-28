@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801.Inputs
     /// <summary>
     /// The indexes for the path.
     /// </summary>
-    public sealed class IndexesArgs : Pulumi.ResourceArgs
+    public sealed class IndexesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The datatype for which the indexing behavior is applied to.
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801.Inputs
             DataType = "String";
             Kind = "Hash";
         }
+        public static new IndexesArgs Empty => new IndexesArgs();
     }
 }

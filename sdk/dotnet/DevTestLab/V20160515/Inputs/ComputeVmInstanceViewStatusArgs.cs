@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Status information about a virtual machine.
     /// </summary>
-    public sealed class ComputeVmInstanceViewStatusArgs : Pulumi.ResourceArgs
+    public sealed class ComputeVmInstanceViewStatusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the status Code.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public ComputeVmInstanceViewStatusArgs()
         {
         }
+        public static new ComputeVmInstanceViewStatusArgs Empty => new ComputeVmInstanceViewStatusArgs();
     }
 }

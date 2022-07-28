@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
     /// <summary>
     /// Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
     /// </summary>
-    public sealed class AdditionalUnattendContentArgs : Pulumi.ResourceArgs
+    public sealed class AdditionalUnattendContentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
         public AdditionalUnattendContentArgs()
         {
         }
+        public static new AdditionalUnattendContentArgs Empty => new AdditionalUnattendContentArgs();
     }
 }

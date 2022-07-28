@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// API Version: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Lab")]
-    public partial class Lab : Pulumi.CustomResource
+    public partial class Lab : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The properties of any lab announcement associated with this lab
@@ -187,9 +187,9 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Lab"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Lab"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Lab"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Lab"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Lab"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Lab"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -211,7 +211,7 @@ namespace Pulumi.AzureNative.DevTestLab
         }
     }
 
-    public sealed class LabArgs : Pulumi.ResourceArgs
+    public sealed class LabArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The properties of any lab announcement associated with this lab
@@ -315,5 +315,6 @@ namespace Pulumi.AzureNative.DevTestLab
         {
             LabStorageType = "Premium";
         }
+        public static new LabArgs Empty => new LabArgs();
     }
 }

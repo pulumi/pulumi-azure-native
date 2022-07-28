@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Inputs
     /// <summary>
     /// Properties of a project.
     /// </summary>
-    public sealed class ProjectPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ProjectPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Inputs
         public ProjectPropertiesArgs()
         {
         }
+        public static new ProjectPropertiesArgs Empty => new ProjectPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
     /// <summary>
     /// The filter expression to be used in the export.
     /// </summary>
-    public sealed class QueryFilterArgs : Pulumi.ResourceArgs
+    public sealed class QueryFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("and")]
         private InputList<Inputs.QueryFilterArgs>? _and;
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
         public QueryFilterArgs()
         {
         }
+        public static new QueryFilterArgs Empty => new QueryFilterArgs();
     }
 }

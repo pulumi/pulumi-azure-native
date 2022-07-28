@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StoragePool.Inputs
     /// <summary>
     /// Access Control List (ACL) for an iSCSI target portal group
     /// </summary>
-    public sealed class AclArgs : Pulumi.ResourceArgs
+    public sealed class AclArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.StoragePool.Inputs
         public AclArgs()
         {
         }
+        public static new AclArgs Empty => new AclArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20201001.Inputs
     /// <summary>
     /// Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
     /// </summary>
-    public sealed class ExpressionEvaluationOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ExpressionEvaluationOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The scope to be used for evaluation of parameters, variables and functions in a nested template.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Resources.V20201001.Inputs
         public ExpressionEvaluationOptionsArgs()
         {
         }
+        public static new ExpressionEvaluationOptionsArgs Empty => new ExpressionEvaluationOptionsArgs();
     }
 }

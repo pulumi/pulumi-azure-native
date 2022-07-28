@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// API Version: 2020-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:ResourcePool")]
-    public partial class ResourcePool : Pulumi.CustomResource
+    public partial class ResourcePool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
@@ -173,8 +173,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:ResourcePool"},
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:ResourcePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         }
     }
 
-    public sealed class ResourcePoolArgs : Pulumi.ResourceArgs
+    public sealed class ResourcePoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the extended location.
@@ -261,5 +261,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public ResourcePoolArgs()
         {
         }
+        public static new ResourcePoolArgs Empty => new ResourcePoolArgs();
     }
 }

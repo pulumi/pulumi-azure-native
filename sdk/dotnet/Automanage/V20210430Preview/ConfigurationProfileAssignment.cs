@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage/v20210430preview:ConfigurationProfileAssignment")]
-    public partial class ConfigurationProfileAssignment : Pulumi.CustomResource
+    public partial class ConfigurationProfileAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automanage:ConfigurationProfileAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:automanage/v20220504:ConfigurationProfileAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage:ConfigurationProfileAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20220504:ConfigurationProfileAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
         }
     }
 
-    public sealed class ConfigurationProfileAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the configuration profile assignment. Only default is supported.
@@ -117,5 +117,6 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
         public ConfigurationProfileAssignmentArgs()
         {
         }
+        public static new ConfigurationProfileAssignmentArgs Empty => new ConfigurationProfileAssignmentArgs();
     }
 }

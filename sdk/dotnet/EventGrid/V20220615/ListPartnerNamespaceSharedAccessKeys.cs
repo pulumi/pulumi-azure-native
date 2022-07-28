@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     }
 
 
-    public sealed class ListPartnerNamespaceSharedAccessKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListPartnerNamespaceSharedAccessKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the partner namespace.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         public ListPartnerNamespaceSharedAccessKeysArgs()
         {
         }
+        public static new ListPartnerNamespaceSharedAccessKeysArgs Empty => new ListPartnerNamespaceSharedAccessKeysArgs();
     }
 
-    public sealed class ListPartnerNamespaceSharedAccessKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListPartnerNamespaceSharedAccessKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the partner namespace.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         public ListPartnerNamespaceSharedAccessKeysInvokeArgs()
         {
         }
+        public static new ListPartnerNamespaceSharedAccessKeysInvokeArgs Empty => new ListPartnerNamespaceSharedAccessKeysInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// Represents information needed for cloning operation
     /// </summary>
-    public sealed class CloningInfoArgs : Pulumi.ResourceArgs
+    public sealed class CloningInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("appSettingsOverrides")]
         private InputMap<string>? _appSettingsOverrides;
@@ -89,5 +89,6 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public CloningInfoArgs()
         {
         }
+        public static new CloningInfoArgs Empty => new CloningInfoArgs();
     }
 }

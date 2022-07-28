@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501.Inputs
     /// <summary>
     /// The authentication info when authType is systemAssignedIdentity
     /// </summary>
-    public sealed class SystemAssignedIdentityAuthInfoArgs : Pulumi.ResourceArgs
+    public sealed class SystemAssignedIdentityAuthInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authentication type.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501.Inputs
         public SystemAssignedIdentityAuthInfoArgs()
         {
         }
+        public static new SystemAssignedIdentityAuthInfoArgs Empty => new SystemAssignedIdentityAuthInfoArgs();
     }
 }

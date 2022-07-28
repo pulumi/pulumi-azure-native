@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     }
 
 
-    public sealed class GetSAPDatabaseInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPDatabaseInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Database Instance string modeled as parameter for auto generation to work correctly.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public GetSAPDatabaseInstanceArgs()
         {
         }
+        public static new GetSAPDatabaseInstanceArgs Empty => new GetSAPDatabaseInstanceArgs();
     }
 
-    public sealed class GetSAPDatabaseInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPDatabaseInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Database Instance string modeled as parameter for auto generation to work correctly.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public GetSAPDatabaseInstanceInvokeArgs()
         {
         }
+        public static new GetSAPDatabaseInstanceInvokeArgs Empty => new GetSAPDatabaseInstanceInvokeArgs();
     }
 
 

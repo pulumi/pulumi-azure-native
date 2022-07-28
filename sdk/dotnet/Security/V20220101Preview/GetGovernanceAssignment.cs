@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     }
 
 
-    public sealed class GetGovernanceAssignmentArgs : Pulumi.InvokeArgs
+    public sealed class GetGovernanceAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Assessment Key - Unique key for the assessment type
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public GetGovernanceAssignmentArgs()
         {
         }
+        public static new GetGovernanceAssignmentArgs Empty => new GetGovernanceAssignmentArgs();
     }
 
-    public sealed class GetGovernanceAssignmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGovernanceAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Assessment Key - Unique key for the assessment type
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public GetGovernanceAssignmentInvokeArgs()
         {
         }
+        public static new GetGovernanceAssignmentInvokeArgs Empty => new GetGovernanceAssignmentInvokeArgs();
     }
 
 

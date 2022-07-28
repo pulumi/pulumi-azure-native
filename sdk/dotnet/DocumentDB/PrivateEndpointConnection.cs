@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB
     /// API Version: 2021-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Group id of the private endpoint.
@@ -77,21 +77,21 @@ namespace Pulumi.AzureNative.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.DocumentDB
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -160,5 +160,6 @@ namespace Pulumi.AzureNative.DocumentDB
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

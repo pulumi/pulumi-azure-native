@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20200301.Inputs
     /// <summary>
     /// Cache network settings.
     /// </summary>
-    public sealed class CacheNetworkSettingsArgs : Pulumi.ResourceArgs
+    public sealed class CacheNetworkSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IPv4 maximum transmission unit configured for the subnet.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.StorageCache.V20200301.Inputs
         {
             Mtu = 1500;
         }
+        public static new CacheNetworkSettingsArgs Empty => new CacheNetworkSettingsArgs();
     }
 }

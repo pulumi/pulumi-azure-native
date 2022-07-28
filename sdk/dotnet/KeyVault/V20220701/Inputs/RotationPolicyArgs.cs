@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20220701.Inputs
 {
 
-    public sealed class RotationPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RotationPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The attributes of key rotation policy.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.KeyVault.V20220701.Inputs
         public RotationPolicyArgs()
         {
         }
+        public static new RotationPolicyArgs Empty => new RotationPolicyArgs();
     }
 }

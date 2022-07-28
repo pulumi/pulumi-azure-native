@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
     /// <summary>
     /// Parameters to indicate the information about the restore.
     /// </summary>
-    public sealed class RestoreParametersArgs : Pulumi.ResourceArgs
+    public sealed class RestoreParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("databasesToRestore")]
         private InputList<Inputs.DatabaseRestoreResourceArgs>? _databasesToRestore;
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
         public RestoreParametersArgs()
         {
         }
+        public static new RestoreParametersArgs Empty => new RestoreParametersArgs();
     }
 }

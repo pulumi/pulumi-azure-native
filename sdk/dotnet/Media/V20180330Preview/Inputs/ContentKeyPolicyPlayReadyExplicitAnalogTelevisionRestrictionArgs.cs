@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
     /// </summary>
-    public sealed class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether this restriction is enforced on a Best Effort basis.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs()
         {
         }
+        public static new ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs Empty => new ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs();
     }
 }

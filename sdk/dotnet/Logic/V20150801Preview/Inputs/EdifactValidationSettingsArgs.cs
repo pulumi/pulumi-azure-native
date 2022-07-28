@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactValidationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EdifactValidationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to allow leading and trailing spaces and zeroes.
@@ -75,5 +75,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactValidationSettingsArgs()
         {
         }
+        public static new EdifactValidationSettingsArgs Empty => new EdifactValidationSettingsArgs();
     }
 }

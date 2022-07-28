@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
     /// The description of Fhir Service
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis/v20220131preview:FhirService")]
-    public partial class FhirService : Pulumi.CustomResource
+    public partial class FhirService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Fhir Service access policies.
@@ -154,10 +154,10 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis:FhirService"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:FhirService"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:FhirService"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:FhirService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:FhirService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:FhirService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:FhirService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:FhirService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -179,7 +179,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
         }
     }
 
-    public sealed class FhirServiceArgs : Pulumi.ResourceArgs
+    public sealed class FhirServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
         private InputList<Inputs.FhirServiceAccessPolicyEntryArgs>? _accessPolicies;
@@ -280,5 +280,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
         public FhirServiceArgs()
         {
         }
+        public static new FhirServiceArgs Empty => new FhirServiceArgs();
     }
 }

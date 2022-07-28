@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The dataset points to a HTML table in the web page.
     /// </summary>
-    public sealed class WebTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class WebTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public WebTableDatasetArgs()
         {
         }
+        public static new WebTableDatasetArgs Empty => new WebTableDatasetArgs();
     }
 }

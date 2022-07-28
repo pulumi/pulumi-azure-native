@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FirewallPolicy")]
-    public partial class FirewallPolicy : Pulumi.CustomResource
+    public partial class FirewallPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The parent firewall policy from which rules are inherited.
@@ -155,24 +155,24 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:FirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class FirewallPolicyArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parent firewall policy from which rules are inherited.
@@ -295,5 +295,6 @@ namespace Pulumi.AzureNative.Network
         public FirewallPolicyArgs()
         {
         }
+        public static new FirewallPolicyArgs Empty => new FirewallPolicyArgs();
     }
 }

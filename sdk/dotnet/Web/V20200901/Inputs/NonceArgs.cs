@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Inputs
 {
 
-    public sealed class NonceArgs : Pulumi.ResourceArgs
+    public sealed class NonceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public NonceArgs()
         {
         }
+        public static new NonceArgs Empty => new NonceArgs();
     }
 }

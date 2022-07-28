@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20210501.Inputs
     /// <summary>
     /// Preferences related to the order
     /// </summary>
-    public sealed class PreferencesArgs : Pulumi.ResourceArgs
+    public sealed class PreferencesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Preferences related to the Encryption.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DataBox.V20210501.Inputs
         public PreferencesArgs()
         {
         }
+        public static new PreferencesArgs Empty => new PreferencesArgs();
     }
 }

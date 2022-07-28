@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Media
     /// API Version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:ContentKeyPolicy")]
-    public partial class ContentKeyPolicy : Pulumi.CustomResource
+    public partial class ContentKeyPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the Policy
@@ -89,12 +89,12 @@ namespace Pulumi.AzureNative.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180701:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20200501:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20210601:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20211101:ContentKeyPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:ContentKeyPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:ContentKeyPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:ContentKeyPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:ContentKeyPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:ContentKeyPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:ContentKeyPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Media
         }
     }
 
-    public sealed class ContentKeyPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -157,5 +157,6 @@ namespace Pulumi.AzureNative.Media
         public ContentKeyPolicyArgs()
         {
         }
+        public static new ContentKeyPolicyArgs Empty => new ContentKeyPolicyArgs();
     }
 }

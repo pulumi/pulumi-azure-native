@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity source for SAP Cloud for Customer source.
     /// </summary>
-    public sealed class SapCloudForCustomerSourceArgs : Pulumi.ResourceArgs
+    public sealed class SapCloudForCustomerSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SAP Cloud for Customer OData query. For example, "$top=1". Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SapCloudForCustomerSourceArgs()
         {
         }
+        public static new SapCloudForCustomerSourceArgs Empty => new SapCloudForCustomerSourceArgs();
     }
 }

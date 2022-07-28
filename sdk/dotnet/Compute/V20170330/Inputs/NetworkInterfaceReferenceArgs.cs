@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
     /// <summary>
     /// Describes a network interface reference.
     /// </summary>
-    public sealed class NetworkInterfaceReferenceArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
         public NetworkInterfaceReferenceArgs()
         {
         }
+        public static new NetworkInterfaceReferenceArgs Empty => new NetworkInterfaceReferenceArgs();
     }
 }

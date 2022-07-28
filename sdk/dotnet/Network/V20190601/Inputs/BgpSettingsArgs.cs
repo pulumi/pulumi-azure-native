@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
     /// <summary>
     /// BGP settings details.
     /// </summary>
-    public sealed class BgpSettingsArgs : Pulumi.ResourceArgs
+    public sealed class BgpSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The BGP speaker's ASN.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
         public BgpSettingsArgs()
         {
         }
+        public static new BgpSettingsArgs Empty => new BgpSettingsArgs();
     }
 }

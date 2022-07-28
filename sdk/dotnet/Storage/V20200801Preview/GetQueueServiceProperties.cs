@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
     }
 
 
-    public sealed class GetQueueServicePropertiesArgs : Pulumi.InvokeArgs
+    public sealed class GetQueueServicePropertiesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
         public GetQueueServicePropertiesArgs()
         {
         }
+        public static new GetQueueServicePropertiesArgs Empty => new GetQueueServicePropertiesArgs();
     }
 
-    public sealed class GetQueueServicePropertiesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetQueueServicePropertiesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
         public GetQueueServicePropertiesInvokeArgs()
         {
         }
+        public static new GetQueueServicePropertiesInvokeArgs Empty => new GetQueueServicePropertiesInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Consent link definition
     /// </summary>
-    public sealed class ConsentLinkParameterDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ConsentLinkParameterDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AAD OID (user or group) if the principal type is ActiveDirectory. MSA PUID if the principal type is MicrosoftAccount
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         public ConsentLinkParameterDefinitionArgs()
         {
         }
+        public static new ConsentLinkParameterDefinitionArgs Empty => new ConsentLinkParameterDefinitionArgs();
     }
 }

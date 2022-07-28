@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
     /// Describes a Virtual Machine run command.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine")]
-    public partial class VirtualMachineRunCommandByVirtualMachine : Pulumi.CustomResource
+    public partial class VirtualMachineRunCommandByVirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
@@ -130,12 +130,12 @@ namespace Pulumi.AzureNative.Compute.V20210701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineRunCommandByVirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:VirtualMachineRunCommandByVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -157,7 +157,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
         }
     }
 
-    public sealed class VirtualMachineRunCommandByVirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineRunCommandByVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
@@ -265,5 +265,6 @@ namespace Pulumi.AzureNative.Compute.V20210701
         {
             AsyncExecution = false;
         }
+        public static new VirtualMachineRunCommandByVirtualMachineArgs Empty => new VirtualMachineRunCommandByVirtualMachineArgs();
     }
 }

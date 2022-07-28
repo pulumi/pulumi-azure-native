@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     }
 
 
-    public sealed class GetHostArgs : Pulumi.InvokeArgs
+    public sealed class GetHostArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the host.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public GetHostArgs()
         {
         }
+        public static new GetHostArgs Empty => new GetHostArgs();
     }
 
-    public sealed class GetHostInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHostInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the host.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public GetHostInvokeArgs()
         {
         }
+        public static new GetHostInvokeArgs Empty => new GetHostInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataProtection
     }
 
 
-    public sealed class GetBackupInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the backup instance
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.DataProtection
         public GetBackupInstanceArgs()
         {
         }
+        public static new GetBackupInstanceArgs Empty => new GetBackupInstanceArgs();
     }
 
-    public sealed class GetBackupInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the backup instance
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.DataProtection
         public GetBackupInstanceInvokeArgs()
         {
         }
+        public static new GetBackupInstanceInvokeArgs Empty => new GetBackupInstanceInvokeArgs();
     }
 
 

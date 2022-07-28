@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20150615.Inputs
     /// <summary>
     /// SSH configuration for Linux based VMs running on Azure
     /// </summary>
-    public sealed class SshConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SshConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("publicKeys")]
         private InputList<Inputs.SshPublicKeyArgs>? _publicKeys;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20150615.Inputs
         public SshConfigurationArgs()
         {
         }
+        public static new SshConfigurationArgs Empty => new SshConfigurationArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Media
     }
 
 
-    public sealed class GetJobArgs : Pulumi.InvokeArgs
+    public sealed class GetJobArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.Media
         public GetJobArgs()
         {
         }
+        public static new GetJobArgs Empty => new GetJobArgs();
     }
 
-    public sealed class GetJobInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetJobInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.Media
         public GetJobInvokeArgs()
         {
         }
+        public static new GetJobInvokeArgs Empty => new GetJobInvokeArgs();
     }
 
 

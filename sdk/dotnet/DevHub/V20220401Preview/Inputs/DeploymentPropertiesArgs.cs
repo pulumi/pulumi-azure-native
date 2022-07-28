@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevHub.V20220401Preview.Inputs
 {
 
-    public sealed class DeploymentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Helm chart directory path in repository.
@@ -53,5 +53,6 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview.Inputs
         public DeploymentPropertiesArgs()
         {
         }
+        public static new DeploymentPropertiesArgs Empty => new DeploymentPropertiesArgs();
     }
 }

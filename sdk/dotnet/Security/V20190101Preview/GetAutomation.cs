@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
     }
 
 
-    public sealed class GetAutomationArgs : Pulumi.InvokeArgs
+    public sealed class GetAutomationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The security automation name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         public GetAutomationArgs()
         {
         }
+        public static new GetAutomationArgs Empty => new GetAutomationArgs();
     }
 
-    public sealed class GetAutomationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAutomationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The security automation name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         public GetAutomationInvokeArgs()
         {
         }
+        public static new GetAutomationInvokeArgs Empty => new GetAutomationInvokeArgs();
     }
 
 

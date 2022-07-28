@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
-    public sealed class ApiConnectionDefinitionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ApiConnectionDefinitionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("api")]
         public Input<Inputs.ApiReferenceArgs>? Api { get; set; }
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         public ApiConnectionDefinitionPropertiesArgs()
         {
         }
+        public static new ApiConnectionDefinitionPropertiesArgs Empty => new ApiConnectionDefinitionPropertiesArgs();
     }
 }

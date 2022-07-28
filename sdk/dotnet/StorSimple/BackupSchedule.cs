@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorSimple
     /// API Version: 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:BackupSchedule")]
-    public partial class BackupSchedule : Pulumi.CustomResource
+    public partial class BackupSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The type of backup which needs to be taken.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:BackupSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple/v20170601:BackupSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.StorSimple
         }
     }
 
-    public sealed class BackupScheduleArgs : Pulumi.ResourceArgs
+    public sealed class BackupScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The backup policy name.
@@ -188,5 +188,6 @@ namespace Pulumi.AzureNative.StorSimple
         public BackupScheduleArgs()
         {
         }
+        public static new BackupScheduleArgs Empty => new BackupScheduleArgs();
     }
 }

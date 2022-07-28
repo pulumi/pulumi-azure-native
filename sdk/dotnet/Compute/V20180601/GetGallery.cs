@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Compute.V20180601
     }
 
 
-    public sealed class GetGalleryArgs : Pulumi.InvokeArgs
+    public sealed class GetGalleryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Shared Image Gallery.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Compute.V20180601
         public GetGalleryArgs()
         {
         }
+        public static new GetGalleryArgs Empty => new GetGalleryArgs();
     }
 
-    public sealed class GetGalleryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGalleryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Shared Image Gallery.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Compute.V20180601
         public GetGalleryInvokeArgs()
         {
         }
+        public static new GetGalleryInvokeArgs Empty => new GetGalleryInvokeArgs();
     }
 
 

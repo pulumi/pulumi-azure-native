@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Inputs
     /// <summary>
     /// The reference to the contact profile resource.
     /// </summary>
-    public sealed class ContactParametersContactProfile : Pulumi.InvokeArgs
+    public sealed class ContactParametersContactProfile : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Resource ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Inputs
         public ContactParametersContactProfile()
         {
         }
+        public static new ContactParametersContactProfile Empty => new ContactParametersContactProfile();
     }
 }

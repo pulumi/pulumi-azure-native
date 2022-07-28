@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
     /// Description of topic resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet")]
-    public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource
+    public partial class NamespaceNetworkRuleSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Default Action for Network Rule Set
@@ -88,12 +88,12 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventhub:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:NamespaceNetworkRuleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         }
     }
 
-    public sealed class NamespaceNetworkRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceNetworkRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default Action for Network Rule Set
@@ -175,5 +175,6 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         {
             PublicNetworkAccess = "Enabled";
         }
+        public static new NamespaceNetworkRuleSetArgs Empty => new NamespaceNetworkRuleSetArgs();
     }
 }

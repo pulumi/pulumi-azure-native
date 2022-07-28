@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
     /// <summary>
     /// Defines the parameters for the URL file extension condition.
     /// </summary>
-    public sealed class UrlFileExtensionConditionParametersArgs : Pulumi.ResourceArgs
+    public sealed class UrlFileExtensionConditionParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("extensions", required: true)]
         private InputList<string>? _extensions;
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
         public UrlFileExtensionConditionParametersArgs()
         {
         }
+        public static new UrlFileExtensionConditionParametersArgs Empty => new UrlFileExtensionConditionParametersArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     /// API Version: 2021-03-25-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:m365securityandcompliance:privateLinkServicesForEDMUpload")]
-    public partial class PrivateLinkServicesForEDMUpload : Pulumi.CustomResource
+    public partial class PrivateLinkServicesForEDMUpload : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForEDMUpload"},
+                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForEDMUpload"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         }
     }
 
-    public sealed class PrivateLinkServicesForEDMUploadArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServicesForEDMUploadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
@@ -170,5 +170,6 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         public PrivateLinkServicesForEDMUploadArgs()
         {
         }
+        public static new PrivateLinkServicesForEDMUploadArgs Empty => new PrivateLinkServicesForEDMUploadArgs();
     }
 }

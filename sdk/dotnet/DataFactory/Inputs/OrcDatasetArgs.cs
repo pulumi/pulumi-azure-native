@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// ORC dataset.
     /// </summary>
-    public sealed class OrcDatasetArgs : Pulumi.ResourceArgs
+    public sealed class OrcDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public OrcDatasetArgs()
         {
         }
+        public static new OrcDatasetArgs Empty => new OrcDatasetArgs();
     }
 }

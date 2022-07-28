@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
 
-    public sealed class GetServiceRegistryArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceRegistryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.AppPlatform
         public GetServiceRegistryArgs()
         {
         }
+        public static new GetServiceRegistryArgs Empty => new GetServiceRegistryArgs();
     }
 
-    public sealed class GetServiceRegistryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceRegistryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.AppPlatform
         public GetServiceRegistryInvokeArgs()
         {
         }
+        public static new GetServiceRegistryInvokeArgs Empty => new GetServiceRegistryInvokeArgs();
     }
 
 

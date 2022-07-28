@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Application gateway client authentication configuration.
     /// </summary>
-    public sealed class ApplicationGatewayClientAuthConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayClientAuthConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Verify client certificate issuer name on the application gateway.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public ApplicationGatewayClientAuthConfigurationArgs()
         {
         }
+        public static new ApplicationGatewayClientAuthConfigurationArgs Empty => new ApplicationGatewayClientAuthConfigurationArgs();
     }
 }

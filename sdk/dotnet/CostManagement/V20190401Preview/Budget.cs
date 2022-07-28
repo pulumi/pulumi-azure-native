@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190401Preview
     /// A budget resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20190401preview:Budget")]
-    public partial class Budget : Pulumi.CustomResource
+    public partial class Budget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The total amount of cost to track with the budget
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190401Preview
         }
     }
 
-    public sealed class BudgetArgs : Pulumi.ResourceArgs
+    public sealed class BudgetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total amount of cost to track with the budget
@@ -183,5 +183,6 @@ namespace Pulumi.AzureNative.CostManagement.V20190401Preview
         public BudgetArgs()
         {
         }
+        public static new BudgetArgs Empty => new BudgetArgs();
     }
 }

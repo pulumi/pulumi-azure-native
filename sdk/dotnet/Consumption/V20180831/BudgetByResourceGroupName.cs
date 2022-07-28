@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Consumption.V20180831
     /// </summary>
     [Obsolete(@"Version 2018-08-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:consumption/v20180831:BudgetByResourceGroupName")]
-    public partial class BudgetByResourceGroupName : Pulumi.CustomResource
+    public partial class BudgetByResourceGroupName : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The total amount of cost to track with the budget
@@ -101,10 +101,10 @@ namespace Pulumi.AzureNative.Consumption.V20180831
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20180131:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20180331:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20180630:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20181001:BudgetByResourceGroupName"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20180131:BudgetByResourceGroupName"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20180331:BudgetByResourceGroupName"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20180630:BudgetByResourceGroupName"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20181001:BudgetByResourceGroupName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Consumption.V20180831
         }
     }
 
-    public sealed class BudgetByResourceGroupNameArgs : Pulumi.ResourceArgs
+    public sealed class BudgetByResourceGroupNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total amount of cost to track with the budget
@@ -191,5 +191,6 @@ namespace Pulumi.AzureNative.Consumption.V20180831
         public BudgetByResourceGroupNameArgs()
         {
         }
+        public static new BudgetByResourceGroupNameArgs Empty => new BudgetByResourceGroupNameArgs();
     }
 }

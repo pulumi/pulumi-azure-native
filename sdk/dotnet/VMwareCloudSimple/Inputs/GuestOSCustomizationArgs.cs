@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.Inputs
     /// <summary>
     /// Guest OS Customization properties
     /// </summary>
-    public sealed class GuestOSCustomizationArgs : Pulumi.ResourceArgs
+    public sealed class GuestOSCustomizationArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.Inputs
         public GuestOSCustomizationArgs()
         {
         }
+        public static new GuestOSCustomizationArgs Empty => new GuestOSCustomizationArgs();
     }
 }

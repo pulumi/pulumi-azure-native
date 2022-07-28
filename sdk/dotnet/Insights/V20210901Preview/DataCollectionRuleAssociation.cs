@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
     /// Definition of generic ARM proxy resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20210901preview:DataCollectionRuleAssociation")]
-    public partial class DataCollectionRuleAssociation : Pulumi.CustomResource
+    public partial class DataCollectionRuleAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource ID of the data collection endpoint that is to be associated.
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights:DataCollectionRuleAssociation"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRuleAssociation"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionRuleAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:DataCollectionRuleAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRuleAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionRuleAssociation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
         }
     }
 
-    public sealed class DataCollectionRuleAssociationArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the association. The name is case insensitive.
@@ -153,5 +153,6 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
         public DataCollectionRuleAssociationArgs()
         {
         }
+        public static new DataCollectionRuleAssociationArgs Empty => new DataCollectionRuleAssociationArgs();
     }
 }

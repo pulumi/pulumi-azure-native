@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp.V20200501
     /// </summary>
     [Obsolete(@"Version 2020-05-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:netapp/v20200501:Backup")]
-    public partial class Backup : Pulumi.CustomResource
+    public partial class Backup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type of backup Manual or Scheduled
@@ -89,20 +89,20 @@ namespace Pulumi.AzureNative.NetApp.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:netapp:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210201:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210601:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210801:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20211001:Backup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20220101:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200601:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200701:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200801:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20200901:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201101:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Backup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.NetApp.V20200501
         }
     }
 
-    public sealed class BackupArgs : Pulumi.ResourceArgs
+    public sealed class BackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -171,5 +171,6 @@ namespace Pulumi.AzureNative.NetApp.V20200501
         public BackupArgs()
         {
         }
+        public static new BackupArgs Empty => new BackupArgs();
     }
 }

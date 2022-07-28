@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20220601.Inputs
 {
 
-    public sealed class PoolEndpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PoolEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("inboundNatPools", required: true)]
         private InputList<Inputs.InboundNatPoolArgs>? _inboundNatPools;
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public PoolEndpointConfigurationArgs()
         {
         }
+        public static new PoolEndpointConfigurationArgs Empty => new PoolEndpointConfigurationArgs();
     }
 }

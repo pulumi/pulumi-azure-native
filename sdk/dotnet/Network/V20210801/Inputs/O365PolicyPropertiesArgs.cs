@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// The Office365 breakout policy.
     /// </summary>
-    public sealed class O365PolicyPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class O365PolicyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Office365 breakout categories.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public O365PolicyPropertiesArgs()
         {
         }
+        public static new O365PolicyPropertiesArgs Empty => new O365PolicyPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
     /// <summary>
     /// Enables IIS logs to be collected by this data collection rule.
     /// </summary>
-    public sealed class IisLogsDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class IisLogsDataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("logDirectories")]
         private InputList<string>? _logDirectories;
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
         public IisLogsDataSourceArgs()
         {
         }
+        public static new IisLogsDataSourceArgs Empty => new IisLogsDataSourceArgs();
     }
 }

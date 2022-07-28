@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Media
     }
 
 
-    public sealed class ListStreamingLocatorPathsArgs : Pulumi.InvokeArgs
+    public sealed class ListStreamingLocatorPathsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Media
         public ListStreamingLocatorPathsArgs()
         {
         }
+        public static new ListStreamingLocatorPathsArgs Empty => new ListStreamingLocatorPathsArgs();
     }
 
-    public sealed class ListStreamingLocatorPathsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListStreamingLocatorPathsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Media
         public ListStreamingLocatorPathsInvokeArgs()
         {
         }
+        public static new ListStreamingLocatorPathsInvokeArgs Empty => new ListStreamingLocatorPathsInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Subscription.V20211001.Inputs
     /// <summary>
     /// Put subscription properties.
     /// </summary>
-    public sealed class PutAliasRequestPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PutAliasRequestPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Put alias request additional properties.
@@ -57,5 +57,6 @@ namespace Pulumi.AzureNative.Subscription.V20211001.Inputs
         public PutAliasRequestPropertiesArgs()
         {
         }
+        public static new PutAliasRequestPropertiesArgs Empty => new PutAliasRequestPropertiesArgs();
     }
 }

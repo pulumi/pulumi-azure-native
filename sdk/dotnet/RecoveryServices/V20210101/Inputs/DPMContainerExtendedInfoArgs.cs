@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
     /// <summary>
     /// Additional information of the DPMContainer.
     /// </summary>
-    public sealed class DPMContainerExtendedInfoArgs : Pulumi.ResourceArgs
+    public sealed class DPMContainerExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Last refresh time of the DPMContainer.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
         public DPMContainerExtendedInfoArgs()
         {
         }
+        public static new DPMContainerExtendedInfoArgs Empty => new DPMContainerExtendedInfoArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
     /// <summary>
     /// Describe the request properties needed to successfully pull from the server
     /// </summary>
-    public sealed class CodelessConnectorPollingRequestPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CodelessConnectorPollingRequestPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe the endpoint we should pull the data from
@@ -90,5 +90,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public CodelessConnectorPollingRequestPropertiesArgs()
         {
         }
+        public static new CodelessConnectorPollingRequestPropertiesArgs Empty => new CodelessConnectorPollingRequestPropertiesArgs();
     }
 }

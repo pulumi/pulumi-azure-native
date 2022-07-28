@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Custom activity type.
     /// </summary>
-    public sealed class CustomActivityArgs : Pulumi.ResourceArgs
+    public sealed class CustomActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Command for custom activity Type: string (or Expression with resultType string).
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public CustomActivityArgs()
         {
         }
+        public static new CustomActivityArgs Empty => new CustomActivityArgs();
     }
 }

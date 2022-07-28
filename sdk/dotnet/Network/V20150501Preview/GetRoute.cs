@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
     }
 
 
-    public sealed class GetRouteArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public GetRouteArgs()
         {
         }
+        public static new GetRouteArgs Empty => new GetRouteArgs();
     }
 
-    public sealed class GetRouteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public GetRouteInvokeArgs()
         {
         }
+        public static new GetRouteInvokeArgs Empty => new GetRouteInvokeArgs();
     }
 
 

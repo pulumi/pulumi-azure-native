@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
     /// <summary>
     /// The settings to enable AAD authentication on the cluster.
     /// </summary>
-    public sealed class AzureActiveDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class AzureActiveDirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure active directory client application id.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
         public AzureActiveDirectoryArgs()
         {
         }
+        public static new AzureActiveDirectoryArgs Empty => new AzureActiveDirectoryArgs();
     }
 }

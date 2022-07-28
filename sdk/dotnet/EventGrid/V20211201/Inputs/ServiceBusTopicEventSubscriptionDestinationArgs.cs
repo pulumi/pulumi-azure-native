@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211201.Inputs
     /// <summary>
     /// Information about the service bus topic destination for an event subscription.
     /// </summary>
-    public sealed class ServiceBusTopicEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceBusTopicEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("deliveryAttributeMappings")]
         private InputList<Union<Inputs.DynamicDeliveryAttributeMappingArgs, Inputs.StaticDeliveryAttributeMappingArgs>>? _deliveryAttributeMappings;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.EventGrid.V20211201.Inputs
         public ServiceBusTopicEventSubscriptionDestinationArgs()
         {
         }
+        public static new ServiceBusTopicEventSubscriptionDestinationArgs Empty => new ServiceBusTopicEventSubscriptionDestinationArgs();
     }
 }

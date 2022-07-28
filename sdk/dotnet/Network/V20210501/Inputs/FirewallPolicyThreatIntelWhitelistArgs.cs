@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// ThreatIntel Whitelist for Firewall Policy.
     /// </summary>
-    public sealed class FirewallPolicyThreatIntelWhitelistArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyThreatIntelWhitelistArgs : global::Pulumi.ResourceArgs
     {
         [Input("fqdns")]
         private InputList<string>? _fqdns;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public FirewallPolicyThreatIntelWhitelistArgs()
         {
         }
+        public static new FirewallPolicyThreatIntelWhitelistArgs Empty => new FirewallPolicyThreatIntelWhitelistArgs();
     }
 }

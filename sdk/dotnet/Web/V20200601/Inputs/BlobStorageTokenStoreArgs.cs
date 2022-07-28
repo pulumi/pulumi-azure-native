@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
-    public sealed class BlobStorageTokenStoreArgs : Pulumi.ResourceArgs
+    public sealed class BlobStorageTokenStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public BlobStorageTokenStoreArgs()
         {
         }
+        public static new BlobStorageTokenStoreArgs Empty => new BlobStorageTokenStoreArgs();
     }
 }

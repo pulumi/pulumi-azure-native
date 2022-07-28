@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.Inputs
     /// <summary>
     /// Specify either the userName or autoUser property, but not both.
     /// </summary>
-    public sealed class UserIdentityArgs : Pulumi.ResourceArgs
+    public sealed class UserIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The userName and autoUser properties are mutually exclusive; you must specify one but not both.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Batch.Inputs
         public UserIdentityArgs()
         {
         }
+        public static new UserIdentityArgs Empty => new UserIdentityArgs();
     }
 }

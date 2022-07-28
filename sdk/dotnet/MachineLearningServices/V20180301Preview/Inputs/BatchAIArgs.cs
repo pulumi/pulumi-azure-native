@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Inputs
     /// <summary>
     /// A Machine Learning compute based on Azure BatchAI.
     /// </summary>
-    public sealed class BatchAIArgs : Pulumi.ResourceArgs
+    public sealed class BatchAIArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location for the underlying compute
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Inputs
         public BatchAIArgs()
         {
         }
+        public static new BatchAIArgs Empty => new BatchAIArgs();
     }
 }

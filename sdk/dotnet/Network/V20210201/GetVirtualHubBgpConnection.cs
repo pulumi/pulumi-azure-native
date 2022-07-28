@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210201
     }
 
 
-    public sealed class GetVirtualHubBgpConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualHubBgpConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connection.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20210201
         public GetVirtualHubBgpConnectionArgs()
         {
         }
+        public static new GetVirtualHubBgpConnectionArgs Empty => new GetVirtualHubBgpConnectionArgs();
     }
 
-    public sealed class GetVirtualHubBgpConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualHubBgpConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connection.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20210201
         public GetVirtualHubBgpConnectionInvokeArgs()
         {
         }
+        public static new GetVirtualHubBgpConnectionInvokeArgs Empty => new GetVirtualHubBgpConnectionInvokeArgs();
     }
 
 

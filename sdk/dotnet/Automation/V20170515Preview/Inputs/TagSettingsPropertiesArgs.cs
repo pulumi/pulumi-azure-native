@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview.Inputs
     /// <summary>
     /// Tag filter information for the VM.
     /// </summary>
-    public sealed class TagSettingsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TagSettingsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Filter VMs by Any or All specified tags.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview.Inputs
         public TagSettingsPropertiesArgs()
         {
         }
+        public static new TagSettingsPropertiesArgs Empty => new TagSettingsPropertiesArgs();
     }
 }

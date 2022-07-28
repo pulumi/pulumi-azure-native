@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     }
 
 
-    public sealed class GetVirtualHubArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualHubArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VirtualHub.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetVirtualHubArgs()
         {
         }
+        public static new GetVirtualHubArgs Empty => new GetVirtualHubArgs();
     }
 
-    public sealed class GetVirtualHubInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualHubInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VirtualHub.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetVirtualHubInvokeArgs()
         {
         }
+        public static new GetVirtualHubInvokeArgs Empty => new GetVirtualHubInvokeArgs();
     }
 
 

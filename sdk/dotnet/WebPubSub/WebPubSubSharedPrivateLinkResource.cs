@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.WebPubSub
     /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubSharedPrivateLinkResource")]
-    public partial class WebPubSubSharedPrivateLinkResource : Pulumi.CustomResource
+    public partial class WebPubSubSharedPrivateLinkResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The group id from the provider of resource the shared private link resource is for
@@ -89,10 +89,10 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource"},
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource"},
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource"},
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.WebPubSub
         }
     }
 
-    public sealed class WebPubSubSharedPrivateLinkResourceArgs : Pulumi.ResourceArgs
+    public sealed class WebPubSubSharedPrivateLinkResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The group id from the provider of resource the shared private link resource is for
@@ -155,5 +155,6 @@ namespace Pulumi.AzureNative.WebPubSub
         public WebPubSubSharedPrivateLinkResourceArgs()
         {
         }
+        public static new WebPubSubSharedPrivateLinkResourceArgs Empty => new WebPubSubSharedPrivateLinkResourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
     /// The top level Workspace resource container.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20211201preview:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Workspace creation date.
@@ -154,12 +154,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
@@ -270,5 +270,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

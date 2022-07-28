@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
     }
 
 
-    public sealed class GetMachineArgs : Pulumi.InvokeArgs
+    public sealed class GetMachineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
         public GetMachineArgs()
         {
         }
+        public static new GetMachineArgs Empty => new GetMachineArgs();
     }
 
-    public sealed class GetMachineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMachineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
         public GetMachineInvokeArgs()
         {
         }
+        public static new GetMachineInvokeArgs Empty => new GetMachineInvokeArgs();
     }
 
 

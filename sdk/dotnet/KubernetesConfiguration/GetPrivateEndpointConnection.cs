@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     }
 
 
-    public sealed class GetPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public GetPrivateEndpointConnectionArgs()
         {
         }
+        public static new GetPrivateEndpointConnectionArgs Empty => new GetPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public GetPrivateEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetPrivateEndpointConnectionInvokeArgs Empty => new GetPrivateEndpointConnectionInvokeArgs();
     }
 
 

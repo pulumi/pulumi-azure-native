@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
     /// <summary>
     /// Configuration for auto scaling.
     /// </summary>
-    public sealed class ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Minimum and maximum number of scale units to deploy.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
         public ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs()
         {
         }
+        public static new ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs Empty => new ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs();
     }
 }

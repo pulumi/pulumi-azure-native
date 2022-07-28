@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Document Database Collection source.
     /// </summary>
-    public sealed class DocumentDbCollectionSourceArgs : Pulumi.ResourceArgs
+    public sealed class DocumentDbCollectionSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Nested properties separator. Type: string (or Expression with resultType string).
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public DocumentDbCollectionSourceArgs()
         {
         }
+        public static new DocumentDbCollectionSourceArgs Empty => new DocumentDbCollectionSourceArgs();
     }
 }

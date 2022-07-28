@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the parameters for HostName match conditions
     /// </summary>
-    public sealed class HostNameMatchConditionParametersArgs : Pulumi.ResourceArgs
+    public sealed class HostNameMatchConditionParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -57,5 +57,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public HostNameMatchConditionParametersArgs()
         {
         }
+        public static new HostNameMatchConditionParametersArgs Empty => new HostNameMatchConditionParametersArgs();
     }
 }

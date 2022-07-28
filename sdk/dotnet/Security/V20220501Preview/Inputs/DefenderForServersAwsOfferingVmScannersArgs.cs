@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The Microsoft Defender for Server VM scanning configuration
     /// </summary>
-    public sealed class DefenderForServersAwsOfferingVmScannersArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForServersAwsOfferingVmScannersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// configuration for Microsoft Defender for Server VM scanning
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForServersAwsOfferingVmScannersArgs()
         {
         }
+        public static new DefenderForServersAwsOfferingVmScannersArgs Empty => new DefenderForServersAwsOfferingVmScannersArgs();
     }
 }

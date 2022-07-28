@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
     /// Represents a server firewall rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule")]
-    public partial class FirewallRule : Pulumi.CustomResource
+    public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
@@ -64,12 +64,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210615privatepreview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210615privatepreview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         }
     }
 
-    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         public FirewallRuleArgs()
         {
         }
+        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 }

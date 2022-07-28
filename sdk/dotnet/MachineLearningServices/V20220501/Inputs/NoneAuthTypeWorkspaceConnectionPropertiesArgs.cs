@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
 {
 
-    public sealed class NoneAuthTypeWorkspaceConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class NoneAuthTypeWorkspaceConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication type of the connection target
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public NoneAuthTypeWorkspaceConnectionPropertiesArgs()
         {
         }
+        public static new NoneAuthTypeWorkspaceConnectionPropertiesArgs Empty => new NoneAuthTypeWorkspaceConnectionPropertiesArgs();
     }
 }

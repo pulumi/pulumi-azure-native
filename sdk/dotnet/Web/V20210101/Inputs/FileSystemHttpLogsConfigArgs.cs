@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// Http logs to file system configuration.
     /// </summary>
-    public sealed class FileSystemHttpLogsConfigArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemHttpLogsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -40,5 +40,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public FileSystemHttpLogsConfigArgs()
         {
         }
+        public static new FileSystemHttpLogsConfigArgs Empty => new FileSystemHttpLogsConfigArgs();
     }
 }

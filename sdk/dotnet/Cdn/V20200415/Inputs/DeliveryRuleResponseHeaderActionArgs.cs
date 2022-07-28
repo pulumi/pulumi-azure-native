@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
     /// <summary>
     /// Defines the response header action for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleResponseHeaderActionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleResponseHeaderActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
         public DeliveryRuleResponseHeaderActionArgs()
         {
         }
+        public static new DeliveryRuleResponseHeaderActionArgs Empty => new DeliveryRuleResponseHeaderActionArgs();
     }
 }

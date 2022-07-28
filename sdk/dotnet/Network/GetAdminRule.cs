@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetAdminRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetAdminRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager security Configuration.
@@ -63,9 +63,10 @@ namespace Pulumi.AzureNative.Network
         public GetAdminRuleArgs()
         {
         }
+        public static new GetAdminRuleArgs Empty => new GetAdminRuleArgs();
     }
 
-    public sealed class GetAdminRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAdminRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager security Configuration.
@@ -100,6 +101,7 @@ namespace Pulumi.AzureNative.Network
         public GetAdminRuleInvokeArgs()
         {
         }
+        public static new GetAdminRuleInvokeArgs Empty => new GetAdminRuleInvokeArgs();
     }
 
 

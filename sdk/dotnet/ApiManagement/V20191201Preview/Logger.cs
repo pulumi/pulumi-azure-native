@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
     /// Logger details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20191201preview:Logger")]
-    public partial class Logger : Pulumi.CustomResource
+    public partial class Logger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name and SendRule connection string of the event hub for azureEventHub logger.
@@ -83,20 +83,20 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Logger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Logger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         }
     }
 
-    public sealed class LoggerArgs : Pulumi.ResourceArgs
+    public sealed class LoggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("credentials", required: true)]
         private InputMap<string>? _credentials;
@@ -178,5 +178,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public LoggerArgs()
         {
         }
+        public static new LoggerArgs Empty => new LoggerArgs();
     }
 }

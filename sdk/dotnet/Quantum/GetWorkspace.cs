@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Quantum
     }
 
 
-    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Quantum
         public GetWorkspaceArgs()
         {
         }
+        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Quantum
         public GetWorkspaceInvokeArgs()
         {
         }
+        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

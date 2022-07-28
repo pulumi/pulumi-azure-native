@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801.Inputs
     /// <summary>
     /// Create keyVault contract details.
     /// </summary>
-    public sealed class KeyVaultContractCreatePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultContractCreatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801.Inputs
         public KeyVaultContractCreatePropertiesArgs()
         {
         }
+        public static new KeyVaultContractCreatePropertiesArgs Empty => new KeyVaultContractCreatePropertiesArgs();
     }
 }

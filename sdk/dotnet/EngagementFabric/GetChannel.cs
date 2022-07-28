@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EngagementFabric
     }
 
 
-    public sealed class GetChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Account Name
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.EngagementFabric
         public GetChannelArgs()
         {
         }
+        public static new GetChannelArgs Empty => new GetChannelArgs();
     }
 
-    public sealed class GetChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Account Name
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.EngagementFabric
         public GetChannelInvokeArgs()
         {
         }
+        public static new GetChannelInvokeArgs Empty => new GetChannelInvokeArgs();
     }
 
 

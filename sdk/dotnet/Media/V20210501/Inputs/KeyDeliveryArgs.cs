@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210501.Inputs
 {
 
-    public sealed class KeyDeliveryArgs : Pulumi.ResourceArgs
+    public sealed class KeyDeliveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access control properties for Key Delivery.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Media.V20210501.Inputs
         public KeyDeliveryArgs()
         {
         }
+        public static new KeyDeliveryArgs Empty => new KeyDeliveryArgs();
     }
 }

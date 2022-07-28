@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
     /// <summary>
     /// Description of a SKU for a scalable resource.
     /// </summary>
-    public sealed class SkuDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class SkuDescriptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("capabilities")]
         private InputList<Inputs.CapabilityArgs>? _capabilities;
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public SkuDescriptionArgs()
         {
         }
+        public static new SkuDescriptionArgs Empty => new SkuDescriptionArgs();
     }
 }

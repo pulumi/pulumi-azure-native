@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
     /// <summary>
     /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
     /// </summary>
-    public sealed class PlanArgs : Pulumi.ResourceArgs
+    public sealed class PlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The plan ID.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
         public PlanArgs()
         {
         }
+        public static new PlanArgs Empty => new PlanArgs();
     }
 }

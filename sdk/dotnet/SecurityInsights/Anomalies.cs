@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Anomalies")]
-    public partial class Anomalies : Pulumi.CustomResource
+    public partial class Anomalies : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -85,15 +85,15 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Anomalies"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Anomalies"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Anomalies"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Anomalies"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Anomalies"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Anomalies"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Anomalies"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Anomalies"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Anomalies"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Anomalies"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Anomalies"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Anomalies"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Anomalies"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Anomalies"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Anomalies"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Anomalies"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Anomalies"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Anomalies"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class AnomaliesArgs : Pulumi.ResourceArgs
+    public sealed class AnomaliesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kind of the setting
@@ -151,5 +151,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public AnomaliesArgs()
         {
         }
+        public static new AnomaliesArgs Empty => new AnomaliesArgs();
     }
 }

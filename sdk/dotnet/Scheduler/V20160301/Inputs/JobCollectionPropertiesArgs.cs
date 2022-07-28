@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.V20160301.Inputs
 {
 
-    public sealed class JobCollectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class JobCollectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the job collection quota.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Scheduler.V20160301.Inputs
         public JobCollectionPropertiesArgs()
         {
         }
+        public static new JobCollectionPropertiesArgs Empty => new JobCollectionPropertiesArgs();
     }
 }

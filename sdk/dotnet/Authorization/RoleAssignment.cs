@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Authorization
     /// API Version: 2020-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleAssignment")]
-    public partial class RoleAssignment : Pulumi.CustomResource
+    public partial class RoleAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
@@ -125,14 +125,14 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20171001preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20180101preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20180901preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20200401preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20200801preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20201001preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20171001preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180101preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180901preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200401preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200801preview:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20201001preview:RoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Authorization
         }
     }
 
-    public sealed class RoleAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class RoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
@@ -214,5 +214,6 @@ namespace Pulumi.AzureNative.Authorization
         {
             PrincipalType = "User";
         }
+        public static new RoleAssignmentArgs Empty => new RoleAssignmentArgs();
     }
 }

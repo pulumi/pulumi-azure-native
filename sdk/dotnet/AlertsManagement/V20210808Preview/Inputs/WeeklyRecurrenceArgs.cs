@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
     /// <summary>
     /// Weekly recurrence object.
     /// </summary>
-    public sealed class WeeklyRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class WeeklyRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfWeek", required: true)]
         private InputList<Union<string, Pulumi.AzureNative.AlertsManagement.V20210808Preview.DaysOfWeek>>? _daysOfWeek;
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
         public WeeklyRecurrenceArgs()
         {
         }
+        public static new WeeklyRecurrenceArgs Empty => new WeeklyRecurrenceArgs();
     }
 }

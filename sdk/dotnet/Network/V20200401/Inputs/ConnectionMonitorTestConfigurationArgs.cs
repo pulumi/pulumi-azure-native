@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Describes a connection monitor test configuration.
     /// </summary>
-    public sealed class ConnectionMonitorTestConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorTestConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parameters used to perform test evaluation over HTTP.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public ConnectionMonitorTestConfigurationArgs()
         {
         }
+        public static new ConnectionMonitorTestConfigurationArgs Empty => new ConnectionMonitorTestConfigurationArgs();
     }
 }

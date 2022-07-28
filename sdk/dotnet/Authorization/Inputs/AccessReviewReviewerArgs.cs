@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.Inputs
     /// <summary>
     /// Descriptor for what needs to be reviewed
     /// </summary>
-    public sealed class AccessReviewReviewerArgs : Pulumi.ResourceArgs
+    public sealed class AccessReviewReviewerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the reviewer(user/servicePrincipal)
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Authorization.Inputs
         public AccessReviewReviewerArgs()
         {
         }
+        public static new AccessReviewReviewerArgs Empty => new AccessReviewReviewerArgs();
     }
 }

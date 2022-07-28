@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Information about a Linux OS.
     /// </summary>
-    public sealed class LinuxOsInfoArgs : Pulumi.ResourceArgs
+    public sealed class LinuxOsInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public LinuxOsInfoArgs()
         {
         }
+        public static new LinuxOsInfoArgs Empty => new LinuxOsInfoArgs();
     }
 }

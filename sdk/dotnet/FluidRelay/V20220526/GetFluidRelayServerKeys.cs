@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.FluidRelay.V20220526
     }
 
 
-    public sealed class GetFluidRelayServerKeysArgs : Pulumi.InvokeArgs
+    public sealed class GetFluidRelayServerKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Fluid Relay server resource name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.FluidRelay.V20220526
         public GetFluidRelayServerKeysArgs()
         {
         }
+        public static new GetFluidRelayServerKeysArgs Empty => new GetFluidRelayServerKeysArgs();
     }
 
-    public sealed class GetFluidRelayServerKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFluidRelayServerKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Fluid Relay server resource name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.FluidRelay.V20220526
         public GetFluidRelayServerKeysInvokeArgs()
         {
         }
+        public static new GetFluidRelayServerKeysInvokeArgs Empty => new GetFluidRelayServerKeysInvokeArgs();
     }
 
 

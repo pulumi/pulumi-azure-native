@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20210901.Inputs
 {
 
-    public sealed class EncryptionPropertyArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key vault properties.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210901.Inputs
         public EncryptionPropertyArgs()
         {
         }
+        public static new EncryptionPropertyArgs Empty => new EncryptionPropertyArgs();
     }
 }

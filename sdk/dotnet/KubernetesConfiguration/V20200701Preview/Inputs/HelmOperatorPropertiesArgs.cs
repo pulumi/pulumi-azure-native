@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview.Inputs
     /// <summary>
     /// Properties for Helm operator.
     /// </summary>
-    public sealed class HelmOperatorPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class HelmOperatorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Values override for the operator Helm chart.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview.Inputs
         public HelmOperatorPropertiesArgs()
         {
         }
+        public static new HelmOperatorPropertiesArgs Empty => new HelmOperatorPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Linked service for SAP ERP Central Component(SAP ECC).
     /// </summary>
-    public sealed class SapEccLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class SapEccLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SapEccLinkedServiceArgs()
         {
         }
+        public static new SapEccLinkedServiceArgs Empty => new SapEccLinkedServiceArgs();
     }
 }

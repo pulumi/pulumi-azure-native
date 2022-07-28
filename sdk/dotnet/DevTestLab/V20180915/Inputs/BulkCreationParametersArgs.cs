@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
     /// <summary>
     /// Parameters for creating multiple virtual machines as a single action.
     /// </summary>
-    public sealed class BulkCreationParametersArgs : Pulumi.ResourceArgs
+    public sealed class BulkCreationParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of virtual machine instances to create.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
         public BulkCreationParametersArgs()
         {
         }
+        public static new BulkCreationParametersArgs Empty => new BulkCreationParametersArgs();
     }
 }

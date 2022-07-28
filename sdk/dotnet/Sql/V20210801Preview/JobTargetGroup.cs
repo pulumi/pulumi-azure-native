@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     /// A group of job targets.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210801preview:JobTargetGroup")]
-    public partial class JobTargetGroup : Pulumi.CustomResource
+    public partial class JobTargetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Members of the target group.
@@ -58,14 +58,14 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:JobTargetGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobTargetGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobTargetGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobTargetGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:JobTargetGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobTargetGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobTargetGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobTargetGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:JobTargetGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobTargetGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobTargetGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobTargetGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:JobTargetGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobTargetGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobTargetGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobTargetGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         }
     }
 
-    public sealed class JobTargetGroupArgs : Pulumi.ResourceArgs
+    public sealed class JobTargetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the job agent.
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public JobTargetGroupArgs()
         {
         }
+        public static new JobTargetGroupArgs Empty => new JobTargetGroupArgs();
     }
 }

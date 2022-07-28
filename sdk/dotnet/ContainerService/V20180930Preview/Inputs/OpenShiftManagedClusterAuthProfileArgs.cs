@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20180930Preview.Inputs
     /// <summary>
     /// Defines all possible authentication profiles for the OpenShift cluster.
     /// </summary>
-    public sealed class OpenShiftManagedClusterAuthProfileArgs : Pulumi.ResourceArgs
+    public sealed class OpenShiftManagedClusterAuthProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityProviders")]
         private InputList<Inputs.OpenShiftManagedClusterIdentityProviderArgs>? _identityProviders;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerService.V20180930Preview.Inputs
         public OpenShiftManagedClusterAuthProfileArgs()
         {
         }
+        public static new OpenShiftManagedClusterAuthProfileArgs Empty => new OpenShiftManagedClusterAuthProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
     /// <summary>
     /// NotificationHub properties.
     /// </summary>
-    public sealed class NotificationHubPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class NotificationHubPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AdmCredential of the created NotificationHub
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
         public NotificationHubPropertiesArgs()
         {
         }
+        public static new NotificationHubPropertiesArgs Empty => new NotificationHubPropertiesArgs();
     }
 }

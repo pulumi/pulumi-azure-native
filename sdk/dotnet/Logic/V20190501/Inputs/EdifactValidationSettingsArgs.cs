@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The Edifact agreement validation settings.
     /// </summary>
-    public sealed class EdifactValidationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EdifactValidationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to allow leading and trailing spaces and zeroes.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public EdifactValidationSettingsArgs()
         {
         }
+        public static new EdifactValidationSettingsArgs Empty => new EdifactValidationSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.Inputs
     /// <summary>
     /// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
     /// </summary>
-    public sealed class StorageAccountConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The storage account access key.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Resources.Inputs
         public StorageAccountConfigurationArgs()
         {
         }
+        public static new StorageAccountConfigurationArgs Empty => new StorageAccountConfigurationArgs();
     }
 }

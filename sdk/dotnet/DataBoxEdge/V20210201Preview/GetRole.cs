@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
     }
 
 
-    public sealed class GetRoleArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         public GetRoleArgs()
         {
         }
+        public static new GetRoleArgs Empty => new GetRoleArgs();
     }
 
-    public sealed class GetRoleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         public GetRoleInvokeArgs()
         {
         }
+        public static new GetRoleInvokeArgs Empty => new GetRoleInvokeArgs();
     }
 
 

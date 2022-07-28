@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HealthBot
     /// API Version: 2020-12-08.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthbot:Bot")]
-    public partial class Bot : Pulumi.CustomResource
+    public partial class Bot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -83,12 +83,12 @@ namespace Pulumi.AzureNative.HealthBot
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201020:Bot"},
-                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201020preview:Bot"},
-                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201208:Bot"},
-                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201208preview:Bot"},
-                    new Pulumi.Alias { Type = "azure-native:healthbot/v20210610:Bot"},
-                    new Pulumi.Alias { Type = "azure-native:healthbot/v20210824:Bot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201020:Bot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201020preview:Bot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208:Bot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208preview:Bot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210610:Bot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210824:Bot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.HealthBot
         }
     }
 
-    public sealed class BotArgs : Pulumi.ResourceArgs
+    public sealed class BotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot resource.
@@ -151,5 +151,6 @@ namespace Pulumi.AzureNative.HealthBot
         public BotArgs()
         {
         }
+        public static new BotArgs Empty => new BotArgs();
     }
 }

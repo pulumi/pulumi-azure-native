@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     /// <summary>
     /// Kubelet configurations of agent nodes.
     /// </summary>
-    public sealed class KubeletConfigArgs : Pulumi.ResourceArgs
+    public sealed class KubeletConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedUnsafeSysctls")]
         private InputList<string>? _allowedUnsafeSysctls;
@@ -90,5 +90,6 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public KubeletConfigArgs()
         {
         }
+        public static new KubeletConfigArgs Empty => new KubeletConfigArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview.Inputs
     /// <summary>
     /// GroupMembers Item.
     /// </summary>
-    public sealed class GroupMembersItemArgs : Pulumi.ResourceArgs
+    public sealed class GroupMembersItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20210201Preview.Inputs
         public GroupMembersItemArgs()
         {
         }
+        public static new GroupMembersItemArgs Empty => new GroupMembersItemArgs();
     }
 }

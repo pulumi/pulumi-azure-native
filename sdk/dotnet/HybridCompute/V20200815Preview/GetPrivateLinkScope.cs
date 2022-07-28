@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
     }
 
 
-    public sealed class GetPrivateLinkScopeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkScopeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
         public GetPrivateLinkScopeArgs()
         {
         }
+        public static new GetPrivateLinkScopeArgs Empty => new GetPrivateLinkScopeArgs();
     }
 
-    public sealed class GetPrivateLinkScopeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkScopeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
         public GetPrivateLinkScopeInvokeArgs()
         {
         }
+        public static new GetPrivateLinkScopeInvokeArgs Empty => new GetPrivateLinkScopeInvokeArgs();
     }
 
 

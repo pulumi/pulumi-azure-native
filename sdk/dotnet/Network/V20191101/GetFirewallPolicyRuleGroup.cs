@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20191101
     }
 
 
-    public sealed class GetFirewallPolicyRuleGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallPolicyRuleGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Firewall Policy.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20191101
         public GetFirewallPolicyRuleGroupArgs()
         {
         }
+        public static new GetFirewallPolicyRuleGroupArgs Empty => new GetFirewallPolicyRuleGroupArgs();
     }
 
-    public sealed class GetFirewallPolicyRuleGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallPolicyRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Firewall Policy.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20191101
         public GetFirewallPolicyRuleGroupInvokeArgs()
         {
         }
+        public static new GetFirewallPolicyRuleGroupInvokeArgs Empty => new GetFirewallPolicyRuleGroupInvokeArgs();
     }
 
 

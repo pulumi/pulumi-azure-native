@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Advisor.V20160712Preview
     /// </summary>
     [Obsolete(@"Version 2016-07-12-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:advisor/v20160712preview:Suppression")]
-    public partial class Suppression : Pulumi.CustomResource
+    public partial class Suppression : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
@@ -77,10 +77,10 @@ namespace Pulumi.AzureNative.Advisor.V20160712Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:advisor:Suppression"},
-                    new Pulumi.Alias { Type = "azure-native:advisor/v20170331:Suppression"},
-                    new Pulumi.Alias { Type = "azure-native:advisor/v20170419:Suppression"},
-                    new Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20170331:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20170419:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Advisor.V20160712Preview
         }
     }
 
-    public sealed class SuppressionArgs : Pulumi.ResourceArgs
+    public sealed class SuppressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
@@ -155,5 +155,6 @@ namespace Pulumi.AzureNative.Advisor.V20160712Preview
         public SuppressionArgs()
         {
         }
+        public static new SuppressionArgs Empty => new SuppressionArgs();
     }
 }

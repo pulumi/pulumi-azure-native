@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Gets or sets the SQL server provider properties.
     /// </summary>
-    public sealed class MsSqlServerProviderInstancePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MsSqlServerProviderInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the database password.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public MsSqlServerProviderInstancePropertiesArgs()
         {
         }
+        public static new MsSqlServerProviderInstancePropertiesArgs Empty => new MsSqlServerProviderInstancePropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.Inputs
     /// <summary>
     /// Export operation configuration information
     /// </summary>
-    public sealed class ServiceExportConfigurationInfoArgs : Pulumi.ResourceArgs
+    public sealed class ServiceExportConfigurationInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the default export storage account.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.Inputs
         public ServiceExportConfigurationInfoArgs()
         {
         }
+        public static new ServiceExportConfigurationInfoArgs Empty => new ServiceExportConfigurationInfoArgs();
     }
 }

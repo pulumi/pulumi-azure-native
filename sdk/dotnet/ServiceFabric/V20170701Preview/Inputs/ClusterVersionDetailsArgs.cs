@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Inputs
     /// <summary>
     /// The detail of the Service Fabric runtime version result
     /// </summary>
-    public sealed class ClusterVersionDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ClusterVersionDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Service Fabric runtime version of the cluster.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Inputs
         public ClusterVersionDetailsArgs()
         {
         }
+        public static new ClusterVersionDetailsArgs Empty => new ClusterVersionDetailsArgs();
     }
 }

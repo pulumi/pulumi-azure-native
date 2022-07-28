@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The sharepoint online list resource dataset.
     /// </summary>
-    public sealed class SharePointOnlineListResourceDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SharePointOnlineListResourceDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SharePointOnlineListResourceDatasetArgs()
         {
         }
+        public static new SharePointOnlineListResourceDatasetArgs Empty => new SharePointOnlineListResourceDatasetArgs();
     }
 }

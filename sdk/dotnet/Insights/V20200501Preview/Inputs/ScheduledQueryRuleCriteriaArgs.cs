@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20200501Preview.Inputs
     /// <summary>
     /// The rule criteria that defines the conditions of the scheduled query rule.
     /// </summary>
-    public sealed class ScheduledQueryRuleCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryRuleCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("allOf")]
         private InputList<Inputs.ConditionArgs>? _allOf;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Insights.V20200501Preview.Inputs
         public ScheduledQueryRuleCriteriaArgs()
         {
         }
+        public static new ScheduledQueryRuleCriteriaArgs Empty => new ScheduledQueryRuleCriteriaArgs();
     }
 }

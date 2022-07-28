@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
 {
 
-    public sealed class RCranPackageArgs : Pulumi.ResourceArgs
+    public sealed class RCranPackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The package name.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
         public RCranPackageArgs()
         {
         }
+        public static new RCranPackageArgs Empty => new RCranPackageArgs();
     }
 }

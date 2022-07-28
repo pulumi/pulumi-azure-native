@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Ftp read settings.
     /// </summary>
-    public sealed class FtpReadSettingsArgs : Pulumi.ResourceArgs
+    public sealed class FtpReadSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public FtpReadSettingsArgs()
         {
         }
+        public static new FtpReadSettingsArgs Empty => new FtpReadSettingsArgs();
     }
 }

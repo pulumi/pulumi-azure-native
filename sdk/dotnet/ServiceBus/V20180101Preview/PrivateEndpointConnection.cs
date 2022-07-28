@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
     /// Properties of the PrivateEndpointConnection.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20180101preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -70,11 +70,11 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicebus:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The namespace name
@@ -137,5 +137,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Radius Server Settings.
     /// </summary>
-    public sealed class RadiusServerArgs : Pulumi.ResourceArgs
+    public sealed class RadiusServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address of this radius server.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public RadiusServerArgs()
         {
         }
+        public static new RadiusServerArgs Empty => new RadiusServerArgs();
     }
 }

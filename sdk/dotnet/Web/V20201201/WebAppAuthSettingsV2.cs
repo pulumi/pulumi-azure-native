@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201201
     /// Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201201:WebAppAuthSettingsV2")]
-    public partial class WebAppAuthSettingsV2 : Pulumi.CustomResource
+    public partial class WebAppAuthSettingsV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
@@ -88,13 +88,13 @@ namespace Pulumi.AzureNative.Web.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsV2"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsV2"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettingsV2"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsV2"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettingsV2"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettingsV2"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsV2"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsV2"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsV2"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettingsV2"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsV2"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettingsV2"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettingsV2"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsV2"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Web.V20201201
         }
     }
 
-    public sealed class WebAppAuthSettingsV2Args : Pulumi.ResourceArgs
+    public sealed class WebAppAuthSettingsV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
@@ -169,5 +169,6 @@ namespace Pulumi.AzureNative.Web.V20201201
         public WebAppAuthSettingsV2Args()
         {
         }
+        public static new WebAppAuthSettingsV2Args Empty => new WebAppAuthSettingsV2Args();
     }
 }

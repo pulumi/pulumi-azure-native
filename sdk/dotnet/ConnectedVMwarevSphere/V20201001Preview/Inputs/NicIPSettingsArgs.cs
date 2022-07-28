@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview.Inputs
     /// <summary>
     /// Defines the network interface ip settings.
     /// </summary>
-    public sealed class NicIPSettingsArgs : Pulumi.ResourceArgs
+    public sealed class NicIPSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the nic allocation method.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview.Inputs
         public NicIPSettingsArgs()
         {
         }
+        public static new NicIPSettingsArgs Empty => new NicIPSettingsArgs();
     }
 }

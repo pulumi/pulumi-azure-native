@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20210301
     /// Represents a connected cluster.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetes/v20210301:ConnectedCluster")]
-    public partial class ConnectedCluster : Pulumi.CustomResource
+    public partial class ConnectedCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
@@ -148,11 +148,11 @@ namespace Pulumi.AzureNative.Kubernetes.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kubernetes:ConnectedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20200101preview:ConnectedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20210401preview:ConnectedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20211001:ConnectedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20220501preview:ConnectedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes:ConnectedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20200101preview:ConnectedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20210401preview:ConnectedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20211001:ConnectedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20220501preview:ConnectedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20210301
         }
     }
 
-    public sealed class ConnectedClusterArgs : Pulumi.ResourceArgs
+    public sealed class ConnectedClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
@@ -239,5 +239,6 @@ namespace Pulumi.AzureNative.Kubernetes.V20210301
         public ConnectedClusterArgs()
         {
         }
+        public static new ConnectedClusterArgs Empty => new ConnectedClusterArgs();
     }
 }

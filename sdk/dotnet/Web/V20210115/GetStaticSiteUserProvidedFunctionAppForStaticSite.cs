@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20210115
     }
 
 
-    public sealed class GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs : Pulumi.InvokeArgs
+    public sealed class GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the function app registered with the static site.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Web.V20210115
         public GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs()
         {
         }
+        public static new GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs Empty => new GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs();
     }
 
-    public sealed class GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the function app registered with the static site.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Web.V20210115
         public GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs()
         {
         }
+        public static new GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs Empty => new GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs();
     }
 
 

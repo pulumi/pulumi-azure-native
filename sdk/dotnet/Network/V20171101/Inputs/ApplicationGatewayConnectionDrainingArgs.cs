@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20171101.Inputs
     /// <summary>
     /// Connection draining allows open connections to a backend server to be active for a specified time after the backend server got removed from the configuration.
     /// </summary>
-    public sealed class ApplicationGatewayConnectionDrainingArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayConnectionDrainingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of seconds connection draining is active. Acceptable values are from 1 second to 3600 seconds.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20171101.Inputs
         public ApplicationGatewayConnectionDrainingArgs()
         {
         }
+        public static new ApplicationGatewayConnectionDrainingArgs Empty => new ApplicationGatewayConnectionDrainingArgs();
     }
 }

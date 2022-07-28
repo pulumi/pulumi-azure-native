@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20201101.Inputs
     /// <summary>
     /// The container probe, for liveness or readiness
     /// </summary>
-    public sealed class ContainerProbeArgs : Pulumi.ResourceArgs
+    public sealed class ContainerProbeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The execution command to probe
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20201101.Inputs
         public ContainerProbeArgs()
         {
         }
+        public static new ContainerProbeArgs Empty => new ContainerProbeArgs();
     }
 }

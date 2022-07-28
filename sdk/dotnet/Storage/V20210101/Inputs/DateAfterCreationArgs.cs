@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210101.Inputs
     /// <summary>
     /// Object to define the number of days after creation.
     /// </summary>
-    public sealed class DateAfterCreationArgs : Pulumi.ResourceArgs
+    public sealed class DateAfterCreationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value indicating the age in days after creation
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Storage.V20210101.Inputs
         public DateAfterCreationArgs()
         {
         }
+        public static new DateAfterCreationArgs Empty => new DateAfterCreationArgs();
     }
 }

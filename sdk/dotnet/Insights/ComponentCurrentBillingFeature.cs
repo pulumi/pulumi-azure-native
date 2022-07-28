@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2015-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ComponentCurrentBillingFeature")]
-    public partial class ComponentCurrentBillingFeature : Pulumi.CustomResource
+    public partial class ComponentCurrentBillingFeature : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:ComponentCurrentBillingFeature"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:ComponentCurrentBillingFeature"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class ComponentCurrentBillingFeatureArgs : Pulumi.ResourceArgs
+    public sealed class ComponentCurrentBillingFeatureArgs : global::Pulumi.ResourceArgs
     {
         [Input("currentBillingFeatures")]
         private InputList<string>? _currentBillingFeatures;
@@ -110,5 +110,6 @@ namespace Pulumi.AzureNative.Insights
         public ComponentCurrentBillingFeatureArgs()
         {
         }
+        public static new ComponentCurrentBillingFeatureArgs Empty => new ComponentCurrentBillingFeatureArgs();
     }
 }

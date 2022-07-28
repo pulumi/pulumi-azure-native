@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
     /// <summary>
     /// Defines top-level WebApplicationFirewallPolicy configuration settings.
     /// </summary>
-    public sealed class FrontDoorPolicySettingsArgs : Pulumi.ResourceArgs
+    public sealed class FrontDoorPolicySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
         public FrontDoorPolicySettingsArgs()
         {
         }
+        public static new FrontDoorPolicySettingsArgs Empty => new FrontDoorPolicySettingsArgs();
     }
 }

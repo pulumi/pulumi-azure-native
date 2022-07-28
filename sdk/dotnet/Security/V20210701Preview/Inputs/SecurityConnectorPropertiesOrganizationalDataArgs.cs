@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210701Preview.Inputs
     /// <summary>
     /// The multi cloud account's organizational data
     /// </summary>
-    public sealed class SecurityConnectorPropertiesOrganizationalDataArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConnectorPropertiesOrganizationalDataArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludedAccountIds")]
         private InputList<string>? _excludedAccountIds;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Security.V20210701Preview.Inputs
         public SecurityConnectorPropertiesOrganizationalDataArgs()
         {
         }
+        public static new SecurityConnectorPropertiesOrganizationalDataArgs Empty => new SecurityConnectorPropertiesOrganizationalDataArgs();
     }
 }

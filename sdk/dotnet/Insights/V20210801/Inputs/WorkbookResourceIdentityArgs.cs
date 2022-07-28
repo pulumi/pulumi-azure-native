@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210801.Inputs
     /// <summary>
     /// Identity used for BYOS
     /// </summary>
-    public sealed class WorkbookResourceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class WorkbookResourceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Insights.V20210801.Inputs
         public WorkbookResourceIdentityArgs()
         {
         }
+        public static new WorkbookResourceIdentityArgs Empty => new WorkbookResourceIdentityArgs();
     }
 }

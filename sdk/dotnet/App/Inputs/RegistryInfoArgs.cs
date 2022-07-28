@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// Container App registry information.
     /// </summary>
-    public sealed class RegistryInfoArgs : Pulumi.ResourceArgs
+    public sealed class RegistryInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// registry secret.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.App.Inputs
         public RegistryInfoArgs()
         {
         }
+        public static new RegistryInfoArgs Empty => new RegistryInfoArgs();
     }
 }

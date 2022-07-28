@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20190601.Inputs
     /// <summary>
     /// scale settings for AML Compute
     /// </summary>
-    public sealed class ScaleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Max number of nodes to use
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20190601.Inputs
         {
             MinNodeCount = 0;
         }
+        public static new ScaleSettingsArgs Empty => new ScaleSettingsArgs();
     }
 }

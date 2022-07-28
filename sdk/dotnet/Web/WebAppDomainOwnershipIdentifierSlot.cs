@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppDomainOwnershipIdentifierSlot")]
-    public partial class WebAppDomainOwnershipIdentifierSlot : Pulumi.CustomResource
+    public partial class WebAppDomainOwnershipIdentifierSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -65,19 +65,19 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDomainOwnershipIdentifierSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDomainOwnershipIdentifierSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDomainOwnershipIdentifierSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppDomainOwnershipIdentifierSlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppDomainOwnershipIdentifierSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of domain ownership identifier.
@@ -140,5 +140,6 @@ namespace Pulumi.AzureNative.Web
         public WebAppDomainOwnershipIdentifierSlotArgs()
         {
         }
+        public static new WebAppDomainOwnershipIdentifierSlotArgs Empty => new WebAppDomainOwnershipIdentifierSlotArgs();
     }
 }

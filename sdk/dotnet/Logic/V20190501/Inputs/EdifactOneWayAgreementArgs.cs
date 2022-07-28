@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The Edifact one way agreement.
     /// </summary>
-    public sealed class EdifactOneWayAgreementArgs : Pulumi.ResourceArgs
+    public sealed class EdifactOneWayAgreementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The EDIFACT protocol settings.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public EdifactOneWayAgreementArgs()
         {
         }
+        public static new EdifactOneWayAgreementArgs Empty => new EdifactOneWayAgreementArgs();
     }
 }

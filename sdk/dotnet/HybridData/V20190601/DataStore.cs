@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridData.V20190601
     /// Data store.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybriddata/v20190601:DataStore")]
-    public partial class DataStore : Pulumi.CustomResource
+    public partial class DataStore : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.HybridData.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybriddata:DataStore"},
-                    new Pulumi.Alias { Type = "azure-native:hybriddata/v20160601:DataStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybriddata:DataStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybriddata/v20160601:DataStore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.HybridData.V20190601
         }
     }
 
-    public sealed class DataStoreArgs : Pulumi.ResourceArgs
+    public sealed class DataStoreArgs : global::Pulumi.ResourceArgs
     {
         [Input("customerSecrets")]
         private InputList<Inputs.CustomerSecretArgs>? _customerSecrets;
@@ -164,5 +164,6 @@ namespace Pulumi.AzureNative.HybridData.V20190601
         public DataStoreArgs()
         {
         }
+        public static new DataStoreArgs Empty => new DataStoreArgs();
     }
 }

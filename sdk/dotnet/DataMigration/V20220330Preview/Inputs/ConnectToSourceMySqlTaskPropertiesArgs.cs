@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Properties for the task that validates MySQL database connection
     /// </summary>
-    public sealed class ConnectToSourceMySqlTaskPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectToSourceMySqlTaskPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public ConnectToSourceMySqlTaskPropertiesArgs()
         {
         }
+        public static new ConnectToSourceMySqlTaskPropertiesArgs Empty => new ConnectToSourceMySqlTaskPropertiesArgs();
     }
 }

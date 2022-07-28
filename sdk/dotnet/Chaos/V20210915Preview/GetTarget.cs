@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
     }
 
 
-    public sealed class GetTargetArgs : Pulumi.InvokeArgs
+    public sealed class GetTargetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// String that represents a resource provider namespace.
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
         public GetTargetArgs()
         {
         }
+        public static new GetTargetArgs Empty => new GetTargetArgs();
     }
 
-    public sealed class GetTargetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// String that represents a resource provider namespace.
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
         public GetTargetInvokeArgs()
         {
         }
+        public static new GetTargetInvokeArgs Empty => new GetTargetInvokeArgs();
     }
 
 

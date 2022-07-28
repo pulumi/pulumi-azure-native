@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     /// Private Endpoint Connection ARM resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory/v20180601:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag identifies change in the resource.
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datafactory:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:datafactory:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The factory name.
@@ -115,5 +115,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

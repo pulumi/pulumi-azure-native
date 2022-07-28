@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate
     /// API Version: 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:ServerCollector")]
-    public partial class ServerCollector : Pulumi.CustomResource
+    public partial class ServerCollector : global::Pulumi.CustomResource
     {
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001:ServerCollector"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:ServerCollector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Migrate
         }
     }
 
-    public sealed class ServerCollectorArgs : Pulumi.ResourceArgs
+    public sealed class ServerCollectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.Migrate
         public ServerCollectorArgs()
         {
         }
+        public static new ServerCollectorArgs Empty => new ServerCollectorArgs();
     }
 }

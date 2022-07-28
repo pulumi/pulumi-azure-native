@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The ip address.
     /// </summary>
-    public sealed class IpAddressArgs : Pulumi.ResourceArgs
+    public sealed class IpAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public IpAddressArgs()
         {
         }
+        public static new IpAddressArgs Empty => new IpAddressArgs();
     }
 }

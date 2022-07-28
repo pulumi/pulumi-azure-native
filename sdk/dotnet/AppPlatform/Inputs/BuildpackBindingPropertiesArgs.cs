@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// <summary>
     /// Properties of a buildpack binding
     /// </summary>
-    public sealed class BuildpackBindingPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class BuildpackBindingPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Buildpack Binding Type
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public BuildpackBindingPropertiesArgs()
         {
         }
+        public static new BuildpackBindingPropertiesArgs Empty => new BuildpackBindingPropertiesArgs();
     }
 }

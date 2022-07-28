@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cache
     /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:LinkedServer")]
-    public partial class LinkedServer : Pulumi.CustomResource
+    public partial class LinkedServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Fully qualified resourceId of the linked redis cache.
@@ -77,13 +77,13 @@ namespace Pulumi.AzureNative.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cache/v20170201:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20171001:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20180301:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20190701:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20200601:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20201201:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20210601:LinkedServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20170201:LinkedServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20171001:LinkedServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20180301:LinkedServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20190701:LinkedServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20200601:LinkedServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:LinkedServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:LinkedServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Cache
         }
     }
 
-    public sealed class LinkedServerArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fully qualified resourceId of the linked redis cache.
@@ -146,5 +146,6 @@ namespace Pulumi.AzureNative.Cache
         public LinkedServerArgs()
         {
         }
+        public static new LinkedServerArgs Empty => new LinkedServerArgs();
     }
 }

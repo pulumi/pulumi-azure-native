@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// <summary>
     /// Sub-protection policy which includes schedule and retention
     /// </summary>
-    public sealed class SubProtectionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SubProtectionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup policy type
@@ -50,5 +50,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public SubProtectionPolicyArgs()
         {
         }
+        public static new SubProtectionPolicyArgs Empty => new SubProtectionPolicyArgs();
     }
 }

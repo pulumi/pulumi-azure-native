@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// Back end service per ASE
     /// </summary>
-    public sealed class HostingEnvironmentServiceDescriptionsArgs : Pulumi.ResourceArgs
+    public sealed class HostingEnvironmentServiceDescriptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Host Id
@@ -45,5 +45,6 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public HostingEnvironmentServiceDescriptionsArgs()
         {
         }
+        public static new HostingEnvironmentServiceDescriptionsArgs Empty => new HostingEnvironmentServiceDescriptionsArgs();
     }
 }

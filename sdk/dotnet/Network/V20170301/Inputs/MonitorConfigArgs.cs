@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20170301.Inputs
     /// <summary>
     /// Class containing endpoint monitoring settings in a Traffic Manager profile.
     /// </summary>
-    public sealed class MonitorConfigArgs : Pulumi.ResourceArgs
+    public sealed class MonitorConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the path relative to the endpoint domain name used to probe for endpoint health.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20170301.Inputs
         public MonitorConfigArgs()
         {
         }
+        public static new MonitorConfigArgs Empty => new MonitorConfigArgs();
     }
 }

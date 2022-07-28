@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20191001.Inputs
 {
 
-    public sealed class VmUptimeArgs : Pulumi.ResourceArgs
+    public sealed class VmUptimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of days in a month for VM uptime.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Inputs
         public VmUptimeArgs()
         {
         }
+        public static new VmUptimeArgs Empty => new VmUptimeArgs();
     }
 }

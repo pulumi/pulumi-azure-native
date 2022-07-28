@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
     /// Base class for backup ProtectionIntent.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20220601preview:ProtectionIntent")]
-    public partial class ProtectionIntent : Pulumi.CustomResource
+    public partial class ProtectionIntent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optional ETag.
@@ -76,21 +76,21 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20170701:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201preview:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20170701:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201preview:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ProtectionIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ProtectionIntent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
         }
     }
 
-    public sealed class ProtectionIntentArgs : Pulumi.ResourceArgs
+    public sealed class ProtectionIntentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional ETag.
@@ -171,5 +171,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
         public ProtectionIntentArgs()
         {
         }
+        public static new ProtectionIntentArgs Empty => new ProtectionIntentArgs();
     }
 }

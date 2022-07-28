@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// HDInsight ondemand linked service.
     /// </summary>
-    public sealed class HDInsightOnDemandLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class HDInsightOnDemandLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalLinkedServiceNames")]
         private InputList<Inputs.LinkedServiceReferenceArgs>? _additionalLinkedServiceNames;
@@ -277,5 +277,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public HDInsightOnDemandLinkedServiceArgs()
         {
         }
+        public static new HDInsightOnDemandLinkedServiceArgs Empty => new HDInsightOnDemandLinkedServiceArgs();
     }
 }

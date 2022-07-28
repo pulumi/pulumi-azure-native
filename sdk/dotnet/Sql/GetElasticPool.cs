@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetElasticPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the elastic pool.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Sql
         public GetElasticPoolArgs()
         {
         }
+        public static new GetElasticPoolArgs Empty => new GetElasticPoolArgs();
     }
 
-    public sealed class GetElasticPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the elastic pool.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Sql
         public GetElasticPoolInvokeArgs()
         {
         }
+        public static new GetElasticPoolInvokeArgs Empty => new GetElasticPoolInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210701.Inputs
     /// <summary>
     /// The container execution command, for liveness or readiness probe
     /// </summary>
-    public sealed class ContainerExecArgs : Pulumi.ResourceArgs
+    public sealed class ContainerExecArgs : global::Pulumi.ResourceArgs
     {
         [Input("command")]
         private InputList<string>? _command;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210701.Inputs
         public ContainerExecArgs()
         {
         }
+        public static new ContainerExecArgs Empty => new ContainerExecArgs();
     }
 }

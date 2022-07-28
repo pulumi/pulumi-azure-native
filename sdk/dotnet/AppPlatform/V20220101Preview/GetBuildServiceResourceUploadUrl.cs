@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
     }
 
 
-    public sealed class GetBuildServiceResourceUploadUrlArgs : Pulumi.InvokeArgs
+    public sealed class GetBuildServiceResourceUploadUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the build service resource.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         public GetBuildServiceResourceUploadUrlArgs()
         {
         }
+        public static new GetBuildServiceResourceUploadUrlArgs Empty => new GetBuildServiceResourceUploadUrlArgs();
     }
 
-    public sealed class GetBuildServiceResourceUploadUrlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBuildServiceResourceUploadUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the build service resource.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         public GetBuildServiceResourceUploadUrlInvokeArgs()
         {
         }
+        public static new GetBuildServiceResourceUploadUrlInvokeArgs Empty => new GetBuildServiceResourceUploadUrlInvokeArgs();
     }
 
 

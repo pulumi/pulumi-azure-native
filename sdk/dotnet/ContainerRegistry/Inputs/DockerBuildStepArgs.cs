@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The Docker build step.
     /// </summary>
-    public sealed class DockerBuildStepArgs : Pulumi.ResourceArgs
+    public sealed class DockerBuildStepArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<Inputs.ArgumentArgs>? _arguments;
@@ -87,5 +87,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
             IsPushEnabled = true;
             NoCache = false;
         }
+        public static new DockerBuildStepArgs Empty => new DockerBuildStepArgs();
     }
 }

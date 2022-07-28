@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190601
     /// P2SVpnServerConfiguration Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190601:P2sVpnServerConfiguration")]
-    public partial class P2sVpnServerConfiguration : Pulumi.CustomResource
+    public partial class P2sVpnServerConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -112,14 +112,14 @@ namespace Pulumi.AzureNative.Network.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:P2sVpnServerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:P2sVpnServerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:P2sVpnServerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:P2sVpnServerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:P2sVpnServerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:P2sVpnServerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:P2sVpnServerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:P2sVpnServerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:P2sVpnServerConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Network.V20190601
         }
     }
 
-    public sealed class P2sVpnServerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class P2sVpnServerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -260,5 +260,6 @@ namespace Pulumi.AzureNative.Network.V20190601
         public P2sVpnServerConfigurationArgs()
         {
         }
+        public static new P2sVpnServerConfigurationArgs Empty => new P2sVpnServerConfigurationArgs();
     }
 }

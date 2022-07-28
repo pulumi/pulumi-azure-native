@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     /// Define the datastore.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20220110preview:Datastore")]
-    public partial class Datastore : Pulumi.CustomResource
+    public partial class Datastore : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:Datastore"},
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:Datastore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         }
     }
 
-    public sealed class DatastoreArgs : Pulumi.ResourceArgs
+    public sealed class DatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the datastore.
@@ -218,5 +218,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public DatastoreArgs()
         {
         }
+        public static new DatastoreArgs Empty => new DatastoreArgs();
     }
 }

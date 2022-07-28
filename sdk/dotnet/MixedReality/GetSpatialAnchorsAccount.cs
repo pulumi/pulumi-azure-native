@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MixedReality
     }
 
 
-    public sealed class GetSpatialAnchorsAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetSpatialAnchorsAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of an Mixed Reality Account.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.MixedReality
         public GetSpatialAnchorsAccountArgs()
         {
         }
+        public static new GetSpatialAnchorsAccountArgs Empty => new GetSpatialAnchorsAccountArgs();
     }
 
-    public sealed class GetSpatialAnchorsAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSpatialAnchorsAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of an Mixed Reality Account.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.MixedReality
         public GetSpatialAnchorsAccountInvokeArgs()
         {
         }
+        public static new GetSpatialAnchorsAccountInvokeArgs Empty => new GetSpatialAnchorsAccountInvokeArgs();
     }
 
 

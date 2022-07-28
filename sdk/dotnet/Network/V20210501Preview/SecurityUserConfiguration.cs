@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
     /// Defines the security configuration
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210501preview:SecurityUserConfiguration")]
-    public partial class SecurityUserConfiguration : Pulumi.CustomResource
+    public partial class SecurityUserConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enum list of network intent policy based services.
@@ -100,10 +100,10 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:SecurityUserConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         }
     }
 
-    public sealed class SecurityUserConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SecurityUserConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("applyOnNetworkIntentPolicyBasedServices")]
         private InputList<Union<string, Pulumi.AzureNative.Network.V20210501Preview.NetworkIntentPolicyBasedService>>? _applyOnNetworkIntentPolicyBasedServices;
@@ -184,5 +184,6 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         public SecurityUserConfigurationArgs()
         {
         }
+        public static new SecurityUserConfigurationArgs Empty => new SecurityUserConfigurationArgs();
     }
 }

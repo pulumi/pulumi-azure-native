@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401.Inputs
     /// <summary>
     /// WorkerProfile represents a worker profile.
     /// </summary>
-    public sealed class WorkerProfileArgs : Pulumi.ResourceArgs
+    public sealed class WorkerProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of worker VMs.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401.Inputs
         public WorkerProfileArgs()
         {
         }
+        public static new WorkerProfileArgs Empty => new WorkerProfileArgs();
     }
 }

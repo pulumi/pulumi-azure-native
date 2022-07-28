@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     }
 
 
-    public sealed class GetApplicationSecurityGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationSecurityGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application security group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetApplicationSecurityGroupArgs()
         {
         }
+        public static new GetApplicationSecurityGroupArgs Empty => new GetApplicationSecurityGroupArgs();
     }
 
-    public sealed class GetApplicationSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationSecurityGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application security group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetApplicationSecurityGroupInvokeArgs()
         {
         }
+        public static new GetApplicationSecurityGroupInvokeArgs Empty => new GetApplicationSecurityGroupInvokeArgs();
     }
 
 

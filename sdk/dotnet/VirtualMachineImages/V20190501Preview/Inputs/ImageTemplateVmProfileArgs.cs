@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview.Inputs
     /// <summary>
     /// Describes the virtual machine used to build, customize and capture images
     /// </summary>
-    public sealed class ImageTemplateVmProfileArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplateVmProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview.Inputs
         public ImageTemplateVmProfileArgs()
         {
         }
+        public static new ImageTemplateVmProfileArgs Empty => new ImageTemplateVmProfileArgs();
     }
 }

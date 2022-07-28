@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Management.V20210401
     /// The details of subscription under management group.
     /// </summary>
     [AzureNativeResourceType("azure-native:management/v20210401:ManagementGroupSubscription")]
-    public partial class ManagementGroupSubscription : Pulumi.CustomResource
+    public partial class ManagementGroupSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The friendly name of the subscription.
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.Management.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:management:ManagementGroupSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroupSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroupSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:management:ManagementGroupSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroupSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroupSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Management.V20210401
         }
     }
 
-    public sealed class ManagementGroupSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class ManagementGroupSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Management Group ID.
@@ -117,5 +117,6 @@ namespace Pulumi.AzureNative.Management.V20210401
         public ManagementGroupSubscriptionArgs()
         {
         }
+        public static new ManagementGroupSubscriptionArgs Empty => new ManagementGroupSubscriptionArgs();
     }
 }

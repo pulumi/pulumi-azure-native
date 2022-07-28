@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
     /// <summary>
     /// Contains sku in an ExpressRouteCircuit
     /// </summary>
-    public sealed class ExpressRouteCircuitSkuArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets family of the sku.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
         public ExpressRouteCircuitSkuArgs()
         {
         }
+        public static new ExpressRouteCircuitSkuArgs Empty => new ExpressRouteCircuitSkuArgs();
     }
 }

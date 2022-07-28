@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
     /// <summary>
     /// Properties related to ServiceBus.
     /// </summary>
-    public sealed class ServiceBusArgs : Pulumi.ResourceArgs
+    public sealed class ServiceBusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the authentication type being used for connecting to the endpoint.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
         public ServiceBusArgs()
         {
         }
+        public static new ServiceBusArgs Empty => new ServiceBusArgs();
     }
 }

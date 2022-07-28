@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSite")]
-    public partial class StaticSite : Pulumi.CustomResource
+    public partial class StaticSite : global::Pulumi.CustomResource
     {
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if config file is locked for this static web app; otherwise, &lt;code&gt;true&lt;/code&gt;.
@@ -167,16 +167,16 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class StaticSiteArgs : Pulumi.ResourceArgs
+    public sealed class StaticSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if config file is locked for this static web app; otherwise, &lt;code&gt;true&lt;/code&gt;.
@@ -293,5 +293,6 @@ namespace Pulumi.AzureNative.Web
         public StaticSiteArgs()
         {
         }
+        public static new StaticSiteArgs Empty => new StaticSiteArgs();
     }
 }

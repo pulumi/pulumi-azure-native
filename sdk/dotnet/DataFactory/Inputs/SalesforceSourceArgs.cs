@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Salesforce source.
     /// </summary>
-    public sealed class SalesforceSourceArgs : Pulumi.ResourceArgs
+    public sealed class SalesforceSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SalesforceSourceArgs()
         {
         }
+        public static new SalesforceSourceArgs Empty => new SalesforceSourceArgs();
     }
 }

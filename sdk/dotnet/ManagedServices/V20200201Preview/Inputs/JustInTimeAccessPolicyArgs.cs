@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
     /// <summary>
     /// Just-in-time access policy setting.
     /// </summary>
-    public sealed class JustInTimeAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class JustInTimeAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("managedByTenantApprovers")]
         private InputList<Inputs.EligibleApproverArgs>? _managedByTenantApprovers;
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
             MaximumActivationDuration = "PT8H";
             MultiFactorAuthProvider = "None";
         }
+        public static new JustInTimeAccessPolicyArgs Empty => new JustInTimeAccessPolicyArgs();
     }
 }

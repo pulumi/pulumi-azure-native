@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Power Query data flow.
     /// </summary>
-    public sealed class WranglingDataFlowArgs : Pulumi.ResourceArgs
+    public sealed class WranglingDataFlowArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public WranglingDataFlowArgs()
         {
         }
+        public static new WranglingDataFlowArgs Empty => new WranglingDataFlowArgs();
     }
 }

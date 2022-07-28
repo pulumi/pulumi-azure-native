@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Inputs
     /// <summary>
     /// Represents a scaling policy related to an average load of a metric/resource of a service.
     /// </summary>
-    public sealed class AverageServiceLoadScalingTriggerArgs : Pulumi.ResourceArgs
+    public sealed class AverageServiceLoadScalingTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enumerates the ways that a service can be partitioned.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Inputs
         public AverageServiceLoadScalingTriggerArgs()
         {
         }
+        public static new AverageServiceLoadScalingTriggerArgs Empty => new AverageServiceLoadScalingTriggerArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// <summary>
     /// Specifies the network interfaces or the networking configuration of the virtual machine.
     /// </summary>
-    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public NetworkProfileArgs()
         {
         }
+        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.Inputs
     /// <summary>
     /// The definition of a Test.
     /// </summary>
-    public sealed class TestArgs : Pulumi.ResourceArgs
+    public sealed class TestArgs : global::Pulumi.ResourceArgs
     {
         [Input("commands", required: true)]
         private InputList<Inputs.CommandArgs>? _commands;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.TestBase.Inputs
         public TestArgs()
         {
         }
+        public static new TestArgs Empty => new TestArgs();
     }
 }

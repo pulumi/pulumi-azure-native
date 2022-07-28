@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
     }
 
 
-    public sealed class GetBlockchainMemberArgs : Pulumi.InvokeArgs
+    public sealed class GetBlockchainMemberArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Blockchain member name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
         public GetBlockchainMemberArgs()
         {
         }
+        public static new GetBlockchainMemberArgs Empty => new GetBlockchainMemberArgs();
     }
 
-    public sealed class GetBlockchainMemberInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBlockchainMemberInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Blockchain member name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
         public GetBlockchainMemberInvokeArgs()
         {
         }
+        public static new GetBlockchainMemberInvokeArgs Empty => new GetBlockchainMemberInvokeArgs();
     }
 
 

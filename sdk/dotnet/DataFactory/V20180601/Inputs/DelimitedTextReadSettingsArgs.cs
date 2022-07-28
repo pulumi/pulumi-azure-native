@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Delimited text read settings.
     /// </summary>
-    public sealed class DelimitedTextReadSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DelimitedTextReadSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compression settings.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DelimitedTextReadSettingsArgs()
         {
         }
+        public static new DelimitedTextReadSettingsArgs Empty => new DelimitedTextReadSettingsArgs();
     }
 }
