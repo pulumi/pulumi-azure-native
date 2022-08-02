@@ -928,6 +928,13 @@
       "PrivateEndpointConnection",
       "listConfigurationStoreKeys"
     ],
+    "2022-03-01-preview": [
+      "ConfigurationStore",
+      "KeyValue",
+      "PrivateEndpointConnection",
+      "Replica",
+      "listConfigurationStoreKeys"
+    ],
     "2022-05-01": [
       "ConfigurationStore",
       "KeyValue",
@@ -1232,6 +1239,10 @@
       "AccessReviewScheduleDefinitionById",
       "ScopeAccessReviewHistoryDefinitionById",
       "ScopeAccessReviewScheduleDefinitionById"
+    ],
+    "2022-04-01": [
+      "RoleAssignment",
+      "RoleDefinition"
     ]
   },
   "Automanage": {
@@ -1424,6 +1435,15 @@
       "getProducts",
       "getRegistrationActivationKey",
       "listProductDetails"
+    ],
+    "2022-06-01": [
+      "CustomerSubscription",
+      "Registration",
+      "getProduct",
+      "getProducts",
+      "getRegistrationActivationKey",
+      "listProductDetails",
+      "listProducts"
     ]
   },
   "AzureStackHCI": {
@@ -1921,6 +1941,11 @@
       "Capability",
       "Experiment",
       "Target"
+    ],
+    "2022-07-01-preview": [
+      "Capability",
+      "Experiment",
+      "Target"
     ]
   },
   "CognitiveServices": {
@@ -1978,354 +2003,6 @@
       "EmailService",
       "listCommunicationServiceKeys",
       "listEmailServiceVerifiedExchangeOnlineDomains"
-    ]
-  },
-  "Compute": {
-    "": [],
-    "2015-06-15": [
-      "AvailabilitySet",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet"
-    ],
-    "2016-03-30": [
-      "AvailabilitySet",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet"
-    ],
-    "2016-04-30-preview": [
-      "AvailabilitySet",
-      "Disk",
-      "Image",
-      "Snapshot",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet"
-    ],
-    "2017-03-30": [
-      "AvailabilitySet",
-      "Disk",
-      "Image",
-      "Snapshot",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension"
-    ],
-    "2017-12-01": [
-      "AvailabilitySet",
-      "Image",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2018-04-01": [
-      "AvailabilitySet",
-      "Disk",
-      "Image",
-      "ProximityPlacementGroup",
-      "Snapshot",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2018-06-01": [
-      "AvailabilitySet",
-      "Disk",
-      "Gallery",
-      "GalleryImage",
-      "GalleryImageVersion",
-      "Image",
-      "ProximityPlacementGroup",
-      "Snapshot",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2018-09-30": [
-      "Disk",
-      "Snapshot"
-    ],
-    "2018-10-01": [
-      "AvailabilitySet",
-      "Image",
-      "ProximityPlacementGroup",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2019-03-01": [
-      "AvailabilitySet",
-      "DedicatedHost",
-      "DedicatedHostGroup",
-      "Disk",
-      "Gallery",
-      "GalleryApplication",
-      "GalleryApplicationVersion",
-      "GalleryImage",
-      "GalleryImageVersion",
-      "Image",
-      "ProximityPlacementGroup",
-      "Snapshot",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2019-07-01": [
-      "AvailabilitySet",
-      "DedicatedHost",
-      "DedicatedHostGroup",
-      "Disk",
-      "DiskEncryptionSet",
-      "Gallery",
-      "GalleryApplication",
-      "GalleryApplicationVersion",
-      "GalleryImage",
-      "GalleryImageVersion",
-      "Image",
-      "ProximityPlacementGroup",
-      "Snapshot",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "VirtualMachineScaleSetVMExtension",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2019-11-01": [
-      "Disk",
-      "DiskEncryptionSet",
-      "Snapshot"
-    ],
-    "2019-12-01": [
-      "AvailabilitySet",
-      "DedicatedHost",
-      "DedicatedHostGroup",
-      "Gallery",
-      "GalleryApplication",
-      "GalleryApplicationVersion",
-      "GalleryImage",
-      "GalleryImageVersion",
-      "Image",
-      "ProximityPlacementGroup",
-      "SshPublicKey",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "VirtualMachineScaleSetVMExtension",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2020-05-01": [
-      "Disk",
-      "DiskAccess",
-      "DiskEncryptionSet",
-      "Snapshot"
-    ],
-    "2020-06-01": [
-      "AvailabilitySet",
-      "DedicatedHost",
-      "DedicatedHostGroup",
-      "Image",
-      "ProximityPlacementGroup",
-      "SshPublicKey",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineRunCommandByVirtualMachine",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "VirtualMachineScaleSetVMExtension",
-      "VirtualMachineScaleSetVMRunCommand",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2020-06-30": [
-      "Disk",
-      "DiskAccess",
-      "DiskEncryptionSet",
-      "Snapshot"
-    ],
-    "2020-09-30": [
-      "Disk",
-      "DiskAccess",
-      "DiskAccessAPrivateEndpointConnection",
-      "DiskEncryptionSet",
-      "Gallery",
-      "GalleryApplication",
-      "GalleryApplicationVersion",
-      "GalleryImage",
-      "GalleryImageVersion",
-      "Snapshot"
-    ],
-    "2020-10-01-preview": [
-      "CloudService"
-    ],
-    "2020-12-01": [
-      "AvailabilitySet",
-      "DedicatedHost",
-      "DedicatedHostGroup",
-      "Disk",
-      "DiskAccess",
-      "DiskAccessAPrivateEndpointConnection",
-      "DiskEncryptionSet",
-      "Image",
-      "ProximityPlacementGroup",
-      "Snapshot",
-      "SshPublicKey",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineRunCommandByVirtualMachine",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "VirtualMachineScaleSetVMExtension",
-      "VirtualMachineScaleSetVMRunCommand",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2021-03-01": [
-      "AvailabilitySet",
-      "CloudService",
-      "DedicatedHost",
-      "DedicatedHostGroup",
-      "Image",
-      "ProximityPlacementGroup",
-      "RestorePoint",
-      "RestorePointCollection",
-      "SshPublicKey",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineRunCommandByVirtualMachine",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "VirtualMachineScaleSetVMExtension",
-      "VirtualMachineScaleSetVMRunCommand",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2021-04-01": [
-      "AvailabilitySet",
-      "CapacityReservation",
-      "CapacityReservationGroup",
-      "DedicatedHost",
-      "DedicatedHostGroup",
-      "Disk",
-      "DiskAccess",
-      "DiskAccessAPrivateEndpointConnection",
-      "DiskEncryptionSet",
-      "Image",
-      "ProximityPlacementGroup",
-      "RestorePoint",
-      "RestorePointCollection",
-      "Snapshot",
-      "SshPublicKey",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineRunCommandByVirtualMachine",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "VirtualMachineScaleSetVMExtension",
-      "VirtualMachineScaleSetVMRunCommand",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2021-07-01": [
-      "AvailabilitySet",
-      "CapacityReservation",
-      "CapacityReservationGroup",
-      "DedicatedHost",
-      "DedicatedHostGroup",
-      "Gallery",
-      "GalleryApplication",
-      "GalleryApplicationVersion",
-      "GalleryImage",
-      "GalleryImageVersion",
-      "Image",
-      "ProximityPlacementGroup",
-      "RestorePoint",
-      "RestorePointCollection",
-      "SshPublicKey",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineRunCommandByVirtualMachine",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "VirtualMachineScaleSetVMExtension",
-      "VirtualMachineScaleSetVMRunCommand",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2021-08-01": [
-      "Disk",
-      "DiskAccess",
-      "DiskAccessAPrivateEndpointConnection",
-      "DiskEncryptionSet",
-      "Snapshot"
-    ],
-    "2021-10-01": [
-      "Gallery",
-      "GalleryApplication",
-      "GalleryApplicationVersion",
-      "GalleryImage",
-      "GalleryImageVersion"
-    ],
-    "2021-11-01": [
-      "AvailabilitySet",
-      "CapacityReservation",
-      "CapacityReservationGroup",
-      "DedicatedHost",
-      "DedicatedHostGroup",
-      "Image",
-      "ProximityPlacementGroup",
-      "RestorePoint",
-      "RestorePointCollection",
-      "SshPublicKey",
-      "VirtualMachine",
-      "VirtualMachineExtension",
-      "VirtualMachineRunCommandByVirtualMachine",
-      "VirtualMachineScaleSet",
-      "VirtualMachineScaleSetExtension",
-      "VirtualMachineScaleSetVM",
-      "VirtualMachineScaleSetVMExtension",
-      "VirtualMachineScaleSetVMRunCommand",
-      "getLogAnalyticExportRequestRateByInterval",
-      "getLogAnalyticExportThrottledRequests"
-    ],
-    "2021-12-01": [
-      "Disk",
-      "DiskAccess",
-      "DiskAccessAPrivateEndpointConnection",
-      "DiskEncryptionSet",
-      "Snapshot"
     ]
   },
   "ConfidentialLedger": {
@@ -2976,6 +2653,31 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2022-06-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2022-06-02-preview": [
+      "AgentPool",
+      "Fleet",
+      "FleetMember",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listFleetCredentials",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "CostManagement": {
@@ -3262,6 +2964,10 @@
       "Grafana"
     ],
     "2022-05-01-preview": [
+      "Grafana",
+      "PrivateEndpointConnection"
+    ],
+    "2022-08-01": [
       "Grafana",
       "PrivateEndpointConnection"
     ]
@@ -3974,6 +3680,21 @@
       "Workspace"
     ]
   },
+  "DevCenter": {
+    "2022-08-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule"
+    ]
+  },
   "DevHub": {
     "2022-04-01-preview": [
       "Workflow",
@@ -4061,6 +3782,12 @@
       "PrivateEndpointConnectionProxy"
     ],
     "2022-04-01-preview": [
+      "Account",
+      "Instance",
+      "PrivateEndpointConnection",
+      "PrivateEndpointConnectionProxy"
+    ],
+    "2022-10-01": [
       "Account",
       "Instance",
       "PrivateEndpointConnection",
@@ -5551,6 +5278,16 @@
       "Service",
       "Workspace",
       "WorkspacePrivateEndpointConnection"
+    ],
+    "2022-06-01": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
     ]
   },
   "HybridCompute": {
@@ -5857,6 +5594,9 @@
     ],
     "2022-06-15": [
       "WebTest"
+    ],
+    "2022-10-01": [
+      "AutoscaleSetting"
     ]
   },
   "Intune": {
@@ -7073,6 +6813,20 @@
       "Site",
       "Slice",
       "listMobileNetworkSimIds"
+    ],
+    "2022-04-01-preview": [
+      "AttachedDataNetwork",
+      "DataNetwork",
+      "MobileNetwork",
+      "PacketCoreControlPlane",
+      "PacketCoreDataPlane",
+      "Service",
+      "Sim",
+      "SimGroup",
+      "SimPolicy",
+      "Site",
+      "Slice",
+      "listMobileNetworkSimIds"
     ]
   },
   "NetApp": {
@@ -7252,6 +7006,20 @@
       "getSubvolumeMetadata"
     ],
     "2022-01-01": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getSubvolumeMetadata",
+      "listVolumeReplications"
+    ],
+    "2022-03-01": [
       "Account",
       "Backup",
       "BackupPolicy",
@@ -9456,6 +9224,11 @@
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
+    "2021-06-01": [
+      "FrontDoor",
+      "Policy",
+      "RulesEngine"
+    ],
     "2021-08-01": [
       "ApplicationGateway",
       "ApplicationGatewayPrivateEndpointConnection",
@@ -9723,6 +9496,10 @@
       "CollectorPolicy"
     ],
     "2022-05-01": [
+      "AzureTrafficCollector",
+      "CollectorPolicy"
+    ],
+    "2022-08-01": [
       "AzureTrafficCollector",
       "CollectorPolicy"
     ]
@@ -11315,6 +11092,15 @@
       "NodeType",
       "Service",
       "getmanagedAzResiliencyStatus"
+    ],
+    "2022-06-01-preview": [
+      "Application",
+      "ApplicationType",
+      "ApplicationTypeVersion",
+      "ManagedCluster",
+      "NodeType",
+      "Service",
+      "getmanagedAzResiliencyStatus"
     ]
   },
   "ServiceFabricMesh": {
@@ -11416,25 +11202,59 @@
       "Application",
       "ApplicationDefinition"
     ],
-    "2018-06-01": [
+    "2017-12-01": [
       "Application",
       "ApplicationDefinition"
+    ],
+    "2018-02-01": [
+      "Application",
+      "ApplicationDefinition"
+    ],
+    "2018-03-01": [
+      "Application",
+      "ApplicationDefinition",
+      "JitRequest",
+      "listApplicationTokens"
+    ],
+    "2018-06-01": [
+      "Application",
+      "ApplicationDefinition",
+      "JitRequest",
+      "listApplicationTokens"
+    ],
+    "2018-09-01-preview": [
+      "Application",
+      "ApplicationDefinition",
+      "JitRequest",
+      "listApplicationTokens"
     ],
     "2019-07-01": [
       "Application",
       "ApplicationDefinition",
-      "JitRequest"
+      "JitRequest",
+      "listApplicationAllowedUpgradePlans",
+      "listApplicationTokens"
     ],
     "2020-08-21-preview": [
       "Application",
       "ApplicationDefinition",
-      "JitRequest"
+      "JitRequest",
+      "listApplicationAllowedUpgradePlans",
+      "listApplicationTokens"
+    ],
+    "2021-02-01-preview": [
+      "Application",
+      "ApplicationDefinition",
+      "JitRequest",
+      "listApplicationAllowedUpgradePlans",
+      "listApplicationTokens"
     ],
     "2021-07-01": [
       "Application",
       "ApplicationDefinition",
       "JitRequest",
-      "listApplicationAllowedUpgradePlans"
+      "listApplicationAllowedUpgradePlans",
+      "listApplicationTokens"
     ]
   },
   "Sql": {
@@ -11895,6 +11715,68 @@
       "VirtualNetworkRule",
       "WorkloadClassifier",
       "WorkloadGroup"
+    ],
+    "2022-02-01-preview": [
+      "BackupShortTermRetentionPolicy",
+      "DataMaskingPolicy",
+      "Database",
+      "DatabaseAdvisor",
+      "DatabaseBlobAuditingPolicy",
+      "DatabaseSecurityAlertPolicy",
+      "DatabaseSqlVulnerabilityAssessmentRuleBaseline",
+      "DatabaseVulnerabilityAssessment",
+      "DatabaseVulnerabilityAssessmentRuleBaseline",
+      "DistributedAvailabilityGroup",
+      "ElasticPool",
+      "EncryptionProtector",
+      "ExtendedDatabaseBlobAuditingPolicy",
+      "ExtendedServerBlobAuditingPolicy",
+      "FailoverGroup",
+      "FirewallRule",
+      "GeoBackupPolicy",
+      "IPv6FirewallRule",
+      "InstanceFailoverGroup",
+      "InstancePool",
+      "Job",
+      "JobAgent",
+      "JobCredential",
+      "JobStep",
+      "JobTargetGroup",
+      "LongTermRetentionPolicy",
+      "ManagedDatabase",
+      "ManagedDatabaseSensitivityLabel",
+      "ManagedDatabaseVulnerabilityAssessment",
+      "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+      "ManagedInstance",
+      "ManagedInstanceAdministrator",
+      "ManagedInstanceAzureADOnlyAuthentication",
+      "ManagedInstanceKey",
+      "ManagedInstancePrivateEndpointConnection",
+      "ManagedInstanceVulnerabilityAssessment",
+      "ManagedServerDnsAlias",
+      "OutboundFirewallRule",
+      "PrivateEndpointConnection",
+      "SensitivityLabel",
+      "Server",
+      "ServerAdvisor",
+      "ServerAzureADAdministrator",
+      "ServerAzureADOnlyAuthentication",
+      "ServerBlobAuditingPolicy",
+      "ServerDnsAlias",
+      "ServerKey",
+      "ServerSecurityAlertPolicy",
+      "ServerTrustCertificate",
+      "ServerTrustGroup",
+      "ServerVulnerabilityAssessment",
+      "SqlVulnerabilityAssessmentRuleBaseline",
+      "SqlVulnerabilityAssessmentsSetting",
+      "SyncAgent",
+      "SyncGroup",
+      "SyncMember",
+      "TransparentDataEncryption",
+      "VirtualNetworkRule",
+      "WorkloadClassifier",
+      "WorkloadGroup"
     ]
   },
   "SqlVirtualMachine": {
@@ -12238,6 +12120,15 @@
     "2022-05-01": [
       "Cache",
       "StorageTarget"
+    ]
+  },
+  "StorageMover": {
+    "2022-07-01-preview": [
+      "Agent",
+      "Endpoint",
+      "JobDefinition",
+      "Project",
+      "StorageMover"
     ]
   },
   "StoragePool": {
@@ -12661,6 +12552,9 @@
       "Account"
     ],
     "2022-04-13-preview": [
+      "Account"
+    ],
+    "2022-08-01": [
       "Account"
     ]
   },
