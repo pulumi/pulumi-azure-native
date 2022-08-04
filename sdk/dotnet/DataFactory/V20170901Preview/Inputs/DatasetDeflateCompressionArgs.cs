@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The Deflate compression method used on a dataset.
     /// </summary>
-    public sealed class DatasetDeflateCompressionArgs : Pulumi.ResourceArgs
+    public sealed class DatasetDeflateCompressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Deflate compression level.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public DatasetDeflateCompressionArgs()
         {
         }
+        public static new DatasetDeflateCompressionArgs Empty => new DatasetDeflateCompressionArgs();
     }
 }

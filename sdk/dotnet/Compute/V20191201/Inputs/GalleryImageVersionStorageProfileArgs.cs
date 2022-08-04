@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20191201.Inputs
     /// <summary>
     /// This is the storage profile of a Gallery Image Version.
     /// </summary>
-    public sealed class GalleryImageVersionStorageProfileArgs : Pulumi.ResourceArgs
+    public sealed class GalleryImageVersionStorageProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataDiskImages")]
         private InputList<Inputs.GalleryDataDiskImageArgs>? _dataDiskImages;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Compute.V20191201.Inputs
         public GalleryImageVersionStorageProfileArgs()
         {
         }
+        public static new GalleryImageVersionStorageProfileArgs Empty => new GalleryImageVersionStorageProfileArgs();
     }
 }

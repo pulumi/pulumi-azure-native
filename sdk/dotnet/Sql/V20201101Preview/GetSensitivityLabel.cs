@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     }
 
 
-    public sealed class GetSensitivityLabelArgs : Pulumi.InvokeArgs
+    public sealed class GetSensitivityLabelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the column.
@@ -72,9 +72,10 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public GetSensitivityLabelArgs()
         {
         }
+        public static new GetSensitivityLabelArgs Empty => new GetSensitivityLabelArgs();
     }
 
-    public sealed class GetSensitivityLabelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSensitivityLabelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the column.
@@ -121,6 +122,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public GetSensitivityLabelInvokeArgs()
         {
         }
+        public static new GetSensitivityLabelInvokeArgs Empty => new GetSensitivityLabelInvokeArgs();
     }
 
 

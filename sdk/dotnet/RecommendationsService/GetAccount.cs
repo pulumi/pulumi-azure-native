@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.RecommendationsService
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RecommendationsService Account resource.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.RecommendationsService
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RecommendationsService Account resource.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.RecommendationsService
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

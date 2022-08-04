@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
     /// <summary>
     /// Temporary disk payload
     /// </summary>
-    public sealed class TemporaryDiskArgs : Pulumi.ResourceArgs
+    public sealed class TemporaryDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mount path of the temporary disk
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
         {
             MountPath = "/tmp";
         }
+        public static new TemporaryDiskArgs Empty => new TemporaryDiskArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
     /// The EngagementFabric account
     /// </summary>
     [AzureNativeResourceType("azure-native:engagementfabric/v20180901preview:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:engagementfabric:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:engagementfabric:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account Name
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

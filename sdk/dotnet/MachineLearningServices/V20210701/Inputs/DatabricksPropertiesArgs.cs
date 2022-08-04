@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Inputs
     /// <summary>
     /// Properties of Databricks
     /// </summary>
-    public sealed class DatabricksPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DatabricksPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Databricks access token
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Inputs
         public DatabricksPropertiesArgs()
         {
         }
+        public static new DatabricksPropertiesArgs Empty => new DatabricksPropertiesArgs();
     }
 }

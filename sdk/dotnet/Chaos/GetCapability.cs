@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Chaos
     }
 
 
-    public sealed class GetCapabilityArgs : Pulumi.InvokeArgs
+    public sealed class GetCapabilityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// String that represents a Capability resource name.
@@ -68,9 +68,10 @@ namespace Pulumi.AzureNative.Chaos
         public GetCapabilityArgs()
         {
         }
+        public static new GetCapabilityArgs Empty => new GetCapabilityArgs();
     }
 
-    public sealed class GetCapabilityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCapabilityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// String that represents a Capability resource name.
@@ -111,6 +112,7 @@ namespace Pulumi.AzureNative.Chaos
         public GetCapabilityInvokeArgs()
         {
         }
+        public static new GetCapabilityInvokeArgs Empty => new GetCapabilityInvokeArgs();
     }
 
 

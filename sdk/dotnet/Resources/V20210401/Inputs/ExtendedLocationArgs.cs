@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20210401.Inputs
     /// <summary>
     /// Resource extended location.
     /// </summary>
-    public sealed class ExtendedLocationArgs : Pulumi.ResourceArgs
+    public sealed class ExtendedLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The extended location name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Resources.V20210401.Inputs
         public ExtendedLocationArgs()
         {
         }
+        public static new ExtendedLocationArgs Empty => new ExtendedLocationArgs();
     }
 }

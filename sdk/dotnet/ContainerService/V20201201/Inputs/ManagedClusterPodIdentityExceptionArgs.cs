@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20201201.Inputs
 {
 
-    public sealed class ManagedClusterPodIdentityExceptionArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterPodIdentityExceptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the pod identity exception.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.ContainerService.V20201201.Inputs
         public ManagedClusterPodIdentityExceptionArgs()
         {
         }
+        public static new ManagedClusterPodIdentityExceptionArgs Empty => new ManagedClusterPodIdentityExceptionArgs();
     }
 }

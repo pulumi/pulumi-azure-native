@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ResourceGraph
     }
 
 
-    public sealed class GetGraphQueryArgs : Pulumi.InvokeArgs
+    public sealed class GetGraphQueryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.ResourceGraph
         public GetGraphQueryArgs()
         {
         }
+        public static new GetGraphQueryArgs Empty => new GetGraphQueryArgs();
     }
 
-    public sealed class GetGraphQueryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGraphQueryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         public GetGraphQueryInvokeArgs()
         {
         }
+        public static new GetGraphQueryInvokeArgs Empty => new GetGraphQueryInvokeArgs();
     }
 
 

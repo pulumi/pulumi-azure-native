@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The location of amazon S3 dataset.
     /// </summary>
-    public sealed class AmazonS3LocationArgs : Pulumi.ResourceArgs
+    public sealed class AmazonS3LocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the bucketName of amazon S3. Type: string (or Expression with resultType string)
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AmazonS3LocationArgs()
         {
         }
+        public static new AmazonS3LocationArgs Empty => new AmazonS3LocationArgs();
     }
 }

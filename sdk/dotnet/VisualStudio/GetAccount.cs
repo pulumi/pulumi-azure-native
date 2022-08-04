@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.VisualStudio
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group within the Azure subscription.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.VisualStudio
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group within the Azure subscription.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.VisualStudio
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

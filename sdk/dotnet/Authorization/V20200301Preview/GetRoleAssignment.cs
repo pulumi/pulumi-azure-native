@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Authorization.V20200301Preview
     }
 
 
-    public sealed class GetRoleAssignmentArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the role assignment. It can be any valid GUID.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Authorization.V20200301Preview
         public GetRoleAssignmentArgs()
         {
         }
+        public static new GetRoleAssignmentArgs Empty => new GetRoleAssignmentArgs();
     }
 
-    public sealed class GetRoleAssignmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the role assignment. It can be any valid GUID.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Authorization.V20200301Preview
         public GetRoleAssignmentInvokeArgs()
         {
         }
+        public static new GetRoleAssignmentInvokeArgs Empty => new GetRoleAssignmentInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Features
     }
 
 
-    public sealed class GetSubscriptionFeatureRegistrationArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionFeatureRegistrationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The feature name.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Features
         public GetSubscriptionFeatureRegistrationArgs()
         {
         }
+        public static new GetSubscriptionFeatureRegistrationArgs Empty => new GetSubscriptionFeatureRegistrationArgs();
     }
 
-    public sealed class GetSubscriptionFeatureRegistrationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionFeatureRegistrationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The feature name.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Features
         public GetSubscriptionFeatureRegistrationInvokeArgs()
         {
         }
+        public static new GetSubscriptionFeatureRegistrationInvokeArgs Empty => new GetSubscriptionFeatureRegistrationInvokeArgs();
     }
 
 

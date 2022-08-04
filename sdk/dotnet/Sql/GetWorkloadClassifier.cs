@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetWorkloadClassifierArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkloadClassifierArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database.
@@ -62,9 +62,10 @@ namespace Pulumi.AzureNative.Sql
         public GetWorkloadClassifierArgs()
         {
         }
+        public static new GetWorkloadClassifierArgs Empty => new GetWorkloadClassifierArgs();
     }
 
-    public sealed class GetWorkloadClassifierInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkloadClassifierInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database.
@@ -99,6 +100,7 @@ namespace Pulumi.AzureNative.Sql
         public GetWorkloadClassifierInvokeArgs()
         {
         }
+        public static new GetWorkloadClassifierInvokeArgs Empty => new GetWorkloadClassifierInvokeArgs();
     }
 
 

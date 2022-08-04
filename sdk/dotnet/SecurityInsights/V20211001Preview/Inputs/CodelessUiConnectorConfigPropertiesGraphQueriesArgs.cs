@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
 {
 
-    public sealed class CodelessUiConnectorConfigPropertiesGraphQueriesArgs : Pulumi.ResourceArgs
+    public sealed class CodelessUiConnectorConfigPropertiesGraphQueriesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The base query for the graph
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
         public CodelessUiConnectorConfigPropertiesGraphQueriesArgs()
         {
         }
+        public static new CodelessUiConnectorConfigPropertiesGraphQueriesArgs Empty => new CodelessUiConnectorConfigPropertiesGraphQueriesArgs();
     }
 }

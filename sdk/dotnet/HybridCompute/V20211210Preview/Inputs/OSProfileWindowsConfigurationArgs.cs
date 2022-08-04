@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20211210Preview.Inputs
     /// <summary>
     /// Specifies the windows configuration for update management.
     /// </summary>
-    public sealed class OSProfileWindowsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OSProfileWindowsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the assessment mode.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20211210Preview.Inputs
         public OSProfileWindowsConfigurationArgs()
         {
         }
+        public static new OSProfileWindowsConfigurationArgs Empty => new OSProfileWindowsConfigurationArgs();
     }
 }

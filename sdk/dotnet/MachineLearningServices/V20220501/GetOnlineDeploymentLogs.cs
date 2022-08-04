@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     }
 
 
-    public sealed class GetOnlineDeploymentLogsArgs : Pulumi.InvokeArgs
+    public sealed class GetOnlineDeploymentLogsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of container to retrieve logs from.
@@ -61,9 +61,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         {
             ContainerType = "InferenceServer";
         }
+        public static new GetOnlineDeploymentLogsArgs Empty => new GetOnlineDeploymentLogsArgs();
     }
 
-    public sealed class GetOnlineDeploymentLogsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOnlineDeploymentLogsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of container to retrieve logs from.
@@ -105,6 +106,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         {
             ContainerType = "InferenceServer";
         }
+        public static new GetOnlineDeploymentLogsInvokeArgs Empty => new GetOnlineDeploymentLogsInvokeArgs();
     }
 
 

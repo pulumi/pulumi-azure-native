@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteAppSettingsSlot")]
-    public partial class SiteAppSettingsSlot : Pulumi.CustomResource
+    public partial class SiteAppSettingsSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource
@@ -77,20 +77,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteAppSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteAppSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteAppSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteAppSettingsSlotArgs : Pulumi.ResourceArgs
+    public sealed class SiteAppSettingsSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -183,5 +183,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteAppSettingsSlotArgs()
         {
         }
+        public static new SiteAppSettingsSlotArgs Empty => new SiteAppSettingsSlotArgs();
     }
 }

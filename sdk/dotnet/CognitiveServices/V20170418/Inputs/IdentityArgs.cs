@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418.Inputs
     /// <summary>
     /// Managed service identity.
     /// </summary>
-    public sealed class IdentityArgs : Pulumi.ResourceArgs
+    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of managed service identity.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418.Inputs
         public IdentityArgs()
         {
         }
+        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

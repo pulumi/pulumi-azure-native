@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     /// Issue Comment Contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:ApiIssueComment")]
-    public partial class ApiIssueComment : Pulumi.CustomResource
+    public partial class ApiIssueComment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date and time when the comment was created.
@@ -70,18 +70,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiIssueComment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         }
     }
 
-    public sealed class ApiIssueCommentArgs : Pulumi.ResourceArgs
+    public sealed class ApiIssueCommentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -156,5 +156,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public ApiIssueCommentArgs()
         {
         }
+        public static new ApiIssueCommentArgs Empty => new ApiIssueCommentArgs();
     }
 }

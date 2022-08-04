@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The integration account RosettaNet ProcessConfiguration role settings.
     /// </summary>
-    public sealed class RosettaNetPipRoleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class RosettaNetPipRoleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action name.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public RosettaNetPipRoleSettingsArgs()
         {
         }
+        public static new RosettaNetPipRoleSettingsArgs Empty => new RosettaNetPipRoleSettingsArgs();
     }
 }

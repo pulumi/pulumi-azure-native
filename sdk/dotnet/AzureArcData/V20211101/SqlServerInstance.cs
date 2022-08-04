@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101
     /// A SqlServerInstance.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata/v20211101:SqlServerInstance")]
-    public partial class SqlServerInstance : Pulumi.CustomResource
+    public partial class SqlServerInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -76,11 +76,11 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata:SqlServerInstance"},
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:SqlServerInstance"},
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:SqlServerInstance"},
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:SqlServerInstance"},
-                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:SqlServerInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata:SqlServerInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:SqlServerInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:SqlServerInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:SqlServerInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:SqlServerInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101
         }
     }
 
-    public sealed class SqlServerInstanceArgs : Pulumi.ResourceArgs
+    public sealed class SqlServerInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -143,5 +143,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101
         public SqlServerInstanceArgs()
         {
         }
+        public static new SqlServerInstanceArgs Empty => new SqlServerInstanceArgs();
     }
 }

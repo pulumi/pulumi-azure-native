@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101
     /// App Service plan.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20210101:AppServicePlan")]
-    public partial class AppServicePlan : Pulumi.CustomResource
+    public partial class AppServicePlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Extended Location.
@@ -203,19 +203,19 @@ namespace Pulumi.AzureNative.Web.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:AppServicePlan"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:AppServicePlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -237,7 +237,7 @@ namespace Pulumi.AzureNative.Web.V20210101
         }
     }
 
-    public sealed class AppServicePlanArgs : Pulumi.ResourceArgs
+    public sealed class AppServicePlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Extended Location.
@@ -373,5 +373,6 @@ namespace Pulumi.AzureNative.Web.V20210101
             PerSiteScaling = false;
             Reserved = false;
         }
+        public static new AppServicePlanArgs Empty => new AppServicePlanArgs();
     }
 }

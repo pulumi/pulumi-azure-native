@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
     }
 
 
-    public sealed class GetScalingPlanArgs : Pulumi.InvokeArgs
+    public sealed class GetScalingPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
         public GetScalingPlanArgs()
         {
         }
+        public static new GetScalingPlanArgs Empty => new GetScalingPlanArgs();
     }
 
-    public sealed class GetScalingPlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScalingPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
         public GetScalingPlanInvokeArgs()
         {
         }
+        public static new GetScalingPlanInvokeArgs Empty => new GetScalingPlanInvokeArgs();
     }
 
 

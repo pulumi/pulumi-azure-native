@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Switch cases with have a value and corresponding activities.
     /// </summary>
-    public sealed class SwitchCaseArgs : Pulumi.ResourceArgs
+    public sealed class SwitchCaseArgs : global::Pulumi.ResourceArgs
     {
         [Input("activities")]
         private InputList<object>? _activities;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SwitchCaseArgs()
         {
         }
+        public static new SwitchCaseArgs Empty => new SwitchCaseArgs();
     }
 }

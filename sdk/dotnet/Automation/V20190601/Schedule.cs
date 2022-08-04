@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
     /// Definition of the schedule.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20190601:Schedule")]
-    public partial class Schedule : Pulumi.CustomResource
+    public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the advanced schedule.
@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation:Schedule"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Schedule"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Schedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
         }
     }
 
-    public sealed class ScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the AdvancedSchedule.
@@ -231,5 +231,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public ScheduleArgs()
         {
         }
+        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 }

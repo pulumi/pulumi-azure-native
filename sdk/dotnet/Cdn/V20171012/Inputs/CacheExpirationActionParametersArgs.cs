@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
     /// <summary>
     /// Defines the parameters for the cache expiration action.
     /// </summary>
-    public sealed class CacheExpirationActionParametersArgs : Pulumi.ResourceArgs
+    public sealed class CacheExpirationActionParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Caching behavior for the requests that include query strings.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
         public CacheExpirationActionParametersArgs()
         {
         }
+        public static new CacheExpirationActionParametersArgs Empty => new CacheExpirationActionParametersArgs();
     }
 }

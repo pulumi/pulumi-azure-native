@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     }
 
 
-    public sealed class GetSqlDWTableDataSetMappingArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlDWTableDataSetMappingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public GetSqlDWTableDataSetMappingArgs()
         {
         }
+        public static new GetSqlDWTableDataSetMappingArgs Empty => new GetSqlDWTableDataSetMappingArgs();
     }
 
-    public sealed class GetSqlDWTableDataSetMappingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlDWTableDataSetMappingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public GetSqlDWTableDataSetMappingInvokeArgs()
         {
         }
+        public static new GetSqlDWTableDataSetMappingInvokeArgs Empty => new GetSqlDWTableDataSetMappingInvokeArgs();
     }
 
 

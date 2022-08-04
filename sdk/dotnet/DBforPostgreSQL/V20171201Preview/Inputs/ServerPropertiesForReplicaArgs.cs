@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview.Inputs
     /// <summary>
     /// The properties to create a new replica.
     /// </summary>
-    public sealed class ServerPropertiesForReplicaArgs : Pulumi.ResourceArgs
+    public sealed class ServerPropertiesForReplicaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mode to create a new server.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview.Inputs
         public ServerPropertiesForReplicaArgs()
         {
         }
+        public static new ServerPropertiesForReplicaArgs Empty => new ServerPropertiesForReplicaArgs();
     }
 }

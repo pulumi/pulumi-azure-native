@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class IdentityArgs : Pulumi.ResourceArgs
+    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801.Inputs
         public IdentityArgs()
         {
         }
+        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

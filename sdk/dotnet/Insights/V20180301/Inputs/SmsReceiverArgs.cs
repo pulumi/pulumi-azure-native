@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
     /// <summary>
     /// An SMS receiver.
     /// </summary>
-    public sealed class SmsReceiverArgs : Pulumi.ResourceArgs
+    public sealed class SmsReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The country code of the SMS receiver.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
         public SmsReceiverArgs()
         {
         }
+        public static new SmsReceiverArgs Empty => new SmsReceiverArgs();
     }
 }

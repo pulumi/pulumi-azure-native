@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.KeyVault
     /// API Version: 2019-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Modified whenever there is a change in the state of private endpoint connection.
@@ -89,14 +89,14 @@ namespace Pulumi.AzureNative.KeyVault
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20180214:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20190901:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211001:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20220701:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20190901:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.KeyVault
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the private endpoint connection associated with the key vault.
@@ -147,5 +147,6 @@ namespace Pulumi.AzureNative.KeyVault
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// <summary>
     /// Properties for the task that validates connection to Azure SQL Database Managed Instance
     /// </summary>
-    public sealed class ConnectToTargetSqlMISyncTaskPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectToTargetSqlMISyncTaskPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Task input
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public ConnectToTargetSqlMISyncTaskPropertiesArgs()
         {
         }
+        public static new ConnectToTargetSqlMISyncTaskPropertiesArgs Empty => new ConnectToTargetSqlMISyncTaskPropertiesArgs();
     }
 }

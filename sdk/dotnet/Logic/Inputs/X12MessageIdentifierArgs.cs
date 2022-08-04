@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The X12 message identifier.
     /// </summary>
-    public sealed class X12MessageIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class X12MessageIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message id.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public X12MessageIdentifierArgs()
         {
         }
+        public static new X12MessageIdentifierArgs Empty => new X12MessageIdentifierArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20220601.Inputs
 {
 
-    public sealed class ContainerRegistryArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public ContainerRegistryArgs()
         {
         }
+        public static new ContainerRegistryArgs Empty => new ContainerRegistryArgs();
     }
 }

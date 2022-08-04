@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityUserConfiguration")]
-    public partial class SecurityUserConfiguration : Pulumi.CustomResource
+    public partial class SecurityUserConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Flag if need to delete existing network security groups.
@@ -95,10 +95,10 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityUserConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityUserConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class SecurityUserConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SecurityUserConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the network manager security Configuration.
@@ -167,5 +167,6 @@ namespace Pulumi.AzureNative.Network
         public SecurityUserConfigurationArgs()
         {
         }
+        public static new SecurityUserConfigurationArgs Empty => new SecurityUserConfigurationArgs();
     }
 }

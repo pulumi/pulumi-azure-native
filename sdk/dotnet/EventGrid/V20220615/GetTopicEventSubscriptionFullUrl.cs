@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     }
 
 
-    public sealed class GetTopicEventSubscriptionFullUrlArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicEventSubscriptionFullUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the event subscription.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         public GetTopicEventSubscriptionFullUrlArgs()
         {
         }
+        public static new GetTopicEventSubscriptionFullUrlArgs Empty => new GetTopicEventSubscriptionFullUrlArgs();
     }
 
-    public sealed class GetTopicEventSubscriptionFullUrlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicEventSubscriptionFullUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the event subscription.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         public GetTopicEventSubscriptionFullUrlInvokeArgs()
         {
         }
+        public static new GetTopicEventSubscriptionFullUrlInvokeArgs Empty => new GetTopicEventSubscriptionFullUrlInvokeArgs();
     }
 
 

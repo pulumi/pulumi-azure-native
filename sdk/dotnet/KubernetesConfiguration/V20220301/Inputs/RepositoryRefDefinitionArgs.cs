@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301.Inputs
     /// <summary>
     /// The source reference for the GitRepository object.
     /// </summary>
-    public sealed class RepositoryRefDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryRefDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The git repository branch name to checkout.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301.Inputs
         public RepositoryRefDefinitionArgs()
         {
         }
+        public static new RepositoryRefDefinitionArgs Empty => new RepositoryRefDefinitionArgs();
     }
 }

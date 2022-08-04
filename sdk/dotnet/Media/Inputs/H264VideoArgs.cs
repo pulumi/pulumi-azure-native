@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Describes all the properties for encoding a video with the H.264 codec.
     /// </summary>
-    public sealed class H264VideoArgs : Pulumi.ResourceArgs
+    public sealed class H264VideoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tells the encoder how to choose its encoding settings. The default value is Balanced.
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public H264VideoArgs()
         {
         }
+        public static new H264VideoArgs Empty => new H264VideoArgs();
     }
 }

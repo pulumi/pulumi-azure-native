@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
     /// Configures where to store the OMS agent data for workspaces under a scope
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20170801preview:WorkspaceSetting")]
-    public partial class WorkspaceSetting : Pulumi.CustomResource
+    public partial class WorkspaceSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:security:WorkspaceSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:WorkspaceSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         }
     }
 
-    public sealed class WorkspaceSettingArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
@@ -109,5 +109,6 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         public WorkspaceSettingArgs()
         {
         }
+        public static new WorkspaceSettingArgs Empty => new WorkspaceSettingArgs();
     }
 }

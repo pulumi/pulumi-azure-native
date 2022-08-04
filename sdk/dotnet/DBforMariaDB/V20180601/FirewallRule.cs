@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
     /// Represents a server firewall rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb/v20180601:FirewallRule")]
-    public partial class FirewallRule : Pulumi.CustomResource
+    public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
@@ -64,8 +64,8 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbformariadb:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
         }
     }
 
-    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
         public FirewallRuleArgs()
         {
         }
+        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 }

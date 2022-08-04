@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity source for a MongoDB database.
     /// </summary>
-    public sealed class MongoDbSourceArgs : Pulumi.ResourceArgs
+    public sealed class MongoDbSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public MongoDbSourceArgs()
         {
         }
+        public static new MongoDbSourceArgs Empty => new MongoDbSourceArgs();
     }
 }

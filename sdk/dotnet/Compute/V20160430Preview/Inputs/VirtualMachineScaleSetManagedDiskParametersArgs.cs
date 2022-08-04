@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
     /// <summary>
     /// Describes the parameters of a ScaleSet managed disk.
     /// </summary>
-    public sealed class VirtualMachineScaleSetManagedDiskParametersArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetManagedDiskParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
         public VirtualMachineScaleSetManagedDiskParametersArgs()
         {
         }
+        public static new VirtualMachineScaleSetManagedDiskParametersArgs Empty => new VirtualMachineScaleSetManagedDiskParametersArgs();
     }
 }

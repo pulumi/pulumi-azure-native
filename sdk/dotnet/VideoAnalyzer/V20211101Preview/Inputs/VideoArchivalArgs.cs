@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Video archival properties.
     /// </summary>
-    public sealed class VideoArchivalArgs : Pulumi.ResourceArgs
+    public sealed class VideoArchivalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public VideoArchivalArgs()
         {
         }
+        public static new VideoArchivalArgs Empty => new VideoArchivalArgs();
     }
 }

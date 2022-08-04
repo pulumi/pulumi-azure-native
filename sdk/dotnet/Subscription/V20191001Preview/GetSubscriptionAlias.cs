@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
     }
 
 
-    public sealed class GetSubscriptionAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionAliasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
@@ -37,9 +37,10 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
         public GetSubscriptionAliasArgs()
         {
         }
+        public static new GetSubscriptionAliasArgs Empty => new GetSubscriptionAliasArgs();
     }
 
-    public sealed class GetSubscriptionAliasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
@@ -50,6 +51,7 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
         public GetSubscriptionAliasInvokeArgs()
         {
         }
+        public static new GetSubscriptionAliasInvokeArgs Empty => new GetSubscriptionAliasInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
     /// <summary>
     /// The mapping of content type to a repo path.
     /// </summary>
-    public sealed class ContentPathMapArgs : Pulumi.ResourceArgs
+    public sealed class ContentPathMapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content type.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
         public ContentPathMapArgs()
         {
         }
+        public static new ContentPathMapArgs Empty => new ContentPathMapArgs();
     }
 }

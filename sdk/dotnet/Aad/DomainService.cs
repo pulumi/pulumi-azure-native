@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Aad
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:aad:DomainService")]
-    public partial class DomainService : Pulumi.CustomResource
+    public partial class DomainService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Deployment Id
@@ -167,11 +167,11 @@ namespace Pulumi.AzureNative.Aad
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:aad/v20170101:DomainService"},
-                    new Pulumi.Alias { Type = "azure-native:aad/v20170601:DomainService"},
-                    new Pulumi.Alias { Type = "azure-native:aad/v20200101:DomainService"},
-                    new Pulumi.Alias { Type = "azure-native:aad/v20210301:DomainService"},
-                    new Pulumi.Alias { Type = "azure-native:aad/v20210501:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20170101:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20170601:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20200101:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20210301:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20210501:DomainService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -193,7 +193,7 @@ namespace Pulumi.AzureNative.Aad
         }
     }
 
-    public sealed class DomainServiceArgs : Pulumi.ResourceArgs
+    public sealed class DomainServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain Configuration Type
@@ -288,5 +288,6 @@ namespace Pulumi.AzureNative.Aad
         public DomainServiceArgs()
         {
         }
+        public static new DomainServiceArgs Empty => new DomainServiceArgs();
     }
 }

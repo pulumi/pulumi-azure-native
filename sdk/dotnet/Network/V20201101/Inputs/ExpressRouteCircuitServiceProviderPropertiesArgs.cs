@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
     /// <summary>
     /// Contains ServiceProviderProperties in an ExpressRouteCircuit.
     /// </summary>
-    public sealed class ExpressRouteCircuitServiceProviderPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitServiceProviderPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The BandwidthInMbps.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
         public ExpressRouteCircuitServiceProviderPropertiesArgs()
         {
         }
+        public static new ExpressRouteCircuitServiceProviderPropertiesArgs Empty => new ExpressRouteCircuitServiceProviderPropertiesArgs();
     }
 }

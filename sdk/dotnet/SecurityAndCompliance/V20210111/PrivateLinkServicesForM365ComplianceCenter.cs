@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     /// The description of the service.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter")]
-    public partial class PrivateLinkServicesForM365ComplianceCenter : Pulumi.CustomResource
+    public partial class PrivateLinkServicesForM365ComplianceCenter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForM365ComplianceCenter"},
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForM365ComplianceCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         }
     }
 
-    public sealed class PrivateLinkServicesForM365ComplianceCenterArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServicesForM365ComplianceCenterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
@@ -170,5 +170,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         public PrivateLinkServicesForM365ComplianceCenterArgs()
         {
         }
+        public static new PrivateLinkServicesForM365ComplianceCenterArgs Empty => new PrivateLinkServicesForM365ComplianceCenterArgs();
     }
 }

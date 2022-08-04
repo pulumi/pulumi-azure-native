@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.Inputs
     /// <summary>
     /// Represents the SKU name and Azure pricing tier for auto scale v-core resource.
     /// </summary>
-    public sealed class AutoScaleVCoreSkuArgs : Pulumi.ResourceArgs
+    public sealed class AutoScaleVCoreSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The capacity of an auto scale v-core resource.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.PowerBIDedicated.Inputs
         public AutoScaleVCoreSkuArgs()
         {
         }
+        public static new AutoScaleVCoreSkuArgs Empty => new AutoScaleVCoreSkuArgs();
     }
 }

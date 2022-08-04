@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// The IoT Hub details.
     /// </summary>
-    public sealed class IotHubArgs : Pulumi.ResourceArgs
+    public sealed class IotHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IoT Hub resource identifier.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public IotHubArgs()
         {
         }
+        public static new IotHubArgs Empty => new IotHubArgs();
     }
 }

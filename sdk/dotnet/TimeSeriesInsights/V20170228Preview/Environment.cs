@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
     /// </summary>
     [Obsolete(@"Version 2017-02-28-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20170228preview:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the resource was created.
@@ -107,12 +107,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Environment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
@@ -187,5 +187,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 }

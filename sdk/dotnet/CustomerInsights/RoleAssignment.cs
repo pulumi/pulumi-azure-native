@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// API Version: 2017-04-26.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:RoleAssignment")]
-    public partial class RoleAssignment : Pulumi.CustomResource
+    public partial class RoleAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the metadata object.
@@ -173,8 +173,8 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:RoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:RoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNative.CustomerInsights
         }
     }
 
-    public sealed class RoleAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class RoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The assignment name
@@ -339,5 +339,6 @@ namespace Pulumi.AzureNative.CustomerInsights
         public RoleAssignmentArgs()
         {
         }
+        public static new RoleAssignmentArgs Empty => new RoleAssignmentArgs();
     }
 }

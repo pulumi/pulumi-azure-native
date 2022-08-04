@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20200901.Inputs
     /// <summary>
     /// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
     /// </summary>
-    public sealed class BatchAccountIdentityArgs : Pulumi.ResourceArgs
+    public sealed class BatchAccountIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the Batch account.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Batch.V20200901.Inputs
         public BatchAccountIdentityArgs()
         {
         }
+        public static new BatchAccountIdentityArgs Empty => new BatchAccountIdentityArgs();
     }
 }

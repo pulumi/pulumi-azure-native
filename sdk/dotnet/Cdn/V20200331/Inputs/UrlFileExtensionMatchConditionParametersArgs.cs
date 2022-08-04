@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
     /// <summary>
     /// Defines the parameters for UrlFileExtension match conditions
     /// </summary>
-    public sealed class UrlFileExtensionMatchConditionParametersArgs : Pulumi.ResourceArgs
+    public sealed class UrlFileExtensionMatchConditionParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -57,5 +57,6 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
         public UrlFileExtensionMatchConditionParametersArgs()
         {
         }
+        public static new UrlFileExtensionMatchConditionParametersArgs Empty => new UrlFileExtensionMatchConditionParametersArgs();
     }
 }

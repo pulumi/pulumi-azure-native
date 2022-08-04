@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the SocketAddress condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleSocketAddrConditionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleSocketAddrConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public DeliveryRuleSocketAddrConditionArgs()
         {
         }
+        public static new DeliveryRuleSocketAddrConditionArgs Empty => new DeliveryRuleSocketAddrConditionArgs();
     }
 }

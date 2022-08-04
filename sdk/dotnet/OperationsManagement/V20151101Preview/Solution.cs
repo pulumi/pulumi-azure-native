@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
     /// The container for solution.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationsmanagement/v20151101preview:Solution")]
-    public partial class Solution : Pulumi.CustomResource
+    public partial class Solution : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationsmanagement:Solution"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationsmanagement:Solution"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         }
     }
 
-    public sealed class SolutionArgs : Pulumi.ResourceArgs
+    public sealed class SolutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         public SolutionArgs()
         {
         }
+        public static new SolutionArgs Empty => new SolutionArgs();
     }
 }

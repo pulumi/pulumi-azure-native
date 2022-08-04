@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Marketo server linked service.
     /// </summary>
-    public sealed class MarketoLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class MarketoLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public MarketoLinkedServiceArgs()
         {
         }
+        public static new MarketoLinkedServiceArgs Empty => new MarketoLinkedServiceArgs();
     }
 }

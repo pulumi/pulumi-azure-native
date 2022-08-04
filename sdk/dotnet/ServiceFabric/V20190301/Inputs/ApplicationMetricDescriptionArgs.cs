@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301.Inputs
     /// <summary>
     /// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
     /// </summary>
-    public sealed class ApplicationMetricDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationMetricDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum node capacity for Service Fabric application.
@@ -52,5 +52,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301.Inputs
         public ApplicationMetricDescriptionArgs()
         {
         }
+        public static new ApplicationMetricDescriptionArgs Empty => new ApplicationMetricDescriptionArgs();
     }
 }

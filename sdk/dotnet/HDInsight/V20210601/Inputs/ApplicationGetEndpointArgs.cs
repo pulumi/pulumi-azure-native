@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// Gets the application SSH endpoint
     /// </summary>
-    public sealed class ApplicationGetEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGetEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination port to connect to.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public ApplicationGetEndpointArgs()
         {
         }
+        public static new ApplicationGetEndpointArgs Empty => new ApplicationGetEndpointArgs();
     }
 }

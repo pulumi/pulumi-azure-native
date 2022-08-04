@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     }
 
 
-    public sealed class GetGlobalUserOperationBatchStatusArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalUserOperationBatchStatusArgs : global::Pulumi.InvokeArgs
     {
         [Input("urls", required: true)]
         private List<string>? _urls;
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetGlobalUserOperationBatchStatusArgs()
         {
         }
+        public static new GetGlobalUserOperationBatchStatusArgs Empty => new GetGlobalUserOperationBatchStatusArgs();
     }
 
-    public sealed class GetGlobalUserOperationBatchStatusInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalUserOperationBatchStatusInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("urls", required: true)]
         private InputList<string>? _urls;
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetGlobalUserOperationBatchStatusInvokeArgs()
         {
         }
+        public static new GetGlobalUserOperationBatchStatusInvokeArgs Empty => new GetGlobalUserOperationBatchStatusInvokeArgs();
     }
 
 

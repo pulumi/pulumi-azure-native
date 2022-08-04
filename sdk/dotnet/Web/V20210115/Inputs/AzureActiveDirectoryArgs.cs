@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
     /// <summary>
     /// The configuration settings of the Azure Active directory provider.
     /// </summary>
-    public sealed class AzureActiveDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class AzureActiveDirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
@@ -50,5 +50,6 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public AzureActiveDirectoryArgs()
         {
         }
+        public static new AzureActiveDirectoryArgs Empty => new AzureActiveDirectoryArgs();
     }
 }

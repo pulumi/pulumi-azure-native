@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
     }
 
 
-    public sealed class GetReplicationPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Replication policy name.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
         public GetReplicationPolicyArgs()
         {
         }
+        public static new GetReplicationPolicyArgs Empty => new GetReplicationPolicyArgs();
     }
 
-    public sealed class GetReplicationPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Replication policy name.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
         public GetReplicationPolicyInvokeArgs()
         {
         }
+        public static new GetReplicationPolicyInvokeArgs Empty => new GetReplicationPolicyInvokeArgs();
     }
 
 

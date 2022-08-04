@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
 
-    public sealed class GetIncidentArgs : Pulumi.InvokeArgs
+    public sealed class GetIncidentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Incident ID
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetIncidentArgs()
         {
         }
+        public static new GetIncidentArgs Empty => new GetIncidentArgs();
     }
 
-    public sealed class GetIncidentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIncidentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Incident ID
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetIncidentInvokeArgs()
         {
         }
+        public static new GetIncidentInvokeArgs Empty => new GetIncidentInvokeArgs();
     }
 
 

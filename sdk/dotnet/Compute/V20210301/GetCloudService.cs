@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
     }
 
 
-    public sealed class GetCloudServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cloud service.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Compute.V20210301
         public GetCloudServiceArgs()
         {
         }
+        public static new GetCloudServiceArgs Empty => new GetCloudServiceArgs();
     }
 
-    public sealed class GetCloudServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cloud service.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
         public GetCloudServiceInvokeArgs()
         {
         }
+        public static new GetCloudServiceInvokeArgs Empty => new GetCloudServiceInvokeArgs();
     }
 
 

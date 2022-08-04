@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Azure Queue sink.
     /// </summary>
-    public sealed class AzureQueueSinkArgs : Pulumi.ResourceArgs
+    public sealed class AzureQueueSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sink retry count. Type: integer (or Expression with resultType integer).
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureQueueSinkArgs()
         {
         }
+        public static new AzureQueueSinkArgs Empty => new AzureQueueSinkArgs();
     }
 }

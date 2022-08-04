@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
     /// IoT Connector definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis/v20220131preview:IotConnector")]
-    public partial class IotConnector : Pulumi.CustomResource
+    public partial class IotConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Device Mappings.
@@ -100,10 +100,10 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis:IotConnector"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:IotConnector"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnector"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:IotConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:IotConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
         }
     }
 
-    public sealed class IotConnectorArgs : Pulumi.ResourceArgs
+    public sealed class IotConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Device Mappings.
@@ -184,5 +184,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
         public IotConnectorArgs()
         {
         }
+        public static new IotConnectorArgs Empty => new IotConnectorArgs();
     }
 }

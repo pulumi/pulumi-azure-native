@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Vertica linked service.
     /// </summary>
-    public sealed class VerticaLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class VerticaLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public VerticaLinkedServiceArgs()
         {
         }
+        public static new VerticaLinkedServiceArgs Empty => new VerticaLinkedServiceArgs();
     }
 }

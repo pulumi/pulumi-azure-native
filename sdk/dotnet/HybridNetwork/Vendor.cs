@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// API Version: 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Vendor")]
-    public partial class Vendor : Pulumi.CustomResource
+    public partial class Vendor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -65,9 +65,9 @@ namespace Pulumi.AzureNative.HybridNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Vendor"},
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:Vendor"},
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:Vendor"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Vendor"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:Vendor"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:Vendor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         }
     }
 
-    public sealed class VendorArgs : Pulumi.ResourceArgs
+    public sealed class VendorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the vendor.
@@ -100,5 +100,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         public VendorArgs()
         {
         }
+        public static new VendorArgs Empty => new VendorArgs();
     }
 }

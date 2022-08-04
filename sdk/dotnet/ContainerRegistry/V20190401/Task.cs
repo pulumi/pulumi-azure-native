@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401
     /// The task will have all information to schedule a run against it.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20190401:Task")]
-    public partial class Task : Pulumi.CustomResource
+    public partial class Task : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The machine configuration of the run agent.
@@ -125,10 +125,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:Task"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20180201preview:Task"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:Task"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:Task"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Task"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20180201preview:Task"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:Task"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:Task"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401
         }
     }
 
-    public sealed class TaskArgs : Pulumi.ResourceArgs
+    public sealed class TaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The machine configuration of the run agent.
@@ -240,5 +240,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401
         {
             Timeout = 3600;
         }
+        public static new TaskArgs Empty => new TaskArgs();
     }
 }

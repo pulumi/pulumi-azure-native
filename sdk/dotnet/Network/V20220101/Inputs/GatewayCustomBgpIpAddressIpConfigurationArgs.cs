@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// GatewayCustomBgpIpAddressIpConfiguration for a virtual network gateway connection.
     /// </summary>
-    public sealed class GatewayCustomBgpIpAddressIpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class GatewayCustomBgpIpAddressIpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The custom BgpPeeringAddress which belongs to IpconfigurationId.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public GatewayCustomBgpIpAddressIpConfigurationArgs()
         {
         }
+        public static new GatewayCustomBgpIpAddressIpConfigurationArgs Empty => new GatewayCustomBgpIpAddressIpConfigurationArgs();
     }
 }

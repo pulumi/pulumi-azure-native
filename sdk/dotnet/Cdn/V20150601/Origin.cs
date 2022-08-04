@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn.V20150601
     /// </summary>
     [Obsolete(@"Version 2015-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cdn/v20150601:Origin")]
-    public partial class Origin : Pulumi.CustomResource
+    public partial class Origin : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
@@ -83,13 +83,13 @@ namespace Pulumi.AzureNative.Cdn.V20150601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cdn:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20160402:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Origin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:Origin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:Origin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:Origin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:Origin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Origin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Origin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Origin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.Cdn.V20150601
         }
     }
 
-    public sealed class OriginArgs : Pulumi.ResourceArgs
+    public sealed class OriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the endpoint within the CDN profile.
@@ -158,5 +158,6 @@ namespace Pulumi.AzureNative.Cdn.V20150601
         public OriginArgs()
         {
         }
+        public static new OriginArgs Empty => new OriginArgs();
     }
 }

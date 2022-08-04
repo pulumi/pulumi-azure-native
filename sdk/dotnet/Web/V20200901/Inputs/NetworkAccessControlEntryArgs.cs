@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
     /// <summary>
     /// Network access control entry.
     /// </summary>
-    public sealed class NetworkAccessControlEntryArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAccessControlEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action object.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public NetworkAccessControlEntryArgs()
         {
         }
+        public static new NetworkAccessControlEntryArgs Empty => new NetworkAccessControlEntryArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
     /// <summary>
     /// DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
     /// </summary>
-    public sealed class DhcpOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DhcpOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
         public DhcpOptionsArgs()
         {
         }
+        public static new DhcpOptionsArgs Empty => new DhcpOptionsArgs();
     }
 }

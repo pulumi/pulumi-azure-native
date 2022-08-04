@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class NotificationEndpointArgs : Pulumi.ResourceArgs
+    public sealed class NotificationEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("locations")]
         private InputList<string>? _locations;
@@ -26,5 +26,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public NotificationEndpointArgs()
         {
         }
+        public static new NotificationEndpointArgs Empty => new NotificationEndpointArgs();
     }
 }

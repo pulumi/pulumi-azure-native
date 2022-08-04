@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// Defines the UrlFileName condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleUrlFileNameConditionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleUrlFileNameConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public DeliveryRuleUrlFileNameConditionArgs()
         {
         }
+        public static new DeliveryRuleUrlFileNameConditionArgs Empty => new DeliveryRuleUrlFileNameConditionArgs();
     }
 }

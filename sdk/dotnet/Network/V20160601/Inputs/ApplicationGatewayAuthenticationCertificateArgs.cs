@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
     /// <summary>
     /// Authentication certificates of application gateway
     /// </summary>
-    public sealed class ApplicationGatewayAuthenticationCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayAuthenticationCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate public data 
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
         public ApplicationGatewayAuthenticationCertificateArgs()
         {
         }
+        public static new ApplicationGatewayAuthenticationCertificateArgs Empty => new ApplicationGatewayAuthenticationCertificateArgs();
     }
 }

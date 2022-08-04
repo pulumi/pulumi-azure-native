@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     }
 
 
-    public sealed class GetArtifactSourceResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetArtifactSourceResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetArtifactSourceResourceArgs()
         {
         }
+        public static new GetArtifactSourceResourceArgs Empty => new GetArtifactSourceResourceArgs();
     }
 
-    public sealed class GetArtifactSourceResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetArtifactSourceResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetArtifactSourceResourceInvokeArgs()
         {
         }
+        public static new GetArtifactSourceResourceInvokeArgs Empty => new GetArtifactSourceResourceInvokeArgs();
     }
 
 

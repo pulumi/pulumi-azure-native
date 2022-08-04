@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
     /// <summary>
     /// Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
     /// </summary>
-    public sealed class AutoscaleScheduleArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("days")]
         private InputList<Pulumi.AzureNative.HDInsight.V20180601Preview.DaysOfWeek>? _days;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
         public AutoscaleScheduleArgs()
         {
         }
+        public static new AutoscaleScheduleArgs Empty => new AutoscaleScheduleArgs();
     }
 }

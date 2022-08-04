@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
     /// <summary>
     /// Azure workload specific protection intent item.
     /// </summary>
-    public sealed class AzureWorkloadContainerAutoProtectionIntentArgs : Pulumi.ResourceArgs
+    public sealed class AzureWorkloadContainerAutoProtectionIntentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the backed up item.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         public AzureWorkloadContainerAutoProtectionIntentArgs()
         {
         }
+        public static new AzureWorkloadContainerAutoProtectionIntentArgs Empty => new AzureWorkloadContainerAutoProtectionIntentArgs();
     }
 }

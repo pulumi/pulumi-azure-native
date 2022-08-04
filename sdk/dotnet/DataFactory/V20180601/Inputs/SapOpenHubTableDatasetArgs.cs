@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Sap Business Warehouse Open Hub Destination Table properties.
     /// </summary>
-    public sealed class SapOpenHubTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SapOpenHubTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SapOpenHubTableDatasetArgs()
         {
         }
+        public static new SapOpenHubTableDatasetArgs Empty => new SapOpenHubTableDatasetArgs();
     }
 }

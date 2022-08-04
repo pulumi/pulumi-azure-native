@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Greenplum Database linked service.
     /// </summary>
-    public sealed class GreenplumLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class GreenplumLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public GreenplumLinkedServiceArgs()
         {
         }
+        public static new GreenplumLinkedServiceArgs Empty => new GreenplumLinkedServiceArgs();
     }
 }

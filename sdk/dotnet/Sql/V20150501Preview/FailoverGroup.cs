@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
     /// A failover group.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20150501preview:FailoverGroup")]
-    public partial class FailoverGroup : Pulumi.CustomResource
+    public partial class FailoverGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of databases in the failover group.
@@ -100,14 +100,14 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:FailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:FailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:FailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:FailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:FailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:FailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:FailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:FailoverGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:FailoverGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:FailoverGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:FailoverGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:FailoverGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:FailoverGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:FailoverGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:FailoverGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:FailoverGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         }
     }
 
-    public sealed class FailoverGroupArgs : Pulumi.ResourceArgs
+    public sealed class FailoverGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("databases")]
         private InputList<string>? _databases;
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         public FailoverGroupArgs()
         {
         }
+        public static new FailoverGroupArgs Empty => new FailoverGroupArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
     /// </summary>
-    public sealed class AutomationTriggeringRuleArgs : Pulumi.ResourceArgs
+    public sealed class AutomationTriggeringRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The expected value.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public AutomationTriggeringRuleArgs()
         {
         }
+        public static new AutomationTriggeringRuleArgs Empty => new AutomationTriggeringRuleArgs();
     }
 }

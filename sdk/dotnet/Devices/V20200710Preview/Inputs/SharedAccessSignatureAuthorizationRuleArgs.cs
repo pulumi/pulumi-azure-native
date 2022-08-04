@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200710Preview.Inputs
     /// <summary>
     /// The properties of an IoT hub shared access policy.
     /// </summary>
-    public sealed class SharedAccessSignatureAuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class SharedAccessSignatureAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the shared access policy.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Devices.V20200710Preview.Inputs
         public SharedAccessSignatureAuthorizationRuleArgs()
         {
         }
+        public static new SharedAccessSignatureAuthorizationRuleArgs Empty => new SharedAccessSignatureAuthorizationRuleArgs();
     }
 }

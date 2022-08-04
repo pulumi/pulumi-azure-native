@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
 
-    public sealed class GetPlacementPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetPlacementPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cluster in the private cloud
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.AVS
         public GetPlacementPolicyArgs()
         {
         }
+        public static new GetPlacementPolicyArgs Empty => new GetPlacementPolicyArgs();
     }
 
-    public sealed class GetPlacementPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlacementPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cluster in the private cloud
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.AVS
         public GetPlacementPolicyInvokeArgs()
         {
         }
+        public static new GetPlacementPolicyInvokeArgs Empty => new GetPlacementPolicyInvokeArgs();
     }
 
 

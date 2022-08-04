@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210601.Inputs
     /// <summary>
     /// NSX DHCP Relay
     /// </summary>
-    public sealed class WorkloadNetworkDhcpRelayArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadNetworkDhcpRelayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of DHCP: SERVER or RELAY.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.AVS.V20210601.Inputs
         public WorkloadNetworkDhcpRelayArgs()
         {
         }
+        public static new WorkloadNetworkDhcpRelayArgs Empty => new WorkloadNetworkDhcpRelayArgs();
     }
 }

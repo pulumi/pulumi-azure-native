@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
     /// <summary>
     /// Application gateway web application firewall configuration.
     /// </summary>
-    public sealed class ApplicationGatewayWebApplicationFirewallConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayWebApplicationFirewallConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the web application firewall is enabled.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
         public ApplicationGatewayWebApplicationFirewallConfigurationArgs()
         {
         }
+        public static new ApplicationGatewayWebApplicationFirewallConfigurationArgs Empty => new ApplicationGatewayWebApplicationFirewallConfigurationArgs();
     }
 }

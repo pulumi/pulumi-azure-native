@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201001.Inputs
 {
 
-    public sealed class GitHubArgs : Pulumi.ResourceArgs
+    public sealed class GitHubArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
         public GitHubArgs()
         {
         }
+        public static new GitHubArgs Empty => new GitHubArgs();
     }
 }

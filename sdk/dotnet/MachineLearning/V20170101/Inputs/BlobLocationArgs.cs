@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
     /// <summary>
     /// Describes the access location for a blob.
     /// </summary>
-    public sealed class BlobLocationArgs : Pulumi.ResourceArgs
+    public sealed class BlobLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
         public BlobLocationArgs()
         {
         }
+        public static new BlobLocationArgs Empty => new BlobLocationArgs();
     }
 }

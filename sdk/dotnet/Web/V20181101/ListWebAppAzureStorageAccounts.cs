@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20181101
     }
 
 
-    public sealed class ListWebAppAzureStorageAccountsArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppAzureStorageAccountsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Web.V20181101
         public ListWebAppAzureStorageAccountsArgs()
         {
         }
+        public static new ListWebAppAzureStorageAccountsArgs Empty => new ListWebAppAzureStorageAccountsArgs();
     }
 
-    public sealed class ListWebAppAzureStorageAccountsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppAzureStorageAccountsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Web.V20181101
         public ListWebAppAzureStorageAccountsInvokeArgs()
         {
         }
+        public static new ListWebAppAzureStorageAccountsInvokeArgs Empty => new ListWebAppAzureStorageAccountsInvokeArgs();
     }
 
 

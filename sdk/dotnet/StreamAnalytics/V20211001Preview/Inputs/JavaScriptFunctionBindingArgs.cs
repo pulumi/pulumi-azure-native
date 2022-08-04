@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// The binding to a JavaScript function.
     /// </summary>
-    public sealed class JavaScriptFunctionBindingArgs : Pulumi.ResourceArgs
+    public sealed class JavaScriptFunctionBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public JavaScriptFunctionBindingArgs()
         {
         }
+        public static new JavaScriptFunctionBindingArgs Empty => new JavaScriptFunctionBindingArgs();
     }
 }

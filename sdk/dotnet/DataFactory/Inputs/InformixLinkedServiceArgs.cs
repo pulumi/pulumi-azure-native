@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Informix linked service.
     /// </summary>
-    public sealed class InformixLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class InformixLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public InformixLinkedServiceArgs()
         {
         }
+        public static new InformixLinkedServiceArgs Empty => new InformixLinkedServiceArgs();
     }
 }

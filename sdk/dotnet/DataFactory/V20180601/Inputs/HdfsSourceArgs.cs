@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity HDFS source.
     /// </summary>
-    public sealed class HdfsSourceArgs : Pulumi.ResourceArgs
+    public sealed class HdfsSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public HdfsSourceArgs()
         {
         }
+        public static new HdfsSourceArgs Empty => new HdfsSourceArgs();
     }
 }

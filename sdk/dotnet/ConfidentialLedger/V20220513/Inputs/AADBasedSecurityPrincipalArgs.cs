@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20220513.Inputs
     /// <summary>
     /// AAD based security principal with associated Ledger RoleName
     /// </summary>
-    public sealed class AADBasedSecurityPrincipalArgs : Pulumi.ResourceArgs
+    public sealed class AADBasedSecurityPrincipalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// LedgerRole associated with the Security Principal of Ledger
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20220513.Inputs
         public AADBasedSecurityPrincipalArgs()
         {
         }
+        public static new AADBasedSecurityPrincipalArgs Empty => new AADBasedSecurityPrincipalArgs();
     }
 }

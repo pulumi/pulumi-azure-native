@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
     /// <summary>
     /// The recurrence schedule.
     /// </summary>
-    public sealed class RecurrenceScheduleArgs : Pulumi.ResourceArgs
+    public sealed class RecurrenceScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("hours")]
         private InputList<int>? _hours;
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
         public RecurrenceScheduleArgs()
         {
         }
+        public static new RecurrenceScheduleArgs Empty => new RecurrenceScheduleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
     /// <summary>
     /// Customer error of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayCustomErrorArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayCustomErrorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Error page URL of the application gateway customer error.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
         public ApplicationGatewayCustomErrorArgs()
         {
         }
+        public static new ApplicationGatewayCustomErrorArgs Empty => new ApplicationGatewayCustomErrorArgs();
     }
 }

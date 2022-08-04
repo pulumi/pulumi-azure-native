@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20210303Preview
     }
 
 
-    public sealed class GetDiagnosticServiceTokenReadWriteArgs : Pulumi.InvokeArgs
+    public sealed class GetDiagnosticServiceTokenReadWriteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the resource.
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.Insights.V20210303Preview
         public GetDiagnosticServiceTokenReadWriteArgs()
         {
         }
+        public static new GetDiagnosticServiceTokenReadWriteArgs Empty => new GetDiagnosticServiceTokenReadWriteArgs();
     }
 
-    public sealed class GetDiagnosticServiceTokenReadWriteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDiagnosticServiceTokenReadWriteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the resource.
@@ -49,6 +50,7 @@ namespace Pulumi.AzureNative.Insights.V20210303Preview
         public GetDiagnosticServiceTokenReadWriteInvokeArgs()
         {
         }
+        public static new GetDiagnosticServiceTokenReadWriteInvokeArgs Empty => new GetDiagnosticServiceTokenReadWriteInvokeArgs();
     }
 
 

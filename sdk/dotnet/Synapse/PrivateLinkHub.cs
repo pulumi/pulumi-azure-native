@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:PrivateLinkHub")]
-    public partial class PrivateLinkHub : Pulumi.CustomResource
+    public partial class PrivateLinkHub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -77,13 +77,13 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:PrivateLinkHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:PrivateLinkHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateLinkHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:PrivateLinkHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateLinkHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateLinkHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateLinkHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:PrivateLinkHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class PrivateLinkHubArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -146,5 +146,6 @@ namespace Pulumi.AzureNative.Synapse
         public PrivateLinkHubArgs()
         {
         }
+        public static new PrivateLinkHubArgs Empty => new PrivateLinkHubArgs();
     }
 }

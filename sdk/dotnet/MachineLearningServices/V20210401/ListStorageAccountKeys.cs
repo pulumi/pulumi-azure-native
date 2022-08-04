@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
     }
 
 
-    public sealed class ListStorageAccountKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListStorageAccountKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group in which workspace is located.
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         public ListStorageAccountKeysArgs()
         {
         }
+        public static new ListStorageAccountKeysArgs Empty => new ListStorageAccountKeysArgs();
     }
 
-    public sealed class ListStorageAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListStorageAccountKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group in which workspace is located.
@@ -55,6 +56,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         public ListStorageAccountKeysInvokeArgs()
         {
         }
+        public static new ListStorageAccountKeysInvokeArgs Empty => new ListStorageAccountKeysInvokeArgs();
     }
 
 

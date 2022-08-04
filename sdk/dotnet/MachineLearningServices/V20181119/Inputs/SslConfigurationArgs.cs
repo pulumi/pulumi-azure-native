@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20181119.Inputs
     /// <summary>
     /// The ssl configuration for scoring
     /// </summary>
-    public sealed class SslConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SslConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cert data
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20181119.Inputs
         public SslConfigurationArgs()
         {
         }
+        public static new SslConfigurationArgs Empty => new SslConfigurationArgs();
     }
 }

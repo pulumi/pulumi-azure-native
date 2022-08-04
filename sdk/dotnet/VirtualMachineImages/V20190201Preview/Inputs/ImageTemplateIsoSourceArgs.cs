@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview.Inputs
     /// <summary>
     /// Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
     /// </summary>
-    public sealed class ImageTemplateIsoSourceArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplateIsoSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SHA256 Checksum of the ISO image.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview.Inputs
         public ImageTemplateIsoSourceArgs()
         {
         }
+        public static new ImageTemplateIsoSourceArgs Empty => new ImageTemplateIsoSourceArgs();
     }
 }

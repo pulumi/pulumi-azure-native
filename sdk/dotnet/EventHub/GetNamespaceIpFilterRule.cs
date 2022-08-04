@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EventHub
     }
 
 
-    public sealed class GetNamespaceIpFilterRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceIpFilterRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The IP Filter Rule name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.EventHub
         public GetNamespaceIpFilterRuleArgs()
         {
         }
+        public static new GetNamespaceIpFilterRuleArgs Empty => new GetNamespaceIpFilterRuleArgs();
     }
 
-    public sealed class GetNamespaceIpFilterRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceIpFilterRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The IP Filter Rule name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.EventHub
         public GetNamespaceIpFilterRuleInvokeArgs()
         {
         }
+        public static new GetNamespaceIpFilterRuleInvokeArgs Empty => new GetNamespaceIpFilterRuleInvokeArgs();
     }
 
 

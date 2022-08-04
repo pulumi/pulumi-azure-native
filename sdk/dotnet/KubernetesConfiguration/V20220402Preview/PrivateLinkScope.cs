@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview
     /// An Azure Arc PrivateLinkScope definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope")]
-    public partial class PrivateLinkScope : Pulumi.CustomResource
+    public partial class PrivateLinkScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:PrivateLinkScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview
         }
     }
 
-    public sealed class PrivateLinkScopeArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -139,5 +139,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview
         public PrivateLinkScopeArgs()
         {
         }
+        public static new PrivateLinkScopeArgs Empty => new PrivateLinkScopeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview
     /// A class represent a resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub/v20210601preview:WebPubSub")]
-    public partial class WebPubSub : Pulumi.CustomResource
+    public partial class WebPubSub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
@@ -178,10 +178,10 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSub"},
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSub"},
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSub"},
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -203,7 +203,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview
         }
     }
 
-    public sealed class WebPubSubArgs : Pulumi.ResourceArgs
+    public sealed class WebPubSubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
@@ -301,5 +301,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview
             DisableLocalAuth = false;
             PublicNetworkAccess = "Enabled";
         }
+        public static new WebPubSubArgs Empty => new WebPubSubArgs();
     }
 }

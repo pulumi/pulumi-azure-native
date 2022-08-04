@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20220101.Inputs
     /// <summary>
     /// Rule to place restrictions on portions of the cache namespace being presented to clients.
     /// </summary>
-    public sealed class NfsAccessRuleArgs : Pulumi.ResourceArgs
+    public sealed class NfsAccessRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access allowed by this rule.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.StorageCache.V20220101.Inputs
         public NfsAccessRuleArgs()
         {
         }
+        public static new NfsAccessRuleArgs Empty => new NfsAccessRuleArgs();
     }
 }

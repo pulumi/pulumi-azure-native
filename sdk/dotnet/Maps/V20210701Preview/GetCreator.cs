@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview
     }
 
 
-    public sealed class GetCreatorArgs : Pulumi.InvokeArgs
+    public sealed class GetCreatorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview
         public GetCreatorArgs()
         {
         }
+        public static new GetCreatorArgs Empty => new GetCreatorArgs();
     }
 
-    public sealed class GetCreatorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCreatorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview
         public GetCreatorInvokeArgs()
         {
         }
+        public static new GetCreatorInvokeArgs Empty => new GetCreatorInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
     /// <summary>
     /// Defines an edge within the web service's graph.
     /// </summary>
-    public sealed class GraphEdgeArgs : Pulumi.ResourceArgs
+    public sealed class GraphEdgeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The source graph node's identifier.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
         public GraphEdgeArgs()
         {
         }
+        public static new GraphEdgeArgs Empty => new GraphEdgeArgs();
     }
 }

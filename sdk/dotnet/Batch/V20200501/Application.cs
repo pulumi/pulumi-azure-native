@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Batch.V20200501
     /// </summary>
     [Obsolete(@"Version 2020-05-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:batch/v20200501:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A value indicating whether packages within the application may be overwritten using the same version string.
@@ -77,20 +77,20 @@ namespace Pulumi.AzureNative.Batch.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:batch:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20151201:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20170101:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20170501:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20170901:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20181201:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20210101:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20210601:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20220101:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20220601:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20151201:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170101:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170501:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170901:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20181201:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190401:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190801:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200301:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200901:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210101:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Batch.V20200501
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -153,5 +153,6 @@ namespace Pulumi.AzureNative.Batch.V20200501
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

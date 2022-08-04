@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// API Version: 2020-09-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryImageVersion")]
-    public partial class GalleryImageVersion : Pulumi.CustomResource
+    public partial class GalleryImageVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -89,13 +89,13 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:GalleryImageVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryImageVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryImageVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryImageVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryImageVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryImageVersion"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryImageVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:GalleryImageVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryImageVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryImageVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryImageVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryImageVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryImageVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryImageVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.Compute
         }
     }
 
-    public sealed class GalleryImageVersionArgs : Pulumi.ResourceArgs
+    public sealed class GalleryImageVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the gallery image definition in which the Image Version is to be created.
@@ -176,5 +176,6 @@ namespace Pulumi.AzureNative.Compute
         public GalleryImageVersionArgs()
         {
         }
+        public static new GalleryImageVersionArgs Empty => new GalleryImageVersionArgs();
     }
 }

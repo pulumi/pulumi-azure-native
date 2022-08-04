@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501
     /// Security Partner Provider resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200501:SecurityPartnerProvider")]
-    public partial class SecurityPartnerProvider : Pulumi.CustomResource
+    public partial class SecurityPartnerProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The connection status with the Security Partner Provider.
@@ -94,18 +94,18 @@ namespace Pulumi.AzureNative.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:SecurityPartnerProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:SecurityPartnerProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.Network.V20200501
         }
     }
 
-    public sealed class SecurityPartnerProviderArgs : Pulumi.ResourceArgs
+    public sealed class SecurityPartnerProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -180,5 +180,6 @@ namespace Pulumi.AzureNative.Network.V20200501
         public SecurityPartnerProviderArgs()
         {
         }
+        public static new SecurityPartnerProviderArgs Empty => new SecurityPartnerProviderArgs();
     }
 }

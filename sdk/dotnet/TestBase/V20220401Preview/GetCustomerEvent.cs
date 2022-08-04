@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
     }
 
 
-    public sealed class GetCustomerEventArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomerEventArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource name of the Test Base Customer event.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         public GetCustomerEventArgs()
         {
         }
+        public static new GetCustomerEventArgs Empty => new GetCustomerEventArgs();
     }
 
-    public sealed class GetCustomerEventInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomerEventInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource name of the Test Base Customer event.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         public GetCustomerEventInvokeArgs()
         {
         }
+        public static new GetCustomerEventInvokeArgs Empty => new GetCustomerEventInvokeArgs();
     }
 
 

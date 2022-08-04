@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Datadog.Inputs
     /// <summary>
     /// Properties specific to the monitor resource.
     /// </summary>
-    public sealed class MonitorPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MonitorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Datadog organization properties
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Datadog.Inputs
         public MonitorPropertiesArgs()
         {
         }
+        public static new MonitorPropertiesArgs Empty => new MonitorPropertiesArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedInstanceAzureADOnlyAuthentication")]
-    public partial class ManagedInstanceAzureADOnlyAuthentication : Pulumi.CustomResource
+    public partial class ManagedInstanceAzureADOnlyAuthentication : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Azure Active Directory only Authentication enabled.
@@ -59,13 +59,13 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedInstanceAzureADOnlyAuthentication"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstanceAzureADOnlyAuthentication"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstanceAzureADOnlyAuthentication"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstanceAzureADOnlyAuthentication"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedInstanceAzureADOnlyAuthentication"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstanceAzureADOnlyAuthentication"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstanceAzureADOnlyAuthentication"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstanceAzureADOnlyAuthentication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class ManagedInstanceAzureADOnlyAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceAzureADOnlyAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of server azure active directory only authentication.
@@ -116,5 +116,6 @@ namespace Pulumi.AzureNative.Sql
         public ManagedInstanceAzureADOnlyAuthenticationArgs()
         {
         }
+        public static new ManagedInstanceAzureADOnlyAuthenticationArgs Empty => new ManagedInstanceAzureADOnlyAuthenticationArgs();
     }
 }

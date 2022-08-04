@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.Inputs
     /// <summary>
     /// Represent the secrets intended for encryption with asymmetric key pair.
     /// </summary>
-    public sealed class AsymmetricEncryptedSecretArgs : Pulumi.ResourceArgs
+    public sealed class AsymmetricEncryptedSecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The algorithm used to encrypt "Value".
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.StorSimple.Inputs
         public AsymmetricEncryptedSecretArgs()
         {
         }
+        public static new AsymmetricEncryptedSecretArgs Empty => new AsymmetricEncryptedSecretArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Log settings.
     /// </summary>
-    public sealed class LogSettingsArgs : Pulumi.ResourceArgs
+    public sealed class LogSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies settings for copy activity log.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public LogSettingsArgs()
         {
         }
+        public static new LogSettingsArgs Empty => new LogSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The data stored in JSON format.
     /// </summary>
-    public sealed class JsonFormatArgs : Pulumi.ResourceArgs
+    public sealed class JsonFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Deserializer. Type: string (or Expression with resultType string).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public JsonFormatArgs()
         {
         }
+        public static new JsonFormatArgs Empty => new JsonFormatArgs();
     }
 }

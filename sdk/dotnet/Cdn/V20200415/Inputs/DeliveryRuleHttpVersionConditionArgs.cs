@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
     /// <summary>
     /// Defines the HttpVersion condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleHttpVersionConditionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleHttpVersionConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
         public DeliveryRuleHttpVersionConditionArgs()
         {
         }
+        public static new DeliveryRuleHttpVersionConditionArgs Empty => new DeliveryRuleHttpVersionConditionArgs();
     }
 }

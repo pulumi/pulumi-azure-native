@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
     /// <summary>
     /// Filter details to transfer Azure files
     /// </summary>
-    public sealed class AzureFileFilterDetailsArgs : Pulumi.ResourceArgs
+    public sealed class AzureFileFilterDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("filePathList")]
         private InputList<string>? _filePathList;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
         public AzureFileFilterDetailsArgs()
         {
         }
+        public static new AzureFileFilterDetailsArgs Empty => new AzureFileFilterDetailsArgs();
     }
 }

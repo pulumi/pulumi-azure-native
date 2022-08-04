@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// SAS datastore credentials configuration.
     /// </summary>
-    public sealed class SasDatastoreCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class SasDatastoreCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the datastore credentials type.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public SasDatastoreCredentialsArgs()
         {
         }
+        public static new SasDatastoreCredentialsArgs Empty => new SasDatastoreCredentialsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity source for a Cassandra database.
     /// </summary>
-    public sealed class CassandraSourceArgs : Pulumi.ResourceArgs
+    public sealed class CassandraSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public CassandraSourceArgs()
         {
         }
+        public static new CassandraSourceArgs Empty => new CassandraSourceArgs();
     }
 }

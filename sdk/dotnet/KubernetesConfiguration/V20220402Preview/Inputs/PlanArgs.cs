@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview.Inputs
     /// <summary>
     /// Plan for the resource.
     /// </summary>
-    public sealed class PlanArgs : Pulumi.ResourceArgs
+    public sealed class PlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A user defined name of the 3rd Party Artifact that is being procured.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview.Inputs
         public PlanArgs()
         {
         }
+        public static new PlanArgs Empty => new PlanArgs();
     }
 }

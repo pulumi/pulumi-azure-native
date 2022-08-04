@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
     /// <summary>
     /// Properties of an application rule.
     /// </summary>
-    public sealed class AzureFirewallApplicationRuleArgs : Pulumi.ResourceArgs
+    public sealed class AzureFirewallApplicationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the rule.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
         public AzureFirewallApplicationRuleArgs()
         {
         }
+        public static new AzureFirewallApplicationRuleArgs Empty => new AzureFirewallApplicationRuleArgs();
     }
 }

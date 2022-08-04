@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview.Inputs
     /// <summary>
     /// Reference to an Azure DevOps Project.
     /// </summary>
-    public sealed class ProjectReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ProjectReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Azure DevOps Project.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview.Inputs
         public ProjectReferenceArgs()
         {
         }
+        public static new ProjectReferenceArgs Empty => new ProjectReferenceArgs();
     }
 }

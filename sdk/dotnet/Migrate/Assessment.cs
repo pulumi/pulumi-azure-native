@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Migrate
     /// API Version: 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Assessment")]
-    public partial class Assessment : Pulumi.CustomResource
+    public partial class Assessment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// For optimistic concurrency control.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001:Assessment"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:Assessment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Migrate
         }
     }
 
-    public sealed class AssessmentArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique name of an assessment within a project.
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.Migrate
         public AssessmentArgs()
         {
         }
+        public static new AssessmentArgs Empty => new AssessmentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview.Inputs
     /// <summary>
     /// The properties of a stateless service resource.
     /// </summary>
-    public sealed class StatelessServicePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class StatelessServicePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("correlationScheme")]
         private InputList<Inputs.ServiceCorrelationArgs>? _correlationScheme;
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview.Inputs
         public StatelessServicePropertiesArgs()
         {
         }
+        public static new StatelessServicePropertiesArgs Empty => new StatelessServicePropertiesArgs();
     }
 }

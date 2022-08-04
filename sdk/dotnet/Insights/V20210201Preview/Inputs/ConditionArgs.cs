@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview.Inputs
     /// <summary>
     /// A condition of the scheduled query rule.
     /// </summary>
-    public sealed class ConditionArgs : Pulumi.ResourceArgs
+    public sealed class ConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputList<Inputs.DimensionArgs>? _dimensions;
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview.Inputs
         public ConditionArgs()
         {
         }
+        public static new ConditionArgs Empty => new ConditionArgs();
     }
 }

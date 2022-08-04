@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
     /// </summary>
-    public sealed class AuthPlatformArgs : Pulumi.ResourceArgs
+    public sealed class AuthPlatformArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;false&lt;/code&gt;.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public AuthPlatformArgs()
         {
         }
+        public static new AuthPlatformArgs Empty => new AuthPlatformArgs();
     }
 }

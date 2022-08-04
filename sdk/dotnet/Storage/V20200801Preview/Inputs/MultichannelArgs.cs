@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
     /// <summary>
     /// Multichannel setting. Applies to Premium FileStorage only.
     /// </summary>
-    public sealed class MultichannelArgs : Pulumi.ResourceArgs
+    public sealed class MultichannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether multichannel is enabled
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
         public MultichannelArgs()
         {
         }
+        public static new MultichannelArgs Empty => new MultichannelArgs();
     }
 }

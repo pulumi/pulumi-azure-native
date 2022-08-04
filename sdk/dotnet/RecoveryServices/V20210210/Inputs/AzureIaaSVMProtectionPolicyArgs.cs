@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210.Inputs
     /// <summary>
     /// IaaS VM workload-specific backup policy.
     /// </summary>
-    public sealed class AzureIaaSVMProtectionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AzureIaaSVMProtectionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
@@ -58,5 +58,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210.Inputs
         public AzureIaaSVMProtectionPolicyArgs()
         {
         }
+        public static new AzureIaaSVMProtectionPolicyArgs Empty => new AzureIaaSVMProtectionPolicyArgs();
     }
 }

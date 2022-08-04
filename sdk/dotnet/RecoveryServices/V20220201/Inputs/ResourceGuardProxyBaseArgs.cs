@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
 {
 
-    public sealed class ResourceGuardProxyBaseArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGuardProxyBaseArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
         public ResourceGuardProxyBaseArgs()
         {
         }
+        public static new ResourceGuardProxyBaseArgs Empty => new ResourceGuardProxyBaseArgs();
     }
 }

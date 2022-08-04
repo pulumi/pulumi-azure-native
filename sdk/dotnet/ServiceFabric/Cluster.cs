@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of add-on features to enable in the cluster.
@@ -236,16 +236,16 @@ namespace Pulumi.AzureNative.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20160901:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20180201:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20160901:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20180201:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -267,7 +267,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("addOnFeatures")]
         private InputList<string>? _addOnFeatures;
@@ -455,5 +455,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

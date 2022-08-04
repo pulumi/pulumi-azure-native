@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200901
     /// Premier add-on.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20200901:WebAppPremierAddOn")]
-    public partial class WebAppPremierAddOn : Pulumi.CustomResource
+    public partial class WebAppPremierAddOn : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -106,20 +106,20 @@ namespace Pulumi.AzureNative.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPremierAddOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPremierAddOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Web.V20200901
         }
     }
 
-    public sealed class WebAppPremierAddOnArgs : Pulumi.ResourceArgs
+    public sealed class WebAppPremierAddOnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -218,5 +218,6 @@ namespace Pulumi.AzureNative.Web.V20200901
         public WebAppPremierAddOnArgs()
         {
         }
+        public static new WebAppPremierAddOnArgs Empty => new WebAppPremierAddOnArgs();
     }
 }

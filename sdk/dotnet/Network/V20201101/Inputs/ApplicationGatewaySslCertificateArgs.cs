@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
     /// <summary>
     /// SSL certificates of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewaySslCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewaySslCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base-64 encoded pfx certificate. Only applicable in PUT Request.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
         public ApplicationGatewaySslCertificateArgs()
         {
         }
+        public static new ApplicationGatewaySslCertificateArgs Empty => new ApplicationGatewaySslCertificateArgs();
     }
 }

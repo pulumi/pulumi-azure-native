@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DeploymentManager
     /// API Version: 2019-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager:Step")]
-    public partial class Step : Pulumi.CustomResource
+    public partial class Step : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.DeploymentManager
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:Step"},
-                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Step"},
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:Step"},
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Step"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DeploymentManager
         }
     }
 
-    public sealed class StepArgs : Pulumi.ResourceArgs
+    public sealed class StepArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.DeploymentManager
         public StepArgs()
         {
         }
+        public static new StepArgs Empty => new StepArgs();
     }
 }

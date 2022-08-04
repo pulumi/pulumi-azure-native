@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
     /// <summary>
     /// The secret info when type is keyVaultSecretReference. It's for scenario that user provides a secret stored in user's keyvault and source is Azure Kubernetes. The key Vault's resource id is linked to secretStore.keyVaultId.
     /// </summary>
-    public sealed class KeyVaultSecretReferenceSecretInfoArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultSecretReferenceSecretInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Key Vault secret.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
         public KeyVaultSecretReferenceSecretInfoArgs()
         {
         }
+        public static new KeyVaultSecretReferenceSecretInfoArgs Empty => new KeyVaultSecretReferenceSecretInfoArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview.Inputs
     /// <summary>
     /// Storage Profile properties of a server
     /// </summary>
-    public sealed class StorageProfileArgs : Pulumi.ResourceArgs
+    public sealed class StorageProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backup retention days for the server.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview.Inputs
         public StorageProfileArgs()
         {
         }
+        public static new StorageProfileArgs Empty => new StorageProfileArgs();
     }
 }

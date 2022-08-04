@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101.Inputs
     /// <summary>
     /// Represents a user that is recommended to be allowed for a certain rule
     /// </summary>
-    public sealed class UserRecommendationArgs : Pulumi.ResourceArgs
+    public sealed class UserRecommendationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The recommendation action of the machine or rule
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20200101.Inputs
         public UserRecommendationArgs()
         {
         }
+        public static new UserRecommendationArgs Empty => new UserRecommendationArgs();
     }
 }

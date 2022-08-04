@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
 
-    public sealed class GetDedicatedHostArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.Compute
         public GetDedicatedHostArgs()
         {
         }
+        public static new GetDedicatedHostArgs Empty => new GetDedicatedHostArgs();
     }
 
-    public sealed class GetDedicatedHostInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.Compute
         public GetDedicatedHostInvokeArgs()
         {
         }
+        public static new GetDedicatedHostInvokeArgs Empty => new GetDedicatedHostInvokeArgs();
     }
 
 

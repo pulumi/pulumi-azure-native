@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     }
 
 
-    public sealed class ListWorkflowRunActionExpressionTracesArgs : Pulumi.InvokeArgs
+    public sealed class ListWorkflowRunActionExpressionTracesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The workflow action name.
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.Web.V20220301
         public ListWorkflowRunActionExpressionTracesArgs()
         {
         }
+        public static new ListWorkflowRunActionExpressionTracesArgs Empty => new ListWorkflowRunActionExpressionTracesArgs();
     }
 
-    public sealed class ListWorkflowRunActionExpressionTracesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWorkflowRunActionExpressionTracesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The workflow action name.
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         public ListWorkflowRunActionExpressionTracesInvokeArgs()
         {
         }
+        public static new ListWorkflowRunActionExpressionTracesInvokeArgs Empty => new ListWorkflowRunActionExpressionTracesInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The ZipDeflate compression read settings.
     /// </summary>
-    public sealed class ZipDeflateReadSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ZipDeflateReadSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Preserve the zip file name as folder path. Type: boolean (or Expression with resultType boolean).
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ZipDeflateReadSettingsArgs()
         {
         }
+        public static new ZipDeflateReadSettingsArgs Empty => new ZipDeflateReadSettingsArgs();
     }
 }

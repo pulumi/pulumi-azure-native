@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     /// The Network Manager Connection resource
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220101:ManagementGroupNetworkManagerConnection")]
-    public partial class ManagementGroupNetworkManagerConnection : Pulumi.CustomResource
+    public partial class ManagementGroupNetworkManagerConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the network manager connection.
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.Network.V20220101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         }
     }
 
-    public sealed class ManagementGroupNetworkManagerConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ManagementGroupNetworkManagerConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the network manager connection.
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.Network.V20220101
         public ManagementGroupNetworkManagerConnectionArgs()
         {
         }
+        public static new ManagementGroupNetworkManagerConnectionArgs Empty => new ManagementGroupNetworkManagerConnectionArgs();
     }
 }

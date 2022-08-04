@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
     /// Role management policy
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment")]
-    public partial class RoleManagementPolicyAssignment : Pulumi.CustomResource
+    public partial class RoleManagementPolicyAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The role management policy name.
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization:RoleManagementPolicyAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20201001:RoleManagementPolicyAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization:RoleManagementPolicyAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20201001:RoleManagementPolicyAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
         }
     }
 
-    public sealed class RoleManagementPolicyAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class RoleManagementPolicyAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy id role management policy assignment.
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
         public RoleManagementPolicyAssignmentArgs()
         {
         }
+        public static new RoleManagementPolicyAssignmentArgs Empty => new RoleManagementPolicyAssignmentArgs();
     }
 }

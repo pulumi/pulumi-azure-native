@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Inputs
     /// <summary>
     /// Certificate resource payload.
     /// </summary>
-    public sealed class CertificatePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CertificatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate version of key vault.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Inputs
         public CertificatePropertiesArgs()
         {
         }
+        public static new CertificatePropertiesArgs Empty => new CertificatePropertiesArgs();
     }
 }

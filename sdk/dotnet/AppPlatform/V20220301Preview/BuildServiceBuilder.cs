@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
     /// KPack Builder resource
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220301preview:BuildServiceBuilder")]
-    public partial class BuildServiceBuilder : Pulumi.CustomResource
+    public partial class BuildServiceBuilder : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform:BuildServiceBuilder"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:BuildServiceBuilder"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220401:BuildServiceBuilder"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:BuildServiceBuilder"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:BuildServiceBuilder"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:BuildServiceBuilder"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:BuildServiceBuilder"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:BuildServiceBuilder"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         }
     }
 
-    public sealed class BuildServiceBuilderArgs : Pulumi.ResourceArgs
+    public sealed class BuildServiceBuilderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the build service resource.
@@ -124,5 +124,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         public BuildServiceBuilderArgs()
         {
         }
+        public static new BuildServiceBuilderArgs Empty => new BuildServiceBuilderArgs();
     }
 }

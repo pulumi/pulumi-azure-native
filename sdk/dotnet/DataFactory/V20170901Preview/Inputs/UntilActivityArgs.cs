@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
     /// </summary>
-    public sealed class UntilActivityArgs : Pulumi.ResourceArgs
+    public sealed class UntilActivityArgs : global::Pulumi.ResourceArgs
     {
         [Input("activities", required: true)]
         private InputList<object>? _activities;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public UntilActivityArgs()
         {
         }
+        public static new UntilActivityArgs Empty => new UntilActivityArgs();
     }
 }

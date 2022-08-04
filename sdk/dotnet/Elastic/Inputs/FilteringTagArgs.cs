@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic.Inputs
     /// <summary>
     /// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
     /// </summary>
-    public sealed class FilteringTagArgs : Pulumi.ResourceArgs
+    public sealed class FilteringTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Valid actions for a filtering tag.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Elastic.Inputs
         public FilteringTagArgs()
         {
         }
+        public static new FilteringTagArgs Empty => new FilteringTagArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview.Inputs
     /// <summary>
     /// The response from the List namespace operation.
     /// </summary>
-    public sealed class NWRuleSetVirtualNetworkRulesArgs : Pulumi.ResourceArgs
+    public sealed class NWRuleSetVirtualNetworkRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value that indicates whether to ignore missing Vnet Service Endpoint
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview.Inputs
         public NWRuleSetVirtualNetworkRulesArgs()
         {
         }
+        public static new NWRuleSetVirtualNetworkRulesArgs Empty => new NWRuleSetVirtualNetworkRulesArgs();
     }
 }

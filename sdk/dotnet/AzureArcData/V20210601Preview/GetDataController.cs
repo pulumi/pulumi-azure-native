@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
     }
 
 
-    public sealed class GetDataControllerArgs : Pulumi.InvokeArgs
+    public sealed class GetDataControllerArgs : global::Pulumi.InvokeArgs
     {
         [Input("dataControllerName", required: true)]
         public string DataControllerName { get; set; } = null!;
@@ -39,9 +39,10 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
         public GetDataControllerArgs()
         {
         }
+        public static new GetDataControllerArgs Empty => new GetDataControllerArgs();
     }
 
-    public sealed class GetDataControllerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataControllerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("dataControllerName", required: true)]
         public Input<string> DataControllerName { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
         public GetDataControllerInvokeArgs()
         {
         }
+        public static new GetDataControllerInvokeArgs Empty => new GetDataControllerInvokeArgs();
     }
 
 

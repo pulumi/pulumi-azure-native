@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
     /// <summary>
     /// Instance view status.
     /// </summary>
-    public sealed class InstanceViewStatusArgs : Pulumi.ResourceArgs
+    public sealed class InstanceViewStatusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The status code.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
         public InstanceViewStatusArgs()
         {
         }
+        public static new InstanceViewStatusArgs Empty => new InstanceViewStatusArgs();
     }
 }

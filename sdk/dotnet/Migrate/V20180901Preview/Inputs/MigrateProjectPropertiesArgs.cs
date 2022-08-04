@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview.Inputs
     /// <summary>
     /// Class for migrate project properties.
     /// </summary>
-    public sealed class MigrateProjectPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MigrateProjectPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Provisioning state of the migrate project.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview.Inputs
         public MigrateProjectPropertiesArgs()
         {
         }
+        public static new MigrateProjectPropertiesArgs Empty => new MigrateProjectPropertiesArgs();
     }
 }

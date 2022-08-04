@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
     }
 
 
-    public sealed class ListNetworkManagerEffectiveSecurityAdminRulesArgs : Pulumi.InvokeArgs
+    public sealed class ListNetworkManagerEffectiveSecurityAdminRulesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         public ListNetworkManagerEffectiveSecurityAdminRulesArgs()
         {
         }
+        public static new ListNetworkManagerEffectiveSecurityAdminRulesArgs Empty => new ListNetworkManagerEffectiveSecurityAdminRulesArgs();
     }
 
-    public sealed class ListNetworkManagerEffectiveSecurityAdminRulesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListNetworkManagerEffectiveSecurityAdminRulesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         public ListNetworkManagerEffectiveSecurityAdminRulesInvokeArgs()
         {
         }
+        public static new ListNetworkManagerEffectiveSecurityAdminRulesInvokeArgs Empty => new ListNetworkManagerEffectiveSecurityAdminRulesInvokeArgs();
     }
 
 

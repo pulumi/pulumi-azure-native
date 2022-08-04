@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// </summary>
     [Obsolete(@"Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.")]
     [AzureNativeResourceType("azure-native:securityinsights:AlertRule")]
-    public partial class AlertRule : Pulumi.CustomResource
+    public partial class AlertRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -66,17 +66,17 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class AlertRuleArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The alert rule kind
@@ -127,5 +127,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public AlertRuleArgs()
         {
         }
+        public static new AlertRuleArgs Empty => new AlertRuleArgs();
     }
 }

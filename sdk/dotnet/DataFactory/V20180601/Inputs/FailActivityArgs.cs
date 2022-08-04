@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// This activity will fail within its own scope and output a custom error message and error code. The error message and code can provided either as a string literal or as an expression that can be evaluated to a string at runtime. The activity scope can be the whole pipeline or a control activity (e.g. foreach, switch, until), if the fail activity is contained in it.
     /// </summary>
-    public sealed class FailActivityArgs : Pulumi.ResourceArgs
+    public sealed class FailActivityArgs : global::Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public FailActivityArgs()
         {
         }
+        public static new FailActivityArgs Empty => new FailActivityArgs();
     }
 }

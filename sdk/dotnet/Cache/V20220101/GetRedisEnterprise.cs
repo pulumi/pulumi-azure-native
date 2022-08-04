@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cache.V20220101
     }
 
 
-    public sealed class GetRedisEnterpriseArgs : Pulumi.InvokeArgs
+    public sealed class GetRedisEnterpriseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Cache.V20220101
         public GetRedisEnterpriseArgs()
         {
         }
+        public static new GetRedisEnterpriseArgs Empty => new GetRedisEnterpriseArgs();
     }
 
-    public sealed class GetRedisEnterpriseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRedisEnterpriseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Cache.V20220101
         public GetRedisEnterpriseInvokeArgs()
         {
         }
+        public static new GetRedisEnterpriseInvokeArgs Empty => new GetRedisEnterpriseInvokeArgs();
     }
 
 

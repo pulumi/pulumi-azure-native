@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20160201.Inputs
     /// <summary>
     /// Deployment properties.
     /// </summary>
-    public sealed class DeploymentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The deployment mode.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Resources.V20160201.Inputs
         public DeploymentPropertiesArgs()
         {
         }
+        public static new DeploymentPropertiesArgs Empty => new DeploymentPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
     /// <summary>
     /// Information about a Windows OS.
     /// </summary>
-    public sealed class WindowsOsInfoArgs : Pulumi.ResourceArgs
+    public sealed class WindowsOsInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The state of the Windows OS.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
         public WindowsOsInfoArgs()
         {
         }
+        public static new WindowsOsInfoArgs Empty => new WindowsOsInfoArgs();
     }
 }

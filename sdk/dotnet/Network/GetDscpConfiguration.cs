@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetDscpConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetDscpConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Network
         public GetDscpConfigurationArgs()
         {
         }
+        public static new GetDscpConfigurationArgs Empty => new GetDscpConfigurationArgs();
     }
 
-    public sealed class GetDscpConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDscpConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Network
         public GetDscpConfigurationInvokeArgs()
         {
         }
+        public static new GetDscpConfigurationInvokeArgs Empty => new GetDscpConfigurationInvokeArgs();
     }
 
 

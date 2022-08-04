@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     /// </summary>
     [Obsolete(@"Version 2015-05-21-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:CustomImageResource")]
-    public partial class CustomImageResource : Pulumi.CustomResource
+    public partial class CustomImageResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The author of the custom image.
@@ -107,9 +107,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab:CustomImageResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:CustomImageResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:CustomImageResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:CustomImageResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:CustomImageResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:CustomImageResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         }
     }
 
-    public sealed class CustomImageResourceArgs : Pulumi.ResourceArgs
+    public sealed class CustomImageResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The author of the custom image.
@@ -226,5 +226,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public CustomImageResourceArgs()
         {
         }
+        public static new CustomImageResourceArgs Empty => new CustomImageResourceArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
 
-    public sealed class GetNodeTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetNodeTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         public GetNodeTypeArgs()
         {
         }
+        public static new GetNodeTypeArgs Empty => new GetNodeTypeArgs();
     }
 
-    public sealed class GetNodeTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNodeTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public GetNodeTypeInvokeArgs()
         {
         }
+        public static new GetNodeTypeInvokeArgs Empty => new GetNodeTypeInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DscpConfiguration")]
-    public partial class DscpConfiguration : Pulumi.CustomResource
+    public partial class DscpConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Associated Network Interfaces to the DSCP Configuration.
@@ -131,15 +131,15 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:DscpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -161,7 +161,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class DscpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DscpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationIpRanges")]
         private InputList<Inputs.QosIpRangeArgs>? _destinationIpRanges;
@@ -268,5 +268,6 @@ namespace Pulumi.AzureNative.Network
         public DscpConfigurationArgs()
         {
         }
+        public static new DscpConfigurationArgs Empty => new DscpConfigurationArgs();
     }
 }

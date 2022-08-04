@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
     /// </summary>
-    public sealed class RecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class RecurrenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public RecurrenceArgs()
         {
         }
+        public static new RecurrenceArgs Empty => new RecurrenceArgs();
     }
 }

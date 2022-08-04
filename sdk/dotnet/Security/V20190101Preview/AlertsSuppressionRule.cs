@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
     /// Describes the suppression rule
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20190101preview:AlertsSuppressionRule")]
-    public partial class AlertsSuppressionRule : Pulumi.CustomResource
+    public partial class AlertsSuppressionRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type of the alert to automatically suppress. For all alert types, use '*'
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:security:AlertsSuppressionRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:AlertsSuppressionRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         }
     }
 
-    public sealed class AlertsSuppressionRuleArgs : Pulumi.ResourceArgs
+    public sealed class AlertsSuppressionRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the alert to automatically suppress. For all alert types, use '*'
@@ -163,5 +163,6 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         public AlertsSuppressionRuleArgs()
         {
         }
+        public static new AlertsSuppressionRuleArgs Empty => new AlertsSuppressionRuleArgs();
     }
 }

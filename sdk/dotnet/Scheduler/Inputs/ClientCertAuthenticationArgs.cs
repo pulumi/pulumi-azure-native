@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
-    public sealed class ClientCertAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class ClientCertAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the certificate expiration date.
@@ -52,5 +52,6 @@ namespace Pulumi.AzureNative.Scheduler.Inputs
         public ClientCertAuthenticationArgs()
         {
         }
+        public static new ClientCertAuthenticationArgs Empty => new ClientCertAuthenticationArgs();
     }
 }

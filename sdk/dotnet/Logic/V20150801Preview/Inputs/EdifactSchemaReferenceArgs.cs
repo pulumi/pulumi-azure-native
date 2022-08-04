@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactSchemaReferenceArgs : Pulumi.ResourceArgs
+    public sealed class EdifactSchemaReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The association assigned code.
@@ -57,5 +57,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactSchemaReferenceArgs()
         {
         }
+        public static new EdifactSchemaReferenceArgs Empty => new EdifactSchemaReferenceArgs();
     }
 }

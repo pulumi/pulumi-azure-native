@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Devices
     /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotDpsResourcePrivateEndpointConnection")]
-    public partial class IotDpsResourcePrivateEndpointConnection : Pulumi.CustomResource
+    public partial class IotDpsResourcePrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource name.
@@ -59,10 +59,10 @@ namespace Pulumi.AzureNative.Devices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Devices
         }
     }
 
-    public sealed class IotDpsResourcePrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class IotDpsResourcePrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection
@@ -113,5 +113,6 @@ namespace Pulumi.AzureNative.Devices
         public IotDpsResourcePrivateEndpointConnectionArgs()
         {
         }
+        public static new IotDpsResourcePrivateEndpointConnectionArgs Empty => new IotDpsResourcePrivateEndpointConnectionArgs();
     }
 }

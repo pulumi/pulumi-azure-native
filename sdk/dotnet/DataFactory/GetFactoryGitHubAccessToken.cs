@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
 
-    public sealed class GetFactoryGitHubAccessTokenArgs : Pulumi.InvokeArgs
+    public sealed class GetFactoryGitHubAccessTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -68,9 +68,10 @@ namespace Pulumi.AzureNative.DataFactory
         public GetFactoryGitHubAccessTokenArgs()
         {
         }
+        public static new GetFactoryGitHubAccessTokenArgs Empty => new GetFactoryGitHubAccessTokenArgs();
     }
 
-    public sealed class GetFactoryGitHubAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFactoryGitHubAccessTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -111,6 +112,7 @@ namespace Pulumi.AzureNative.DataFactory
         public GetFactoryGitHubAccessTokenInvokeArgs()
         {
         }
+        public static new GetFactoryGitHubAccessTokenInvokeArgs Empty => new GetFactoryGitHubAccessTokenInvokeArgs();
     }
 
 

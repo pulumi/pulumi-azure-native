@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
     /// </summary>
-    public sealed class AutomationSourceArgs : Pulumi.ResourceArgs
+    public sealed class AutomationSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A valid event source type.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public AutomationSourceArgs()
         {
         }
+        public static new AutomationSourceArgs Empty => new AutomationSourceArgs();
     }
 }

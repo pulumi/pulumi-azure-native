@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Migrate
     /// API Version: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MigrateProject")]
-    public partial class MigrateProject : Pulumi.CustomResource
+    public partial class MigrateProject : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the eTag for concurrency control.
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:MigrateProject"},
-                    new Pulumi.Alias { Type = "azure-native:migrate/v20200501:MigrateProject"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:MigrateProject"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20200501:MigrateProject"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Migrate
         }
     }
 
-    public sealed class MigrateProjectArgs : Pulumi.ResourceArgs
+    public sealed class MigrateProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the eTag for concurrency control.
@@ -141,5 +141,6 @@ namespace Pulumi.AzureNative.Migrate
         public MigrateProjectArgs()
         {
         }
+        public static new MigrateProjectArgs Empty => new MigrateProjectArgs();
     }
 }

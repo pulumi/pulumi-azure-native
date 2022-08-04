@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Teradata source.
     /// </summary>
-    public sealed class TeradataSourceArgs : Pulumi.ResourceArgs
+    public sealed class TeradataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public TeradataSourceArgs()
         {
         }
+        public static new TeradataSourceArgs Empty => new TeradataSourceArgs();
     }
 }

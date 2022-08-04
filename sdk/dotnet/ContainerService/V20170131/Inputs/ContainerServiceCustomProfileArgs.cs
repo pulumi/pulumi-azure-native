@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20170131.Inputs
     /// <summary>
     /// Properties to configure a custom container service cluster.
     /// </summary>
-    public sealed class ContainerServiceCustomProfileArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceCustomProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the custom orchestrator to use.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20170131.Inputs
         public ContainerServiceCustomProfileArgs()
         {
         }
+        public static new ContainerServiceCustomProfileArgs Empty => new ContainerServiceCustomProfileArgs();
     }
 }

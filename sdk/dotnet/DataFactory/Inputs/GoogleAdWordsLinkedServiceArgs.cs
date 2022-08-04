@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Google AdWords service linked service.
     /// </summary>
-    public sealed class GoogleAdWordsLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class GoogleAdWordsLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public GoogleAdWordsLinkedServiceArgs()
         {
         }
+        public static new GoogleAdWordsLinkedServiceArgs Empty => new GoogleAdWordsLinkedServiceArgs();
     }
 }

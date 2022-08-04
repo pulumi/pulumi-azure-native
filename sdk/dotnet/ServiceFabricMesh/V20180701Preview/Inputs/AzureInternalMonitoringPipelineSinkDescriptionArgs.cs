@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
     /// <summary>
     /// Diagnostics settings for Geneva.
     /// </summary>
-    public sealed class AzureInternalMonitoringPipelineSinkDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class AzureInternalMonitoringPipelineSinkDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Internal monitoring pipeline account.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
         public AzureInternalMonitoringPipelineSinkDescriptionArgs()
         {
         }
+        public static new AzureInternalMonitoringPipelineSinkDescriptionArgs Empty => new AzureInternalMonitoringPipelineSinkDescriptionArgs();
     }
 }

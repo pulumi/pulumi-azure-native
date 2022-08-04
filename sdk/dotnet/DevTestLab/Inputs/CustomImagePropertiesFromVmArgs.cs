@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Properties for creating a custom image from a virtual machine.
     /// </summary>
-    public sealed class CustomImagePropertiesFromVmArgs : Pulumi.ResourceArgs
+    public sealed class CustomImagePropertiesFromVmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Linux OS information of the VM.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         public CustomImagePropertiesFromVmArgs()
         {
         }
+        public static new CustomImagePropertiesFromVmArgs Empty => new CustomImagePropertiesFromVmArgs();
     }
 }

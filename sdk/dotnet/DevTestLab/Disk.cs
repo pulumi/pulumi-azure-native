@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// API Version: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Disk")]
-    public partial class Disk : Pulumi.CustomResource
+    public partial class Disk : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the disk.
@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Disk"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Disk"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.DevTestLab
         }
     }
 
-    public sealed class DiskArgs : Pulumi.ResourceArgs
+    public sealed class DiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When backed by a blob, the name of the VHD blob without extension.
@@ -249,5 +249,6 @@ namespace Pulumi.AzureNative.DevTestLab
         public DiskArgs()
         {
         }
+        public static new DiskArgs Empty => new DiskArgs();
     }
 }

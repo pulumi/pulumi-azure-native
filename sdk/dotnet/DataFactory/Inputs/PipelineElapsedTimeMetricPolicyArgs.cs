@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Pipeline ElapsedTime Metric Policy.
     /// </summary>
-    public sealed class PipelineElapsedTimeMetricPolicyArgs : Pulumi.ResourceArgs
+    public sealed class PipelineElapsedTimeMetricPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// TimeSpan value, after which an Azure Monitoring Metric is fired.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PipelineElapsedTimeMetricPolicyArgs()
         {
         }
+        public static new PipelineElapsedTimeMetricPolicyArgs Empty => new PipelineElapsedTimeMetricPolicyArgs();
     }
 }

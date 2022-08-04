@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
-    public sealed class ServiceBusBrokeredMessagePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ServiceBusBrokeredMessagePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the content type.
@@ -93,5 +93,6 @@ namespace Pulumi.AzureNative.Scheduler.Inputs
         public ServiceBusBrokeredMessagePropertiesArgs()
         {
         }
+        public static new ServiceBusBrokeredMessagePropertiesArgs Empty => new ServiceBusBrokeredMessagePropertiesArgs();
     }
 }

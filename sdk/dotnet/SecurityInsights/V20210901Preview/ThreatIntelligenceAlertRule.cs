@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     /// Represents Threat Intelligence alert rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20210901preview:ThreatIntelligenceAlertRule")]
-    public partial class ThreatIntelligenceAlertRule : Pulumi.CustomResource
+    public partial class ThreatIntelligenceAlertRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Name of the alert rule template used to create this rule.
@@ -120,17 +120,17 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:ThreatIntelligenceAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:ThreatIntelligenceAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:ThreatIntelligenceAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ThreatIntelligenceAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ThreatIntelligenceAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ThreatIntelligenceAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ThreatIntelligenceAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ThreatIntelligenceAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ThreatIntelligenceAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ThreatIntelligenceAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         }
     }
 
-    public sealed class ThreatIntelligenceAlertRuleArgs : Pulumi.ResourceArgs
+    public sealed class ThreatIntelligenceAlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the alert rule template used to create this rule.
@@ -194,5 +194,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public ThreatIntelligenceAlertRuleArgs()
         {
         }
+        public static new ThreatIntelligenceAlertRuleArgs Empty => new ThreatIntelligenceAlertRuleArgs();
     }
 }

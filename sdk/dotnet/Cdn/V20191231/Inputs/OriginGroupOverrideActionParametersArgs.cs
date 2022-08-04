@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20191231.Inputs
     /// <summary>
     /// Defines the parameters for the Origin Group override action.
     /// </summary>
-    public sealed class OriginGroupOverrideActionParametersArgs : Pulumi.ResourceArgs
+    public sealed class OriginGroupOverrideActionParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Cdn.V20191231.Inputs
         public OriginGroupOverrideActionParametersArgs()
         {
         }
+        public static new OriginGroupOverrideActionParametersArgs Empty => new OriginGroupOverrideActionParametersArgs();
     }
 }

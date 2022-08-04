@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
     /// Represents a migration resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20210615privatepreview:Migration")]
-    public partial class Migration : Pulumi.CustomResource
+    public partial class Migration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Migration status.
@@ -157,7 +157,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
         }
     }
 
-    public sealed class MigrationArgs : Pulumi.ResourceArgs
+    public sealed class MigrationArgs : global::Pulumi.ResourceArgs
     {
         [Input("dBsToMigrate")]
         private InputList<string>? _dBsToMigrate;
@@ -245,5 +245,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
         public MigrationArgs()
         {
         }
+        public static new MigrationArgs Empty => new MigrationArgs();
     }
 }

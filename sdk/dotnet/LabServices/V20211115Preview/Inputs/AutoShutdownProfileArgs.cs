@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview.Inputs
     /// <summary>
     /// Profile for how to handle shutting down virtual machines.
     /// </summary>
-    public sealed class AutoShutdownProfileArgs : Pulumi.ResourceArgs
+    public sealed class AutoShutdownProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of time a VM will stay running after a user disconnects if this behavior is enabled.
@@ -57,5 +57,6 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview.Inputs
             ShutdownOnIdle = Pulumi.AzureNative.LabServices.V20211115Preview.ShutdownOnIdleMode.None;
             ShutdownWhenNotConnected = Pulumi.AzureNative.LabServices.V20211115Preview.EnableState.Disabled;
         }
+        public static new AutoShutdownProfileArgs Empty => new AutoShutdownProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
     /// <summary>
     /// Specifies settings related to VM Guest Patching on Windows.
     /// </summary>
-    public sealed class PatchSettingsArgs : Pulumi.ResourceArgs
+    public sealed class PatchSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
         public PatchSettingsArgs()
         {
         }
+        public static new PatchSettingsArgs Empty => new PatchSettingsArgs();
     }
 }

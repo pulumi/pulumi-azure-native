@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     }
 
 
-    public sealed class GetShareSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetShareSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public GetShareSubscriptionArgs()
         {
         }
+        public static new GetShareSubscriptionArgs Empty => new GetShareSubscriptionArgs();
     }
 
-    public sealed class GetShareSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetShareSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public GetShareSubscriptionInvokeArgs()
         {
         }
+        public static new GetShareSubscriptionInvokeArgs Empty => new GetShareSubscriptionInvokeArgs();
     }
 
 

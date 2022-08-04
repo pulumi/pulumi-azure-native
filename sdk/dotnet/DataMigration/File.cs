@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataMigration
     /// API Version: 2018-07-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:File")]
-    public partial class File : Pulumi.CustomResource
+    public partial class File : global::Pulumi.CustomResource
     {
         /// <summary>
         /// HTTP strong entity tag value. This is ignored if submitted.
@@ -65,11 +65,11 @@ namespace Pulumi.AzureNative.DataMigration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:File"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20210630:File"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:File"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:File"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:File"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:File"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20210630:File"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:File"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:File"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:File"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DataMigration
         }
     }
 
-    public sealed class FileArgs : Pulumi.ResourceArgs
+    public sealed class FileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the File
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.DataMigration
         public FileArgs()
         {
         }
+        public static new FileArgs Empty => new FileArgs();
     }
 }

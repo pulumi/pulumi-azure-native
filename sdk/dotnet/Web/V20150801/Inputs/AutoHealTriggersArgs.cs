@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// AutoHealTriggers - describes the triggers for auto-heal.
     /// </summary>
-    public sealed class AutoHealTriggersArgs : Pulumi.ResourceArgs
+    public sealed class AutoHealTriggersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// PrivateBytesInKB - Defines a rule based on private bytes
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public AutoHealTriggersArgs()
         {
         }
+        public static new AutoHealTriggersArgs Empty => new AutoHealTriggersArgs();
     }
 }

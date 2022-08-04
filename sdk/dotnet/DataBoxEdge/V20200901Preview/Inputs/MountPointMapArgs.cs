@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview.Inputs
     /// <summary>
     /// The share mount point.
     /// </summary>
-    public sealed class MountPointMapArgs : Pulumi.ResourceArgs
+    public sealed class MountPointMapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the share mounted to the role VM.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview.Inputs
         public MountPointMapArgs()
         {
         }
+        public static new MountPointMapArgs Empty => new MountPointMapArgs();
     }
 }

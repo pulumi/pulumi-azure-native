@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
     }
 
 
-    public sealed class GetWebhookCallbackConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetWebhookCallbackConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
         public GetWebhookCallbackConfigArgs()
         {
         }
+        public static new GetWebhookCallbackConfigArgs Empty => new GetWebhookCallbackConfigArgs();
     }
 
-    public sealed class GetWebhookCallbackConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebhookCallbackConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
         public GetWebhookCallbackConfigInvokeArgs()
         {
         }
+        public static new GetWebhookCallbackConfigInvokeArgs Empty => new GetWebhookCallbackConfigInvokeArgs();
     }
 
 

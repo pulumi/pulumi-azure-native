@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
     /// The network manager connectivity configuration resource
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220201preview:ConnectivityConfiguration")]
-    public partial class ConnectivityConfiguration : Pulumi.CustomResource
+    public partial class ConnectivityConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Groups for configuration
@@ -106,11 +106,11 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:ConnectivityConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:ConnectivityConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:ConnectivityConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ConnectivityConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:ConnectivityConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:ConnectivityConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:ConnectivityConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:ConnectivityConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ConnectivityConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:ConnectivityConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         }
     }
 
-    public sealed class ConnectivityConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConnectivityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("appliesToGroups", required: true)]
         private InputList<Inputs.ConnectivityGroupItemArgs>? _appliesToGroups;
@@ -203,5 +203,6 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         public ConnectivityConfigurationArgs()
         {
         }
+        public static new ConnectivityConfigurationArgs Empty => new ConnectivityConfigurationArgs();
     }
 }

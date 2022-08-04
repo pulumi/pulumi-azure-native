@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20190701
     }
 
 
-    public sealed class GetConnectionMonitorArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionMonitorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connection monitor.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20190701
         public GetConnectionMonitorArgs()
         {
         }
+        public static new GetConnectionMonitorArgs Empty => new GetConnectionMonitorArgs();
     }
 
-    public sealed class GetConnectionMonitorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connection monitor.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20190701
         public GetConnectionMonitorInvokeArgs()
         {
         }
+        public static new GetConnectionMonitorInvokeArgs Empty => new GetConnectionMonitorInvokeArgs();
     }
 
 

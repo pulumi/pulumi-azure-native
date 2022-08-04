@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
     /// <summary>
     /// Additional information on Backup engine specific backup item.
     /// </summary>
-    public sealed class DPMProtectedItemArgs : Pulumi.ResourceArgs
+    public sealed class DPMProtectedItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backup Management server protecting this backup item
@@ -151,5 +151,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         public DPMProtectedItemArgs()
         {
         }
+        public static new DPMProtectedItemArgs Empty => new DPMProtectedItemArgs();
     }
 }

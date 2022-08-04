@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190901.Inputs
     /// <summary>
     /// Firewall Policy NAT Rule.
     /// </summary>
-    public sealed class FirewallPolicyNatRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyNatRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action type of a Nat rule.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.Network.V20190901.Inputs
         public FirewallPolicyNatRuleArgs()
         {
         }
+        public static new FirewallPolicyNatRuleArgs Empty => new FirewallPolicyNatRuleArgs();
     }
 }

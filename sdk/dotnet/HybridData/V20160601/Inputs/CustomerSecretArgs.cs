@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridData.V20160601.Inputs
     /// <summary>
     /// The pair of customer secret.
     /// </summary>
-    public sealed class CustomerSecretArgs : Pulumi.ResourceArgs
+    public sealed class CustomerSecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption algorithm used to encrypt data.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.HybridData.V20160601.Inputs
         public CustomerSecretArgs()
         {
         }
+        public static new CustomerSecretArgs Empty => new CustomerSecretArgs();
     }
 }

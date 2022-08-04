@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160330.Inputs
 {
 
-    public sealed class SubResourceArgs : Pulumi.ResourceArgs
+    public sealed class SubResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
         public SubResourceArgs()
         {
         }
+        public static new SubResourceArgs Empty => new SubResourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
     /// <summary>
     /// Provider specific input for pairing operations.
     /// </summary>
-    public sealed class ReplicationProviderSpecificContainerMappingInputArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationProviderSpecificContainerMappingInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The class type.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
         public ReplicationProviderSpecificContainerMappingInputArgs()
         {
         }
+        public static new ReplicationProviderSpecificContainerMappingInputArgs Empty => new ReplicationProviderSpecificContainerMappingInputArgs();
     }
 }

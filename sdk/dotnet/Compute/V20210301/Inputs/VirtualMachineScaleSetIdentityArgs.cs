@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
     /// <summary>
     /// Identity for the virtual machine scale set.
     /// </summary>
-    public sealed class VirtualMachineScaleSetIdentityArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
         public VirtualMachineScaleSetIdentityArgs()
         {
         }
+        public static new VirtualMachineScaleSetIdentityArgs Empty => new VirtualMachineScaleSetIdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
     /// <summary>
     /// PrivateEndpoint information.
     /// </summary>
-    public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARM identifier for Private Endpoint.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
         public PrivateEndpointArgs()
         {
         }
+        public static new PrivateEndpointArgs Empty => new PrivateEndpointArgs();
     }
 }

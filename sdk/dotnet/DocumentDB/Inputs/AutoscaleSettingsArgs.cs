@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.Inputs
 {
 
-    public sealed class AutoscaleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents maximum throughput, the resource can scale up to.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public AutoscaleSettingsArgs()
         {
         }
+        public static new AutoscaleSettingsArgs Empty => new AutoscaleSettingsArgs();
     }
 }

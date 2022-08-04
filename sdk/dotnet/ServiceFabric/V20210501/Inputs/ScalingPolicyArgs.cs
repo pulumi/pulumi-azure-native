@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501.Inputs
     /// <summary>
     /// Specifies a metric to load balance a service during runtime.
     /// </summary>
-    public sealed class ScalingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the mechanism associated with this scaling policy
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501.Inputs
         public ScalingPolicyArgs()
         {
         }
+        public static new ScalingPolicyArgs Empty => new ScalingPolicyArgs();
     }
 }

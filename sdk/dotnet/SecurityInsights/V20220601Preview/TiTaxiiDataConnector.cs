@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
     /// Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220601preview:TiTaxiiDataConnector")]
-    public partial class TiTaxiiDataConnector : Pulumi.CustomResource
+    public partial class TiTaxiiDataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The collection id of the TAXII server.
@@ -138,17 +138,17 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:TiTaxiiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:TiTaxiiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:TiTaxiiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:TiTaxiiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:TiTaxiiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:TiTaxiiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:TiTaxiiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:TiTaxiiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:TiTaxiiDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:TiTaxiiDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:TiTaxiiDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         }
     }
 
-    public sealed class TiTaxiiDataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class TiTaxiiDataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The collection id of the TAXII server.
@@ -260,5 +260,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         public TiTaxiiDataConnectorArgs()
         {
         }
+        public static new TiTaxiiDataConnectorArgs Empty => new TiTaxiiDataConnectorArgs();
     }
 }

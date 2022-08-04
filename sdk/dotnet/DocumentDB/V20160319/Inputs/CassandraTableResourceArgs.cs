@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319.Inputs
     /// <summary>
     /// Cosmos DB Cassandra table id object
     /// </summary>
-    public sealed class CassandraTableResourceArgs : Pulumi.ResourceArgs
+    public sealed class CassandraTableResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time to live of the Cosmos DB Cassandra table
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319.Inputs
         public CassandraTableResourceArgs()
         {
         }
+        public static new CassandraTableResourceArgs Empty => new CassandraTableResourceArgs();
     }
 }

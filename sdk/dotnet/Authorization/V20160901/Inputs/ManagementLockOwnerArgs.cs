@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20160901.Inputs
     /// <summary>
     /// Lock owner properties.
     /// </summary>
-    public sealed class ManagementLockOwnerArgs : Pulumi.ResourceArgs
+    public sealed class ManagementLockOwnerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID of the lock owner.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Authorization.V20160901.Inputs
         public ManagementLockOwnerArgs()
         {
         }
+        public static new ManagementLockOwnerArgs Empty => new ManagementLockOwnerArgs();
     }
 }

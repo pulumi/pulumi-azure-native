@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
     /// <summary>
     /// VirtualNetworkGatewaySku details.
     /// </summary>
-    public sealed class VirtualNetworkGatewaySkuArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewaySkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gateway SKU name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
         public VirtualNetworkGatewaySkuArgs()
         {
         }
+        public static new VirtualNetworkGatewaySkuArgs Empty => new VirtualNetworkGatewaySkuArgs();
     }
 }

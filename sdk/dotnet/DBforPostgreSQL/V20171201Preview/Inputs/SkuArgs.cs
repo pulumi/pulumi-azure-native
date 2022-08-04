@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview.Inputs
     /// <summary>
     /// Billing information related properties of a server.
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The scale up/out capacity, representing server's compute units.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

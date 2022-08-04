@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
     /// </summary>
     [Obsolete(@"Version 2015-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:hdinsight/v20150301preview:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ETag for the application
@@ -71,9 +71,9 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hdinsight:Application"},
-                    new Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The constant value for the application name.
@@ -136,5 +136,6 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

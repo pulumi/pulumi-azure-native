@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Google BigQuery service linked service.
     /// </summary>
-    public sealed class GoogleBigQueryLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class GoogleBigQueryLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A comma-separated list of public BigQuery projects to access.
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public GoogleBigQueryLinkedServiceArgs()
         {
         }
+        public static new GoogleBigQueryLinkedServiceArgs Empty => new GoogleBigQueryLinkedServiceArgs();
     }
 }

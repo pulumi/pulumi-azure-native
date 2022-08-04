@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview.Inputs
     /// <summary>
     /// Fields for tracking refresh job on the share or container.
     /// </summary>
-    public sealed class RefreshDetailsArgs : Pulumi.ResourceArgs
+    public sealed class RefreshDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview.Inputs
         public RefreshDetailsArgs()
         {
         }
+        public static new RefreshDetailsArgs Empty => new RefreshDetailsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
     /// <summary>
     /// Describes an Azure Data Lake Store output data source.
     /// </summary>
-    public sealed class AzureDataLakeStoreOutputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataLakeStoreOutputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
         public AzureDataLakeStoreOutputDataSourceArgs()
         {
         }
+        public static new AzureDataLakeStoreOutputDataSourceArgs Empty => new AzureDataLakeStoreOutputDataSourceArgs();
     }
 }

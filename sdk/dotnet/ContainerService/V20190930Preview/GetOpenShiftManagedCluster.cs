@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190930Preview
     }
 
 
-    public sealed class GetOpenShiftManagedClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetOpenShiftManagedClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.ContainerService.V20190930Preview
         public GetOpenShiftManagedClusterArgs()
         {
         }
+        public static new GetOpenShiftManagedClusterArgs Empty => new GetOpenShiftManagedClusterArgs();
     }
 
-    public sealed class GetOpenShiftManagedClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOpenShiftManagedClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190930Preview
         public GetOpenShiftManagedClusterInvokeArgs()
         {
         }
+        public static new GetOpenShiftManagedClusterInvokeArgs Empty => new GetOpenShiftManagedClusterInvokeArgs();
     }
 
 

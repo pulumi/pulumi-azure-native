@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
 
-    public sealed class GetScriptExecutionArgs : Pulumi.InvokeArgs
+    public sealed class GetScriptExecutionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the private cloud
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.AVS
         public GetScriptExecutionArgs()
         {
         }
+        public static new GetScriptExecutionArgs Empty => new GetScriptExecutionArgs();
     }
 
-    public sealed class GetScriptExecutionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScriptExecutionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the private cloud
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.AVS
         public GetScriptExecutionInvokeArgs()
         {
         }
+        public static new GetScriptExecutionInvokeArgs Empty => new GetScriptExecutionInvokeArgs();
     }
 
 

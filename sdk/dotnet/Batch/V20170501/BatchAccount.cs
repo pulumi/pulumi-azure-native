@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Batch.V20170501
     /// </summary>
     [Obsolete(@"Version 2017-05-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:batch/v20170501:BatchAccount")]
-    public partial class BatchAccount : Pulumi.CustomResource
+    public partial class BatchAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account endpoint used to interact with the Batch service.
@@ -107,20 +107,20 @@ namespace Pulumi.AzureNative.Batch.V20170501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:batch:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20151201:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20170101:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20170901:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20181201:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200501:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20210101:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20210601:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20220101:BatchAccount"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20220601:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20151201:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170101:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170901:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20181201:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190401:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190801:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200301:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200501:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200901:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210101:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:BatchAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Batch.V20170501
         }
     }
 
-    public sealed class BatchAccountArgs : Pulumi.ResourceArgs
+    public sealed class BatchAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
@@ -195,5 +195,6 @@ namespace Pulumi.AzureNative.Batch.V20170501
         public BatchAccountArgs()
         {
         }
+        public static new BatchAccountArgs Empty => new BatchAccountArgs();
     }
 }

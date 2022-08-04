@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418.Inputs
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the private endpoint connection
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418.Inputs
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

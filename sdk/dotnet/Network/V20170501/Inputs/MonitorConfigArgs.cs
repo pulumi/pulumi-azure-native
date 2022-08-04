@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20170501.Inputs
     /// <summary>
     /// Class containing endpoint monitoring settings in a Traffic Manager profile.
     /// </summary>
-    public sealed class MonitorConfigArgs : Pulumi.ResourceArgs
+    public sealed class MonitorConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Network.V20170501.Inputs
         public MonitorConfigArgs()
         {
         }
+        public static new MonitorConfigArgs Empty => new MonitorConfigArgs();
     }
 }

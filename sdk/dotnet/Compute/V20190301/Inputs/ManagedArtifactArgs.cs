@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190301.Inputs
     /// <summary>
     /// The managed artifact.
     /// </summary>
-    public sealed class ManagedArtifactArgs : Pulumi.ResourceArgs
+    public sealed class ManagedArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed artifact id.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20190301.Inputs
         public ManagedArtifactArgs()
         {
         }
+        public static new ManagedArtifactArgs Empty => new ManagedArtifactArgs();
     }
 }

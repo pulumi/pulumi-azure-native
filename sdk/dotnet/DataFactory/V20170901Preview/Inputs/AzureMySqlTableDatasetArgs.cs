@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The Azure MySQL database dataset.
     /// </summary>
-    public sealed class AzureMySqlTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class AzureMySqlTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureMySqlTableDatasetArgs()
         {
         }
+        public static new AzureMySqlTableDatasetArgs Empty => new AzureMySqlTableDatasetArgs();
     }
 }

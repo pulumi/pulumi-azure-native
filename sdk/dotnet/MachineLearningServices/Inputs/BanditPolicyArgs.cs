@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
     /// </summary>
-    public sealed class BanditPolicyArgs : Pulumi.ResourceArgs
+    public sealed class BanditPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of intervals by which to delay the first evaluation.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public BanditPolicyArgs()
         {
         }
+        public static new BanditPolicyArgs Empty => new BanditPolicyArgs();
     }
 }

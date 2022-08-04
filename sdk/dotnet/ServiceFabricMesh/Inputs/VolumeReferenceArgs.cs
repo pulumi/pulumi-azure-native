@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// Describes a reference to a volume resource.
     /// </summary>
-    public sealed class VolumeReferenceArgs : Pulumi.ResourceArgs
+    public sealed class VolumeReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public VolumeReferenceArgs()
         {
         }
+        public static new VolumeReferenceArgs Empty => new VolumeReferenceArgs();
     }
 }

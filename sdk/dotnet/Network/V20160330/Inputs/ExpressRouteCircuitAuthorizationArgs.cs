@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
     /// <summary>
     /// Authorization in a ExpressRouteCircuit resource
     /// </summary>
-    public sealed class ExpressRouteCircuitAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the authorization key
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
         public ExpressRouteCircuitAuthorizationArgs()
         {
         }
+        public static new ExpressRouteCircuitAuthorizationArgs Empty => new ExpressRouteCircuitAuthorizationArgs();
     }
 }

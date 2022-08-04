@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     }
 
 
-    public sealed class ListPolicyFragmentReferencesArgs : Pulumi.InvokeArgs
+    public sealed class ListPolicyFragmentReferencesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A resource identifier.
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public ListPolicyFragmentReferencesArgs()
         {
         }
+        public static new ListPolicyFragmentReferencesArgs Empty => new ListPolicyFragmentReferencesArgs();
     }
 
-    public sealed class ListPolicyFragmentReferencesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListPolicyFragmentReferencesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A resource identifier.
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public ListPolicyFragmentReferencesInvokeArgs()
         {
         }
+        public static new ListPolicyFragmentReferencesInvokeArgs Empty => new ListPolicyFragmentReferencesInvokeArgs();
     }
 
 

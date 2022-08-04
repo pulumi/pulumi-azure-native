@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
     /// <summary>
     /// Gets the application HTTP endpoints.
     /// </summary>
-    public sealed class ApplicationGetHttpsEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGetHttpsEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessModes")]
         private InputList<string>? _accessModes;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
         public ApplicationGetHttpsEndpointArgs()
         {
         }
+        public static new ApplicationGetHttpsEndpointArgs Empty => new ApplicationGetHttpsEndpointArgs();
     }
 }

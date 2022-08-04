@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class ListNetworkManagerDeploymentStatusArgs : Pulumi.InvokeArgs
+    public sealed class ListNetworkManagerDeploymentStatusArgs : global::Pulumi.InvokeArgs
     {
         [Input("deploymentTypes")]
         private List<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>? _deploymentTypes;
@@ -74,9 +74,10 @@ namespace Pulumi.AzureNative.Network
         public ListNetworkManagerDeploymentStatusArgs()
         {
         }
+        public static new ListNetworkManagerDeploymentStatusArgs Empty => new ListNetworkManagerDeploymentStatusArgs();
     }
 
-    public sealed class ListNetworkManagerDeploymentStatusInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListNetworkManagerDeploymentStatusInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("deploymentTypes")]
         private InputList<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>? _deploymentTypes;
@@ -123,6 +124,7 @@ namespace Pulumi.AzureNative.Network
         public ListNetworkManagerDeploymentStatusInvokeArgs()
         {
         }
+        public static new ListNetworkManagerDeploymentStatusInvokeArgs Empty => new ListNetworkManagerDeploymentStatusInvokeArgs();
     }
 
 

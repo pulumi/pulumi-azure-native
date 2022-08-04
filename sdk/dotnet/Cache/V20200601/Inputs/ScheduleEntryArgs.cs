@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20200601.Inputs
     /// <summary>
     /// Patch schedule entry for a Premium Redis Cache.
     /// </summary>
-    public sealed class ScheduleEntryArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Day of the week when a cache can be patched.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Cache.V20200601.Inputs
         public ScheduleEntryArgs()
         {
         }
+        public static new ScheduleEntryArgs Empty => new ScheduleEntryArgs();
     }
 }

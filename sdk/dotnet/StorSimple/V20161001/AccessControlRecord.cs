@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:AccessControlRecord")]
-    public partial class AccessControlRecord : Pulumi.CustomResource
+    public partial class AccessControlRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Iscsi initiator name (IQN)
@@ -59,8 +59,8 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storsimple:AccessControlRecord"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:AccessControlRecord"},
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple:AccessControlRecord"},
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple/v20170601:AccessControlRecord"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         }
     }
 
-    public sealed class AccessControlRecordArgs : Pulumi.ResourceArgs
+    public sealed class AccessControlRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the access control record.
@@ -111,5 +111,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public AccessControlRecordArgs()
         {
         }
+        public static new AccessControlRecordArgs Empty => new AccessControlRecordArgs();
     }
 }

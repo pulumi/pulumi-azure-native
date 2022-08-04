@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
     /// </summary>
-    public sealed class CencDrmConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CencDrmConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// PlayReady configurations
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public CencDrmConfigurationArgs()
         {
         }
+        public static new CencDrmConfigurationArgs Empty => new CencDrmConfigurationArgs();
     }
 }

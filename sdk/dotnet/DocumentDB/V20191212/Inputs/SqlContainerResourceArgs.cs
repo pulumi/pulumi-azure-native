@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212.Inputs
     /// <summary>
     /// Cosmos DB SQL container resource object
     /// </summary>
-    public sealed class SqlContainerResourceArgs : Pulumi.ResourceArgs
+    public sealed class SqlContainerResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The conflict resolution policy for the container.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212.Inputs
         public SqlContainerResourceArgs()
         {
         }
+        public static new SqlContainerResourceArgs Empty => new SqlContainerResourceArgs();
     }
 }

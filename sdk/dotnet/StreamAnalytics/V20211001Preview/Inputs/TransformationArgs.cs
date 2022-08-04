@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
     /// </summary>
-    public sealed class TransformationArgs : Pulumi.ResourceArgs
+    public sealed class TransformationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource name
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         {
             StreamingUnits = 3;
         }
+        public static new TransformationArgs Empty => new TransformationArgs();
     }
 }

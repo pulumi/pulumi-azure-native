@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// An IP Configuration of the private endpoint.
     /// </summary>
-    public sealed class PrivateEndpointIPConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointIPConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of a group obtained from the remote resource that this private endpoint should connect to.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public PrivateEndpointIPConfigurationArgs()
         {
         }
+        public static new PrivateEndpointIPConfigurationArgs Empty => new PrivateEndpointIPConfigurationArgs();
     }
 }

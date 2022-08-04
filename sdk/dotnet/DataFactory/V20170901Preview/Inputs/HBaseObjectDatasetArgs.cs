@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// HBase server dataset.
     /// </summary>
-    public sealed class HBaseObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class HBaseObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HBaseObjectDatasetArgs()
         {
         }
+        public static new HBaseObjectDatasetArgs Empty => new HBaseObjectDatasetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
     /// <summary>
     /// Information about a system service deployed in the cluster
     /// </summary>
-    public sealed class SystemServiceArgs : Pulumi.ResourceArgs
+    public sealed class SystemServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The system service type
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
         public SystemServiceArgs()
         {
         }
+        public static new SystemServiceArgs Empty => new SystemServiceArgs();
     }
 }

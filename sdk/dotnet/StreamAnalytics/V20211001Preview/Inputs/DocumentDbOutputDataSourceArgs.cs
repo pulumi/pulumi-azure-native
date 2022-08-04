@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Describes a DocumentDB output data source.
     /// </summary>
-    public sealed class DocumentDbOutputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class DocumentDbOutputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public DocumentDbOutputDataSourceArgs()
         {
         }
+        public static new DocumentDbOutputDataSourceArgs Empty => new DocumentDbOutputDataSourceArgs();
     }
 }

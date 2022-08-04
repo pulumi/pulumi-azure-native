@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20200901.Inputs
 {
 
-    public sealed class EnvironmentSettingArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Batch.V20200901.Inputs
         public EnvironmentSettingArgs()
         {
         }
+        public static new EnvironmentSettingArgs Empty => new EnvironmentSettingArgs();
     }
 }

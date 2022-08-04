@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
     /// <summary>
     /// Username / Password Credentials to connect to guest.
     /// </summary>
-    public sealed class GuestCredentialArgs : Pulumi.ResourceArgs
+    public sealed class GuestCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the password to connect with the guest.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
         public GuestCredentialArgs()
         {
         }
+        public static new GuestCredentialArgs Empty => new GuestCredentialArgs();
     }
 }

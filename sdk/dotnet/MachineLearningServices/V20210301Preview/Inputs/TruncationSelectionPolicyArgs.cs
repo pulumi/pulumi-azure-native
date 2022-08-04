@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
     /// </summary>
-    public sealed class TruncationSelectionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class TruncationSelectionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of intervals by which to delay the first evaluation.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public TruncationSelectionPolicyArgs()
         {
         }
+        public static new TruncationSelectionPolicyArgs Empty => new TruncationSelectionPolicyArgs();
     }
 }

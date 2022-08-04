@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
     /// <summary>
     /// Contains the IP tag associated with the public IP address.
     /// </summary>
-    public sealed class VirtualMachineScaleSetIpTagArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetIpTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP tag type. Example: FirstPartyUsage.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
         public VirtualMachineScaleSetIpTagArgs()
         {
         }
+        public static new VirtualMachineScaleSetIpTagArgs Empty => new VirtualMachineScaleSetIpTagArgs();
     }
 }

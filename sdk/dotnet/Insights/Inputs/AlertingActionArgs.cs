@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Specify action need to be taken when rule type is Alert
     /// </summary>
-    public sealed class AlertingActionArgs : Pulumi.ResourceArgs
+    public sealed class AlertingActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure action group reference.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public AlertingActionArgs()
         {
         }
+        public static new AlertingActionArgs Empty => new AlertingActionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301.Inputs
     /// <summary>
     /// Describes the delta health policies for the cluster upgrade.
     /// </summary>
-    public sealed class ClusterUpgradeDeltaHealthPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterUpgradeDeltaHealthPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationDeltaHealthPolicies")]
         private InputMap<Inputs.ApplicationDeltaHealthPolicyArgs>? _applicationDeltaHealthPolicies;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301.Inputs
         public ClusterUpgradeDeltaHealthPolicyArgs()
         {
         }
+        public static new ClusterUpgradeDeltaHealthPolicyArgs Empty => new ClusterUpgradeDeltaHealthPolicyArgs();
     }
 }

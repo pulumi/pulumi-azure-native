@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
     /// <summary>
     /// Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
     /// </summary>
-    public sealed class AlertProcessingRulePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AlertProcessingRulePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Union<Inputs.AddActionGroupsArgs, Inputs.RemoveAllActionGroupsArgs>>? _actions;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
         {
             Enabled = true;
         }
+        public static new AlertProcessingRulePropertiesArgs Empty => new AlertProcessingRulePropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
     /// <summary>
     /// Criterion to filter metrics.
     /// </summary>
-    public sealed class MetricCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class MetricCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the type of threshold criteria
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
         public MetricCriteriaArgs()
         {
         }
+        public static new MetricCriteriaArgs Empty => new MetricCriteriaArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     /// </summary>
     [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:Rollout")]
-    public partial class Rollout : Pulumi.CustomResource
+    public partial class Rollout : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The reference to the artifact source resource Id where the payload is located.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:deploymentmanager:Rollout"},
-                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Rollout"},
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager:Rollout"},
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Rollout"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         }
     }
 
-    public sealed class RolloutArgs : Pulumi.ResourceArgs
+    public sealed class RolloutArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reference to the artifact source resource Id where the payload is located.
@@ -189,5 +189,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public RolloutArgs()
         {
         }
+        public static new RolloutArgs Empty => new RolloutArgs();
     }
 }

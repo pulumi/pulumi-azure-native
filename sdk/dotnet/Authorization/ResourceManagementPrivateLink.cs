@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     /// API Version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ResourceManagementPrivateLink")]
-    public partial class ResourceManagementPrivateLink : Pulumi.CustomResource
+    public partial class ResourceManagementPrivateLink : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the region of the rmpl
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20200501:ResourceManagementPrivateLink"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200501:ResourceManagementPrivateLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Authorization
         }
     }
 
-    public sealed class ResourceManagementPrivateLinkArgs : Pulumi.ResourceArgs
+    public sealed class ResourceManagementPrivateLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the region to create private link association.
@@ -106,5 +106,6 @@ namespace Pulumi.AzureNative.Authorization
         public ResourceManagementPrivateLinkArgs()
         {
         }
+        public static new ResourceManagementPrivateLinkArgs Empty => new ResourceManagementPrivateLinkArgs();
     }
 }

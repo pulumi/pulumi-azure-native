@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.BotService
     /// API Version: 2021-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.BotService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.BotService
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.BotService
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

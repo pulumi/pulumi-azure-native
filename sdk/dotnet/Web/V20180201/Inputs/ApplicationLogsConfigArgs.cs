@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20180201.Inputs
     /// <summary>
     /// Application logs configuration.
     /// </summary>
-    public sealed class ApplicationLogsConfigArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationLogsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Application logs to blob storage configuration.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Web.V20180201.Inputs
         public ApplicationLogsConfigArgs()
         {
         }
+        public static new ApplicationLogsConfigArgs Empty => new ApplicationLogsConfigArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20220101Preview.Inputs
     /// <summary>
     /// The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
     /// </summary>
-    public sealed class AuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizationArgs : global::Pulumi.ResourceArgs
     {
         [Input("delegatedRoleDefinitionIds")]
         private InputList<string>? _delegatedRoleDefinitionIds;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.ManagedServices.V20220101Preview.Inputs
         public AuthorizationArgs()
         {
         }
+        public static new AuthorizationArgs Empty => new AuthorizationArgs();
     }
 }

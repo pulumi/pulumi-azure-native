@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
     }
 
 
-    public sealed class GetMigrationArgs : Pulumi.InvokeArgs
+    public sealed class GetMigrationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the migration.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
         public GetMigrationArgs()
         {
         }
+        public static new GetMigrationArgs Empty => new GetMigrationArgs();
     }
 
-    public sealed class GetMigrationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMigrationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the migration.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
         public GetMigrationInvokeArgs()
         {
         }
+        public static new GetMigrationInvokeArgs Empty => new GetMigrationInvokeArgs();
     }
 
 

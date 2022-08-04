@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
     /// Binding resource payload
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220501preview:Binding")]
-    public partial class Binding : Pulumi.CustomResource
+    public partial class Binding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -64,14 +64,14 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform:Binding"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Binding"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Binding"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Binding"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Binding"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Binding"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Binding"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220401:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:Binding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         }
     }
 
-    public sealed class BindingArgs : Pulumi.ResourceArgs
+    public sealed class BindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         public BindingArgs()
         {
         }
+        public static new BindingArgs Empty => new BindingArgs();
     }
 }

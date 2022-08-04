@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
     /// The integration account.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20190501:IntegrationAccount")]
-    public partial class IntegrationAccount : Pulumi.CustomResource
+    public partial class IntegrationAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The integration service environment.
@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
         }
     }
 
-    public sealed class IntegrationAccountArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The integration account name.
@@ -160,5 +160,6 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public IntegrationAccountArgs()
         {
         }
+        public static new IntegrationAccountArgs Empty => new IntegrationAccountArgs();
     }
 }

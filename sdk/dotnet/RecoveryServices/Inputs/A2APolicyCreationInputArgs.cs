@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// <summary>
     /// A2A Policy creation input.
     /// </summary>
-    public sealed class A2APolicyCreationInputArgs : Pulumi.ResourceArgs
+    public sealed class A2APolicyCreationInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The app consistent snapshot frequency (in minutes).
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public A2APolicyCreationInputArgs()
         {
         }
+        public static new A2APolicyCreationInputArgs Empty => new A2APolicyCreationInputArgs();
     }
 }

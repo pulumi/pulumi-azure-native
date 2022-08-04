@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     }
 
 
-    public sealed class GetCustomImageArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=vm)'
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetCustomImageArgs()
         {
         }
+        public static new GetCustomImageArgs Empty => new GetCustomImageArgs();
     }
 
-    public sealed class GetCustomImageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=vm)'
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetCustomImageInvokeArgs()
         {
         }
+        public static new GetCustomImageInvokeArgs Empty => new GetCustomImageInvokeArgs();
     }
 
 

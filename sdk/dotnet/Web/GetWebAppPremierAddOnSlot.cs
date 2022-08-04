@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetWebAppPremierAddOnSlotArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppPremierAddOnSlotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.Web
         public GetWebAppPremierAddOnSlotArgs()
         {
         }
+        public static new GetWebAppPremierAddOnSlotArgs Empty => new GetWebAppPremierAddOnSlotArgs();
     }
 
-    public sealed class GetWebAppPremierAddOnSlotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppPremierAddOnSlotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.Web
         public GetWebAppPremierAddOnSlotInvokeArgs()
         {
         }
+        public static new GetWebAppPremierAddOnSlotInvokeArgs Empty => new GetWebAppPremierAddOnSlotInvokeArgs();
     }
 
 

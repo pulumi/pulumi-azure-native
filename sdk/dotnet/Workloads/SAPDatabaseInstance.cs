@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Workloads
     /// API Version: 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SAPDatabaseInstance")]
-    public partial class SAPDatabaseInstance : Pulumi.CustomResource
+    public partial class SAPDatabaseInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The database SID.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPDatabaseInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPDatabaseInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Workloads
         }
     }
 
-    public sealed class SAPDatabaseInstanceArgs : Pulumi.ResourceArgs
+    public sealed class SAPDatabaseInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database Instance string modeled as parameter for auto generation to work correctly.
@@ -182,5 +182,6 @@ namespace Pulumi.AzureNative.Workloads
         public SAPDatabaseInstanceArgs()
         {
         }
+        public static new SAPDatabaseInstanceArgs Empty => new SAPDatabaseInstanceArgs();
     }
 }

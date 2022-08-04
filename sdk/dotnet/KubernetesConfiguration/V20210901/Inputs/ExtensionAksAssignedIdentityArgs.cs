@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20210901.Inputs
     /// <summary>
     /// Identity of the Extension resource in an AKS cluster
     /// </summary>
-    public sealed class ExtensionAksAssignedIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ExtensionAksAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20210901.Inputs
         public ExtensionAksAssignedIdentityArgs()
         {
         }
+        public static new ExtensionAksAssignedIdentityArgs Empty => new ExtensionAksAssignedIdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     /// <summary>
     /// Describes a Service Bus Queue output data source.
     /// </summary>
-    public sealed class ServiceBusQueueOutputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceBusQueueOutputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("propertyColumns")]
         private InputList<string>? _propertyColumns;
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         public ServiceBusQueueOutputDataSourceArgs()
         {
         }
+        public static new ServiceBusQueueOutputDataSourceArgs Empty => new ServiceBusQueueOutputDataSourceArgs();
     }
 }

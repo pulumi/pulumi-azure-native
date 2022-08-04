@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190301.Inputs
     /// <summary>
     /// The publishing profile of a gallery image version.
     /// </summary>
-    public sealed class GalleryApplicationVersionPublishingProfileArgs : Pulumi.ResourceArgs
+    public sealed class GalleryApplicationVersionPublishingProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional. Whether or not this application reports health.
@@ -69,5 +69,6 @@ namespace Pulumi.AzureNative.Compute.V20190301.Inputs
         public GalleryApplicationVersionPublishingProfileArgs()
         {
         }
+        public static new GalleryApplicationVersionPublishingProfileArgs Empty => new GalleryApplicationVersionPublishingProfileArgs();
     }
 }

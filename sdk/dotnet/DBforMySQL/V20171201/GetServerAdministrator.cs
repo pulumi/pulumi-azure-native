@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201
     }
 
 
-    public sealed class GetServerAdministratorArgs : Pulumi.InvokeArgs
+    public sealed class GetServerAdministratorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201
         public GetServerAdministratorArgs()
         {
         }
+        public static new GetServerAdministratorArgs Empty => new GetServerAdministratorArgs();
     }
 
-    public sealed class GetServerAdministratorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerAdministratorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201
         public GetServerAdministratorInvokeArgs()
         {
         }
+        public static new GetServerAdministratorInvokeArgs Empty => new GetServerAdministratorInvokeArgs();
     }
 
 

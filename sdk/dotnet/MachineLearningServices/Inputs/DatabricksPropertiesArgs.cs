@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    public sealed class DatabricksPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DatabricksPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Databricks access token
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public DatabricksPropertiesArgs()
         {
         }
+        public static new DatabricksPropertiesArgs Empty => new DatabricksPropertiesArgs();
     }
 }

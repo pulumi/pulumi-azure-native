@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate
     /// API Version: 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:HyperVCollector")]
-    public partial class HyperVCollector : Pulumi.CustomResource
+    public partial class HyperVCollector : global::Pulumi.CustomResource
     {
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001:HyperVCollector"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:HyperVCollector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Migrate
         }
     }
 
-    public sealed class HyperVCollectorArgs : Pulumi.ResourceArgs
+    public sealed class HyperVCollectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.Migrate
         public HyperVCollectorArgs()
         {
         }
+        public static new HyperVCollectorArgs Empty => new HyperVCollectorArgs();
     }
 }

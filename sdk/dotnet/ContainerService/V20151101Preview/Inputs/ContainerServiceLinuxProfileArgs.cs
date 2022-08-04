@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
     /// <summary>
     /// Profile for Linux VM
     /// </summary>
-    public sealed class ContainerServiceLinuxProfileArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceLinuxProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator username to use for all Linux VMs
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
         public ContainerServiceLinuxProfileArgs()
         {
         }
+        public static new ContainerServiceLinuxProfileArgs Empty => new ContainerServiceLinuxProfileArgs();
     }
 }

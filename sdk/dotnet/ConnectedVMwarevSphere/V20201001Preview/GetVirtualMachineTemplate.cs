@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     }
 
 
-    public sealed class GetVirtualMachineTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineTemplateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group Name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public GetVirtualMachineTemplateArgs()
         {
         }
+        public static new GetVirtualMachineTemplateArgs Empty => new GetVirtualMachineTemplateArgs();
     }
 
-    public sealed class GetVirtualMachineTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group Name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public GetVirtualMachineTemplateInvokeArgs()
         {
         }
+        public static new GetVirtualMachineTemplateInvokeArgs Empty => new GetVirtualMachineTemplateInvokeArgs();
     }
 
 

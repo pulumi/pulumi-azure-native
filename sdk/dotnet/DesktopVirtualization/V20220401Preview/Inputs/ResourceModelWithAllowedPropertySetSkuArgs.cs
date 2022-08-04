@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview.Inputs
 {
 
-    public sealed class ResourceModelWithAllowedPropertySetSkuArgs : Pulumi.ResourceArgs
+    public sealed class ResourceModelWithAllowedPropertySetSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -45,5 +45,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview.Inputs
         public ResourceModelWithAllowedPropertySetSkuArgs()
         {
         }
+        public static new ResourceModelWithAllowedPropertySetSkuArgs Empty => new ResourceModelWithAllowedPropertySetSkuArgs();
     }
 }

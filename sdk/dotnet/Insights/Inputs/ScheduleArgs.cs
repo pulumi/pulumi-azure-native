@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Defines how often to run the search and the time interval.
     /// </summary>
-    public sealed class ScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// frequency (in minutes) at which rule condition should be evaluated.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public ScheduleArgs()
         {
         }
+        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 }

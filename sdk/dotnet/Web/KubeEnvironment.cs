@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:KubeEnvironment")]
-    public partial class KubeEnvironment : Pulumi.CustomResource
+    public partial class KubeEnvironment : global::Pulumi.CustomResource
     {
         [Output("aksResourceID")]
         public Output<string?> AksResourceID { get; private set; } = null!;
@@ -126,11 +126,11 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:KubeEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:KubeEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:KubeEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:KubeEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:KubeEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:KubeEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:KubeEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:KubeEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:KubeEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:KubeEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class KubeEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class KubeEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("aksResourceID")]
         public Input<string>? AksResourceID { get; set; }
@@ -230,5 +230,6 @@ namespace Pulumi.AzureNative.Web
         public KubeEnvironmentArgs()
         {
         }
+        public static new KubeEnvironmentArgs Empty => new KubeEnvironmentArgs();
     }
 }

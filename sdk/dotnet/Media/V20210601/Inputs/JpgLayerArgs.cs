@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// Describes the settings to produce a JPEG image from the input video.
     /// </summary>
-    public sealed class JpgLayerArgs : Pulumi.ResourceArgs
+    public sealed class JpgLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public JpgLayerArgs()
         {
         }
+        public static new JpgLayerArgs Empty => new JpgLayerArgs();
     }
 }

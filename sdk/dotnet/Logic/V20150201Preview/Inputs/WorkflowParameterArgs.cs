@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150201Preview.Inputs
 {
 
-    public sealed class WorkflowParameterArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the metadata.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview.Inputs
         public WorkflowParameterArgs()
         {
         }
+        public static new WorkflowParameterArgs Empty => new WorkflowParameterArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210701.Inputs
     /// <summary>
     /// Container group diagnostic information.
     /// </summary>
-    public sealed class ContainerGroupDiagnosticsArgs : Pulumi.ResourceArgs
+    public sealed class ContainerGroupDiagnosticsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container group log analytics information.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210701.Inputs
         public ContainerGroupDiagnosticsArgs()
         {
         }
+        public static new ContainerGroupDiagnosticsArgs Empty => new ContainerGroupDiagnosticsArgs();
     }
 }

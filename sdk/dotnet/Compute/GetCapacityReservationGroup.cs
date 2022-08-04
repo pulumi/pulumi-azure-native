@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
 
-    public sealed class GetCapacityReservationGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetCapacityReservationGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the capacity reservation group.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Compute
         public GetCapacityReservationGroupArgs()
         {
         }
+        public static new GetCapacityReservationGroupArgs Empty => new GetCapacityReservationGroupArgs();
     }
 
-    public sealed class GetCapacityReservationGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCapacityReservationGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the capacity reservation group.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Compute
         public GetCapacityReservationGroupInvokeArgs()
         {
         }
+        public static new GetCapacityReservationGroupInvokeArgs Empty => new GetCapacityReservationGroupInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20190515
     /// Class representing a Kusto cluster.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20190515:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The cluster data ingestion URI.
@@ -130,18 +130,18 @@ namespace Pulumi.AzureNative.Kusto.V20190515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kusto:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20190121:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNative.Kusto.V20190515
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -253,5 +253,6 @@ namespace Pulumi.AzureNative.Kusto.V20190515
         {
             EnableStreamingIngest = false;
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

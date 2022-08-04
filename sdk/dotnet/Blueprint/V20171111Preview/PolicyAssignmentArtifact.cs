@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     /// Blueprint artifact applies Policy assignments.
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:PolicyAssignmentArtifact")]
-    public partial class PolicyAssignmentArtifact : Pulumi.CustomResource
+    public partial class PolicyAssignmentArtifact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Artifacts which need to be deployed before the specified artifact.
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         }
     }
 
-    public sealed class PolicyAssignmentArtifactArgs : Pulumi.ResourceArgs
+    public sealed class PolicyAssignmentArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// name of the artifact.
@@ -198,5 +198,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public PolicyAssignmentArtifactArgs()
         {
         }
+        public static new PolicyAssignmentArtifactArgs Empty => new PolicyAssignmentArtifactArgs();
     }
 }

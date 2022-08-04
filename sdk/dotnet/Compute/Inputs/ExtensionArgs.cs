@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// <summary>
     /// Describes a cloud service Extension.
     /// </summary>
-    public sealed class ExtensionArgs : Pulumi.ResourceArgs
+    public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the extension.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public ExtensionArgs()
         {
         }
+        public static new ExtensionArgs Empty => new ExtensionArgs();
     }
 }

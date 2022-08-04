@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.Inputs
     /// <summary>
     /// Details of the data lake storage account associated with the workspace
     /// </summary>
-    public sealed class DataLakeStorageAccountDetailsArgs : Pulumi.ResourceArgs
+    public sealed class DataLakeStorageAccountDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account URL
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Synapse.Inputs
         public DataLakeStorageAccountDetailsArgs()
         {
         }
+        public static new DataLakeStorageAccountDetailsArgs Empty => new DataLakeStorageAccountDetailsArgs();
     }
 }

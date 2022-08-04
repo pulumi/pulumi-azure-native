@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// Properties of the additional workspaces.
     /// </summary>
-    public sealed class AdditionalWorkspacesPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AdditionalWorkspacesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataTypes")]
         private InputList<Union<string, Pulumi.AzureNative.Security.AdditionalWorkspaceDataType>>? _dataTypes;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         {
             Type = "Sentinel";
         }
+        public static new AdditionalWorkspacesPropertiesArgs Empty => new AdditionalWorkspacesPropertiesArgs();
     }
 }

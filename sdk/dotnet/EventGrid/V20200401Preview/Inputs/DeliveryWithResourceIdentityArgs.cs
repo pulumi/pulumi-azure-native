@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
     /// <summary>
     /// Information about the delivery for an event subscription with resource identity.
     /// </summary>
-    public sealed class DeliveryWithResourceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryWithResourceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
         public DeliveryWithResourceIdentityArgs()
         {
         }
+        public static new DeliveryWithResourceIdentityArgs Empty => new DeliveryWithResourceIdentityArgs();
     }
 }

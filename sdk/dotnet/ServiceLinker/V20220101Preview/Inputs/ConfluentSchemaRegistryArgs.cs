@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
     /// <summary>
     /// The service properties when target service type is ConfluentSchemaRegistry
     /// </summary>
-    public sealed class ConfluentSchemaRegistryArgs : Pulumi.ResourceArgs
+    public sealed class ConfluentSchemaRegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint of service.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
         public ConfluentSchemaRegistryArgs()
         {
         }
+        public static new ConfluentSchemaRegistryArgs Empty => new ConfluentSchemaRegistryArgs();
     }
 }

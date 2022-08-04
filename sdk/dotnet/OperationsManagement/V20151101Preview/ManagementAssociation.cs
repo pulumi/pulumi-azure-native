@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
     /// The container for solution.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationsmanagement/v20151101preview:ManagementAssociation")]
-    public partial class ManagementAssociation : Pulumi.CustomResource
+    public partial class ManagementAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationsmanagement:ManagementAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationsmanagement:ManagementAssociation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         }
     }
 
-    public sealed class ManagementAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ManagementAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         public ManagementAssociationArgs()
         {
         }
+        public static new ManagementAssociationArgs Empty => new ManagementAssociationArgs();
     }
 }

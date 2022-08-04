@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Automation
     /// API Version: 2019-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:DscNodeConfiguration")]
-    public partial class DscNodeConfiguration : Pulumi.CustomResource
+    public partial class DscNodeConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the configuration of the node.
@@ -89,10 +89,10 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20180115:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:DscNodeConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:DscNodeConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20180115:DscNodeConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:DscNodeConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:DscNodeConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Automation
         }
     }
 
-    public sealed class DscNodeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DscNodeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -173,5 +173,6 @@ namespace Pulumi.AzureNative.Automation
         public DscNodeConfigurationArgs()
         {
         }
+        public static new DscNodeConfigurationArgs Empty => new DscNodeConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20160301.Inputs
     /// <summary>
     /// Specifies the retention policy for the log.
     /// </summary>
-    public sealed class RetentionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Insights.V20160301.Inputs
         public RetentionPolicyArgs()
         {
         }
+        public static new RetentionPolicyArgs Empty => new RetentionPolicyArgs();
     }
 }

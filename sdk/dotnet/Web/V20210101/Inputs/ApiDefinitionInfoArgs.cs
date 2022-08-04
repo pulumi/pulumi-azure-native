@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// Information about the formal API definition for the app.
     /// </summary>
-    public sealed class ApiDefinitionInfoArgs : Pulumi.ResourceArgs
+    public sealed class ApiDefinitionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL of the API definition.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public ApiDefinitionInfoArgs()
         {
         }
+        public static new ApiDefinitionInfoArgs Empty => new ApiDefinitionInfoArgs();
     }
 }

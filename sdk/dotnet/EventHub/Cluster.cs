@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventHub
     /// API Version: 2018-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The UTC time when the Event Hubs Cluster was created.
@@ -95,10 +95,10 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.EventHub
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Event Hubs Cluster.
@@ -161,5 +161,6 @@ namespace Pulumi.AzureNative.EventHub
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20190601.Inputs
     /// <summary>
     /// A logic app receiver.
     /// </summary>
-    public sealed class LogicAppReceiverArgs : Pulumi.ResourceArgs
+    public sealed class LogicAppReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The callback url where http request sent to.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Insights.V20190601.Inputs
         {
             UseCommonAlertSchema = false;
         }
+        public static new LogicAppReceiverArgs Empty => new LogicAppReceiverArgs();
     }
 }

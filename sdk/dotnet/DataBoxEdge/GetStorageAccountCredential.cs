@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     }
 
 
-    public sealed class GetStorageAccountCredentialArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageAccountCredentialArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public GetStorageAccountCredentialArgs()
         {
         }
+        public static new GetStorageAccountCredentialArgs Empty => new GetStorageAccountCredentialArgs();
     }
 
-    public sealed class GetStorageAccountCredentialInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageAccountCredentialInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public GetStorageAccountCredentialInvokeArgs()
         {
         }
+        public static new GetStorageAccountCredentialInvokeArgs Empty => new GetStorageAccountCredentialInvokeArgs();
     }
 
 

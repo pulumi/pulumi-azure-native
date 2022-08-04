@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Communication.V20200820
     }
 
 
-    public sealed class ListCommunicationServiceKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListCommunicationServiceKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the CommunicationService resource.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Communication.V20200820
         public ListCommunicationServiceKeysArgs()
         {
         }
+        public static new ListCommunicationServiceKeysArgs Empty => new ListCommunicationServiceKeysArgs();
     }
 
-    public sealed class ListCommunicationServiceKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListCommunicationServiceKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the CommunicationService resource.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Communication.V20200820
         public ListCommunicationServiceKeysInvokeArgs()
         {
         }
+        public static new ListCommunicationServiceKeysInvokeArgs Empty => new ListCommunicationServiceKeysInvokeArgs();
     }
 
 

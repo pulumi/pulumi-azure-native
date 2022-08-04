@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview.Inputs
     /// <summary>
     /// Cosmos DB Gremlin database resource object
     /// </summary>
-    public sealed class GremlinDatabaseResourceArgs : Pulumi.ResourceArgs
+    public sealed class GremlinDatabaseResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cosmos DB Gremlin database
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview.Inputs
         public GremlinDatabaseResourceArgs()
         {
         }
+        public static new GremlinDatabaseResourceArgs Empty => new GremlinDatabaseResourceArgs();
     }
 }

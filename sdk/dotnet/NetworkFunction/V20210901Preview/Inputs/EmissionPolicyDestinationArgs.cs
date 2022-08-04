@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetworkFunction.V20210901Preview.Inputs
     /// <summary>
     /// Emission policy destination properties.
     /// </summary>
-    public sealed class EmissionPolicyDestinationArgs : Pulumi.ResourceArgs
+    public sealed class EmissionPolicyDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Emission destination type.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.NetworkFunction.V20210901Preview.Inputs
         public EmissionPolicyDestinationArgs()
         {
         }
+        public static new EmissionPolicyDestinationArgs Empty => new EmissionPolicyDestinationArgs();
     }
 }

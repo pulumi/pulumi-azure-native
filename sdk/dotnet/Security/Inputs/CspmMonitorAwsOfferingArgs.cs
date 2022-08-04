@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// The CSPM monitoring for AWS offering configurations
     /// </summary>
-    public sealed class CspmMonitorAwsOfferingArgs : Pulumi.ResourceArgs
+    public sealed class CspmMonitorAwsOfferingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The native cloud connection configuration
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public CspmMonitorAwsOfferingArgs()
         {
         }
+        public static new CspmMonitorAwsOfferingArgs Empty => new CspmMonitorAwsOfferingArgs();
     }
 }

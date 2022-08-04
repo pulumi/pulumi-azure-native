@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
     }
 
 
-    public sealed class GetHybridConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetHybridConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The hybrid connection name.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public GetHybridConnectionArgs()
         {
         }
+        public static new GetHybridConnectionArgs Empty => new GetHybridConnectionArgs();
     }
 
-    public sealed class GetHybridConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHybridConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The hybrid connection name.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public GetHybridConnectionInvokeArgs()
         {
         }
+        public static new GetHybridConnectionInvokeArgs Empty => new GetHybridConnectionInvokeArgs();
     }
 
 

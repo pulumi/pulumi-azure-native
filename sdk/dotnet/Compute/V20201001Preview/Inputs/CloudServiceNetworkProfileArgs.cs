@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
     /// <summary>
     /// Network Profile for the cloud service.
     /// </summary>
-    public sealed class CloudServiceNetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class CloudServiceNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("loadBalancerConfigurations")]
         private InputList<Inputs.LoadBalancerConfigurationArgs>? _loadBalancerConfigurations;
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview.Inputs
         public CloudServiceNetworkProfileArgs()
         {
         }
+        public static new CloudServiceNetworkProfileArgs Empty => new CloudServiceNetworkProfileArgs();
     }
 }

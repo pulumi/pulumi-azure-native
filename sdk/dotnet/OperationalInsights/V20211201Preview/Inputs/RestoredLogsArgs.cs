@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview.Inputs
     /// <summary>
     /// Restore parameters.
     /// </summary>
-    public sealed class RestoredLogsArgs : Pulumi.ResourceArgs
+    public sealed class RestoredLogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp to end the restore by (UTC).
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview.Inputs
         public RestoredLogsArgs()
         {
         }
+        public static new RestoredLogsArgs Empty => new RestoredLogsArgs();
     }
 }

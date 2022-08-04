@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSitePushSettingsSlot")]
-    public partial class WebAppSitePushSettingsSlot : Pulumi.CustomResource
+    public partial class WebAppSitePushSettingsSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
@@ -86,19 +86,19 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSitePushSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppSitePushSettingsSlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppSitePushSettingsSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
@@ -176,5 +176,6 @@ namespace Pulumi.AzureNative.Web
         public WebAppSitePushSettingsSlotArgs()
         {
         }
+        public static new WebAppSitePushSettingsSlotArgs Empty => new WebAppSitePushSettingsSlotArgs();
     }
 }

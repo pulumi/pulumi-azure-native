@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130.Inputs
     /// <summary>
     /// SKU of the dedicated HSM
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SKU of the dedicated HSM
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

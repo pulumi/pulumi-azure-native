@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Compute.V20191201
     }
 
 
-    public sealed class GetSshPublicKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetSshPublicKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Compute.V20191201
         public GetSshPublicKeyArgs()
         {
         }
+        public static new GetSshPublicKeyArgs Empty => new GetSshPublicKeyArgs();
     }
 
-    public sealed class GetSshPublicKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSshPublicKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Compute.V20191201
         public GetSshPublicKeyInvokeArgs()
         {
         }
+        public static new GetSshPublicKeyInvokeArgs Empty => new GetSshPublicKeyInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
     /// </summary>
-    public sealed class ApplicableScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ApplicableScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public ApplicableScheduleArgs()
         {
         }
+        public static new ApplicableScheduleArgs Empty => new ApplicableScheduleArgs();
     }
 }

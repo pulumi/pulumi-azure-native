@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Dynamics sink.
     /// </summary>
-    public sealed class DynamicsSinkArgs : Pulumi.ResourceArgs
+    public sealed class DynamicsSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DynamicsSinkArgs()
         {
         }
+        public static new DynamicsSinkArgs Empty => new DynamicsSinkArgs();
     }
 }

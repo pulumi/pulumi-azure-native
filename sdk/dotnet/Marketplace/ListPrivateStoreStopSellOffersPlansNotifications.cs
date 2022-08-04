@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Marketplace
     }
 
 
-    public sealed class ListPrivateStoreStopSellOffersPlansNotificationsArgs : Pulumi.InvokeArgs
+    public sealed class ListPrivateStoreStopSellOffersPlansNotificationsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The store ID - must use the tenant ID
@@ -46,9 +46,10 @@ namespace Pulumi.AzureNative.Marketplace
         public ListPrivateStoreStopSellOffersPlansNotificationsArgs()
         {
         }
+        public static new ListPrivateStoreStopSellOffersPlansNotificationsArgs Empty => new ListPrivateStoreStopSellOffersPlansNotificationsArgs();
     }
 
-    public sealed class ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The store ID - must use the tenant ID
@@ -67,6 +68,7 @@ namespace Pulumi.AzureNative.Marketplace
         public ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs()
         {
         }
+        public static new ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs Empty => new ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs();
     }
 
 

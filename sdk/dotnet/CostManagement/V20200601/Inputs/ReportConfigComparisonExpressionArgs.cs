@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20200601.Inputs
     /// <summary>
     /// The comparison expression to be used in the report.
     /// </summary>
-    public sealed class ReportConfigComparisonExpressionArgs : Pulumi.ResourceArgs
+    public sealed class ReportConfigComparisonExpressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column to use in comparison.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.CostManagement.V20200601.Inputs
         public ReportConfigComparisonExpressionArgs()
         {
         }
+        public static new ReportConfigComparisonExpressionArgs Empty => new ReportConfigComparisonExpressionArgs();
     }
 }

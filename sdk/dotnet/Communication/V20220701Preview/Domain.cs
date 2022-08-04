@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Communication.V20220701Preview
     /// A class representing a Domains resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication/v20220701preview:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location where the Domains resource data is stored at rest.
@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.Communication.V20220701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:communication:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:communication/v20211001preview:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.Communication.V20220701Preview
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes how a Domains resource is being managed.
@@ -212,5 +212,6 @@ namespace Pulumi.AzureNative.Communication.V20220701Preview
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 }

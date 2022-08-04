@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20180712
     /// Enterprise Channel resource definition
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice/v20180712:EnterpriseChannel")]
-    public partial class EnterpriseChannel : Pulumi.CustomResource
+    public partial class EnterpriseChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Entity Tag
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.BotService.V20180712
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:botservice:EnterpriseChannel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice:EnterpriseChannel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.BotService.V20180712
         }
     }
 
-    public sealed class EnterpriseChannelArgs : Pulumi.ResourceArgs
+    public sealed class EnterpriseChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required. Gets or sets the Kind of the resource.
@@ -163,5 +163,6 @@ namespace Pulumi.AzureNative.BotService.V20180712
         public EnterpriseChannelArgs()
         {
         }
+        public static new EnterpriseChannelArgs Empty => new EnterpriseChannelArgs();
     }
 }

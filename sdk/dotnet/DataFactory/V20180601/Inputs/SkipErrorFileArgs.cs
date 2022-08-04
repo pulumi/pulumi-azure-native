@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Skip error file.
     /// </summary>
-    public sealed class SkipErrorFileArgs : Pulumi.ResourceArgs
+    public sealed class SkipErrorFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Skip if source/sink file changed by other concurrent write. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SkipErrorFileArgs()
         {
         }
+        public static new SkipErrorFileArgs Empty => new SkipErrorFileArgs();
     }
 }

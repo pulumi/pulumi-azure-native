@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
     /// </summary>
-    public sealed class OSProfileArgs : Pulumi.ResourceArgs
+    public sealed class OSProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the password of the administrator account. &lt;br&gt;&lt;br&gt; **Minimum-length (Windows):** 8 characters &lt;br&gt;&lt;br&gt; **Minimum-length (Linux):** 6 characters &lt;br&gt;&lt;br&gt; **Max-length (Windows):** 123 characters &lt;br&gt;&lt;br&gt; **Max-length (Linux):** 72 characters &lt;br&gt;&lt;br&gt; **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled &lt;br&gt; Has lower characters &lt;br&gt;Has upper characters &lt;br&gt; Has a digit &lt;br&gt; Has a special character (Regex match [\W_]) &lt;br&gt;&lt;br&gt; **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" &lt;br&gt;&lt;br&gt; For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) &lt;br&gt;&lt;br&gt; For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public OSProfileArgs()
         {
         }
+        public static new OSProfileArgs Empty => new OSProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Append value for a Variable of type Array.
     /// </summary>
-    public sealed class AppendVariableActivityArgs : Pulumi.ResourceArgs
+    public sealed class AppendVariableActivityArgs : global::Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AppendVariableActivityArgs()
         {
         }
+        public static new AppendVariableActivityArgs Empty => new AppendVariableActivityArgs();
     }
 }

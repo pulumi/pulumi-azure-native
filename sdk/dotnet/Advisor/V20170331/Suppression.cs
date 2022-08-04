@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Advisor.V20170331
     /// </summary>
     [Obsolete(@"Version 2017-03-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:advisor/v20170331:Suppression")]
-    public partial class Suppression : Pulumi.CustomResource
+    public partial class Suppression : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.Advisor.V20170331
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:advisor:Suppression"},
-                    new Pulumi.Alias { Type = "azure-native:advisor/v20160712preview:Suppression"},
-                    new Pulumi.Alias { Type = "azure-native:advisor/v20170419:Suppression"},
-                    new Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20160712preview:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20170419:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Advisor.V20170331
         }
     }
 
-    public sealed class SuppressionArgs : Pulumi.ResourceArgs
+    public sealed class SuppressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the suppression.
@@ -125,5 +125,6 @@ namespace Pulumi.AzureNative.Advisor.V20170331
         public SuppressionArgs()
         {
         }
+        public static new SuppressionArgs Empty => new SuppressionArgs();
     }
 }

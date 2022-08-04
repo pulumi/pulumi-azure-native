@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
     /// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20200101preview:SecurityContact")]
-    public partial class SecurityContact : Pulumi.CustomResource
+    public partial class SecurityContact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Defines whether to send email notifications about new security alerts
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:security:SecurityContact"},
-                    new Pulumi.Alias { Type = "azure-native:security/v20170801preview:SecurityContact"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:SecurityContact"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:SecurityContact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
         }
     }
 
-    public sealed class SecurityContactArgs : Pulumi.ResourceArgs
+    public sealed class SecurityContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines whether to send email notifications about new security alerts
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
         public SecurityContactArgs()
         {
         }
+        public static new SecurityContactArgs Empty => new SecurityContactArgs();
     }
 }

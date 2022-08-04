@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20190901.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class IdentityArgs : Pulumi.ResourceArgs
+    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type. This is the only required field when adding a system assigned identity to a resource.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Authorization.V20190901.Inputs
         public IdentityArgs()
         {
         }
+        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

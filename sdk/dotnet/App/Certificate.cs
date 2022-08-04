@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.App
     /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.App
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:app/v20220101preview:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:app/v20220301:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.App
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Certificate.
@@ -147,5 +147,6 @@ namespace Pulumi.AzureNative.App
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     /// Public IP prefix resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220101:PublicIPPrefix")]
-    public partial class PublicIPPrefix : Pulumi.CustomResource
+    public partial class PublicIPPrefix : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The customIpPrefix that this prefix is associated with.
@@ -148,31 +148,31 @@ namespace Pulumi.AzureNative.Network.V20220101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180701:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:PublicIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:PublicIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:PublicIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         }
     }
 
-    public sealed class PublicIPPrefixArgs : Pulumi.ResourceArgs
+    public sealed class PublicIPPrefixArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The customIpPrefix that this prefix is associated with.
@@ -295,5 +295,6 @@ namespace Pulumi.AzureNative.Network.V20220101
         public PublicIPPrefixArgs()
         {
         }
+        public static new PublicIPPrefixArgs Empty => new PublicIPPrefixArgs();
     }
 }

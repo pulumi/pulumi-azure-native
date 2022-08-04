@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Listener of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayListenerArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Frontend IP configuration resource of an application gateway.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public ApplicationGatewayListenerArgs()
         {
         }
+        public static new ApplicationGatewayListenerArgs Empty => new ApplicationGatewayListenerArgs();
     }
 }

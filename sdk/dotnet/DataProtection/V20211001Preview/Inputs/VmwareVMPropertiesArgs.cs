@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
     /// <summary>
     /// VMware VM specific data source properties
     /// </summary>
-    public sealed class VmwareVMPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class VmwareVMPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique Identifier of Vmware VM on VCenter (guid)
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
         public VmwareVMPropertiesArgs()
         {
         }
+        public static new VmwareVMPropertiesArgs Empty => new VmwareVMPropertiesArgs();
     }
 }

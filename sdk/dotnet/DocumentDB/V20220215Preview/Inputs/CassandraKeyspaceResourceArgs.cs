@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview.Inputs
     /// <summary>
     /// Cosmos DB Cassandra keyspace resource object
     /// </summary>
-    public sealed class CassandraKeyspaceResourceArgs : Pulumi.ResourceArgs
+    public sealed class CassandraKeyspaceResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cosmos DB Cassandra keyspace
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview.Inputs
         public CassandraKeyspaceResourceArgs()
         {
         }
+        public static new CassandraKeyspaceResourceArgs Empty => new CassandraKeyspaceResourceArgs();
     }
 }

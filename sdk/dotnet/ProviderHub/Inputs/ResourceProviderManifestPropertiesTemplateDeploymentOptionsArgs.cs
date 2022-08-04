@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
-    public sealed class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("preflightOptions")]
         private InputList<Union<string, Pulumi.AzureNative.ProviderHub.PreflightOption>>? _preflightOptions;
@@ -26,5 +26,6 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         public ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs()
         {
         }
+        public static new ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs Empty => new ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs();
     }
 }

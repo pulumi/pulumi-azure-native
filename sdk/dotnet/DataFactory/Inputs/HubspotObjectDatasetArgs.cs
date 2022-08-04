@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Hubspot Service dataset.
     /// </summary>
-    public sealed class HubspotObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class HubspotObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public HubspotObjectDatasetArgs()
         {
         }
+        public static new HubspotObjectDatasetArgs Empty => new HubspotObjectDatasetArgs();
     }
 }

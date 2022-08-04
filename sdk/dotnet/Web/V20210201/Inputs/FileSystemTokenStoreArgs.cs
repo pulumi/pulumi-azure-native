@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
     /// <summary>
     /// The configuration settings of the storage of the tokens if a file system is used.
     /// </summary>
-    public sealed class FileSystemTokenStoreArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemTokenStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The directory in which the tokens will be stored.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
         public FileSystemTokenStoreArgs()
         {
         }
+        public static new FileSystemTokenStoreArgs Empty => new FileSystemTokenStoreArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Presto server linked service.
     /// </summary>
-    public sealed class PrestoLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class PrestoLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PrestoLinkedServiceArgs()
         {
         }
+        public static new PrestoLinkedServiceArgs Empty => new PrestoLinkedServiceArgs();
     }
 }

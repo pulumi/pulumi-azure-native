@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     /// </summary>
     [Obsolete(@"Version 2017-11-11-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:PublishedBlueprint")]
-    public partial class PublishedBlueprint : Pulumi.CustomResource
+    public partial class PublishedBlueprint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the Blueprint definition.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         }
     }
 
-    public sealed class PublishedBlueprintArgs : Pulumi.ResourceArgs
+    public sealed class PublishedBlueprintArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// name of the blueprint.
@@ -142,5 +142,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public PublishedBlueprintArgs()
         {
         }
+        public static new PublishedBlueprintArgs Empty => new PublishedBlueprintArgs();
     }
 }

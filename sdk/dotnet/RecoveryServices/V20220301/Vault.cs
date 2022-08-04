@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301
     /// Resource information, as returned by the resource provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20220301:Vault")]
-    public partial class Vault : Pulumi.CustomResource
+    public partial class Vault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optional ETag.
@@ -94,23 +94,23 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160601:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20200202:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210101:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101preview:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220131preview:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20160601:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20200202:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210101:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101preview:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220131preview:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301
         }
     }
 
-    public sealed class VaultArgs : Pulumi.ResourceArgs
+    public sealed class VaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity for the resource.
@@ -185,5 +185,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301
         public VaultArgs()
         {
         }
+        public static new VaultArgs Empty => new VaultArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     /// Managed private endpoint resource type.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory/v20180601:ManagedPrivateEndpoint")]
-    public partial class ManagedPrivateEndpoint : Pulumi.CustomResource
+    public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag identifies change in the resource.
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datafactory:ManagedPrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:datafactory:ManagedPrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         }
     }
 
-    public sealed class ManagedPrivateEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ManagedPrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The factory name.
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public ManagedPrivateEndpointArgs()
         {
         }
+        public static new ManagedPrivateEndpointArgs Empty => new ManagedPrivateEndpointArgs();
     }
 }

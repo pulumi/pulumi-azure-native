@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
     }
 
 
-    public sealed class GetStreamingJobArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamingJobArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public GetStreamingJobArgs()
         {
         }
+        public static new GetStreamingJobArgs Empty => new GetStreamingJobArgs();
     }
 
-    public sealed class GetStreamingJobInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamingJobInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public GetStreamingJobInvokeArgs()
         {
         }
+        public static new GetStreamingJobInvokeArgs Empty => new GetStreamingJobInvokeArgs();
     }
 
 

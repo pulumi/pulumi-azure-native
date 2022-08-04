@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Inputs
     /// <summary>
     /// Container group log analytics information.
     /// </summary>
-    public sealed class LogAnalyticsArgs : Pulumi.ResourceArgs
+    public sealed class LogAnalyticsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The log type to be used.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Inputs
         public LogAnalyticsArgs()
         {
         }
+        public static new LogAnalyticsArgs Empty => new LogAnalyticsArgs();
     }
 }

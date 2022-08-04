@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20210301.Inputs
     /// <summary>
     /// Secure LDAP Settings
     /// </summary>
-    public sealed class LdapsSettingsArgs : Pulumi.ResourceArgs
+    public sealed class LdapsSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.Aad.V20210301.Inputs
             ExternalAccess = "Disabled";
             Ldaps = "Disabled";
         }
+        public static new LdapsSettingsArgs Empty => new LdapsSettingsArgs();
     }
 }

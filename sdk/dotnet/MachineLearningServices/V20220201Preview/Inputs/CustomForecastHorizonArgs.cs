@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// The desired maximum forecast horizon in units of time-series frequency.
     /// </summary>
-    public sealed class CustomForecastHorizonArgs : Pulumi.ResourceArgs
+    public sealed class CustomForecastHorizonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine forecast horizon selection mode.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public CustomForecastHorizonArgs()
         {
         }
+        public static new CustomForecastHorizonArgs Empty => new CustomForecastHorizonArgs();
     }
 }

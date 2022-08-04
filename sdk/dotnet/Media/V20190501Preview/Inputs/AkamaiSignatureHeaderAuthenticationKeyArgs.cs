@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20190501Preview.Inputs
     /// <summary>
     /// Akamai Signature Header authentication key.
     /// </summary>
-    public sealed class AkamaiSignatureHeaderAuthenticationKeyArgs : Pulumi.ResourceArgs
+    public sealed class AkamaiSignatureHeaderAuthenticationKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// authentication key
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Media.V20190501Preview.Inputs
         public AkamaiSignatureHeaderAuthenticationKeyArgs()
         {
         }
+        public static new AkamaiSignatureHeaderAuthenticationKeyArgs Empty => new AkamaiSignatureHeaderAuthenticationKeyArgs();
     }
 }

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     }
 
 
-    public sealed class GetBatchDeploymentArgs : Pulumi.InvokeArgs
+    public sealed class GetBatchDeploymentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the Batch deployments.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public GetBatchDeploymentArgs()
         {
         }
+        public static new GetBatchDeploymentArgs Empty => new GetBatchDeploymentArgs();
     }
 
-    public sealed class GetBatchDeploymentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBatchDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the Batch deployments.
@@ -79,6 +80,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public GetBatchDeploymentInvokeArgs()
         {
         }
+        public static new GetBatchDeploymentInvokeArgs Empty => new GetBatchDeploymentInvokeArgs();
     }
 
 

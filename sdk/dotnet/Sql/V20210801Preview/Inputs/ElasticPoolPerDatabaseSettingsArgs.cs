@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview.Inputs
     /// <summary>
     /// Per database settings of an elastic pool.
     /// </summary>
-    public sealed class ElasticPoolPerDatabaseSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ElasticPoolPerDatabaseSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum capacity any one database can consume.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview.Inputs
         public ElasticPoolPerDatabaseSettingsArgs()
         {
         }
+        public static new ElasticPoolPerDatabaseSettingsArgs Empty => new ElasticPoolPerDatabaseSettingsArgs();
     }
 }

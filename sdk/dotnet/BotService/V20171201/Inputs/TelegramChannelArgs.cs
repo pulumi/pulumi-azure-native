@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20171201.Inputs
     /// <summary>
     /// Telegram channel definition
     /// </summary>
-    public sealed class TelegramChannelArgs : Pulumi.ResourceArgs
+    public sealed class TelegramChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.BotService.V20171201.Inputs
         public TelegramChannelArgs()
         {
         }
+        public static new TelegramChannelArgs Empty => new TelegramChannelArgs();
     }
 }

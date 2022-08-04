@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview.Inputs
     /// <summary>
     /// The properties of the credentials that can be used for authenticating the token.
     /// </summary>
-    public sealed class TokenCredentialsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TokenCredentialsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Active Directory Object that will be used for authenticating the token of a container registry.
@@ -40,5 +40,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview.Inputs
         public TokenCredentialsPropertiesArgs()
         {
         }
+        public static new TokenCredentialsPropertiesArgs Empty => new TokenCredentialsPropertiesArgs();
     }
 }

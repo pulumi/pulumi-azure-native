@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity source for SAP Table source.
     /// </summary>
-    public sealed class SapTableSourceArgs : Pulumi.ResourceArgs
+    public sealed class SapTableSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -115,5 +115,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SapTableSourceArgs()
         {
         }
+        public static new SapTableSourceArgs Empty => new SapTableSourceArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     }
 
 
-    public sealed class GetDatastoreArgs : Pulumi.InvokeArgs
+    public sealed class GetDatastoreArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cluster in the private cloud
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.AVS.V20210601
         public GetDatastoreArgs()
         {
         }
+        public static new GetDatastoreArgs Empty => new GetDatastoreArgs();
     }
 
-    public sealed class GetDatastoreInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatastoreInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cluster in the private cloud
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
         public GetDatastoreInvokeArgs()
         {
         }
+        public static new GetDatastoreInvokeArgs Empty => new GetDatastoreInvokeArgs();
     }
 
 

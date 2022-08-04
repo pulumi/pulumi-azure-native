@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity source for Amazon Redshift Source.
     /// </summary>
-    public sealed class AmazonRedshiftSourceArgs : Pulumi.ResourceArgs
+    public sealed class AmazonRedshiftSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AmazonRedshiftSourceArgs()
         {
         }
+        public static new AmazonRedshiftSourceArgs Empty => new AmazonRedshiftSourceArgs();
     }
 }

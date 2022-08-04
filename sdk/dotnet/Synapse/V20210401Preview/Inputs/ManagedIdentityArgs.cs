@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Inputs
     /// <summary>
     /// The workspace managed identity
     /// </summary>
-    public sealed class ManagedIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ManagedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of managed identity for the workspace
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Inputs
         public ManagedIdentityArgs()
         {
         }
+        public static new ManagedIdentityArgs Empty => new ManagedIdentityArgs();
     }
 }

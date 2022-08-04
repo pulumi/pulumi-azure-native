@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataShare
     }
 
 
-    public sealed class GetShareArgs : Pulumi.InvokeArgs
+    public sealed class GetShareArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.DataShare
         public GetShareArgs()
         {
         }
+        public static new GetShareArgs Empty => new GetShareArgs();
     }
 
-    public sealed class GetShareInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetShareInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.DataShare
         public GetShareInvokeArgs()
         {
         }
+        public static new GetShareInvokeArgs Empty => new GetShareInvokeArgs();
     }
 
 

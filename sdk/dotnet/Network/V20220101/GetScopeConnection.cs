@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     }
 
 
-    public sealed class GetScopeConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetScopeConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetScopeConnectionArgs()
         {
         }
+        public static new GetScopeConnectionArgs Empty => new GetScopeConnectionArgs();
     }
 
-    public sealed class GetScopeConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScopeConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetScopeConnectionInvokeArgs()
         {
         }
+        public static new GetScopeConnectionInvokeArgs Empty => new GetScopeConnectionInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.Inputs
     /// <summary>
     /// The output configuration of a job step.
     /// </summary>
-    public sealed class JobStepOutputArgs : Pulumi.ResourceArgs
+    public sealed class JobStepOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the credential to use to connect to the output destination.
@@ -68,5 +68,6 @@ namespace Pulumi.AzureNative.Sql.Inputs
             SchemaName = "dbo";
             Type = "SqlDatabase";
         }
+        public static new JobStepOutputArgs Empty => new JobStepOutputArgs();
     }
 }

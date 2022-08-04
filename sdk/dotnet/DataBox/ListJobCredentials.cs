@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataBox
     }
 
 
-    public sealed class ListJobCredentialsArgs : Pulumi.InvokeArgs
+    public sealed class ListJobCredentialsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.DataBox
         public ListJobCredentialsArgs()
         {
         }
+        public static new ListJobCredentialsArgs Empty => new ListJobCredentialsArgs();
     }
 
-    public sealed class ListJobCredentialsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListJobCredentialsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.DataBox
         public ListJobCredentialsInvokeArgs()
         {
         }
+        public static new ListJobCredentialsInvokeArgs Empty => new ListJobCredentialsInvokeArgs();
     }
 
 

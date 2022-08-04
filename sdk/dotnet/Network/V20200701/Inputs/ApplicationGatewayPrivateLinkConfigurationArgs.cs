@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
     /// <summary>
     /// Private Link Configuration on an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayPrivateLinkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayPrivateLinkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
         public ApplicationGatewayPrivateLinkConfigurationArgs()
         {
         }
+        public static new ApplicationGatewayPrivateLinkConfigurationArgs Empty => new ApplicationGatewayPrivateLinkConfigurationArgs();
     }
 }

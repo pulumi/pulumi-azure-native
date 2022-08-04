@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
     /// Default rollout definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub/v20210901preview:DefaultRollout")]
-    public partial class DefaultRollout : Pulumi.CustomResource
+    public partial class DefaultRollout : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:providerhub:DefaultRollout"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:DefaultRollout"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:DefaultRollout"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:DefaultRollout"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub:DefaultRollout"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:DefaultRollout"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:DefaultRollout"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:DefaultRollout"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         }
     }
 
-    public sealed class DefaultRolloutArgs : Pulumi.ResourceArgs
+    public sealed class DefaultRolloutArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties of the rollout.
@@ -112,5 +112,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         public DefaultRolloutArgs()
         {
         }
+        public static new DefaultRolloutArgs Empty => new DefaultRolloutArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20200320
     /// A cluster resource
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20200320:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.AVS.V20200320
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.AVS.V20200320
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the cluster in the private cloud
@@ -143,5 +143,6 @@ namespace Pulumi.AzureNative.AVS.V20200320
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

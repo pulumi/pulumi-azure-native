@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Confluent.V20200301
     }
 
 
-    public sealed class GetOrganizationArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Organization resource name
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Confluent.V20200301
         public GetOrganizationArgs()
         {
         }
+        public static new GetOrganizationArgs Empty => new GetOrganizationArgs();
     }
 
-    public sealed class GetOrganizationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Organization resource name
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Confluent.V20200301
         public GetOrganizationInvokeArgs()
         {
         }
+        public static new GetOrganizationInvokeArgs Empty => new GetOrganizationInvokeArgs();
     }
 
 

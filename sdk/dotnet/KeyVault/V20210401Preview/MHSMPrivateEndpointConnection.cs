@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview
     /// Private endpoint connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection")]
-    public partial class MHSMPrivateEndpointConnection : Pulumi.CustomResource
+    public partial class MHSMPrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Modified whenever there is a change in the state of private endpoint connection.
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:keyvault:MHSMPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault:MHSMPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview
         }
     }
 
-    public sealed class MHSMPrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class MHSMPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The supported Azure location where the managed HSM Pool should be created.
@@ -179,5 +179,6 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview
         public MHSMPrivateEndpointConnectionArgs()
         {
         }
+        public static new MHSMPrivateEndpointConnectionArgs Empty => new MHSMPrivateEndpointConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// The IP access control for Live Event preview.
     /// </summary>
-    public sealed class LiveEventPreviewAccessControlArgs : Pulumi.ResourceArgs
+    public sealed class LiveEventPreviewAccessControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP access control properties.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public LiveEventPreviewAccessControlArgs()
         {
         }
+        public static new LiveEventPreviewAccessControlArgs Empty => new LiveEventPreviewAccessControlArgs();
     }
 }

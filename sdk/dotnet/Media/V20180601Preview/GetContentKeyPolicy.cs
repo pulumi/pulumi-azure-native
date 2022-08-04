@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
     }
 
 
-    public sealed class GetContentKeyPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetContentKeyPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public GetContentKeyPolicyArgs()
         {
         }
+        public static new GetContentKeyPolicyArgs Empty => new GetContentKeyPolicyArgs();
     }
 
-    public sealed class GetContentKeyPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContentKeyPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public GetContentKeyPolicyInvokeArgs()
         {
         }
+        public static new GetContentKeyPolicyInvokeArgs Empty => new GetContentKeyPolicyInvokeArgs();
     }
 
 

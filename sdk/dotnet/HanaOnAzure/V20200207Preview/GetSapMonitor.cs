@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
     }
 
 
-    public sealed class GetSapMonitorArgs : Pulumi.InvokeArgs
+    public sealed class GetSapMonitorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         public GetSapMonitorArgs()
         {
         }
+        public static new GetSapMonitorArgs Empty => new GetSapMonitorArgs();
     }
 
-    public sealed class GetSapMonitorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSapMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         public GetSapMonitorInvokeArgs()
         {
         }
+        public static new GetSapMonitorInvokeArgs Empty => new GetSapMonitorInvokeArgs();
     }
 
 

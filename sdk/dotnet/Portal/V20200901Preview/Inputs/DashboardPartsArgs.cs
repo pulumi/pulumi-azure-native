@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Inputs
     /// <summary>
     /// A dashboard part.
     /// </summary>
-    public sealed class DashboardPartsArgs : Pulumi.ResourceArgs
+    public sealed class DashboardPartsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dashboard part's metadata.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Inputs
         public DashboardPartsArgs()
         {
         }
+        public static new DashboardPartsArgs Empty => new DashboardPartsArgs();
     }
 }

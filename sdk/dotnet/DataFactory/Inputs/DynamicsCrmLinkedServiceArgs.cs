@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Dynamics CRM linked service.
     /// </summary>
-    public sealed class DynamicsCrmLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class DynamicsCrmLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DynamicsCrmLinkedServiceArgs()
         {
         }
+        public static new DynamicsCrmLinkedServiceArgs Empty => new DynamicsCrmLinkedServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20211001.Inputs
     /// <summary>
     /// Distribute via Shared Image Gallery.
     /// </summary>
-    public sealed class ImageTemplateSharedImageDistributorArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplateSharedImageDistributorArgs : global::Pulumi.ResourceArgs
     {
         [Input("artifactTags")]
         private InputMap<string>? _artifactTags;
@@ -74,5 +74,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20211001.Inputs
         {
             ExcludeFromLatest = false;
         }
+        public static new ImageTemplateSharedImageDistributorArgs Empty => new ImageTemplateSharedImageDistributorArgs();
     }
 }

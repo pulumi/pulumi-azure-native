@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Factory's GitHub repo information.
     /// </summary>
-    public sealed class FactoryGitHubConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FactoryGitHubConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account name.
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public FactoryGitHubConfigurationArgs()
         {
         }
+        public static new FactoryGitHubConfigurationArgs Empty => new FactoryGitHubConfigurationArgs();
     }
 }

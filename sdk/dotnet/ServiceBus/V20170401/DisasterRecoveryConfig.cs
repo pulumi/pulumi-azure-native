@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20170401:DisasterRecoveryConfig")]
-    public partial class DisasterRecoveryConfig : Pulumi.CustomResource
+    public partial class DisasterRecoveryConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
@@ -82,12 +82,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicebus:DisasterRecoveryConfig"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:DisasterRecoveryConfig"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:DisasterRecoveryConfig"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:DisasterRecoveryConfig"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:DisasterRecoveryConfig"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:DisasterRecoveryConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:DisasterRecoveryConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:DisasterRecoveryConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:DisasterRecoveryConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:DisasterRecoveryConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:DisasterRecoveryConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:DisasterRecoveryConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
         }
     }
 
-    public sealed class DisasterRecoveryConfigArgs : Pulumi.ResourceArgs
+    public sealed class DisasterRecoveryConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Disaster Recovery configuration name
@@ -144,5 +144,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
         public DisasterRecoveryConfigArgs()
         {
         }
+        public static new DisasterRecoveryConfigArgs Empty => new DisasterRecoveryConfigArgs();
     }
 }

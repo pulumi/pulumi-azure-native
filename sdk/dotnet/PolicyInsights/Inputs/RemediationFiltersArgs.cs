@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights.Inputs
     /// <summary>
     /// The filters that will be applied to determine which resources to remediate.
     /// </summary>
-    public sealed class RemediationFiltersArgs : Pulumi.ResourceArgs
+    public sealed class RemediationFiltersArgs : global::Pulumi.ResourceArgs
     {
         [Input("locations")]
         private InputList<string>? _locations;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.PolicyInsights.Inputs
         public RemediationFiltersArgs()
         {
         }
+        public static new RemediationFiltersArgs Empty => new RemediationFiltersArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     /// </summary>
     [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datashare/v20191101:ShareSubscription")]
-    public partial class ShareSubscription : Pulumi.CustomResource
+    public partial class ShareSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Time at which the share subscription was created.
@@ -137,11 +137,11 @@ namespace Pulumi.AzureNative.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare:ShareSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ShareSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ShareSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ShareSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:ShareSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ShareSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ShareSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ShareSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ShareSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ShareSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         }
     }
 
-    public sealed class ShareSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class ShareSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -198,5 +198,6 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         public ShareSubscriptionArgs()
         {
         }
+        public static new ShareSubscriptionArgs Empty => new ShareSubscriptionArgs();
     }
 }

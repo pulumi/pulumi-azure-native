@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// TCPSocketAction describes an action based on opening a socket
     /// </summary>
-    public sealed class TCPSocketActionArgs : Pulumi.ResourceArgs
+    public sealed class TCPSocketActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the action to take to perform the health check.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public TCPSocketActionArgs()
         {
         }
+        public static new TCPSocketActionArgs Empty => new TCPSocketActionArgs();
     }
 }

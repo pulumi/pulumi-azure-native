@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class ListActiveSecurityAdminRuleArgs : Pulumi.InvokeArgs
+    public sealed class ListActiveSecurityAdminRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager.
@@ -62,9 +62,10 @@ namespace Pulumi.AzureNative.Network
         public ListActiveSecurityAdminRuleArgs()
         {
         }
+        public static new ListActiveSecurityAdminRuleArgs Empty => new ListActiveSecurityAdminRuleArgs();
     }
 
-    public sealed class ListActiveSecurityAdminRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListActiveSecurityAdminRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager.
@@ -99,6 +100,7 @@ namespace Pulumi.AzureNative.Network
         public ListActiveSecurityAdminRuleInvokeArgs()
         {
         }
+        public static new ListActiveSecurityAdminRuleInvokeArgs Empty => new ListActiveSecurityAdminRuleInvokeArgs();
     }
 
 

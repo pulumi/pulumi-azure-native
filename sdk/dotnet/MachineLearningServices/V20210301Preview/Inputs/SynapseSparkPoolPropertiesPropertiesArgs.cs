@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// AKS properties
     /// </summary>
-    public sealed class SynapseSparkPoolPropertiesPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SynapseSparkPoolPropertiesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Auto pause properties.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public SynapseSparkPoolPropertiesPropertiesArgs()
         {
         }
+        public static new SynapseSparkPoolPropertiesPropertiesArgs Empty => new SynapseSparkPoolPropertiesPropertiesArgs();
     }
 }

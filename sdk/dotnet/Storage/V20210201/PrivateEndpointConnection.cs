@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210201
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210201:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -70,14 +70,14 @@ namespace Pulumi.AzureNative.Storage.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storage:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Storage.V20210201
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.Storage.V20210201
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

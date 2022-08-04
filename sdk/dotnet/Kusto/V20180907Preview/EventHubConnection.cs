@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
     /// Class representing an event hub connection.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20180907preview:EventHubConnection")]
-    public partial class EventHubConnection : Pulumi.CustomResource
+    public partial class EventHubConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The event hub consumer group.
@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kusto:EventHubConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:EventHubConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:EventHubConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:EventHubConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
         }
     }
 
-    public sealed class EventHubConnectionArgs : Pulumi.ResourceArgs
+    public sealed class EventHubConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -176,5 +176,6 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
         public EventHubConnectionArgs()
         {
         }
+        public static new EventHubConnectionArgs Empty => new EventHubConnectionArgs();
     }
 }

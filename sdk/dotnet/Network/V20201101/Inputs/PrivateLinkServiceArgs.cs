@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
     /// <summary>
     /// Private link service resource.
     /// </summary>
-    public sealed class PrivateLinkServiceArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The auto-approval list of the private link service.
@@ -102,5 +102,6 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
         public PrivateLinkServiceArgs()
         {
         }
+        public static new PrivateLinkServiceArgs Empty => new PrivateLinkServiceArgs();
     }
 }

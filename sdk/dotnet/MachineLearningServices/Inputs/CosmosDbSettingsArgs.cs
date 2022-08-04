@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    public sealed class CosmosDbSettingsArgs : Pulumi.ResourceArgs
+    public sealed class CosmosDbSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The throughput of the collections in cosmosdb database
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public CosmosDbSettingsArgs()
         {
         }
+        public static new CosmosDbSettingsArgs Empty => new CosmosDbSettingsArgs();
     }
 }

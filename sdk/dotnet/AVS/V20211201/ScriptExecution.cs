@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
     /// An instance of a script executed by a user - custom or AVS
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20211201:ScriptExecution")]
-    public partial class ScriptExecution : Pulumi.CustomResource
+    public partial class ScriptExecution : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Standard error output stream from the powershell execution
@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.AVS.V20211201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs:ScriptExecution"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:ScriptExecution"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:ScriptExecution"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:ScriptExecution"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
         }
     }
 
-    public sealed class ScriptExecutionArgs : Pulumi.ResourceArgs
+    public sealed class ScriptExecutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
@@ -260,5 +260,6 @@ namespace Pulumi.AzureNative.AVS.V20211201
         public ScriptExecutionArgs()
         {
         }
+        public static new ScriptExecutionArgs Empty => new ScriptExecutionArgs();
     }
 }

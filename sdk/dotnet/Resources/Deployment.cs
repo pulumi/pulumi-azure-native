@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Resources
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:Deployment")]
-    public partial class Deployment : Pulumi.CustomResource
+    public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the location of the deployment.
@@ -71,24 +71,24 @@ namespace Pulumi.AzureNative.Resources
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:resources/v20151101:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20160201:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20160701:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20160901:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20170510:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20180201:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20180501:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190301:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190501:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190510:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190701:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190801:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20210101:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20210401:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20151101:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160201:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160701:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160901:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20170510:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20180201:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20180501:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190301:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190501:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190510:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190701:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190801:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:Deployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Resources
         }
     }
 
-    public sealed class DeploymentArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the deployment.
@@ -151,5 +151,6 @@ namespace Pulumi.AzureNative.Resources
         public DeploymentArgs()
         {
         }
+        public static new DeploymentArgs Empty => new DeploymentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
     /// <summary>
     /// Specifies the windows configuration for update management.
     /// </summary>
-    public sealed class OsProfileWindowsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OsProfileWindowsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the assessment mode.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
         public OsProfileWindowsConfigurationArgs()
         {
         }
+        public static new OsProfileWindowsConfigurationArgs Empty => new OsProfileWindowsConfigurationArgs();
     }
 }

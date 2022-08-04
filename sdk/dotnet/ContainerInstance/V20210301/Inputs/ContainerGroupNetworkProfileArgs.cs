@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Inputs
     /// <summary>
     /// Container group network profile information.
     /// </summary>
-    public sealed class ContainerGroupNetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class ContainerGroupNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier for a network profile.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Inputs
         public ContainerGroupNetworkProfileArgs()
         {
         }
+        public static new ContainerGroupNetworkProfileArgs Empty => new ContainerGroupNetworkProfileArgs();
     }
 }

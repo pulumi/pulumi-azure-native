@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201.Inputs
     /// <summary>
     /// Metadata of IoT device/IoT Edge device to be configured.
     /// </summary>
-    public sealed class IoTDeviceInfoArgs : Pulumi.ResourceArgs
+    public sealed class IoTDeviceInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encrypted IoT device/IoT edge device connection string.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201.Inputs
         public IoTDeviceInfoArgs()
         {
         }
+        public static new IoTDeviceInfoArgs Empty => new IoTDeviceInfoArgs();
     }
 }

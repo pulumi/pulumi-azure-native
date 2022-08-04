@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
     /// <summary>
     /// Describes an upgrade policy - automatic, manual, or rolling.
     /// </summary>
-    public sealed class UpgradePolicyArgs : Pulumi.ResourceArgs
+    public sealed class UpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the image becomes available.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.V20170330.Inputs
         public UpgradePolicyArgs()
         {
         }
+        public static new UpgradePolicyArgs Empty => new UpgradePolicyArgs();
     }
 }

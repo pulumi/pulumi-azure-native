@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
-    public sealed class JobCollectionQuotaArgs : Pulumi.ResourceArgs
+    public sealed class JobCollectionQuotaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or set the maximum job count.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Scheduler.Inputs
         public JobCollectionQuotaArgs()
         {
         }
+        public static new JobCollectionQuotaArgs Empty => new JobCollectionQuotaArgs();
     }
 }

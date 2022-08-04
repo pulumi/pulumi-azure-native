@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.Inputs
 {
 
-    public sealed class IdentityPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.Logz.ManagedIdentityTypes>? Type { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AzureNative.Logz.Inputs
         public IdentityPropertiesArgs()
         {
         }
+        public static new IdentityPropertiesArgs Empty => new IdentityPropertiesArgs();
     }
 }

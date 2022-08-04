@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventHub.V20140901
     /// </summary>
     [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:eventhub/v20140901:EventHubAuthorizationRule")]
-    public partial class EventHubAuthorizationRule : Pulumi.CustomResource
+    public partial class EventHubAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -65,14 +65,14 @@ namespace Pulumi.AzureNative.EventHub.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventhub:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:EventHubAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.EventHub.V20140901
         }
     }
 
-    public sealed class EventHubAuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class EventHubAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -147,5 +147,6 @@ namespace Pulumi.AzureNative.EventHub.V20140901
         public EventHubAuthorizationRuleArgs()
         {
         }
+        public static new EventHubAuthorizationRuleArgs Empty => new EventHubAuthorizationRuleArgs();
     }
 }

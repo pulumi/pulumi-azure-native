@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The Azure SQL Managed Instance dataset.
     /// </summary>
-    public sealed class AzureSqlMITableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class AzureSqlMITableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureSqlMITableDatasetArgs()
         {
         }
+        public static new AzureSqlMITableDatasetArgs Empty => new AzureSqlMITableDatasetArgs();
     }
 }

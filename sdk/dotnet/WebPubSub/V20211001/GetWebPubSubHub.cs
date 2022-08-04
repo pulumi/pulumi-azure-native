@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
     }
 
 
-    public sealed class GetWebPubSubHubArgs : Pulumi.InvokeArgs
+    public sealed class GetWebPubSubHubArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The hub name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public GetWebPubSubHubArgs()
         {
         }
+        public static new GetWebPubSubHubArgs Empty => new GetWebPubSubHubArgs();
     }
 
-    public sealed class GetWebPubSubHubInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebPubSubHubInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The hub name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public GetWebPubSubHubInvokeArgs()
         {
         }
+        public static new GetWebPubSubHubInvokeArgs Empty => new GetWebPubSubHubInvokeArgs();
     }
 
 

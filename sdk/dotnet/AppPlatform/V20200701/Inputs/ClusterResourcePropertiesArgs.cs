@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701.Inputs
     /// <summary>
     /// Service properties payload
     /// </summary>
-    public sealed class ClusterResourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Network profile of the Service
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701.Inputs
         public ClusterResourcePropertiesArgs()
         {
         }
+        public static new ClusterResourcePropertiesArgs Empty => new ClusterResourcePropertiesArgs();
     }
 }

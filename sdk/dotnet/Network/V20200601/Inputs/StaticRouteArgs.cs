@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
     /// <summary>
     /// List of all Static Routes.
     /// </summary>
-    public sealed class StaticRouteArgs : Pulumi.ResourceArgs
+    public sealed class StaticRouteArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressPrefixes")]
         private InputList<string>? _addressPrefixes;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
         public StaticRouteArgs()
         {
         }
+        public static new StaticRouteArgs Empty => new StaticRouteArgs();
     }
 }

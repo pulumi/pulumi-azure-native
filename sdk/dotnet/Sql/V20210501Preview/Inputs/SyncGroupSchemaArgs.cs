@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview.Inputs
     /// <summary>
     /// Properties of sync group schema.
     /// </summary>
-    public sealed class SyncGroupSchemaArgs : Pulumi.ResourceArgs
+    public sealed class SyncGroupSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of master sync member where the schema is from.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview.Inputs
         public SyncGroupSchemaArgs()
         {
         }
+        public static new SyncGroupSchemaArgs Empty => new SyncGroupSchemaArgs();
     }
 }

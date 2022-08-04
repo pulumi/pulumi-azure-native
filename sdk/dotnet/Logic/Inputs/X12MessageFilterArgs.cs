@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The X12 message filter for odata query.
     /// </summary>
-    public sealed class X12MessageFilterArgs : Pulumi.ResourceArgs
+    public sealed class X12MessageFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message filter type.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public X12MessageFilterArgs()
         {
         }
+        public static new X12MessageFilterArgs Empty => new X12MessageFilterArgs();
     }
 }

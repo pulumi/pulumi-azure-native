@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Dashboard.V20220501Preview
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard/v20220501preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The private endpoint connection group ids.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Dashboard.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dashboard:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:dashboard:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Dashboard.V20220501Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.Dashboard.V20220501Preview
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

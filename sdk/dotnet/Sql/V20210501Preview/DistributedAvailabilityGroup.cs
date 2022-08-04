@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
     /// Distributed availability group between box and Sql Managed Instance.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210501preview:DistributedAvailabilityGroup")]
-    public partial class DistributedAvailabilityGroup : Pulumi.CustomResource
+    public partial class DistributedAvailabilityGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The distributed availability group id
@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:DistributedAvailabilityGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DistributedAvailabilityGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DistributedAvailabilityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:DistributedAvailabilityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DistributedAvailabilityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DistributedAvailabilityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         }
     }
 
-    public sealed class DistributedAvailabilityGroupArgs : Pulumi.ResourceArgs
+    public sealed class DistributedAvailabilityGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The distributed availability group name.
@@ -189,5 +189,6 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public DistributedAvailabilityGroupArgs()
         {
         }
+        public static new DistributedAvailabilityGroupArgs Empty => new DistributedAvailabilityGroupArgs();
     }
 }

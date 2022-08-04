@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Batch
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// This is only returned when the certificate provisioningState is 'Failed'.
@@ -104,17 +104,17 @@ namespace Pulumi.AzureNative.Batch
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:batch/v20170901:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20181201:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200501:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20210101:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20210601:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20220101:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20220601:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170901:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20181201:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190401:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190801:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200301:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200501:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200901:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210101:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Batch
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -189,5 +189,6 @@ namespace Pulumi.AzureNative.Batch
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

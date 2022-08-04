@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220501:EnvironmentVersion")]
-    public partial class EnvironmentVersion : Pulumi.CustomResource
+    public partial class EnvironmentVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:EnvironmentVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:EnvironmentVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:EnvironmentVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:EnvironmentVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:EnvironmentVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:EnvironmentVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         }
     }
 
-    public sealed class EnvironmentVersionArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -123,5 +123,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public EnvironmentVersionArgs()
         {
         }
+        public static new EnvironmentVersionArgs Empty => new EnvironmentVersionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
     /// <summary>
     /// Tap configuration in a Network Interface.
     /// </summary>
-    public sealed class NetworkInterfaceTapConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceTapConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20190801.Inputs
         public NetworkInterfaceTapConfigurationArgs()
         {
         }
+        public static new NetworkInterfaceTapConfigurationArgs Empty => new NetworkInterfaceTapConfigurationArgs();
     }
 }

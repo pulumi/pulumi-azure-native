@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// settings for security policy patterns to match
     /// </summary>
-    public sealed class SecurityPolicyWebApplicationFirewallAssociationArgs : Pulumi.ResourceArgs
+    public sealed class SecurityPolicyWebApplicationFirewallAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("domains")]
         private InputList<Inputs.ResourceReferenceArgs>? _domains;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public SecurityPolicyWebApplicationFirewallAssociationArgs()
         {
         }
+        public static new SecurityPolicyWebApplicationFirewallAssociationArgs Empty => new SecurityPolicyWebApplicationFirewallAssociationArgs();
     }
 }

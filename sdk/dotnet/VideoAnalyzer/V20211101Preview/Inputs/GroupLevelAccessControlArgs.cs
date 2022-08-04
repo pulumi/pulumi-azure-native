@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Group level network access control.
     /// </summary>
-    public sealed class GroupLevelAccessControlArgs : Pulumi.ResourceArgs
+    public sealed class GroupLevelAccessControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not public network access is allowed for specified resources under the Video Analyzer account.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public GroupLevelAccessControlArgs()
         {
         }
+        public static new GroupLevelAccessControlArgs Empty => new GroupLevelAccessControlArgs();
     }
 }

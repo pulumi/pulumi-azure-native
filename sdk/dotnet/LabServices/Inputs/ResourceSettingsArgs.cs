@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.Inputs
     /// <summary>
     /// Represents resource specific settings
     /// </summary>
-    public sealed class ResourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of the gallery image used for creating the virtual machine
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.LabServices.Inputs
         public ResourceSettingsArgs()
         {
         }
+        public static new ResourceSettingsArgs Empty => new ResourceSettingsArgs();
     }
 }

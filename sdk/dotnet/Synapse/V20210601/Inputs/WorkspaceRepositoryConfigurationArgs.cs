@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
     /// <summary>
     /// Git integration settings
     /// </summary>
-    public sealed class WorkspaceRepositoryConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceRepositoryConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account name
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
         public WorkspaceRepositoryConfigurationArgs()
         {
         }
+        public static new WorkspaceRepositoryConfigurationArgs Empty => new WorkspaceRepositoryConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20220401Preview.Inputs
     /// <summary>
     /// Device Update account integration with IoT Hub settings.
     /// </summary>
-    public sealed class IotHubSettingsArgs : Pulumi.ResourceArgs
+    public sealed class IotHubSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IoTHub resource ID
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20220401Preview.Inputs
         public IotHubSettingsArgs()
         {
         }
+        public static new IotHubSettingsArgs Empty => new IotHubSettingsArgs();
     }
 }

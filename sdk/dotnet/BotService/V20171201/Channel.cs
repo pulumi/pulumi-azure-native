@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.BotService.V20171201
     /// </summary>
     [Obsolete(@"Version 2017-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:botservice/v20171201:Channel")]
-    public partial class Channel : Pulumi.CustomResource
+    public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Entity Tag
@@ -89,11 +89,11 @@ namespace Pulumi.AzureNative.BotService.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:botservice:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20180712:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20200602:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20210301:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20180712:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20200602:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210301:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:Channel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.BotService.V20171201
         }
     }
 
-    public sealed class ChannelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Channel resource.
@@ -174,5 +174,6 @@ namespace Pulumi.AzureNative.BotService.V20171201
         public ChannelArgs()
         {
         }
+        public static new ChannelArgs Empty => new ChannelArgs();
     }
 }

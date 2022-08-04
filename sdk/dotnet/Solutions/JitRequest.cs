@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Solutions
     /// API Version: 2019-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:JitRequest")]
-    public partial class JitRequest : Pulumi.CustomResource
+    public partial class JitRequest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The parent application id.
@@ -113,9 +113,9 @@ namespace Pulumi.AzureNative.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:JitRequest"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:JitRequest"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20210701:JitRequest"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:JitRequest"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:JitRequest"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:JitRequest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.Solutions
         }
     }
 
-    public sealed class JitRequestArgs : Pulumi.ResourceArgs
+    public sealed class JitRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parent application id.
@@ -196,5 +196,6 @@ namespace Pulumi.AzureNative.Solutions
         public JitRequestArgs()
         {
         }
+        public static new JitRequestArgs Empty => new JitRequestArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// Description of the App Service plan scale options.
     /// </summary>
-    public sealed class SkuCapacityArgs : Pulumi.ResourceArgs
+    public sealed class SkuCapacityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default number of workers for this App Service plan SKU.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public SkuCapacityArgs()
         {
         }
+        public static new SkuCapacityArgs Empty => new SkuCapacityArgs();
     }
 }

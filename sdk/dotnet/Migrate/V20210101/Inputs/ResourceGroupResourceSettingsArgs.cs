@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210101.Inputs
     /// <summary>
     /// Defines the resource group resource settings.
     /// </summary>
-    public sealed class ResourceGroupResourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupResourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Migrate.V20210101.Inputs
         public ResourceGroupResourceSettingsArgs()
         {
         }
+        public static new ResourceGroupResourceSettingsArgs Empty => new ResourceGroupResourceSettingsArgs();
     }
 }

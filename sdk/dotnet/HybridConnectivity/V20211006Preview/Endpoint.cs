@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20211006Preview
     /// The endpoint for the target resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity/v20211006preview:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -97,8 +97,8 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20211006Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybridconnectivity:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20220501preview:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20220501preview:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20211006Preview
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -185,5 +185,6 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20211006Preview
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

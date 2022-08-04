@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Open Data Protocol (OData) linked service.
     /// </summary>
-    public sealed class ODataLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class ODataLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ODataLinkedServiceArgs()
         {
         }
+        public static new ODataLinkedServiceArgs Empty => new ODataLinkedServiceArgs();
     }
 }

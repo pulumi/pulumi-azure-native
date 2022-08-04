@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     /// The description of the service.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI")]
-    public partial class PrivateLinkServicesForO365ManagementActivityAPI : Pulumi.CustomResource
+    public partial class PrivateLinkServicesForO365ManagementActivityAPI : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"},
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         }
     }
 
-    public sealed class PrivateLinkServicesForO365ManagementActivityAPIArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServicesForO365ManagementActivityAPIArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
@@ -170,5 +170,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         public PrivateLinkServicesForO365ManagementActivityAPIArgs()
         {
         }
+        public static new PrivateLinkServicesForO365ManagementActivityAPIArgs Empty => new PrivateLinkServicesForO365ManagementActivityAPIArgs();
     }
 }

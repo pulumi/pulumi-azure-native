@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Describes how input data is compressed
     /// </summary>
-    public sealed class CompressionArgs : Pulumi.ResourceArgs
+    public sealed class CompressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public CompressionArgs()
         {
         }
+        public static new CompressionArgs Empty => new CompressionArgs();
     }
 }

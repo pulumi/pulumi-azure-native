@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Git repository property payload for Application Configuration Service
     /// </summary>
-    public sealed class ConfigurationServiceGitRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationServiceGitRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public sshKey of git repository.
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public ConfigurationServiceGitRepositoryArgs()
         {
         }
+        public static new ConfigurationServiceGitRepositoryArgs Empty => new ConfigurationServiceGitRepositoryArgs();
     }
 }

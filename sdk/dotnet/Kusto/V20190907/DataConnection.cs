@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Kusto.V20190907
     /// </summary>
     [Obsolete(@"Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")]
     [AzureNativeResourceType("azure-native:kusto/v20190907:DataConnection")]
-    public partial class DataConnection : Pulumi.CustomResource
+    public partial class DataConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of the endpoint for the data connection
@@ -65,16 +65,16 @@ namespace Pulumi.AzureNative.Kusto.V20190907
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kusto:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20190121:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20190515:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:DataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Kusto.V20190907
         }
     }
 
-    public sealed class DataConnectionArgs : Pulumi.ResourceArgs
+    public sealed class DataConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -137,5 +137,6 @@ namespace Pulumi.AzureNative.Kusto.V20190907
         public DataConnectionArgs()
         {
         }
+        public static new DataConnectionArgs Empty => new DataConnectionArgs();
     }
 }

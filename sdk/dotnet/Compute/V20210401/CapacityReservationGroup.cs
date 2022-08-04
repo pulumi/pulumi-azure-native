@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210401
     /// Specifies information about the capacity reservation group that the capacity reservations should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20210401:CapacityReservationGroup")]
-    public partial class CapacityReservationGroup : Pulumi.CustomResource
+    public partial class CapacityReservationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of all capacity reservation resource ids that belong to capacity reservation group.
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNative.Compute.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:CapacityReservationGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservationGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservationGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:CapacityReservationGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservationGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservationGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Compute.V20210401
         }
     }
 
-    public sealed class CapacityReservationGroupArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the capacity reservation group.
@@ -159,5 +159,6 @@ namespace Pulumi.AzureNative.Compute.V20210401
         public CapacityReservationGroupArgs()
         {
         }
+        public static new CapacityReservationGroupArgs Empty => new CapacityReservationGroupArgs();
     }
 }

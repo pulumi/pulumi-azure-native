@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview.Inputs
     /// <summary>
     /// Access Review History Definition Instance.
     /// </summary>
-    public sealed class AccessReviewHistoryInstanceArgs : Pulumi.ResourceArgs
+    public sealed class AccessReviewHistoryInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The display name for the parent history definition.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview.Inputs
         public AccessReviewHistoryInstanceArgs()
         {
         }
+        public static new AccessReviewHistoryInstanceArgs Empty => new AccessReviewHistoryInstanceArgs();
     }
 }

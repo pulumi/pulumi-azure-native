@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20170901.Inputs
     /// <summary>
     /// Contains IPv6 peering config.
     /// </summary>
-    public sealed class Ipv6ExpressRouteCircuitPeeringConfigArgs : Pulumi.ResourceArgs
+    public sealed class Ipv6ExpressRouteCircuitPeeringConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Microsoft peering configuration.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.V20170901.Inputs
         public Ipv6ExpressRouteCircuitPeeringConfigArgs()
         {
         }
+        public static new Ipv6ExpressRouteCircuitPeeringConfigArgs Empty => new Ipv6ExpressRouteCircuitPeeringConfigArgs();
     }
 }

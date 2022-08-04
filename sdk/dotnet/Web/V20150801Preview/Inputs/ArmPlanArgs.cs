@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// The plan object in an ARM, represents a marketplace plan
     /// </summary>
-    public sealed class ArmPlanArgs : Pulumi.ResourceArgs
+    public sealed class ArmPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public ArmPlanArgs()
         {
         }
+        public static new ArmPlanArgs Empty => new ArmPlanArgs();
     }
 }

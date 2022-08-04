@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Amazon S3 read settings.
     /// </summary>
-    public sealed class AmazonS3ReadSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AmazonS3ReadSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AmazonS3ReadSettingsArgs()
         {
         }
+        public static new AmazonS3ReadSettingsArgs Empty => new AmazonS3ReadSettingsArgs();
     }
 }

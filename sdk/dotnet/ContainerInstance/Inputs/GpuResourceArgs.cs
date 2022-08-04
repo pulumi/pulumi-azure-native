@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
     /// <summary>
     /// The GPU resource.
     /// </summary>
-    public sealed class GpuResourceArgs : Pulumi.ResourceArgs
+    public sealed class GpuResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The count of the GPU resource.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         public GpuResourceArgs()
         {
         }
+        public static new GpuResourceArgs Empty => new GpuResourceArgs();
     }
 }

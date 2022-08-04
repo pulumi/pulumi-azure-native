@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
     /// <summary>
     /// Defines contents of a web application firewall global configuration.
     /// </summary>
-    public sealed class PolicySettingsArgs : Pulumi.ResourceArgs
+    public sealed class PolicySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum file upload size in Mb for WAF.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
         public PolicySettingsArgs()
         {
         }
+        public static new PolicySettingsArgs Empty => new PolicySettingsArgs();
     }
 }

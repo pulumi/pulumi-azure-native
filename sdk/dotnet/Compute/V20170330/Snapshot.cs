@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20170330
     /// </summary>
     [Obsolete(@"Version 2017-03-30 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20170330:Snapshot")]
-    public partial class Snapshot : Pulumi.CustomResource
+    public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
@@ -113,21 +113,21 @@ namespace Pulumi.AzureNative.Compute.V20170330
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180930:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191101:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200501:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200630:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210801:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211201:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180930:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191101:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200501:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200630:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Compute.V20170330
         }
     }
 
-    public sealed class SnapshotArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
@@ -214,5 +214,6 @@ namespace Pulumi.AzureNative.Compute.V20170330
         public SnapshotArgs()
         {
         }
+        public static new SnapshotArgs Empty => new SnapshotArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
     /// <summary>
     /// Long term retention policy.
     /// </summary>
-    public sealed class LongTermRetentionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class LongTermRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Daily retention schedule of the protection policy.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
         public LongTermRetentionPolicyArgs()
         {
         }
+        public static new LongTermRetentionPolicyArgs Empty => new LongTermRetentionPolicyArgs();
     }
 }

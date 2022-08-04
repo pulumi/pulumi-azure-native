@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// <summary>
     /// VMWare Azure specific policy Input.
     /// </summary>
-    public sealed class InMageAzureV2PolicyInputArgs : Pulumi.ResourceArgs
+    public sealed class InMageAzureV2PolicyInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The app consistent snapshot frequency (in minutes).
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public InMageAzureV2PolicyInputArgs()
         {
         }
+        public static new InMageAzureV2PolicyInputArgs Empty => new InMageAzureV2PolicyInputArgs();
     }
 }

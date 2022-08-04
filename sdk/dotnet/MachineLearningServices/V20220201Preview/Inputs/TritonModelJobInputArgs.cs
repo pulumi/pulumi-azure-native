@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class TritonModelJobInputArgs : Pulumi.ResourceArgs
+    public sealed class TritonModelJobInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the input.
@@ -41,5 +41,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         {
             Mode = "ReadOnlyMount";
         }
+        public static new TritonModelJobInputArgs Empty => new TritonModelJobInputArgs();
     }
 }

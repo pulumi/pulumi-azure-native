@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteConnectionStringsSlot")]
-    public partial class SiteConnectionStringsSlot : Pulumi.CustomResource
+    public partial class SiteConnectionStringsSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource
@@ -77,20 +77,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteConnectionStringsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteConnectionStringsSlotArgs : Pulumi.ResourceArgs
+    public sealed class SiteConnectionStringsSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -183,5 +183,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteConnectionStringsSlotArgs()
         {
         }
+        public static new SiteConnectionStringsSlotArgs Empty => new SiteConnectionStringsSlotArgs();
     }
 }

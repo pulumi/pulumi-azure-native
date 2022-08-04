@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
     /// <summary>
     /// Diagnostics settings for an Azure ML web service.
     /// </summary>
-    public sealed class DiagnosticsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
         public DiagnosticsConfigurationArgs()
         {
         }
+        public static new DiagnosticsConfigurationArgs Empty => new DiagnosticsConfigurationArgs();
     }
 }

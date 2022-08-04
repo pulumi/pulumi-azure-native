@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
     /// <summary>
     /// The properties corresponding to a line channel registration
     /// </summary>
-    public sealed class LineRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class LineRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access token for the line channel registration
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public LineRegistrationArgs()
         {
         }
+        public static new LineRegistrationArgs Empty => new LineRegistrationArgs();
     }
 }

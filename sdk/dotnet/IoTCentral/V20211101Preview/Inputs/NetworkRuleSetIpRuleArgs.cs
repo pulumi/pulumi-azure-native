@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTCentral.V20211101Preview.Inputs
     /// <summary>
     /// An object for an IP range that will be allowed access.
     /// </summary>
-    public sealed class NetworkRuleSetIpRuleArgs : Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetIpRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The readable name of the IP rule.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20211101Preview.Inputs
         public NetworkRuleSetIpRuleArgs()
         {
         }
+        public static new NetworkRuleSetIpRuleArgs Empty => new NetworkRuleSetIpRuleArgs();
     }
 }

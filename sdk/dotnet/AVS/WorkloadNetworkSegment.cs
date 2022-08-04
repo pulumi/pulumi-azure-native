@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AVS
     /// API Version: 2020-07-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkSegment")]
-    public partial class WorkloadNetworkSegment : Pulumi.CustomResource
+    public partial class WorkloadNetworkSegment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gateway which to connect segment to.
@@ -95,10 +95,10 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkSegment"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkSegment"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkSegment"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkSegment"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkSegment"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkSegment"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkSegment"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkSegment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.AVS
         }
     }
 
-    public sealed class WorkloadNetworkSegmentArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadNetworkSegmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gateway which to connect segment to.
@@ -167,5 +167,6 @@ namespace Pulumi.AzureNative.AVS
         public WorkloadNetworkSegmentArgs()
         {
         }
+        public static new WorkloadNetworkSegmentArgs Empty => new WorkloadNetworkSegmentArgs();
     }
 }

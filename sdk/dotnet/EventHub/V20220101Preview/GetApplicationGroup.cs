@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
     }
 
 
-    public sealed class GetApplicationGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Application Group name 
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         public GetApplicationGroupArgs()
         {
         }
+        public static new GetApplicationGroupArgs Empty => new GetApplicationGroupArgs();
     }
 
-    public sealed class GetApplicationGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Application Group name 
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         public GetApplicationGroupInvokeArgs()
         {
         }
+        public static new GetApplicationGroupInvokeArgs Empty => new GetApplicationGroupInvokeArgs();
     }
 
 

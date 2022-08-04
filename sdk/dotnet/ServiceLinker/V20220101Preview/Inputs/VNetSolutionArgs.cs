@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
     /// <summary>
     /// The VNet solution for linker
     /// </summary>
-    public sealed class VNetSolutionArgs : Pulumi.ResourceArgs
+    public sealed class VNetSolutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of VNet solution.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
         public VNetSolutionArgs()
         {
         }
+        public static new VNetSolutionArgs Empty => new VNetSolutionArgs();
     }
 }

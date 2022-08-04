@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
 
-    public sealed class GetGlobalReachConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalReachConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the global reach connection in the private cloud
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.AVS
         public GetGlobalReachConnectionArgs()
         {
         }
+        public static new GetGlobalReachConnectionArgs Empty => new GetGlobalReachConnectionArgs();
     }
 
-    public sealed class GetGlobalReachConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalReachConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the global reach connection in the private cloud
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.AVS
         public GetGlobalReachConnectionInvokeArgs()
         {
         }
+        public static new GetGlobalReachConnectionInvokeArgs Empty => new GetGlobalReachConnectionInvokeArgs();
     }
 
 

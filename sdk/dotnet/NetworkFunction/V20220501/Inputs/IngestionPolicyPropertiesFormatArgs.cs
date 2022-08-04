@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetworkFunction.V20220501.Inputs
     /// <summary>
     /// Ingestion Policy properties.
     /// </summary>
-    public sealed class IngestionPolicyPropertiesFormatArgs : Pulumi.ResourceArgs
+    public sealed class IngestionPolicyPropertiesFormatArgs : global::Pulumi.ResourceArgs
     {
         [Input("ingestionSources")]
         private InputList<Inputs.IngestionSourcesPropertiesFormatArgs>? _ingestionSources;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.NetworkFunction.V20220501.Inputs
         public IngestionPolicyPropertiesFormatArgs()
         {
         }
+        public static new IngestionPolicyPropertiesFormatArgs Empty => new IngestionPolicyPropertiesFormatArgs();
     }
 }

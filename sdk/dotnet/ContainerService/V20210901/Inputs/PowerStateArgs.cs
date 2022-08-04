@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210901.Inputs
     /// <summary>
     /// Describes the Power State of the cluster
     /// </summary>
-    public sealed class PowerStateArgs : Pulumi.ResourceArgs
+    public sealed class PowerStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tells whether the cluster is Running or Stopped
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20210901.Inputs
         public PowerStateArgs()
         {
         }
+        public static new PowerStateArgs Empty => new PowerStateArgs();
     }
 }

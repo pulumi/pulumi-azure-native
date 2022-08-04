@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity source for SAP ECC source.
     /// </summary>
-    public sealed class SapEccSourceArgs : Pulumi.ResourceArgs
+    public sealed class SapEccSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SAP ECC OData query. For example, "$top=1". Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SapEccSourceArgs()
         {
         }
+        public static new SapEccSourceArgs Empty => new SapEccSourceArgs();
     }
 }

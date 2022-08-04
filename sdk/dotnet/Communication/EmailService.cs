@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Communication
     /// API Version: 2021-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:EmailService")]
-    public partial class EmailService : Pulumi.CustomResource
+    public partial class EmailService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location where the email service stores its data at rest.
@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.Communication
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:communication/v20211001preview:EmailService"},
-                    new Pulumi.Alias { Type = "azure-native:communication/v20220701preview:EmailService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:EmailService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:EmailService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Communication
         }
     }
 
-    public sealed class EmailServiceArgs : Pulumi.ResourceArgs
+    public sealed class EmailServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location where the email service stores its data at rest.
@@ -147,5 +147,6 @@ namespace Pulumi.AzureNative.Communication
         public EmailServiceArgs()
         {
         }
+        public static new EmailServiceArgs Empty => new EmailServiceArgs();
     }
 }

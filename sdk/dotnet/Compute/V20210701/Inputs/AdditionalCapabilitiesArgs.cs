@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Enables or disables a capability on the virtual machine or virtual machine scale set.
     /// </summary>
-    public sealed class AdditionalCapabilitiesArgs : Pulumi.ResourceArgs
+    public sealed class AdditionalCapabilitiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flag that enables or disables hibernation capability on the VM.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public AdditionalCapabilitiesArgs()
         {
         }
+        public static new AdditionalCapabilitiesArgs Empty => new AdditionalCapabilitiesArgs();
     }
 }

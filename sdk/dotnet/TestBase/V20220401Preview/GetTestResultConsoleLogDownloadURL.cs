@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
     }
 
 
-    public sealed class GetTestResultConsoleLogDownloadURLArgs : Pulumi.InvokeArgs
+    public sealed class GetTestResultConsoleLogDownloadURLArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The log file name corresponding to the download URL.
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         public GetTestResultConsoleLogDownloadURLArgs()
         {
         }
+        public static new GetTestResultConsoleLogDownloadURLArgs Empty => new GetTestResultConsoleLogDownloadURLArgs();
     }
 
-    public sealed class GetTestResultConsoleLogDownloadURLInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTestResultConsoleLogDownloadURLInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The log file name corresponding to the download URL.
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         public GetTestResultConsoleLogDownloadURLInvokeArgs()
         {
         }
+        public static new GetTestResultConsoleLogDownloadURLInvokeArgs Empty => new GetTestResultConsoleLogDownloadURLInvokeArgs();
     }
 
 

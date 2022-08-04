@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
     }
 
 
-    public sealed class GetProtectedItemArgs : Pulumi.InvokeArgs
+    public sealed class GetProtectedItemArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Container name associated with the backed up item.
@@ -66,9 +66,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
         public GetProtectedItemArgs()
         {
         }
+        public static new GetProtectedItemArgs Empty => new GetProtectedItemArgs();
     }
 
-    public sealed class GetProtectedItemInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProtectedItemInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Container name associated with the backed up item.
@@ -109,6 +110,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
         public GetProtectedItemInvokeArgs()
         {
         }
+        public static new GetProtectedItemInvokeArgs Empty => new GetProtectedItemInvokeArgs();
     }
 
 

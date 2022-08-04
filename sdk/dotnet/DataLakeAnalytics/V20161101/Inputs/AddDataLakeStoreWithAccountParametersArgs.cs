@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101.Inputs
     /// <summary>
     /// The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
     /// </summary>
-    public sealed class AddDataLakeStoreWithAccountParametersArgs : Pulumi.ResourceArgs
+    public sealed class AddDataLakeStoreWithAccountParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique name of the Data Lake Store account to add.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101.Inputs
         public AddDataLakeStoreWithAccountParametersArgs()
         {
         }
+        public static new AddDataLakeStoreWithAccountParametersArgs Empty => new AddDataLakeStoreWithAccountParametersArgs();
     }
 }

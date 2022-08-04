@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// N-Cross validations determined automatically.
     /// </summary>
-    public sealed class AutoNCrossValidationsArgs : Pulumi.ResourceArgs
+    public sealed class AutoNCrossValidationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines how N-Cross validations value is determined.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public AutoNCrossValidationsArgs()
         {
         }
+        public static new AutoNCrossValidationsArgs Empty => new AutoNCrossValidationsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The AS2 agreement security settings.
     /// </summary>
-    public sealed class AS2SecuritySettingsArgs : Pulumi.ResourceArgs
+    public sealed class AS2SecuritySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to enable NRR for inbound decoded messages.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public AS2SecuritySettingsArgs()
         {
         }
+        public static new AS2SecuritySettingsArgs Empty => new AS2SecuritySettingsArgs();
     }
 }

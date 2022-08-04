@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
     /// Software update configuration properties.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20190601:SoftwareUpdateConfigurationByName")]
-    public partial class SoftwareUpdateConfigurationByName : Pulumi.CustomResource
+    public partial class SoftwareUpdateConfigurationByName : global::Pulumi.CustomResource
     {
         /// <summary>
         /// CreatedBy property, which only appears in the response.
@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation:SoftwareUpdateConfigurationByName"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:SoftwareUpdateConfigurationByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
         }
     }
 
-    public sealed class SoftwareUpdateConfigurationByNameArgs : Pulumi.ResourceArgs
+    public sealed class SoftwareUpdateConfigurationByNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -176,5 +176,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public SoftwareUpdateConfigurationByNameArgs()
         {
         }
+        public static new SoftwareUpdateConfigurationByNameArgs Empty => new SoftwareUpdateConfigurationByNameArgs();
     }
 }

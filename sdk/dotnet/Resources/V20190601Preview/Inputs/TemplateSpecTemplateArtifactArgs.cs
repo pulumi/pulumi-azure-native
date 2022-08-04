@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview.Inputs
     /// <summary>
     /// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
     /// </summary>
-    public sealed class TemplateSpecTemplateArtifactArgs : Pulumi.ResourceArgs
+    public sealed class TemplateSpecTemplateArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kind of artifact.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview.Inputs
         public TemplateSpecTemplateArtifactArgs()
         {
         }
+        public static new TemplateSpecTemplateArtifactArgs Empty => new TemplateSpecTemplateArtifactArgs();
     }
 }

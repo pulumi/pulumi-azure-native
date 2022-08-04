@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401.Inputs
     /// <summary>
     /// Describes parsed pattern entity
     /// </summary>
-    public sealed class ThreatIntelligenceParsedPatternArgs : Pulumi.ResourceArgs
+    public sealed class ThreatIntelligenceParsedPatternArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Pattern type key
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401.Inputs
         public ThreatIntelligenceParsedPatternArgs()
         {
         }
+        public static new ThreatIntelligenceParsedPatternArgs Empty => new ThreatIntelligenceParsedPatternArgs();
     }
 }

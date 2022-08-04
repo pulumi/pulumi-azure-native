@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Gets or sets the PrometheusHaCluster provider properties.
     /// </summary>
-    public sealed class PrometheusHaClusterProviderInstancePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrometheusHaClusterProviderInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the clusterName.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public PrometheusHaClusterProviderInstancePropertiesArgs()
         {
         }
+        public static new PrometheusHaClusterProviderInstancePropertiesArgs Empty => new PrometheusHaClusterProviderInstancePropertiesArgs();
     }
 }

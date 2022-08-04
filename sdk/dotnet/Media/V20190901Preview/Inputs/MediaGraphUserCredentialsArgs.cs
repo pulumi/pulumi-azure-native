@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20190901Preview.Inputs
     /// <summary>
     /// Credentials to authenticate to Media Graph sources
     /// </summary>
-    public sealed class MediaGraphUserCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class MediaGraphUserCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password credential
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Media.V20190901Preview.Inputs
         public MediaGraphUserCredentialsArgs()
         {
         }
+        public static new MediaGraphUserCredentialsArgs Empty => new MediaGraphUserCredentialsArgs();
     }
 }

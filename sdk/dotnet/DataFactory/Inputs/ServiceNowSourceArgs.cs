@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity ServiceNow server source.
     /// </summary>
-    public sealed class ServiceNowSourceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceNowSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ServiceNowSourceArgs()
         {
         }
+        public static new ServiceNowSourceArgs Empty => new ServiceNowSourceArgs();
     }
 }

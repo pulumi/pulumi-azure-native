@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20180202
     /// Azure Migrate Project.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20180202:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Time when this project was created. Date-Time represented in ISO-8601 format.
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Migrate.V20180202
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:migrate/v20171111preview:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20171111preview:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.Migrate.V20180202
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM ID of the Service Map workspace created by user.
@@ -217,5 +217,6 @@ namespace Pulumi.AzureNative.Migrate.V20180202
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

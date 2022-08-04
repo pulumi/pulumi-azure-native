@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.HealthBot.V20201020Preview
     }
 
 
-    public sealed class GetgetbotArgs : Pulumi.InvokeArgs
+    public sealed class GetgetbotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bot resource group in the user subscription.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.HealthBot.V20201020Preview
         public GetgetbotArgs()
         {
         }
+        public static new GetgetbotArgs Empty => new GetgetbotArgs();
     }
 
-    public sealed class GetgetbotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetgetbotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bot resource group in the user subscription.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.HealthBot.V20201020Preview
         public GetgetbotInvokeArgs()
         {
         }
+        public static new GetgetbotInvokeArgs Empty => new GetgetbotInvokeArgs();
     }
 
 

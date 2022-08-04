@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     /// <summary>
     /// Each KPI must contain a 'type' and 'enabled' key.
     /// </summary>
-    public sealed class KpiPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KpiPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// show the KPI in the UI?
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public KpiPropertiesArgs()
         {
         }
+        public static new KpiPropertiesArgs Empty => new KpiPropertiesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210401.Inputs
 {
 
-    public sealed class SignedIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class SignedIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access policy
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Storage.V20210401.Inputs
         public SignedIdentifierArgs()
         {
         }
+        public static new SignedIdentifierArgs Empty => new SignedIdentifierArgs();
     }
 }

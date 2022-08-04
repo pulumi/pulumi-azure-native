@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Properties of a daily schedule.
     /// </summary>
-    public sealed class DayDetailsArgs : Pulumi.ResourceArgs
+    public sealed class DayDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time of day the schedule will occur.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         public DayDetailsArgs()
         {
         }
+        public static new DayDetailsArgs Empty => new DayDetailsArgs();
     }
 }

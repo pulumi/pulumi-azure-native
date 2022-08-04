@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
     /// <summary>
     /// Network ACLs for the resource
     /// </summary>
-    public sealed class WebPubSubNetworkACLsArgs : Pulumi.ResourceArgs
+    public sealed class WebPubSubNetworkACLsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Networking ACL Action.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
         public WebPubSubNetworkACLsArgs()
         {
         }
+        public static new WebPubSubNetworkACLsArgs Empty => new WebPubSubNetworkACLsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Relay.V20160701.Inputs
     /// <summary>
     /// Sku of the Namespace.
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of this Sku
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Relay.V20160701.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

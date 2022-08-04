@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
     /// </summary>
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
         private InputList<Inputs.EndpointPropertiesCustomHeadersArgs>? _customHeaders;
@@ -132,5 +132,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

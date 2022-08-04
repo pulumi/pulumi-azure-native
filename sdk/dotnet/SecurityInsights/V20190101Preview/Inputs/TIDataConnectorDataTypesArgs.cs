@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
     /// <summary>
     /// The available data types for Threat Intelligence Platforms data connector.
     /// </summary>
-    public sealed class TIDataConnectorDataTypesArgs : Pulumi.ResourceArgs
+    public sealed class TIDataConnectorDataTypesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data type for Threat Intelligence Platforms data connector.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
         public TIDataConnectorDataTypesArgs()
         {
         }
+        public static new TIDataConnectorDataTypesArgs Empty => new TIDataConnectorDataTypesArgs();
     }
 }

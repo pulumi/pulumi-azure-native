@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
     /// Machine Learning service object wrapped into ARM resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210401:EndpointVariant")]
-    public partial class EndpointVariant : Pulumi.CustomResource
+    public partial class EndpointVariant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:EndpointVariant"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:EndpointVariant"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:EndpointVariant"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:EndpointVariant"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:EndpointVariant"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:EndpointVariant"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:EndpointVariant"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:EndpointVariant"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:EndpointVariant"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:EndpointVariant"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         }
     }
 
-    public sealed class EndpointVariantArgs : Pulumi.ResourceArgs
+    public sealed class EndpointVariantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compute environment type for the service.
@@ -217,5 +217,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         public EndpointVariantArgs()
         {
         }
+        public static new EndpointVariantArgs Empty => new EndpointVariantArgs();
     }
 }

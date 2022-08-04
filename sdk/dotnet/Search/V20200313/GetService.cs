@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Search.V20200313
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Search.V20200313
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Search.V20200313
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

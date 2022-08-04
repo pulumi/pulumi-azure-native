@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
     /// <summary>
     /// Skype channel definition
     /// </summary>
-    public sealed class SkypeChannelArgs : Pulumi.ResourceArgs
+    public sealed class SkypeChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         {
             Location = "global";
         }
+        public static new SkypeChannelArgs Empty => new SkypeChannelArgs();
     }
 }

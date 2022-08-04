@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501Preview.Inputs
     /// <summary>
     /// Network manager security group item.
     /// </summary>
-    public sealed class NetworkManagerSecurityGroupItemArgs : Pulumi.ResourceArgs
+    public sealed class NetworkManagerSecurityGroupItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Network manager group Id.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20210501Preview.Inputs
         public NetworkManagerSecurityGroupItemArgs()
         {
         }
+        public static new NetworkManagerSecurityGroupItemArgs Empty => new NetworkManagerSecurityGroupItemArgs();
     }
 }

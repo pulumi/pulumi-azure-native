@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
     /// <summary>
     /// Settings concerning lockbox.
     /// </summary>
-    public sealed class PropertiesLockboxArgs : Pulumi.ResourceArgs
+    public sealed class PropertiesLockboxArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// lockbox configuration
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
         public PropertiesLockboxArgs()
         {
         }
+        public static new PropertiesLockboxArgs Empty => new PropertiesLockboxArgs();
     }
 }

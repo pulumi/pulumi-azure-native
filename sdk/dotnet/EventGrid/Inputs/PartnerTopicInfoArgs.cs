@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// <summary>
     /// Properties of the corresponding partner topic of a Channel.
     /// </summary>
-    public sealed class PartnerTopicInfoArgs : Pulumi.ResourceArgs
+    public sealed class PartnerTopicInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure subscription ID of the subscriber. The partner topic associated with the channel will be
@@ -53,5 +53,6 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public PartnerTopicInfoArgs()
         {
         }
+        public static new PartnerTopicInfoArgs Empty => new PartnerTopicInfoArgs();
     }
 }

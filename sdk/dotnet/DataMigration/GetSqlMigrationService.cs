@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataMigration
     }
 
 
-    public sealed class GetSqlMigrationServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlMigrationServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.DataMigration
         public GetSqlMigrationServiceArgs()
         {
         }
+        public static new GetSqlMigrationServiceArgs Empty => new GetSqlMigrationServiceArgs();
     }
 
-    public sealed class GetSqlMigrationServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlMigrationServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.DataMigration
         public GetSqlMigrationServiceInvokeArgs()
         {
         }
+        public static new GetSqlMigrationServiceInvokeArgs Empty => new GetSqlMigrationServiceInvokeArgs();
     }
 
 

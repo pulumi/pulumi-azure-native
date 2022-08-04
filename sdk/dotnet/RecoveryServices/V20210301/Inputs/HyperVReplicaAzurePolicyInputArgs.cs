@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301.Inputs
     /// <summary>
     /// Hyper-V Replica Azure specific input for creating a protection profile.
     /// </summary>
-    public sealed class HyperVReplicaAzurePolicyInputArgs : Pulumi.ResourceArgs
+    public sealed class HyperVReplicaAzurePolicyInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301.Inputs
         public HyperVReplicaAzurePolicyInputArgs()
         {
         }
+        public static new HyperVReplicaAzurePolicyInputArgs Empty => new HyperVReplicaAzurePolicyInputArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview.Inputs
     /// <summary>
     /// Compute infrastructure Resource
     /// </summary>
-    public sealed class ComputeResourceArgs : Pulumi.ResourceArgs
+    public sealed class ComputeResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Memory in GB
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview.Inputs
         public ComputeResourceArgs()
         {
         }
+        public static new ComputeResourceArgs Empty => new ComputeResourceArgs();
     }
 }

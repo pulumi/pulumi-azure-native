@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20200101.Inputs
     /// <summary>
     /// Settings for Resource Forest
     /// </summary>
-    public sealed class ResourceForestSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ResourceForestSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Forest
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Aad.V20200101.Inputs
         public ResourceForestSettingsArgs()
         {
         }
+        public static new ResourceForestSettingsArgs Empty => new ResourceForestSettingsArgs();
     }
 }

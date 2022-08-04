@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorageSync.V20190301
     /// </summary>
     [Obsolete(@"Version 2019-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20190301:ServerEndpoint")]
-    public partial class ServerEndpoint : Pulumi.CustomResource
+    public partial class ServerEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Cloud Tiering.
@@ -137,16 +137,16 @@ namespace Pulumi.AzureNative.StorageSync.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storagesync:ServerEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:ServerEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:ServerEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180701:ServerEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:ServerEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190201:ServerEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:ServerEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:ServerEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:ServerEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:ServerEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync:ServerEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:ServerEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180402:ServerEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180701:ServerEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20181001:ServerEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190201:ServerEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190601:ServerEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:ServerEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:ServerEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:ServerEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.StorageSync.V20190301
         }
     }
 
-    public sealed class ServerEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ServerEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cloud Tiering.
@@ -245,5 +245,6 @@ namespace Pulumi.AzureNative.StorageSync.V20190301
         public ServerEndpointArgs()
         {
         }
+        public static new ServerEndpointArgs Empty => new ServerEndpointArgs();
     }
 }

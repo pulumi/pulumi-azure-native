@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventHub.V20210101Preview.Inputs
 {
 
-    public sealed class UserAssignedIdentityPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class UserAssignedIdentityPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM ID of user Identity selected for encryption
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview.Inputs
         public UserAssignedIdentityPropertiesArgs()
         {
         }
+        public static new UserAssignedIdentityPropertiesArgs Empty => new UserAssignedIdentityPropertiesArgs();
     }
 }

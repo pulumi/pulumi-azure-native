@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Inputs
     /// <summary>
     /// Description of NetWorkRuleSet - IpRules resource.
     /// </summary>
-    public sealed class NWRuleSetIpRulesArgs : Pulumi.ResourceArgs
+    public sealed class NWRuleSetIpRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP Filter Action
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Inputs
         {
             Action = "Allow";
         }
+        public static new NWRuleSetIpRulesArgs Empty => new NWRuleSetIpRulesArgs();
     }
 }

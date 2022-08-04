@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20210430.Inputs
     /// <summary>
     /// Properties to configure Encryption
     /// </summary>
-    public sealed class EncryptionArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enumerates the possible value of keySource for Encryption
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20210430.Inputs
         {
             KeySource = "Microsoft.KeyVault";
         }
+        public static new EncryptionArgs Empty => new EncryptionArgs();
     }
 }

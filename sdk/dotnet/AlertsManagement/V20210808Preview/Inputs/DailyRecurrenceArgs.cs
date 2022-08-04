@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
     /// <summary>
     /// Daily recurrence object.
     /// </summary>
-    public sealed class DailyRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class DailyRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// End time for recurrence.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
         public DailyRecurrenceArgs()
         {
         }
+        public static new DailyRecurrenceArgs Empty => new DailyRecurrenceArgs();
     }
 }

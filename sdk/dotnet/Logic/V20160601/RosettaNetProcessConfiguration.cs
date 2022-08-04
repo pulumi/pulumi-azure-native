@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     /// The integration account RosettaNet process configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20160601:RosettaNetProcessConfiguration")]
-    public partial class RosettaNetProcessConfiguration : Pulumi.CustomResource
+    public partial class RosettaNetProcessConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The RosettaNet process configuration activity settings.
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logic:RosettaNetProcessConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:RosettaNetProcessConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
         }
     }
 
-    public sealed class RosettaNetProcessConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RosettaNetProcessConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The RosettaNet process configuration activity settings.
@@ -241,5 +241,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public RosettaNetProcessConfigurationArgs()
         {
         }
+        public static new RosettaNetProcessConfigurationArgs Empty => new RosettaNetProcessConfigurationArgs();
     }
 }

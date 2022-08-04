@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
     /// <summary>
     /// Details about the search service identity. A null value indicates that the search service has no identity assigned.
     /// </summary>
-    public sealed class IdentityArgs : Pulumi.ResourceArgs
+    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
         public IdentityArgs()
         {
         }
+        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     }
 
 
-    public sealed class GetArcAddonArgs : Pulumi.InvokeArgs
+    public sealed class GetArcAddonArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The addon name.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public GetArcAddonArgs()
         {
         }
+        public static new GetArcAddonArgs Empty => new GetArcAddonArgs();
     }
 
-    public sealed class GetArcAddonInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetArcAddonInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The addon name.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public GetArcAddonInvokeArgs()
         {
         }
+        public static new GetArcAddonInvokeArgs Empty => new GetArcAddonInvokeArgs();
     }
 
 

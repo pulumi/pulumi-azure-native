@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Reference to an asset via its ARM resource ID.
     /// </summary>
-    public sealed class IdAssetReferenceArgs : Pulumi.ResourceArgs
+    public sealed class IdAssetReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] ARM resource ID of the asset.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public IdAssetReferenceArgs()
         {
         }
+        public static new IdAssetReferenceArgs Empty => new IdAssetReferenceArgs();
     }
 }

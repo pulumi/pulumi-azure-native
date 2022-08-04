@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Specifies the storage settings for the virtual machine disks.
     /// </summary>
-    public sealed class StorageProfileArgs : Pulumi.ResourceArgs
+    public sealed class StorageProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
         private InputList<Inputs.DataDiskArgs>? _dataDisks;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public StorageProfileArgs()
         {
         }
+        public static new StorageProfileArgs Empty => new StorageProfileArgs();
     }
 }

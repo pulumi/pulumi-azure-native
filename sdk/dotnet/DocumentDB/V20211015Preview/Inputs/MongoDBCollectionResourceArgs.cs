@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015Preview.Inputs
     /// <summary>
     /// Cosmos DB MongoDB collection resource object
     /// </summary>
-    public sealed class MongoDBCollectionResourceArgs : Pulumi.ResourceArgs
+    public sealed class MongoDBCollectionResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Analytical TTL.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015Preview.Inputs
         public MongoDBCollectionResourceArgs()
         {
         }
+        public static new MongoDBCollectionResourceArgs Empty => new MongoDBCollectionResourceArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Inputs
 {
 
-    public sealed class SettingsPropertiesCacheArgs : Pulumi.ResourceArgs
+    public sealed class SettingsPropertiesCacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the account type. Allowed values include: EA, PAYG, Modern, Internal, Unknown.
@@ -51,5 +51,6 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public SettingsPropertiesCacheArgs()
         {
         }
+        public static new SettingsPropertiesCacheArgs Empty => new SettingsPropertiesCacheArgs();
     }
 }

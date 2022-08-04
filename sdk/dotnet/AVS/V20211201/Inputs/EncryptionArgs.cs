@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
     /// <summary>
     /// The properties of customer managed encryption key
     /// </summary>
-    public sealed class EncryptionArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key vault where the encryption key is stored
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
         public EncryptionArgs()
         {
         }
+        public static new EncryptionArgs Empty => new EncryptionArgs();
     }
 }

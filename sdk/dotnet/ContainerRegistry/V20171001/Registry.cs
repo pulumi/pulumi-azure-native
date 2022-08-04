@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20171001
     /// An object that represents a container registry.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20171001:Registry")]
-    public partial class Registry : Pulumi.CustomResource
+    public partial class Registry : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The value that indicates whether the admin user is enabled.
@@ -112,18 +112,18 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20160627preview:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20170301:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20160627preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20170301:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Registry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20171001
         }
     }
 
-    public sealed class RegistryArgs : Pulumi.ResourceArgs
+    public sealed class RegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value that indicates whether the admin user is enabled.
@@ -205,5 +205,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20171001
         {
             AdminUserEnabled = false;
         }
+        public static new RegistryArgs Empty => new RegistryArgs();
     }
 }

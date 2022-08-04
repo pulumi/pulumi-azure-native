@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
     /// <summary>
     /// An endpoint which must be connected over TLS/SSL.
     /// </summary>
-    public sealed class MediaGraphTlsEndpointArgs : Pulumi.ResourceArgs
+    public sealed class MediaGraphTlsEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Polymorphic credentials to present to the endpoint.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
         public MediaGraphTlsEndpointArgs()
         {
         }
+        public static new MediaGraphTlsEndpointArgs Empty => new MediaGraphTlsEndpointArgs();
     }
 }

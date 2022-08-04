@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// Component container definition.
     /// &lt;see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" /&gt;
     /// </summary>
-    public sealed class ComponentContainerArgs : Pulumi.ResourceArgs
+    public sealed class ComponentContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The asset description text.
@@ -56,5 +56,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         {
             IsArchived = false;
         }
+        public static new ComponentContainerArgs Empty => new ComponentContainerArgs();
     }
 }

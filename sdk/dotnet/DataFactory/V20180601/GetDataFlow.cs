@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
 
-    public sealed class GetDataFlowArgs : Pulumi.InvokeArgs
+    public sealed class GetDataFlowArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The data flow name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public GetDataFlowArgs()
         {
         }
+        public static new GetDataFlowArgs Empty => new GetDataFlowArgs();
     }
 
-    public sealed class GetDataFlowInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataFlowInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The data flow name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public GetDataFlowInvokeArgs()
         {
         }
+        public static new GetDataFlowInvokeArgs Empty => new GetDataFlowInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// VirtualHubRouteTableV2 Resource.
     /// </summary>
-    public sealed class VirtualHubRouteTableV2Args : Pulumi.ResourceArgs
+    public sealed class VirtualHubRouteTableV2Args : global::Pulumi.ResourceArgs
     {
         [Input("attachedConnections")]
         private InputList<string>? _attachedConnections;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public VirtualHubRouteTableV2Args()
         {
         }
+        public static new VirtualHubRouteTableV2Args Empty => new VirtualHubRouteTableV2Args();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Test data inputs.
     /// </summary>
-    public sealed class TestDataSettingsArgs : Pulumi.ResourceArgs
+    public sealed class TestDataSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Test data MLTable.
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public TestDataSettingsArgs()
         {
         }
+        public static new TestDataSettingsArgs Empty => new TestDataSettingsArgs();
     }
 }

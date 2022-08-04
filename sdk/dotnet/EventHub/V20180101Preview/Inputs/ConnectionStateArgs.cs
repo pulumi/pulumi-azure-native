@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview.Inputs
     /// <summary>
     /// ConnectionState information.
     /// </summary>
-    public sealed class ConnectionStateArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the connection state.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview.Inputs
         public ConnectionStateArgs()
         {
         }
+        public static new ConnectionStateArgs Empty => new ConnectionStateArgs();
     }
 }

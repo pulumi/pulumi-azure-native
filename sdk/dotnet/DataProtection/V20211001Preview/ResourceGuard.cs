@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20211001Preview
 {
     [AzureNativeResourceType("azure-native:dataprotection/v20211001preview:ResourceGuard")]
-    public partial class ResourceGuard : Pulumi.CustomResource
+    public partial class ResourceGuard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optional ETag.
@@ -85,15 +85,15 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dataprotection:ResourceGuard"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210701:ResourceGuard"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20211201preview:ResourceGuard"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220101:ResourceGuard"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220201preview:ResourceGuard"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220301:ResourceGuard"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220331preview:ResourceGuard"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220401:ResourceGuard"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220501:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210701:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20211201preview:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220101:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220201preview:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220301:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220331preview:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220401:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220501:ResourceGuard"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview
         }
     }
 
-    public sealed class ResourceGuardArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGuardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional ETag.
@@ -162,5 +162,6 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview
         public ResourceGuardArgs()
         {
         }
+        public static new ResourceGuardArgs Empty => new ResourceGuardArgs();
     }
 }

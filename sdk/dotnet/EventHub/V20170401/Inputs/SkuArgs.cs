@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20170401.Inputs
     /// <summary>
     /// SKU parameters supplied to the create namespace operation
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Event Hubs throughput units, value should be 0 to 20 throughput units.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.EventHub.V20170401.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

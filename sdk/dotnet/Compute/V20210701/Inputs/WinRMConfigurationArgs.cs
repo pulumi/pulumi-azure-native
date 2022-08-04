@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Describes Windows Remote Management configuration of the VM
     /// </summary>
-    public sealed class WinRMConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WinRMConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("listeners")]
         private InputList<Inputs.WinRMListenerArgs>? _listeners;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public WinRMConfigurationArgs()
         {
         }
+        public static new WinRMConfigurationArgs Empty => new WinRMConfigurationArgs();
     }
 }

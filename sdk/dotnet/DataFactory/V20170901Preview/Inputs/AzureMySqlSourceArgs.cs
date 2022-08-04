@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Azure MySQL source.
     /// </summary>
-    public sealed class AzureMySqlSourceArgs : Pulumi.ResourceArgs
+    public sealed class AzureMySqlSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database query. Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureMySqlSourceArgs()
         {
         }
+        public static new AzureMySqlSourceArgs Empty => new AzureMySqlSourceArgs();
     }
 }

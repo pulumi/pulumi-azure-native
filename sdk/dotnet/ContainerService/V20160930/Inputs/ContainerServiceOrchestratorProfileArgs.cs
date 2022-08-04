@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20160930.Inputs
     /// <summary>
     /// Profile for the container service orchestrator.
     /// </summary>
-    public sealed class ContainerServiceOrchestratorProfileArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceOrchestratorProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20160930.Inputs
         public ContainerServiceOrchestratorProfileArgs()
         {
         }
+        public static new ContainerServiceOrchestratorProfileArgs Empty => new ContainerServiceOrchestratorProfileArgs();
     }
 }

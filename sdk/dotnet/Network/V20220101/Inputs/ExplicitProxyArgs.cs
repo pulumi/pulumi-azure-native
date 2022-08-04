@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Explicit Proxy Settings in Firewall Policy.
     /// </summary>
-    public sealed class ExplicitProxyArgs : Pulumi.ResourceArgs
+    public sealed class ExplicitProxyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set to true, explicit proxy mode is enabled.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public ExplicitProxyArgs()
         {
         }
+        public static new ExplicitProxyArgs Empty => new ExplicitProxyArgs();
     }
 }

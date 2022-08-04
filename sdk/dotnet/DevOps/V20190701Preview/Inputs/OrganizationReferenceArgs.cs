@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview.Inputs
     /// <summary>
     /// Reference to an Azure DevOps Organization.
     /// </summary>
-    public sealed class OrganizationReferenceArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Azure DevOps Organization.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview.Inputs
         public OrganizationReferenceArgs()
         {
         }
+        public static new OrganizationReferenceArgs Empty => new OrganizationReferenceArgs();
     }
 }

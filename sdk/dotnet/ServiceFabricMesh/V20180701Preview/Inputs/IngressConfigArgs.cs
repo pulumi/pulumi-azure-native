@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
     /// <summary>
     /// Describes public connectivity configuration for the network.
     /// </summary>
-    public sealed class IngressConfigArgs : Pulumi.ResourceArgs
+    public sealed class IngressConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("layer4")]
         private InputList<Inputs.Layer4IngressConfigArgs>? _layer4;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
         public IngressConfigArgs()
         {
         }
+        public static new IngressConfigArgs Empty => new IngressConfigArgs();
     }
 }

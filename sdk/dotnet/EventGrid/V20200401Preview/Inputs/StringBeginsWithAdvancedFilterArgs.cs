@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
     /// <summary>
     /// StringBeginsWith Advanced Filter.
     /// </summary>
-    public sealed class StringBeginsWithAdvancedFilterArgs : Pulumi.ResourceArgs
+    public sealed class StringBeginsWithAdvancedFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The field/property in the event based on which you want to filter.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
         public StringBeginsWithAdvancedFilterArgs()
         {
         }
+        public static new StringBeginsWithAdvancedFilterArgs Empty => new StringBeginsWithAdvancedFilterArgs();
     }
 }

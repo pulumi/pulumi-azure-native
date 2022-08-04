@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Gets or sets the provider properties.
     /// </summary>
-    public sealed class HanaDbProviderInstancePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class HanaDbProviderInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the hana database name.
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public HanaDbProviderInstancePropertiesArgs()
         {
         }
+        public static new HanaDbProviderInstancePropertiesArgs Empty => new HanaDbProviderInstancePropertiesArgs();
     }
 }

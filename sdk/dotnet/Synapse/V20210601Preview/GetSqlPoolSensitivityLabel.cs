@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     }
 
 
-    public sealed class GetSqlPoolSensitivityLabelArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlPoolSensitivityLabelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the column.
@@ -72,9 +72,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public GetSqlPoolSensitivityLabelArgs()
         {
         }
+        public static new GetSqlPoolSensitivityLabelArgs Empty => new GetSqlPoolSensitivityLabelArgs();
     }
 
-    public sealed class GetSqlPoolSensitivityLabelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlPoolSensitivityLabelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the column.
@@ -121,6 +122,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public GetSqlPoolSensitivityLabelInvokeArgs()
         {
         }
+        public static new GetSqlPoolSensitivityLabelInvokeArgs Empty => new GetSqlPoolSensitivityLabelInvokeArgs();
     }
 
 

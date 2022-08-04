@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecommendationsService.Inputs
     /// <summary>
     /// Modeling resource properties.
     /// </summary>
-    public sealed class ModelingResourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ModelingResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Modeling features controls the set of supported scenarios\models being computed. This can only be set at Modeling creation.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.RecommendationsService.Inputs
         public ModelingResourcePropertiesArgs()
         {
         }
+        public static new ModelingResourcePropertiesArgs Empty => new ModelingResourcePropertiesArgs();
     }
 }

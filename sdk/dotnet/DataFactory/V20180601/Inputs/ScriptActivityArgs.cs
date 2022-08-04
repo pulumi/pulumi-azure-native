@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Script activity type.
     /// </summary>
-    public sealed class ScriptActivityArgs : Pulumi.ResourceArgs
+    public sealed class ScriptActivityArgs : global::Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ScriptActivityArgs()
         {
         }
+        public static new ScriptActivityArgs Empty => new ScriptActivityArgs();
     }
 }

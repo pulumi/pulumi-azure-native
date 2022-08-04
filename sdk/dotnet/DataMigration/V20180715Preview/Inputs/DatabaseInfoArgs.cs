@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
     /// <summary>
     /// Project Database Details
     /// </summary>
-    public sealed class DatabaseInfoArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the database
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
         public DatabaseInfoArgs()
         {
         }
+        public static new DatabaseInfoArgs Empty => new DatabaseInfoArgs();
     }
 }

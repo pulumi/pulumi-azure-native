@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Media.V20200501
     }
 
 
-    public sealed class ListMediaServiceEdgePoliciesArgs : Pulumi.InvokeArgs
+    public sealed class ListMediaServiceEdgePoliciesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Media.V20200501
         public ListMediaServiceEdgePoliciesArgs()
         {
         }
+        public static new ListMediaServiceEdgePoliciesArgs Empty => new ListMediaServiceEdgePoliciesArgs();
     }
 
-    public sealed class ListMediaServiceEdgePoliciesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListMediaServiceEdgePoliciesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -67,6 +68,7 @@ namespace Pulumi.AzureNative.Media.V20200501
         public ListMediaServiceEdgePoliciesInvokeArgs()
         {
         }
+        public static new ListMediaServiceEdgePoliciesInvokeArgs Empty => new ListMediaServiceEdgePoliciesInvokeArgs();
     }
 
 

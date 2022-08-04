@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Inputs
 {
 
-    public sealed class ResourceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ResourceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public ResourceIdentityArgs()
         {
         }
+        public static new ResourceIdentityArgs Empty => new ResourceIdentityArgs();
     }
 }

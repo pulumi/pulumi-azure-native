@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteSlot")]
-    public partial class SiteSlot : Pulumi.CustomResource
+    public partial class SiteSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Management information availability state for the web app. Possible values are Normal or Limited. 
@@ -239,20 +239,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -274,7 +274,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteSlotArgs : Pulumi.ResourceArgs
+    public sealed class SiteSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
@@ -445,5 +445,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteSlotArgs()
         {
         }
+        public static new SiteSlotArgs Empty => new SiteSlotArgs();
     }
 }
