@@ -56,7 +56,8 @@
     "2017-03-01-preview"
   ],
   "AzureStack": [
-    "2016-01-01"
+    "2016-01-01",
+    "2017-06-01"
   ],
   "AzureStackHCI": [
     "2020-03-01-preview"
@@ -118,27 +119,11 @@
   ],
   "Commerce": [],
   "Communication": [],
-  "Compute": [
-    "2015-06-15",
-    "2016-03-30",
-    "2016-04-30-preview",
-    "2017-03-30",
-    "2017-12-01",
-    "2018-04-01",
-    "2018-06-01",
-    "2018-09-30",
-    "2018-10-01",
-    "2019-03-01",
-    "2019-07-01",
-    "2019-11-01",
-    "2019-12-01",
-    "2020-05-01",
-    "2020-06-01",
-    "2020-06-30"
-  ],
   "ConfidentialLedger": [],
   "Confluent": [],
-  "ConnectedVMwarevSphere": [],
+  "ConnectedVMwarevSphere": [
+    "2020-10-01-preview"
+  ],
   "Consumption": [
     "2017-12-30-preview",
     "2018-01-31",
@@ -239,6 +224,7 @@
     "2020-11-02-preview",
     "2020-11-10-preview"
   ],
+  "DevCenter": [],
   "DevHub": [],
   "DevOps": [
     "2019-07-01-preview"
@@ -570,11 +556,7 @@
     "2018-10-01"
   ],
   "SoftwarePlan": [],
-  "Solutions": [
-    "2016-09-01-preview",
-    "2017-09-01",
-    "2018-06-01"
-  ],
+  "Solutions": [],
   "Sql": [],
   "SqlVirtualMachine": [],
   "StorSimple": [
@@ -602,6 +584,7 @@
     "2020-03-01",
     "2020-10-01"
   ],
+  "StorageMover": [],
   "StoragePool": [],
   "StorageSync": [
     "2017-06-05-preview",

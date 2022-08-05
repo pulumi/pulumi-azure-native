@@ -328,10 +328,6 @@
     "CloudService": "2021-03-01",
     "DedicatedHost": "2021-11-01",
     "DedicatedHostGroup": "2021-11-01",
-    "Disk": "2021-12-01",
-    "DiskAccess": "2021-12-01",
-    "DiskAccessAPrivateEndpointConnection": "2021-12-01",
-    "DiskEncryptionSet": "2021-12-01",
     "Gallery": "2021-10-01",
     "GalleryApplication": "2021-10-01",
     "GalleryApplicationVersion": "2021-10-01",
@@ -341,7 +337,6 @@
     "ProximityPlacementGroup": "2021-11-01",
     "RestorePoint": "2021-11-01",
     "RestorePointCollection": "2021-11-01",
-    "Snapshot": "2021-12-01",
     "SshPublicKey": "2021-11-01",
     "VirtualMachine": "2021-11-01",
     "VirtualMachineExtension": "2021-11-01",
@@ -360,20 +355,7 @@
   "Confluent": {
     "Organization": "2021-12-01"
   },
-  "ConnectedVMwarevSphere": {
-    "Cluster": "2020-10-01-preview",
-    "Datastore": "2020-10-01-preview",
-    "GuestAgent": "2020-10-01-preview",
-    "Host": "2020-10-01-preview",
-    "HybridIdentityMetadatum": "2020-10-01-preview",
-    "InventoryItem": "2020-10-01-preview",
-    "MachineExtension": "2020-10-01-preview",
-    "ResourcePool": "2020-10-01-preview",
-    "VCenter": "2020-10-01-preview",
-    "VirtualMachine": "2020-10-01-preview",
-    "VirtualMachineTemplate": "2020-10-01-preview",
-    "VirtualNetwork": "2020-10-01-preview"
-  },
+  "ConnectedVMwarevSphere": {},
   "Consumption": {
     "Budget": "2021-10-01"
   },
@@ -1574,7 +1556,8 @@
     "Application": "2021-07-01",
     "ApplicationDefinition": "2021-07-01",
     "JitRequest": "2021-07-01",
-    "listApplicationAllowedUpgradePlans": "2021-07-01"
+    "listApplicationAllowedUpgradePlans": "2021-07-01",
+    "listApplicationTokens": "2021-07-01"
   },
   "Sql": {
     "BackupLongTermRetentionPolicy": "2017-03-01-preview",
