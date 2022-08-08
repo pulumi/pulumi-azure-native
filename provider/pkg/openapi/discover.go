@@ -85,12 +85,24 @@ func AllVersions() AzureProviders {
 		panic(err)
 	}
 
+	removed, err := ReadRemoved()
+	if err != nil {
+		panic(err)
+	}
+
 	deprecated, err := ReadDeprecated()
 	if err != nil {
 		panic(err)
 	}
 
 	for providerName, versionMap := range providers {
+		// Remove 'removed' versions
+		if removedVersions, ok := removed[providerName]; ok {
+			for _, version := range removedVersions {
+				delete(versionMap, ApiToSdkVersion(version))
+			}
+		}
+
 		// Add a default version for each resource and invoke.
 		defaultResourceVersions := providerDefaults[providerName]
 		versionMap[""] = buildCuratedVersion(versionMap, defaultResourceVersions)
