@@ -122,7 +122,7 @@ export class GalleryApplication extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryApplication" }, { type: "azure-native:compute/v20190301:GalleryApplication" }, { type: "azure-native:compute/v20190701:GalleryApplication" }, { type: "azure-native:compute/v20191201:GalleryApplication" }, { type: "azure-native:compute/v20210701:GalleryApplication" }, { type: "azure-native:compute/v20211001:GalleryApplication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryApplication" }, { type: "azure-native:compute/v20210701:GalleryApplication" }, { type: "azure-native:compute/v20211001:GalleryApplication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryApplication.__pulumiType, name, resourceInputs, opts);
     }

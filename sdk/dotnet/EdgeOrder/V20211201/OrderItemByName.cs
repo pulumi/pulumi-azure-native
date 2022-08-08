@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:edgeorder:OrderItemByName"},
-                    new Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderItemByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

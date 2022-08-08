@@ -222,7 +222,7 @@ class KustoDatabaseDataSetMapping(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:KustoDatabaseDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:KustoDatabaseDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20191101:KustoDatabaseDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:KustoDatabaseDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:KustoDatabaseDataSetMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:KustoDatabaseDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:KustoDatabaseDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:KustoDatabaseDataSetMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KustoDatabaseDataSetMapping, __self__).__init__(
             'azure-native:datashare/v20210801:KustoDatabaseDataSetMapping',

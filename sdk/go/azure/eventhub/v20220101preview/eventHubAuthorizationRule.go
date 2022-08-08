@@ -51,12 +51,6 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:eventhub:EventHubAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:eventhub/v20140901:EventHubAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventhub/v20150801:EventHubAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20170401:EventHubAuthorizationRule"),
 		},
 		{

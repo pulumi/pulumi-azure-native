@@ -88,9 +88,6 @@ func NewPackage(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:testbase:Package"),
 		},
-		{
-			Type: pulumi.String("azure-native:testbase/v20201216preview:Package"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Package

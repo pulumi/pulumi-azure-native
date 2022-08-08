@@ -36,9 +36,6 @@ func NewSupportPlanType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:addons/v20170515:SupportPlanType"),
-		},
-		{
 			Type: pulumi.String("azure-native:addons/v20180301:SupportPlanType"),
 		},
 	})

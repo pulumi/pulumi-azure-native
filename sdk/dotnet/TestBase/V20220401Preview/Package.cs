@@ -149,7 +149,6 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:testbase:Package"},
-                    new Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:Package"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

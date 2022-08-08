@@ -41,9 +41,6 @@ func NewServiceTopology(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:deploymentmanager:ServiceTopology"),
 		},
-		{
-			Type: pulumi.String("azure-native:deploymentmanager/v20180901preview:ServiceTopology"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceTopology

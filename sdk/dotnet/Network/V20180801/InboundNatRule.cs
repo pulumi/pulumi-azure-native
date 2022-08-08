@@ -107,14 +107,6 @@ namespace Pulumi.AzureNative.Network.V20180801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170601:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170801:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171101:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180101:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180601:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180701:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181001:InboundNatRule"},

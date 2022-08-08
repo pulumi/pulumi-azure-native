@@ -67,9 +67,6 @@ func NewRemediationAtManagementGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:policyinsights:RemediationAtManagementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:policyinsights/v20190701:RemediationAtManagementGroup"),
 		},
 	})

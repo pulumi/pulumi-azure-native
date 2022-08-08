@@ -40,12 +40,6 @@ func NewQueue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:storage/v20190601:Queue"),
-		},
-		{
-			Type: pulumi.String("azure-native:storage/v20200801preview:Queue"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210101:Queue"),
 		},
 		{

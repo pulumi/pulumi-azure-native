@@ -61,9 +61,6 @@ func NewRollout(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:deploymentmanager:Rollout"),
 		},
-		{
-			Type: pulumi.String("azure-native:deploymentmanager/v20180901preview:Rollout"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Rollout

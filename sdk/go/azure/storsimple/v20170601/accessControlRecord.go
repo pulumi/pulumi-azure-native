@@ -47,9 +47,6 @@ func NewAccessControlRecord(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:storsimple:AccessControlRecord"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple/v20161001:AccessControlRecord"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource AccessControlRecord

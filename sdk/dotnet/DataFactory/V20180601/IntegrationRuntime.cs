@@ -65,7 +65,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datafactory:IntegrationRuntime"},
-                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:IntegrationRuntime"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

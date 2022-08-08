@@ -27,26 +27,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.containerservice.v20151101preview as __v20151101preview
-    v20151101preview = __v20151101preview
-    import pulumi_azure_native.containerservice.v20160330 as __v20160330
-    v20160330 = __v20160330
-    import pulumi_azure_native.containerservice.v20160930 as __v20160930
-    v20160930 = __v20160930
-    import pulumi_azure_native.containerservice.v20170131 as __v20170131
-    v20170131 = __v20170131
-    import pulumi_azure_native.containerservice.v20170831 as __v20170831
-    v20170831 = __v20170831
-    import pulumi_azure_native.containerservice.v20180331 as __v20180331
-    v20180331 = __v20180331
-    import pulumi_azure_native.containerservice.v20180801preview as __v20180801preview
-    v20180801preview = __v20180801preview
-    import pulumi_azure_native.containerservice.v20180930preview as __v20180930preview
-    v20180930preview = __v20180930preview
-    import pulumi_azure_native.containerservice.v20190201 as __v20190201
-    v20190201 = __v20190201
-    import pulumi_azure_native.containerservice.v20190401 as __v20190401
-    v20190401 = __v20190401
     import pulumi_azure_native.containerservice.v20190430 as __v20190430
     v20190430 = __v20190430
     import pulumi_azure_native.containerservice.v20190601 as __v20190601
@@ -114,16 +94,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.containerservice.v20220502preview as __v20220502preview
     v20220502preview = __v20220502preview
 else:
-    v20151101preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20151101preview')
-    v20160330 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20160330')
-    v20160930 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20160930')
-    v20170131 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20170131')
-    v20170831 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20170831')
-    v20180331 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20180331')
-    v20180801preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20180801preview')
-    v20180930preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20180930preview')
-    v20190201 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20190201')
-    v20190401 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20190401')
     v20190430 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20190430')
     v20190601 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20190601')
     v20190801 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20190801')

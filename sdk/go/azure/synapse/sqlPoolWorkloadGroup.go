@@ -61,12 +61,6 @@ func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolWorkloadGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210301:SqlPoolWorkloadGroup"),
 		},
 		{

@@ -45,9 +45,6 @@ func NewDataset(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:datafactory:Dataset"),
 		},
-		{
-			Type: pulumi.String("azure-native:datafactory/v20170901preview:Dataset"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Dataset

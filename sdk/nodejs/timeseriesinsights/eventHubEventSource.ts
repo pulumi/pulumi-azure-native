@@ -173,7 +173,7 @@ export class EventHubEventSource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20171115:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20200515:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:EventHubEventSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20200515:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:EventHubEventSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubEventSource.__pulumiType, name, resourceInputs, opts);
     }

@@ -12,16 +12,12 @@ export * from "./getBot";
 export * from "../types/enums/healthbot";
 
 // Export sub-modules:
-import * as v20201020 from "./v20201020";
-import * as v20201020preview from "./v20201020preview";
 import * as v20201208 from "./v20201208";
 import * as v20201208preview from "./v20201208preview";
 import * as v20210610 from "./v20210610";
 import * as v20210824 from "./v20210824";
 
 export {
-    v20201020,
-    v20201020preview,
     v20201208,
     v20201208preview,
     v20210610,

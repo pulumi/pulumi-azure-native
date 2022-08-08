@@ -122,7 +122,6 @@ namespace Pulumi.AzureNative.Network.V20180801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network:VirtualWan"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualWan"},

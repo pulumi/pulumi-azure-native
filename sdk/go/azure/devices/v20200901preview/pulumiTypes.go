@@ -15,7 +15,7 @@ type ArmIdentity struct {
 	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
 	IdentityType *string `pulumi:"identityType"`
 	// The set of UserAssigned identities associated with the IoT DPS resource.
-	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // ArmIdentityInput is an input type that accepts ArmIdentityArgs and ArmIdentityOutput values.
@@ -34,7 +34,7 @@ type ArmIdentityArgs struct {
 	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
 	IdentityType pulumi.StringPtrInput `pulumi:"identityType"`
 	// The set of UserAssigned identities associated with the IoT DPS resource.
-	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ArmIdentityArgs) ElementType() reflect.Type {
@@ -121,8 +121,8 @@ func (o ArmIdentityOutput) IdentityType() pulumi.StringPtrOutput {
 }
 
 // The set of UserAssigned identities associated with the IoT DPS resource.
-func (o ArmIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ArmIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+func (o ArmIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v ArmIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
 
 type ArmIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -160,13 +160,13 @@ func (o ArmIdentityPtrOutput) IdentityType() pulumi.StringPtrOutput {
 }
 
 // The set of UserAssigned identities associated with the IoT DPS resource.
-func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ArmIdentity) []string {
+func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *ArmIdentity) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringArrayOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The set of ARM identities associated with the IoT DPS resource.

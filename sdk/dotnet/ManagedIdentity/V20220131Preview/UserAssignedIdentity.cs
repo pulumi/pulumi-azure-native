@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:managedidentity:UserAssignedIdentity"},
-                    new Pulumi.Alias { Type = "azure-native:managedidentity/v20150831preview:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-native:managedidentity/v20181130:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-native:managedidentity/v20210930preview:UserAssignedIdentity"},
                 },

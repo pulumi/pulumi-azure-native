@@ -13,11 +13,9 @@ export * from "./operationalizationCluster";
 export * from "../types/enums/machinelearningcompute";
 
 // Export sub-modules:
-import * as v20170601preview from "./v20170601preview";
 import * as v20170801preview from "./v20170801preview";
 
 export {
-    v20170601preview,
     v20170801preview,
 };
 

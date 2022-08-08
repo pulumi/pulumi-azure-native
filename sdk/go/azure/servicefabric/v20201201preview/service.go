@@ -72,21 +72,6 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:servicefabric/v20170701preview:Service"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicefabric/v20190301:Service"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicefabric/v20190301preview:Service"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicefabric/v20190601preview:Service"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicefabric/v20191101preview:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20200301:Service"),
 		},
 		{

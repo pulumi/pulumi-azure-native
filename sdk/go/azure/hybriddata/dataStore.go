@@ -53,9 +53,6 @@ func NewDataStore(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:hybriddata/v20160601:DataStore"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybriddata/v20190601:DataStore"),
 		},
 	})

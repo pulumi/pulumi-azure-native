@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:KustoTableDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:KustoTableDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:KustoTableDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoTableDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20210801:KustoTableDataSet"},

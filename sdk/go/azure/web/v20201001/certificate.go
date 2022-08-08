@@ -85,9 +85,6 @@ func NewCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:web:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/v20150801:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160301:Certificate"),
 		},
 		{

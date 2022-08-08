@@ -46,9 +46,6 @@ func NewSqlServerRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:azuredata/v20170301preview:SqlServerRegistration"),
-		},
-		{
 			Type: pulumi.String("azure-native:azuredata/v20190724preview:SqlServerRegistration"),
 		},
 	})

@@ -5435,7 +5435,7 @@ type IdentityData struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type string `pulumi:"type"`
 	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityDataInput is an input type that accepts IdentityDataArgs and IdentityDataOutput values.
@@ -5454,7 +5454,7 @@ type IdentityDataArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityDataArgs) ElementType() reflect.Type {
@@ -5541,8 +5541,8 @@ func (o IdentityDataOutput) Type() pulumi.StringOutput {
 }
 
 // The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityDataOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v IdentityData) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+func (o IdentityDataOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v IdentityData) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
 
 type IdentityDataPtrOutput struct{ *pulumi.OutputState }
@@ -5580,13 +5580,13 @@ func (o IdentityDataPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityDataPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *IdentityData) []string {
+func (o IdentityDataPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *IdentityData) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringArrayOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Identity for the resource.

@@ -92,7 +92,7 @@ export class AccessControlRecord extends pulumi.CustomResource {
             resourceInputs["volumeCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:AccessControlRecord" }, { type: "azure-native:storsimple/v20161001:AccessControlRecord" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:AccessControlRecord" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessControlRecord.__pulumiType, name, resourceInputs, opts);
     }

@@ -32,8 +32,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.operationalinsights.v20150320 as __v20150320
-    v20150320 = __v20150320
     import pulumi_azure_native.operationalinsights.v20151101preview as __v20151101preview
     v20151101preview = __v20151101preview
     import pulumi_azure_native.operationalinsights.v20190801preview as __v20190801preview
@@ -53,7 +51,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.operationalinsights.v20211201preview as __v20211201preview
     v20211201preview = __v20211201preview
 else:
-    v20150320 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20150320')
     v20151101preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20151101preview')
     v20190801preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20190801preview')
     v20190901 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20190901')

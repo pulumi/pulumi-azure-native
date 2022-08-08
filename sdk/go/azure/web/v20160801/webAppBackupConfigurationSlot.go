@@ -63,9 +63,6 @@ func NewWebAppBackupConfigurationSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:web:WebAppBackupConfigurationSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppBackupConfigurationSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppBackupConfigurationSlot"),
 		},
 		{

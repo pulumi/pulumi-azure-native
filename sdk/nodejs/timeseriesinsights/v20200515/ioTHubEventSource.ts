@@ -163,7 +163,7 @@ export class IoTHubEventSource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20171115:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoTHubEventSource.__pulumiType, name, resourceInputs, opts);
     }

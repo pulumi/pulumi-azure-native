@@ -127,8 +127,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datashare:BlobDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobDataSetMapping"},
                 },

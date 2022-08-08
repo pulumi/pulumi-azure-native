@@ -49,9 +49,6 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:security:AdaptiveApplicationControl"),
 		},
-		{
-			Type: pulumi.String("azure-native:security/v20150601preview:AdaptiveApplicationControl"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource AdaptiveApplicationControl

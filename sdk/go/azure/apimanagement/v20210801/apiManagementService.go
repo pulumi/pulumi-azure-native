@@ -127,9 +127,6 @@ func NewApiManagementService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:apimanagement:ApiManagementService"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/v20160707:ApiManagementService"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:ApiManagementService"),
 		},
 		{

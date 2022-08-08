@@ -71,8 +71,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:servicebus:TopicAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:TopicAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:TopicAuthorizationRule"},

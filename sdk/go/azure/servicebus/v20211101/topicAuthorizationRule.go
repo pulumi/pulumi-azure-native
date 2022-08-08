@@ -51,12 +51,6 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:servicebus:TopicAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicebus/v20140901:TopicAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicebus/v20150801:TopicAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20170401:TopicAuthorizationRule"),
 		},
 		{

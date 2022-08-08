@@ -94,18 +94,6 @@ func NewDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:eventgrid/v20180915preview:Domain"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20190201preview:Domain"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20190601:Domain"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20200101preview:Domain"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20200401preview:Domain"),
 		},
 		{

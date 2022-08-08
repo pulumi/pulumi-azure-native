@@ -13,9 +13,6 @@ export * from "./listJobCredentials";
 export * from "../types/enums/databox";
 
 // Export sub-modules:
-import * as v20180101 from "./v20180101";
-import * as v20190901 from "./v20190901";
-import * as v20200401 from "./v20200401";
 import * as v20201101 from "./v20201101";
 import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
@@ -24,9 +21,6 @@ import * as v20211201 from "./v20211201";
 import * as v20220201 from "./v20220201";
 
 export {
-    v20180101,
-    v20190901,
-    v20200401,
     v20201101,
     v20210301,
     v20210501,

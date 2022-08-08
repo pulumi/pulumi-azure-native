@@ -59,24 +59,6 @@ func NewMECRole(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:databoxedge:MECRole"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20190301:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190701:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190801:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200501preview:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:MECRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:MECRole"),
 		},
 		{

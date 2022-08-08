@@ -81,15 +81,6 @@ func NewGen2Environment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:timeseriesinsights:Gen2Environment"),
 		},
 		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:Gen2Environment"),
-		},
-		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:Gen2Environment"),
-		},
-		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:Gen2Environment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:Gen2Environment"),
 		},
 		{

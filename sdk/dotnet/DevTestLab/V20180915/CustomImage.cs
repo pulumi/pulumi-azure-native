@@ -137,8 +137,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:devtestlab:CustomImage"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:CustomImage"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:CustomImage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

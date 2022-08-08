@@ -125,18 +125,6 @@ namespace Pulumi.AzureNative.Compute.V20210701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20150615:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160330:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineExtension"},

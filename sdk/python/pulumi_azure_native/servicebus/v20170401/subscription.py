@@ -398,7 +398,7 @@ class Subscription(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20140901:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Subscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Subscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Subscription, __self__).__init__(
             'azure-native:servicebus/v20170401:Subscription',

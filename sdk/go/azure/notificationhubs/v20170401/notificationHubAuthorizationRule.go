@@ -68,9 +68,6 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:notificationhubs:NotificationHubAuthorizationRule"),
 		},
-		{
-			Type: pulumi.String("azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource NotificationHubAuthorizationRule

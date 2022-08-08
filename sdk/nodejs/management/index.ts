@@ -14,21 +14,11 @@ export * from "./managementGroup";
 export * from "./managementGroupSubscription";
 
 // Export sub-modules:
-import * as v20171101preview from "./v20171101preview";
-import * as v20180101preview from "./v20180101preview";
-import * as v20180301preview from "./v20180301preview";
-import * as v20191101 from "./v20191101";
-import * as v20200201 from "./v20200201";
 import * as v20200501 from "./v20200501";
 import * as v20201001 from "./v20201001";
 import * as v20210401 from "./v20210401";
 
 export {
-    v20171101preview,
-    v20180101preview,
-    v20180301preview,
-    v20191101,
-    v20200201,
     v20200501,
     v20201001,
     v20210401,

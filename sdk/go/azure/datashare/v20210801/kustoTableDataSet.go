@@ -67,12 +67,6 @@ func NewKustoTableDataSet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:KustoTableDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:KustoTableDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:KustoTableDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:KustoTableDataSet"),
 		},
 		{

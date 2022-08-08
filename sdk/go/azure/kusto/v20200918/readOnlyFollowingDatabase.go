@@ -62,9 +62,6 @@ func NewReadOnlyFollowingDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:kusto:ReadOnlyFollowingDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase"),
 		},
 		{

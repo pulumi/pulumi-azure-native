@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:Account"},
-                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20200701preview:Account"},
                     new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:Account"},
                 },
             };

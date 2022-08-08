@@ -15,14 +15,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.storagecache.v20190801preview as __v20190801preview
-    v20190801preview = __v20190801preview
-    import pulumi_azure_native.storagecache.v20191101 as __v20191101
-    v20191101 = __v20191101
-    import pulumi_azure_native.storagecache.v20200301 as __v20200301
-    v20200301 = __v20200301
-    import pulumi_azure_native.storagecache.v20201001 as __v20201001
-    v20201001 = __v20201001
     import pulumi_azure_native.storagecache.v20210301 as __v20210301
     v20210301 = __v20210301
     import pulumi_azure_native.storagecache.v20210501 as __v20210501
@@ -34,10 +26,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.storagecache.v20220501 as __v20220501
     v20220501 = __v20220501
 else:
-    v20190801preview = _utilities.lazy_import('pulumi_azure_native.storagecache.v20190801preview')
-    v20191101 = _utilities.lazy_import('pulumi_azure_native.storagecache.v20191101')
-    v20200301 = _utilities.lazy_import('pulumi_azure_native.storagecache.v20200301')
-    v20201001 = _utilities.lazy_import('pulumi_azure_native.storagecache.v20201001')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.storagecache.v20210301')
     v20210501 = _utilities.lazy_import('pulumi_azure_native.storagecache.v20210501')
     v20210901 = _utilities.lazy_import('pulumi_azure_native.storagecache.v20210901')

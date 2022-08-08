@@ -37,9 +37,6 @@ func NewSupportPlanType(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:addons:SupportPlanType"),
 		},
-		{
-			Type: pulumi.String("azure-native:addons/v20170515:SupportPlanType"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource SupportPlanType

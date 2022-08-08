@@ -60,9 +60,6 @@ func NewWebAppBackupConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:web:WebAppBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppBackupConfiguration"),
 		},
 		{

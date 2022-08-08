@@ -43,30 +43,6 @@ func NewDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:resources/v20151101:Deployment"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20160201:Deployment"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20160701:Deployment"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20160901:Deployment"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20170510:Deployment"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20180201:Deployment"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20180501:Deployment"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20190301:Deployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190501:Deployment"),
 		},
 		{

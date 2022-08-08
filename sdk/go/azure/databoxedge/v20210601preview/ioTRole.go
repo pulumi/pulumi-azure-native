@@ -76,24 +76,6 @@ func NewIoTRole(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:databoxedge:IoTRole"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20190301:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190701:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190801:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200501preview:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:IoTRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:IoTRole"),
 		},
 		{

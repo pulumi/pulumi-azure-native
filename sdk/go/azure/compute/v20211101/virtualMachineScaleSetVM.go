@@ -87,30 +87,6 @@ func NewVirtualMachineScaleSetVM(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:compute:VirtualMachineScaleSetVM"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/v20171201:VirtualMachineScaleSetVM"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20180401:VirtualMachineScaleSetVM"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20180601:VirtualMachineScaleSetVM"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20181001:VirtualMachineScaleSetVM"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20190301:VirtualMachineScaleSetVM"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20190701:VirtualMachineScaleSetVM"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20191201:VirtualMachineScaleSetVM"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineScaleSetVM"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachineScaleSetVM"),
 		},
 		{

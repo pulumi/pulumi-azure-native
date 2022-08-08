@@ -45,9 +45,6 @@ func NewTrigger(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:datafactory:Trigger"),
 		},
-		{
-			Type: pulumi.String("azure-native:datafactory/v20170901preview:Trigger"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Trigger

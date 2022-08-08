@@ -71,9 +71,6 @@ namespace Pulumi.AzureNative.Peering.V20220101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:peering:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20210101:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20210601:RegisteredAsn"},
                 },

@@ -49,9 +49,6 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:kusto:Database"),
 		},
 		{
-			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20180907preview:Database"),
 		},
 		{

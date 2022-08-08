@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
         public Input<Pulumi.AzureNative.Synapse.V20210501.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<object>? _userAssignedIdentities;
 
         /// <summary>
         /// The user assigned managed identities.
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<object> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
             set => _userAssignedIdentities = value;
         }
 

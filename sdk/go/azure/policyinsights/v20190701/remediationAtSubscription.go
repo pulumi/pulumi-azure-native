@@ -48,9 +48,6 @@ func NewRemediationAtSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:policyinsights:RemediationAtSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-native:policyinsights/v20180701preview:RemediationAtSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:policyinsights/v20211001:RemediationAtSubscription"),
 		},
 	})

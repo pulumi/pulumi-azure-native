@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.Web.V20180201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:web:WebAppDiagnosticLogsConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration"},

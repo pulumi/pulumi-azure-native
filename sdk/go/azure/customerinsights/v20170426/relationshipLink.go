@@ -72,9 +72,6 @@ func NewRelationshipLink(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:customerinsights:RelationshipLink"),
 		},
-		{
-			Type: pulumi.String("azure-native:customerinsights/v20170101:RelationshipLink"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource RelationshipLink

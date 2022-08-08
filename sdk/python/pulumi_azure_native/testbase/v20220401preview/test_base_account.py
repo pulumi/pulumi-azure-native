@@ -197,7 +197,7 @@ class TestBaseAccount(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase:TestBaseAccount"), pulumi.Alias(type_="azure-native:testbase/v20201216preview:TestBaseAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase:TestBaseAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TestBaseAccount, __self__).__init__(
             'azure-native:testbase/v20220401preview:TestBaseAccount',

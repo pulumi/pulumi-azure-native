@@ -57,9 +57,6 @@ func NewEnvironment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devtestlab:Environment"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20160515:Environment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Environment

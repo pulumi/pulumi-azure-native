@@ -78,9 +78,6 @@ func NewLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:customerinsights/v20170101:Link"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170426:Link"),
 		},
 	})

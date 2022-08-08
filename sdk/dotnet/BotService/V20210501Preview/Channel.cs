@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:botservice:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20171201:Channel"},
                     new Pulumi.Alias { Type = "azure-native:botservice/v20180712:Channel"},
                     new Pulumi.Alias { Type = "azure-native:botservice/v20200602:Channel"},
                     new Pulumi.Alias { Type = "azure-native:botservice/v20210301:Channel"},

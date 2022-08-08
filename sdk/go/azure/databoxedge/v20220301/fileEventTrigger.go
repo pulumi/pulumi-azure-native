@@ -60,24 +60,6 @@ func NewFileEventTrigger(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:databoxedge:FileEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20190301:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190701:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190801:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200501preview:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:FileEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:FileEventTrigger"),
 		},
 		{

@@ -9,11 +9,9 @@ export * from "./getService";
 export * from "./service";
 
 // Export sub-modules:
-import * as v20180216preview from "./v20180216preview";
 import * as v20190601 from "./v20190601";
 
 export {
-    v20180216preview,
     v20190601,
 };
 

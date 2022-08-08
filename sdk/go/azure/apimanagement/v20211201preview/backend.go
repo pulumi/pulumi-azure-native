@@ -66,9 +66,6 @@ func NewBackend(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:apimanagement:Backend"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/v20160707:Backend"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:Backend"),
 		},
 		{

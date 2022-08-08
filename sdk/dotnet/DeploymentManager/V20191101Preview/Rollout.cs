@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:deploymentmanager:Rollout"},
-                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:Rollout"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

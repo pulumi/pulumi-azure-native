@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.Network.V20190401.Inputs
         public Input<Pulumi.AzureNative.Network.V20190401.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<object>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<object> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
             set => _userAssignedIdentities = value;
         }
 

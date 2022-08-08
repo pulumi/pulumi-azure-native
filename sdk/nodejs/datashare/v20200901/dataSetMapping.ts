@@ -95,7 +95,7 @@ export class DataSetMapping extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare:DataSetMapping" }, { type: "azure-native:datashare/v20181101preview:DataSetMapping" }, { type: "azure-native:datashare/v20191101:DataSetMapping" }, { type: "azure-native:datashare/v20201001preview:DataSetMapping" }, { type: "azure-native:datashare/v20210801:DataSetMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:DataSetMapping" }, { type: "azure-native:datashare/v20201001preview:DataSetMapping" }, { type: "azure-native:datashare/v20210801:DataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataSetMapping.__pulumiType, name, resourceInputs, opts);
     }

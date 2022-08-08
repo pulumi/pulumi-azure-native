@@ -45,9 +45,6 @@ func NewAlertProcessingRuleByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName"),
-		},
-		{
 			Type: pulumi.String("azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName"),
 		},
 		{

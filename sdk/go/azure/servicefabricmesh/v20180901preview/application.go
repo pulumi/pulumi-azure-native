@@ -59,9 +59,6 @@ func NewApplication(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicefabricmesh:Application"),
 		},
-		{
-			Type: pulumi.String("azure-native:servicefabricmesh/v20180701preview:Application"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Application

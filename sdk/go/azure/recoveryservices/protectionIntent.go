@@ -48,9 +48,6 @@ func NewProtectionIntent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:recoveryservices/v20170701:ProtectionIntent"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectionIntent"),
 		},
 		{

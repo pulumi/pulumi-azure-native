@@ -54,18 +54,6 @@ func NewLinkedServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:cache/v20170201:LinkedServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:cache/v20171001:LinkedServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:cache/v20180301:LinkedServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:cache/v20190701:LinkedServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20200601:LinkedServer"),
 		},
 		{

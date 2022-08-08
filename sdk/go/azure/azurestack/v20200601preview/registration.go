@@ -55,9 +55,6 @@ func NewRegistration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:azurestack:Registration"),
 		},
 		{
-			Type: pulumi.String("azure-native:azurestack/v20160101:Registration"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurestack/v20170601:Registration"),
 		},
 	})

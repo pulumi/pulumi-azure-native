@@ -239,7 +239,7 @@ class CapacityDetails(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerbidedicated/v20171001:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated/v20210101:CapacityDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerbidedicated/v20210101:CapacityDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CapacityDetails, __self__).__init__(
             'azure-native:powerbidedicated:CapacityDetails',

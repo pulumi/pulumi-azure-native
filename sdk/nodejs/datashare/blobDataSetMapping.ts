@@ -164,7 +164,7 @@ export class BlobDataSetMapping extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:BlobDataSetMapping" }, { type: "azure-native:datashare/v20191101:BlobDataSetMapping" }, { type: "azure-native:datashare/v20200901:BlobDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:BlobDataSetMapping" }, { type: "azure-native:datashare/v20210801:BlobDataSetMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20200901:BlobDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:BlobDataSetMapping" }, { type: "azure-native:datashare/v20210801:BlobDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobDataSetMapping.__pulumiType, name, resourceInputs, opts);
     }

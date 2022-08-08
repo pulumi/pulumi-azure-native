@@ -65,9 +65,6 @@ namespace Pulumi.AzureNative.ManagedServices.V20190901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:managedservices:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20220101preview:RegistrationDefinition"},
                 },

@@ -74,48 +74,6 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:VirtualNetworkGateway"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20150615:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:VirtualNetworkGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:VirtualNetworkGateway"),
 		},
 		{

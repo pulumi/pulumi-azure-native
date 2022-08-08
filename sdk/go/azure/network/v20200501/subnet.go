@@ -75,51 +75,6 @@ func NewSubnet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:Subnet"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20150501preview:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20150615:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:Subnet"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:Subnet"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:Subnet"),
 		},
 		{

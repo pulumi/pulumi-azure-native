@@ -54,48 +54,6 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:LocalNetworkGateway"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20150615:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:LocalNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:LocalNetworkGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:LocalNetworkGateway"),
 		},
 		{

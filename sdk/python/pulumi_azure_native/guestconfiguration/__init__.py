@@ -15,10 +15,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.guestconfiguration.v20180630preview as __v20180630preview
-    v20180630preview = __v20180630preview
-    import pulumi_azure_native.guestconfiguration.v20181120 as __v20181120
-    v20181120 = __v20181120
     import pulumi_azure_native.guestconfiguration.v20200625 as __v20200625
     v20200625 = __v20200625
     import pulumi_azure_native.guestconfiguration.v20210125 as __v20210125
@@ -26,8 +22,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.guestconfiguration.v20220125 as __v20220125
     v20220125 = __v20220125
 else:
-    v20180630preview = _utilities.lazy_import('pulumi_azure_native.guestconfiguration.v20180630preview')
-    v20181120 = _utilities.lazy_import('pulumi_azure_native.guestconfiguration.v20181120')
     v20200625 = _utilities.lazy_import('pulumi_azure_native.guestconfiguration.v20200625')
     v20210125 = _utilities.lazy_import('pulumi_azure_native.guestconfiguration.v20210125')
     v20220125 = _utilities.lazy_import('pulumi_azure_native.guestconfiguration.v20220125')

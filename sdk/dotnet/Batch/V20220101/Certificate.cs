@@ -104,13 +104,6 @@ namespace Pulumi.AzureNative.Batch.V20220101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:batch:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20170901:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20181201:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200501:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20210101:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20210601:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20220601:Certificate"},

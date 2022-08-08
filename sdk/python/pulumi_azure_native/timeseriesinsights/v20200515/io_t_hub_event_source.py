@@ -383,7 +383,7 @@ class IoTHubEventSource(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IoTHubEventSource, __self__).__init__(
             'azure-native:timeseriesinsights/v20200515:IoTHubEventSource',

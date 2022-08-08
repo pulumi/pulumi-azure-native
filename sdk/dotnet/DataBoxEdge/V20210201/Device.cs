@@ -197,12 +197,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:databoxedge:Device"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Device"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Device"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Device"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Device"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Device"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Device"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Device"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Device"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Device"},

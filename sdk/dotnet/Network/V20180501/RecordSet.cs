@@ -149,11 +149,6 @@ namespace Pulumi.AzureNative.Network.V20180501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20150504preview:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160401:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:RecordSet"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180301preview:RecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

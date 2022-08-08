@@ -167,7 +167,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20201001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:azurestackhci:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:azurestackhci/v20220101:Cluster"},

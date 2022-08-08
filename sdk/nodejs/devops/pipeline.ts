@@ -110,7 +110,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devops/v20190701preview:Pipeline" }, { type: "azure-native:devops/v20200713preview:Pipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devops/v20200713preview:Pipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }

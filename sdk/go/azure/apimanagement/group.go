@@ -48,9 +48,6 @@ func NewGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:apimanagement/v20160707:Group"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:Group"),
 		},
 		{

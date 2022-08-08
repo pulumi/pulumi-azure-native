@@ -69,12 +69,6 @@ func NewIoTAddon(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:databoxedge:IoTAddon"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:IoTAddon"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:IoTAddon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:IoTAddon"),
 		},
 		{

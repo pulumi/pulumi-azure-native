@@ -43,9 +43,6 @@ func NewWebAppConnectionStrings(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:web:WebAppConnectionStrings"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppConnectionStrings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppConnectionStrings"),
 		},
 		{

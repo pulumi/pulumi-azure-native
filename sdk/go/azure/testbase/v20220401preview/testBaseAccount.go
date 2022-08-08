@@ -52,9 +52,6 @@ func NewTestBaseAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:testbase:TestBaseAccount"),
 		},
-		{
-			Type: pulumi.String("azure-native:testbase/v20201216preview:TestBaseAccount"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource TestBaseAccount

@@ -70,9 +70,6 @@ func NewOperationalizationCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:machinelearningcompute:OperationalizationCluster"),
 		},
-		{
-			Type: pulumi.String("azure-native:machinelearningcompute/v20170601preview:OperationalizationCluster"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource OperationalizationCluster

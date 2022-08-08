@@ -125,7 +125,6 @@ namespace Pulumi.AzureNative.Relay
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20170401:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20180101preview:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20211101:Namespace"},

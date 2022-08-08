@@ -59,9 +59,6 @@ func NewWCFRelay(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:relay:WCFRelay"),
 		},
 		{
-			Type: pulumi.String("azure-native:relay/v20160701:WCFRelay"),
-		},
-		{
 			Type: pulumi.String("azure-native:relay/v20170401:WCFRelay"),
 		},
 	})

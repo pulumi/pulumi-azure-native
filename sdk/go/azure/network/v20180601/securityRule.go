@@ -80,51 +80,6 @@ func NewSecurityRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:SecurityRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20150501preview:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20150615:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:SecurityRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180701:SecurityRule"),
 		},
 		{

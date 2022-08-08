@@ -77,12 +77,6 @@ func NewSignalR(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:signalrservice:SignalR"),
 		},
 		{
-			Type: pulumi.String("azure-native:signalrservice/v20180301preview:SignalR"),
-		},
-		{
-			Type: pulumi.String("azure-native:signalrservice/v20181001:SignalR"),
-		},
-		{
 			Type: pulumi.String("azure-native:signalrservice/v20200701preview:SignalR"),
 		},
 		{

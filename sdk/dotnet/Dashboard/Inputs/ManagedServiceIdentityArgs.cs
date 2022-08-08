@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.Dashboard.Inputs
         public InputUnion<string, Pulumi.AzureNative.Dashboard.ManagedServiceIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<object>? _userAssignedIdentities;
 
         /// <summary>
         /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<object> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
             set => _userAssignedIdentities = value;
         }
 

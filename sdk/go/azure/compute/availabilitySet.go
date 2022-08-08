@@ -50,42 +50,6 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:compute/v20150615:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20160330:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20160430preview:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20170330:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20171201:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20180401:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20180601:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20181001:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20190301:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20190701:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20191201:AvailabilitySet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20200601:AvailabilitySet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:AvailabilitySet"),
 		},
 		{

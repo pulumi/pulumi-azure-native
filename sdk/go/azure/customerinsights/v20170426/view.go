@@ -55,9 +55,6 @@ func NewView(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:customerinsights:View"),
 		},
-		{
-			Type: pulumi.String("azure-native:customerinsights/v20170101:View"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource View

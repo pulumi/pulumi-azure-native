@@ -63,15 +63,6 @@ func NewProject(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:datamigration/v20171115preview:Project"),
-		},
-		{
-			Type: pulumi.String("azure-native:datamigration/v20180315preview:Project"),
-		},
-		{
-			Type: pulumi.String("azure-native:datamigration/v20180331preview:Project"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20180419:Project"),
 		},
 		{

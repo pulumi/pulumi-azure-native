@@ -48,9 +48,6 @@ func NewControllerDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:delegatednetwork/v20200808preview:ControllerDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:delegatednetwork/v20210315:ControllerDetails"),
 		},
 	})

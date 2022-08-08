@@ -44,12 +44,6 @@ func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:digitaltwins:DigitalTwinsEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint"),
 		},
 		{

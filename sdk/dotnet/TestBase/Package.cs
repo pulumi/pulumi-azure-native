@@ -149,7 +149,6 @@ namespace Pulumi.AzureNative.TestBase
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:Package"},
                     new Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:Package"},
                 },
             };

@@ -179,8 +179,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:servicebus:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Queue"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Queue"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Queue"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Queue"},

@@ -5344,10 +5344,10 @@ class LiveEventTranscriptionArgs:
 class MediaServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         :param pulumi.Input[str] type: The identity type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The user assigned managed identities.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The user assigned managed identities.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -5367,14 +5367,14 @@ class MediaServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The user assigned managed identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

@@ -78,12 +78,6 @@ func NewSqlDBTableDataSetMapping(ctx *pulumi.Context,
 	args.Kind = pulumi.String("SqlDBTable")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:SqlDBTableDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:SqlDBTableDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:SqlDBTableDataSetMapping"),
 		},
 		{

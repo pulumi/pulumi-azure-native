@@ -52,51 +52,6 @@ func NewRouteTable(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:RouteTable"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20150501preview:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20150615:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:RouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:RouteTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:RouteTable"),
 		},
 		{

@@ -65,8 +65,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationProtectedItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationProtectedItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationProtectedItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationProtectedItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationProtectedItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationProtectedItem"},

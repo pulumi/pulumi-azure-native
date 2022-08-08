@@ -142,7 +142,7 @@ export class ADLSGen2FileDataSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2FileDataSet" }, { type: "azure-native:datashare/v20181101preview:ADLSGen2FileDataSet" }, { type: "azure-native:datashare/v20191101:ADLSGen2FileDataSet" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2FileDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen2FileDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2FileDataSet" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2FileDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen2FileDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ADLSGen2FileDataSet.__pulumiType, name, resourceInputs, opts);
     }

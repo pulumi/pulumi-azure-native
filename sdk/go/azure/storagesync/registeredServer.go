@@ -85,30 +85,6 @@ func NewRegisteredServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:storagesync/v20170605preview:RegisteredServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:storagesync/v20180402:RegisteredServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:storagesync/v20180701:RegisteredServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:storagesync/v20181001:RegisteredServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:storagesync/v20190201:RegisteredServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:storagesync/v20190301:RegisteredServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:storagesync/v20190601:RegisteredServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:storagesync/v20191001:RegisteredServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20200301:RegisteredServer"),
 		},
 		{

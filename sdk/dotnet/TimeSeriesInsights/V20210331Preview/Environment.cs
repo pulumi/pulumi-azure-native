@@ -78,9 +78,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Environment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:Environment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Environment"},
                 },

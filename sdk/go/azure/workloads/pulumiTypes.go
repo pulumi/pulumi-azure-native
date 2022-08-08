@@ -4135,7 +4135,7 @@ type PhpWorkloadResourceIdentity struct {
 	// Type of manage identity
 	Type string `pulumi:"type"`
 	// User assigned identities dictionary
-	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // PhpWorkloadResourceIdentityInput is an input type that accepts PhpWorkloadResourceIdentityArgs and PhpWorkloadResourceIdentityOutput values.
@@ -4154,7 +4154,7 @@ type PhpWorkloadResourceIdentityArgs struct {
 	// Type of manage identity
 	Type pulumi.StringInput `pulumi:"type"`
 	// User assigned identities dictionary
-	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (PhpWorkloadResourceIdentityArgs) ElementType() reflect.Type {
@@ -4241,8 +4241,8 @@ func (o PhpWorkloadResourceIdentityOutput) Type() pulumi.StringOutput {
 }
 
 // User assigned identities dictionary
-func (o PhpWorkloadResourceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PhpWorkloadResourceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+func (o PhpWorkloadResourceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v PhpWorkloadResourceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
 
 type PhpWorkloadResourceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -4280,13 +4280,13 @@ func (o PhpWorkloadResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // User assigned identities dictionary
-func (o PhpWorkloadResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PhpWorkloadResourceIdentity) []string {
+func (o PhpWorkloadResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *PhpWorkloadResourceIdentity) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringArrayOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Identity for the resource. Currently not supported
@@ -6035,7 +6035,7 @@ type UserAssignedServiceIdentity struct {
 	// Type of manage identity
 	Type string `pulumi:"type"`
 	// User assigned identities dictionary
-	UserAssignedIdentities []string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // UserAssignedServiceIdentityInput is an input type that accepts UserAssignedServiceIdentityArgs and UserAssignedServiceIdentityOutput values.
@@ -6054,7 +6054,7 @@ type UserAssignedServiceIdentityArgs struct {
 	// Type of manage identity
 	Type pulumi.StringInput `pulumi:"type"`
 	// User assigned identities dictionary
-	UserAssignedIdentities pulumi.StringArrayInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (UserAssignedServiceIdentityArgs) ElementType() reflect.Type {
@@ -6141,8 +6141,8 @@ func (o UserAssignedServiceIdentityOutput) Type() pulumi.StringOutput {
 }
 
 // User assigned identities dictionary
-func (o UserAssignedServiceIdentityOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UserAssignedServiceIdentity) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
+func (o UserAssignedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v UserAssignedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
 
 type UserAssignedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -6180,13 +6180,13 @@ func (o UserAssignedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // User assigned identities dictionary
-func (o UserAssignedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UserAssignedServiceIdentity) []string {
+func (o UserAssignedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *UserAssignedServiceIdentity) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringArrayOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Managed service identity (user assigned identities)

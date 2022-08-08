@@ -47,9 +47,6 @@ func NewSqlServerRegistration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:azuredata:SqlServerRegistration"),
 		},
-		{
-			Type: pulumi.String("azure-native:azuredata/v20170301preview:SqlServerRegistration"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlServerRegistration

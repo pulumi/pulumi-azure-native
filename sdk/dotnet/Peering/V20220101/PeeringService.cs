@@ -107,11 +107,6 @@ namespace Pulumi.AzureNative.Peering.V20220101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:peering:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20190801preview:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:PeeringService"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20210101:PeeringService"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20210601:PeeringService"},
                 },

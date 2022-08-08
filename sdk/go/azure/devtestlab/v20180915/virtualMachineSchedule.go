@@ -73,9 +73,6 @@ func NewVirtualMachineSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devtestlab:VirtualMachineSchedule"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20160515:VirtualMachineSchedule"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineSchedule

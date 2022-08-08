@@ -75,21 +75,6 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:network/v20171001:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:ConnectionMonitor"),
 		},
 		{

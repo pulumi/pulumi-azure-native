@@ -40,11 +40,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.datafactory.v20170901preview as __v20170901preview
-    v20170901preview = __v20170901preview
     import pulumi_azure_native.datafactory.v20180601 as __v20180601
     v20180601 = __v20180601
 else:
-    v20170901preview = _utilities.lazy_import('pulumi_azure_native.datafactory.v20170901preview')
     v20180601 = _utilities.lazy_import('pulumi_azure_native.datafactory.v20180601')
 

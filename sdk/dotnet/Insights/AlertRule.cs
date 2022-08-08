@@ -107,7 +107,6 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20140401:AlertRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20160301:AlertRule"},
                 },
             };

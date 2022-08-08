@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.Devices.V20200710Preview.Inputs
         public Input<string>? IdentityType { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
-        public InputList<string> UserAssignedIdentities
+        private InputMap<object>? _userAssignedIdentities;
+        public InputMap<object> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
             set => _userAssignedIdentities = value;
         }
 

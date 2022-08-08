@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         public Input<string> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
+        private InputMap<object>? _userAssignedIdentities;
 
         /// <summary>
         /// The User Assigned Managed Identities.
         /// </summary>
-        public InputList<string> UserAssignedIdentities
+        public InputMap<object> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
             set => _userAssignedIdentities = value;
         }
 

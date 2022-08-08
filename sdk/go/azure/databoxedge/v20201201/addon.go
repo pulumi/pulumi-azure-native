@@ -51,12 +51,6 @@ func NewAddon(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:databoxedge:Addon"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:Addon"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Addon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:Addon"),
 		},
 		{

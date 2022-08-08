@@ -14,11 +14,9 @@ export * from "./getCapacityDetails";
 export * from "../types/enums/powerbidedicated";
 
 // Export sub-modules:
-import * as v20171001 from "./v20171001";
 import * as v20210101 from "./v20210101";
 
 export {
-    v20171001,
     v20210101,
 };
 

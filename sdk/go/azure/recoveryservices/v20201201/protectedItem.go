@@ -53,9 +53,6 @@ func NewProtectedItem(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:recoveryservices:ProtectedItem"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/v20160601:ProtectedItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20190513:ProtectedItem"),
 		},
 		{

@@ -57,21 +57,6 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:storage/v20180701:BlobServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-native:storage/v20181101:BlobServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-native:storage/v20190401:BlobServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-native:storage/v20190601:BlobServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-native:storage/v20200801preview:BlobServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210101:BlobServiceProperties"),
 		},
 		{

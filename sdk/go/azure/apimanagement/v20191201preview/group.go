@@ -50,9 +50,6 @@ func NewGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:apimanagement:Group"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/v20160707:Group"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:Group"),
 		},
 		{

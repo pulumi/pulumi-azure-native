@@ -54,36 +54,6 @@ func NewApplicationPackage(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:batch:ApplicationPackage"),
 		},
 		{
-			Type: pulumi.String("azure-native:batch/v20151201:ApplicationPackage"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20170101:ApplicationPackage"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20170501:ApplicationPackage"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20170901:ApplicationPackage"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20181201:ApplicationPackage"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20190401:ApplicationPackage"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20190801:ApplicationPackage"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20200301:ApplicationPackage"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20200501:ApplicationPackage"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20200901:ApplicationPackage"),
-		},
-		{
 			Type: pulumi.String("azure-native:batch/v20210101:ApplicationPackage"),
 		},
 		{

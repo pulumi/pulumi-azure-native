@@ -130,7 +130,7 @@ class HierarchySetting(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:management:HierarchySetting"), pulumi.Alias(type_="azure-native:management/v20200201:HierarchySetting"), pulumi.Alias(type_="azure-native:management/v20201001:HierarchySetting"), pulumi.Alias(type_="azure-native:management/v20210401:HierarchySetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:management:HierarchySetting"), pulumi.Alias(type_="azure-native:management/v20201001:HierarchySetting"), pulumi.Alias(type_="azure-native:management/v20210401:HierarchySetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HierarchySetting, __self__).__init__(
             'azure-native:management/v20200501:HierarchySetting',

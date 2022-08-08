@@ -58,9 +58,6 @@ func NewNotificationChannel(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devtestlab:NotificationChannel"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20160515:NotificationChannel"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource NotificationChannel

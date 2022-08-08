@@ -107,7 +107,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20210601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:iotcentral:App"},
-                    new Pulumi.Alias { Type = "azure-native:iotcentral/v20180901:App"},
                     new Pulumi.Alias { Type = "azure-native:iotcentral/v20211101preview:App"},
                 },
             };

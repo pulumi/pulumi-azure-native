@@ -53,9 +53,6 @@ func NewReadWriteDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:kusto:ReadWriteDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:ReadWriteDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20180907preview:ReadWriteDatabase"),
 		},
 		{

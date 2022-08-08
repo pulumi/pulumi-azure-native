@@ -57,21 +57,6 @@ func NewZone(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:network/v20150504preview:Zone"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160401:Zone"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:Zone"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:Zone"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180301preview:Zone"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180501:Zone"),
 		},
 	})

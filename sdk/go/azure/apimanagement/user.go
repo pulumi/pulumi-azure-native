@@ -65,9 +65,6 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:apimanagement/v20160707:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:User"),
 		},
 		{

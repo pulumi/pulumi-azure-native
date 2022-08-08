@@ -64,12 +64,6 @@ func NewArtifactSource(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devtestlab:ArtifactSource"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20150521preview:ArtifactSource"),
-		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20160515:ArtifactSource"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ArtifactSource

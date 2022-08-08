@@ -9,15 +9,9 @@ export * from "./getSuppression";
 export * from "./suppression";
 
 // Export sub-modules:
-import * as v20160712preview from "./v20160712preview";
-import * as v20170331 from "./v20170331";
-import * as v20170419 from "./v20170419";
 import * as v20200101 from "./v20200101";
 
 export {
-    v20160712preview,
-    v20170331,
-    v20170419,
     v20200101,
 };
 

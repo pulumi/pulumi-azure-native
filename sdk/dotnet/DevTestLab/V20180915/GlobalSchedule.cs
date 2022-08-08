@@ -131,7 +131,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:devtestlab:GlobalSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:GlobalSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

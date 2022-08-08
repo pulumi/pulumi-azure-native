@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:alertsmanagement:AlertProcessingRuleByName"},
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName"},
                     new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName"},
                     new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName"},
                 },

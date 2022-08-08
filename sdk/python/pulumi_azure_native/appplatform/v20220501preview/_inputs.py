@@ -2578,13 +2578,13 @@ class ManagedIdentityPropertiesArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Managed identity properties retrieved from ARM request headers.
         :param pulumi.Input[str] principal_id: Principal Id of system-assigned managed identity.
         :param pulumi.Input[str] tenant_id: Tenant Id of system-assigned managed identity.
         :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: Type of the managed identity
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Properties of user-assigned managed identities
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: Properties of user-assigned managed identities
         """
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
@@ -2633,14 +2633,14 @@ class ManagedIdentityPropertiesArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Properties of user-assigned managed identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

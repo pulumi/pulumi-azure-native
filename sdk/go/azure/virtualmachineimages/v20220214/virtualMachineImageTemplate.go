@@ -84,15 +84,6 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:virtualmachineimages:VirtualMachineImageTemplate"),
 		},
 		{
-			Type: pulumi.String("azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"),
-		},
-		{
-			Type: pulumi.String("azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"),
-		},
-		{
-			Type: pulumi.String("azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"),
-		},
-		{
 			Type: pulumi.String("azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"),
 		},
 		{

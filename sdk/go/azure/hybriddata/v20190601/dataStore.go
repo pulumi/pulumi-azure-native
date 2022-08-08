@@ -54,9 +54,6 @@ func NewDataStore(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:hybriddata:DataStore"),
 		},
-		{
-			Type: pulumi.String("azure-native:hybriddata/v20160601:DataStore"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DataStore

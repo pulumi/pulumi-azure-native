@@ -51,18 +51,6 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:compute/v20190301:DedicatedHostGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20190701:DedicatedHostGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20191201:DedicatedHostGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20200601:DedicatedHostGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:DedicatedHostGroup"),
 		},
 		{

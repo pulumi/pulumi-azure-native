@@ -62,51 +62,6 @@ func NewLoadBalancer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:LoadBalancer"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20150501preview:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20150615:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:LoadBalancer"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180701:LoadBalancer"),
 		},
 		{

@@ -125,7 +125,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:servicefabricmesh:Application"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180701preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

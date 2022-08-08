@@ -81,12 +81,6 @@ func NewQueue(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:servicebus:Queue"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicebus/v20140901:Queue"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicebus/v20150801:Queue"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20180101preview:Queue"),
 		},
 		{

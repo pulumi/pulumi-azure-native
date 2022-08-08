@@ -125,8 +125,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:servicebus:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Namespace"},

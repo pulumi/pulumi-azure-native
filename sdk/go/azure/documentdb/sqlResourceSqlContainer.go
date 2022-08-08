@@ -50,39 +50,6 @@ func NewSqlResourceSqlContainer(ctx *pulumi.Context,
 	args.Resource = args.Resource.ToSqlContainerResourceOutput().ApplyT(func(v SqlContainerResource) SqlContainerResource { return *v.Defaults() }).(SqlContainerResourceOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:documentdb/v20150401:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20150408:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20151106:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20160319:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20160331:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20191212:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200301:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200401:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200601preview:SqlResourceSqlContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200901:SqlResourceSqlContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:SqlResourceSqlContainer"),
 		},
 		{

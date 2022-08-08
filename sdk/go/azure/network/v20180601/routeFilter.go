@@ -48,36 +48,6 @@ func NewRouteFilter(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:RouteFilter"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20161201:RouteFilter"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:RouteFilter"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:RouteFilter"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:RouteFilter"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:RouteFilter"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:RouteFilter"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:RouteFilter"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:RouteFilter"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:RouteFilter"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:RouteFilter"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180701:RouteFilter"),
 		},
 		{

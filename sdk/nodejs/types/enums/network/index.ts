@@ -2,25 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20150501preview from "./v20150501preview";
-import * as v20150615 from "./v20150615";
-import * as v20160330 from "./v20160330";
-import * as v20160401 from "./v20160401";
-import * as v20160601 from "./v20160601";
-import * as v20160901 from "./v20160901";
-import * as v20161201 from "./v20161201";
-import * as v20170301 from "./v20170301";
-import * as v20170501 from "./v20170501";
-import * as v20170601 from "./v20170601";
-import * as v20170801 from "./v20170801";
-import * as v20170901 from "./v20170901";
-import * as v20171001 from "./v20171001";
-import * as v20171101 from "./v20171101";
-import * as v20180101 from "./v20180101";
-import * as v20180201 from "./v20180201";
-import * as v20180301 from "./v20180301";
-import * as v20180301preview from "./v20180301preview";
-import * as v20180401 from "./v20180401";
 import * as v20180501 from "./v20180501";
 import * as v20180601 from "./v20180601";
 import * as v20180701 from "./v20180701";
@@ -61,25 +42,6 @@ import * as v20220501 from "./v20220501";
 import * as v20220701 from "./v20220701";
 
 export {
-    v20150501preview,
-    v20150615,
-    v20160330,
-    v20160401,
-    v20160601,
-    v20160901,
-    v20161201,
-    v20170301,
-    v20170501,
-    v20170601,
-    v20170801,
-    v20170901,
-    v20171001,
-    v20171101,
-    v20180101,
-    v20180201,
-    v20180301,
-    v20180301preview,
-    v20180401,
     v20180501,
     v20180601,
     v20180701,

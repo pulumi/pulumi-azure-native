@@ -70,12 +70,6 @@ func NewADLSGen1FolderDataSet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:ADLSGen1FolderDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:ADLSGen1FolderDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:ADLSGen1FolderDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20201001preview:ADLSGen1FolderDataSet"),
 		},
 		{

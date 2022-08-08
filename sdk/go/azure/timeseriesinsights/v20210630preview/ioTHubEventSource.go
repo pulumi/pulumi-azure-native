@@ -83,15 +83,6 @@ func NewIoTHubEventSource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:timeseriesinsights:IoTHubEventSource"),
 		},
 		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource"),
-		},
-		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:IoTHubEventSource"),
-		},
-		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:IoTHubEventSource"),
 		},
 		{

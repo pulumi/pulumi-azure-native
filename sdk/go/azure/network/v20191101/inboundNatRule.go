@@ -59,30 +59,6 @@ func NewInboundNatRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20170601:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:InboundNatRule"),
 		},
 		{

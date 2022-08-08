@@ -101,9 +101,6 @@ namespace Pulumi.AzureNative.Authorization.V20170601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:authorization:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20151001preview:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20160401:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20161201:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20180301:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20180501:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20190101:PolicyAssignment"},

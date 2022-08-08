@@ -45,18 +45,6 @@ func NewDpsCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:devices:DpsCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-native:devices/v20170821preview:DpsCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20171115:DpsCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20180122:DpsCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20200101:DpsCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20200301:DpsCertificate"),
 		},
 		{

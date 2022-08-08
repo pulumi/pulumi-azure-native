@@ -22,13 +22,6 @@ export * from "./service";
 export * from "../types/enums/servicefabric";
 
 // Export sub-modules:
-import * as v20160901 from "./v20160901";
-import * as v20170701preview from "./v20170701preview";
-import * as v20180201 from "./v20180201";
-import * as v20190301 from "./v20190301";
-import * as v20190301preview from "./v20190301preview";
-import * as v20190601preview from "./v20190601preview";
-import * as v20191101preview from "./v20191101preview";
 import * as v20200101preview from "./v20200101preview";
 import * as v20200301 from "./v20200301";
 import * as v20201201preview from "./v20201201preview";
@@ -42,13 +35,6 @@ import * as v20220101 from "./v20220101";
 import * as v20220201preview from "./v20220201preview";
 
 export {
-    v20160901,
-    v20170701preview,
-    v20180201,
-    v20190301,
-    v20190301preview,
-    v20190601preview,
-    v20191101preview,
     v20200101preview,
     v20200301,
     v20201201preview,

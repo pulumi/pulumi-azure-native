@@ -41,7 +41,6 @@ export * from "./script";
 export * from "../types/enums/kusto";
 
 // Export sub-modules:
-import * as v20170907privatepreview from "./v20170907privatepreview";
 import * as v20180907preview from "./v20180907preview";
 import * as v20190121 from "./v20190121";
 import * as v20190515 from "./v20190515";
@@ -55,7 +54,6 @@ import * as v20210827 from "./v20210827";
 import * as v20220201 from "./v20220201";
 
 export {
-    v20170907privatepreview,
     v20180907preview,
     v20190121,
     v20190515,

@@ -125,7 +125,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datafactory:Factory"},
-                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Factory"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

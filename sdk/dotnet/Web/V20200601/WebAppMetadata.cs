@@ -65,7 +65,6 @@ namespace Pulumi.AzureNative.Web.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:web:WebAppMetadata"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppMetadata"},

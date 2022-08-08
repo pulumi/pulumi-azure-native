@@ -127,7 +127,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20200501:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SpatialAnchorsAccount.__pulumiType, name, resourceInputs, opts);
     }

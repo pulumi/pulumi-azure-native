@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datashare:Invitation"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Invitation"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:Invitation"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Invitation"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20210801:Invitation"},
                 },

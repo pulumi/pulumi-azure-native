@@ -65,8 +65,6 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:eventhub:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHubAuthorizationRule"},

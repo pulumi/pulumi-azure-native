@@ -70,27 +70,6 @@ func NewApplication(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:desktopvirtualization:Application"),
 		},
 		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:Application"),
 		},
 		{

@@ -58,9 +58,6 @@ func NewPipeline(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:datafactory:Pipeline"),
 		},
-		{
-			Type: pulumi.String("azure-native:datafactory/v20170901preview:Pipeline"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Pipeline

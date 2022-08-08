@@ -245,7 +245,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics:Account"},
-                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:Account"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:Account"},
                 },
             };

@@ -77,24 +77,6 @@ func NewKubernetesRole(ctx *pulumi.Context,
 	args.Kind = pulumi.String("Kubernetes")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20190301:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190701:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190801:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200501preview:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:KubernetesRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:KubernetesRole"),
 		},
 		{

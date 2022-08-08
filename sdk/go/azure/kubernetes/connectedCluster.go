@@ -73,9 +73,6 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	args.Identity = args.Identity.ToConnectedClusterIdentityOutput().ApplyT(func(v ConnectedClusterIdentity) ConnectedClusterIdentity { return *v.Defaults() }).(ConnectedClusterIdentityOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:kubernetes/v20200101preview:ConnectedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:kubernetes/v20210301:ConnectedCluster"),
 		},
 		{

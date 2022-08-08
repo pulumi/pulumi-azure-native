@@ -56,51 +56,6 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:NetworkSecurityGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20150501preview:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20150615:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:NetworkSecurityGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:NetworkSecurityGroup"),
 		},
 		{

@@ -84,7 +84,7 @@ export class HierarchySetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:management/v20200201:HierarchySetting" }, { type: "azure-native:management/v20200501:HierarchySetting" }, { type: "azure-native:management/v20201001:HierarchySetting" }, { type: "azure-native:management/v20210401:HierarchySetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:management/v20200501:HierarchySetting" }, { type: "azure-native:management/v20201001:HierarchySetting" }, { type: "azure-native:management/v20210401:HierarchySetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HierarchySetting.__pulumiType, name, resourceInputs, opts);
     }

@@ -107,7 +107,6 @@ namespace Pulumi.AzureNative.IoTCentral
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:iotcentral/v20180901:App"},
                     new Pulumi.Alias { Type = "azure-native:iotcentral/v20210601:App"},
                     new Pulumi.Alias { Type = "azure-native:iotcentral/v20211101preview:App"},
                 },

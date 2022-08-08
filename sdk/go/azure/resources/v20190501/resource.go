@@ -61,30 +61,6 @@ func NewResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:resources:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-native:resources/v20151101:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20160201:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20160701:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20160901:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20170510:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20180201:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20180501:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20190301:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190510:Resource"),
 		},
 		{

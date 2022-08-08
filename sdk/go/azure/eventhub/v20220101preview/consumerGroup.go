@@ -52,12 +52,6 @@ func NewConsumerGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:eventhub:ConsumerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:eventhub/v20140901:ConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventhub/v20150801:ConsumerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20170401:ConsumerGroup"),
 		},
 		{

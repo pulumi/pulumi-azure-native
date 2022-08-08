@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:hdinsight:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Cluster"},
                 },
             };

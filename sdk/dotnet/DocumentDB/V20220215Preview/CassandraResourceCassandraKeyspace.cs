@@ -77,17 +77,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:documentdb:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:CassandraResourceCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:CassandraResourceCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:CassandraResourceCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:CassandraResourceCassandraKeyspace"},

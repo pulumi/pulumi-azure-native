@@ -80,9 +80,6 @@ func NewConnectorMapping(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:customerinsights:ConnectorMapping"),
 		},
-		{
-			Type: pulumi.String("azure-native:customerinsights/v20170101:ConnectorMapping"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectorMapping

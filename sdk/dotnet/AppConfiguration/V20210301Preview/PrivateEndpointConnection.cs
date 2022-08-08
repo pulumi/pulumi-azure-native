@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.AppConfiguration.V20210301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:appconfiguration:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:PrivateEndpointConnection"},

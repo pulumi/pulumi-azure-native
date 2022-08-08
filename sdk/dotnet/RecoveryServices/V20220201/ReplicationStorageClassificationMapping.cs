@@ -65,8 +65,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationStorageClassificationMapping"},

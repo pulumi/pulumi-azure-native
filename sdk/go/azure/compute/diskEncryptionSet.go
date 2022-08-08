@@ -54,18 +54,6 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:compute/v20190701:DiskEncryptionSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20191101:DiskEncryptionSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20200501:DiskEncryptionSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20200630:DiskEncryptionSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20200930:DiskEncryptionSet"),
 		},
 		{

@@ -66,39 +66,6 @@ func NewPacketCapture(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:PacketCapture"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20160901:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:PacketCapture"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180701:PacketCapture"),
 		},
 		{

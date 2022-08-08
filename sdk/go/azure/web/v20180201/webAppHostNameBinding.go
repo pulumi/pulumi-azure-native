@@ -59,9 +59,6 @@ func NewWebAppHostNameBinding(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:web:WebAppHostNameBinding"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppHostNameBinding"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppHostNameBinding"),
 		},
 		{

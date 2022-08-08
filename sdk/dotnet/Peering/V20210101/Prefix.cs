@@ -95,11 +95,6 @@ namespace Pulumi.AzureNative.Peering.V20210101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:peering:Prefix"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20190801preview:Prefix"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:Prefix"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:Prefix"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:Prefix"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20210601:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20220101:Prefix"},
                 },

@@ -49,9 +49,6 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:security:JitNetworkAccessPolicy"),
 		},
-		{
-			Type: pulumi.String("azure-native:security/v20150601preview:JitNetworkAccessPolicy"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource JitNetworkAccessPolicy

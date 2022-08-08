@@ -67,12 +67,6 @@ func NewScheduledSynchronizationSetting(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:ScheduledSynchronizationSetting"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:ScheduledSynchronizationSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:ScheduledSynchronizationSetting"),
 		},
 		{

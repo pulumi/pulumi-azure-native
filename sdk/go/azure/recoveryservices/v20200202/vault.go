@@ -48,9 +48,6 @@ func NewVault(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:recoveryservices:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/v20160601:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20201001:Vault"),
 		},
 		{

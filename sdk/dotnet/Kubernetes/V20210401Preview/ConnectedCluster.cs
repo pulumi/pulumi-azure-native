@@ -161,7 +161,6 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:kubernetes:ConnectedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20200101preview:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-native:kubernetes/v20210301:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-native:kubernetes/v20211001:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-native:kubernetes/v20220501preview:ConnectedCluster"},

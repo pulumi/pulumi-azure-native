@@ -96,9 +96,6 @@ func NewCluster(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:kusto:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20180907preview:Cluster"),
 		},
 		{

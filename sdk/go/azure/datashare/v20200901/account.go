@@ -55,12 +55,6 @@ func NewAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:Account"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20201001preview:Account"),
 		},
 		{

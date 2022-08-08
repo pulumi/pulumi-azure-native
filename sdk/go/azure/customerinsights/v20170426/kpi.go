@@ -91,9 +91,6 @@ func NewKpi(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:customerinsights:Kpi"),
 		},
-		{
-			Type: pulumi.String("azure-native:customerinsights/v20170101:Kpi"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Kpi

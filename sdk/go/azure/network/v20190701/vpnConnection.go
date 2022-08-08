@@ -71,9 +71,6 @@ func NewVpnConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:VpnConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20180401:VpnConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:VpnConnection"),
 		},
 		{

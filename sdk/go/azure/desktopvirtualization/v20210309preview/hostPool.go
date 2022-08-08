@@ -100,27 +100,6 @@ func NewHostPool(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:desktopvirtualization:HostPool"),
 		},
 		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:HostPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:HostPool"),
 		},
 		{

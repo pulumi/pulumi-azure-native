@@ -59,9 +59,6 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:storsimple/v20161001:ManagerExtendedInfo"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple/v20170601:ManagerExtendedInfo"),
 		},
 	})

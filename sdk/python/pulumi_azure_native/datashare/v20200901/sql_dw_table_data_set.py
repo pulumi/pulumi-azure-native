@@ -262,7 +262,7 @@ class SqlDWTableDataSet(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:SqlDWTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:SqlDWTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:SqlDWTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:SqlDWTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:SqlDWTableDataSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:SqlDWTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:SqlDWTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:SqlDWTableDataSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlDWTableDataSet, __self__).__init__(
             'azure-native:datashare/v20200901:SqlDWTableDataSet',

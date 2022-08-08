@@ -44,9 +44,6 @@ func NewStep(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:deploymentmanager:Step"),
 		},
-		{
-			Type: pulumi.String("azure-native:deploymentmanager/v20180901preview:Step"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Step

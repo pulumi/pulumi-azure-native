@@ -65,8 +65,6 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Key"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:Key"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:Key"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Key"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:Key"},

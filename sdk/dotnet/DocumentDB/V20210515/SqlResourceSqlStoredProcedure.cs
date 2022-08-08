@@ -68,12 +68,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:SqlResourceSqlStoredProcedure"},

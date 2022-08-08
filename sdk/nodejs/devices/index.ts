@@ -28,19 +28,6 @@ export * from "./privateEndpointConnection";
 export * from "../types/enums/devices";
 
 // Export sub-modules:
-import * as v20160203 from "./v20160203";
-import * as v20170119 from "./v20170119";
-import * as v20170701 from "./v20170701";
-import * as v20170821preview from "./v20170821preview";
-import * as v20171115 from "./v20171115";
-import * as v20180122 from "./v20180122";
-import * as v20180401 from "./v20180401";
-import * as v20181201preview from "./v20181201preview";
-import * as v20190322 from "./v20190322";
-import * as v20190322preview from "./v20190322preview";
-import * as v20190701preview from "./v20190701preview";
-import * as v20191104 from "./v20191104";
-import * as v20200101 from "./v20200101";
 import * as v20200301 from "./v20200301";
 import * as v20200401 from "./v20200401";
 import * as v20200615 from "./v20200615";
@@ -60,19 +47,6 @@ import * as v20211015 from "./v20211015";
 import * as v20220205 from "./v20220205";
 
 export {
-    v20160203,
-    v20170119,
-    v20170701,
-    v20170821preview,
-    v20171115,
-    v20180122,
-    v20180401,
-    v20181201preview,
-    v20190322,
-    v20190322preview,
-    v20190701preview,
-    v20191104,
-    v20200101,
     v20200301,
     v20200401,
     v20200615,

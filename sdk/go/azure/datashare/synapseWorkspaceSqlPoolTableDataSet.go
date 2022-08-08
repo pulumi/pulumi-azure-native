@@ -56,12 +56,6 @@ func NewSynapseWorkspaceSqlPoolTableDataSet(ctx *pulumi.Context,
 	args.Kind = pulumi.String("SynapseWorkspaceSqlPoolTable")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet"),
 		},
 		{

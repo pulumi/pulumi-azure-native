@@ -26,7 +26,6 @@ export * from "./serverVulnerabilityAssessment";
 export * from "../types/enums/security";
 
 // Export sub-modules:
-import * as v20150601preview from "./v20150601preview";
 import * as v20170801preview from "./v20170801preview";
 import * as v20190101 from "./v20190101";
 import * as v20190101preview from "./v20190101preview";
@@ -44,7 +43,6 @@ import * as v20220501preview from "./v20220501preview";
 import * as v20220701preview from "./v20220701preview";
 
 export {
-    v20150601preview,
     v20170801preview,
     v20190101,
     v20190101preview,

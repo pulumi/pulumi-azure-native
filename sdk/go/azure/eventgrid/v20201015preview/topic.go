@@ -78,33 +78,6 @@ func NewTopic(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:eventgrid:Topic"),
 		},
 		{
-			Type: pulumi.String("azure-native:eventgrid/v20170615preview:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20170915preview:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20180101:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20180501preview:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20180915preview:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20190101:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20190201preview:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20190601:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-native:eventgrid/v20200101preview:Topic"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20200401preview:Topic"),
 		},
 		{

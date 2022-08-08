@@ -95,7 +95,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight:Application" }, { type: "azure-native:hdinsight/v20150301preview:Application" }, { type: "azure-native:hdinsight/v20180601preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight:Application" }, { type: "azure-native:hdinsight/v20180601preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

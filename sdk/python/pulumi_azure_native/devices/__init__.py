@@ -29,32 +29,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.devices.v20160203 as __v20160203
-    v20160203 = __v20160203
-    import pulumi_azure_native.devices.v20170119 as __v20170119
-    v20170119 = __v20170119
-    import pulumi_azure_native.devices.v20170701 as __v20170701
-    v20170701 = __v20170701
-    import pulumi_azure_native.devices.v20170821preview as __v20170821preview
-    v20170821preview = __v20170821preview
-    import pulumi_azure_native.devices.v20171115 as __v20171115
-    v20171115 = __v20171115
-    import pulumi_azure_native.devices.v20180122 as __v20180122
-    v20180122 = __v20180122
-    import pulumi_azure_native.devices.v20180401 as __v20180401
-    v20180401 = __v20180401
-    import pulumi_azure_native.devices.v20181201preview as __v20181201preview
-    v20181201preview = __v20181201preview
-    import pulumi_azure_native.devices.v20190322 as __v20190322
-    v20190322 = __v20190322
-    import pulumi_azure_native.devices.v20190322preview as __v20190322preview
-    v20190322preview = __v20190322preview
-    import pulumi_azure_native.devices.v20190701preview as __v20190701preview
-    v20190701preview = __v20190701preview
-    import pulumi_azure_native.devices.v20191104 as __v20191104
-    v20191104 = __v20191104
-    import pulumi_azure_native.devices.v20200101 as __v20200101
-    v20200101 = __v20200101
     import pulumi_azure_native.devices.v20200301 as __v20200301
     v20200301 = __v20200301
     import pulumi_azure_native.devices.v20200401 as __v20200401
@@ -90,19 +64,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.devices.v20220205 as __v20220205
     v20220205 = __v20220205
 else:
-    v20160203 = _utilities.lazy_import('pulumi_azure_native.devices.v20160203')
-    v20170119 = _utilities.lazy_import('pulumi_azure_native.devices.v20170119')
-    v20170701 = _utilities.lazy_import('pulumi_azure_native.devices.v20170701')
-    v20170821preview = _utilities.lazy_import('pulumi_azure_native.devices.v20170821preview')
-    v20171115 = _utilities.lazy_import('pulumi_azure_native.devices.v20171115')
-    v20180122 = _utilities.lazy_import('pulumi_azure_native.devices.v20180122')
-    v20180401 = _utilities.lazy_import('pulumi_azure_native.devices.v20180401')
-    v20181201preview = _utilities.lazy_import('pulumi_azure_native.devices.v20181201preview')
-    v20190322 = _utilities.lazy_import('pulumi_azure_native.devices.v20190322')
-    v20190322preview = _utilities.lazy_import('pulumi_azure_native.devices.v20190322preview')
-    v20190701preview = _utilities.lazy_import('pulumi_azure_native.devices.v20190701preview')
-    v20191104 = _utilities.lazy_import('pulumi_azure_native.devices.v20191104')
-    v20200101 = _utilities.lazy_import('pulumi_azure_native.devices.v20200101')
     v20200301 = _utilities.lazy_import('pulumi_azure_native.devices.v20200301')
     v20200401 = _utilities.lazy_import('pulumi_azure_native.devices.v20200401')
     v20200615 = _utilities.lazy_import('pulumi_azure_native.devices.v20200615')

@@ -48,24 +48,6 @@ func NewTrigger(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:databoxedge:Trigger"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20190301:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190701:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190801:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Trigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:Trigger"),
 		},
 		{

@@ -197,8 +197,6 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:Workspace"},

@@ -67,12 +67,6 @@ func NewKustoClusterDataSetMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:KustoClusterDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:KustoClusterDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:KustoClusterDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:KustoClusterDataSetMapping"),
 		},
 		{

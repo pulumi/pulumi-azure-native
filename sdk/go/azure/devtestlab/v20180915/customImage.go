@@ -66,12 +66,6 @@ func NewCustomImage(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devtestlab:CustomImage"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20150521preview:CustomImage"),
-		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20160515:CustomImage"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomImage

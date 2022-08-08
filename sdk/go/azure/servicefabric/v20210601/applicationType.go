@@ -46,21 +46,6 @@ func NewApplicationType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:servicefabric/v20170701preview:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicefabric/v20190301:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicefabric/v20190301preview:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicefabric/v20190601preview:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicefabric/v20191101preview:ApplicationType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20200301:ApplicationType"),
 		},
 		{

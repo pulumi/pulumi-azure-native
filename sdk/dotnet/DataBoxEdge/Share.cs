@@ -119,12 +119,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Share"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Share"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Share"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Share"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Share"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Share"},

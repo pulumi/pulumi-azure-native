@@ -67,9 +67,6 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devtestlab:GlobalSchedule"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20160515:GlobalSchedule"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource GlobalSchedule

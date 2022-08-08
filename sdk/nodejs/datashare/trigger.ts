@@ -96,7 +96,7 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:Trigger" }, { type: "azure-native:datashare/v20191101:Trigger" }, { type: "azure-native:datashare/v20200901:Trigger" }, { type: "azure-native:datashare/v20201001preview:Trigger" }, { type: "azure-native:datashare/v20210801:Trigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20200901:Trigger" }, { type: "azure-native:datashare/v20201001preview:Trigger" }, { type: "azure-native:datashare/v20210801:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Trigger.__pulumiType, name, resourceInputs, opts);
     }

@@ -54,21 +54,6 @@ func NewPeeringService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:peering:PeeringService"),
 		},
 		{
-			Type: pulumi.String("azure-native:peering/v20190801preview:PeeringService"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20190901preview:PeeringService"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20200101preview:PeeringService"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20200401:PeeringService"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20201001:PeeringService"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering/v20210101:PeeringService"),
 		},
 		{

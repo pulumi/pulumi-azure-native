@@ -58,9 +58,6 @@ func NewVpnGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20180401:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:VpnGateway"),
 		},
 		{

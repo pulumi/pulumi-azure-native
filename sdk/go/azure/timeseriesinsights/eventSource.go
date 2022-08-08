@@ -48,15 +48,6 @@ func NewEventSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:EventSource"),
-		},
-		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:EventSource"),
-		},
-		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:EventSource"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:EventSource"),
 		},
 		{

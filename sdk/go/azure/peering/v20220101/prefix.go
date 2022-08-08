@@ -53,21 +53,6 @@ func NewPrefix(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:peering:Prefix"),
 		},
 		{
-			Type: pulumi.String("azure-native:peering/v20190801preview:Prefix"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20190901preview:Prefix"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20200101preview:Prefix"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20200401:Prefix"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20201001:Prefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering/v20210101:Prefix"),
 		},
 		{

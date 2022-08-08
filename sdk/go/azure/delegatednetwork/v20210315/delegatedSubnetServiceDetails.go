@@ -47,9 +47,6 @@ func NewDelegatedSubnetServiceDetails(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:delegatednetwork:DelegatedSubnetServiceDetails"),
 		},
-		{
-			Type: pulumi.String("azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DelegatedSubnetServiceDetails

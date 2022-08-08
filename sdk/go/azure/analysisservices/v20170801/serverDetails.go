@@ -75,12 +75,6 @@ func NewServerDetails(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:analysisservices:ServerDetails"),
 		},
 		{
-			Type: pulumi.String("azure-native:analysisservices/v20160516:ServerDetails"),
-		},
-		{
-			Type: pulumi.String("azure-native:analysisservices/v20170714:ServerDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:analysisservices/v20170801beta:ServerDetails"),
 		},
 	})

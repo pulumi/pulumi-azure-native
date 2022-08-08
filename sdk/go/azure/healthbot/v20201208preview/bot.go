@@ -46,12 +46,6 @@ func NewBot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:healthbot:Bot"),
 		},
 		{
-			Type: pulumi.String("azure-native:healthbot/v20201020:Bot"),
-		},
-		{
-			Type: pulumi.String("azure-native:healthbot/v20201020preview:Bot"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthbot/v20201208:Bot"),
 		},
 		{

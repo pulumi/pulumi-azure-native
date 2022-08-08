@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping"},
                 },

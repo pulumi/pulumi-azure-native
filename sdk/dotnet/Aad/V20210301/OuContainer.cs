@@ -125,8 +125,6 @@ namespace Pulumi.AzureNative.Aad.V20210301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:aad:OuContainer"},
-                    new Pulumi.Alias { Type = "azure-native:aad/v20170601:OuContainer"},
-                    new Pulumi.Alias { Type = "azure-native:aad/v20200101:OuContainer"},
                     new Pulumi.Alias { Type = "azure-native:aad/v20210501:OuContainer"},
                 },
             };

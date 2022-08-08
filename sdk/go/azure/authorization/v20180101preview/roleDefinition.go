@@ -41,12 +41,6 @@ func NewRoleDefinition(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:authorization/v20150701:RoleDefinition"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource RoleDefinition
 	err := ctx.RegisterResource("azure-native:authorization/v20180101preview:RoleDefinition", name, args, &resource, opts...)
 	if err != nil {

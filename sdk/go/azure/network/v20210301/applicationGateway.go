@@ -110,51 +110,6 @@ func NewApplicationGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:ApplicationGateway"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20150501preview:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20150615:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:ApplicationGateway"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:ApplicationGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:ApplicationGateway"),
 		},
 		{

@@ -128,7 +128,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:Profile" }, { type: "azure-native:network/v20151101:Profile" }, { type: "azure-native:network/v20170301:Profile" }, { type: "azure-native:network/v20170501:Profile" }, { type: "azure-native:network/v20180201:Profile" }, { type: "azure-native:network/v20180301:Profile" }, { type: "azure-native:network/v20180401:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, resourceInputs, opts);
     }

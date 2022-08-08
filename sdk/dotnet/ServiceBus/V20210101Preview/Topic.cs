@@ -155,8 +155,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:servicebus:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Topic"},

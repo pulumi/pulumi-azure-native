@@ -77,17 +77,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:documentdb:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:GremlinResourceGremlinGraph"},

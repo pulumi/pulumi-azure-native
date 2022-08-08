@@ -119,7 +119,6 @@ namespace Pulumi.AzureNative.Network.V20190601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network:VirtualHub"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualHub"},

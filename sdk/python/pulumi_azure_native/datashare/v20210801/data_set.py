@@ -181,7 +181,7 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:DataSet"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:DataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:DataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:DataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:DataSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:DataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:DataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:DataSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataSet, __self__).__init__(
             'azure-native:datashare/v20210801:DataSet',

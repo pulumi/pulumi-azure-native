@@ -66,9 +66,6 @@ func NewDisk(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:devtestlab/v20160515:Disk"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20180915:Disk"),
 		},
 	})

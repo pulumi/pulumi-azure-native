@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Product"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Product"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Product"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Product"},

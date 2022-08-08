@@ -27,12 +27,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.timeseriesinsights.v20170228preview as __v20170228preview
-    v20170228preview = __v20170228preview
-    import pulumi_azure_native.timeseriesinsights.v20171115 as __v20171115
-    v20171115 = __v20171115
-    import pulumi_azure_native.timeseriesinsights.v20180815preview as __v20180815preview
-    v20180815preview = __v20180815preview
     import pulumi_azure_native.timeseriesinsights.v20200515 as __v20200515
     v20200515 = __v20200515
     import pulumi_azure_native.timeseriesinsights.v20210331preview as __v20210331preview
@@ -40,9 +34,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.timeseriesinsights.v20210630preview as __v20210630preview
     v20210630preview = __v20210630preview
 else:
-    v20170228preview = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20170228preview')
-    v20171115 = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20171115')
-    v20180815preview = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20180815preview')
     v20200515 = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20200515')
     v20210331preview = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20210331preview')
     v20210630preview = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20210630preview')

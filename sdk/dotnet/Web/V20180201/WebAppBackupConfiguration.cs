@@ -89,7 +89,6 @@ namespace Pulumi.AzureNative.Web.V20180201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:web:WebAppBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppBackupConfiguration"},

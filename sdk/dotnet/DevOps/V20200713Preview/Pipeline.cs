@@ -89,7 +89,6 @@ namespace Pulumi.AzureNative.DevOps.V20200713Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:devops:Pipeline"},
-                    new Pulumi.Alias { Type = "azure-native:devops/v20190701preview:Pipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

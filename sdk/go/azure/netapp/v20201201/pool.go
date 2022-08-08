@@ -66,51 +66,6 @@ func NewPool(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:netapp:Pool"),
 		},
 		{
-			Type: pulumi.String("azure-native:netapp/v20170815:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190501:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190601:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190701:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190801:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20191001:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20191101:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200201:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200301:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200501:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200601:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200701:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200801:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200901:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20201101:Pool"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20210201:Pool"),
 		},
 		{

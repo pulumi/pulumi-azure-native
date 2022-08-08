@@ -89,7 +89,6 @@ namespace Pulumi.AzureNative.KeyVault.V20190901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:keyvault:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/v20180214:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:PrivateEndpointConnection"},

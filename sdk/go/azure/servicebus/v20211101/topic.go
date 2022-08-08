@@ -77,12 +77,6 @@ func NewTopic(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:servicebus:Topic"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicebus/v20140901:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicebus/v20150801:Topic"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20170401:Topic"),
 		},
 		{

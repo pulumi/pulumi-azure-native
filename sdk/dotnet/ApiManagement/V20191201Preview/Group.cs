@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Group"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Group"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Group"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Group"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Group"},

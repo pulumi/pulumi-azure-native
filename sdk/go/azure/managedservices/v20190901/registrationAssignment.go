@@ -38,15 +38,6 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:managedservices:RegistrationAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-native:managedservices/v20180601preview:RegistrationAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-native:managedservices/v20190401preview:RegistrationAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-native:managedservices/v20190601:RegistrationAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:managedservices/v20200201preview:RegistrationAssignment"),
 		},
 		{

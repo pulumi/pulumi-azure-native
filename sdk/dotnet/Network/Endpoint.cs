@@ -131,12 +131,6 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170501:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
                 },
             };

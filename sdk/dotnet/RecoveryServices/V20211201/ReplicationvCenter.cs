@@ -65,8 +65,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationvCenter"},

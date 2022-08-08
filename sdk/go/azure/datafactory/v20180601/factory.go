@@ -59,9 +59,6 @@ func NewFactory(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:datafactory:Factory"),
 		},
-		{
-			Type: pulumi.String("azure-native:datafactory/v20170901preview:Factory"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Factory

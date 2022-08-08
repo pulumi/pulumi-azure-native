@@ -143,7 +143,6 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:containerservice:OpenShiftManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20180930preview:OpenShiftManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20190430:OpenShiftManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20190930preview:OpenShiftManagedCluster"},
                 },

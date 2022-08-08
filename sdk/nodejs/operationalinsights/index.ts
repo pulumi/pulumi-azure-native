@@ -31,7 +31,6 @@ export * from "./workspace";
 export * from "../types/enums/operationalinsights";
 
 // Export sub-modules:
-import * as v20150320 from "./v20150320";
 import * as v20151101preview from "./v20151101preview";
 import * as v20190801preview from "./v20190801preview";
 import * as v20190901 from "./v20190901";
@@ -43,7 +42,6 @@ import * as v20210601 from "./v20210601";
 import * as v20211201preview from "./v20211201preview";
 
 export {
-    v20150320,
     v20151101preview,
     v20190801preview,
     v20190901,

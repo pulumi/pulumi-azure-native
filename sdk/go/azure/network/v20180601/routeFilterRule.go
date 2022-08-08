@@ -58,36 +58,6 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20161201:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180701:RouteFilterRule"),
 		},
 		{

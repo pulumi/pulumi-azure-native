@@ -80,12 +80,6 @@ func NewBlobContainerDataSetMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:BlobContainerDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:BlobContainerDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:BlobContainerDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:BlobContainerDataSetMapping"),
 		},
 		{

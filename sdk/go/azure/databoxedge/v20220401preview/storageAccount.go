@@ -56,18 +56,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:databoxedge:StorageAccount"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20190801:StorageAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200501preview:StorageAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:StorageAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:StorageAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:StorageAccount"),
 		},
 		{

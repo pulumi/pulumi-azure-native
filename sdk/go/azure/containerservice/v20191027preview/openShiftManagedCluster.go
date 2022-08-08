@@ -72,9 +72,6 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:containerservice:OpenShiftManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-native:containerservice/v20180930preview:OpenShiftManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20190430:OpenShiftManagedCluster"),
 		},
 		{

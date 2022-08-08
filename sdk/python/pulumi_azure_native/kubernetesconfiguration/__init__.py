@@ -17,8 +17,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.kubernetesconfiguration.v20191101preview as __v20191101preview
-    v20191101preview = __v20191101preview
     import pulumi_azure_native.kubernetesconfiguration.v20200701preview as __v20200701preview
     v20200701preview = __v20200701preview
     import pulumi_azure_native.kubernetesconfiguration.v20201001preview as __v20201001preview
@@ -40,7 +38,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.kubernetesconfiguration.v20220701 as __v20220701
     v20220701 = __v20220701
 else:
-    v20191101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20191101preview')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20200701preview')
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20201001preview')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20210301')

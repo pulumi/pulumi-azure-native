@@ -80,7 +80,6 @@ namespace Pulumi.AzureNative.Web.V20160801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:web:WebAppRelayServiceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppRelayServiceConnection"},

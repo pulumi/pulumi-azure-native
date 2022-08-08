@@ -22,8 +22,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.botservice.v20171201 as __v20171201
-    v20171201 = __v20171201
     import pulumi_azure_native.botservice.v20180712 as __v20180712
     v20180712 = __v20180712
     import pulumi_azure_native.botservice.v20200602 as __v20200602
@@ -33,7 +31,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.botservice.v20210501preview as __v20210501preview
     v20210501preview = __v20210501preview
 else:
-    v20171201 = _utilities.lazy_import('pulumi_azure_native.botservice.v20171201')
     v20180712 = _utilities.lazy_import('pulumi_azure_native.botservice.v20180712')
     v20200602 = _utilities.lazy_import('pulumi_azure_native.botservice.v20200602')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.botservice.v20210301')

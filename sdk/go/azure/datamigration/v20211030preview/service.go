@@ -55,15 +55,6 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datamigration:Service"),
 		},
 		{
-			Type: pulumi.String("azure-native:datamigration/v20171115preview:Service"),
-		},
-		{
-			Type: pulumi.String("azure-native:datamigration/v20180315preview:Service"),
-		},
-		{
-			Type: pulumi.String("azure-native:datamigration/v20180331preview:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20180419:Service"),
 		},
 		{

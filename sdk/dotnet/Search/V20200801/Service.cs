@@ -137,9 +137,6 @@ namespace Pulumi.AzureNative.Search.V20200801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:search:Service"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20150819:Service"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20191001preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20200313:Service"},
                     new Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:search/v20210401preview:Service"},
                 },

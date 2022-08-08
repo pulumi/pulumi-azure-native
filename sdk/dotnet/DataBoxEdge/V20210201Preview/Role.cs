@@ -66,12 +66,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:databoxedge:Role"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Role"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Role"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Role"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Role"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Role"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Role"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Role"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Role"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Role"},

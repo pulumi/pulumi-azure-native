@@ -54,15 +54,6 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:timeseriesinsights:ReferenceDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:ReferenceDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:ReferenceDataSet"),
 		},
 		{

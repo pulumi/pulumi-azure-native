@@ -61,9 +61,6 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:web:WebAppDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppDeployment"),
 		},
 		{

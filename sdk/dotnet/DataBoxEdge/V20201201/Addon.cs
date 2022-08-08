@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:databoxedge:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Addon"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Addon"},

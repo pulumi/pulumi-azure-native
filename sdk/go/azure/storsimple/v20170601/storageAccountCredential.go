@@ -54,9 +54,6 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:storsimple:StorageAccountCredential"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple/v20161001:StorageAccountCredential"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccountCredential

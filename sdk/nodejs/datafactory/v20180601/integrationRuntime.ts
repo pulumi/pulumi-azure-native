@@ -86,7 +86,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datafactory:IntegrationRuntime" }, { type: "azure-native:datafactory/v20170901preview:IntegrationRuntime" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory:IntegrationRuntime" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationRuntime.__pulumiType, name, resourceInputs, opts);
     }

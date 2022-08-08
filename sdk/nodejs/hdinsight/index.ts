@@ -17,12 +17,10 @@ export * from "./privateEndpointConnection";
 export * from "../types/enums/hdinsight";
 
 // Export sub-modules:
-import * as v20150301preview from "./v20150301preview";
 import * as v20180601preview from "./v20180601preview";
 import * as v20210601 from "./v20210601";
 
 export {
-    v20150301preview,
     v20180601preview,
     v20210601,
 };

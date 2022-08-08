@@ -49,12 +49,6 @@ func NewAddon(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:Addon"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Addon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:Addon"),
 		},
 		{

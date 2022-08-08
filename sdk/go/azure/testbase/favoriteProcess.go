@@ -47,9 +47,6 @@ func NewFavoriteProcess(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:testbase/v20201216preview:FavoriteProcess"),
-		},
-		{
 			Type: pulumi.String("azure-native:testbase/v20220401preview:FavoriteProcess"),
 		},
 	})

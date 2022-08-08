@@ -78,51 +78,6 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:network/v20150501preview:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20150615:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:PublicIPAddress"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:PublicIPAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:PublicIPAddress"),
 		},
 		{

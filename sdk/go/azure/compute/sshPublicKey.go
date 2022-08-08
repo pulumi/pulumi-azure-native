@@ -40,12 +40,6 @@ func NewSshPublicKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:compute/v20191201:SshPublicKey"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20200601:SshPublicKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:SshPublicKey"),
 		},
 		{

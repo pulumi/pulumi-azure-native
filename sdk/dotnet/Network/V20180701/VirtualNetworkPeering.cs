@@ -101,18 +101,6 @@ namespace Pulumi.AzureNative.Network.V20180701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160601:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160901:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20161201:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170601:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170801:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171101:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180101:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:VirtualNetworkPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualNetworkPeering"},

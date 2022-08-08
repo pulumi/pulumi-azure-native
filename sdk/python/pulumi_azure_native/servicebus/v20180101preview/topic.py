@@ -338,7 +338,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["subscription_count"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20140901:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Topic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Topic, __self__).__init__(
             'azure-native:servicebus/v20180101preview:Topic',

@@ -245,16 +245,6 @@ namespace Pulumi.AzureNative.Compute.V20201201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:compute:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180930:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191101:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200501:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200630:Disk"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:Disk"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210401:Disk"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210801:Disk"},

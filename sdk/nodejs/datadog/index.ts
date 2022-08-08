@@ -17,11 +17,9 @@ export * from "./monitor";
 export * from "../types/enums/datadog";
 
 // Export sub-modules:
-import * as v20200201preview from "./v20200201preview";
 import * as v20210301 from "./v20210301";
 
 export {
-    v20200201preview,
     v20210301,
 };
 

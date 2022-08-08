@@ -23,20 +23,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.servicefabric.v20160901 as __v20160901
-    v20160901 = __v20160901
-    import pulumi_azure_native.servicefabric.v20170701preview as __v20170701preview
-    v20170701preview = __v20170701preview
-    import pulumi_azure_native.servicefabric.v20180201 as __v20180201
-    v20180201 = __v20180201
-    import pulumi_azure_native.servicefabric.v20190301 as __v20190301
-    v20190301 = __v20190301
-    import pulumi_azure_native.servicefabric.v20190301preview as __v20190301preview
-    v20190301preview = __v20190301preview
-    import pulumi_azure_native.servicefabric.v20190601preview as __v20190601preview
-    v20190601preview = __v20190601preview
-    import pulumi_azure_native.servicefabric.v20191101preview as __v20191101preview
-    v20191101preview = __v20191101preview
     import pulumi_azure_native.servicefabric.v20200101preview as __v20200101preview
     v20200101preview = __v20200101preview
     import pulumi_azure_native.servicefabric.v20200301 as __v20200301
@@ -60,13 +46,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.servicefabric.v20220201preview as __v20220201preview
     v20220201preview = __v20220201preview
 else:
-    v20160901 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20160901')
-    v20170701preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20170701preview')
-    v20180201 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20180201')
-    v20190301 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20190301')
-    v20190301preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20190301preview')
-    v20190601preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20190601preview')
-    v20191101preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20191101preview')
     v20200101preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20200101preview')
     v20200301 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20200301')
     v20201201preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20201201preview')

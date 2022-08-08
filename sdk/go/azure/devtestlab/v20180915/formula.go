@@ -61,12 +61,6 @@ func NewFormula(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devtestlab:Formula"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20150521preview:Formula"),
-		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20160515:Formula"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Formula

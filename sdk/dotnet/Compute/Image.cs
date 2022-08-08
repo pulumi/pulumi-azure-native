@@ -95,16 +95,6 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:Image"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:Image"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20201201:Image"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210301:Image"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210401:Image"},

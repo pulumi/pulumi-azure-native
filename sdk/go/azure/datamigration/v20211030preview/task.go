@@ -48,15 +48,6 @@ func NewTask(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datamigration:Task"),
 		},
 		{
-			Type: pulumi.String("azure-native:datamigration/v20171115preview:Task"),
-		},
-		{
-			Type: pulumi.String("azure-native:datamigration/v20180315preview:Task"),
-		},
-		{
-			Type: pulumi.String("azure-native:datamigration/v20180331preview:Task"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20180419:Task"),
 		},
 		{

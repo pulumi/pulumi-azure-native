@@ -101,7 +101,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:apimanagement:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:User"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:User"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:User"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:User"},

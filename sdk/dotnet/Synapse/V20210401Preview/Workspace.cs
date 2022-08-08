@@ -173,8 +173,6 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:synapse:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601:Workspace"},

@@ -56,9 +56,6 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:web:WebAppVnetConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppVnetConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppVnetConnection"),
 		},
 		{

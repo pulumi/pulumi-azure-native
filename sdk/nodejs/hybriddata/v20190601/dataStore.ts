@@ -107,7 +107,7 @@ export class DataStore extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybriddata:DataStore" }, { type: "azure-native:hybriddata/v20160601:DataStore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybriddata:DataStore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataStore.__pulumiType, name, resourceInputs, opts);
     }

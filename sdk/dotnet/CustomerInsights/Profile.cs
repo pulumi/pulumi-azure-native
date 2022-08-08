@@ -161,7 +161,6 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Profile"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Profile"},
                 },
             };

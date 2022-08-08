@@ -143,8 +143,6 @@ namespace Pulumi.AzureNative.Network.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:ExpressRouteCrossConnectionPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180701:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRouteCrossConnectionPeering"},

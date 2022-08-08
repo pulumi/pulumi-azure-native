@@ -101,7 +101,6 @@ namespace Pulumi.AzureNative.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:ManagerExtendedInfo"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:ManagerExtendedInfo"},
                 },
             };

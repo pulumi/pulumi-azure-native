@@ -43,12 +43,6 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"),
 		},
 		{

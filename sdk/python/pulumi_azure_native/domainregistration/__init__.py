@@ -17,16 +17,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.domainregistration.v20150401 as __v20150401
-    v20150401 = __v20150401
-    import pulumi_azure_native.domainregistration.v20180201 as __v20180201
-    v20180201 = __v20180201
-    import pulumi_azure_native.domainregistration.v20190801 as __v20190801
-    v20190801 = __v20190801
-    import pulumi_azure_native.domainregistration.v20200601 as __v20200601
-    v20200601 = __v20200601
-    import pulumi_azure_native.domainregistration.v20200901 as __v20200901
-    v20200901 = __v20200901
     import pulumi_azure_native.domainregistration.v20201001 as __v20201001
     v20201001 = __v20201001
     import pulumi_azure_native.domainregistration.v20201201 as __v20201201
@@ -42,11 +32,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.domainregistration.v20220301 as __v20220301
     v20220301 = __v20220301
 else:
-    v20150401 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20150401')
-    v20180201 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20180201')
-    v20190801 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20190801')
-    v20200601 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20200601')
-    v20200901 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20200901')
     v20201001 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20201001')
     v20201201 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20201201')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20210101')

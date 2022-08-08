@@ -46,9 +46,6 @@ func NewDataManager(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:hybriddata:DataManager"),
 		},
-		{
-			Type: pulumi.String("azure-native:hybriddata/v20160601:DataManager"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DataManager

@@ -77,9 +77,6 @@ namespace Pulumi.AzureNative.Storage.V20210201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:storage:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:FileServiceProperties"},

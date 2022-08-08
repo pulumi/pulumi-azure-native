@@ -55,24 +55,6 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20191212:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200301:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200401:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200901:SqlResourceSqlTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:SqlResourceSqlTrigger"),
 		},
 		{

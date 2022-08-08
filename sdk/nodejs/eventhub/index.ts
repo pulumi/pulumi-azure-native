@@ -33,8 +33,6 @@ export * from "./schemaRegistry";
 export * from "../types/enums/eventhub";
 
 // Export sub-modules:
-import * as v20140901 from "./v20140901";
-import * as v20150801 from "./v20150801";
 import * as v20170401 from "./v20170401";
 import * as v20180101preview from "./v20180101preview";
 import * as v20210101preview from "./v20210101preview";
@@ -43,8 +41,6 @@ import * as v20211101 from "./v20211101";
 import * as v20220101preview from "./v20220101preview";
 
 export {
-    v20140901,
-    v20150801,
     v20170401,
     v20180101preview,
     v20210101preview,

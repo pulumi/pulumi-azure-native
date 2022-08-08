@@ -113,7 +113,6 @@ namespace Pulumi.AzureNative.Web.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:web:WebAppDeploymentSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDeploymentSlot"},

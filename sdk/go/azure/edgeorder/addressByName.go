@@ -49,9 +49,6 @@ func NewAddressByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:edgeorder/v20201201preview:AddressByName"),
-		},
-		{
 			Type: pulumi.String("azure-native:edgeorder/v20211201:AddressByName"),
 		},
 	})

@@ -55,12 +55,6 @@ func NewShare(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:Share"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:Share"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20201001preview:Share"),
 		},
 		{

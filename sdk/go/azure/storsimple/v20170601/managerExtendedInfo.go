@@ -60,9 +60,6 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:storsimple:ManagerExtendedInfo"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple/v20161001:ManagerExtendedInfo"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagerExtendedInfo

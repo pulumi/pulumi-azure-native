@@ -51,9 +51,6 @@ func NewArtifactSource(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:deploymentmanager:ArtifactSource"),
 		},
-		{
-			Type: pulumi.String("azure-native:deploymentmanager/v20180901preview:ArtifactSource"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ArtifactSource

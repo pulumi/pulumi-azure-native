@@ -101,8 +101,6 @@ namespace Pulumi.AzureNative.DataShare.V20200901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datashare:Account"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:Account"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Account"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20210801:Account"},
                 },

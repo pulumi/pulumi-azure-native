@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20201001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160601:Vault"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20200202:Vault"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210101:Vault"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:Vault"},

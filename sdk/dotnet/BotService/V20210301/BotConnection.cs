@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.BotService.V20210301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:botservice:BotConnection"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20171201:BotConnection"},
                     new Pulumi.Alias { Type = "azure-native:botservice/v20180712:BotConnection"},
                     new Pulumi.Alias { Type = "azure-native:botservice/v20200602:BotConnection"},
                     new Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:BotConnection"},

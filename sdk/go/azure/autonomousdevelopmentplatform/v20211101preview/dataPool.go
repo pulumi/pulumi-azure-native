@@ -52,9 +52,6 @@ func NewDataPool(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:autonomousdevelopmentplatform:DataPool"),
 		},
 		{
-			Type: pulumi.String("azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool"),
 		},
 	})

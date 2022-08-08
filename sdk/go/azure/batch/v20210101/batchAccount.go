@@ -68,36 +68,6 @@ func NewBatchAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:batch:BatchAccount"),
 		},
 		{
-			Type: pulumi.String("azure-native:batch/v20151201:BatchAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20170101:BatchAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20170501:BatchAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20170901:BatchAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20181201:BatchAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20190401:BatchAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20190801:BatchAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20200301:BatchAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20200501:BatchAccount"),
-		},
-		{
-			Type: pulumi.String("azure-native:batch/v20200901:BatchAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:batch/v20210601:BatchAccount"),
 		},
 		{

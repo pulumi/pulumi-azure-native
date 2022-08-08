@@ -176,7 +176,7 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration:Task"), pulumi.Alias(type_="azure-native:datamigration/v20171115preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20210630:Task"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:Task")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20210630:Task"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:Task")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Task, __self__).__init__(
             'azure-native:datamigration/v20220130preview:Task',

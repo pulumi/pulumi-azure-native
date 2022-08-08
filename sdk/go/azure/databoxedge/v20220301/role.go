@@ -48,24 +48,6 @@ func NewRole(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:databoxedge:Role"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20190301:Role"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190701:Role"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190801:Role"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Role"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:Role"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Role"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:Role"),
 		},
 		{

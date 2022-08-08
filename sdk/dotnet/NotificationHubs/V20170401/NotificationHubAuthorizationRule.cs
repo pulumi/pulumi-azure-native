@@ -125,7 +125,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:notificationhubs:NotificationHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -56,9 +56,6 @@ func NewProduct(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:apimanagement:Product"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/v20160707:Product"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:Product"),
 		},
 		{

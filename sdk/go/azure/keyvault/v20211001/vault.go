@@ -48,18 +48,6 @@ func NewVault(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:keyvault:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-native:keyvault/v20150601:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-native:keyvault/v20161001:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-native:keyvault/v20180214:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-native:keyvault/v20180214preview:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20190901:Vault"),
 		},
 		{

@@ -73,12 +73,6 @@ func NewSqlDBTableDataSet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:SqlDBTableDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:SqlDBTableDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:SqlDBTableDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:SqlDBTableDataSet"),
 		},
 		{

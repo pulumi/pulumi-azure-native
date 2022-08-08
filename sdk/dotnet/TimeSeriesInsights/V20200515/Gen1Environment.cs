@@ -133,9 +133,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:Gen1Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:Gen1Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Gen1Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Gen1Environment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Gen1Environment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Gen1Environment"},
                 },

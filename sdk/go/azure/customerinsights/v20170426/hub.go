@@ -49,9 +49,6 @@ func NewHub(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:customerinsights:Hub"),
 		},
-		{
-			Type: pulumi.String("azure-native:customerinsights/v20170101:Hub"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Hub

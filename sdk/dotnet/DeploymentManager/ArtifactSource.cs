@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.DeploymentManager
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ArtifactSource"},
                 },
             };

@@ -208,50 +208,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.network.v20150501preview as __v20150501preview
-    v20150501preview = __v20150501preview
-    import pulumi_azure_native.network.v20150504preview as __v20150504preview
-    v20150504preview = __v20150504preview
-    import pulumi_azure_native.network.v20150615 as __v20150615
-    v20150615 = __v20150615
-    import pulumi_azure_native.network.v20151101 as __v20151101
-    v20151101 = __v20151101
-    import pulumi_azure_native.network.v20160330 as __v20160330
-    v20160330 = __v20160330
-    import pulumi_azure_native.network.v20160401 as __v20160401
-    v20160401 = __v20160401
-    import pulumi_azure_native.network.v20160601 as __v20160601
-    v20160601 = __v20160601
-    import pulumi_azure_native.network.v20160901 as __v20160901
-    v20160901 = __v20160901
-    import pulumi_azure_native.network.v20161201 as __v20161201
-    v20161201 = __v20161201
-    import pulumi_azure_native.network.v20170301 as __v20170301
-    v20170301 = __v20170301
-    import pulumi_azure_native.network.v20170501 as __v20170501
-    v20170501 = __v20170501
-    import pulumi_azure_native.network.v20170601 as __v20170601
-    v20170601 = __v20170601
-    import pulumi_azure_native.network.v20170801 as __v20170801
-    v20170801 = __v20170801
-    import pulumi_azure_native.network.v20170901 as __v20170901
-    v20170901 = __v20170901
-    import pulumi_azure_native.network.v20170901preview as __v20170901preview
-    v20170901preview = __v20170901preview
-    import pulumi_azure_native.network.v20171001 as __v20171001
-    v20171001 = __v20171001
-    import pulumi_azure_native.network.v20171101 as __v20171101
-    v20171101 = __v20171101
-    import pulumi_azure_native.network.v20180101 as __v20180101
-    v20180101 = __v20180101
-    import pulumi_azure_native.network.v20180201 as __v20180201
-    v20180201 = __v20180201
-    import pulumi_azure_native.network.v20180301 as __v20180301
-    v20180301 = __v20180301
-    import pulumi_azure_native.network.v20180301preview as __v20180301preview
-    v20180301preview = __v20180301preview
-    import pulumi_azure_native.network.v20180401 as __v20180401
-    v20180401 = __v20180401
     import pulumi_azure_native.network.v20180501 as __v20180501
     v20180501 = __v20180501
     import pulumi_azure_native.network.v20180601 as __v20180601
@@ -333,28 +289,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.network.v20220701 as __v20220701
     v20220701 = __v20220701
 else:
-    v20150501preview = _utilities.lazy_import('pulumi_azure_native.network.v20150501preview')
-    v20150504preview = _utilities.lazy_import('pulumi_azure_native.network.v20150504preview')
-    v20150615 = _utilities.lazy_import('pulumi_azure_native.network.v20150615')
-    v20151101 = _utilities.lazy_import('pulumi_azure_native.network.v20151101')
-    v20160330 = _utilities.lazy_import('pulumi_azure_native.network.v20160330')
-    v20160401 = _utilities.lazy_import('pulumi_azure_native.network.v20160401')
-    v20160601 = _utilities.lazy_import('pulumi_azure_native.network.v20160601')
-    v20160901 = _utilities.lazy_import('pulumi_azure_native.network.v20160901')
-    v20161201 = _utilities.lazy_import('pulumi_azure_native.network.v20161201')
-    v20170301 = _utilities.lazy_import('pulumi_azure_native.network.v20170301')
-    v20170501 = _utilities.lazy_import('pulumi_azure_native.network.v20170501')
-    v20170601 = _utilities.lazy_import('pulumi_azure_native.network.v20170601')
-    v20170801 = _utilities.lazy_import('pulumi_azure_native.network.v20170801')
-    v20170901 = _utilities.lazy_import('pulumi_azure_native.network.v20170901')
-    v20170901preview = _utilities.lazy_import('pulumi_azure_native.network.v20170901preview')
-    v20171001 = _utilities.lazy_import('pulumi_azure_native.network.v20171001')
-    v20171101 = _utilities.lazy_import('pulumi_azure_native.network.v20171101')
-    v20180101 = _utilities.lazy_import('pulumi_azure_native.network.v20180101')
-    v20180201 = _utilities.lazy_import('pulumi_azure_native.network.v20180201')
-    v20180301 = _utilities.lazy_import('pulumi_azure_native.network.v20180301')
-    v20180301preview = _utilities.lazy_import('pulumi_azure_native.network.v20180301preview')
-    v20180401 = _utilities.lazy_import('pulumi_azure_native.network.v20180401')
     v20180501 = _utilities.lazy_import('pulumi_azure_native.network.v20180501')
     v20180601 = _utilities.lazy_import('pulumi_azure_native.network.v20180601')
     v20180701 = _utilities.lazy_import('pulumi_azure_native.network.v20180701')

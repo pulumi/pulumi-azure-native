@@ -27,14 +27,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.healthcareapis.v20180820preview as __v20180820preview
-    v20180820preview = __v20180820preview
-    import pulumi_azure_native.healthcareapis.v20190916 as __v20190916
-    v20190916 = __v20190916
-    import pulumi_azure_native.healthcareapis.v20200315 as __v20200315
-    v20200315 = __v20200315
-    import pulumi_azure_native.healthcareapis.v20200330 as __v20200330
-    v20200330 = __v20200330
     import pulumi_azure_native.healthcareapis.v20210111 as __v20210111
     v20210111 = __v20210111
     import pulumi_azure_native.healthcareapis.v20210601preview as __v20210601preview
@@ -46,10 +38,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.healthcareapis.v20220515 as __v20220515
     v20220515 = __v20220515
 else:
-    v20180820preview = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20180820preview')
-    v20190916 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20190916')
-    v20200315 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20200315')
-    v20200330 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20200330')
     v20210111 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20210111')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20210601preview')
     v20211101 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20211101')

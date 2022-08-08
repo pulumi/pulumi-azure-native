@@ -66,9 +66,6 @@ func NewConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:customerinsights:Connector"),
 		},
-		{
-			Type: pulumi.String("azure-native:customerinsights/v20170101:Connector"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Connector

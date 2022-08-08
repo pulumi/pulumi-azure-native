@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datashare:DataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:DataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:DataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20210801:DataSet"},
                 },

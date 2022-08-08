@@ -38,12 +38,6 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:scheduler/v20140801preview:Job"),
-		},
-		{
-			Type: pulumi.String("azure-native:scheduler/v20160101:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:scheduler/v20160301:Job"),
 		},
 	})

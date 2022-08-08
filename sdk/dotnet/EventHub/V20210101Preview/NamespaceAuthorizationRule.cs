@@ -65,8 +65,6 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:eventhub:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule"},

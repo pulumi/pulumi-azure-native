@@ -184,51 +184,6 @@ func NewVolume(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:netapp:Volume"),
 		},
 		{
-			Type: pulumi.String("azure-native:netapp/v20170815:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190501:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190601:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190701:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190801:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20191001:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20191101:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200201:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200301:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200501:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200601:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200701:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200801:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200901:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20201101:Volume"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20201201:Volume"),
 		},
 		{

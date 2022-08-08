@@ -44,39 +44,6 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:NetworkWatcher"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20160901:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:NetworkWatcher"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180701:NetworkWatcher"),
 		},
 		{

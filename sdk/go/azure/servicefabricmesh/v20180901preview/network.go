@@ -44,9 +44,6 @@ func NewNetwork(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicefabricmesh:Network"),
 		},
-		{
-			Type: pulumi.String("azure-native:servicefabricmesh/v20180701preview:Network"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Network

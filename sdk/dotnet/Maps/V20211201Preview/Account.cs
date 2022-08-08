@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:maps:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20170101preview:Account"},
                     new Pulumi.Alias { Type = "azure-native:maps/v20180501:Account"},
                     new Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
                     new Pulumi.Alias { Type = "azure-native:maps/v20210201:Account"},

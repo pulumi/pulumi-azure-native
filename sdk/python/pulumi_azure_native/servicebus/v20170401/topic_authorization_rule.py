@@ -173,7 +173,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20140901:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20150801:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20211101:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:TopicAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20211101:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:TopicAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TopicAuthorizationRule, __self__).__init__(
             'azure-native:servicebus/v20170401:TopicAuthorizationRule',

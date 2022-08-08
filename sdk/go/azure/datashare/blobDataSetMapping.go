@@ -85,12 +85,6 @@ func NewBlobDataSetMapping(ctx *pulumi.Context,
 	args.Kind = pulumi.String("Blob")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:BlobDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:BlobDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:BlobDataSetMapping"),
 		},
 		{

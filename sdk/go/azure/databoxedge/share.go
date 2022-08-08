@@ -68,24 +68,6 @@ func NewShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20190301:Share"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190701:Share"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190801:Share"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Share"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:Share"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:Share"),
 		},
 		{

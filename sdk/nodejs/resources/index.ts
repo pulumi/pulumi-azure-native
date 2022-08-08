@@ -36,14 +36,6 @@ export * from "./templateSpecVersion";
 export * from "../types/enums/resources";
 
 // Export sub-modules:
-import * as v20151101 from "./v20151101";
-import * as v20160201 from "./v20160201";
-import * as v20160701 from "./v20160701";
-import * as v20160901 from "./v20160901";
-import * as v20170510 from "./v20170510";
-import * as v20180201 from "./v20180201";
-import * as v20180501 from "./v20180501";
-import * as v20190301 from "./v20190301";
 import * as v20190501 from "./v20190501";
 import * as v20190510 from "./v20190510";
 import * as v20190601preview from "./v20190601preview";
@@ -61,14 +53,6 @@ import * as v20210501 from "./v20210501";
 import * as v20220201 from "./v20220201";
 
 export {
-    v20151101,
-    v20160201,
-    v20160701,
-    v20160901,
-    v20170510,
-    v20180201,
-    v20180501,
-    v20190301,
     v20190501,
     v20190510,
     v20190601preview,

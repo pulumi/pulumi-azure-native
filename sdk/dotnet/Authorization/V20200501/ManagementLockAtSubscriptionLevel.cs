@@ -77,8 +77,6 @@ namespace Pulumi.AzureNative.Authorization.V20200501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:authorization:ManagementLockAtSubscriptionLevel"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20150101:ManagementLockAtSubscriptionLevel"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel"},
                 },
             };

@@ -101,8 +101,6 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:eventhub:EventHub"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:EventHub"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHub"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHub"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHub"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHub"},

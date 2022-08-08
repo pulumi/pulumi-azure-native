@@ -45,9 +45,6 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:datafactory:IntegrationRuntime"),
 		},
-		{
-			Type: pulumi.String("azure-native:datafactory/v20170901preview:IntegrationRuntime"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationRuntime

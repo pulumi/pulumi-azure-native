@@ -113,12 +113,6 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20151101:Profile"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:Profile"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170501:Profile"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:Profile"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180301:Profile"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:Profile"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:Profile"},
                 },
             };

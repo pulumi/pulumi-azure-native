@@ -58,12 +58,6 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier"),
-		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolWorkloadClassifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210301:SqlPoolWorkloadClassifier"),
 		},
 		{

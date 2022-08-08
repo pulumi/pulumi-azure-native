@@ -110,9 +110,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datamigration:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Project"},

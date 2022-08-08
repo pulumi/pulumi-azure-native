@@ -97,12 +97,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:databoxedge:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:MECRole"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:MECRole"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:MECRole"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:MECRole"},

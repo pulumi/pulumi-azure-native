@@ -40,30 +40,6 @@ func NewResourceGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:resources:ResourceGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:resources/v20151101:ResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20160201:ResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20160701:ResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20160901:ResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20170510:ResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20180201:ResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20180501:ResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:resources/v20190301:ResourceGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190501:ResourceGroup"),
 		},
 		{

@@ -130,7 +130,7 @@ export class NotificationChannel extends pulumi.CustomResource {
             resourceInputs["webHookUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:NotificationChannel" }, { type: "azure-native:devtestlab/v20160515:NotificationChannel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:NotificationChannel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationChannel.__pulumiType, name, resourceInputs, opts);
     }

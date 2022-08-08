@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datashare:ScheduledTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ScheduledTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:ScheduledTrigger"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ScheduledTrigger"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ScheduledTrigger"},
                 },

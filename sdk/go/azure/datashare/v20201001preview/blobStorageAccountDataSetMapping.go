@@ -79,12 +79,6 @@ func NewBlobStorageAccountDataSetMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:BlobStorageAccountDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:BlobStorageAccountDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:BlobStorageAccountDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:BlobStorageAccountDataSetMapping"),
 		},
 		{

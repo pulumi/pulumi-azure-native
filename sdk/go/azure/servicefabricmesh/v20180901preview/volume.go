@@ -54,9 +54,6 @@ func NewVolume(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicefabricmesh:Volume"),
 		},
-		{
-			Type: pulumi.String("azure-native:servicefabricmesh/v20180701preview:Volume"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Volume

@@ -79,12 +79,6 @@ func NewADLSGen2StorageAccountDataSetMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:ADLSGen2StorageAccountDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:ADLSGen2StorageAccountDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:ADLSGen2StorageAccountDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSetMapping"),
 		},
 		{

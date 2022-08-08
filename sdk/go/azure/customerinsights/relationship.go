@@ -67,9 +67,6 @@ func NewRelationship(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:customerinsights/v20170101:Relationship"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170426:Relationship"),
 		},
 	})

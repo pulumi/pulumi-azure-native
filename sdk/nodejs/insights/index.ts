@@ -52,7 +52,6 @@ export * from "./workbookTemplate";
 export * from "../types/enums/insights";
 
 // Export sub-modules:
-import * as v20140401 from "./v20140401";
 import * as v20150401 from "./v20150401";
 import * as v20150501 from "./v20150501";
 import * as v20160301 from "./v20160301";
@@ -95,7 +94,6 @@ import * as v20220601 from "./v20220601";
 import * as v20220615 from "./v20220615";
 
 export {
-    v20140401,
     v20150401,
     v20150501,
     v20160301,

@@ -150,9 +150,6 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppSlot"),
 		},
 		{

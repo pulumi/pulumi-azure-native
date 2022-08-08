@@ -95,7 +95,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare:SynchronizationSetting" }, { type: "azure-native:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-native:datashare/v20191101:SynchronizationSetting" }, { type: "azure-native:datashare/v20201001preview:SynchronizationSetting" }, { type: "azure-native:datashare/v20210801:SynchronizationSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:SynchronizationSetting" }, { type: "azure-native:datashare/v20201001preview:SynchronizationSetting" }, { type: "azure-native:datashare/v20210801:SynchronizationSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SynchronizationSetting.__pulumiType, name, resourceInputs, opts);
     }

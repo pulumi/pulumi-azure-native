@@ -71,12 +71,6 @@ func NewNamespace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:servicebus:Namespace"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicebus/v20140901:Namespace"),
-		},
-		{
-			Type: pulumi.String("azure-native:servicebus/v20150801:Namespace"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20170401:Namespace"),
 		},
 		{

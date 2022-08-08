@@ -113,7 +113,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datafactory:Pipeline"},
-                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Pipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

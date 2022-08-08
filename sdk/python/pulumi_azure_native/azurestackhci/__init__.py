@@ -17,8 +17,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.azurestackhci.v20200301preview as __v20200301preview
-    v20200301preview = __v20200301preview
     import pulumi_azure_native.azurestackhci.v20201001 as __v20201001
     v20201001 = __v20201001
     import pulumi_azure_native.azurestackhci.v20210101preview as __v20210101preview
@@ -32,7 +30,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.azurestackhci.v20220501 as __v20220501
     v20220501 = __v20220501
 else:
-    v20200301preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20200301preview')
     v20201001 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20201001')
     v20210101preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210101preview')
     v20210901 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210901')

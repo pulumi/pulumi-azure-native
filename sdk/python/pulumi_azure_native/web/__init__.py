@@ -158,8 +158,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.web.v20150801 as __v20150801
-    v20150801 = __v20150801
     import pulumi_azure_native.web.v20150801preview as __v20150801preview
     v20150801preview = __v20150801preview
     import pulumi_azure_native.web.v20160301 as __v20160301
@@ -195,7 +193,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.web.v20220301 as __v20220301
     v20220301 = __v20220301
 else:
-    v20150801 = _utilities.lazy_import('pulumi_azure_native.web.v20150801')
     v20150801preview = _utilities.lazy_import('pulumi_azure_native.web.v20150801preview')
     v20160301 = _utilities.lazy_import('pulumi_azure_native.web.v20160301')
     v20160601 = _utilities.lazy_import('pulumi_azure_native.web.v20160601')

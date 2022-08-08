@@ -49,9 +49,6 @@ func NewVirtualWAN(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:VirtualWAN"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20180401:VirtualWAN"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180701:VirtualWAN"),
 		},
 		{

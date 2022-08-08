@@ -39,12 +39,6 @@ func NewJob(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:scheduler:Job"),
 		},
-		{
-			Type: pulumi.String("azure-native:scheduler/v20140801preview:Job"),
-		},
-		{
-			Type: pulumi.String("azure-native:scheduler/v20160101:Job"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Job

@@ -52,9 +52,6 @@ func NewService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:deploymentmanager:Service"),
 		},
-		{
-			Type: pulumi.String("azure-native:deploymentmanager/v20180901preview:Service"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Service

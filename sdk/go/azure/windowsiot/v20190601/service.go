@@ -51,9 +51,6 @@ func NewService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:windowsiot:Service"),
 		},
-		{
-			Type: pulumi.String("azure-native:windowsiot/v20180216preview:Service"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Service

@@ -32,9 +32,6 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:network/v20180401:TrafficManagerUserMetricsKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:TrafficManagerUserMetricsKey"),
 		},
 	})

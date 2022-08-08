@@ -125,7 +125,6 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Relationship"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Relationship"},
                 },
             };

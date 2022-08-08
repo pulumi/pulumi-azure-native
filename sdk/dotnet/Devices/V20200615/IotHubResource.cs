@@ -83,16 +83,6 @@ namespace Pulumi.AzureNative.Devices.V20200615
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:devices:IotHubResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20160203:IotHubResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20170119:IotHubResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20170701:IotHubResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20180122:IotHubResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20180401:IotHubResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20181201preview:IotHubResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20190322:IotHubResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20190322preview:IotHubResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20190701preview:IotHubResource"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20191104:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20200301:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20200401:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20200710preview:IotHubResource"},

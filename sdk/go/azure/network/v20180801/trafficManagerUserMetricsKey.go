@@ -33,9 +33,6 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network:TrafficManagerUserMetricsKey"),
 		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:TrafficManagerUserMetricsKey"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource TrafficManagerUserMetricsKey

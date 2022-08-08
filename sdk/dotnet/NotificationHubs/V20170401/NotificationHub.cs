@@ -119,8 +119,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:notificationhubs:NotificationHub"},
-                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20140901:NotificationHub"},
-                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

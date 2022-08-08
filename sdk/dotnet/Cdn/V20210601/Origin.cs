@@ -143,11 +143,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:cdn:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20150601:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20160402:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Origin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Origin"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Origin"},
                 },
             };

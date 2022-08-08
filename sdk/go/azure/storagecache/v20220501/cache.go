@@ -80,18 +80,6 @@ func NewCache(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:storagecache:Cache"),
 		},
 		{
-			Type: pulumi.String("azure-native:storagecache/v20190801preview:Cache"),
-		},
-		{
-			Type: pulumi.String("azure-native:storagecache/v20191101:Cache"),
-		},
-		{
-			Type: pulumi.String("azure-native:storagecache/v20200301:Cache"),
-		},
-		{
-			Type: pulumi.String("azure-native:storagecache/v20201001:Cache"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagecache/v20210301:Cache"),
 		},
 		{

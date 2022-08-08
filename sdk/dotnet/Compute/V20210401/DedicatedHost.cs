@@ -119,10 +119,6 @@ namespace Pulumi.AzureNative.Compute.V20210401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:compute:DedicatedHost"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:DedicatedHost"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:DedicatedHost"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:DedicatedHost"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20201201:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210301:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210701:DedicatedHost"},

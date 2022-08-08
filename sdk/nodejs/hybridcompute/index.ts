@@ -18,10 +18,6 @@ export * from "./privateLinkScope";
 export * from "../types/enums/hybridcompute";
 
 // Export sub-modules:
-import * as v20190318preview from "./v20190318preview";
-import * as v20190802preview from "./v20190802preview";
-import * as v20191212 from "./v20191212";
-import * as v20200730preview from "./v20200730preview";
 import * as v20200802 from "./v20200802";
 import * as v20200815preview from "./v20200815preview";
 import * as v20210128preview from "./v20210128preview";
@@ -35,10 +31,6 @@ import * as v20220310 from "./v20220310";
 import * as v20220510preview from "./v20220510preview";
 
 export {
-    v20190318preview,
-    v20190802preview,
-    v20191212,
-    v20200730preview,
     v20200802,
     v20200815preview,
     v20210128preview,

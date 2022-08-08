@@ -39,11 +39,9 @@ export * from "./trigger";
 export * from "../types/enums/datafactory";
 
 // Export sub-modules:
-import * as v20170901preview from "./v20170901preview";
 import * as v20180601 from "./v20180601";
 
 export {
-    v20170901preview,
     v20180601,
 };
 

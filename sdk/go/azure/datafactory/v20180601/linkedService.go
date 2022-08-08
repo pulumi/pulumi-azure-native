@@ -45,9 +45,6 @@ func NewLinkedService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:datafactory:LinkedService"),
 		},
-		{
-			Type: pulumi.String("azure-native:datafactory/v20170901preview:LinkedService"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource LinkedService

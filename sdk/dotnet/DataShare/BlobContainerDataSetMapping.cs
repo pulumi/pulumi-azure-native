@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobContainerDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobContainerDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobContainerDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobContainerDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobContainerDataSetMapping"},

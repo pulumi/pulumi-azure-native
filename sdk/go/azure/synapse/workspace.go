@@ -88,12 +88,6 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:synapse/v20190601preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20201201:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210301:Workspace"),
 		},
 		{

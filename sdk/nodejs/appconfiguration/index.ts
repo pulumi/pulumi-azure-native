@@ -18,9 +18,6 @@ export * from "./privateEndpointConnection";
 export * from "../types/enums/appconfiguration";
 
 // Export sub-modules:
-import * as v20190201preview from "./v20190201preview";
-import * as v20191001 from "./v20191001";
-import * as v20191101preview from "./v20191101preview";
 import * as v20200601 from "./v20200601";
 import * as v20200701preview from "./v20200701preview";
 import * as v20210301preview from "./v20210301preview";
@@ -28,9 +25,6 @@ import * as v20211001preview from "./v20211001preview";
 import * as v20220501 from "./v20220501";
 
 export {
-    v20190201preview,
-    v20191001,
-    v20191101preview,
     v20200601,
     v20200701preview,
     v20210301preview,

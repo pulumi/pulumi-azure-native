@@ -71,9 +71,6 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:compute:VirtualMachineScaleSetVMRunCommand"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand"),
 		},
 		{

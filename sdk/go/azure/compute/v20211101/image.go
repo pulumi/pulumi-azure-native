@@ -50,36 +50,6 @@ func NewImage(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:compute:Image"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/v20160430preview:Image"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20170330:Image"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20171201:Image"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20180401:Image"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20180601:Image"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20181001:Image"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20190301:Image"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20190701:Image"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20191201:Image"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20200601:Image"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:Image"),
 		},
 		{

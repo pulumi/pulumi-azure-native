@@ -115,7 +115,6 @@ namespace Pulumi.AzureNative.Kusto.V20200215
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:kusto:ReadOnlyFollowingDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20190121:ReadOnlyFollowingDatabase"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20190515:ReadOnlyFollowingDatabase"},

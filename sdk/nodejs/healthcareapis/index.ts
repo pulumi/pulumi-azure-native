@@ -26,10 +26,6 @@ export * from "./workspacePrivateEndpointConnection";
 export * from "../types/enums/healthcareapis";
 
 // Export sub-modules:
-import * as v20180820preview from "./v20180820preview";
-import * as v20190916 from "./v20190916";
-import * as v20200315 from "./v20200315";
-import * as v20200330 from "./v20200330";
 import * as v20210111 from "./v20210111";
 import * as v20210601preview from "./v20210601preview";
 import * as v20211101 from "./v20211101";
@@ -37,10 +33,6 @@ import * as v20220131preview from "./v20220131preview";
 import * as v20220515 from "./v20220515";
 
 export {
-    v20180820preview,
-    v20190916,
-    v20200315,
-    v20200330,
     v20210111,
     v20210601preview,
     v20211101,

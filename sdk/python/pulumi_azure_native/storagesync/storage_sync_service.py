@@ -180,7 +180,7 @@ class StorageSyncService(pulumi.CustomResource):
             __props__.__dict__["storage_sync_service_uid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagesync/v20170605preview:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20180402:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20180701:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20181001:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20190201:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20190301:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20190601:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20191001:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20200301:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20200901:StorageSyncService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagesync/v20200301:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20200901:StorageSyncService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageSyncService, __self__).__init__(
             'azure-native:storagesync:StorageSyncService',

@@ -185,7 +185,6 @@ namespace Pulumi.AzureNative.Web.V20160301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:web:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:web/v20181101:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:web/v20190801:Certificate"},

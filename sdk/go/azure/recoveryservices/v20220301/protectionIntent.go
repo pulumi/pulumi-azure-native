@@ -50,9 +50,6 @@ func NewProtectionIntent(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:recoveryservices:ProtectionIntent"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/v20170701:ProtectionIntent"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectionIntent"),
 		},
 		{

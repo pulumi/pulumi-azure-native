@@ -58,9 +58,6 @@ func NewOpenIdConnectProvider(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:apimanagement:OpenIdConnectProvider"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/v20160707:OpenIdConnectProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:OpenIdConnectProvider"),
 		},
 		{

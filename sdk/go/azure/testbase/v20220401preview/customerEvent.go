@@ -50,9 +50,6 @@ func NewCustomerEvent(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:testbase:CustomerEvent"),
 		},
-		{
-			Type: pulumi.String("azure-native:testbase/v20201216preview:CustomerEvent"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomerEvent

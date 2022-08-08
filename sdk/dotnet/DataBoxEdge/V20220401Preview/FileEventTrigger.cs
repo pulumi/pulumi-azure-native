@@ -91,12 +91,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:databoxedge:FileEventTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:FileEventTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:FileEventTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:FileEventTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:FileEventTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:FileEventTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:FileEventTrigger"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:FileEventTrigger"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:FileEventTrigger"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:FileEventTrigger"},

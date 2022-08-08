@@ -62,8 +62,6 @@ namespace Pulumi.AzureNative.Storage.V20210901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:storage:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:Queue"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:Queue"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:Queue"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:Queue"},

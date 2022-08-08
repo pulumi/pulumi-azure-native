@@ -135,15 +135,6 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180101:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:Topic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Topic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Topic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Topic"},

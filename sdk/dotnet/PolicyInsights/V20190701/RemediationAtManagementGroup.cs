@@ -101,7 +101,6 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtManagementGroup"},
                 },
             };

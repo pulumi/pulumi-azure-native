@@ -67,11 +67,11 @@ class ManagedGrafanaPropertiesArgs:
 class ManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         The managed identity of a resource.
         :param pulumi.Input[Union[str, 'IdentityType']] type: The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Dictionary of user assigned identities.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: Dictionary of user assigned identities.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -92,14 +92,14 @@ class ManagedIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Dictionary of user assigned identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

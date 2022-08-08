@@ -149,8 +149,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datashare:ShareSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ShareSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:ShareSubscription"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ShareSubscription"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20210801:ShareSubscription"},
                 },

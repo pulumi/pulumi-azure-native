@@ -50,39 +50,6 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 	args.Resource = args.Resource.ToGremlinGraphResourceOutput().ApplyT(func(v GremlinGraphResource) GremlinGraphResource { return *v.Defaults() }).(GremlinGraphResourceOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:documentdb/v20150401:GremlinResourceGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20150408:GremlinResourceGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20151106:GremlinResourceGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20160319:GremlinResourceGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20160331:GremlinResourceGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20190801:GremlinResourceGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20191212:GremlinResourceGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200301:GremlinResourceGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200401:GremlinResourceGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200601preview:GremlinResourceGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200901:GremlinResourceGremlinGraph"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:GremlinResourceGremlinGraph"),
 		},
 		{

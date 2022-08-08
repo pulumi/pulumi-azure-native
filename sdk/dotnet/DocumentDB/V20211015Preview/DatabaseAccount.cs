@@ -293,17 +293,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:DatabaseAccount"},

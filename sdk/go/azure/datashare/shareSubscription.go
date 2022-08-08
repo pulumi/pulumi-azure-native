@@ -75,12 +75,6 @@ func NewShareSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:ShareSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:ShareSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:ShareSubscription"),
 		},
 		{

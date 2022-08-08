@@ -52,51 +52,6 @@ func NewRoute(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:network/v20150501preview:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20150615:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:Route"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:Route"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:Route"),
 		},
 		{

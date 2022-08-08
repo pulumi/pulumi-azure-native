@@ -11,11 +11,9 @@ export * from "./sqlServer";
 export * from "./sqlServerRegistration";
 
 // Export sub-modules:
-import * as v20170301preview from "./v20170301preview";
 import * as v20190724preview from "./v20190724preview";
 
 export {
-    v20170301preview,
     v20190724preview,
 };
 

@@ -21,32 +21,12 @@ export * from "./pool";
 export * from "../types/enums/batch";
 
 // Export sub-modules:
-import * as v20151201 from "./v20151201";
-import * as v20170101 from "./v20170101";
-import * as v20170501 from "./v20170501";
-import * as v20170901 from "./v20170901";
-import * as v20181201 from "./v20181201";
-import * as v20190401 from "./v20190401";
-import * as v20190801 from "./v20190801";
-import * as v20200301 from "./v20200301";
-import * as v20200501 from "./v20200501";
-import * as v20200901 from "./v20200901";
 import * as v20210101 from "./v20210101";
 import * as v20210601 from "./v20210601";
 import * as v20220101 from "./v20220101";
 import * as v20220601 from "./v20220601";
 
 export {
-    v20151201,
-    v20170101,
-    v20170501,
-    v20170901,
-    v20181201,
-    v20190401,
-    v20190801,
-    v20200301,
-    v20200501,
-    v20200901,
     v20210101,
     v20210601,
     v20220101,

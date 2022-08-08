@@ -53,9 +53,6 @@ func NewChannel(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:botservice:Channel"),
 		},
 		{
-			Type: pulumi.String("azure-native:botservice/v20171201:Channel"),
-		},
-		{
 			Type: pulumi.String("azure-native:botservice/v20180712:Channel"),
 		},
 		{

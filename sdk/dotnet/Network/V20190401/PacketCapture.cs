@@ -95,17 +95,6 @@ namespace Pulumi.AzureNative.Network.V20190401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160901:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20161201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170601:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170801:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180601:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180701:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:PacketCapture"},

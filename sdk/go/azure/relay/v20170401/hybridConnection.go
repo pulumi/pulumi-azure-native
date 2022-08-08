@@ -49,9 +49,6 @@ func NewHybridConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:relay:HybridConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:relay/v20160701:HybridConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:relay/v20211101:HybridConnection"),
 		},
 	})

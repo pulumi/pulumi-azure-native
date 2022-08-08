@@ -46,39 +46,6 @@ func NewGremlinResourceGremlinDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:documentdb/v20150401:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20150408:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20151106:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20160319:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20160331:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20190801:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20191212:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200301:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200401:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200601preview:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200901:GremlinResourceGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:GremlinResourceGremlinDatabase"),
 		},
 		{

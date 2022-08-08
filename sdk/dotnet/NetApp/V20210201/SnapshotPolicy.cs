@@ -101,12 +101,6 @@ namespace Pulumi.AzureNative.NetApp.V20210201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:netapp:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:SnapshotPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20201201:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20210401:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:SnapshotPolicy"},

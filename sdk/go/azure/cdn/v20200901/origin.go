@@ -75,21 +75,6 @@ func NewOrigin(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:cdn:Origin"),
 		},
 		{
-			Type: pulumi.String("azure-native:cdn/v20150601:Origin"),
-		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20160402:Origin"),
-		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20191231:Origin"),
-		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20200331:Origin"),
-		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20200415:Origin"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20210601:Origin"),
 		},
 	})

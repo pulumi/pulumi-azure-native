@@ -119,7 +119,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:Account" }, { type: "azure-native:datashare/v20191101:Account" }, { type: "azure-native:datashare/v20200901:Account" }, { type: "azure-native:datashare/v20201001preview:Account" }, { type: "azure-native:datashare/v20210801:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20200901:Account" }, { type: "azure-native:datashare/v20201001preview:Account" }, { type: "azure-native:datashare/v20210801:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

@@ -43,9 +43,6 @@ func NewWebAppMetadata(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:web:WebAppMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppMetadata"),
 		},
 		{

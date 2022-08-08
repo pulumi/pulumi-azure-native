@@ -56,15 +56,6 @@ func NewGalleryApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:compute/v20190301:GalleryApplication"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20190701:GalleryApplication"),
-		},
-		{
-			Type: pulumi.String("azure-native:compute/v20191201:GalleryApplication"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20200930:GalleryApplication"),
 		},
 		{

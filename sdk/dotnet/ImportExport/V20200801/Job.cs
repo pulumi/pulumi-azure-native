@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.ImportExport.V20200801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:importexport:Job"},
-                    new Pulumi.Alias { Type = "azure-native:importexport/v20161101:Job"},
                     new Pulumi.Alias { Type = "azure-native:importexport/v20210101:Job"},
                 },
             };

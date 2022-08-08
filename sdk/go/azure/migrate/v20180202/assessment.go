@@ -117,12 +117,6 @@ func NewAssessment(ctx *pulumi.Context,
 	if args.TimeRange == nil {
 		return nil, errors.New("invalid value for required argument 'TimeRange'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:migrate/v20171111preview:Assessment"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Assessment
 	err := ctx.RegisterResource("azure-native:migrate/v20180202:Assessment", name, args, &resource, opts...)
 	if err != nil {

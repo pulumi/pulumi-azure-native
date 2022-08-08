@@ -84,12 +84,6 @@ func NewLab(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devtestlab:Lab"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20150521preview:Lab"),
-		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20160515:Lab"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Lab

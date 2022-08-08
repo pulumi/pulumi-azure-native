@@ -55,9 +55,6 @@ func NewApp(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:iotcentral/v20180901:App"),
-		},
-		{
 			Type: pulumi.String("azure-native:iotcentral/v20210601:App"),
 		},
 		{

@@ -49,12 +49,6 @@ func NewBot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:healthbot/v20201020:Bot"),
-		},
-		{
-			Type: pulumi.String("azure-native:healthbot/v20201020preview:Bot"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthbot/v20201208:Bot"),
 		},
 		{

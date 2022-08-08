@@ -101,7 +101,6 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:azurestack:Registration"},
-                    new Pulumi.Alias { Type = "azure-native:azurestack/v20160101:Registration"},
                     new Pulumi.Alias { Type = "azure-native:azurestack/v20170601:Registration"},
                 },
             };

@@ -59,24 +59,6 @@ func NewCloudEdgeManagementRole(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:databoxedge:CloudEdgeManagementRole"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20190301:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190701:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190801:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200501preview:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:CloudEdgeManagementRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:CloudEdgeManagementRole"),
 		},
 		{

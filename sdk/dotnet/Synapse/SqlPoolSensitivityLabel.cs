@@ -110,8 +110,6 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolSensitivityLabel"},

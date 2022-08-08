@@ -71,12 +71,6 @@ func NewScheduledTrigger(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:ScheduledTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:ScheduledTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:ScheduledTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:ScheduledTrigger"),
 		},
 		{

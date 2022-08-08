@@ -71,17 +71,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlDatabase"},

@@ -71,8 +71,6 @@ namespace Pulumi.AzureNative.Storage.V20210801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:storage:BlobInventoryPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobInventoryPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobInventoryPolicy"},

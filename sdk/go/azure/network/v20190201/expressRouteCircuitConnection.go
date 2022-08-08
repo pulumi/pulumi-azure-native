@@ -54,12 +54,6 @@ func NewExpressRouteCircuitConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20180201:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:ExpressRouteCircuitConnection"),
 		},
 		{

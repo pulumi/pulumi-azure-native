@@ -74,51 +74,6 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:network/v20150501preview:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20150615:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160330:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160601:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20160901:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20161201:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170301:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170601:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170801:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20170901:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171001:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20171101:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180101:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180201:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180401:VirtualNetwork"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:VirtualNetwork"),
 		},
 		{

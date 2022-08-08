@@ -46,18 +46,6 @@ func NewVault(ctx *pulumi.Context,
 	args.Properties = args.Properties.ToVaultPropertiesOutput().ApplyT(func(v VaultProperties) VaultProperties { return *v.Defaults() }).(VaultPropertiesOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:keyvault/v20150601:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-native:keyvault/v20161001:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-native:keyvault/v20180214:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-native:keyvault/v20180214preview:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20190901:Vault"),
 		},
 		{

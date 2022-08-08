@@ -90,7 +90,7 @@ export class FavoriteProcess extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase:FavoriteProcess" }, { type: "azure-native:testbase/v20201216preview:FavoriteProcess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase:FavoriteProcess" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FavoriteProcess.__pulumiType, name, resourceInputs, opts);
     }

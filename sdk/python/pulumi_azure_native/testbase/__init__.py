@@ -26,11 +26,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.testbase.v20201216preview as __v20201216preview
-    v20201216preview = __v20201216preview
     import pulumi_azure_native.testbase.v20220401preview as __v20220401preview
     v20220401preview = __v20220401preview
 else:
-    v20201216preview = _utilities.lazy_import('pulumi_azure_native.testbase.v20201216preview')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.testbase.v20220401preview')
 

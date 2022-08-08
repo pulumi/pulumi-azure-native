@@ -48,9 +48,6 @@ func NewSqlServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:azuredata:SqlServer"),
 		},
-		{
-			Type: pulumi.String("azure-native:azuredata/v20170301preview:SqlServer"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlServer

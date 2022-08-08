@@ -44,15 +44,6 @@ func NewSuppression(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:advisor:Suppression"),
 		},
-		{
-			Type: pulumi.String("azure-native:advisor/v20160712preview:Suppression"),
-		},
-		{
-			Type: pulumi.String("azure-native:advisor/v20170331:Suppression"),
-		},
-		{
-			Type: pulumi.String("azure-native:advisor/v20170419:Suppression"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Suppression

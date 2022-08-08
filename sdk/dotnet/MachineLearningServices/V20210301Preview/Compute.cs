@@ -89,13 +89,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20180301preview:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20181119:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190501:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190601:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20191101:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200101:Compute"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200218preview:Compute"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200301:Compute"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200401:Compute"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:Compute"},

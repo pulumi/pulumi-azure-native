@@ -71,8 +71,6 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule"},

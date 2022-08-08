@@ -59,27 +59,6 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:desktopvirtualization:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:Workspace"),
 		},
 		{

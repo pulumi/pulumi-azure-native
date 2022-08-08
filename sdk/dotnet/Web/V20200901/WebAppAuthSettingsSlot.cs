@@ -338,7 +338,6 @@ namespace Pulumi.AzureNative.Web.V20200901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAuthSettingsSlot"},

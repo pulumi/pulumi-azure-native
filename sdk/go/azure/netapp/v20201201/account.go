@@ -48,51 +48,6 @@ func NewAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:netapp:Account"),
 		},
 		{
-			Type: pulumi.String("azure-native:netapp/v20170815:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190501:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190601:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190701:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20190801:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20191001:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20191101:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200201:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200301:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200501:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200601:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200701:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200801:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20200901:Account"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20201101:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20210201:Account"),
 		},
 		{

@@ -45,11 +45,6 @@ export * from "./vault";
 export * from "../types/enums/recoveryservices";
 
 // Export sub-modules:
-import * as v20160601 from "./v20160601";
-import * as v20160810 from "./v20160810";
-import * as v20161201 from "./v20161201";
-import * as v20170701 from "./v20170701";
-import * as v20180110 from "./v20180110";
 import * as v20180710 from "./v20180710";
 import * as v20181220 from "./v20181220";
 import * as v20190513 from "./v20190513";
@@ -79,11 +74,6 @@ import * as v20220401 from "./v20220401";
 import * as v20220601preview from "./v20220601preview";
 
 export {
-    v20160601,
-    v20160810,
-    v20161201,
-    v20170701,
-    v20180110,
     v20180710,
     v20181220,
     v20190513,

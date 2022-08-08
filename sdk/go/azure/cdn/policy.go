@@ -60,18 +60,6 @@ func NewPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:cdn/v20190615:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20190615preview:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20200331:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20200415:Policy"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200901:Policy"),
 		},
 		{

@@ -95,9 +95,6 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:OriginGroup"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:OriginGroup"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:OriginGroup"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:OriginGroup"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20210601:OriginGroup"},
                 },

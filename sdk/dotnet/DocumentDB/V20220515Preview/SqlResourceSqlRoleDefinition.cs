@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlRoleDefinition"},

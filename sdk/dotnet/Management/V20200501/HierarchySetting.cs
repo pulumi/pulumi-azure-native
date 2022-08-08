@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.Management.V20200501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:management:HierarchySetting"},
-                    new Pulumi.Alias { Type = "azure-native:management/v20200201:HierarchySetting"},
                     new Pulumi.Alias { Type = "azure-native:management/v20201001:HierarchySetting"},
                     new Pulumi.Alias { Type = "azure-native:management/v20210401:HierarchySetting"},
                 },

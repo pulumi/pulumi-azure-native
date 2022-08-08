@@ -71,9 +71,6 @@ func NewJobDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:hybriddata:JobDefinition"),
 		},
-		{
-			Type: pulumi.String("azure-native:hybriddata/v20160601:JobDefinition"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource JobDefinition

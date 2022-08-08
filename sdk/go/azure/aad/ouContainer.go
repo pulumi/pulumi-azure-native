@@ -61,12 +61,6 @@ func NewOuContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:aad/v20170601:OuContainer"),
-		},
-		{
-			Type: pulumi.String("azure-native:aad/v20200101:OuContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:aad/v20210301:OuContainer"),
 		},
 		{

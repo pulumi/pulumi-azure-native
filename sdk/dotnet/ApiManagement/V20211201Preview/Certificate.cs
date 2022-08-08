@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Certificate"},

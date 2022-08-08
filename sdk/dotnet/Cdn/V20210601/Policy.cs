@@ -122,10 +122,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:cdn:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Policy"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Policy"},
                 },
             };

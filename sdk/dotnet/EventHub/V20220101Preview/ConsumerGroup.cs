@@ -83,8 +83,6 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:eventhub:ConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:ConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:ConsumerGroup"},

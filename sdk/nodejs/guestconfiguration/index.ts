@@ -14,15 +14,11 @@ export * from "./guestConfigurationHCRPAssignment";
 export * from "../types/enums/guestconfiguration";
 
 // Export sub-modules:
-import * as v20180630preview from "./v20180630preview";
-import * as v20181120 from "./v20181120";
 import * as v20200625 from "./v20200625";
 import * as v20210125 from "./v20210125";
 import * as v20220125 from "./v20220125";
 
 export {
-    v20180630preview,
-    v20181120,
     v20200625,
     v20210125,
     v20220125,

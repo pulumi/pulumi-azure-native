@@ -141,7 +141,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20150521preview:Policy" }, { type: "azure-native:devtestlab/v20160515:Policy" }, { type: "azure-native:devtestlab/v20180915:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20180915:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, resourceInputs, opts);
     }

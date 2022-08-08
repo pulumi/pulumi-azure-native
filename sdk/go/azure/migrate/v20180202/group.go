@@ -47,12 +47,6 @@ func NewGroup(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:migrate/v20171111preview:Group"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Group
 	err := ctx.RegisterResource("azure-native:migrate/v20180202:Group", name, args, &resource, opts...)
 	if err != nil {

@@ -107,7 +107,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Backend"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Backend"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Backend"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Backend"},

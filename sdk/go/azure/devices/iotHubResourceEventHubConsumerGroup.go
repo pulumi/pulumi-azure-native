@@ -47,36 +47,6 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:devices/v20160203:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20170119:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20170701:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20180122:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20180401:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20181201preview:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20190322:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20190322preview:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20190701preview:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:devices/v20191104:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20200301:IotHubResourceEventHubConsumerGroup"),
 		},
 		{

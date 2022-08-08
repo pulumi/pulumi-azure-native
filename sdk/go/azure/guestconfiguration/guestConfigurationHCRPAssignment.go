@@ -43,9 +43,6 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"),
 		},
 		{

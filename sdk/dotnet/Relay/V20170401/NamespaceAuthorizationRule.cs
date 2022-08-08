@@ -59,7 +59,6 @@ namespace Pulumi.AzureNative.Relay.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:relay:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20211101:NamespaceAuthorizationRule"},
                 },
             };

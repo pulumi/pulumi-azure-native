@@ -32,7 +32,6 @@ export * from "./vmwareCollector";
 export * from "../types/enums/migrate";
 
 // Export sub-modules:
-import * as v20171111preview from "./v20171111preview";
 import * as v20180202 from "./v20180202";
 import * as v20180901preview from "./v20180901preview";
 import * as v20191001 from "./v20191001";
@@ -42,7 +41,6 @@ import * as v20210101 from "./v20210101";
 import * as v20210801 from "./v20210801";
 
 export {
-    v20171111preview,
     v20180202,
     v20180901preview,
     v20191001,

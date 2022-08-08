@@ -65,8 +65,6 @@ namespace Pulumi.AzureNative.Storage.V20210901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:storage:Table"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:Table"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:Table"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:Table"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:Table"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:Table"},

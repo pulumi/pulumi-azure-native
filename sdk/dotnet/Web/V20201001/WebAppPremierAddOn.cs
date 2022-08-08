@@ -107,7 +107,6 @@ namespace Pulumi.AzureNative.Web.V20201001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:web:WebAppPremierAddOn"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPremierAddOn"},

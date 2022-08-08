@@ -71,8 +71,6 @@ namespace Pulumi.AzureNative.Synapse.V20210501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:synapse:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateEndpointConnection"},

@@ -18,19 +18,11 @@ export * from "./sharedPrivateLinkResource";
 export * from "../types/enums/search";
 
 // Export sub-modules:
-import * as v20150228 from "./v20150228";
-import * as v20150819 from "./v20150819";
-import * as v20191001preview from "./v20191001preview";
-import * as v20200313 from "./v20200313";
 import * as v20200801 from "./v20200801";
 import * as v20200801preview from "./v20200801preview";
 import * as v20210401preview from "./v20210401preview";
 
 export {
-    v20150228,
-    v20150819,
-    v20191001preview,
-    v20200313,
     v20200801,
     v20200801preview,
     v20210401preview,

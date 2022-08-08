@@ -1492,11 +1492,11 @@ class PreferencesArgs:
 class ResourceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Msi identity details of the resource
         :param pulumi.Input[str] type: Identity type
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: User Assigned Identities
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: User Assigned Identities
         """
         if type is None:
             type = 'None'
@@ -1519,14 +1519,14 @@ class ResourceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         User Assigned Identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

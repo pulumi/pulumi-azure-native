@@ -55,12 +55,6 @@ func NewEventHubConnection(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:EventHubConnection"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource EventHubConnection
 	err := ctx.RegisterResource("azure-native:kusto/v20180907preview:EventHubConnection", name, args, &resource, opts...)
 	if err != nil {

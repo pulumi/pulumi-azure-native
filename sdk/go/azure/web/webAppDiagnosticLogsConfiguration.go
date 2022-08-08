@@ -50,9 +50,6 @@ func NewWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration"),
 		},
 		{

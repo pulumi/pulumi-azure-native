@@ -48,15 +48,6 @@ func NewSecret(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:keyvault:Secret"),
 		},
 		{
-			Type: pulumi.String("azure-native:keyvault/v20161001:Secret"),
-		},
-		{
-			Type: pulumi.String("azure-native:keyvault/v20180214:Secret"),
-		},
-		{
-			Type: pulumi.String("azure-native:keyvault/v20180214preview:Secret"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20190901:Secret"),
 		},
 		{

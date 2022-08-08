@@ -107,14 +107,6 @@ namespace Pulumi.AzureNative.Resources.V20210101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:resources:Resource"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20151101:Resource"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20160201:Resource"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20160701:Resource"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20160901:Resource"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20170510:Resource"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20180201:Resource"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20180501:Resource"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190301:Resource"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190501:Resource"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190510:Resource"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190701:Resource"},

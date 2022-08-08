@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Property"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Property"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Property"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Property"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Property"},

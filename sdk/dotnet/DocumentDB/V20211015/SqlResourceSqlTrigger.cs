@@ -68,12 +68,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:SqlResourceSqlTrigger"},

@@ -101,7 +101,6 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:attestation:AttestationProvider"},
-                    new Pulumi.Alias { Type = "azure-native:attestation/v20180901preview:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-native:attestation/v20201001:AttestationProvider"},
                 },
             };

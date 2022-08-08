@@ -84,9 +84,6 @@ func NewRoleAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:customerinsights:RoleAssignment"),
 		},
-		{
-			Type: pulumi.String("azure-native:customerinsights/v20170101:RoleAssignment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource RoleAssignment

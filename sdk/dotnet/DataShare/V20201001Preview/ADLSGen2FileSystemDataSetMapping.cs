@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FileSystemDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2FileSystemDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping"},
                 },

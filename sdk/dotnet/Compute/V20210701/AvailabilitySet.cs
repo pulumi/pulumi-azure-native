@@ -101,18 +101,6 @@ namespace Pulumi.AzureNative.Compute.V20210701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:compute:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20150615:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160330:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20201201:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210301:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210401:AvailabilitySet"},

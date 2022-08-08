@@ -87,7 +87,7 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210401preview:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210401preview:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPoolTransparentDataEncryption.__pulumiType, name, resourceInputs, opts);
     }

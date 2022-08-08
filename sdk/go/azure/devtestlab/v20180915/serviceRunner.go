@@ -44,9 +44,6 @@ func NewServiceRunner(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devtestlab:ServiceRunner"),
 		},
-		{
-			Type: pulumi.String("azure-native:devtestlab/v20160515:ServiceRunner"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceRunner

@@ -51,12 +51,6 @@ func NewEncryptionScope(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:storage:EncryptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-native:storage/v20190601:EncryptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-native:storage/v20200801preview:EncryptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210101:EncryptionScope"),
 		},
 		{

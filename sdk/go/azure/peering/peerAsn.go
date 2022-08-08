@@ -40,21 +40,6 @@ func NewPeerAsn(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:peering/v20190801preview:PeerAsn"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20190901preview:PeerAsn"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20200101preview:PeerAsn"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20200401:PeerAsn"),
-		},
-		{
-			Type: pulumi.String("azure-native:peering/v20201001:PeerAsn"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering/v20210101:PeerAsn"),
 		},
 		{

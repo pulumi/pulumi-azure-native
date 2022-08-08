@@ -51,39 +51,6 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:documentdb:CassandraResourceCassandraTable"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/v20150401:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20150408:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20151106:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20160319:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20160331:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20190801:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20191212:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200301:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200401:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200601preview:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20200901:CassandraResourceCassandraTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:CassandraResourceCassandraTable"),
 		},
 		{

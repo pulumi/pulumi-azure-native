@@ -57,9 +57,6 @@ func NewServiceUnit(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:deploymentmanager:ServiceUnit"),
 		},
-		{
-			Type: pulumi.String("azure-native:deploymentmanager/v20180901preview:ServiceUnit"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceUnit

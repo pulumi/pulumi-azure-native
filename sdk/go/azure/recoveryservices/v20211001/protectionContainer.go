@@ -50,9 +50,6 @@ func NewProtectionContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:recoveryservices:ProtectionContainer"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/v20161201:ProtectionContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20201001:ProtectionContainer"),
 		},
 		{

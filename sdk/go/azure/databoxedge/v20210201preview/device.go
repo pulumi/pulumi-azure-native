@@ -82,24 +82,6 @@ func NewDevice(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:databoxedge:Device"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/v20190301:Device"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190701:Device"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20190801:Device"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Device"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901:Device"),
-		},
-		{
-			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Device"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:Device"),
 		},
 		{

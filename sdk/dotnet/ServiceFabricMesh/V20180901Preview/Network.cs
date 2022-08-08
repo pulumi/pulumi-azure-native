@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:servicefabricmesh:Network"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180701preview:Network"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -115,8 +115,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.apimanagement.v20160707 as __v20160707
-    v20160707 = __v20160707
     import pulumi_azure_native.apimanagement.v20161010 as __v20161010
     v20161010 = __v20161010
     import pulumi_azure_native.apimanagement.v20170301 as __v20170301
@@ -144,7 +142,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.apimanagement.v20211201preview as __v20211201preview
     v20211201preview = __v20211201preview
 else:
-    v20160707 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20160707')
     v20161010 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20161010')
     v20170301 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20170301')
     v20180101 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20180101')

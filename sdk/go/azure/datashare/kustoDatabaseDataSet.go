@@ -60,12 +60,6 @@ func NewKustoDatabaseDataSet(ctx *pulumi.Context,
 	args.Kind = pulumi.String("KustoDatabase")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:KustoDatabaseDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:KustoDatabaseDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:KustoDatabaseDataSet"),
 		},
 		{

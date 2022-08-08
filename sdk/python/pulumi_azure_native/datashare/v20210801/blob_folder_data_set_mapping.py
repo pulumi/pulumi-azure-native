@@ -305,7 +305,7 @@ class BlobFolderDataSetMapping(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:BlobFolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:BlobFolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20191101:BlobFolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:BlobFolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:BlobFolderDataSetMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:BlobFolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:BlobFolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:BlobFolderDataSetMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobFolderDataSetMapping, __self__).__init__(
             'azure-native:datashare/v20210801:BlobFolderDataSetMapping',

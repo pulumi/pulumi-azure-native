@@ -119,7 +119,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180701preview:Volume" }, { type: "azure-native:servicefabricmesh/v20180901preview:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180901preview:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }

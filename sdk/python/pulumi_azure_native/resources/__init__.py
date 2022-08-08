@@ -37,22 +37,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.resources.v20151101 as __v20151101
-    v20151101 = __v20151101
-    import pulumi_azure_native.resources.v20160201 as __v20160201
-    v20160201 = __v20160201
-    import pulumi_azure_native.resources.v20160701 as __v20160701
-    v20160701 = __v20160701
-    import pulumi_azure_native.resources.v20160901 as __v20160901
-    v20160901 = __v20160901
-    import pulumi_azure_native.resources.v20170510 as __v20170510
-    v20170510 = __v20170510
-    import pulumi_azure_native.resources.v20180201 as __v20180201
-    v20180201 = __v20180201
-    import pulumi_azure_native.resources.v20180501 as __v20180501
-    v20180501 = __v20180501
-    import pulumi_azure_native.resources.v20190301 as __v20190301
-    v20190301 = __v20190301
     import pulumi_azure_native.resources.v20190501 as __v20190501
     v20190501 = __v20190501
     import pulumi_azure_native.resources.v20190510 as __v20190510
@@ -84,14 +68,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.resources.v20220201 as __v20220201
     v20220201 = __v20220201
 else:
-    v20151101 = _utilities.lazy_import('pulumi_azure_native.resources.v20151101')
-    v20160201 = _utilities.lazy_import('pulumi_azure_native.resources.v20160201')
-    v20160701 = _utilities.lazy_import('pulumi_azure_native.resources.v20160701')
-    v20160901 = _utilities.lazy_import('pulumi_azure_native.resources.v20160901')
-    v20170510 = _utilities.lazy_import('pulumi_azure_native.resources.v20170510')
-    v20180201 = _utilities.lazy_import('pulumi_azure_native.resources.v20180201')
-    v20180501 = _utilities.lazy_import('pulumi_azure_native.resources.v20180501')
-    v20190301 = _utilities.lazy_import('pulumi_azure_native.resources.v20190301')
     v20190501 = _utilities.lazy_import('pulumi_azure_native.resources.v20190501')
     v20190510 = _utilities.lazy_import('pulumi_azure_native.resources.v20190510')
     v20190601preview = _utilities.lazy_import('pulumi_azure_native.resources.v20190601preview')

@@ -78,12 +78,6 @@ func NewBlobFolderDataSet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:datashare:BlobFolderDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/v20181101preview:BlobFolderDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-native:datashare/v20191101:BlobFolderDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:BlobFolderDataSet"),
 		},
 		{

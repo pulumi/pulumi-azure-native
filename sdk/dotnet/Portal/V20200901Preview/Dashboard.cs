@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:portal:Dashboard"},
-                    new Pulumi.Alias { Type = "azure-native:portal/v20150801preview:Dashboard"},
                     new Pulumi.Alias { Type = "azure-native:portal/v20181001preview:Dashboard"},
                     new Pulumi.Alias { Type = "azure-native:portal/v20190101preview:Dashboard"},
                 },

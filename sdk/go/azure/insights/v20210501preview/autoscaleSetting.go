@@ -60,9 +60,6 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:insights:AutoscaleSetting"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/v20140401:AutoscaleSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20150401:AutoscaleSetting"),
 		},
 	})

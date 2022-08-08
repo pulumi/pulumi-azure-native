@@ -62,20 +62,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.machinelearningservices.v20180301preview as __v20180301preview
-    v20180301preview = __v20180301preview
-    import pulumi_azure_native.machinelearningservices.v20181119 as __v20181119
-    v20181119 = __v20181119
-    import pulumi_azure_native.machinelearningservices.v20190501 as __v20190501
-    v20190501 = __v20190501
-    import pulumi_azure_native.machinelearningservices.v20190601 as __v20190601
-    v20190601 = __v20190601
-    import pulumi_azure_native.machinelearningservices.v20191101 as __v20191101
-    v20191101 = __v20191101
-    import pulumi_azure_native.machinelearningservices.v20200101 as __v20200101
-    v20200101 = __v20200101
-    import pulumi_azure_native.machinelearningservices.v20200218preview as __v20200218preview
-    v20200218preview = __v20200218preview
     import pulumi_azure_native.machinelearningservices.v20200301 as __v20200301
     v20200301 = __v20200301
     import pulumi_azure_native.machinelearningservices.v20200401 as __v20200401
@@ -105,13 +91,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.machinelearningservices.v20220501 as __v20220501
     v20220501 = __v20220501
 else:
-    v20180301preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20180301preview')
-    v20181119 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20181119')
-    v20190501 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20190501')
-    v20190601 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20190601')
-    v20191101 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20191101')
-    v20200101 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200101')
-    v20200218preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200218preview')
     v20200301 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200301')
     v20200401 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200401')
     v20200501preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200501preview')

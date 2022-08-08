@@ -45,9 +45,6 @@ func NewWebAppApplicationSettings(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:web:WebAppApplicationSettings"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppApplicationSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppApplicationSettings"),
 		},
 		{

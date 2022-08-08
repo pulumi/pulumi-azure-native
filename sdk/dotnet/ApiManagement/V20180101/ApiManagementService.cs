@@ -197,7 +197,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiManagementService"},

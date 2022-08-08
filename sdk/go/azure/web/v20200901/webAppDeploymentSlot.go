@@ -64,9 +64,6 @@ func NewWebAppDeploymentSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:web:WebAppDeploymentSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/v20150801:WebAppDeploymentSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppDeploymentSlot"),
 		},
 		{

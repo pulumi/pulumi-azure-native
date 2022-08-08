@@ -93,12 +93,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:databoxedge:CloudEdgeManagementRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:CloudEdgeManagementRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:CloudEdgeManagementRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:CloudEdgeManagementRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:CloudEdgeManagementRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:CloudEdgeManagementRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:CloudEdgeManagementRole"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:CloudEdgeManagementRole"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:CloudEdgeManagementRole"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole"},

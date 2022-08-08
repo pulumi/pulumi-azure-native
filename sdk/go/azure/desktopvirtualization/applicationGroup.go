@@ -69,27 +69,6 @@ func NewApplicationGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:ApplicationGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:ApplicationGroup"),
 		},
 		{
