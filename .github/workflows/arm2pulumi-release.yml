@@ -33,7 +33,7 @@ env:
   PULUMI_API: https://api.pulumi-staging.io
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
