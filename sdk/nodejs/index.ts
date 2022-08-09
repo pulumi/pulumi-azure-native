@@ -8,394 +8,286 @@ import * as utilities from "./utilities";
 export * from "./provider";
 
 // Export sub-modules:
-import * as aad from "./aad";
-import * as aadiam from "./aadiam";
-import * as addons from "./addons";
-import * as advisor from "./advisor";
-import * as agfoodplatform from "./agfoodplatform";
-import * as alertsmanagement from "./alertsmanagement";
-import * as analysisservices from "./analysisservices";
-import * as apimanagement from "./apimanagement";
-import * as app from "./app";
-import * as appconfiguration from "./appconfiguration";
-import * as appplatform from "./appplatform";
-import * as attestation from "./attestation";
-import * as authorization from "./authorization";
-import * as automanage from "./automanage";
-import * as automation from "./automation";
-import * as autonomousdevelopmentplatform from "./autonomousdevelopmentplatform";
-import * as avs from "./avs";
-import * as azureactivedirectory from "./azureactivedirectory";
-import * as azurearcdata from "./azurearcdata";
-import * as azuredata from "./azuredata";
-import * as azurestack from "./azurestack";
-import * as azurestackhci from "./azurestackhci";
-import * as batch from "./batch";
-import * as billing from "./billing";
-import * as blockchain from "./blockchain";
-import * as blueprint from "./blueprint";
-import * as botservice from "./botservice";
-import * as cache from "./cache";
-import * as cdn from "./cdn";
-import * as certificateregistration from "./certificateregistration";
-import * as changeanalysis from "./changeanalysis";
-import * as chaos from "./chaos";
-import * as cognitiveservices from "./cognitiveservices";
-import * as communication from "./communication";
-import * as compute from "./compute";
-import * as confidentialledger from "./confidentialledger";
-import * as config from "./config";
-import * as confluent from "./confluent";
-import * as connectedvmwarevsphere from "./connectedvmwarevsphere";
-import * as consumption from "./consumption";
-import * as containerinstance from "./containerinstance";
-import * as containerregistry from "./containerregistry";
-import * as containerservice from "./containerservice";
-import * as costmanagement from "./costmanagement";
-import * as customerinsights from "./customerinsights";
-import * as customproviders from "./customproviders";
-import * as dashboard from "./dashboard";
-import * as databox from "./databox";
-import * as databoxedge from "./databoxedge";
-import * as databricks from "./databricks";
-import * as datacatalog from "./datacatalog";
-import * as datadog from "./datadog";
-import * as datafactory from "./datafactory";
-import * as datalakeanalytics from "./datalakeanalytics";
-import * as datalakestore from "./datalakestore";
-import * as datamigration from "./datamigration";
-import * as dataprotection from "./dataprotection";
-import * as datashare from "./datashare";
-import * as dbformariadb from "./dbformariadb";
-import * as dbformysql from "./dbformysql";
-import * as dbforpostgresql from "./dbforpostgresql";
-import * as delegatednetwork from "./delegatednetwork";
-import * as deploymentmanager from "./deploymentmanager";
-import * as desktopvirtualization from "./desktopvirtualization";
-import * as devhub from "./devhub";
-import * as devices from "./devices";
-import * as deviceupdate from "./deviceupdate";
-import * as devops from "./devops";
-import * as devspaces from "./devspaces";
-import * as devtestlab from "./devtestlab";
-import * as digitaltwins from "./digitaltwins";
-import * as documentdb from "./documentdb";
-import * as domainregistration from "./domainregistration";
-import * as dynamics365fraudprotection from "./dynamics365fraudprotection";
-import * as edgeorder from "./edgeorder";
-import * as education from "./education";
-import * as elastic from "./elastic";
-import * as elasticsan from "./elasticsan";
-import * as engagementfabric from "./engagementfabric";
-import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
-import * as eventgrid from "./eventgrid";
-import * as eventhub from "./eventhub";
-import * as extendedlocation from "./extendedlocation";
-import * as features from "./features";
-import * as fluidrelay from "./fluidrelay";
-import * as guestconfiguration from "./guestconfiguration";
-import * as hanaonazure from "./hanaonazure";
-import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
-import * as hdinsight from "./hdinsight";
-import * as healthbot from "./healthbot";
-import * as healthcareapis from "./healthcareapis";
-import * as hybridcompute from "./hybridcompute";
-import * as hybridconnectivity from "./hybridconnectivity";
-import * as hybriddata from "./hybriddata";
-import * as hybridnetwork from "./hybridnetwork";
-import * as importexport from "./importexport";
-import * as insights from "./insights";
-import * as intune from "./intune";
-import * as iotcentral from "./iotcentral";
-import * as iotsecurity from "./iotsecurity";
-import * as keyvault from "./keyvault";
-import * as kubernetes from "./kubernetes";
-import * as kubernetesconfiguration from "./kubernetesconfiguration";
-import * as kusto from "./kusto";
-import * as labservices from "./labservices";
-import * as loadtestservice from "./loadtestservice";
-import * as logic from "./logic";
-import * as logz from "./logz";
-import * as m365securityandcompliance from "./m365securityandcompliance";
-import * as machinelearning from "./machinelearning";
-import * as machinelearningcompute from "./machinelearningcompute";
-import * as machinelearningexperimentation from "./machinelearningexperimentation";
-import * as machinelearningservices from "./machinelearningservices";
-import * as maintenance from "./maintenance";
-import * as managedidentity from "./managedidentity";
-import * as managednetwork from "./managednetwork";
-import * as managedservices from "./managedservices";
-import * as management from "./management";
-import * as managementpartner from "./managementpartner";
-import * as maps from "./maps";
-import * as marketplace from "./marketplace";
-import * as media from "./media";
-import * as migrate from "./migrate";
-import * as mixedreality from "./mixedreality";
-import * as mobilenetwork from "./mobilenetwork";
-import * as netapp from "./netapp";
-import * as network from "./network";
-import * as networkfunction from "./networkfunction";
-import * as notificationhubs from "./notificationhubs";
-import * as offazure from "./offazure";
-import * as openenergyplatform from "./openenergyplatform";
-import * as operationalinsights from "./operationalinsights";
-import * as operationsmanagement from "./operationsmanagement";
-import * as orbital from "./orbital";
-import * as peering from "./peering";
-import * as policyinsights from "./policyinsights";
-import * as portal from "./portal";
-import * as powerbi from "./powerbi";
-import * as powerbidedicated from "./powerbidedicated";
-import * as powerplatform from "./powerplatform";
-import * as providerhub from "./providerhub";
-import * as purview from "./purview";
-import * as quantum from "./quantum";
-import * as recommendationsservice from "./recommendationsservice";
-import * as recoveryservices from "./recoveryservices";
-import * as redhatopenshift from "./redhatopenshift";
-import * as relay from "./relay";
-import * as resourceconnector from "./resourceconnector";
-import * as resourcegraph from "./resourcegraph";
-import * as resources from "./resources";
-import * as saas from "./saas";
-import * as scheduler from "./scheduler";
-import * as scvmm from "./scvmm";
-import * as search from "./search";
-import * as security from "./security";
-import * as securityandcompliance from "./securityandcompliance";
-import * as securityinsights from "./securityinsights";
-import * as serialconsole from "./serialconsole";
-import * as servicebus from "./servicebus";
-import * as servicefabric from "./servicefabric";
-import * as servicefabricmesh from "./servicefabricmesh";
-import * as servicelinker from "./servicelinker";
-import * as signalrservice from "./signalrservice";
-import * as softwareplan from "./softwareplan";
-import * as solutions from "./solutions";
-import * as sql from "./sql";
-import * as sqlvirtualmachine from "./sqlvirtualmachine";
-import * as storage from "./storage";
-import * as storagecache from "./storagecache";
-import * as storagepool from "./storagepool";
-import * as storagesync from "./storagesync";
-import * as storsimple from "./storsimple";
-import * as streamanalytics from "./streamanalytics";
-import * as subscription from "./subscription";
-import * as synapse from "./synapse";
-import * as testbase from "./testbase";
-import * as timeseriesinsights from "./timeseriesinsights";
-import * as types from "./types";
-import * as videoanalyzer from "./videoanalyzer";
-import * as videoindexer from "./videoindexer";
-import * as virtualmachineimages from "./virtualmachineimages";
-import * as visualstudio from "./visualstudio";
-import * as vmwarecloudsimple from "./vmwarecloudsimple";
-import * as web from "./web";
-import * as webpubsub from "./webpubsub";
-import * as windowsesu from "./windowsesu";
-import * as windowsiot from "./windowsiot";
-import * as workloads from "./workloads";
+export const aad: typeof import("./aad") = undefined as any;
+export const aadiam: typeof import("./aadiam") = undefined as any;
+export const addons: typeof import("./addons") = undefined as any;
+export const advisor: typeof import("./advisor") = undefined as any;
+export const agfoodplatform: typeof import("./agfoodplatform") =
+  undefined as any;
+export const alertsmanagement: typeof import("./alertsmanagement") =
+  undefined as any;
+export const analysisservices: typeof import("./analysisservices") =
+  undefined as any;
+export const apimanagement: typeof import("./apimanagement") = undefined as any;
+export const app: typeof import("./app") = undefined as any;
+export const appconfiguration: typeof import("./appconfiguration") =
+  undefined as any;
+export const appplatform: typeof import("./appplatform") = undefined as any;
+export const attestation: typeof import("./attestation") = undefined as any;
+export const authorization: typeof import("./authorization") = undefined as any;
+export const automanage: typeof import("./automanage") = undefined as any;
+export const automation: typeof import("./automation") = undefined as any;
+export const autonomousdevelopmentplatform: typeof import("./autonomousdevelopmentplatform") =
+  undefined as any;
+export const avs: typeof import("./avs") = undefined as any;
+export const azureactivedirectory: typeof import("./azureactivedirectory") =
+  undefined as any;
+export const azurearcdata: typeof import("./azurearcdata") = undefined as any;
+export const azuredata: typeof import("./azuredata") = undefined as any;
+export const azurestack: typeof import("./azurestack") = undefined as any;
+export const azurestackhci: typeof import("./azurestackhci") = undefined as any;
+export const batch: typeof import("./batch") = undefined as any;
+export const billing: typeof import("./billing") = undefined as any;
+export const blockchain: typeof import("./blockchain") = undefined as any;
+export const blueprint: typeof import("./blueprint") = undefined as any;
+export const botservice: typeof import("./botservice") = undefined as any;
+export const cache: typeof import("./cache") = undefined as any;
+export const cdn: typeof import("./cdn") = undefined as any;
+export const certificateregistration: typeof import("./certificateregistration") =
+  undefined as any;
+export const changeanalysis: typeof import("./changeanalysis") =
+  undefined as any;
+export const chaos: typeof import("./chaos") = undefined as any;
+export const cognitiveservices: typeof import("./cognitiveservices") =
+  undefined as any;
+export const communication: typeof import("./communication") = undefined as any;
+export const compute: typeof import("./compute") = undefined as any;
+export const confidentialledger: typeof import("./confidentialledger") =
+  undefined as any;
+export const config: typeof import("./config") = undefined as any;
+export const confluent: typeof import("./confluent") = undefined as any;
+export const connectedvmwarevsphere: typeof import("./connectedvmwarevsphere") =
+  undefined as any;
+export const consumption: typeof import("./consumption") = undefined as any;
+export const containerinstance: typeof import("./containerinstance") =
+  undefined as any;
+export const containerregistry: typeof import("./containerregistry") =
+  undefined as any;
+export const containerservice: typeof import("./containerservice") =
+  undefined as any;
+export const costmanagement: typeof import("./costmanagement") =
+  undefined as any;
+export const customerinsights: typeof import("./customerinsights") =
+  undefined as any;
+export const customproviders: typeof import("./customproviders") =
+  undefined as any;
+export const dashboard: typeof import("./dashboard") = undefined as any;
+export const databox: typeof import("./databox") = undefined as any;
+export const databoxedge: typeof import("./databoxedge") = undefined as any;
+export const databricks: typeof import("./databricks") = undefined as any;
+export const datacatalog: typeof import("./datacatalog") = undefined as any;
+export const datadog: typeof import("./datadog") = undefined as any;
+export const datafactory: typeof import("./datafactory") = undefined as any;
+export const datalakeanalytics: typeof import("./datalakeanalytics") =
+  undefined as any;
+export const datalakestore: typeof import("./datalakestore") = undefined as any;
+export const datamigration: typeof import("./datamigration") = undefined as any;
+export const dataprotection: typeof import("./dataprotection") =
+  undefined as any;
+export const datashare: typeof import("./datashare") = undefined as any;
+export const dbformariadb: typeof import("./dbformariadb") = undefined as any;
+export const dbformysql: typeof import("./dbformysql") = undefined as any;
+export const dbforpostgresql: typeof import("./dbforpostgresql") =
+  undefined as any;
+export const delegatednetwork: typeof import("./delegatednetwork") =
+  undefined as any;
+export const deploymentmanager: typeof import("./deploymentmanager") =
+  undefined as any;
+export const desktopvirtualization: typeof import("./desktopvirtualization") =
+  undefined as any;
+export const devhub: typeof import("./devhub") = undefined as any;
+export const devices: typeof import("./devices") = undefined as any;
+export const deviceupdate: typeof import("./deviceupdate") = undefined as any;
+export const devops: typeof import("./devops") = undefined as any;
+export const devspaces: typeof import("./devspaces") = undefined as any;
+export const devtestlab: typeof import("./devtestlab") = undefined as any;
+export const digitaltwins: typeof import("./digitaltwins") = undefined as any;
+export const documentdb: typeof import("./documentdb") = undefined as any;
+export const domainregistration: typeof import("./domainregistration") =
+  undefined as any;
+export const dynamics365fraudprotection: typeof import("./dynamics365fraudprotection") =
+  undefined as any;
+export const edgeorder: typeof import("./edgeorder") = undefined as any;
+export const education: typeof import("./education") = undefined as any;
+export const elastic: typeof import("./elastic") = undefined as any;
+export const elasticsan: typeof import("./elasticsan") = undefined as any;
+export const engagementfabric: typeof import("./engagementfabric") =
+  undefined as any;
+export const enterpriseknowledgegraph: typeof import("./enterpriseknowledgegraph") =
+  undefined as any;
+export const eventgrid: typeof import("./eventgrid") = undefined as any;
+export const eventhub: typeof import("./eventhub") = undefined as any;
+export const extendedlocation: typeof import("./extendedlocation") =
+  undefined as any;
+export const features: typeof import("./features") = undefined as any;
+export const fluidrelay: typeof import("./fluidrelay") = undefined as any;
+export const guestconfiguration: typeof import("./guestconfiguration") =
+  undefined as any;
+export const hanaonazure: typeof import("./hanaonazure") = undefined as any;
+export const hardwaresecuritymodules: typeof import("./hardwaresecuritymodules") =
+  undefined as any;
+export const hdinsight: typeof import("./hdinsight") = undefined as any;
+export const healthbot: typeof import("./healthbot") = undefined as any;
+export const healthcareapis: typeof import("./healthcareapis") =
+  undefined as any;
+export const hybridcompute: typeof import("./hybridcompute") = undefined as any;
+export const hybridconnectivity: typeof import("./hybridconnectivity") =
+  undefined as any;
+export const hybriddata: typeof import("./hybriddata") = undefined as any;
+export const hybridnetwork: typeof import("./hybridnetwork") = undefined as any;
+export const importexport: typeof import("./importexport") = undefined as any;
+export const insights: typeof import("./insights") = undefined as any;
+export const intune: typeof import("./intune") = undefined as any;
+export const iotcentral: typeof import("./iotcentral") = undefined as any;
+export const iotsecurity: typeof import("./iotsecurity") = undefined as any;
+export const keyvault: typeof import("./keyvault") = undefined as any;
+export const kubernetes: typeof import("./kubernetes") = undefined as any;
+export const kubernetesconfiguration: typeof import("./kubernetesconfiguration") =
+  undefined as any;
+export const kusto: typeof import("./kusto") = undefined as any;
+export const labservices: typeof import("./labservices") = undefined as any;
+export const loadtestservice: typeof import("./loadtestservice") =
+  undefined as any;
+export const logic: typeof import("./logic") = undefined as any;
+export const logz: typeof import("./logz") = undefined as any;
+export const m365securityandcompliance: typeof import("./m365securityandcompliance") =
+  undefined as any;
+export const machinelearning: typeof import("./machinelearning") =
+  undefined as any;
+export const machinelearningcompute: typeof import("./machinelearningcompute") =
+  undefined as any;
+export const machinelearningexperimentation: typeof import("./machinelearningexperimentation") =
+  undefined as any;
+export const machinelearningservices: typeof import("./machinelearningservices") =
+  undefined as any;
+export const maintenance: typeof import("./maintenance") = undefined as any;
+export const managedidentity: typeof import("./managedidentity") =
+  undefined as any;
+export const managednetwork: typeof import("./managednetwork") =
+  undefined as any;
+export const managedservices: typeof import("./managedservices") =
+  undefined as any;
+export const management: typeof import("./management") = undefined as any;
+export const managementpartner: typeof import("./managementpartner") =
+  undefined as any;
+export const maps: typeof import("./maps") = undefined as any;
+export const marketplace: typeof import("./marketplace") = undefined as any;
+export const media: typeof import("./media") = undefined as any;
+export const migrate: typeof import("./migrate") = undefined as any;
+export const mixedreality: typeof import("./mixedreality") = undefined as any;
+export const mobilenetwork: typeof import("./mobilenetwork") = undefined as any;
+export const netapp: typeof import("./netapp") = undefined as any;
+export const network: typeof import("./network") = undefined as any;
+export const networkfunction: typeof import("./networkfunction") =
+  undefined as any;
+export const notificationhubs: typeof import("./notificationhubs") =
+  undefined as any;
+export const offazure: typeof import("./offazure") = undefined as any;
+export const openenergyplatform: typeof import("./openenergyplatform") =
+  undefined as any;
+export const operationalinsights: typeof import("./operationalinsights") =
+  undefined as any;
+export const operationsmanagement: typeof import("./operationsmanagement") =
+  undefined as any;
+export const orbital: typeof import("./orbital") = undefined as any;
+export const peering: typeof import("./peering") = undefined as any;
+export const policyinsights: typeof import("./policyinsights") =
+  undefined as any;
+export const portal: typeof import("./portal") = undefined as any;
+export const powerbi: typeof import("./powerbi") = undefined as any;
+export const powerbidedicated: typeof import("./powerbidedicated") =
+  undefined as any;
+export const powerplatform: typeof import("./powerplatform") = undefined as any;
+export const providerhub: typeof import("./providerhub") = undefined as any;
+export const purview: typeof import("./purview") = undefined as any;
+export const quantum: typeof import("./quantum") = undefined as any;
+export const recommendationsservice: typeof import("./recommendationsservice") =
+  undefined as any;
+export const recoveryservices: typeof import("./recoveryservices") =
+  undefined as any;
+export const redhatopenshift: typeof import("./redhatopenshift") =
+  undefined as any;
+export const relay: typeof import("./relay") = undefined as any;
+export const resourceconnector: typeof import("./resourceconnector") =
+  undefined as any;
+export const resourcegraph: typeof import("./resourcegraph") = undefined as any;
+export const resources: typeof import("./resources") = undefined as any;
+export const saas: typeof import("./saas") = undefined as any;
+export const scheduler: typeof import("./scheduler") = undefined as any;
+export const scvmm: typeof import("./scvmm") = undefined as any;
+export const search: typeof import("./search") = undefined as any;
+export const security: typeof import("./security") = undefined as any;
+export const securityandcompliance: typeof import("./securityandcompliance") =
+  undefined as any;
+export const securityinsights: typeof import("./securityinsights") =
+  undefined as any;
+export const serialconsole: typeof import("./serialconsole") = undefined as any;
+export const servicebus: typeof import("./servicebus") = undefined as any;
+export const servicefabric: typeof import("./servicefabric") = undefined as any;
+export const servicefabricmesh: typeof import("./servicefabricmesh") =
+  undefined as any;
+export const servicelinker: typeof import("./servicelinker") = undefined as any;
+export const signalrservice: typeof import("./signalrservice") =
+  undefined as any;
+export const softwareplan: typeof import("./softwareplan") = undefined as any;
+export const solutions: typeof import("./solutions") = undefined as any;
+export const sql: typeof import("./sql") = undefined as any;
+export const sqlvirtualmachine: typeof import("./sqlvirtualmachine") =
+  undefined as any;
+export const storage: typeof import("./storage") = undefined as any;
+export const storagecache: typeof import("./storagecache") = undefined as any;
+export const storagepool: typeof import("./storagepool") = undefined as any;
+export const storagesync: typeof import("./storagesync") = undefined as any;
+export const storsimple: typeof import("./storsimple") = undefined as any;
+export const streamanalytics: typeof import("./streamanalytics") =
+  undefined as any;
+export const subscription: typeof import("./subscription") = undefined as any;
+export const synapse: typeof import("./synapse") = undefined as any;
+export const testbase: typeof import("./testbase") = undefined as any;
+export const timeseriesinsights: typeof import("./timeseriesinsights") =
+  undefined as any;
+export const types: typeof import("./types") = undefined as any;
+export const videoanalyzer: typeof import("./videoanalyzer") = undefined as any;
+export const videoindexer: typeof import("./videoindexer") = undefined as any;
+export const virtualmachineimages: typeof import("./virtualmachineimages") =
+  undefined as any;
+export const visualstudio: typeof import("./visualstudio") = undefined as any;
+export const vmwarecloudsimple: typeof import("./vmwarecloudsimple") =
+  undefined as any;
+export const web: typeof import("./web") = undefined as any;
+export const webpubsub: typeof import("./webpubsub") = undefined as any;
+export const windowsesu: typeof import("./windowsesu") = undefined as any;
+export const windowsiot: typeof import("./windowsiot") = undefined as any;
+export const workloads: typeof import("./workloads") = undefined as any;
 
-export {
-    aad,
-    aadiam,
-    addons,
-    advisor,
-    agfoodplatform,
-    alertsmanagement,
-    analysisservices,
-    apimanagement,
-    app,
-    appconfiguration,
-    appplatform,
-    attestation,
-    authorization,
-    automanage,
-    automation,
-    autonomousdevelopmentplatform,
-    avs,
-    azureactivedirectory,
-    azurearcdata,
-    azuredata,
-    azurestack,
-    azurestackhci,
-    batch,
-    billing,
-    blockchain,
-    blueprint,
-    botservice,
-    cache,
-    cdn,
-    certificateregistration,
-    changeanalysis,
-    chaos,
-    cognitiveservices,
-    communication,
-    compute,
-    confidentialledger,
-    config,
-    confluent,
-    connectedvmwarevsphere,
-    consumption,
-    containerinstance,
-    containerregistry,
-    containerservice,
-    costmanagement,
-    customerinsights,
-    customproviders,
-    dashboard,
-    databox,
-    databoxedge,
-    databricks,
-    datacatalog,
-    datadog,
-    datafactory,
-    datalakeanalytics,
-    datalakestore,
-    datamigration,
-    dataprotection,
-    datashare,
-    dbformariadb,
-    dbformysql,
-    dbforpostgresql,
-    delegatednetwork,
-    deploymentmanager,
-    desktopvirtualization,
-    devhub,
-    devices,
-    deviceupdate,
-    devops,
-    devspaces,
-    devtestlab,
-    digitaltwins,
-    documentdb,
-    domainregistration,
-    dynamics365fraudprotection,
-    edgeorder,
-    education,
-    elastic,
-    elasticsan,
-    engagementfabric,
-    enterpriseknowledgegraph,
-    eventgrid,
-    eventhub,
-    extendedlocation,
-    features,
-    fluidrelay,
-    guestconfiguration,
-    hanaonazure,
-    hardwaresecuritymodules,
-    hdinsight,
-    healthbot,
-    healthcareapis,
-    hybridcompute,
-    hybridconnectivity,
-    hybriddata,
-    hybridnetwork,
-    importexport,
-    insights,
-    intune,
-    iotcentral,
-    iotsecurity,
-    keyvault,
-    kubernetes,
-    kubernetesconfiguration,
-    kusto,
-    labservices,
-    loadtestservice,
-    logic,
-    logz,
-    m365securityandcompliance,
-    machinelearning,
-    machinelearningcompute,
-    machinelearningexperimentation,
-    machinelearningservices,
-    maintenance,
-    managedidentity,
-    managednetwork,
-    managedservices,
-    management,
-    managementpartner,
-    maps,
-    marketplace,
-    media,
-    migrate,
-    mixedreality,
-    mobilenetwork,
-    netapp,
-    network,
-    networkfunction,
-    notificationhubs,
-    offazure,
-    openenergyplatform,
-    operationalinsights,
-    operationsmanagement,
-    orbital,
-    peering,
-    policyinsights,
-    portal,
-    powerbi,
-    powerbidedicated,
-    powerplatform,
-    providerhub,
-    purview,
-    quantum,
-    recommendationsservice,
-    recoveryservices,
-    redhatopenshift,
-    relay,
-    resourceconnector,
-    resourcegraph,
-    resources,
-    saas,
-    scheduler,
-    scvmm,
-    search,
-    security,
-    securityandcompliance,
-    securityinsights,
-    serialconsole,
-    servicebus,
-    servicefabric,
-    servicefabricmesh,
-    servicelinker,
-    signalrservice,
-    softwareplan,
-    solutions,
-    sql,
-    sqlvirtualmachine,
-    storage,
-    storagecache,
-    storagepool,
-    storagesync,
-    storsimple,
-    streamanalytics,
-    subscription,
-    synapse,
-    testbase,
-    timeseriesinsights,
-    types,
-    videoanalyzer,
-    videoindexer,
-    virtualmachineimages,
-    visualstudio,
-    vmwarecloudsimple,
-    web,
-    webpubsub,
-    windowsesu,
-    windowsiot,
-    workloads,
-};
+for (let prop of Object.getOwnPropertyNames(exports)) {
+  if (prop == "Provider" || prop.startsWith("_")) {
+    continue;
+  }
+  let __cachedModule: any;
+  Object.defineProperty(exports, prop, {
+    get: function () {
+      let cached = __cachedModule;
+      if (cached) {
+        return cached;
+      }
+      return (__cachedModule = require("./" + prop));
+    },
+  });
+}
 
 import { Provider } from "./provider";
 
 pulumi.runtime.registerResourcePackage("azure-native", {
-    version: utilities.getVersion(),
-    constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
-        if (type !== "pulumi:providers:azure-native") {
-            throw new Error(`unknown provider type ${type}`);
-        }
-        return new Provider(name, <any>undefined, { urn });
-    },
+  version: utilities.getVersion(),
+  constructProvider: (
+    name: string,
+    type: string,
+    urn: string
+  ): pulumi.ProviderResource => {
+    if (type !== "pulumi:providers:azure-native") {
+      throw new Error(`unknown provider type ${type}`);
+    }
+    return new Provider(name, <any>undefined, { urn });
+  },
 });
