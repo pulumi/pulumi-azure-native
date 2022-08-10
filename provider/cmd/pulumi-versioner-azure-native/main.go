@@ -188,18 +188,18 @@ func v1(outputDir string) error {
 		return err
 	}
 
-	v2Config, err := versioning.ReadDefaultConfig(path.Join(outputDir, "v1-config.yaml"))
+	v1Config, err := versioning.ReadDefaultConfig(path.Join(outputDir, "v1-config.yaml"))
 	if err != nil {
 		return err
 	}
 
-	v2, err := versioning.DefaultConfigToCuratedVersion(specVersions, v2Config)
+	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config)
 	if err != nil {
 		return err
 	}
 
 	return emitFiles(outputDir, map[Filename]Data{
-		"v1.json": v2,
+		"v1.json": v1,
 	})
 }
 
