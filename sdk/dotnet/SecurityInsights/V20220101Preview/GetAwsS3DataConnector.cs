@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
     }
 
 
-    public sealed class GetAwsS3DataConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetAwsS3DataConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         public GetAwsS3DataConnectorArgs()
         {
         }
+        public static new GetAwsS3DataConnectorArgs Empty => new GetAwsS3DataConnectorArgs();
     }
 
-    public sealed class GetAwsS3DataConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAwsS3DataConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         public GetAwsS3DataConnectorInvokeArgs()
         {
         }
+        public static new GetAwsS3DataConnectorInvokeArgs Empty => new GetAwsS3DataConnectorInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801.Inputs
     /// <summary>
     /// Specifies the mapping between this particular user and the type of access he has on shares on this device.
     /// </summary>
-    public sealed class ShareAccessRightArgs : Pulumi.ResourceArgs
+    public sealed class ShareAccessRightArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of access to be allowed on the share for this user.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801.Inputs
         public ShareAccessRightArgs()
         {
         }
+        public static new ShareAccessRightArgs Empty => new ShareAccessRightArgs();
     }
 }

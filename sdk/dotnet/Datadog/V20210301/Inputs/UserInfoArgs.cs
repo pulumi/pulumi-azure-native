@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Datadog.V20210301.Inputs
     /// <summary>
     /// User info
     /// </summary>
-    public sealed class UserInfoArgs : Pulumi.ResourceArgs
+    public sealed class UserInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email of the user used by Datadog for contacting them if needed
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Datadog.V20210301.Inputs
         public UserInfoArgs()
         {
         }
+        public static new UserInfoArgs Empty => new UserInfoArgs();
     }
 }

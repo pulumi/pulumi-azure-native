@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview.Inputs
     /// <summary>
     /// Properties supplied for Subnet
     /// </summary>
-    public sealed class SubnetArgs : Pulumi.ResourceArgs
+    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of Virtual Network Subnet
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview.Inputs
         public SubnetArgs()
         {
         }
+        public static new SubnetArgs Empty => new SubnetArgs();
     }
 }

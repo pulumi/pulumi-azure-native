@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
     }
 
 
-    public sealed class ListIntegrationAccountKeyVaultKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListIntegrationAccountKeyVaultKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account name.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public ListIntegrationAccountKeyVaultKeysArgs()
         {
         }
+        public static new ListIntegrationAccountKeyVaultKeysArgs Empty => new ListIntegrationAccountKeyVaultKeysArgs();
     }
 
-    public sealed class ListIntegrationAccountKeyVaultKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListIntegrationAccountKeyVaultKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration account name.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public ListIntegrationAccountKeyVaultKeysInvokeArgs()
         {
         }
+        public static new ListIntegrationAccountKeyVaultKeysInvokeArgs Empty => new ListIntegrationAccountKeyVaultKeysInvokeArgs();
     }
 
 

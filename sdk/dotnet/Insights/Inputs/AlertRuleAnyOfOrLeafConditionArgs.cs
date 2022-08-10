@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     ///   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
     ///   _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
     /// </summary>
-    public sealed class AlertRuleAnyOfOrLeafConditionArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleAnyOfOrLeafConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("anyOf")]
         private InputList<Inputs.AlertRuleLeafConditionArgs>? _anyOf;
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public AlertRuleAnyOfOrLeafConditionArgs()
         {
         }
+        public static new AlertRuleAnyOfOrLeafConditionArgs Empty => new AlertRuleAnyOfOrLeafConditionArgs();
     }
 }

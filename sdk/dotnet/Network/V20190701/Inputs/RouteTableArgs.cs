@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
     /// <summary>
     /// Route table resource.
     /// </summary>
-    public sealed class RouteTableArgs : Pulumi.ResourceArgs
+    public sealed class RouteTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to disable the routes learned by BGP on that route table. True means disable.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
         public RouteTableArgs()
         {
         }
+        public static new RouteTableArgs Empty => new RouteTableArgs();
     }
 }

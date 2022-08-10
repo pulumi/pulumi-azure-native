@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// SSIS execution parameter.
     /// </summary>
-    public sealed class SSISExecutionParameterArgs : Pulumi.ResourceArgs
+    public sealed class SSISExecutionParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SSIS package execution parameter value. Type: string (or Expression with resultType string).
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SSISExecutionParameterArgs()
         {
         }
+        public static new SSISExecutionParameterArgs Empty => new SSISExecutionParameterArgs();
     }
 }

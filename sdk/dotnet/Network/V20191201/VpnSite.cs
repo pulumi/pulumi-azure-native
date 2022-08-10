@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191201
     /// VpnSite Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20191201:VpnSite")]
-    public partial class VpnSite : Pulumi.CustomResource
+    public partial class VpnSite : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AddressSpace that contains an array of IP address ranges.
@@ -124,33 +124,33 @@ namespace Pulumi.AzureNative.Network.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VpnSite"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VpnSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VpnSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.Network.V20191201
         }
     }
 
-    public sealed class VpnSiteArgs : Pulumi.ResourceArgs
+    public sealed class VpnSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AddressSpace that contains an array of IP address ranges.
@@ -267,5 +267,6 @@ namespace Pulumi.AzureNative.Network.V20191201
         public VpnSiteArgs()
         {
         }
+        public static new VpnSiteArgs Empty => new VpnSiteArgs();
     }
 }

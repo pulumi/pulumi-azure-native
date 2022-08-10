@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.PolicyInsights
     /// API Version: 2019-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights:RemediationAtResourceGroup")]
-    public partial class RemediationAtResourceGroup : Pulumi.CustomResource
+    public partial class RemediationAtResourceGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the remediation was created.
@@ -101,9 +101,9 @@ namespace Pulumi.AzureNative.PolicyInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtResourceGroup"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtResourceGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtResourceGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtResourceGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         }
     }
 
-    public sealed class RemediationAtResourceGroupArgs : Pulumi.ResourceArgs
+    public sealed class RemediationAtResourceGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
@@ -166,5 +166,6 @@ namespace Pulumi.AzureNative.PolicyInsights
         public RemediationAtResourceGroupArgs()
         {
         }
+        public static new RemediationAtResourceGroupArgs Empty => new RemediationAtResourceGroupArgs();
     }
 }

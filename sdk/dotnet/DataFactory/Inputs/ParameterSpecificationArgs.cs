@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Definition of a single parameter for an entity.
     /// </summary>
-    public sealed class ParameterSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ParameterSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default value of parameter.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ParameterSpecificationArgs()
         {
         }
+        public static new ParameterSpecificationArgs Empty => new ParameterSpecificationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
 {
 
-    public sealed class ExtendedErrorInfoArgs : Pulumi.ResourceArgs
+    public sealed class ExtendedErrorInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalInfo")]
         private InputList<Inputs.TypedErrorInfoArgs>? _additionalInfo;
@@ -40,5 +40,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         public ExtendedErrorInfoArgs()
         {
         }
+        public static new ExtendedErrorInfoArgs Empty => new ExtendedErrorInfoArgs();
     }
 }

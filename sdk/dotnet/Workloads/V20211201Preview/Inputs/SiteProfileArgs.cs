@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Workload website profile
     /// </summary>
-    public sealed class SiteProfileArgs : Pulumi.ResourceArgs
+    public sealed class SiteProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain name for the application site URL
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public SiteProfileArgs()
         {
         }
+        public static new SiteProfileArgs Empty => new SiteProfileArgs();
     }
 }

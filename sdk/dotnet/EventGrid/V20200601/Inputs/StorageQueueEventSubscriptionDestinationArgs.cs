@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200601.Inputs
     /// <summary>
     /// Information about the storage queue destination for an event subscription.
     /// </summary>
-    public sealed class StorageQueueEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
+    public sealed class StorageQueueEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the endpoint for the event subscription destination.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.EventGrid.V20200601.Inputs
         public StorageQueueEventSubscriptionDestinationArgs()
         {
         }
+        public static new StorageQueueEventSubscriptionDestinationArgs Empty => new StorageQueueEventSubscriptionDestinationArgs();
     }
 }

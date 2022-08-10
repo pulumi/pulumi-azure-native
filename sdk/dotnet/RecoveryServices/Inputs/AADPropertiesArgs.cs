@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
-    public sealed class AADPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AADPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("audience")]
         public Input<string>? Audience { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public AADPropertiesArgs()
         {
         }
+        public static new AADPropertiesArgs Empty => new AADPropertiesArgs();
     }
 }

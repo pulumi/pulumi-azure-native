@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
     /// <summary>
     /// Map identifiers of a single entity
     /// </summary>
-    public sealed class EntityFieldMappingArgs : Pulumi.ResourceArgs
+    public sealed class EntityFieldMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alert V3 identifier
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
         public EntityFieldMappingArgs()
         {
         }
+        public static new EntityFieldMappingArgs Empty => new EntityFieldMappingArgs();
     }
 }

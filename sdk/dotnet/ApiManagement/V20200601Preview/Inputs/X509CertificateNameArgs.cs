@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview.Inputs
     /// <summary>
     /// Properties of server X509Names.
     /// </summary>
-    public sealed class X509CertificateNameArgs : Pulumi.ResourceArgs
+    public sealed class X509CertificateNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Thumbprint for the Issuer of the Certificate.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview.Inputs
         public X509CertificateNameArgs()
         {
         }
+        public static new X509CertificateNameArgs Empty => new X509CertificateNameArgs();
     }
 }

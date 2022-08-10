@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     /// MEC role.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20200901preview:MECRole")]
-    public partial class MECRole : Pulumi.CustomResource
+    public partial class MECRole : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Activation key of the MEC.
@@ -84,19 +84,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:databoxedge:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:MECRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:MECRole"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         }
     }
 
-    public sealed class MECRoleArgs : Pulumi.ResourceArgs
+    public sealed class MECRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Activation key of the MEC.
@@ -160,5 +160,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public MECRoleArgs()
         {
         }
+        public static new MECRoleArgs Empty => new MECRoleArgs();
     }
 }

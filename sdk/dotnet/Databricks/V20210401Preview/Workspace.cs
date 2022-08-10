@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
     /// Information about workspace.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks/v20210401preview:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The workspace provider authorizations.
@@ -166,9 +166,9 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:databricks:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:databricks/v20180401:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20180401:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizations")]
         private InputList<Inputs.WorkspaceProviderAuthorizationArgs>? _authorizations;
@@ -279,5 +279,6 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

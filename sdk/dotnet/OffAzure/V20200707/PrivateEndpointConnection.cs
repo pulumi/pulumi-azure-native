@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
     /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure/v20200707:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the tag for optimistic concurrency control.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:offazure:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private link resource name.
@@ -115,5 +115,6 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

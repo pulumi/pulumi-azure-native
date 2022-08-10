@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200930.Inputs
     /// <summary>
     /// Describes the target region information.
     /// </summary>
-    public sealed class TargetRegionArgs : Pulumi.ResourceArgs
+    public sealed class TargetRegionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Compute.V20200930.Inputs
         public TargetRegionArgs()
         {
         }
+        public static new TargetRegionArgs Empty => new TargetRegionArgs();
     }
 }

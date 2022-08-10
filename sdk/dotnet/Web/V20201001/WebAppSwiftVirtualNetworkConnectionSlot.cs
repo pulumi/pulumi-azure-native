@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201001
     /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot")]
-    public partial class WebAppSwiftVirtualNetworkConnectionSlot : Pulumi.CustomResource
+    public partial class WebAppSwiftVirtualNetworkConnectionSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -76,16 +76,16 @@ namespace Pulumi.AzureNative.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Web.V20201001
         }
     }
 
-    public sealed class WebAppSwiftVirtualNetworkConnectionSlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppSwiftVirtualNetworkConnectionSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -148,5 +148,6 @@ namespace Pulumi.AzureNative.Web.V20201001
         public WebAppSwiftVirtualNetworkConnectionSlotArgs()
         {
         }
+        public static new WebAppSwiftVirtualNetworkConnectionSlotArgs Empty => new WebAppSwiftVirtualNetworkConnectionSlotArgs();
     }
 }

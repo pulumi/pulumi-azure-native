@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Consumption.V20180831
     }
 
 
-    public sealed class GetBudgetByResourceGroupNameArgs : Pulumi.InvokeArgs
+    public sealed class GetBudgetByResourceGroupNameArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Budget Name.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Consumption.V20180831
         public GetBudgetByResourceGroupNameArgs()
         {
         }
+        public static new GetBudgetByResourceGroupNameArgs Empty => new GetBudgetByResourceGroupNameArgs();
     }
 
-    public sealed class GetBudgetByResourceGroupNameInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBudgetByResourceGroupNameInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Budget Name.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Consumption.V20180831
         public GetBudgetByResourceGroupNameInvokeArgs()
         {
         }
+        public static new GetBudgetByResourceGroupNameInvokeArgs Empty => new GetBudgetByResourceGroupNameInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.Inputs
     /// <summary>
     /// Global configuration for services in the cluster.
     /// </summary>
-    public sealed class GlobalServiceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class GlobalServiceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The auto-scale configuration
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute.Inputs
         public GlobalServiceConfigurationArgs()
         {
         }
+        public static new GlobalServiceConfigurationArgs Empty => new GlobalServiceConfigurationArgs();
     }
 }

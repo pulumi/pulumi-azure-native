@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     }
 
 
-    public sealed class GetOriginGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public GetOriginGroupArgs()
         {
         }
+        public static new GetOriginGroupArgs Empty => new GetOriginGroupArgs();
     }
 
-    public sealed class GetOriginGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public GetOriginGroupInvokeArgs()
         {
         }
+        public static new GetOriginGroupInvokeArgs Empty => new GetOriginGroupInvokeArgs();
     }
 
 

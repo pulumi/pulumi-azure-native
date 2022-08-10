@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20220501.Inputs
     /// <summary>
     /// When present, these are the credentials for the secure LDAP connection.
     /// </summary>
-    public sealed class CacheUsernameDownloadSettingsCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class CacheUsernameDownloadSettingsCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.StorageCache.V20220501.Inputs
         public CacheUsernameDownloadSettingsCredentialsArgs()
         {
         }
+        public static new CacheUsernameDownloadSettingsCredentialsArgs Empty => new CacheUsernameDownloadSettingsCredentialsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160601.Inputs
 {
 
-    public sealed class ApiReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ApiReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Brand color
@@ -63,5 +63,6 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
         public ApiReferenceArgs()
         {
         }
+        public static new ApiReferenceArgs Empty => new ApiReferenceArgs();
     }
 }

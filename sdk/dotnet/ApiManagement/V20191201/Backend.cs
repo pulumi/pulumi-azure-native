@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     /// Backend details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20191201:Backend")]
-    public partial class Backend : Pulumi.CustomResource
+    public partial class Backend : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Backend Credentials Contract Properties
@@ -106,20 +106,20 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Backend"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Backend"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         }
     }
 
-    public sealed class BackendArgs : Pulumi.ResourceArgs
+    public sealed class BackendArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -218,5 +218,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         public BackendArgs()
         {
         }
+        public static new BackendArgs Empty => new BackendArgs();
     }
 }

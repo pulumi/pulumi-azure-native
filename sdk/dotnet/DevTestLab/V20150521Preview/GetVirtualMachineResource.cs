@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     }
 
 
-    public sealed class GetVirtualMachineResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetVirtualMachineResourceArgs()
         {
         }
+        public static new GetVirtualMachineResourceArgs Empty => new GetVirtualMachineResourceArgs();
     }
 
-    public sealed class GetVirtualMachineResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetVirtualMachineResourceInvokeArgs()
         {
         }
+        public static new GetVirtualMachineResourceInvokeArgs Empty => new GetVirtualMachineResourceInvokeArgs();
     }
 
 

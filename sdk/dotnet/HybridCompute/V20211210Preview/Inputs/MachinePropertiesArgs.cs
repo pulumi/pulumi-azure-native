@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20211210Preview.Inputs
     /// <summary>
     /// Describes the properties of a hybrid machine.
     /// </summary>
-    public sealed class MachinePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MachinePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public Key that the client provides to be used during initial resource onboarding
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20211210Preview.Inputs
         public MachinePropertiesArgs()
         {
         }
+        public static new MachinePropertiesArgs Empty => new MachinePropertiesArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:CodeVersion")]
-    public partial class CodeVersion : Pulumi.CustomResource
+    public partial class CodeVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -65,9 +65,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:CodeVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:CodeVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:CodeVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:CodeVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:CodeVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:CodeVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class CodeVersionArgs : Pulumi.ResourceArgs
+    public sealed class CodeVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container name.
@@ -124,5 +124,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public CodeVersionArgs()
         {
         }
+        public static new CodeVersionArgs Empty => new CodeVersionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Self-hosted integration runtime.
     /// </summary>
-    public sealed class SelfHostedIntegrationRuntimeArgs : Pulumi.ResourceArgs
+    public sealed class SelfHostedIntegrationRuntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Integration runtime description.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SelfHostedIntegrationRuntimeArgs()
         {
         }
+        public static new SelfHostedIntegrationRuntimeArgs Empty => new SelfHostedIntegrationRuntimeArgs();
     }
 }

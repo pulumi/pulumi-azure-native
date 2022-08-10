@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
     /// API Version: 2019-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple:VirtualMachine")]
-    public partial class VirtualMachine : Pulumi.CustomResource
+    public partial class VirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The amount of memory
@@ -197,7 +197,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/v20190401:VirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/v20190401:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -219,7 +219,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         }
     }
 
-    public sealed class VirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of memory
@@ -344,5 +344,6 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         public VirtualMachineArgs()
         {
         }
+        public static new VirtualMachineArgs Empty => new VirtualMachineArgs();
     }
 }

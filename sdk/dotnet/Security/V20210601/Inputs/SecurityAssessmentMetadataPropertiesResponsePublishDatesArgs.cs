@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20210601.Inputs
 {
 
-    public sealed class SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs : Pulumi.ResourceArgs
+    public sealed class SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs : global::Pulumi.ResourceArgs
     {
         [Input("gA")]
         public Input<string>? GA { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Security.V20210601.Inputs
         public SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs()
         {
         }
+        public static new SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs Empty => new SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs();
     }
 }

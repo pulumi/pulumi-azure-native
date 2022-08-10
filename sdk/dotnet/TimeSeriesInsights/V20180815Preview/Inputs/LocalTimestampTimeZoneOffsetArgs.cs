@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview.Inputs
     /// <summary>
     /// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
     /// </summary>
-    public sealed class LocalTimestampTimeZoneOffsetArgs : Pulumi.ResourceArgs
+    public sealed class LocalTimestampTimeZoneOffsetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview.Inputs
         public LocalTimestampTimeZoneOffsetArgs()
         {
         }
+        public static new LocalTimestampTimeZoneOffsetArgs Empty => new LocalTimestampTimeZoneOffsetArgs();
     }
 }

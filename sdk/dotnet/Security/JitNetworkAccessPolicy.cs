@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security
     /// API Version: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:JitNetworkAccessPolicy")]
-    public partial class JitNetworkAccessPolicy : Pulumi.CustomResource
+    public partial class JitNetworkAccessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of the resource
@@ -79,8 +79,8 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:security/v20150601preview:JitNetworkAccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:security/v20200101:JitNetworkAccessPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20150601preview:JitNetworkAccessPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20200101:JitNetworkAccessPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Security
         }
     }
 
-    public sealed class JitNetworkAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class JitNetworkAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -151,5 +151,6 @@ namespace Pulumi.AzureNative.Security
         public JitNetworkAccessPolicyArgs()
         {
         }
+        public static new JitNetworkAccessPolicyArgs Empty => new JitNetworkAccessPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
     /// <summary>
     /// RouteTable route.
     /// </summary>
-    public sealed class HubRouteArgs : Pulumi.ResourceArgs
+    public sealed class HubRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of destinations (eg: CIDR, ResourceId, Service).
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
         public HubRouteArgs()
         {
         }
+        public static new HubRouteArgs Empty => new HubRouteArgs();
     }
 }

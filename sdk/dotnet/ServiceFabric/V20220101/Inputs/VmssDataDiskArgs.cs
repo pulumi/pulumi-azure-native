@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101.Inputs
     /// <summary>
     /// Managed data disk description.
     /// </summary>
-    public sealed class VmssDataDiskArgs : Pulumi.ResourceArgs
+    public sealed class VmssDataDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101.Inputs
         public VmssDataDiskArgs()
         {
         }
+        public static new VmssDataDiskArgs Empty => new VmssDataDiskArgs();
     }
 }

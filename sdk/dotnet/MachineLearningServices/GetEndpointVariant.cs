@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
 
-    public sealed class GetEndpointVariantArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointVariantArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Set to True to include Model details.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public GetEndpointVariantArgs()
         {
         }
+        public static new GetEndpointVariantArgs Empty => new GetEndpointVariantArgs();
     }
 
-    public sealed class GetEndpointVariantInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointVariantInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Set to True to include Model details.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public GetEndpointVariantInvokeArgs()
         {
         }
+        public static new GetEndpointVariantInvokeArgs Empty => new GetEndpointVariantInvokeArgs();
     }
 
 

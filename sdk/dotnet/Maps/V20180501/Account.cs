@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps.V20180501
     /// An Azure resource which represents access to a suite of Maps REST APIs.
     /// </summary>
     [AzureNativeResourceType("azure-native:maps/v20180501:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource.
@@ -76,12 +76,12 @@ namespace Pulumi.AzureNative.Maps.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:maps:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20170101preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20210201:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20170101preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210201:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.Maps.V20180501
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -144,5 +144,6 @@ namespace Pulumi.AzureNative.Maps.V20180501
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

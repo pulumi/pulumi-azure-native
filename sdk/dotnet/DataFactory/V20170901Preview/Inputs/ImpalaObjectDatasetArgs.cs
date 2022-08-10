@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Impala server dataset.
     /// </summary>
-    public sealed class ImpalaObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class ImpalaObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ImpalaObjectDatasetArgs()
         {
         }
+        public static new ImpalaObjectDatasetArgs Empty => new ImpalaObjectDatasetArgs();
     }
 }

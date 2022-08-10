@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview.Inputs
     /// <summary>
     /// Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.
     /// </summary>
-    public sealed class AzureDataExplorerConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataExplorerConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure Data Explorer database.
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview.Inputs
         public AzureDataExplorerConnectionPropertiesArgs()
         {
         }
+        public static new AzureDataExplorerConnectionPropertiesArgs Empty => new AzureDataExplorerConnectionPropertiesArgs();
     }
 }

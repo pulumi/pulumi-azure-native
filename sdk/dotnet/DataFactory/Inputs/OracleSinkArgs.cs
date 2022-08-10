@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Oracle sink.
     /// </summary>
-    public sealed class OracleSinkArgs : Pulumi.ResourceArgs
+    public sealed class OracleSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public OracleSinkArgs()
         {
         }
+        public static new OracleSinkArgs Empty => new OracleSinkArgs();
     }
 }

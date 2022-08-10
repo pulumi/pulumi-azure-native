@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     }
 
 
-    public sealed class GetprivateLinkServicesForMIPPolicySyncArgs : Pulumi.InvokeArgs
+    public sealed class GetprivateLinkServicesForMIPPolicySyncArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         public GetprivateLinkServicesForMIPPolicySyncArgs()
         {
         }
+        public static new GetprivateLinkServicesForMIPPolicySyncArgs Empty => new GetprivateLinkServicesForMIPPolicySyncArgs();
     }
 
-    public sealed class GetprivateLinkServicesForMIPPolicySyncInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetprivateLinkServicesForMIPPolicySyncInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         public GetprivateLinkServicesForMIPPolicySyncInvokeArgs()
         {
         }
+        public static new GetprivateLinkServicesForMIPPolicySyncInvokeArgs Empty => new GetprivateLinkServicesForMIPPolicySyncInvokeArgs();
     }
 
 

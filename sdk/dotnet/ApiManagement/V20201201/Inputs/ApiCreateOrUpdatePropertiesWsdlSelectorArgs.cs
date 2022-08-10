@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201.Inputs
     /// <summary>
     /// Criteria to limit import of WSDL to a subset of the document.
     /// </summary>
-    public sealed class ApiCreateOrUpdatePropertiesWsdlSelectorArgs : Pulumi.ResourceArgs
+    public sealed class ApiCreateOrUpdatePropertiesWsdlSelectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of endpoint(port) to import from WSDL
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201.Inputs
         public ApiCreateOrUpdatePropertiesWsdlSelectorArgs()
         {
         }
+        public static new ApiCreateOrUpdatePropertiesWsdlSelectorArgs Empty => new ApiCreateOrUpdatePropertiesWsdlSelectorArgs();
     }
 }

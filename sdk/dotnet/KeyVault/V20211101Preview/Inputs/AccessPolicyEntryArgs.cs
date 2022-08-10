@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview.Inputs
     /// <summary>
     /// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
     /// </summary>
-    public sealed class AccessPolicyEntryArgs : Pulumi.ResourceArgs
+    public sealed class AccessPolicyEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         ///  Application ID of the client making request on behalf of a principal
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview.Inputs
         public AccessPolicyEntryArgs()
         {
         }
+        public static new AccessPolicyEntryArgs Empty => new AccessPolicyEntryArgs();
     }
 }

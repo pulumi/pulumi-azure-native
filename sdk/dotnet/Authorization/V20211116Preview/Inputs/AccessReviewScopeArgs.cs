@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview.Inputs
     /// <summary>
     /// Descriptor for what needs to be reviewed
     /// </summary>
-    public sealed class AccessReviewScopeArgs : Pulumi.ResourceArgs
+    public sealed class AccessReviewScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to indicate whether to expand nested memberships or not.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview.Inputs
         public AccessReviewScopeArgs()
         {
         }
+        public static new AccessReviewScopeArgs Empty => new AccessReviewScopeArgs();
     }
 }

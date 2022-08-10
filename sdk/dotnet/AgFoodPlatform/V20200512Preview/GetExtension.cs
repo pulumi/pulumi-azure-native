@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
     }
 
 
-    public sealed class GetExtensionArgs : Pulumi.InvokeArgs
+    public sealed class GetExtensionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of extension resource.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         public GetExtensionArgs()
         {
         }
+        public static new GetExtensionArgs Empty => new GetExtensionArgs();
     }
 
-    public sealed class GetExtensionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExtensionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of extension resource.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         public GetExtensionInvokeArgs()
         {
         }
+        public static new GetExtensionInvokeArgs Empty => new GetExtensionInvokeArgs();
     }
 
 

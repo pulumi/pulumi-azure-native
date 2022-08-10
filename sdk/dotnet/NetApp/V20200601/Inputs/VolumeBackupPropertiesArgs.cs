@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20200601.Inputs
     /// <summary>
     /// Volume Backup Properties
     /// </summary>
-    public sealed class VolumeBackupPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class VolumeBackupPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backup Enabled
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.NetApp.V20200601.Inputs
         public VolumeBackupPropertiesArgs()
         {
         }
+        public static new VolumeBackupPropertiesArgs Empty => new VolumeBackupPropertiesArgs();
     }
 }

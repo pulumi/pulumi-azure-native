@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// API Version: 2020-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:LinkedStorageAccount")]
-    public partial class LinkedStorageAccount : Pulumi.CustomResource
+    public partial class LinkedStorageAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Linked storage accounts type.
@@ -65,9 +65,9 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedStorageAccount"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedStorageAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedStorageAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedStorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         }
     }
 
-    public sealed class LinkedStorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class LinkedStorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Linked storage accounts type.
@@ -124,5 +124,6 @@ namespace Pulumi.AzureNative.OperationalInsights
         public LinkedStorageAccountArgs()
         {
         }
+        public static new LinkedStorageAccountArgs Empty => new LinkedStorageAccountArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20200501
     /// The lock information.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel")]
-    public partial class ManagementLockAtSubscriptionLevel : Pulumi.CustomResource
+    public partial class ManagementLockAtSubscriptionLevel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
@@ -76,10 +76,10 @@ namespace Pulumi.AzureNative.Authorization.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization:ManagementLockAtSubscriptionLevel"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20150101:ManagementLockAtSubscriptionLevel"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization:ManagementLockAtSubscriptionLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20150101:ManagementLockAtSubscriptionLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         }
     }
 
-    public sealed class ManagementLockAtSubscriptionLevelArgs : Pulumi.ResourceArgs
+    public sealed class ManagementLockAtSubscriptionLevelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
@@ -136,5 +136,6 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         public ManagementLockAtSubscriptionLevelArgs()
         {
         }
+        public static new ManagementLockAtSubscriptionLevelArgs Empty => new ManagementLockAtSubscriptionLevelArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20201201Preview.Inputs
     /// <summary>
     /// The definition of an export.
     /// </summary>
-    public sealed class ExportDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ExportDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The definition for data in the export.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.CostManagement.V20201201Preview.Inputs
         public ExportDefinitionArgs()
         {
         }
+        public static new ExportDefinitionArgs Empty => new ExportDefinitionArgs();
     }
 }

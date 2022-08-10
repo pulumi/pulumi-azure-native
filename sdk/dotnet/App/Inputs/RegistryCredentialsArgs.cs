@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// Container App Private Registry
     /// </summary>
-    public sealed class RegistryCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class RegistryCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.App.Inputs
         public RegistryCredentialsArgs()
         {
         }
+        public static new RegistryCredentialsArgs Empty => new RegistryCredentialsArgs();
     }
 }

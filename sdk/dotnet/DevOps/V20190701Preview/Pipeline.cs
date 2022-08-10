@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview
     /// </summary>
     [Obsolete(@"Version 2019-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devops/v20190701preview:Pipeline")]
-    public partial class Pipeline : Pulumi.CustomResource
+    public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration used to bootstrap the Pipeline.
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devops:Pipeline"},
-                    new Pulumi.Alias { Type = "azure-native:devops/v20200713preview:Pipeline"},
+                    new global::Pulumi.Alias { Type = "azure-native:devops:Pipeline"},
+                    new global::Pulumi.Alias { Type = "azure-native:devops/v20200713preview:Pipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview
         }
     }
 
-    public sealed class PipelineArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration used to bootstrap the Pipeline.
@@ -165,5 +165,6 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview
         public PipelineArgs()
         {
         }
+        public static new PipelineArgs Empty => new PipelineArgs();
     }
 }

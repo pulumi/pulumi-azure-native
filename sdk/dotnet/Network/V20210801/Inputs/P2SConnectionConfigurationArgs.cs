@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// P2SConnectionConfiguration Resource.
     /// </summary>
-    public sealed class P2SConnectionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class P2SConnectionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public P2SConnectionConfigurationArgs()
         {
         }
+        public static new P2SConnectionConfigurationArgs Empty => new P2SConnectionConfigurationArgs();
     }
 }

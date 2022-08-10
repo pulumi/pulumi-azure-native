@@ -21,7 +21,7 @@ type Principals struct {
 // PrincipalsInput is an input type that accepts PrincipalsArgs and PrincipalsOutput values.
 // You can construct a concrete instance of `PrincipalsInput` via:
 //
-//          PrincipalsArgs{...}
+//	PrincipalsArgs{...}
 type PrincipalsInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i PrincipalsArgs) ToPrincipalsOutputWithContext(ctx context.Context) Princ
 // PrincipalsArrayInput is an input type that accepts PrincipalsArray and PrincipalsArrayOutput values.
 // You can construct a concrete instance of `PrincipalsArrayInput` via:
 //
-//          PrincipalsArray{ PrincipalsArgs{...} }
+//	PrincipalsArray{ PrincipalsArgs{...} }
 type PrincipalsArrayInput interface {
 	pulumi.Input
 

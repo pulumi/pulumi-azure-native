@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20190801.Inputs
     /// <summary>
     /// DataProtection volume, can have a replication object
     /// </summary>
-    public sealed class VolumePropertiesDataProtectionArgs : Pulumi.ResourceArgs
+    public sealed class VolumePropertiesDataProtectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Replication properties
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.NetApp.V20190801.Inputs
         public VolumePropertiesDataProtectionArgs()
         {
         }
+        public static new VolumePropertiesDataProtectionArgs Empty => new VolumePropertiesDataProtectionArgs();
     }
 }

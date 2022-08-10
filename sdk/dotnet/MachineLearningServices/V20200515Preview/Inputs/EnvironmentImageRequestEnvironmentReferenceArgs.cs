@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
     /// <summary>
     /// The unique identifying details of the AZURE ML environment.
     /// </summary>
-    public sealed class EnvironmentImageRequestEnvironmentReferenceArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentImageRequestEnvironmentReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the environment.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
         public EnvironmentImageRequestEnvironmentReferenceArgs()
         {
         }
+        public static new EnvironmentImageRequestEnvironmentReferenceArgs Empty => new EnvironmentImageRequestEnvironmentReferenceArgs();
     }
 }

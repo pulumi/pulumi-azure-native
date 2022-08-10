@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20181201
     }
 
 
-    public sealed class GetP2sVpnServerConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetP2sVpnServerConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the P2SVpnServerConfiguration.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20181201
         public GetP2sVpnServerConfigurationArgs()
         {
         }
+        public static new GetP2sVpnServerConfigurationArgs Empty => new GetP2sVpnServerConfigurationArgs();
     }
 
-    public sealed class GetP2sVpnServerConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetP2sVpnServerConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the P2SVpnServerConfiguration.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20181201
         public GetP2sVpnServerConfigurationInvokeArgs()
         {
         }
+        public static new GetP2sVpnServerConfigurationInvokeArgs Empty => new GetP2sVpnServerConfigurationInvokeArgs();
     }
 
 

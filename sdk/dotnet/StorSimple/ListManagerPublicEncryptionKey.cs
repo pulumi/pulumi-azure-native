@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StorSimple
     }
 
 
-    public sealed class ListManagerPublicEncryptionKeyArgs : Pulumi.InvokeArgs
+    public sealed class ListManagerPublicEncryptionKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.StorSimple
         public ListManagerPublicEncryptionKeyArgs()
         {
         }
+        public static new ListManagerPublicEncryptionKeyArgs Empty => new ListManagerPublicEncryptionKeyArgs();
     }
 
-    public sealed class ListManagerPublicEncryptionKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListManagerPublicEncryptionKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.StorSimple
         public ListManagerPublicEncryptionKeyInvokeArgs()
         {
         }
+        public static new ListManagerPublicEncryptionKeyInvokeArgs Empty => new ListManagerPublicEncryptionKeyInvokeArgs();
     }
 
 

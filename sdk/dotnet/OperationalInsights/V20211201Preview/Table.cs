@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
     /// Workspace data table definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20211201preview:Table")]
-    public partial class Table : Pulumi.CustomResource
+    public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Table"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Table"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         }
     }
 
-    public sealed class TableArgs : Pulumi.ResourceArgs
+    public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Instruct the system how to handle and charge the logs ingested to this table.
@@ -199,5 +199,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         public TableArgs()
         {
         }
+        public static new TableArgs Empty => new TableArgs();
     }
 }

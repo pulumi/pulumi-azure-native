@@ -25,7 +25,7 @@ type Acl struct {
 // AclInput is an input type that accepts AclArgs and AclOutput values.
 // You can construct a concrete instance of `AclInput` via:
 //
-//          AclArgs{...}
+//	AclArgs{...}
 type AclInput interface {
 	pulumi.Input
 
@@ -60,7 +60,7 @@ func (i AclArgs) ToAclOutputWithContext(ctx context.Context) AclOutput {
 // AclArrayInput is an input type that accepts AclArray and AclArrayOutput values.
 // You can construct a concrete instance of `AclArrayInput` via:
 //
-//          AclArray{ AclArgs{...} }
+//	AclArray{ AclArgs{...} }
 type AclArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +215,7 @@ type Attributes struct {
 // AttributesInput is an input type that accepts AttributesArgs and AttributesOutput values.
 // You can construct a concrete instance of `AttributesInput` via:
 //
-//          AttributesArgs{...}
+//	AttributesArgs{...}
 type AttributesInput interface {
 	pulumi.Input
 
@@ -310,7 +310,7 @@ type Disk struct {
 // DiskInput is an input type that accepts DiskArgs and DiskOutput values.
 // You can construct a concrete instance of `DiskInput` via:
 //
-//          DiskArgs{...}
+//	DiskArgs{...}
 type DiskInput interface {
 	pulumi.Input
 
@@ -339,7 +339,7 @@ func (i DiskArgs) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 // DiskArrayInput is an input type that accepts DiskArray and DiskArrayOutput values.
 // You can construct a concrete instance of `DiskArrayInput` via:
 //
-//          DiskArray{ DiskArgs{...} }
+//	DiskArray{ DiskArgs{...} }
 type DiskArrayInput interface {
 	pulumi.Input
 
@@ -458,7 +458,7 @@ type IscsiLun struct {
 // IscsiLunInput is an input type that accepts IscsiLunArgs and IscsiLunOutput values.
 // You can construct a concrete instance of `IscsiLunInput` via:
 //
-//          IscsiLunArgs{...}
+//	IscsiLunArgs{...}
 type IscsiLunInput interface {
 	pulumi.Input
 
@@ -489,7 +489,7 @@ func (i IscsiLunArgs) ToIscsiLunOutputWithContext(ctx context.Context) IscsiLunO
 // IscsiLunArrayInput is an input type that accepts IscsiLunArray and IscsiLunArrayOutput values.
 // You can construct a concrete instance of `IscsiLunArrayInput` via:
 //
-//          IscsiLunArray{ IscsiLunArgs{...} }
+//	IscsiLunArray{ IscsiLunArgs{...} }
 type IscsiLunArrayInput interface {
 	pulumi.Input
 
@@ -683,7 +683,7 @@ type TargetPortalGroupCreate struct {
 // TargetPortalGroupCreateInput is an input type that accepts TargetPortalGroupCreateArgs and TargetPortalGroupCreateOutput values.
 // You can construct a concrete instance of `TargetPortalGroupCreateInput` via:
 //
-//          TargetPortalGroupCreateArgs{...}
+//	TargetPortalGroupCreateArgs{...}
 type TargetPortalGroupCreateInput interface {
 	pulumi.Input
 
@@ -716,7 +716,7 @@ func (i TargetPortalGroupCreateArgs) ToTargetPortalGroupCreateOutputWithContext(
 // TargetPortalGroupCreateArrayInput is an input type that accepts TargetPortalGroupCreateArray and TargetPortalGroupCreateArrayOutput values.
 // You can construct a concrete instance of `TargetPortalGroupCreateArrayInput` via:
 //
-//          TargetPortalGroupCreateArray{ TargetPortalGroupCreateArgs{...} }
+//	TargetPortalGroupCreateArray{ TargetPortalGroupCreateArgs{...} }
 type TargetPortalGroupCreateArrayInput interface {
 	pulumi.Input
 

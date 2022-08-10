@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210601.Inputs
     /// <summary>
     /// An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
     /// </summary>
-    public sealed class ManagementPolicyRuleArgs : Pulumi.ResourceArgs
+    public sealed class ManagementPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An object that defines the Lifecycle rule.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Storage.V20210601.Inputs
         public ManagementPolicyRuleArgs()
         {
         }
+        public static new ManagementPolicyRuleArgs Empty => new ManagementPolicyRuleArgs();
     }
 }

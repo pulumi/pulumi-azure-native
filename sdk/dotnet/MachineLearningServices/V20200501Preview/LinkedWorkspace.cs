@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
     /// Linked workspace.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200501preview:LinkedWorkspace")]
-    public partial class LinkedWorkspace : Pulumi.CustomResource
+    public partial class LinkedWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Friendly name of the linked workspace.
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:LinkedWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:LinkedWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         }
     }
 
-    public sealed class LinkedWorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class LinkedWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Friendly name of the linked workspace
@@ -115,5 +115,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         public LinkedWorkspaceArgs()
         {
         }
+        public static new LinkedWorkspaceArgs Empty => new LinkedWorkspaceArgs();
     }
 }

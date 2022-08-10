@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic.Inputs
     /// <summary>
     /// Identity properties.
     /// </summary>
-    public sealed class IdentityPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed identity type.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Elastic.Inputs
         public IdentityPropertiesArgs()
         {
         }
+        public static new IdentityPropertiesArgs Empty => new IdentityPropertiesArgs();
     }
 }

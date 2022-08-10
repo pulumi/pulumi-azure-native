@@ -90,7 +90,7 @@ type MachineExtensionInstanceView struct {
 // MachineExtensionInstanceViewInput is an input type that accepts MachineExtensionInstanceViewArgs and MachineExtensionInstanceViewOutput values.
 // You can construct a concrete instance of `MachineExtensionInstanceViewInput` via:
 //
-//          MachineExtensionInstanceViewArgs{...}
+//	MachineExtensionInstanceViewArgs{...}
 type MachineExtensionInstanceViewInput interface {
 	pulumi.Input
 
@@ -133,11 +133,11 @@ func (i MachineExtensionInstanceViewArgs) ToMachineExtensionInstanceViewPtrOutpu
 // MachineExtensionInstanceViewPtrInput is an input type that accepts MachineExtensionInstanceViewArgs, MachineExtensionInstanceViewPtr and MachineExtensionInstanceViewPtrOutput values.
 // You can construct a concrete instance of `MachineExtensionInstanceViewPtrInput` via:
 //
-//          MachineExtensionInstanceViewArgs{...}
+//	        MachineExtensionInstanceViewArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MachineExtensionInstanceViewPtrInput interface {
 	pulumi.Input
 
@@ -166,7 +166,7 @@ func (i *machineExtensionInstanceViewPtrType) ToMachineExtensionInstanceViewPtrO
 // MachineExtensionInstanceViewArrayInput is an input type that accepts MachineExtensionInstanceViewArray and MachineExtensionInstanceViewArrayOutput values.
 // You can construct a concrete instance of `MachineExtensionInstanceViewArrayInput` via:
 //
-//          MachineExtensionInstanceViewArray{ MachineExtensionInstanceViewArgs{...} }
+//	MachineExtensionInstanceViewArray{ MachineExtensionInstanceViewArgs{...} }
 type MachineExtensionInstanceViewArrayInput interface {
 	pulumi.Input
 
@@ -595,7 +595,7 @@ type MachineExtensionInstanceViewStatus struct {
 // MachineExtensionInstanceViewStatusInput is an input type that accepts MachineExtensionInstanceViewStatusArgs and MachineExtensionInstanceViewStatusOutput values.
 // You can construct a concrete instance of `MachineExtensionInstanceViewStatusInput` via:
 //
-//          MachineExtensionInstanceViewStatusArgs{...}
+//	MachineExtensionInstanceViewStatusArgs{...}
 type MachineExtensionInstanceViewStatusInput interface {
 	pulumi.Input
 
@@ -640,11 +640,11 @@ func (i MachineExtensionInstanceViewStatusArgs) ToMachineExtensionInstanceViewSt
 // MachineExtensionInstanceViewStatusPtrInput is an input type that accepts MachineExtensionInstanceViewStatusArgs, MachineExtensionInstanceViewStatusPtr and MachineExtensionInstanceViewStatusPtrOutput values.
 // You can construct a concrete instance of `MachineExtensionInstanceViewStatusPtrInput` via:
 //
-//          MachineExtensionInstanceViewStatusArgs{...}
+//	        MachineExtensionInstanceViewStatusArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MachineExtensionInstanceViewStatusPtrInput interface {
 	pulumi.Input
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
     /// Represents a Configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb/v20180601preview:Configuration")]
-    public partial class Configuration : Pulumi.CustomResource
+    public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Allowed values of the configuration.
@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbformariadb:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Configuration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
         }
     }
 
-    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the server configuration.
@@ -146,5 +146,6 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
         public ConfigurationArgs()
         {
         }
+        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure blob write settings.
     /// </summary>
-    public sealed class AzureBlobStorageWriteSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AzureBlobStorageWriteSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the block size(MB) when writing data to blob. Type: integer (or Expression with resultType integer).
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureBlobStorageWriteSettingsArgs()
         {
         }
+        public static new AzureBlobStorageWriteSettingsArgs Empty => new AzureBlobStorageWriteSettingsArgs();
     }
 }

@@ -479,7 +479,7 @@ type ReferenceVm struct {
 // ReferenceVmInput is an input type that accepts ReferenceVmArgs and ReferenceVmOutput values.
 // You can construct a concrete instance of `ReferenceVmInput` via:
 //
-//          ReferenceVmArgs{...}
+//	ReferenceVmArgs{...}
 type ReferenceVmInput interface {
 	pulumi.Input
 
@@ -643,7 +643,7 @@ type ResourceSet struct {
 // ResourceSetInput is an input type that accepts ResourceSetArgs and ResourceSetOutput values.
 // You can construct a concrete instance of `ResourceSetInput` via:
 //
-//          ResourceSetArgs{...}
+//	ResourceSetArgs{...}
 type ResourceSetInput interface {
 	pulumi.Input
 
@@ -682,11 +682,11 @@ func (i ResourceSetArgs) ToResourceSetPtrOutputWithContext(ctx context.Context) 
 // ResourceSetPtrInput is an input type that accepts ResourceSetArgs, ResourceSetPtr and ResourceSetPtrOutput values.
 // You can construct a concrete instance of `ResourceSetPtrInput` via:
 //
-//          ResourceSetArgs{...}
+//	        ResourceSetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetPtrInput interface {
 	pulumi.Input
 
@@ -881,7 +881,7 @@ type ResourceSettings struct {
 // ResourceSettingsInput is an input type that accepts ResourceSettingsArgs and ResourceSettingsOutput values.
 // You can construct a concrete instance of `ResourceSettingsInput` via:
 //
-//          ResourceSettingsArgs{...}
+//	ResourceSettingsArgs{...}
 type ResourceSettingsInput interface {
 	pulumi.Input
 

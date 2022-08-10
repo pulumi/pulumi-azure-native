@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Script reference
     /// </summary>
-    public sealed class ScriptReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ScriptReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional command line arguments passed to the script to run.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public ScriptReferenceArgs()
         {
         }
+        public static new ScriptReferenceArgs Empty => new ScriptReferenceArgs();
     }
 }

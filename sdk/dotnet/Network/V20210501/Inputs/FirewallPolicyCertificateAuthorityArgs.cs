@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Trusted Root certificates properties for tls.
     /// </summary>
-    public sealed class FirewallPolicyCertificateAuthorityArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyCertificateAuthorityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public FirewallPolicyCertificateAuthorityArgs()
         {
         }
+        public static new FirewallPolicyCertificateAuthorityArgs Empty => new FirewallPolicyCertificateAuthorityArgs();
     }
 }

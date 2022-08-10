@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The settings that will be leveraged for Oracle source partitioning.
     /// </summary>
-    public sealed class OraclePartitionSettingsArgs : Pulumi.ResourceArgs
+    public sealed class OraclePartitionSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column in integer type that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public OraclePartitionSettingsArgs()
         {
         }
+        public static new OraclePartitionSettingsArgs Empty => new OraclePartitionSettingsArgs();
     }
 }

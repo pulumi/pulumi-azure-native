@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Authorization.V20200501
     }
 
 
-    public sealed class GetPrivateLinkAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The management group ID.
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         public GetPrivateLinkAssociationArgs()
         {
         }
+        public static new GetPrivateLinkAssociationArgs Empty => new GetPrivateLinkAssociationArgs();
     }
 
-    public sealed class GetPrivateLinkAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The management group ID.
@@ -55,6 +56,7 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         public GetPrivateLinkAssociationInvokeArgs()
         {
         }
+        public static new GetPrivateLinkAssociationInvokeArgs Empty => new GetPrivateLinkAssociationInvokeArgs();
     }
 
 

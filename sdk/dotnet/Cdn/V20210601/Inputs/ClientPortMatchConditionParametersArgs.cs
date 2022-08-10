@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the parameters for ClientPort match conditions
     /// </summary>
-    public sealed class ClientPortMatchConditionParametersArgs : Pulumi.ResourceArgs
+    public sealed class ClientPortMatchConditionParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -57,5 +57,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public ClientPortMatchConditionParametersArgs()
         {
         }
+        public static new ClientPortMatchConditionParametersArgs Empty => new ClientPortMatchConditionParametersArgs();
     }
 }

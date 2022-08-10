@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
     /// <summary>
     /// Directory for virtual application.
     /// </summary>
-    public sealed class VirtualDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualDirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Physical path.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public VirtualDirectoryArgs()
         {
         }
+        public static new VirtualDirectoryArgs Empty => new VirtualDirectoryArgs();
     }
 }

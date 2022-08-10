@@ -23,7 +23,7 @@ type DashboardLens struct {
 // DashboardLensInput is an input type that accepts DashboardLensArgs and DashboardLensOutput values.
 // You can construct a concrete instance of `DashboardLensInput` via:
 //
-//          DashboardLensArgs{...}
+//	DashboardLensArgs{...}
 type DashboardLensInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i DashboardLensArgs) ToDashboardLensOutputWithContext(ctx context.Context)
 // DashboardLensArrayInput is an input type that accepts DashboardLensArray and DashboardLensArrayOutput values.
 // You can construct a concrete instance of `DashboardLensArrayInput` via:
 //
-//          DashboardLensArray{ DashboardLensArgs{...} }
+//	DashboardLensArray{ DashboardLensArgs{...} }
 type DashboardLensArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type DashboardParts struct {
 // DashboardPartsInput is an input type that accepts DashboardPartsArgs and DashboardPartsOutput values.
 // You can construct a concrete instance of `DashboardPartsInput` via:
 //
-//          DashboardPartsArgs{...}
+//	DashboardPartsArgs{...}
 type DashboardPartsInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ func (i DashboardPartsArgs) ToDashboardPartsOutputWithContext(ctx context.Contex
 // DashboardPartsArrayInput is an input type that accepts DashboardPartsArray and DashboardPartsArrayOutput values.
 // You can construct a concrete instance of `DashboardPartsArrayInput` via:
 //
-//          DashboardPartsArray{ DashboardPartsArgs{...} }
+//	DashboardPartsArray{ DashboardPartsArgs{...} }
 type DashboardPartsArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +314,7 @@ type DashboardPartsPosition struct {
 // DashboardPartsPositionInput is an input type that accepts DashboardPartsPositionArgs and DashboardPartsPositionOutput values.
 // You can construct a concrete instance of `DashboardPartsPositionInput` via:
 //
-//          DashboardPartsPositionArgs{...}
+//	DashboardPartsPositionArgs{...}
 type DashboardPartsPositionInput interface {
 	pulumi.Input
 
@@ -509,7 +509,7 @@ type MarkdownPartMetadata struct {
 // MarkdownPartMetadataInput is an input type that accepts MarkdownPartMetadataArgs and MarkdownPartMetadataOutput values.
 // You can construct a concrete instance of `MarkdownPartMetadataInput` via:
 //
-//          MarkdownPartMetadataArgs{...}
+//	MarkdownPartMetadataArgs{...}
 type MarkdownPartMetadataInput interface {
 	pulumi.Input
 
@@ -551,11 +551,11 @@ func (i MarkdownPartMetadataArgs) ToMarkdownPartMetadataPtrOutputWithContext(ctx
 // MarkdownPartMetadataPtrInput is an input type that accepts MarkdownPartMetadataArgs, MarkdownPartMetadataPtr and MarkdownPartMetadataPtrOutput values.
 // You can construct a concrete instance of `MarkdownPartMetadataPtrInput` via:
 //
-//          MarkdownPartMetadataArgs{...}
+//	        MarkdownPartMetadataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MarkdownPartMetadataPtrInput interface {
 	pulumi.Input
 
@@ -686,7 +686,7 @@ type MarkdownPartMetadataContent struct {
 // MarkdownPartMetadataContentInput is an input type that accepts MarkdownPartMetadataContentArgs and MarkdownPartMetadataContentOutput values.
 // You can construct a concrete instance of `MarkdownPartMetadataContentInput` via:
 //
-//          MarkdownPartMetadataContentArgs{...}
+//	MarkdownPartMetadataContentArgs{...}
 type MarkdownPartMetadataContentInput interface {
 	pulumi.Input
 
@@ -723,11 +723,11 @@ func (i MarkdownPartMetadataContentArgs) ToMarkdownPartMetadataContentPtrOutputW
 // MarkdownPartMetadataContentPtrInput is an input type that accepts MarkdownPartMetadataContentArgs, MarkdownPartMetadataContentPtr and MarkdownPartMetadataContentPtrOutput values.
 // You can construct a concrete instance of `MarkdownPartMetadataContentPtrInput` via:
 //
-//          MarkdownPartMetadataContentArgs{...}
+//	        MarkdownPartMetadataContentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MarkdownPartMetadataContentPtrInput interface {
 	pulumi.Input
 
@@ -1173,7 +1173,7 @@ type MarkdownPartMetadataSettings struct {
 // MarkdownPartMetadataSettingsInput is an input type that accepts MarkdownPartMetadataSettingsArgs and MarkdownPartMetadataSettingsOutput values.
 // You can construct a concrete instance of `MarkdownPartMetadataSettingsInput` via:
 //
-//          MarkdownPartMetadataSettingsArgs{...}
+//	MarkdownPartMetadataSettingsArgs{...}
 type MarkdownPartMetadataSettingsInput interface {
 	pulumi.Input
 
@@ -1210,11 +1210,11 @@ func (i MarkdownPartMetadataSettingsArgs) ToMarkdownPartMetadataSettingsPtrOutpu
 // MarkdownPartMetadataSettingsPtrInput is an input type that accepts MarkdownPartMetadataSettingsArgs, MarkdownPartMetadataSettingsPtr and MarkdownPartMetadataSettingsPtrOutput values.
 // You can construct a concrete instance of `MarkdownPartMetadataSettingsPtrInput` via:
 //
-//          MarkdownPartMetadataSettingsArgs{...}
+//	        MarkdownPartMetadataSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MarkdownPartMetadataSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1321,7 +1321,7 @@ type MarkdownPartMetadataSettingsSettings struct {
 // MarkdownPartMetadataSettingsSettingsInput is an input type that accepts MarkdownPartMetadataSettingsSettingsArgs and MarkdownPartMetadataSettingsSettingsOutput values.
 // You can construct a concrete instance of `MarkdownPartMetadataSettingsSettingsInput` via:
 //
-//          MarkdownPartMetadataSettingsSettingsArgs{...}
+//	MarkdownPartMetadataSettingsSettingsArgs{...}
 type MarkdownPartMetadataSettingsSettingsInput interface {
 	pulumi.Input
 
@@ -1366,11 +1366,11 @@ func (i MarkdownPartMetadataSettingsSettingsArgs) ToMarkdownPartMetadataSettings
 // MarkdownPartMetadataSettingsSettingsPtrInput is an input type that accepts MarkdownPartMetadataSettingsSettingsArgs, MarkdownPartMetadataSettingsSettingsPtr and MarkdownPartMetadataSettingsSettingsPtrOutput values.
 // You can construct a concrete instance of `MarkdownPartMetadataSettingsSettingsPtrInput` via:
 //
-//          MarkdownPartMetadataSettingsSettingsArgs{...}
+//	        MarkdownPartMetadataSettingsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MarkdownPartMetadataSettingsSettingsPtrInput interface {
 	pulumi.Input
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The X12 agreement protocol settings.
     /// </summary>
-    public sealed class X12ProtocolSettingsArgs : Pulumi.ResourceArgs
+    public sealed class X12ProtocolSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The X12 acknowledgment settings.
@@ -120,5 +120,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public X12ProtocolSettingsArgs()
         {
         }
+        public static new X12ProtocolSettingsArgs Empty => new X12ProtocolSettingsArgs();
     }
 }

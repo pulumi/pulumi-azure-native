@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
     /// <summary>
     /// The identity information for the resource.
     /// </summary>
-    public sealed class IdentityInfoArgs : Pulumi.ResourceArgs
+    public sealed class IdentityInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The principal ID of resource identity.
@@ -50,5 +50,6 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
         public IdentityInfoArgs()
         {
         }
+        public static new IdentityInfoArgs Empty => new IdentityInfoArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteBackupConfigurationSlot")]
-    public partial class SiteBackupConfigurationSlot : Pulumi.CustomResource
+    public partial class SiteBackupConfigurationSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Schedule for the backup if it is executed periodically
@@ -95,20 +95,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteBackupConfigurationSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteBackupConfigurationSlotArgs : Pulumi.ResourceArgs
+    public sealed class SiteBackupConfigurationSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Schedule for the backup if it is executed periodically
@@ -219,5 +219,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteBackupConfigurationSlotArgs()
         {
         }
+        public static new SiteBackupConfigurationSlotArgs Empty => new SiteBackupConfigurationSlotArgs();
     }
 }

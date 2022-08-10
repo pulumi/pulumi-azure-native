@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// SSIS package execution credential.
     /// </summary>
-    public sealed class SSISExecutionCredentialArgs : Pulumi.ResourceArgs
+    public sealed class SSISExecutionCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain for windows authentication.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SSISExecutionCredentialArgs()
         {
         }
+        public static new SSISExecutionCredentialArgs Empty => new SSISExecutionCredentialArgs();
     }
 }

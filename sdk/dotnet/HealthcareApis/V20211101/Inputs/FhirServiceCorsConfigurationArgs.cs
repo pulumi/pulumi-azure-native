@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101.Inputs
     /// <summary>
     /// The settings for the CORS configuration of the service instance.
     /// </summary>
-    public sealed class FhirServiceCorsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FhirServiceCorsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If credentials are allowed via CORS.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101.Inputs
         public FhirServiceCorsConfigurationArgs()
         {
         }
+        public static new FhirServiceCorsConfigurationArgs Empty => new FhirServiceCorsConfigurationArgs();
     }
 }

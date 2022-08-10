@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
     /// <summary>
     /// Properties for the task that collects user tables for the given list of Oracle schemas
     /// </summary>
-    public sealed class GetUserTablesOracleTaskPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class GetUserTablesOracleTaskPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
         public GetUserTablesOracleTaskPropertiesArgs()
         {
         }
+        public static new GetUserTablesOracleTaskPropertiesArgs Empty => new GetUserTablesOracleTaskPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Trigger that runs every time a Blob event occurs.
     /// </summary>
-    public sealed class BlobEventsTriggerArgs : Pulumi.ResourceArgs
+    public sealed class BlobEventsTriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public BlobEventsTriggerArgs()
         {
         }
+        public static new BlobEventsTriggerArgs Empty => new BlobEventsTriggerArgs();
     }
 }

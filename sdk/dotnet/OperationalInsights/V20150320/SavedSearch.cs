@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
     /// </summary>
     [Obsolete(@"Version 2015-03-20 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20150320:SavedSearch")]
-    public partial class SavedSearch : Pulumi.CustomResource
+    public partial class SavedSearch : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The category of the saved search. This helps the user to find a saved search faster. 
@@ -89,9 +89,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights:SavedSearch"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:SavedSearch"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:SavedSearch"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:SavedSearch"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:SavedSearch"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:SavedSearch"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         }
     }
 
-    public sealed class SavedSearchArgs : Pulumi.ResourceArgs
+    public sealed class SavedSearchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The category of the saved search. This helps the user to find a saved search faster. 
@@ -178,5 +178,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         public SavedSearchArgs()
         {
         }
+        public static new SavedSearchArgs Empty => new SavedSearchArgs();
     }
 }

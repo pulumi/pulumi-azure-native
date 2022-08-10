@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2014-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerCommunicationLink")]
-    public partial class ServerCommunicationLink : Pulumi.CustomResource
+    public partial class ServerCommunicationLink : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Communication link kind.  This property is used for Azure Portal metadata.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerCommunicationLink"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerCommunicationLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class ServerCommunicationLinkArgs : Pulumi.ResourceArgs
+    public sealed class ServerCommunicationLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the server communication link.
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.Sql
         public ServerCommunicationLinkArgs()
         {
         }
+        public static new ServerCommunicationLinkArgs Empty => new ServerCommunicationLinkArgs();
     }
 }

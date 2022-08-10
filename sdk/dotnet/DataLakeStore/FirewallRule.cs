@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataLakeStore
     /// API Version: 2016-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakestore:FirewallRule")]
-    public partial class FirewallRule : Pulumi.CustomResource
+    public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.DataLakeStore
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.DataLakeStore
         }
     }
 
-    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Lake Store account.
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.DataLakeStore
         public FirewallRuleArgs()
         {
         }
+        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 }

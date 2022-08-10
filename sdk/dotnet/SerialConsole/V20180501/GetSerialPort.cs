@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
     }
 
 
-    public sealed class GetSerialPortArgs : Pulumi.InvokeArgs
+    public sealed class GetSerialPortArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
         public GetSerialPortArgs()
         {
         }
+        public static new GetSerialPortArgs Empty => new GetSerialPortArgs();
     }
 
-    public sealed class GetSerialPortInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSerialPortInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
         public GetSerialPortInvokeArgs()
         {
         }
+        public static new GetSerialPortInvokeArgs Empty => new GetSerialPortInvokeArgs();
     }
 
 

@@ -65,7 +65,7 @@ type ActionGroupsInformation struct {
 // ActionGroupsInformationInput is an input type that accepts ActionGroupsInformationArgs and ActionGroupsInformationOutput values.
 // You can construct a concrete instance of `ActionGroupsInformationInput` via:
 //
-//          ActionGroupsInformationArgs{...}
+//	ActionGroupsInformationArgs{...}
 type ActionGroupsInformationInput interface {
 	pulumi.Input
 
@@ -236,7 +236,7 @@ type Detector struct {
 // DetectorInput is an input type that accepts DetectorArgs and DetectorOutput values.
 // You can construct a concrete instance of `DetectorInput` via:
 //
-//          DetectorArgs{...}
+//	DetectorArgs{...}
 type DetectorInput interface {
 	pulumi.Input
 
@@ -527,7 +527,7 @@ type ThrottlingInformation struct {
 // ThrottlingInformationInput is an input type that accepts ThrottlingInformationArgs and ThrottlingInformationOutput values.
 // You can construct a concrete instance of `ThrottlingInformationInput` via:
 //
-//          ThrottlingInformationArgs{...}
+//	ThrottlingInformationArgs{...}
 type ThrottlingInformationInput interface {
 	pulumi.Input
 
@@ -564,11 +564,11 @@ func (i ThrottlingInformationArgs) ToThrottlingInformationPtrOutputWithContext(c
 // ThrottlingInformationPtrInput is an input type that accepts ThrottlingInformationArgs, ThrottlingInformationPtr and ThrottlingInformationPtrOutput values.
 // You can construct a concrete instance of `ThrottlingInformationPtrInput` via:
 //
-//          ThrottlingInformationArgs{...}
+//	        ThrottlingInformationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThrottlingInformationPtrInput interface {
 	pulumi.Input
 

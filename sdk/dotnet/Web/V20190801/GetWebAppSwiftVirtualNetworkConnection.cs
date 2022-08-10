@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20190801
     }
 
 
-    public sealed class GetWebAppSwiftVirtualNetworkConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppSwiftVirtualNetworkConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Web.V20190801
         public GetWebAppSwiftVirtualNetworkConnectionArgs()
         {
         }
+        public static new GetWebAppSwiftVirtualNetworkConnectionArgs Empty => new GetWebAppSwiftVirtualNetworkConnectionArgs();
     }
 
-    public sealed class GetWebAppSwiftVirtualNetworkConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppSwiftVirtualNetworkConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Web.V20190801
         public GetWebAppSwiftVirtualNetworkConnectionInvokeArgs()
         {
         }
+        public static new GetWebAppSwiftVirtualNetworkConnectionInvokeArgs Empty => new GetWebAppSwiftVirtualNetworkConnectionInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// Describes a script action on a running cluster.
     /// </summary>
-    public sealed class RuntimeScriptActionArgs : Pulumi.ResourceArgs
+    public sealed class RuntimeScriptActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the script action.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public RuntimeScriptActionArgs()
         {
         }
+        public static new RuntimeScriptActionArgs Empty => new RuntimeScriptActionArgs();
     }
 }

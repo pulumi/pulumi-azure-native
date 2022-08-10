@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
     /// <summary>
     /// The configuration of the modify properties automation rule action
     /// </summary>
-    public sealed class AutomationRuleModifyPropertiesActionActionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AutomationRuleModifyPropertiesActionActionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reason the incident was closed
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         public AutomationRuleModifyPropertiesActionActionConfigurationArgs()
         {
         }
+        public static new AutomationRuleModifyPropertiesActionActionConfigurationArgs Empty => new AutomationRuleModifyPropertiesActionActionConfigurationArgs();
     }
 }

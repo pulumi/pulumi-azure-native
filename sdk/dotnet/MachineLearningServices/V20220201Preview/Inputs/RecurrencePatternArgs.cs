@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Recurrence schedule pattern definition
     /// </summary>
-    public sealed class RecurrencePatternArgs : Pulumi.ResourceArgs
+    public sealed class RecurrencePatternArgs : global::Pulumi.ResourceArgs
     {
         [Input("hours", required: true)]
         private InputList<int>? _hours;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public RecurrencePatternArgs()
         {
         }
+        public static new RecurrencePatternArgs Empty => new RecurrencePatternArgs();
     }
 }

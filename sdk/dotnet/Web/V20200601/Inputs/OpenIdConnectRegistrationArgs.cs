@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
-    public sealed class OpenIdConnectRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class OpenIdConnectRegistrationArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientCredential")]
         public Input<Inputs.OpenIdConnectClientCredentialArgs>? ClientCredential { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public OpenIdConnectRegistrationArgs()
         {
         }
+        public static new OpenIdConnectRegistrationArgs Empty => new OpenIdConnectRegistrationArgs();
     }
 }

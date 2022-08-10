@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview.Inputs
     /// <summary>
     /// Partner server information for the failover group.
     /// </summary>
-    public sealed class PartnerInfoArgs : Pulumi.ResourceArgs
+    public sealed class PartnerInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource identifier of the partner server.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview.Inputs
         public PartnerInfoArgs()
         {
         }
+        public static new PartnerInfoArgs Empty => new PartnerInfoArgs();
     }
 }

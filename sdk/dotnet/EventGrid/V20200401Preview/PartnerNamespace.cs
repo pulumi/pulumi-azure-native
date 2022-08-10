@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
     /// EventGrid Partner Namespace.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20200401preview:PartnerNamespace")]
-    public partial class PartnerNamespace : Pulumi.CustomResource
+    public partial class PartnerNamespace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Endpoint for the partner namespace.
@@ -89,11 +89,11 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid:PartnerNamespace"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerNamespace"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerNamespace"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerNamespace"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerNamespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:PartnerNamespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerNamespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerNamespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerNamespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerNamespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         }
     }
 
-    public sealed class PartnerNamespaceArgs : Pulumi.ResourceArgs
+    public sealed class PartnerNamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the resource.
@@ -157,5 +157,6 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         public PartnerNamespaceArgs()
         {
         }
+        public static new PartnerNamespaceArgs Empty => new PartnerNamespaceArgs();
     }
 }

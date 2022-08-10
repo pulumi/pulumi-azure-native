@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20200901.Inputs
     /// <summary>
     /// The policy definition reference.
     /// </summary>
-    public sealed class PolicyDefinitionReferenceArgs : Pulumi.ResourceArgs
+    public sealed class PolicyDefinitionReferenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupNames")]
         private InputList<string>? _groupNames;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Authorization.V20200901.Inputs
         public PolicyDefinitionReferenceArgs()
         {
         }
+        public static new PolicyDefinitionReferenceArgs Empty => new PolicyDefinitionReferenceArgs();
     }
 }

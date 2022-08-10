@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
     /// <summary>
     /// Config to describe the instructions blade
     /// </summary>
-    public sealed class CodelessUiConnectorConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CodelessUiConnectorConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector Availability Status
@@ -120,5 +120,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
         public CodelessUiConnectorConfigPropertiesArgs()
         {
         }
+        public static new CodelessUiConnectorConfigPropertiesArgs Empty => new CodelessUiConnectorConfigPropertiesArgs();
     }
 }

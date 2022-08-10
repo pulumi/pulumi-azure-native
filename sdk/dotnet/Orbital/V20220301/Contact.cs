@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     /// Customer creates a contact resource for a spacecraft resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital/v20220301:Contact")]
-    public partial class Contact : Pulumi.CustomResource
+    public partial class Contact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The configuration associated with the allocated antenna.
@@ -160,8 +160,8 @@ namespace Pulumi.AzureNative.Orbital.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:orbital:Contact"},
-                    new Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Contact"},
+                    new global::Pulumi.Alias { Type = "azure-native:orbital:Contact"},
+                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Contact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         }
     }
 
-    public sealed class ContactArgs : Pulumi.ResourceArgs
+    public sealed class ContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contact name.
@@ -230,5 +230,6 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public ContactArgs()
         {
         }
+        public static new ContactArgs Empty => new ContactArgs();
     }
 }

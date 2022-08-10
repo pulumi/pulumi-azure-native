@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     }
 
 
-    public sealed class ListDomainSharedAccessKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListDomainSharedAccessKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the domain.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         public ListDomainSharedAccessKeysArgs()
         {
         }
+        public static new ListDomainSharedAccessKeysArgs Empty => new ListDomainSharedAccessKeysArgs();
     }
 
-    public sealed class ListDomainSharedAccessKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListDomainSharedAccessKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the domain.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         public ListDomainSharedAccessKeysInvokeArgs()
         {
         }
+        public static new ListDomainSharedAccessKeysInvokeArgs Empty => new ListDomainSharedAccessKeysInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
     /// <summary>
     /// Describes the access location for a web service asset.
     /// </summary>
-    public sealed class AssetLocationArgs : Pulumi.ResourceArgs
+    public sealed class AssetLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access credentials for the asset, if applicable (e.g. asset specified by storage account connection string + blob URI)
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
         public AssetLocationArgs()
         {
         }
+        public static new AssetLocationArgs Empty => new AssetLocationArgs();
     }
 }

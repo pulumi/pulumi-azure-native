@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180301.Inputs
     /// <summary>
     /// Class containing DNS settings in a Traffic Manager profile.
     /// </summary>
-    public sealed class DnsConfigArgs : Pulumi.ResourceArgs
+    public sealed class DnsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20180301.Inputs
         public DnsConfigArgs()
         {
         }
+        public static new DnsConfigArgs Empty => new DnsConfigArgs();
     }
 }

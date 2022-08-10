@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Devices
     }
 
 
-    public sealed class GetIotDpsResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetIotDpsResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the provisioning service to retrieve.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Devices
         public GetIotDpsResourceArgs()
         {
         }
+        public static new GetIotDpsResourceArgs Empty => new GetIotDpsResourceArgs();
     }
 
-    public sealed class GetIotDpsResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIotDpsResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the provisioning service to retrieve.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Devices
         public GetIotDpsResourceInvokeArgs()
         {
         }
+        public static new GetIotDpsResourceInvokeArgs Empty => new GetIotDpsResourceInvokeArgs();
     }
 
 

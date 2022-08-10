@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetStaticSiteCustomDomainArgs : Pulumi.InvokeArgs
+    public sealed class GetStaticSiteCustomDomainArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The custom domain name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Web
         public GetStaticSiteCustomDomainArgs()
         {
         }
+        public static new GetStaticSiteCustomDomainArgs Empty => new GetStaticSiteCustomDomainArgs();
     }
 
-    public sealed class GetStaticSiteCustomDomainInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStaticSiteCustomDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The custom domain name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Web
         public GetStaticSiteCustomDomainInvokeArgs()
         {
         }
+        public static new GetStaticSiteCustomDomainInvokeArgs Empty => new GetStaticSiteCustomDomainInvokeArgs();
     }
 
 

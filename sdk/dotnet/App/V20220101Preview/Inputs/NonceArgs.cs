@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// The configuration settings of the nonce used in the login flow.
     /// </summary>
-    public sealed class NonceArgs : Pulumi.ResourceArgs
+    public sealed class NonceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time after the request is made when the nonce should expire.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public NonceArgs()
         {
         }
+        public static new NonceArgs Empty => new NonceArgs();
     }
 }

@@ -27,7 +27,7 @@ type ExtensionResourcePlan struct {
 // ExtensionResourcePlanInput is an input type that accepts ExtensionResourcePlanArgs and ExtensionResourcePlanOutput values.
 // You can construct a concrete instance of `ExtensionResourcePlanInput` via:
 //
-//          ExtensionResourcePlanArgs{...}
+//	ExtensionResourcePlanArgs{...}
 type ExtensionResourcePlanInput interface {
 	pulumi.Input
 
@@ -72,11 +72,11 @@ func (i ExtensionResourcePlanArgs) ToExtensionResourcePlanPtrOutputWithContext(c
 // ExtensionResourcePlanPtrInput is an input type that accepts ExtensionResourcePlanArgs, ExtensionResourcePlanPtr and ExtensionResourcePlanPtrOutput values.
 // You can construct a concrete instance of `ExtensionResourcePlanPtrInput` via:
 //
-//          ExtensionResourcePlanArgs{...}
+//	        ExtensionResourcePlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExtensionResourcePlanPtrInput interface {
 	pulumi.Input
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Info for certificate to be exported for TDE enabled databases.
     /// </summary>
-    public sealed class SelectedCertificateInputArgs : Pulumi.ResourceArgs
+    public sealed class SelectedCertificateInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of certificate to be exported.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         public SelectedCertificateInputArgs()
         {
         }
+        public static new SelectedCertificateInputArgs Empty => new SelectedCertificateInputArgs();
     }
 }

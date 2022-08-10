@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Salesforce source.
     /// </summary>
-    public sealed class SalesforceSourceArgs : Pulumi.ResourceArgs
+    public sealed class SalesforceSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database query. Type: string (or Expression with resultType string).
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SalesforceSourceArgs()
         {
         }
+        public static new SalesforceSourceArgs Empty => new SalesforceSourceArgs();
     }
 }

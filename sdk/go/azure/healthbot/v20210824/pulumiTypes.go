@@ -19,7 +19,7 @@ type HealthBotProperties struct {
 // HealthBotPropertiesInput is an input type that accepts HealthBotPropertiesArgs and HealthBotPropertiesOutput values.
 // You can construct a concrete instance of `HealthBotPropertiesInput` via:
 //
-//          HealthBotPropertiesArgs{...}
+//	HealthBotPropertiesArgs{...}
 type HealthBotPropertiesInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i HealthBotPropertiesArgs) ToHealthBotPropertiesPtrOutputWithContext(ctx c
 // HealthBotPropertiesPtrInput is an input type that accepts HealthBotPropertiesArgs, HealthBotPropertiesPtr and HealthBotPropertiesPtrOutput values.
 // You can construct a concrete instance of `HealthBotPropertiesPtrInput` via:
 //
-//          HealthBotPropertiesArgs{...}
+//	        HealthBotPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HealthBotPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -202,7 +202,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -242,11 +242,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -482,7 +482,7 @@ type KeyVaultProperties struct {
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesInput` via:
 //
-//          KeyVaultPropertiesArgs{...}
+//	KeyVaultPropertiesArgs{...}
 type KeyVaultPropertiesInput interface {
 	pulumi.Input
 
@@ -525,11 +525,11 @@ func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx con
 // KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
 //
-//          KeyVaultPropertiesArgs{...}
+//	        KeyVaultPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KeyVaultPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -784,7 +784,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
     /// <summary>
     /// Defines reference to load balancer backend address pools.
     /// </summary>
-    public sealed class LoadBalancerBackendAddressPoolReferenceArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerBackendAddressPoolReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the name of the proxy resource on the target side.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
         public LoadBalancerBackendAddressPoolReferenceArgs()
         {
         }
+        public static new LoadBalancerBackendAddressPoolReferenceArgs Empty => new LoadBalancerBackendAddressPoolReferenceArgs();
     }
 }

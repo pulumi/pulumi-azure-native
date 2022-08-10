@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure Blob sink.
     /// </summary>
-    public sealed class BlobSinkArgs : Pulumi.ResourceArgs
+    public sealed class BlobSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Blob writer add header. Type: boolean (or Expression with resultType boolean).
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public BlobSinkArgs()
         {
         }
+        public static new BlobSinkArgs Empty => new BlobSinkArgs();
     }
 }

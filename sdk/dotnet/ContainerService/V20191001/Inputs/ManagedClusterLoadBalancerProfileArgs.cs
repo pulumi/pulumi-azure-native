@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20191001.Inputs
     /// <summary>
     /// Profile of the managed cluster load balancer
     /// </summary>
-    public sealed class ManagedClusterLoadBalancerProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterLoadBalancerProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("effectiveOutboundIPs")]
         private InputList<Inputs.ResourceReferenceArgs>? _effectiveOutboundIPs;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.ContainerService.V20191001.Inputs
         public ManagedClusterLoadBalancerProfileArgs()
         {
         }
+        public static new ManagedClusterLoadBalancerProfileArgs Empty => new ManagedClusterLoadBalancerProfileArgs();
     }
 }

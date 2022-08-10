@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SaaS.Inputs
     /// <summary>
     /// properties for creation saas
     /// </summary>
-    public sealed class SaasCreationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SaasCreationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the SaaS subscription will auto renew upon term end.
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.SaaS.Inputs
         public SaasCreationPropertiesArgs()
         {
         }
+        public static new SaasCreationPropertiesArgs Empty => new SaasCreationPropertiesArgs();
     }
 }

@@ -19,7 +19,7 @@ type CreateManagementGroupDetails struct {
 // CreateManagementGroupDetailsInput is an input type that accepts CreateManagementGroupDetailsArgs and CreateManagementGroupDetailsOutput values.
 // You can construct a concrete instance of `CreateManagementGroupDetailsInput` via:
 //
-//          CreateManagementGroupDetailsArgs{...}
+//	CreateManagementGroupDetailsArgs{...}
 type CreateManagementGroupDetailsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i CreateManagementGroupDetailsArgs) ToCreateManagementGroupDetailsPtrOutpu
 // CreateManagementGroupDetailsPtrInput is an input type that accepts CreateManagementGroupDetailsArgs, CreateManagementGroupDetailsPtr and CreateManagementGroupDetailsPtrOutput values.
 // You can construct a concrete instance of `CreateManagementGroupDetailsPtrInput` via:
 //
-//          CreateManagementGroupDetailsArgs{...}
+//	        CreateManagementGroupDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CreateManagementGroupDetailsPtrInput interface {
 	pulumi.Input
 
@@ -159,7 +159,7 @@ type CreateParentGroupInfo struct {
 // CreateParentGroupInfoInput is an input type that accepts CreateParentGroupInfoArgs and CreateParentGroupInfoOutput values.
 // You can construct a concrete instance of `CreateParentGroupInfoInput` via:
 //
-//          CreateParentGroupInfoArgs{...}
+//	CreateParentGroupInfoArgs{...}
 type CreateParentGroupInfoInput interface {
 	pulumi.Input
 
@@ -196,11 +196,11 @@ func (i CreateParentGroupInfoArgs) ToCreateParentGroupInfoPtrOutputWithContext(c
 // CreateParentGroupInfoPtrInput is an input type that accepts CreateParentGroupInfoArgs, CreateParentGroupInfoPtr and CreateParentGroupInfoPtrOutput values.
 // You can construct a concrete instance of `CreateParentGroupInfoPtrInput` via:
 //
-//          CreateParentGroupInfoArgs{...}
+//	        CreateParentGroupInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CreateParentGroupInfoPtrInput interface {
 	pulumi.Input
 

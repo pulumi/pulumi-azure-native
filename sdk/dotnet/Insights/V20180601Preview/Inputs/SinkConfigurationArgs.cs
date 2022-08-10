@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180601Preview.Inputs
 {
 
-    public sealed class SinkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SinkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview.Inputs
         public SinkConfigurationArgs()
         {
         }
+        public static new SinkConfigurationArgs Empty => new SinkConfigurationArgs();
     }
 }

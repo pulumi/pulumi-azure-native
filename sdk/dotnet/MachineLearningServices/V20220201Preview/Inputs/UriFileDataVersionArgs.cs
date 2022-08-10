@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// uri-file data version entity
     /// </summary>
-    public sealed class UriFileDataVersionArgs : Pulumi.ResourceArgs
+    public sealed class UriFileDataVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the type of data.
@@ -75,5 +75,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             IsAnonymous = false;
             IsArchived = false;
         }
+        public static new UriFileDataVersionArgs Empty => new UriFileDataVersionArgs();
     }
 }

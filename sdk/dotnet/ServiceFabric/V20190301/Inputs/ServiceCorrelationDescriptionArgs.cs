@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301.Inputs
     /// <summary>
     /// Creates a particular correlation between services.
     /// </summary>
-    public sealed class ServiceCorrelationDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceCorrelationDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301.Inputs
         public ServiceCorrelationDescriptionArgs()
         {
         }
+        public static new ServiceCorrelationDescriptionArgs Empty => new ServiceCorrelationDescriptionArgs();
     }
 }

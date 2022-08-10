@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AppConfiguration
     }
 
 
-    public sealed class GetKeyValueArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyValueArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.AppConfiguration
         public GetKeyValueArgs()
         {
         }
+        public static new GetKeyValueArgs Empty => new GetKeyValueArgs();
     }
 
-    public sealed class GetKeyValueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyValueInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.AppConfiguration
         public GetKeyValueInvokeArgs()
         {
         }
+        public static new GetKeyValueInvokeArgs Empty => new GetKeyValueInvokeArgs();
     }
 
 

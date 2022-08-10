@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:SyncMember")]
-    public partial class SyncMember : Pulumi.CustomResource
+    public partial class SyncMember : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Database name of the member database in the sync member.
@@ -119,15 +119,15 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncMember"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:SyncMember"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncMember"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SyncMember"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SyncMember"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SyncMember"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SyncMember"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SyncMember"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:SyncMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20190601preview:SyncMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SyncMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SyncMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SyncMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SyncMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SyncMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:SyncMember"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class SyncMemberArgs : Pulumi.ResourceArgs
+    public sealed class SyncMemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database name of the member database in the sync member.
@@ -232,5 +232,6 @@ namespace Pulumi.AzureNative.Sql
         public SyncMemberArgs()
         {
         }
+        public static new SyncMemberArgs Empty => new SyncMemberArgs();
     }
 }

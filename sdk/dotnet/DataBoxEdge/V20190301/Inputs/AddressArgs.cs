@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190301.Inputs
     /// <summary>
     /// The shipping address of the customer.
     /// </summary>
-    public sealed class AddressArgs : Pulumi.ResourceArgs
+    public sealed class AddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address line1.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190301.Inputs
         public AddressArgs()
         {
         }
+        public static new AddressArgs Empty => new AddressArgs();
     }
 }

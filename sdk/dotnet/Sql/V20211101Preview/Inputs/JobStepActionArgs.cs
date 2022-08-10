@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview.Inputs
     /// <summary>
     /// The action to be executed by a job step.
     /// </summary>
-    public sealed class JobStepActionArgs : Pulumi.ResourceArgs
+    public sealed class JobStepActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The source of the action to execute.
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview.Inputs
             Source = "Inline";
             Type = "TSql";
         }
+        public static new JobStepActionArgs Empty => new JobStepActionArgs();
     }
 }

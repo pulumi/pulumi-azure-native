@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
     /// <summary>
     /// Describes the TCP configuration.
     /// </summary>
-    public sealed class ConnectionMonitorTcpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorTcpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value indicating whether path evaluation with trace route should be disabled.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
         public ConnectionMonitorTcpConfigurationArgs()
         {
         }
+        public static new ConnectionMonitorTcpConfigurationArgs Empty => new ConnectionMonitorTcpConfigurationArgs();
     }
 }

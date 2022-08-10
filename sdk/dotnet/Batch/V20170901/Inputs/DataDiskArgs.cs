@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20170901.Inputs
     /// <summary>
     /// Data Disk settings which will be used by the data disks associated to Compute Nodes in the pool.
     /// </summary>
-    public sealed class DataDiskArgs : Pulumi.ResourceArgs
+    public sealed class DataDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Values are:
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Batch.V20170901.Inputs
         public DataDiskArgs()
         {
         }
+        public static new DataDiskArgs Empty => new DataDiskArgs();
     }
 }

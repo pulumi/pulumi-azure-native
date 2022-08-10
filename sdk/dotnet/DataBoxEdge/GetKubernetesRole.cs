@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     }
 
 
-    public sealed class GetKubernetesRoleArgs : Pulumi.InvokeArgs
+    public sealed class GetKubernetesRoleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public GetKubernetesRoleArgs()
         {
         }
+        public static new GetKubernetesRoleArgs Empty => new GetKubernetesRoleArgs();
     }
 
-    public sealed class GetKubernetesRoleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKubernetesRoleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public GetKubernetesRoleInvokeArgs()
         {
         }
+        public static new GetKubernetesRoleInvokeArgs Empty => new GetKubernetesRoleInvokeArgs();
     }
 
 

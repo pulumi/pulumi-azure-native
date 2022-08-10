@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview.Inputs
     /// <summary>
     /// Event Hub ingestion endpoint configuration
     /// </summary>
-    public sealed class IotEventHubIngestionEndpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class IotEventHubIngestionEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Consumer group of the event hub to connected to.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview.Inputs
         public IotEventHubIngestionEndpointConfigurationArgs()
         {
         }
+        public static new IotEventHubIngestionEndpointConfigurationArgs Empty => new IotEventHubIngestionEndpointConfigurationArgs();
     }
 }

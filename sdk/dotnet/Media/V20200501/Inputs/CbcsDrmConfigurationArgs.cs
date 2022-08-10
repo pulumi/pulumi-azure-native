@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
     /// </summary>
-    public sealed class CbcsDrmConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CbcsDrmConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// FairPlay configurations
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public CbcsDrmConfigurationArgs()
         {
         }
+        public static new CbcsDrmConfigurationArgs Empty => new CbcsDrmConfigurationArgs();
     }
 }

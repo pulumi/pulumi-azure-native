@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// <summary>
     /// The properties of an add provider request.
     /// </summary>
-    public sealed class AddRecoveryServicesProviderInputPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AddRecoveryServicesProviderInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity provider input for DRA authentication.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public AddRecoveryServicesProviderInputPropertiesArgs()
         {
         }
+        public static new AddRecoveryServicesProviderInputPropertiesArgs Empty => new AddRecoveryServicesProviderInputPropertiesArgs();
     }
 }

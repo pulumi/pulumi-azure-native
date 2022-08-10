@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
     /// <summary>
     /// An endpoint to connect to with no encryption in transit.
     /// </summary>
-    public sealed class MediaGraphClearEndpointArgs : Pulumi.ResourceArgs
+    public sealed class MediaGraphClearEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Polymorphic credentials to present to the endpoint.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
         public MediaGraphClearEndpointArgs()
         {
         }
+        public static new MediaGraphClearEndpointArgs Empty => new MediaGraphClearEndpointArgs();
     }
 }

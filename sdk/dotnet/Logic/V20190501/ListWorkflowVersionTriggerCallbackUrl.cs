@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
     }
 
 
-    public sealed class ListWorkflowVersionTriggerCallbackUrlArgs : Pulumi.InvokeArgs
+    public sealed class ListWorkflowVersionTriggerCallbackUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The key type.
@@ -66,9 +66,10 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public ListWorkflowVersionTriggerCallbackUrlArgs()
         {
         }
+        public static new ListWorkflowVersionTriggerCallbackUrlArgs Empty => new ListWorkflowVersionTriggerCallbackUrlArgs();
     }
 
-    public sealed class ListWorkflowVersionTriggerCallbackUrlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWorkflowVersionTriggerCallbackUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The key type.
@@ -109,6 +110,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public ListWorkflowVersionTriggerCallbackUrlInvokeArgs()
         {
         }
+        public static new ListWorkflowVersionTriggerCallbackUrlInvokeArgs Empty => new ListWorkflowVersionTriggerCallbackUrlInvokeArgs();
     }
 
 

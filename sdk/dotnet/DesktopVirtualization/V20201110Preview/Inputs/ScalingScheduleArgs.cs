@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201110Preview.Inputs
     /// <summary>
     /// Scaling plan schedule.
     /// </summary>
-    public sealed class ScalingScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScalingScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfWeek")]
         private InputList<string>? _daysOfWeek;
@@ -132,5 +132,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201110Preview.Inputs
         public ScalingScheduleArgs()
         {
         }
+        public static new ScalingScheduleArgs Empty => new ScalingScheduleArgs();
     }
 }

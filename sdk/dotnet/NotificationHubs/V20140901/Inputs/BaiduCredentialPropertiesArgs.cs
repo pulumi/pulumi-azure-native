@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
     /// <summary>
     /// Description of a NotificationHub BaiduCredential.
     /// </summary>
-    public sealed class BaiduCredentialPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class BaiduCredentialPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Get or Set Baidu Api Key.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
         public BaiduCredentialPropertiesArgs()
         {
         }
+        public static new BaiduCredentialPropertiesArgs Empty => new BaiduCredentialPropertiesArgs();
     }
 }

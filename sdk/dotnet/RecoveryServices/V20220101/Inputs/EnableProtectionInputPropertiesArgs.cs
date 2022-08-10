@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
     /// <summary>
     /// Enable protection input properties.
     /// </summary>
-    public sealed class EnableProtectionInputPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class EnableProtectionInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Policy Id.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
         public EnableProtectionInputPropertiesArgs()
         {
         }
+        public static new EnableProtectionInputPropertiesArgs Empty => new EnableProtectionInputPropertiesArgs();
     }
 }

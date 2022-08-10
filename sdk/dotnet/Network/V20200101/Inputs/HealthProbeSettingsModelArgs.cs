@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200101.Inputs
     /// <summary>
     /// Load balancing settings for a backend pool
     /// </summary>
-    public sealed class HealthProbeSettingsModelArgs : Pulumi.ResourceArgs
+    public sealed class HealthProbeSettingsModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.Network.V20200101.Inputs
         {
             HealthProbeMethod = "HEAD";
         }
+        public static new HealthProbeSettingsModelArgs Empty => new HealthProbeSettingsModelArgs();
     }
 }

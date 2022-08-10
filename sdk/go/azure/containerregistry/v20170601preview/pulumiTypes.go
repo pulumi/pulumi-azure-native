@@ -738,7 +738,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -943,7 +943,7 @@ type StorageAccountProperties struct {
 // StorageAccountPropertiesInput is an input type that accepts StorageAccountPropertiesArgs and StorageAccountPropertiesOutput values.
 // You can construct a concrete instance of `StorageAccountPropertiesInput` via:
 //
-//          StorageAccountPropertiesArgs{...}
+//	StorageAccountPropertiesArgs{...}
 type StorageAccountPropertiesInput interface {
 	pulumi.Input
 
@@ -980,11 +980,11 @@ func (i StorageAccountPropertiesArgs) ToStorageAccountPropertiesPtrOutputWithCon
 // StorageAccountPropertiesPtrInput is an input type that accepts StorageAccountPropertiesArgs, StorageAccountPropertiesPtr and StorageAccountPropertiesPtrOutput values.
 // You can construct a concrete instance of `StorageAccountPropertiesPtrInput` via:
 //
-//          StorageAccountPropertiesArgs{...}
+//	        StorageAccountPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageAccountPropertiesPtrInput interface {
 	pulumi.Input
 

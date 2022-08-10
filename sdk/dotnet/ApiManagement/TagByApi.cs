@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:TagByApi")]
-    public partial class TagByApi : Pulumi.CustomResource
+    public partial class TagByApi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Tag name.
@@ -59,18 +59,18 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:TagByApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:TagByApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:TagByApi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
     }
 
-    public sealed class TagByApiArgs : Pulumi.ResourceArgs
+    public sealed class TagByApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public TagByApiArgs()
         {
         }
+        public static new TagByApiArgs Empty => new TagByApiArgs();
     }
 }

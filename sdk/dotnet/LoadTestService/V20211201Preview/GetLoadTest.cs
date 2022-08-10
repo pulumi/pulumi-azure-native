@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20211201Preview
     }
 
 
-    public sealed class GetLoadTestArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadTestArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Load Test resource name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.LoadTestService.V20211201Preview
         public GetLoadTestArgs()
         {
         }
+        public static new GetLoadTestArgs Empty => new GetLoadTestArgs();
     }
 
-    public sealed class GetLoadTestInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadTestInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Load Test resource name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20211201Preview
         public GetLoadTestInvokeArgs()
         {
         }
+        public static new GetLoadTestInvokeArgs Empty => new GetLoadTestInvokeArgs();
     }
 
 

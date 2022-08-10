@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity file system source.
     /// </summary>
-    public sealed class FileSystemSourceArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public FileSystemSourceArgs()
         {
         }
+        public static new FileSystemSourceArgs Empty => new FileSystemSourceArgs();
     }
 }

@@ -21,7 +21,7 @@ type HeaderField struct {
 // HeaderFieldInput is an input type that accepts HeaderFieldArgs and HeaderFieldOutput values.
 // You can construct a concrete instance of `HeaderFieldInput` via:
 //
-//          HeaderFieldArgs{...}
+//	HeaderFieldArgs{...}
 type HeaderFieldInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i HeaderFieldArgs) ToHeaderFieldOutputWithContext(ctx context.Context) Hea
 // HeaderFieldArrayInput is an input type that accepts HeaderFieldArray and HeaderFieldArrayOutput values.
 // You can construct a concrete instance of `HeaderFieldArrayInput` via:
 //
-//          HeaderFieldArray{ HeaderFieldArgs{...} }
+//	HeaderFieldArray{ HeaderFieldArgs{...} }
 type HeaderFieldArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +181,7 @@ type WebTestGeolocation struct {
 // WebTestGeolocationInput is an input type that accepts WebTestGeolocationArgs and WebTestGeolocationOutput values.
 // You can construct a concrete instance of `WebTestGeolocationInput` via:
 //
-//          WebTestGeolocationArgs{...}
+//	WebTestGeolocationArgs{...}
 type WebTestGeolocationInput interface {
 	pulumi.Input
 
@@ -210,7 +210,7 @@ func (i WebTestGeolocationArgs) ToWebTestGeolocationOutputWithContext(ctx contex
 // WebTestGeolocationArrayInput is an input type that accepts WebTestGeolocationArray and WebTestGeolocationArrayOutput values.
 // You can construct a concrete instance of `WebTestGeolocationArrayInput` via:
 //
-//          WebTestGeolocationArray{ WebTestGeolocationArgs{...} }
+//	WebTestGeolocationArray{ WebTestGeolocationArgs{...} }
 type WebTestGeolocationArrayInput interface {
 	pulumi.Input
 
@@ -327,7 +327,7 @@ type WebTestPropertiesConfiguration struct {
 // WebTestPropertiesConfigurationInput is an input type that accepts WebTestPropertiesConfigurationArgs and WebTestPropertiesConfigurationOutput values.
 // You can construct a concrete instance of `WebTestPropertiesConfigurationInput` via:
 //
-//          WebTestPropertiesConfigurationArgs{...}
+//	WebTestPropertiesConfigurationArgs{...}
 type WebTestPropertiesConfigurationInput interface {
 	pulumi.Input
 
@@ -364,11 +364,11 @@ func (i WebTestPropertiesConfigurationArgs) ToWebTestPropertiesConfigurationPtrO
 // WebTestPropertiesConfigurationPtrInput is an input type that accepts WebTestPropertiesConfigurationArgs, WebTestPropertiesConfigurationPtr and WebTestPropertiesConfigurationPtrOutput values.
 // You can construct a concrete instance of `WebTestPropertiesConfigurationPtrInput` via:
 //
-//          WebTestPropertiesConfigurationArgs{...}
+//	        WebTestPropertiesConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebTestPropertiesConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -471,7 +471,7 @@ type WebTestPropertiesContentValidation struct {
 // WebTestPropertiesContentValidationInput is an input type that accepts WebTestPropertiesContentValidationArgs and WebTestPropertiesContentValidationOutput values.
 // You can construct a concrete instance of `WebTestPropertiesContentValidationInput` via:
 //
-//          WebTestPropertiesContentValidationArgs{...}
+//	WebTestPropertiesContentValidationArgs{...}
 type WebTestPropertiesContentValidationInput interface {
 	pulumi.Input
 
@@ -512,11 +512,11 @@ func (i WebTestPropertiesContentValidationArgs) ToWebTestPropertiesContentValida
 // WebTestPropertiesContentValidationPtrInput is an input type that accepts WebTestPropertiesContentValidationArgs, WebTestPropertiesContentValidationPtr and WebTestPropertiesContentValidationPtrOutput values.
 // You can construct a concrete instance of `WebTestPropertiesContentValidationPtrInput` via:
 //
-//          WebTestPropertiesContentValidationArgs{...}
+//	        WebTestPropertiesContentValidationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebTestPropertiesContentValidationPtrInput interface {
 	pulumi.Input
 
@@ -655,7 +655,7 @@ type WebTestPropertiesRequest struct {
 // WebTestPropertiesRequestInput is an input type that accepts WebTestPropertiesRequestArgs and WebTestPropertiesRequestOutput values.
 // You can construct a concrete instance of `WebTestPropertiesRequestInput` via:
 //
-//          WebTestPropertiesRequestArgs{...}
+//	WebTestPropertiesRequestArgs{...}
 type WebTestPropertiesRequestInput interface {
 	pulumi.Input
 
@@ -702,11 +702,11 @@ func (i WebTestPropertiesRequestArgs) ToWebTestPropertiesRequestPtrOutputWithCon
 // WebTestPropertiesRequestPtrInput is an input type that accepts WebTestPropertiesRequestArgs, WebTestPropertiesRequestPtr and WebTestPropertiesRequestPtrOutput values.
 // You can construct a concrete instance of `WebTestPropertiesRequestPtrInput` via:
 //
-//          WebTestPropertiesRequestArgs{...}
+//	        WebTestPropertiesRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebTestPropertiesRequestPtrInput interface {
 	pulumi.Input
 
@@ -1317,7 +1317,7 @@ type WebTestPropertiesValidationRules struct {
 // WebTestPropertiesValidationRulesInput is an input type that accepts WebTestPropertiesValidationRulesArgs and WebTestPropertiesValidationRulesOutput values.
 // You can construct a concrete instance of `WebTestPropertiesValidationRulesInput` via:
 //
-//          WebTestPropertiesValidationRulesArgs{...}
+//	WebTestPropertiesValidationRulesArgs{...}
 type WebTestPropertiesValidationRulesInput interface {
 	pulumi.Input
 
@@ -1362,11 +1362,11 @@ func (i WebTestPropertiesValidationRulesArgs) ToWebTestPropertiesValidationRules
 // WebTestPropertiesValidationRulesPtrInput is an input type that accepts WebTestPropertiesValidationRulesArgs, WebTestPropertiesValidationRulesPtr and WebTestPropertiesValidationRulesPtrOutput values.
 // You can construct a concrete instance of `WebTestPropertiesValidationRulesPtrInput` via:
 //
-//          WebTestPropertiesValidationRulesArgs{...}
+//	        WebTestPropertiesValidationRulesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebTestPropertiesValidationRulesPtrInput interface {
 	pulumi.Input
 

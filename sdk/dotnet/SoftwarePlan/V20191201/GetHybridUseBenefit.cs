@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20191201
     }
 
 
-    public sealed class GetHybridUseBenefitArgs : Pulumi.InvokeArgs
+    public sealed class GetHybridUseBenefitArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// This is a unique identifier for a plan. Should be a guid.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20191201
         public GetHybridUseBenefitArgs()
         {
         }
+        public static new GetHybridUseBenefitArgs Empty => new GetHybridUseBenefitArgs();
     }
 
-    public sealed class GetHybridUseBenefitInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHybridUseBenefitInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// This is a unique identifier for a plan. Should be a guid.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20191201
         public GetHybridUseBenefitInvokeArgs()
         {
         }
+        public static new GetHybridUseBenefitInvokeArgs Empty => new GetHybridUseBenefitInvokeArgs();
     }
 
 

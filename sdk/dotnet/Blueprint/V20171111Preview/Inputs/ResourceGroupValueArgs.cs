@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Inputs
     /// <summary>
     /// Represents an Azure resource group.
     /// </summary>
-    public sealed class ResourceGroupValueArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the resource group
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Inputs
         public ResourceGroupValueArgs()
         {
         }
+        public static new ResourceGroupValueArgs Empty => new ResourceGroupValueArgs();
     }
 }

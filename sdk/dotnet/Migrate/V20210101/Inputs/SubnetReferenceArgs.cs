@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210101.Inputs
     /// <summary>
     /// Defines reference to subnet.
     /// </summary>
-    public sealed class SubnetReferenceArgs : Pulumi.ResourceArgs
+    public sealed class SubnetReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the name of the proxy resource on the target side.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Migrate.V20210101.Inputs
         public SubnetReferenceArgs()
         {
         }
+        public static new SubnetReferenceArgs Empty => new SubnetReferenceArgs();
     }
 }

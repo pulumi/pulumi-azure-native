@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2021-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionEndpoint")]
-    public partial class DataCollectionEndpoint : Pulumi.CustomResource
+    public partial class DataCollectionEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The endpoint used by clients to access their configuration.
@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class DataCollectionEndpointArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the data collection endpoint. The name is case insensitive.
@@ -201,5 +201,6 @@ namespace Pulumi.AzureNative.Insights
         public DataCollectionEndpointArgs()
         {
         }
+        public static new DataCollectionEndpointArgs Empty => new DataCollectionEndpointArgs();
     }
 }

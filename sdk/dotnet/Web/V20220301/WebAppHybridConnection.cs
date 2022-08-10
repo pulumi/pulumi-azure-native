@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220301:WebAppHybridConnection")]
-    public partial class WebAppHybridConnection : Pulumi.CustomResource
+    public partial class WebAppHybridConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The hostname of the endpoint.
@@ -107,19 +107,19 @@ namespace Pulumi.AzureNative.Web.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHybridConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHybridConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHybridConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         }
     }
 
-    public sealed class WebAppHybridConnectionArgs : Pulumi.ResourceArgs
+    public sealed class WebAppHybridConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname of the endpoint.
@@ -219,5 +219,6 @@ namespace Pulumi.AzureNative.Web.V20220301
         public WebAppHybridConnectionArgs()
         {
         }
+        public static new WebAppHybridConnectionArgs Empty => new WebAppHybridConnectionArgs();
     }
 }

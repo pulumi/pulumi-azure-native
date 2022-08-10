@@ -21,7 +21,7 @@ type DnsConfig struct {
 // DnsConfigInput is an input type that accepts DnsConfigArgs and DnsConfigOutput values.
 // You can construct a concrete instance of `DnsConfigInput` via:
 //
-//          DnsConfigArgs{...}
+//	DnsConfigArgs{...}
 type DnsConfigInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i DnsConfigArgs) ToDnsConfigPtrOutputWithContext(ctx context.Context) DnsC
 // DnsConfigPtrInput is an input type that accepts DnsConfigArgs, DnsConfigPtr and DnsConfigPtrOutput values.
 // You can construct a concrete instance of `DnsConfigPtrInput` via:
 //
-//          DnsConfigArgs{...}
+//	        DnsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DnsConfigPtrInput interface {
 	pulumi.Input
 
@@ -288,7 +288,7 @@ type EndpointType struct {
 // EndpointTypeInput is an input type that accepts EndpointTypeArgs and EndpointTypeOutput values.
 // You can construct a concrete instance of `EndpointTypeInput` via:
 //
-//          EndpointTypeArgs{...}
+//	EndpointTypeArgs{...}
 type EndpointTypeInput interface {
 	pulumi.Input
 
@@ -333,7 +333,7 @@ func (i EndpointTypeArgs) ToEndpointTypeOutputWithContext(ctx context.Context) E
 // EndpointTypeArrayInput is an input type that accepts EndpointTypeArray and EndpointTypeArrayOutput values.
 // You can construct a concrete instance of `EndpointTypeArrayInput` via:
 //
-//          EndpointTypeArray{ EndpointTypeArgs{...} }
+//	EndpointTypeArray{ EndpointTypeArgs{...} }
 type EndpointTypeArrayInput interface {
 	pulumi.Input
 
@@ -579,7 +579,7 @@ type MonitorConfig struct {
 // MonitorConfigInput is an input type that accepts MonitorConfigArgs and MonitorConfigOutput values.
 // You can construct a concrete instance of `MonitorConfigInput` via:
 //
-//          MonitorConfigArgs{...}
+//	MonitorConfigArgs{...}
 type MonitorConfigInput interface {
 	pulumi.Input
 
@@ -628,11 +628,11 @@ func (i MonitorConfigArgs) ToMonitorConfigPtrOutputWithContext(ctx context.Conte
 // MonitorConfigPtrInput is an input type that accepts MonitorConfigArgs, MonitorConfigPtr and MonitorConfigPtrOutput values.
 // You can construct a concrete instance of `MonitorConfigPtrInput` via:
 //
-//          MonitorConfigArgs{...}
+//	        MonitorConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MonitorConfigPtrInput interface {
 	pulumi.Input
 

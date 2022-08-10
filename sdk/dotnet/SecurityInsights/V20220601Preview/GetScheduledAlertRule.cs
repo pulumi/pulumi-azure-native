@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
     }
 
 
-    public sealed class GetScheduledAlertRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledAlertRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         public GetScheduledAlertRuleArgs()
         {
         }
+        public static new GetScheduledAlertRuleArgs Empty => new GetScheduledAlertRuleArgs();
     }
 
-    public sealed class GetScheduledAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         public GetScheduledAlertRuleInvokeArgs()
         {
         }
+        public static new GetScheduledAlertRuleInvokeArgs Empty => new GetScheduledAlertRuleInvokeArgs();
     }
 
 

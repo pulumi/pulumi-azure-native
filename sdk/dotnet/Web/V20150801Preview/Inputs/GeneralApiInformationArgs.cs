@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// General API information
     /// </summary>
-    public sealed class GeneralApiInformationArgs : Pulumi.ResourceArgs
+    public sealed class GeneralApiInformationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DefaultConnectionNameTemplate
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public GeneralApiInformationArgs()
         {
         }
+        public static new GeneralApiInformationArgs Empty => new GeneralApiInformationArgs();
     }
 }

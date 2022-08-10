@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerBI
     /// API Version: 2016-01-29.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbi:WorkspaceCollection")]
-    public partial class WorkspaceCollection : Pulumi.CustomResource
+    public partial class WorkspaceCollection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Azure location
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.PowerBI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:powerbi/v20160129:WorkspaceCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:powerbi/v20160129:WorkspaceCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.PowerBI
         }
     }
 
-    public sealed class WorkspaceCollectionArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure location
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.PowerBI
         public WorkspaceCollectionArgs()
         {
         }
+        public static new WorkspaceCollectionArgs Empty => new WorkspaceCollectionArgs();
     }
 }

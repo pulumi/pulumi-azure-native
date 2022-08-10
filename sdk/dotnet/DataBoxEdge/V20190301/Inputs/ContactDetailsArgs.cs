@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190301.Inputs
     /// <summary>
     /// Contains all the contact details of the customer.
     /// </summary>
-    public sealed class ContactDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ContactDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the company.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190301.Inputs
         public ContactDetailsArgs()
         {
         }
+        public static new ContactDetailsArgs Empty => new ContactDetailsArgs();
     }
 }

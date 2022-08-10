@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20161201.Inputs
     /// <summary>
     /// Inbound NAT pool of the load balancer.
     /// </summary>
-    public sealed class InboundNatPoolArgs : Pulumi.ResourceArgs
+    public sealed class InboundNatPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.Network.V20161201.Inputs
         public InboundNatPoolArgs()
         {
         }
+        public static new InboundNatPoolArgs Empty => new InboundNatPoolArgs();
     }
 }

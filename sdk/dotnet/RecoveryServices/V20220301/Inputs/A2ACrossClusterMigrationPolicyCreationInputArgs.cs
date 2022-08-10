@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
     /// <summary>
     /// A2A Cross-Cluster Migration Policy creation input.
     /// </summary>
-    public sealed class A2ACrossClusterMigrationPolicyCreationInputArgs : Pulumi.ResourceArgs
+    public sealed class A2ACrossClusterMigrationPolicyCreationInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The class type.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
         public A2ACrossClusterMigrationPolicyCreationInputArgs()
         {
         }
+        public static new A2ACrossClusterMigrationPolicyCreationInputArgs Empty => new A2ACrossClusterMigrationPolicyCreationInputArgs();
     }
 }

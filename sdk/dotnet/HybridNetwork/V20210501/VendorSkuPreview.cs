@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
     /// Customer subscription which can use a sku.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork/v20210501:VendorSkuPreview")]
-    public partial class VendorSkuPreview : Pulumi.CustomResource
+    public partial class VendorSkuPreview : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The preview subscription ID.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork:VendorSkuPreview"},
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:VendorSkuPreview"},
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:VendorSkuPreview"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:VendorSkuPreview"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:VendorSkuPreview"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:VendorSkuPreview"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         }
     }
 
-    public sealed class VendorSkuPreviewArgs : Pulumi.ResourceArgs
+    public sealed class VendorSkuPreviewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Preview subscription ID.
@@ -111,5 +111,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         public VendorSkuPreviewArgs()
         {
         }
+        public static new VendorSkuPreviewArgs Empty => new VendorSkuPreviewArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     /// </summary>
     [Obsolete(@"Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20210901preview:ProductSetting")]
-    public partial class ProductSetting : Pulumi.CustomResource
+    public partial class ProductSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -71,15 +71,15 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:ProductSetting"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ProductSetting"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ProductSetting"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ProductSetting"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ProductSetting"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ProductSetting"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ProductSetting"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ProductSetting"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ProductSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ProductSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ProductSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ProductSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ProductSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ProductSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ProductSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ProductSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ProductSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ProductSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         }
     }
 
-    public sealed class ProductSettingArgs : Pulumi.ResourceArgs
+    public sealed class ProductSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kind of the setting
@@ -130,5 +130,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public ProductSettingArgs()
         {
         }
+        public static new ProductSettingArgs Empty => new ProductSettingArgs();
     }
 }

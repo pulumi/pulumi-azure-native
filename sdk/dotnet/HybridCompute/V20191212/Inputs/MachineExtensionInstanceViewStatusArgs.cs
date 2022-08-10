@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20191212.Inputs
     /// <summary>
     /// Instance view status.
     /// </summary>
-    public sealed class MachineExtensionInstanceViewStatusArgs : Pulumi.ResourceArgs
+    public sealed class MachineExtensionInstanceViewStatusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The status code.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20191212.Inputs
         public MachineExtensionInstanceViewStatusArgs()
         {
         }
+        public static new MachineExtensionInstanceViewStatusArgs Empty => new MachineExtensionInstanceViewStatusArgs();
     }
 }

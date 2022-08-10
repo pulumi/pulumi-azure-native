@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Inputs
     /// <summary>
     /// Sku of Azure Spring Cloud
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Current capacity of the target resource
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Inputs
             Name = "S0";
             Tier = "Standard";
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

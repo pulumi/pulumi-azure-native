@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The Edifact agreement framing settings.
     /// </summary>
-    public sealed class EdifactFramingSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EdifactFramingSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The character encoding.
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public EdifactFramingSettingsArgs()
         {
         }
+        public static new EdifactFramingSettingsArgs Empty => new EdifactFramingSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     /// Container App SourceControl.
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20220101preview:ContainerAppsSourceControl")]
-    public partial class ContainerAppsSourceControl : Pulumi.CustomResource
+    public partial class ContainerAppsSourceControl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The branch which will trigger the auto deployment
@@ -84,8 +84,8 @@ namespace Pulumi.AzureNative.App.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:app:ContainerAppsSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerAppsSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:ContainerAppsSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerAppsSourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         }
     }
 
-    public sealed class ContainerAppsSourceControlArgs : Pulumi.ResourceArgs
+    public sealed class ContainerAppsSourceControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The branch which will trigger the auto deployment
@@ -150,5 +150,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         public ContainerAppsSourceControlArgs()
         {
         }
+        public static new ContainerAppsSourceControlArgs Empty => new ContainerAppsSourceControlArgs();
     }
 }

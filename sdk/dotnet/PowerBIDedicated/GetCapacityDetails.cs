@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
     }
 
 
-    public sealed class GetCapacityDetailsArgs : Pulumi.InvokeArgs
+    public sealed class GetCapacityDetailsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public GetCapacityDetailsArgs()
         {
         }
+        public static new GetCapacityDetailsArgs Empty => new GetCapacityDetailsArgs();
     }
 
-    public sealed class GetCapacityDetailsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCapacityDetailsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public GetCapacityDetailsInvokeArgs()
         {
         }
+        public static new GetCapacityDetailsInvokeArgs Empty => new GetCapacityDetailsInvokeArgs();
     }
 
 

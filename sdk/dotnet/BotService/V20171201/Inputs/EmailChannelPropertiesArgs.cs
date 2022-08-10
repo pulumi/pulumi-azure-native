@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20171201.Inputs
     /// <summary>
     /// The parameters to provide for the Email channel.
     /// </summary>
-    public sealed class EmailChannelPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class EmailChannelPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email address
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.BotService.V20171201.Inputs
         public EmailChannelPropertiesArgs()
         {
         }
+        public static new EmailChannelPropertiesArgs Empty => new EmailChannelPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName")]
-    public partial class PrivateEndpointConnectionByName : Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionByName : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:PrivateEndpointConnectionByName"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:PrivateEndpointConnectionByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionByNameArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionByNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private Endpoint Connection Resource Id.
@@ -129,5 +129,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public PrivateEndpointConnectionByNameArgs()
         {
         }
+        public static new PrivateEndpointConnectionByNameArgs Empty => new PrivateEndpointConnectionByNameArgs();
     }
 }

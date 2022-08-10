@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
     }
 
 
-    public sealed class GetReportByBillingAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetReportByBillingAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// BillingAccount ID
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         public GetReportByBillingAccountArgs()
         {
         }
+        public static new GetReportByBillingAccountArgs Empty => new GetReportByBillingAccountArgs();
     }
 
-    public sealed class GetReportByBillingAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReportByBillingAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// BillingAccount ID
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         public GetReportByBillingAccountInvokeArgs()
         {
         }
+        public static new GetReportByBillingAccountInvokeArgs Empty => new GetReportByBillingAccountInvokeArgs();
     }
 
 

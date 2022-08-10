@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20210303Preview.Inputs
     /// <summary>
     /// The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
     /// </summary>
-    public sealed class FallbackRoutePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FallbackRoutePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Devices.V20210303Preview.Inputs
         public FallbackRoutePropertiesArgs()
         {
         }
+        public static new FallbackRoutePropertiesArgs Empty => new FallbackRoutePropertiesArgs();
     }
 }

@@ -21,7 +21,7 @@ type SkuV3 struct {
 // SkuV3Input is an input type that accepts SkuV3Args and SkuV3Output values.
 // You can construct a concrete instance of `SkuV3Input` via:
 //
-//          SkuV3Args{...}
+//	SkuV3Args{...}
 type SkuV3Input interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i SkuV3Args) ToSkuV3PtrOutputWithContext(ctx context.Context) SkuV3PtrOutp
 // SkuV3PtrInput is an input type that accepts SkuV3Args, SkuV3Ptr and SkuV3PtrOutput values.
 // You can construct a concrete instance of `SkuV3PtrInput` via:
 //
-//          SkuV3Args{...}
+//	        SkuV3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuV3PtrInput interface {
 	pulumi.Input
 
@@ -257,7 +257,7 @@ type SqlDatabaseDataRetention struct {
 // SqlDatabaseDataRetentionInput is an input type that accepts SqlDatabaseDataRetentionArgs and SqlDatabaseDataRetentionOutput values.
 // You can construct a concrete instance of `SqlDatabaseDataRetentionInput` via:
 //
-//          SqlDatabaseDataRetentionArgs{...}
+//	SqlDatabaseDataRetentionArgs{...}
 type SqlDatabaseDataRetentionInput interface {
 	pulumi.Input
 
@@ -296,11 +296,11 @@ func (i SqlDatabaseDataRetentionArgs) ToSqlDatabaseDataRetentionPtrOutputWithCon
 // SqlDatabaseDataRetentionPtrInput is an input type that accepts SqlDatabaseDataRetentionArgs, SqlDatabaseDataRetentionPtr and SqlDatabaseDataRetentionPtrOutput values.
 // You can construct a concrete instance of `SqlDatabaseDataRetentionPtrInput` via:
 //
-//          SqlDatabaseDataRetentionArgs{...}
+//	        SqlDatabaseDataRetentionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SqlDatabaseDataRetentionPtrInput interface {
 	pulumi.Input
 

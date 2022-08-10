@@ -19,7 +19,7 @@ type ARecord struct {
 // ARecordInput is an input type that accepts ARecordArgs and ARecordOutput values.
 // You can construct a concrete instance of `ARecordInput` via:
 //
-//          ARecordArgs{...}
+//	ARecordArgs{...}
 type ARecordInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i ARecordArgs) ToARecordOutputWithContext(ctx context.Context) ARecordOutp
 // ARecordArrayInput is an input type that accepts ARecordArray and ARecordArrayOutput values.
 // You can construct a concrete instance of `ARecordArrayInput` via:
 //
-//          ARecordArray{ ARecordArgs{...} }
+//	ARecordArray{ ARecordArgs{...} }
 type ARecordArrayInput interface {
 	pulumi.Input
 
@@ -165,7 +165,7 @@ type AaaaRecord struct {
 // AaaaRecordInput is an input type that accepts AaaaRecordArgs and AaaaRecordOutput values.
 // You can construct a concrete instance of `AaaaRecordInput` via:
 //
-//          AaaaRecordArgs{...}
+//	AaaaRecordArgs{...}
 type AaaaRecordInput interface {
 	pulumi.Input
 
@@ -194,7 +194,7 @@ func (i AaaaRecordArgs) ToAaaaRecordOutputWithContext(ctx context.Context) AaaaR
 // AaaaRecordArrayInput is an input type that accepts AaaaRecordArray and AaaaRecordArrayOutput values.
 // You can construct a concrete instance of `AaaaRecordArrayInput` via:
 //
-//          AaaaRecordArray{ AaaaRecordArgs{...} }
+//	AaaaRecordArray{ AaaaRecordArgs{...} }
 type AaaaRecordArrayInput interface {
 	pulumi.Input
 
@@ -311,7 +311,7 @@ type CnameRecord struct {
 // CnameRecordInput is an input type that accepts CnameRecordArgs and CnameRecordOutput values.
 // You can construct a concrete instance of `CnameRecordInput` via:
 //
-//          CnameRecordArgs{...}
+//	CnameRecordArgs{...}
 type CnameRecordInput interface {
 	pulumi.Input
 
@@ -348,11 +348,11 @@ func (i CnameRecordArgs) ToCnameRecordPtrOutputWithContext(ctx context.Context) 
 // CnameRecordPtrInput is an input type that accepts CnameRecordArgs, CnameRecordPtr and CnameRecordPtrOutput values.
 // You can construct a concrete instance of `CnameRecordPtrInput` via:
 //
-//          CnameRecordArgs{...}
+//	        CnameRecordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CnameRecordPtrInput interface {
 	pulumi.Input
 
@@ -513,7 +513,7 @@ type MxRecord struct {
 // MxRecordInput is an input type that accepts MxRecordArgs and MxRecordOutput values.
 // You can construct a concrete instance of `MxRecordInput` via:
 //
-//          MxRecordArgs{...}
+//	MxRecordArgs{...}
 type MxRecordInput interface {
 	pulumi.Input
 
@@ -544,7 +544,7 @@ func (i MxRecordArgs) ToMxRecordOutputWithContext(ctx context.Context) MxRecordO
 // MxRecordArrayInput is an input type that accepts MxRecordArray and MxRecordArrayOutput values.
 // You can construct a concrete instance of `MxRecordArrayInput` via:
 //
-//          MxRecordArray{ MxRecordArgs{...} }
+//	MxRecordArray{ MxRecordArgs{...} }
 type MxRecordArrayInput interface {
 	pulumi.Input
 
@@ -673,7 +673,7 @@ type NsRecord struct {
 // NsRecordInput is an input type that accepts NsRecordArgs and NsRecordOutput values.
 // You can construct a concrete instance of `NsRecordInput` via:
 //
-//          NsRecordArgs{...}
+//	NsRecordArgs{...}
 type NsRecordInput interface {
 	pulumi.Input
 
@@ -702,7 +702,7 @@ func (i NsRecordArgs) ToNsRecordOutputWithContext(ctx context.Context) NsRecordO
 // NsRecordArrayInput is an input type that accepts NsRecordArray and NsRecordArrayOutput values.
 // You can construct a concrete instance of `NsRecordArrayInput` via:
 //
-//          NsRecordArray{ NsRecordArgs{...} }
+//	NsRecordArray{ NsRecordArgs{...} }
 type NsRecordArrayInput interface {
 	pulumi.Input
 
@@ -819,7 +819,7 @@ type PtrRecord struct {
 // PtrRecordInput is an input type that accepts PtrRecordArgs and PtrRecordOutput values.
 // You can construct a concrete instance of `PtrRecordInput` via:
 //
-//          PtrRecordArgs{...}
+//	PtrRecordArgs{...}
 type PtrRecordInput interface {
 	pulumi.Input
 
@@ -848,7 +848,7 @@ func (i PtrRecordArgs) ToPtrRecordOutputWithContext(ctx context.Context) PtrReco
 // PtrRecordArrayInput is an input type that accepts PtrRecordArray and PtrRecordArrayOutput values.
 // You can construct a concrete instance of `PtrRecordArrayInput` via:
 //
-//          PtrRecordArray{ PtrRecordArgs{...} }
+//	PtrRecordArray{ PtrRecordArgs{...} }
 type PtrRecordArrayInput interface {
 	pulumi.Input
 
@@ -977,7 +977,7 @@ type SoaRecord struct {
 // SoaRecordInput is an input type that accepts SoaRecordArgs and SoaRecordOutput values.
 // You can construct a concrete instance of `SoaRecordInput` via:
 //
-//          SoaRecordArgs{...}
+//	SoaRecordArgs{...}
 type SoaRecordInput interface {
 	pulumi.Input
 
@@ -1026,11 +1026,11 @@ func (i SoaRecordArgs) ToSoaRecordPtrOutputWithContext(ctx context.Context) SoaR
 // SoaRecordPtrInput is an input type that accepts SoaRecordArgs, SoaRecordPtr and SoaRecordPtrOutput values.
 // You can construct a concrete instance of `SoaRecordPtrInput` via:
 //
-//          SoaRecordArgs{...}
+//	        SoaRecordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SoaRecordPtrInput interface {
 	pulumi.Input
 
@@ -1387,7 +1387,7 @@ type SrvRecord struct {
 // SrvRecordInput is an input type that accepts SrvRecordArgs and SrvRecordOutput values.
 // You can construct a concrete instance of `SrvRecordInput` via:
 //
-//          SrvRecordArgs{...}
+//	SrvRecordArgs{...}
 type SrvRecordInput interface {
 	pulumi.Input
 
@@ -1422,7 +1422,7 @@ func (i SrvRecordArgs) ToSrvRecordOutputWithContext(ctx context.Context) SrvReco
 // SrvRecordArrayInput is an input type that accepts SrvRecordArray and SrvRecordArrayOutput values.
 // You can construct a concrete instance of `SrvRecordArrayInput` via:
 //
-//          SrvRecordArray{ SrvRecordArgs{...} }
+//	SrvRecordArray{ SrvRecordArgs{...} }
 type SrvRecordArrayInput interface {
 	pulumi.Input
 
@@ -1575,7 +1575,7 @@ type TxtRecord struct {
 // TxtRecordInput is an input type that accepts TxtRecordArgs and TxtRecordOutput values.
 // You can construct a concrete instance of `TxtRecordInput` via:
 //
-//          TxtRecordArgs{...}
+//	TxtRecordArgs{...}
 type TxtRecordInput interface {
 	pulumi.Input
 
@@ -1604,7 +1604,7 @@ func (i TxtRecordArgs) ToTxtRecordOutputWithContext(ctx context.Context) TxtReco
 // TxtRecordArrayInput is an input type that accepts TxtRecordArray and TxtRecordArrayOutput values.
 // You can construct a concrete instance of `TxtRecordArrayInput` via:
 //
-//          TxtRecordArray{ TxtRecordArgs{...} }
+//	TxtRecordArray{ TxtRecordArgs{...} }
 type TxtRecordArrayInput interface {
 	pulumi.Input
 

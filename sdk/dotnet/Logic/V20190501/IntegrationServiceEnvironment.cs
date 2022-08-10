@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
     /// The integration service environment.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20190501:IntegrationServiceEnvironment")]
-    public partial class IntegrationServiceEnvironment : Pulumi.CustomResource
+    public partial class IntegrationServiceEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Managed service identity properties.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationServiceEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationServiceEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
         }
     }
 
-    public sealed class IntegrationServiceEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationServiceEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Managed service identity properties.
@@ -157,5 +157,6 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public IntegrationServiceEnvironmentArgs()
         {
         }
+        public static new IntegrationServiceEnvironmentArgs Empty => new IntegrationServiceEnvironmentArgs();
     }
 }

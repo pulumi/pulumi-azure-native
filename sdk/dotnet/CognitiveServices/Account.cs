@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// API Version: 2017-04-18.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Entity Tag
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20160201preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:Account"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:Account"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Account"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20160201preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Cognitive Services account.
@@ -180,5 +180,6 @@ namespace Pulumi.AzureNative.CognitiveServices
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

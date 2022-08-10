@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
     /// The description of the DigitalTwins service.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins/v20220531:DigitalTwin")]
-    public partial class DigitalTwin : Pulumi.CustomResource
+    public partial class DigitalTwin : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Time when DigitalTwinsInstance was created.
@@ -112,11 +112,11 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:digitaltwins:DigitalTwin"},
-                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwin"},
-                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201031:DigitalTwin"},
-                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:DigitalTwin"},
-                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:DigitalTwin"},
+                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins:DigitalTwin"},
+                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwin"},
+                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20201031:DigitalTwin"},
+                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:DigitalTwin"},
+                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:DigitalTwin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
         }
     }
 
-    public sealed class DigitalTwinArgs : Pulumi.ResourceArgs
+    public sealed class DigitalTwinArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed identity for the DigitalTwinsInstance.
@@ -197,5 +197,6 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
         public DigitalTwinArgs()
         {
         }
+        public static new DigitalTwinArgs Empty => new DigitalTwinArgs();
     }
 }

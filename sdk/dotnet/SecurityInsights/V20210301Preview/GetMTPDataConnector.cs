@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
 
-    public sealed class GetMTPDataConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetMTPDataConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetMTPDataConnectorArgs()
         {
         }
+        public static new GetMTPDataConnectorArgs Empty => new GetMTPDataConnectorArgs();
     }
 
-    public sealed class GetMTPDataConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMTPDataConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public GetMTPDataConnectorInvokeArgs()
         {
         }
+        public static new GetMTPDataConnectorInvokeArgs Empty => new GetMTPDataConnectorInvokeArgs();
     }
 
 

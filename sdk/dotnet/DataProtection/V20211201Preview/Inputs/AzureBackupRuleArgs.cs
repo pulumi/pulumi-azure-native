@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20211201Preview.Inputs
     /// <summary>
     /// Azure backup rule
     /// </summary>
-    public sealed class AzureBackupRuleArgs : Pulumi.ResourceArgs
+    public sealed class AzureBackupRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// BackupParameters base
@@ -46,5 +46,6 @@ namespace Pulumi.AzureNative.DataProtection.V20211201Preview.Inputs
         public AzureBackupRuleArgs()
         {
         }
+        public static new AzureBackupRuleArgs Empty => new AzureBackupRuleArgs();
     }
 }

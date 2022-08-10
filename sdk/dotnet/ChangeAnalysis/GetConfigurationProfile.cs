@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
     }
 
 
-    public sealed class GetConfigurationProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
@@ -38,9 +38,10 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         public GetConfigurationProfileArgs()
         {
         }
+        public static new GetConfigurationProfileArgs Empty => new GetConfigurationProfileArgs();
     }
 
-    public sealed class GetConfigurationProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
@@ -51,6 +52,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         public GetConfigurationProfileInvokeArgs()
         {
         }
+        public static new GetConfigurationProfileInvokeArgs Empty => new GetConfigurationProfileInvokeArgs();
     }
 
 

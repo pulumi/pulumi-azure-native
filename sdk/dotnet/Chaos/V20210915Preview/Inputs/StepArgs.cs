@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview.Inputs
     /// <summary>
     /// Model that represents a step in the Experiment resource.
     /// </summary>
-    public sealed class StepArgs : Pulumi.ResourceArgs
+    public sealed class StepArgs : global::Pulumi.ResourceArgs
     {
         [Input("branches", required: true)]
         private InputList<Inputs.BranchArgs>? _branches;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview.Inputs
         public StepArgs()
         {
         }
+        public static new StepArgs Empty => new StepArgs();
     }
 }

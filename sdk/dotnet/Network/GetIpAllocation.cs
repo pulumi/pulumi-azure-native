@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetIpAllocationArgs : Pulumi.InvokeArgs
+    public sealed class GetIpAllocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Network
         public GetIpAllocationArgs()
         {
         }
+        public static new GetIpAllocationArgs Empty => new GetIpAllocationArgs();
     }
 
-    public sealed class GetIpAllocationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIpAllocationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Network
         public GetIpAllocationInvokeArgs()
         {
         }
+        public static new GetIpAllocationInvokeArgs Empty => new GetIpAllocationInvokeArgs();
     }
 
 

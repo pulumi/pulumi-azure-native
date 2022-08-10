@@ -284,7 +284,8 @@ func (o ServerFarmOutput) NumberOfSites() pulumi.IntOutput {
 }
 
 // If True apps assigned to this App Service Plan can be scaled independently
-//             If False apps assigned to this App Service Plan will scale to all instances of the plan
+//
+//	If False apps assigned to this App Service Plan will scale to all instances of the plan
 func (o ServerFarmOutput) PerSiteScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerFarm) pulumi.BoolPtrOutput { return v.PerSiteScaling }).(pulumi.BoolPtrOutput)
 }

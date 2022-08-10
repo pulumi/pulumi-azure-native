@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// <summary>
     /// Azure Active Directory Partner Client Authentication
     /// </summary>
-    public sealed class AzureADPartnerClientAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class AzureADPartnerClientAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         {
             ClientAuthenticationType = "AzureAD";
         }
+        public static new AzureADPartnerClientAuthenticationArgs Empty => new AzureADPartnerClientAuthenticationArgs();
     }
 }

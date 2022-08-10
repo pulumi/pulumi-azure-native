@@ -141,7 +141,7 @@ func (o DiskIndependenceModePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // DiskIndependenceModeInput is an input type that accepts DiskIndependenceModeArgs and DiskIndependenceModeOutput values.
 // You can construct a concrete instance of `DiskIndependenceModeInput` via:
 //
-//          DiskIndependenceModeArgs{...}
+//	DiskIndependenceModeArgs{...}
 type DiskIndependenceModeInput interface {
 	pulumi.Input
 
@@ -310,7 +310,7 @@ func (o NICTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // NICTypeInput is an input type that accepts NICTypeArgs and NICTypeOutput values.
 // You can construct a concrete instance of `NICTypeInput` via:
 //
-//          NICTypeArgs{...}
+//	NICTypeArgs{...}
 type NICTypeInput interface {
 	pulumi.Input
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// VpnSiteLink Resource.
     /// </summary>
-    public sealed class VpnSiteLinkArgs : Pulumi.ResourceArgs
+    public sealed class VpnSiteLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The set of bgp properties.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public VpnSiteLinkArgs()
         {
         }
+        public static new VpnSiteLinkArgs Empty => new VpnSiteLinkArgs();
     }
 }

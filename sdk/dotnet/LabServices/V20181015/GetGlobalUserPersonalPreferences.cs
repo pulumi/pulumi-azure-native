@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     }
 
 
-    public sealed class GetGlobalUserPersonalPreferencesArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalUserPersonalPreferencesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Enum indicating if user is adding or removing a favorite lab
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetGlobalUserPersonalPreferencesArgs()
         {
         }
+        public static new GetGlobalUserPersonalPreferencesArgs Empty => new GetGlobalUserPersonalPreferencesArgs();
     }
 
-    public sealed class GetGlobalUserPersonalPreferencesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalUserPersonalPreferencesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Enum indicating if user is adding or removing a favorite lab
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetGlobalUserPersonalPreferencesInvokeArgs()
         {
         }
+        public static new GetGlobalUserPersonalPreferencesInvokeArgs Empty => new GetGlobalUserPersonalPreferencesInvokeArgs();
     }
 
 

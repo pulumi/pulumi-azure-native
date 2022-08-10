@@ -147,7 +147,7 @@ func (o ConnectionParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // ConnectionParameterTypeInput is an input type that accepts ConnectionParameterTypeArgs and ConnectionParameterTypeOutput values.
 // You can construct a concrete instance of `ConnectionParameterTypeInput` via:
 //
-//          ConnectionParameterTypeArgs{...}
+//	ConnectionParameterTypeArgs{...}
 type ConnectionParameterTypeInput interface {
 	pulumi.Input
 
@@ -313,7 +313,7 @@ func (o PrincipalTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // PrincipalTypeInput is an input type that accepts PrincipalTypeArgs and PrincipalTypeOutput values.
 // You can construct a concrete instance of `PrincipalTypeInput` via:
 //
-//          PrincipalTypeArgs{...}
+//	PrincipalTypeArgs{...}
 type PrincipalTypeInput interface {
 	pulumi.Input
 

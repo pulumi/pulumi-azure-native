@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview.Inputs
     /// <summary>
     /// The encryption settings for a configuration store.
     /// </summary>
-    public sealed class EncryptionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key vault properties.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview.Inputs
         public EncryptionPropertiesArgs()
         {
         }
+        public static new EncryptionPropertiesArgs Empty => new EncryptionPropertiesArgs();
     }
 }

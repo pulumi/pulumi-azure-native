@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Settings for a personal compute instance.
     /// </summary>
-    public sealed class PersonalComputeInstanceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class PersonalComputeInstanceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A user explicitly assigned to a personal compute instance.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public PersonalComputeInstanceSettingsArgs()
         {
         }
+        public static new PersonalComputeInstanceSettingsArgs Empty => new PersonalComputeInstanceSettingsArgs();
     }
 }

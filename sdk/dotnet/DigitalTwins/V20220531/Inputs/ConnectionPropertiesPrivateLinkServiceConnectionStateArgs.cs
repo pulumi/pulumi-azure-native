@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531.Inputs
     /// <summary>
     /// The connection state.
     /// </summary>
-    public sealed class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actions required for a private endpoint connection.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531.Inputs
         public ConnectionPropertiesPrivateLinkServiceConnectionStateArgs()
         {
         }
+        public static new ConnectionPropertiesPrivateLinkServiceConnectionStateArgs Empty => new ConnectionPropertiesPrivateLinkServiceConnectionStateArgs();
     }
 }

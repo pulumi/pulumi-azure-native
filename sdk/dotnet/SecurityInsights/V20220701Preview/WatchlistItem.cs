@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
     /// Represents a Watchlist item in Azure Security Insights.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220701preview:WatchlistItem")]
-    public partial class WatchlistItem : Pulumi.CustomResource
+    public partial class WatchlistItem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the watchlist item was created
@@ -124,17 +124,17 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:WatchlistItem"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:WatchlistItem"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:WatchlistItem"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:WatchlistItem"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:WatchlistItem"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:WatchlistItem"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:WatchlistItem"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:WatchlistItem"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:WatchlistItem"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:WatchlistItem"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:WatchlistItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:WatchlistItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         }
     }
 
-    public sealed class WatchlistItemArgs : Pulumi.ResourceArgs
+    public sealed class WatchlistItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time the watchlist item was created
@@ -239,5 +239,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         public WatchlistItemArgs()
         {
         }
+        public static new WatchlistItemArgs Empty => new WatchlistItemArgs();
     }
 }

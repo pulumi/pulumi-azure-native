@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Confluent.V20211201
     /// Organization resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent/v20211201:Organization")]
-    public partial class Organization : Pulumi.CustomResource
+    public partial class Organization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation time of the resource.
@@ -106,11 +106,11 @@ namespace Pulumi.AzureNative.Confluent.V20211201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:confluent:Organization"},
-                    new Pulumi.Alias { Type = "azure-native:confluent/v20200301:Organization"},
-                    new Pulumi.Alias { Type = "azure-native:confluent/v20200301preview:Organization"},
-                    new Pulumi.Alias { Type = "azure-native:confluent/v20210301preview:Organization"},
-                    new Pulumi.Alias { Type = "azure-native:confluent/v20210901preview:Organization"},
+                    new global::Pulumi.Alias { Type = "azure-native:confluent:Organization"},
+                    new global::Pulumi.Alias { Type = "azure-native:confluent/v20200301:Organization"},
+                    new global::Pulumi.Alias { Type = "azure-native:confluent/v20200301preview:Organization"},
+                    new global::Pulumi.Alias { Type = "azure-native:confluent/v20210301preview:Organization"},
+                    new global::Pulumi.Alias { Type = "azure-native:confluent/v20210901preview:Organization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Confluent.V20211201
         }
     }
 
-    public sealed class OrganizationArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of Organization resource
@@ -179,5 +179,6 @@ namespace Pulumi.AzureNative.Confluent.V20211201
         public OrganizationArgs()
         {
         }
+        public static new OrganizationArgs Empty => new OrganizationArgs();
     }
 }

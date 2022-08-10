@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
     /// </summary>
     [Obsolete(@"Version 2020-04-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:synapse/v20200401preview:SqlPoolsV3")]
-    public partial class SqlPoolsV3 : Pulumi.CustomResource
+    public partial class SqlPoolsV3 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The period of inactivity in minutes before automatically pausing the sql pool.
@@ -125,14 +125,14 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolsV3"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:SqlPoolsV3"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolsV3"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolsV3"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolsV3"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolsV3"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolsV3"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolsV3"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolsV3"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         }
     }
 
-    public sealed class SqlPoolsV3Args : Pulumi.ResourceArgs
+    public sealed class SqlPoolsV3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The period of inactivity in minutes before automatically pausing the sql pool.
@@ -219,5 +219,6 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         public SqlPoolsV3Args()
         {
         }
+        public static new SqlPoolsV3Args Empty => new SqlPoolsV3Args();
     }
 }

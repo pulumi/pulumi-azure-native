@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// A pointer to an Azure Action Group.
     /// </summary>
-    public sealed class ActionGroupArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the Action Group. This cannot be null or empty.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public ActionGroupArgs()
         {
         }
+        public static new ActionGroupArgs Empty => new ActionGroupArgs();
     }
 }

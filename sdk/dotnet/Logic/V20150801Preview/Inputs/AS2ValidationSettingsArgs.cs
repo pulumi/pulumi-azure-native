@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class AS2ValidationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AS2ValidationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to check for certificate revocation list on receive.
@@ -69,5 +69,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public AS2ValidationSettingsArgs()
         {
         }
+        public static new AS2ValidationSettingsArgs Empty => new AS2ValidationSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
     /// <summary>
     /// Minimum and maximum number of scale units to deploy.
     /// </summary>
-    public sealed class ExpressRouteGatewayPropertiesBoundsArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteGatewayPropertiesBoundsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum number of scale units deployed for ExpressRoute gateway.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
         public ExpressRouteGatewayPropertiesBoundsArgs()
         {
         }
+        public static new ExpressRouteGatewayPropertiesBoundsArgs Empty => new ExpressRouteGatewayPropertiesBoundsArgs();
     }
 }

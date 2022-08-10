@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
     /// API details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180601preview:ProductApi")]
-    public partial class ProductApi : Pulumi.CustomResource
+    public partial class ProductApi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
@@ -154,18 +154,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ProductApi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -187,7 +187,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
         }
     }
 
-    public sealed class ProductApiArgs : Pulumi.ResourceArgs
+    public sealed class ProductApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -216,5 +216,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
         public ProductApiArgs()
         {
         }
+        public static new ProductApiArgs Empty => new ProductApiArgs();
     }
 }

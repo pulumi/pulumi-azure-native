@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview.Inputs
     /// <summary>
     /// Specifies set of extensions that should be installed onto the virtual machines.
     /// </summary>
-    public sealed class VMSSExtensionArgs : Pulumi.ResourceArgs
+    public sealed class VMSSExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview.Inputs
         public VMSSExtensionArgs()
         {
         }
+        public static new VMSSExtensionArgs Empty => new VMSSExtensionArgs();
     }
 }

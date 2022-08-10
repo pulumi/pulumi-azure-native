@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20220201.Inputs
     /// <summary>
     /// Customer disk job details.
     /// </summary>
-    public sealed class DataBoxCustomerDiskJobDetailsArgs : Pulumi.ResourceArgs
+    public sealed class DataBoxCustomerDiskJobDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contact details for notification and shipping.
@@ -104,5 +104,6 @@ namespace Pulumi.AzureNative.DataBox.V20220201.Inputs
         {
             EnableManifestBackup = false;
         }
+        public static new DataBoxCustomerDiskJobDetailsArgs Empty => new DataBoxCustomerDiskJobDetailsArgs();
     }
 }

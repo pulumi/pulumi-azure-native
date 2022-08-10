@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210801.Inputs
     /// <summary>
     /// The kubernetes spec information.
     /// </summary>
-    public sealed class SqlManagedInstanceK8sSpecArgs : Pulumi.ResourceArgs
+    public sealed class SqlManagedInstanceK8sSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20210801.Inputs
         public SqlManagedInstanceK8sSpecArgs()
         {
         }
+        public static new SqlManagedInstanceK8sSpecArgs Empty => new SqlManagedInstanceK8sSpecArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:SqlDWTableDataSetMapping")]
-    public partial class SqlDWTableDataSetMapping : Pulumi.CustomResource
+    public partial class SqlDWTableDataSetMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The id of the source data set.
@@ -115,11 +115,11 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SqlDWTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:SqlDWTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:SqlDWTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SqlDWTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:SqlDWTableDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SqlDWTableDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:SqlDWTableDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:SqlDWTableDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SqlDWTableDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:SqlDWTableDataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.DataShare
         }
     }
 
-    public sealed class SqlDWTableDataSetMappingArgs : Pulumi.ResourceArgs
+    public sealed class SqlDWTableDataSetMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -207,5 +207,6 @@ namespace Pulumi.AzureNative.DataShare
         public SqlDWTableDataSetMappingArgs()
         {
         }
+        public static new SqlDWTableDataSetMappingArgs Empty => new SqlDWTableDataSetMappingArgs();
     }
 }

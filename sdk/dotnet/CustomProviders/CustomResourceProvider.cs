@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CustomProviders
     /// API Version: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:customproviders:CustomResourceProvider")]
-    public partial class CustomResourceProvider : Pulumi.CustomResource
+    public partial class CustomResourceProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of actions that the custom resource provider implements.
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.CustomProviders
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:customproviders/v20180901preview:CustomResourceProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:customproviders/v20180901preview:CustomResourceProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.CustomProviders
         }
     }
 
-    public sealed class CustomResourceProviderArgs : Pulumi.ResourceArgs
+    public sealed class CustomResourceProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.CustomRPActionRouteDefinitionArgs>? _actions;
@@ -182,5 +182,6 @@ namespace Pulumi.AzureNative.CustomProviders
         public CustomResourceProviderArgs()
         {
         }
+        public static new CustomResourceProviderArgs Empty => new CustomResourceProviderArgs();
     }
 }

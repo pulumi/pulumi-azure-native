@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
     /// ExpressRoute Circuit Authorization
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20200717preview:Authorization")]
-    public partial class Authorization : Pulumi.CustomResource
+    public partial class Authorization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the ExpressRoute Circuit Authorization
@@ -70,11 +70,11 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs:Authorization"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200320:Authorization"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Authorization"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:Authorization"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Authorization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         }
     }
 
-    public sealed class AuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the ExpressRoute Circuit Authorization in the private cloud
@@ -119,5 +119,6 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         public AuthorizationArgs()
         {
         }
+        public static new AuthorizationArgs Empty => new AuthorizationArgs();
     }
 }

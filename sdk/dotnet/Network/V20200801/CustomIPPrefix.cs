@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200801
     /// Custom IP prefix resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200801:CustomIPPrefix")]
-    public partial class CustomIPPrefix : Pulumi.CustomResource
+    public partial class CustomIPPrefix : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The prefix range in CIDR notation. Should include the start address and the prefix length.
@@ -112,15 +112,15 @@ namespace Pulumi.AzureNative.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:CustomIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:CustomIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:CustomIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:CustomIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:CustomIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:CustomIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:CustomIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:CustomIPPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:CustomIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Network.V20200801
         }
     }
 
-    public sealed class CustomIPPrefixArgs : Pulumi.ResourceArgs
+    public sealed class CustomIPPrefixArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The prefix range in CIDR notation. Should include the start address and the prefix length.
@@ -213,5 +213,6 @@ namespace Pulumi.AzureNative.Network.V20200801
         public CustomIPPrefixArgs()
         {
         }
+        public static new CustomIPPrefixArgs Empty => new CustomIPPrefixArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// Message envelope that contains the common Azure resource manager properties and the resource provider specific content
     /// </summary>
-    public sealed class ResponseMessageEnvelopeApiEntityArgs : Pulumi.ResourceArgs
+    public sealed class ResponseMessageEnvelopeApiEntityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
@@ -74,5 +74,6 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public ResponseMessageEnvelopeApiEntityArgs()
         {
         }
+        public static new ResponseMessageEnvelopeApiEntityArgs Empty => new ResponseMessageEnvelopeApiEntityArgs();
     }
 }

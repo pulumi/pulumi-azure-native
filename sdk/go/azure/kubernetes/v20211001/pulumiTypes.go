@@ -31,7 +31,7 @@ func (val *ConnectedClusterIdentity) Defaults() *ConnectedClusterIdentity {
 // ConnectedClusterIdentityInput is an input type that accepts ConnectedClusterIdentityArgs and ConnectedClusterIdentityOutput values.
 // You can construct a concrete instance of `ConnectedClusterIdentityInput` via:
 //
-//          ConnectedClusterIdentityArgs{...}
+//	ConnectedClusterIdentityArgs{...}
 type ConnectedClusterIdentityInput interface {
 	pulumi.Input
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
     }
 
 
-    public sealed class GetWorkloadGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkloadGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public GetWorkloadGroupArgs()
         {
         }
+        public static new GetWorkloadGroupArgs Empty => new GetWorkloadGroupArgs();
     }
 
-    public sealed class GetWorkloadGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkloadGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public GetWorkloadGroupInvokeArgs()
         {
         }
+        public static new GetWorkloadGroupInvokeArgs Empty => new GetWorkloadGroupInvokeArgs();
     }
 
 

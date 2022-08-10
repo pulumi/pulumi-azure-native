@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
     /// <summary>
     /// Describes a virtual machine scale set storage profile.
     /// </summary>
-    public sealed class VirtualMachineScaleSetStorageProfileArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetStorageProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
         private InputList<Inputs.VirtualMachineScaleSetDataDiskArgs>? _dataDisks;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
         public VirtualMachineScaleSetStorageProfileArgs()
         {
         }
+        public static new VirtualMachineScaleSetStorageProfileArgs Empty => new VirtualMachineScaleSetStorageProfileArgs();
     }
 }

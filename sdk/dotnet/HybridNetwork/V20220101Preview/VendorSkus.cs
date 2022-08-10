@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
     /// Sku sub resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork/v20220101preview:VendorSkus")]
-    public partial class VendorSkus : Pulumi.CustomResource
+    public partial class VendorSkus : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The sku deployment mode.
@@ -106,9 +106,9 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork:VendorSkus"},
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:VendorSkus"},
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:VendorSkus"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:VendorSkus"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:VendorSkus"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:VendorSkus"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
         }
     }
 
-    public sealed class VendorSkusArgs : Pulumi.ResourceArgs
+    public sealed class VendorSkusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sku deployment mode.
@@ -189,5 +189,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
         public VendorSkusArgs()
         {
         }
+        public static new VendorSkusArgs Empty => new VendorSkusArgs();
     }
 }

@@ -21,7 +21,7 @@ type CostAllocationProportion struct {
 // CostAllocationProportionInput is an input type that accepts CostAllocationProportionArgs and CostAllocationProportionOutput values.
 // You can construct a concrete instance of `CostAllocationProportionInput` via:
 //
-//          CostAllocationProportionArgs{...}
+//	CostAllocationProportionArgs{...}
 type CostAllocationProportionInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i CostAllocationProportionArgs) ToCostAllocationProportionOutputWithContex
 // CostAllocationProportionArrayInput is an input type that accepts CostAllocationProportionArray and CostAllocationProportionArrayOutput values.
 // You can construct a concrete instance of `CostAllocationProportionArrayInput` via:
 //
-//          CostAllocationProportionArray{ CostAllocationProportionArgs{...} }
+//	CostAllocationProportionArray{ CostAllocationProportionArgs{...} }
 type CostAllocationProportionArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +183,7 @@ type CostAllocationRuleDetails struct {
 // CostAllocationRuleDetailsInput is an input type that accepts CostAllocationRuleDetailsArgs and CostAllocationRuleDetailsOutput values.
 // You can construct a concrete instance of `CostAllocationRuleDetailsInput` via:
 //
-//          CostAllocationRuleDetailsArgs{...}
+//	CostAllocationRuleDetailsArgs{...}
 type CostAllocationRuleDetailsInput interface {
 	pulumi.Input
 
@@ -222,11 +222,11 @@ func (i CostAllocationRuleDetailsArgs) ToCostAllocationRuleDetailsPtrOutputWithC
 // CostAllocationRuleDetailsPtrInput is an input type that accepts CostAllocationRuleDetailsArgs, CostAllocationRuleDetailsPtr and CostAllocationRuleDetailsPtrOutput values.
 // You can construct a concrete instance of `CostAllocationRuleDetailsPtrInput` via:
 //
-//          CostAllocationRuleDetailsArgs{...}
+//	        CostAllocationRuleDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostAllocationRuleDetailsPtrInput interface {
 	pulumi.Input
 
@@ -381,7 +381,7 @@ type CostAllocationRuleProperties struct {
 // CostAllocationRulePropertiesInput is an input type that accepts CostAllocationRulePropertiesArgs and CostAllocationRulePropertiesOutput values.
 // You can construct a concrete instance of `CostAllocationRulePropertiesInput` via:
 //
-//          CostAllocationRulePropertiesArgs{...}
+//	CostAllocationRulePropertiesArgs{...}
 type CostAllocationRulePropertiesInput interface {
 	pulumi.Input
 
@@ -422,11 +422,11 @@ func (i CostAllocationRulePropertiesArgs) ToCostAllocationRulePropertiesPtrOutpu
 // CostAllocationRulePropertiesPtrInput is an input type that accepts CostAllocationRulePropertiesArgs, CostAllocationRulePropertiesPtr and CostAllocationRulePropertiesPtrOutput values.
 // You can construct a concrete instance of `CostAllocationRulePropertiesPtrInput` via:
 //
-//          CostAllocationRulePropertiesArgs{...}
+//	        CostAllocationRulePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CostAllocationRulePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -613,7 +613,7 @@ type SourceCostAllocationResource struct {
 // SourceCostAllocationResourceInput is an input type that accepts SourceCostAllocationResourceArgs and SourceCostAllocationResourceOutput values.
 // You can construct a concrete instance of `SourceCostAllocationResourceInput` via:
 //
-//          SourceCostAllocationResourceArgs{...}
+//	SourceCostAllocationResourceArgs{...}
 type SourceCostAllocationResourceInput interface {
 	pulumi.Input
 
@@ -646,7 +646,7 @@ func (i SourceCostAllocationResourceArgs) ToSourceCostAllocationResourceOutputWi
 // SourceCostAllocationResourceArrayInput is an input type that accepts SourceCostAllocationResourceArray and SourceCostAllocationResourceArrayOutput values.
 // You can construct a concrete instance of `SourceCostAllocationResourceArrayInput` via:
 //
-//          SourceCostAllocationResourceArray{ SourceCostAllocationResourceArgs{...} }
+//	SourceCostAllocationResourceArray{ SourceCostAllocationResourceArgs{...} }
 type SourceCostAllocationResourceArrayInput interface {
 	pulumi.Input
 
@@ -793,7 +793,7 @@ type TargetCostAllocationResource struct {
 // TargetCostAllocationResourceInput is an input type that accepts TargetCostAllocationResourceArgs and TargetCostAllocationResourceOutput values.
 // You can construct a concrete instance of `TargetCostAllocationResourceInput` via:
 //
-//          TargetCostAllocationResourceArgs{...}
+//	TargetCostAllocationResourceArgs{...}
 type TargetCostAllocationResourceInput interface {
 	pulumi.Input
 
@@ -828,7 +828,7 @@ func (i TargetCostAllocationResourceArgs) ToTargetCostAllocationResourceOutputWi
 // TargetCostAllocationResourceArrayInput is an input type that accepts TargetCostAllocationResourceArray and TargetCostAllocationResourceArrayOutput values.
 // You can construct a concrete instance of `TargetCostAllocationResourceArrayInput` via:
 //
-//          TargetCostAllocationResourceArray{ TargetCostAllocationResourceArgs{...} }
+//	TargetCostAllocationResourceArray{ TargetCostAllocationResourceArgs{...} }
 type TargetCostAllocationResourceArrayInput interface {
 	pulumi.Input
 

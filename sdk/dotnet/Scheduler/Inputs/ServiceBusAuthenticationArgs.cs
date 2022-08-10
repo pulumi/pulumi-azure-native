@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
-    public sealed class ServiceBusAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceBusAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the SAS key.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Scheduler.Inputs
         public ServiceBusAuthenticationArgs()
         {
         }
+        public static new ServiceBusAuthenticationArgs Empty => new ServiceBusAuthenticationArgs();
     }
 }

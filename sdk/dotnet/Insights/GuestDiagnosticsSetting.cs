@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2018-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:guestDiagnosticsSetting")]
-    public partial class GuestDiagnosticsSetting : Pulumi.CustomResource
+    public partial class GuestDiagnosticsSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the array of data source object which are configured to collect and send data
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20180601preview:guestDiagnosticsSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180601preview:guestDiagnosticsSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class GuestDiagnosticsSettingArgs : Pulumi.ResourceArgs
+    public sealed class GuestDiagnosticsSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSources")]
         private InputList<Inputs.DataSourceArgs>? _dataSources;
@@ -158,5 +158,6 @@ namespace Pulumi.AzureNative.Insights
         public GuestDiagnosticsSettingArgs()
         {
         }
+        public static new GuestDiagnosticsSettingArgs Empty => new GuestDiagnosticsSettingArgs();
     }
 }

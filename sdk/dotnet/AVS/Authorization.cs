@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AVS
     /// API Version: 2020-03-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Authorization")]
-    public partial class Authorization : Pulumi.CustomResource
+    public partial class Authorization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the ExpressRoute Circuit Authorization
@@ -71,11 +71,11 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200320:Authorization"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Authorization"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Authorization"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:Authorization"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Authorization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.AVS
         }
     }
 
-    public sealed class AuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the ExpressRoute Circuit Authorization in the private cloud
@@ -120,5 +120,6 @@ namespace Pulumi.AzureNative.AVS
         public AuthorizationArgs()
         {
         }
+        public static new AuthorizationArgs Empty => new AuthorizationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties for creating a virtual machine.
     /// </summary>
-    public sealed class LabVirtualMachineCreationParameterArgs : Pulumi.ResourceArgs
+    public sealed class LabVirtualMachineCreationParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether another user can take ownership of the virtual machine
@@ -234,5 +234,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public LabVirtualMachineCreationParameterArgs()
         {
         }
+        public static new LabVirtualMachineCreationParameterArgs Empty => new LabVirtualMachineCreationParameterArgs();
     }
 }

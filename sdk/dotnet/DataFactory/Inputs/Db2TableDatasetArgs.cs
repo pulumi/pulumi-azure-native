@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The Db2 table dataset.
     /// </summary>
-    public sealed class Db2TableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class Db2TableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Db2TableDatasetArgs()
         {
         }
+        public static new Db2TableDatasetArgs Empty => new Db2TableDatasetArgs();
     }
 }

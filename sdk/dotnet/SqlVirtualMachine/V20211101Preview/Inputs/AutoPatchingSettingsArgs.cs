@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
     /// <summary>
     /// Set a patching window during which Windows and SQL patches will be applied.
     /// </summary>
-    public sealed class AutoPatchingSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AutoPatchingSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Day of week to apply the patch on.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
         public AutoPatchingSettingsArgs()
         {
         }
+        public static new AutoPatchingSettingsArgs Empty => new AutoPatchingSettingsArgs();
     }
 }

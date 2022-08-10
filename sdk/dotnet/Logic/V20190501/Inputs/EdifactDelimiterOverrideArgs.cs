@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The Edifact delimiter override settings.
     /// </summary>
-    public sealed class EdifactDelimiterOverrideArgs : Pulumi.ResourceArgs
+    public sealed class EdifactDelimiterOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The component separator.
@@ -90,5 +90,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public EdifactDelimiterOverrideArgs()
         {
         }
+        public static new EdifactDelimiterOverrideArgs Empty => new EdifactDelimiterOverrideArgs();
     }
 }

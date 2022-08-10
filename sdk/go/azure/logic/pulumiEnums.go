@@ -142,7 +142,7 @@ func (o AgreementTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // AgreementTypeInput is an input type that accepts AgreementTypeArgs and AgreementTypeOutput values.
 // You can construct a concrete instance of `AgreementTypeInput` via:
 //
-//          AgreementTypeArgs{...}
+//	AgreementTypeArgs{...}
 type AgreementTypeInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ func (o DayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // DayOfWeekInput is an input type that accepts DayOfWeekArgs and DayOfWeekOutput values.
 // You can construct a concrete instance of `DayOfWeekInput` via:
 //
-//          DayOfWeekArgs{...}
+//	DayOfWeekArgs{...}
 type DayOfWeekInput interface {
 	pulumi.Input
 
@@ -481,7 +481,7 @@ func (o DaysOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // DaysOfWeekInput is an input type that accepts DaysOfWeekArgs and DaysOfWeekOutput values.
 // You can construct a concrete instance of `DaysOfWeekInput` via:
 //
-//          DaysOfWeekArgs{...}
+//	DaysOfWeekArgs{...}
 type DaysOfWeekInput interface {
 	pulumi.Input
 
@@ -519,7 +519,7 @@ func (in *daysOfWeekPtr) ToDaysOfWeekPtrOutputWithContext(ctx context.Context) D
 // DaysOfWeekArrayInput is an input type that accepts DaysOfWeekArray and DaysOfWeekArrayOutput values.
 // You can construct a concrete instance of `DaysOfWeekArrayInput` via:
 //
-//          DaysOfWeekArray{ DaysOfWeekArgs{...} }
+//	DaysOfWeekArray{ DaysOfWeekArgs{...} }
 type DaysOfWeekArrayInput interface {
 	pulumi.Input
 
@@ -713,7 +713,7 @@ func (o EdifactDecimalIndicatorPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // EdifactDecimalIndicatorInput is an input type that accepts EdifactDecimalIndicatorArgs and EdifactDecimalIndicatorOutput values.
 // You can construct a concrete instance of `EdifactDecimalIndicatorInput` via:
 //
-//          EdifactDecimalIndicatorArgs{...}
+//	EdifactDecimalIndicatorArgs{...}
 type EdifactDecimalIndicatorInput interface {
 	pulumi.Input
 
@@ -1015,7 +1015,7 @@ func (o RosettaNetActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // RosettaNetActionTypeInput is an input type that accepts RosettaNetActionTypeArgs and RosettaNetActionTypeOutput values.
 // You can construct a concrete instance of `RosettaNetActionTypeInput` via:
 //
-//          RosettaNetActionTypeArgs{...}
+//	RosettaNetActionTypeArgs{...}
 type RosettaNetActionTypeInput interface {
 	pulumi.Input
 
@@ -1185,7 +1185,7 @@ func (o RosettaNetPipActivityTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 // RosettaNetPipActivityTypeInput is an input type that accepts RosettaNetPipActivityTypeArgs and RosettaNetPipActivityTypeOutput values.
 // You can construct a concrete instance of `RosettaNetPipActivityTypeInput` via:
 //
-//          RosettaNetPipActivityTypeArgs{...}
+//	RosettaNetPipActivityTypeArgs{...}
 type RosettaNetPipActivityTypeInput interface {
 	pulumi.Input
 
@@ -1352,7 +1352,7 @@ func (o RosettaNetPipConfidentialityScopePtrOutput) ToStringPtrOutputWithContext
 // RosettaNetPipConfidentialityScopeInput is an input type that accepts RosettaNetPipConfidentialityScopeArgs and RosettaNetPipConfidentialityScopeOutput values.
 // You can construct a concrete instance of `RosettaNetPipConfidentialityScopeInput` via:
 //
-//          RosettaNetPipConfidentialityScopeArgs{...}
+//	RosettaNetPipConfidentialityScopeArgs{...}
 type RosettaNetPipConfidentialityScopeInput interface {
 	pulumi.Input
 
@@ -1519,7 +1519,7 @@ func (o RosettaNetPipRoleTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // RosettaNetPipRoleTypeInput is an input type that accepts RosettaNetPipRoleTypeArgs and RosettaNetPipRoleTypeOutput values.
 // You can construct a concrete instance of `RosettaNetPipRoleTypeInput` via:
 //
-//          RosettaNetPipRoleTypeArgs{...}
+//	RosettaNetPipRoleTypeArgs{...}
 type RosettaNetPipRoleTypeInput interface {
 	pulumi.Input
 
@@ -1685,7 +1685,7 @@ func (o RosettaNetResponseTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // RosettaNetResponseTypeInput is an input type that accepts RosettaNetResponseTypeArgs and RosettaNetResponseTypeOutput values.
 // You can construct a concrete instance of `RosettaNetResponseTypeInput` via:
 //
-//          RosettaNetResponseTypeArgs{...}
+//	RosettaNetResponseTypeArgs{...}
 type RosettaNetResponseTypeInput interface {
 	pulumi.Input
 
@@ -1861,7 +1861,7 @@ func (o SegmentTerminatorSuffixPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // SegmentTerminatorSuffixInput is an input type that accepts SegmentTerminatorSuffixArgs and SegmentTerminatorSuffixOutput values.
 // You can construct a concrete instance of `SegmentTerminatorSuffixInput` via:
 //
-//          SegmentTerminatorSuffixArgs{...}
+//	SegmentTerminatorSuffixArgs{...}
 type SegmentTerminatorSuffixInput interface {
 	pulumi.Input
 

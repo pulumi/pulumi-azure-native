@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class ManagedServiceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ManagedServiceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview.Inputs
         public ManagedServiceIdentityArgs()
         {
         }
+        public static new ManagedServiceIdentityArgs Empty => new ManagedServiceIdentityArgs();
     }
 }

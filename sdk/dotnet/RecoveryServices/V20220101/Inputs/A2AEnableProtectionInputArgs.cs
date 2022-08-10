@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
     /// <summary>
     /// A2A enable protection input.
     /// </summary>
-    public sealed class A2AEnableProtectionInputArgs : Pulumi.ResourceArgs
+    public sealed class A2AEnableProtectionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The recovery disk encryption information (for two pass flows).
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
         public A2AEnableProtectionInputArgs()
         {
         }
+        public static new A2AEnableProtectionInputArgs Empty => new A2AEnableProtectionInputArgs();
     }
 }

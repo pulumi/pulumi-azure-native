@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// API Version: 2022-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -83,10 +83,10 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.HealthcareApis
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource location.
@@ -143,5 +143,6 @@ namespace Pulumi.AzureNative.HealthcareApis
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

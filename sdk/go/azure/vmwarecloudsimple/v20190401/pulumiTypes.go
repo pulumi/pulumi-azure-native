@@ -27,7 +27,7 @@ type GuestOSCustomization struct {
 // GuestOSCustomizationInput is an input type that accepts GuestOSCustomizationArgs and GuestOSCustomizationOutput values.
 // You can construct a concrete instance of `GuestOSCustomizationInput` via:
 //
-//          GuestOSCustomizationArgs{...}
+//	GuestOSCustomizationArgs{...}
 type GuestOSCustomizationInput interface {
 	pulumi.Input
 
@@ -72,11 +72,11 @@ func (i GuestOSCustomizationArgs) ToGuestOSCustomizationPtrOutputWithContext(ctx
 // GuestOSCustomizationPtrInput is an input type that accepts GuestOSCustomizationArgs, GuestOSCustomizationPtr and GuestOSCustomizationPtrOutput values.
 // You can construct a concrete instance of `GuestOSCustomizationPtrInput` via:
 //
-//          GuestOSCustomizationArgs{...}
+//	        GuestOSCustomizationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GuestOSCustomizationPtrInput interface {
 	pulumi.Input
 
@@ -375,7 +375,7 @@ type GuestOSNICCustomization struct {
 // GuestOSNICCustomizationInput is an input type that accepts GuestOSNICCustomizationArgs and GuestOSNICCustomizationOutput values.
 // You can construct a concrete instance of `GuestOSNICCustomizationInput` via:
 //
-//          GuestOSNICCustomizationArgs{...}
+//	GuestOSNICCustomizationArgs{...}
 type GuestOSNICCustomizationInput interface {
 	pulumi.Input
 
@@ -424,11 +424,11 @@ func (i GuestOSNICCustomizationArgs) ToGuestOSNICCustomizationPtrOutputWithConte
 // GuestOSNICCustomizationPtrInput is an input type that accepts GuestOSNICCustomizationArgs, GuestOSNICCustomizationPtr and GuestOSNICCustomizationPtrOutput values.
 // You can construct a concrete instance of `GuestOSNICCustomizationPtrInput` via:
 //
-//          GuestOSNICCustomizationArgs{...}
+//	        GuestOSNICCustomizationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GuestOSNICCustomizationPtrInput interface {
 	pulumi.Input
 
@@ -779,7 +779,7 @@ type ResourcePool struct {
 // ResourcePoolInput is an input type that accepts ResourcePoolArgs and ResourcePoolOutput values.
 // You can construct a concrete instance of `ResourcePoolInput` via:
 //
-//          ResourcePoolArgs{...}
+//	ResourcePoolArgs{...}
 type ResourcePoolInput interface {
 	pulumi.Input
 
@@ -816,11 +816,11 @@ func (i ResourcePoolArgs) ToResourcePoolPtrOutputWithContext(ctx context.Context
 // ResourcePoolPtrInput is an input type that accepts ResourcePoolArgs, ResourcePoolPtr and ResourcePoolPtrOutput values.
 // You can construct a concrete instance of `ResourcePoolPtrInput` via:
 //
-//          ResourcePoolArgs{...}
+//	        ResourcePoolArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourcePoolPtrInput interface {
 	pulumi.Input
 
@@ -1072,7 +1072,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1117,11 +1117,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -1414,7 +1414,7 @@ type VirtualDisk struct {
 // VirtualDiskInput is an input type that accepts VirtualDiskArgs and VirtualDiskOutput values.
 // You can construct a concrete instance of `VirtualDiskInput` via:
 //
-//          VirtualDiskArgs{...}
+//	VirtualDiskArgs{...}
 type VirtualDiskInput interface {
 	pulumi.Input
 
@@ -1449,7 +1449,7 @@ func (i VirtualDiskArgs) ToVirtualDiskOutputWithContext(ctx context.Context) Vir
 // VirtualDiskArrayInput is an input type that accepts VirtualDiskArray and VirtualDiskArrayOutput values.
 // You can construct a concrete instance of `VirtualDiskArrayInput` via:
 //
-//          VirtualDiskArray{ VirtualDiskArgs{...} }
+//	VirtualDiskArray{ VirtualDiskArgs{...} }
 type VirtualDiskArrayInput interface {
 	pulumi.Input
 
@@ -1676,7 +1676,7 @@ type VirtualNetwork struct {
 // VirtualNetworkInput is an input type that accepts VirtualNetworkArgs and VirtualNetworkOutput values.
 // You can construct a concrete instance of `VirtualNetworkInput` via:
 //
-//          VirtualNetworkArgs{...}
+//	VirtualNetworkArgs{...}
 type VirtualNetworkInput interface {
 	pulumi.Input
 
@@ -1804,7 +1804,7 @@ type VirtualNic struct {
 // VirtualNicInput is an input type that accepts VirtualNicArgs and VirtualNicOutput values.
 // You can construct a concrete instance of `VirtualNicInput` via:
 //
-//          VirtualNicArgs{...}
+//	VirtualNicArgs{...}
 type VirtualNicInput interface {
 	pulumi.Input
 
@@ -1845,7 +1845,7 @@ func (i VirtualNicArgs) ToVirtualNicOutputWithContext(ctx context.Context) Virtu
 // VirtualNicArrayInput is an input type that accepts VirtualNicArray and VirtualNicArrayOutput values.
 // You can construct a concrete instance of `VirtualNicArrayInput` via:
 //
-//          VirtualNicArray{ VirtualNicArgs{...} }
+//	VirtualNicArray{ VirtualNicArgs{...} }
 type VirtualNicArrayInput interface {
 	pulumi.Input
 

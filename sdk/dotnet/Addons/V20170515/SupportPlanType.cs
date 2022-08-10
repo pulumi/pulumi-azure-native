@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Addons.V20170515
     /// </summary>
     [Obsolete(@"Version 2017-05-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:addons/v20170515:SupportPlanType")]
-    public partial class SupportPlanType : Pulumi.CustomResource
+    public partial class SupportPlanType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
@@ -59,8 +59,8 @@ namespace Pulumi.AzureNative.Addons.V20170515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:addons:SupportPlanType"},
-                    new Pulumi.Alias { Type = "azure-native:addons/v20180301:SupportPlanType"},
+                    new global::Pulumi.Alias { Type = "azure-native:addons:SupportPlanType"},
+                    new global::Pulumi.Alias { Type = "azure-native:addons/v20180301:SupportPlanType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Addons.V20170515
         }
     }
 
-    public sealed class SupportPlanTypeArgs : Pulumi.ResourceArgs
+    public sealed class SupportPlanTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Canonical support plan type.
@@ -99,5 +99,6 @@ namespace Pulumi.AzureNative.Addons.V20170515
         public SupportPlanTypeArgs()
         {
         }
+        public static new SupportPlanTypeArgs Empty => new SupportPlanTypeArgs();
     }
 }

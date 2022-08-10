@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// The kubernetes service connection configuration
     /// </summary>
-    public sealed class DefenderForContainersAwsOfferingKubernetesServiceArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForContainersAwsOfferingKubernetesServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cloud role ARN in AWS for this feature
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public DefenderForContainersAwsOfferingKubernetesServiceArgs()
         {
         }
+        public static new DefenderForContainersAwsOfferingKubernetesServiceArgs Empty => new DefenderForContainersAwsOfferingKubernetesServiceArgs();
     }
 }

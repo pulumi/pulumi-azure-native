@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties of a virtual machine that determine how it is connected to a load balancer.
     /// </summary>
-    public sealed class SharedPublicIpAddressConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SharedPublicIpAddressConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("inboundNatRules")]
         private InputList<Inputs.InboundNatRuleArgs>? _inboundNatRules;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public SharedPublicIpAddressConfigurationArgs()
         {
         }
+        public static new SharedPublicIpAddressConfigurationArgs Empty => new SharedPublicIpAddressConfigurationArgs();
     }
 }

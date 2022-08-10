@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Xero Service linked service.
     /// </summary>
-    public sealed class XeroLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class XeroLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -104,5 +104,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public XeroLinkedServiceArgs()
         {
         }
+        public static new XeroLinkedServiceArgs Empty => new XeroLinkedServiceArgs();
     }
 }

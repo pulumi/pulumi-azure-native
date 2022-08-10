@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     }
 
 
-    public sealed class GetComputeArgs : Pulumi.InvokeArgs
+    public sealed class GetComputeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Machine Learning compute.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public GetComputeArgs()
         {
         }
+        public static new GetComputeArgs Empty => new GetComputeArgs();
     }
 
-    public sealed class GetComputeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetComputeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Machine Learning compute.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public GetComputeInvokeArgs()
         {
         }
+        public static new GetComputeInvokeArgs Empty => new GetComputeInvokeArgs();
     }
 
 

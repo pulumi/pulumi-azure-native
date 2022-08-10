@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview.Inputs
     /// <summary>
     /// The route definition for a resource implemented by the custom resource provider.
     /// </summary>
-    public sealed class CustomRPResourceTypeRouteDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class CustomRPResourceTypeRouteDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview.Inputs
         public CustomRPResourceTypeRouteDefinitionArgs()
         {
         }
+        public static new CustomRPResourceTypeRouteDefinitionArgs Empty => new CustomRPResourceTypeRouteDefinitionArgs();
     }
 }

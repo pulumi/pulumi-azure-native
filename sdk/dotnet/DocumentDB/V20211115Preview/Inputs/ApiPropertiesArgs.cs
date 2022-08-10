@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
 {
 
-    public sealed class ApiPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ApiPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the ServerVersion of an a MongoDB account.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
         public ApiPropertiesArgs()
         {
         }
+        public static new ApiPropertiesArgs Empty => new ApiPropertiesArgs();
     }
 }

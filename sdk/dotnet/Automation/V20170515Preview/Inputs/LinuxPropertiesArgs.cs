@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview.Inputs
     /// <summary>
     /// Linux specific update configuration.
     /// </summary>
-    public sealed class LinuxPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class LinuxPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludedPackageNameMasks")]
         private InputList<string>? _excludedPackageNameMasks;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview.Inputs
         public LinuxPropertiesArgs()
         {
         }
+        public static new LinuxPropertiesArgs Empty => new LinuxPropertiesArgs();
     }
 }

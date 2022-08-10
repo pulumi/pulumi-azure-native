@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220201preview:DataContainer")]
-    public partial class DataContainer : Pulumi.CustomResource
+    public partial class DataContainer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:DataContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:DataContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:DataContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:DataContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:DataContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:DataContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         }
     }
 
-    public sealed class DataContainerArgs : Pulumi.ResourceArgs
+    public sealed class DataContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -117,5 +117,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         public DataContainerArgs()
         {
         }
+        public static new DataContainerArgs Empty => new DataContainerArgs();
     }
 }

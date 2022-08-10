@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Optional flags used to change how video is published. These are only allowed for topologies where "kind" is set to "live".
     /// </summary>
-    public sealed class VideoPublishingOptionsArgs : Pulumi.ResourceArgs
+    public sealed class VideoPublishingOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set to 'true' content will not be archived or recorded. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'true', then "disableRtspPublishing" must be set to 'false'.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public VideoPublishingOptionsArgs()
         {
         }
+        public static new VideoPublishingOptionsArgs Empty => new VideoPublishingOptionsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Inputs
 {
 
-    public sealed class OverrideTaskStepPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class OverrideTaskStepPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<Inputs.ArgumentArgs>? _arguments;
@@ -64,5 +64,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         public OverrideTaskStepPropertiesArgs()
         {
         }
+        public static new OverrideTaskStepPropertiesArgs Empty => new OverrideTaskStepPropertiesArgs();
     }
 }

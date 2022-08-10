@@ -149,7 +149,7 @@ func (o FirewallAllowAzureIpsStatePtrOutput) ToStringPtrOutputWithContext(ctx co
 // FirewallAllowAzureIpsStateInput is an input type that accepts FirewallAllowAzureIpsStateArgs and FirewallAllowAzureIpsStateOutput values.
 // You can construct a concrete instance of `FirewallAllowAzureIpsStateInput` via:
 //
-//          FirewallAllowAzureIpsStateArgs{...}
+//	FirewallAllowAzureIpsStateArgs{...}
 type FirewallAllowAzureIpsStateInput interface {
 	pulumi.Input
 
@@ -314,7 +314,7 @@ func (o FirewallStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // FirewallStateInput is an input type that accepts FirewallStateArgs and FirewallStateOutput values.
 // You can construct a concrete instance of `FirewallStateInput` via:
 //
-//          FirewallStateArgs{...}
+//	FirewallStateArgs{...}
 type FirewallStateInput interface {
 	pulumi.Input
 
@@ -486,7 +486,7 @@ func (o TierTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 // TierTypeInput is an input type that accepts TierTypeArgs and TierTypeOutput values.
 // You can construct a concrete instance of `TierTypeInput` via:
 //
-//          TierTypeArgs{...}
+//	TierTypeArgs{...}
 type TierTypeInput interface {
 	pulumi.Input
 

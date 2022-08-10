@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
     /// Represents an instance of a orchestrator.
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails")]
-    public partial class OrchestratorInstanceServiceDetails : Pulumi.CustomResource
+    public partial class OrchestratorInstanceServiceDetails : global::Pulumi.CustomResource
     {
         /// <summary>
         /// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails"},
-                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         }
     }
 
-    public sealed class OrchestratorInstanceServiceDetailsArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratorInstanceServiceDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
@@ -230,5 +230,6 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         public OrchestratorInstanceServiceDetailsArgs()
         {
         }
+        public static new OrchestratorInstanceServiceDetailsArgs Empty => new OrchestratorInstanceServiceDetailsArgs();
     }
 }

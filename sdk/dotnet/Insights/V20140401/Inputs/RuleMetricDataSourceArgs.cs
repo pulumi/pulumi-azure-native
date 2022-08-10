@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20140401.Inputs
     /// <summary>
     /// A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
     /// </summary>
-    public sealed class RuleMetricDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class RuleMetricDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.Insights.V20140401.Inputs
         public RuleMetricDataSourceArgs()
         {
         }
+        public static new RuleMetricDataSourceArgs Empty => new RuleMetricDataSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
     /// <summary>
     /// Map a field of profile to its corresponding StrongId in Related Profile.
     /// </summary>
-    public sealed class RelationshipTypeFieldMappingArgs : Pulumi.ResourceArgs
+    public sealed class RelationshipTypeFieldMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the fieldName in profile.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
         public RelationshipTypeFieldMappingArgs()
         {
         }
+        public static new RelationshipTypeFieldMappingArgs Empty => new RelationshipTypeFieldMappingArgs();
     }
 }

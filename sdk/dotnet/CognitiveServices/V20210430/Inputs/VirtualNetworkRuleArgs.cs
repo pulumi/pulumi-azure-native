@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20210430.Inputs
     /// <summary>
     /// A rule governing the accessibility from a specific virtual network.
     /// </summary>
-    public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20210430.Inputs
         public VirtualNetworkRuleArgs()
         {
         }
+        public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }
 }

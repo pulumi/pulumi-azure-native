@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2015-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:AnalyticsItem")]
-    public partial class AnalyticsItem : Pulumi.CustomResource
+    public partial class AnalyticsItem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The content of this item
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:AnalyticsItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:AnalyticsItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class AnalyticsItemArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of this item
@@ -176,5 +176,6 @@ namespace Pulumi.AzureNative.Insights
         public AnalyticsItemArgs()
         {
         }
+        public static new AnalyticsItemArgs Empty => new AnalyticsItemArgs();
     }
 }

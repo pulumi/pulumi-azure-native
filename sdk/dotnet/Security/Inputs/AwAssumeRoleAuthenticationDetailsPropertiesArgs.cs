@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html"&gt;Creating a Role to Delegate Permissions to an IAM User (write only)&lt;/a&gt;
     /// </summary>
-    public sealed class AwAssumeRoleAuthenticationDetailsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AwAssumeRoleAuthenticationDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public AwAssumeRoleAuthenticationDetailsPropertiesArgs()
         {
         }
+        public static new AwAssumeRoleAuthenticationDetailsPropertiesArgs Empty => new AwAssumeRoleAuthenticationDetailsPropertiesArgs();
     }
 }

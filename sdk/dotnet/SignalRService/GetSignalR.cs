@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SignalRService
     }
 
 
-    public sealed class GetSignalRArgs : Pulumi.InvokeArgs
+    public sealed class GetSignalRArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.SignalRService
         public GetSignalRArgs()
         {
         }
+        public static new GetSignalRArgs Empty => new GetSignalRArgs();
     }
 
-    public sealed class GetSignalRInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSignalRInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.SignalRService
         public GetSignalRInvokeArgs()
         {
         }
+        public static new GetSignalRInvokeArgs Empty => new GetSignalRInvokeArgs();
     }
 
 

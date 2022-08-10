@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808.Inputs
     /// <summary>
     /// Monthly recurrence object.
     /// </summary>
-    public sealed class MonthlyRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class MonthlyRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfMonth", required: true)]
         private InputList<int>? _daysOfMonth;
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808.Inputs
         public MonthlyRecurrenceArgs()
         {
         }
+        public static new MonthlyRecurrenceArgs Empty => new MonthlyRecurrenceArgs();
     }
 }

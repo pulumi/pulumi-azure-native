@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
     }
 
 
-    public sealed class GetProximityPlacementGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetProximityPlacementGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetProximityPlacementGroupArgs()
         {
         }
+        public static new GetProximityPlacementGroupArgs Empty => new GetProximityPlacementGroupArgs();
     }
 
-    public sealed class GetProximityPlacementGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProximityPlacementGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetProximityPlacementGroupInvokeArgs()
         {
         }
+        public static new GetProximityPlacementGroupInvokeArgs Empty => new GetProximityPlacementGroupInvokeArgs();
     }
 
 

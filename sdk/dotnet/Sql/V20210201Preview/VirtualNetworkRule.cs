@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
     /// A virtual network rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210201preview:VirtualNetworkRule")]
-    public partial class VirtualNetworkRule : Pulumi.CustomResource
+    public partial class VirtualNetworkRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Create firewall rule before the virtual network has vnet service endpoint enabled.
@@ -70,14 +70,14 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         }
     }
 
-    public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Create firewall rule before the virtual network has vnet service endpoint enabled.
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         public VirtualNetworkRuleArgs()
         {
         }
+        public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }
 }

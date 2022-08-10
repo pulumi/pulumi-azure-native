@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview.Inputs
     /// <summary>
     /// IP configuration.
     /// </summary>
-    public sealed class InboundEndpointIPConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class InboundEndpointIPConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private IP address of the IP configuration.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Network.V20200401Preview.Inputs
         {
             PrivateIpAllocationMethod = "Dynamic";
         }
+        public static new InboundEndpointIPConfigurationArgs Empty => new InboundEndpointIPConfigurationArgs();
     }
 }

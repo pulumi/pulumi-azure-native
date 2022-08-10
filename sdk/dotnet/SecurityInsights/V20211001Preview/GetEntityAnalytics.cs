@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
     }
 
 
-    public sealed class GetEntityAnalyticsArgs : Pulumi.InvokeArgs
+    public sealed class GetEntityAnalyticsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
         public GetEntityAnalyticsArgs()
         {
         }
+        public static new GetEntityAnalyticsArgs Empty => new GetEntityAnalyticsArgs();
     }
 
-    public sealed class GetEntityAnalyticsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEntityAnalyticsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
         public GetEntityAnalyticsInvokeArgs()
         {
         }
+        public static new GetEntityAnalyticsInvokeArgs Empty => new GetEntityAnalyticsInvokeArgs();
     }
 
 

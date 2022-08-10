@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20171201.Inputs
     /// <summary>
     /// The parameters to provide for the Microsoft Teams channel.
     /// </summary>
-    public sealed class MsTeamsChannelPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MsTeamsChannelPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable messaging for Microsoft Teams channel
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.BotService.V20171201.Inputs
         public MsTeamsChannelPropertiesArgs()
         {
         }
+        public static new MsTeamsChannelPropertiesArgs Empty => new MsTeamsChannelPropertiesArgs();
     }
 }

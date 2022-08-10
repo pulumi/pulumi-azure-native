@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20190601.Inputs
     /// <summary>
     /// A service that allows server-side encryption to be used.
     /// </summary>
-    public sealed class EncryptionServiceArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean indicating whether or not the service encrypts the data as it is stored.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Storage.V20190601.Inputs
         public EncryptionServiceArgs()
         {
         }
+        public static new EncryptionServiceArgs Empty => new EncryptionServiceArgs();
     }
 }

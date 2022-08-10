@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001.Inputs
     /// <summary>
     /// Intrinsic settings which refers to the type of the StorSimple manager
     /// </summary>
-    public sealed class ManagerIntrinsicSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ManagerIntrinsicSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Refers to the type of the StorSimple Manager
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001.Inputs
         public ManagerIntrinsicSettingsArgs()
         {
         }
+        public static new ManagerIntrinsicSettingsArgs Empty => new ManagerIntrinsicSettingsArgs();
     }
 }

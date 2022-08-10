@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Search.V20150819
     }
 
 
-    public sealed class ListQueryKeyBySearchServiceArgs : Pulumi.InvokeArgs
+    public sealed class ListQueryKeyBySearchServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Search.V20150819
         public ListQueryKeyBySearchServiceArgs()
         {
         }
+        public static new ListQueryKeyBySearchServiceArgs Empty => new ListQueryKeyBySearchServiceArgs();
     }
 
-    public sealed class ListQueryKeyBySearchServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListQueryKeyBySearchServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Search.V20150819
         public ListQueryKeyBySearchServiceInvokeArgs()
         {
         }
+        public static new ListQueryKeyBySearchServiceInvokeArgs Empty => new ListQueryKeyBySearchServiceInvokeArgs();
     }
 
 

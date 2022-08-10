@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220401.Inputs
     /// <summary>
     /// Security profile for the container service cluster.
     /// </summary>
-    public sealed class ManagedClusterSecurityProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterSecurityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Defender settings for the security profile.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220401.Inputs
         public ManagedClusterSecurityProfileArgs()
         {
         }
+        public static new ManagedClusterSecurityProfileArgs Empty => new ManagedClusterSecurityProfileArgs();
     }
 }

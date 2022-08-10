@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20211015.Inputs
     /// <summary>
     /// The IP filter rules for a provisioning Service.
     /// </summary>
-    public sealed class TargetIpFilterRuleArgs : Pulumi.ResourceArgs
+    public sealed class TargetIpFilterRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The desired action for requests captured by this rule.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Devices.V20211015.Inputs
         public TargetIpFilterRuleArgs()
         {
         }
+        public static new TargetIpFilterRuleArgs Empty => new TargetIpFilterRuleArgs();
     }
 }

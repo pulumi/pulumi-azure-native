@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Reference to another subresource.
     /// </summary>
-    public sealed class SubResource : Pulumi.InvokeArgs
+    public sealed class SubResource : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Resource ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public SubResource()
         {
         }
+        public static new SubResource Empty => new SubResource();
     }
 }

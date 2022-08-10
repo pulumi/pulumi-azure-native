@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Describes a connection to a MongoDB data source
     /// </summary>
-    public sealed class MongoDbConnectionInfoArgs : Pulumi.ResourceArgs
+    public sealed class MongoDbConnectionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Additional connection settings
@@ -101,5 +101,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         {
             TrustServerCertificate = false;
         }
+        public static new MongoDbConnectionInfoArgs Empty => new MongoDbConnectionInfoArgs();
     }
 }

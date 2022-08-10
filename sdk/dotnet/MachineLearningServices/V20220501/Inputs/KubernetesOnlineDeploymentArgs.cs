@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Properties specific to a KubernetesOnlineDeployment.
     /// </summary>
-    public sealed class KubernetesOnlineDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesOnlineDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, enables Application Insights logging.
@@ -125,5 +125,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         {
             AppInsightsEnabled = false;
         }
+        public static new KubernetesOnlineDeploymentArgs Empty => new KubernetesOnlineDeploymentArgs();
     }
 }

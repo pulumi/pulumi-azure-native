@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview
     /// A SQL virtual machine group.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup")]
-    public partial class SqlVirtualMachineGroup : Pulumi.CustomResource
+    public partial class SqlVirtualMachineGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Cluster type.
@@ -112,10 +112,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:SqlVirtualMachineGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup"},
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:SqlVirtualMachineGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview
         }
     }
 
-    public sealed class SqlVirtualMachineGroupArgs : Pulumi.ResourceArgs
+    public sealed class SqlVirtualMachineGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location.
@@ -190,5 +190,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview
         public SqlVirtualMachineGroupArgs()
         {
         }
+        public static new SqlVirtualMachineGroupArgs Empty => new SqlVirtualMachineGroupArgs();
     }
 }

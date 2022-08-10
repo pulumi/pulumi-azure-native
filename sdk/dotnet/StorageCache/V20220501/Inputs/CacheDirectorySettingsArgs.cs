@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20220501.Inputs
     /// <summary>
     /// Cache Directory Services settings.
     /// </summary>
-    public sealed class CacheDirectorySettingsArgs : Pulumi.ResourceArgs
+    public sealed class CacheDirectorySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies settings for joining the HPC Cache to an Active Directory domain.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.StorageCache.V20220501.Inputs
         public CacheDirectorySettingsArgs()
         {
         }
+        public static new CacheDirectorySettingsArgs Empty => new CacheDirectorySettingsArgs();
     }
 }

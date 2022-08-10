@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview.Inputs
     /// <summary>
     /// Represents a scaling mechanism for adding or removing instances of stateless service partition.
     /// </summary>
-    public sealed class PartitionInstanceCountScaleMechanismArgs : Pulumi.ResourceArgs
+    public sealed class PartitionInstanceCountScaleMechanismArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enumerates the ways that a service can be partitioned.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview.Inputs
         public PartitionInstanceCountScaleMechanismArgs()
         {
         }
+        public static new PartitionInstanceCountScaleMechanismArgs Empty => new PartitionInstanceCountScaleMechanismArgs();
     }
 }

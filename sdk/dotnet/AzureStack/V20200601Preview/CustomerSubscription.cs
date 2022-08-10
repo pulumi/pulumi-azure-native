@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
     /// Customer subscription.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack/v20200601preview:CustomerSubscription")]
-    public partial class CustomerSubscription : Pulumi.CustomResource
+    public partial class CustomerSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The entity tag used for optimistic concurrency when modifying the resource.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:azurestack:CustomerSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:azurestack/v20170601:CustomerSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestack:CustomerSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20170601:CustomerSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         }
     }
 
-    public sealed class CustomerSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class CustomerSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the product.
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         public CustomerSubscriptionArgs()
         {
         }
+        public static new CustomerSubscriptionArgs Empty => new CustomerSubscriptionArgs();
     }
 }

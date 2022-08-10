@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
     /// An HCX Enterprise Site resource
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20210101preview:HcxEnterpriseSite")]
-    public partial class HcxEnterpriseSite : Pulumi.CustomResource
+    public partial class HcxEnterpriseSite : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The activation key
@@ -64,11 +64,11 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200320:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:HcxEnterpriseSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:HcxEnterpriseSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:HcxEnterpriseSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:HcxEnterpriseSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:HcxEnterpriseSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:HcxEnterpriseSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
         }
     }
 
-    public sealed class HcxEnterpriseSiteArgs : Pulumi.ResourceArgs
+    public sealed class HcxEnterpriseSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the HCX Enterprise Site in the private cloud
@@ -113,5 +113,6 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
         public HcxEnterpriseSiteArgs()
         {
         }
+        public static new HcxEnterpriseSiteArgs Empty => new HcxEnterpriseSiteArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure Data Explorer (Kusto) linked service.
     /// </summary>
-    public sealed class AzureDataExplorerLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataExplorerLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureDataExplorerLinkedServiceArgs()
         {
         }
+        public static new AzureDataExplorerLinkedServiceArgs Empty => new AzureDataExplorerLinkedServiceArgs();
     }
 }

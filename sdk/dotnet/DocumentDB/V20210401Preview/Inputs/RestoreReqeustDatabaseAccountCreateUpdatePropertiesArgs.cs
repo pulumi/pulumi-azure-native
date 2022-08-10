@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview.Inputs
     /// <summary>
     /// Properties to restore Azure Cosmos DB database account.
     /// </summary>
-    public sealed class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API specific properties. Currently, supported only for MongoDB API.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview.Inputs
         {
             CreateMode = "Default";
         }
+        public static new RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs Empty => new RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs();
     }
 }

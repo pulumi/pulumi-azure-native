@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// RTSP source.
     /// </summary>
-    public sealed class MediaGraphRtspSourceArgs : Pulumi.ResourceArgs
+    public sealed class MediaGraphRtspSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RTSP endpoint of the stream being connected to.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public MediaGraphRtspSourceArgs()
         {
         }
+        public static new MediaGraphRtspSourceArgs Empty => new MediaGraphRtspSourceArgs();
     }
 }

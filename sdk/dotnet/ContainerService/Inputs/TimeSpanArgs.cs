@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     /// <summary>
     /// The time span with start and end properties.
     /// </summary>
-    public sealed class TimeSpanArgs : Pulumi.ResourceArgs
+    public sealed class TimeSpanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end of a time span
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public TimeSpanArgs()
         {
         }
+        public static new TimeSpanArgs Empty => new TimeSpanArgs();
     }
 }

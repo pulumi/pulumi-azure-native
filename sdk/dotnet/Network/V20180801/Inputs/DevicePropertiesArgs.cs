@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
     /// <summary>
     /// List of properties of the device.
     /// </summary>
-    public sealed class DevicePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DevicePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Model of the device.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
         public DevicePropertiesArgs()
         {
         }
+        public static new DevicePropertiesArgs Empty => new DevicePropertiesArgs();
     }
 }

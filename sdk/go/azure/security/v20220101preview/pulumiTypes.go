@@ -23,7 +23,7 @@ type GovernanceAssignmentAdditionalData struct {
 // GovernanceAssignmentAdditionalDataInput is an input type that accepts GovernanceAssignmentAdditionalDataArgs and GovernanceAssignmentAdditionalDataOutput values.
 // You can construct a concrete instance of `GovernanceAssignmentAdditionalDataInput` via:
 //
-//          GovernanceAssignmentAdditionalDataArgs{...}
+//	GovernanceAssignmentAdditionalDataArgs{...}
 type GovernanceAssignmentAdditionalDataInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i GovernanceAssignmentAdditionalDataArgs) ToGovernanceAssignmentAdditional
 // GovernanceAssignmentAdditionalDataPtrInput is an input type that accepts GovernanceAssignmentAdditionalDataArgs, GovernanceAssignmentAdditionalDataPtr and GovernanceAssignmentAdditionalDataPtrOutput values.
 // You can construct a concrete instance of `GovernanceAssignmentAdditionalDataPtrInput` via:
 //
-//          GovernanceAssignmentAdditionalDataArgs{...}
+//	        GovernanceAssignmentAdditionalDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GovernanceAssignmentAdditionalDataPtrInput interface {
 	pulumi.Input
 
@@ -293,7 +293,7 @@ type GovernanceEmailNotification struct {
 // GovernanceEmailNotificationInput is an input type that accepts GovernanceEmailNotificationArgs and GovernanceEmailNotificationOutput values.
 // You can construct a concrete instance of `GovernanceEmailNotificationInput` via:
 //
-//          GovernanceEmailNotificationArgs{...}
+//	GovernanceEmailNotificationArgs{...}
 type GovernanceEmailNotificationInput interface {
 	pulumi.Input
 
@@ -332,11 +332,11 @@ func (i GovernanceEmailNotificationArgs) ToGovernanceEmailNotificationPtrOutputW
 // GovernanceEmailNotificationPtrInput is an input type that accepts GovernanceEmailNotificationArgs, GovernanceEmailNotificationPtr and GovernanceEmailNotificationPtrOutput values.
 // You can construct a concrete instance of `GovernanceEmailNotificationPtrInput` via:
 //
-//          GovernanceEmailNotificationArgs{...}
+//	        GovernanceEmailNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GovernanceEmailNotificationPtrInput interface {
 	pulumi.Input
 
@@ -529,7 +529,7 @@ type GovernanceRuleEmailNotification struct {
 // GovernanceRuleEmailNotificationInput is an input type that accepts GovernanceRuleEmailNotificationArgs and GovernanceRuleEmailNotificationOutput values.
 // You can construct a concrete instance of `GovernanceRuleEmailNotificationInput` via:
 //
-//          GovernanceRuleEmailNotificationArgs{...}
+//	GovernanceRuleEmailNotificationArgs{...}
 type GovernanceRuleEmailNotificationInput interface {
 	pulumi.Input
 
@@ -568,11 +568,11 @@ func (i GovernanceRuleEmailNotificationArgs) ToGovernanceRuleEmailNotificationPt
 // GovernanceRuleEmailNotificationPtrInput is an input type that accepts GovernanceRuleEmailNotificationArgs, GovernanceRuleEmailNotificationPtr and GovernanceRuleEmailNotificationPtrOutput values.
 // You can construct a concrete instance of `GovernanceRuleEmailNotificationPtrInput` via:
 //
-//          GovernanceRuleEmailNotificationArgs{...}
+//	        GovernanceRuleEmailNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GovernanceRuleEmailNotificationPtrInput interface {
 	pulumi.Input
 
@@ -765,7 +765,7 @@ type GovernanceRuleOwnerSource struct {
 // GovernanceRuleOwnerSourceInput is an input type that accepts GovernanceRuleOwnerSourceArgs and GovernanceRuleOwnerSourceOutput values.
 // You can construct a concrete instance of `GovernanceRuleOwnerSourceInput` via:
 //
-//          GovernanceRuleOwnerSourceArgs{...}
+//	GovernanceRuleOwnerSourceArgs{...}
 type GovernanceRuleOwnerSourceInput interface {
 	pulumi.Input
 
@@ -862,7 +862,7 @@ type RemediationEta struct {
 // RemediationEtaInput is an input type that accepts RemediationEtaArgs and RemediationEtaOutput values.
 // You can construct a concrete instance of `RemediationEtaInput` via:
 //
-//          RemediationEtaArgs{...}
+//	RemediationEtaArgs{...}
 type RemediationEtaInput interface {
 	pulumi.Input
 
@@ -901,11 +901,11 @@ func (i RemediationEtaArgs) ToRemediationEtaPtrOutputWithContext(ctx context.Con
 // RemediationEtaPtrInput is an input type that accepts RemediationEtaArgs, RemediationEtaPtr and RemediationEtaPtrOutput values.
 // You can construct a concrete instance of `RemediationEtaPtrInput` via:
 //
-//          RemediationEtaArgs{...}
+//	        RemediationEtaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemediationEtaPtrInput interface {
 	pulumi.Input
 

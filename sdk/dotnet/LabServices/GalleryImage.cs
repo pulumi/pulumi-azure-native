@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.LabServices
     /// API Version: 2018-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:GalleryImage")]
-    public partial class GalleryImage : Pulumi.CustomResource
+    public partial class GalleryImage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The author of the gallery image.
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20181015:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20181015:GalleryImage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.LabServices
         }
     }
 
-    public sealed class GalleryImageArgs : Pulumi.ResourceArgs
+    public sealed class GalleryImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the gallery Image.
@@ -230,5 +230,6 @@ namespace Pulumi.AzureNative.LabServices
         public GalleryImageArgs()
         {
         }
+        public static new GalleryImageArgs Empty => new GalleryImageArgs();
     }
 }

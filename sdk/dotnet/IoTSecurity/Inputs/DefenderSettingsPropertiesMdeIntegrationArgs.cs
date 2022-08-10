@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTSecurity.Inputs
     /// <summary>
     /// MDE integration configuration
     /// </summary>
-    public sealed class DefenderSettingsPropertiesMdeIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class DefenderSettingsPropertiesMdeIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Integration status
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.IoTSecurity.Inputs
         public DefenderSettingsPropertiesMdeIntegrationArgs()
         {
         }
+        public static new DefenderSettingsPropertiesMdeIntegrationArgs Empty => new DefenderSettingsPropertiesMdeIntegrationArgs();
     }
 }

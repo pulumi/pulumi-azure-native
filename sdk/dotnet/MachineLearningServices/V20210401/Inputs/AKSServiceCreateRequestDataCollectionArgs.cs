@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
     /// <summary>
     /// Details of the data collection options specified.
     /// </summary>
-    public sealed class AKSServiceCreateRequestDataCollectionArgs : Pulumi.ResourceArgs
+    public sealed class AKSServiceCreateRequestDataCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Option for enabling/disabling Event Hub.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
         public AKSServiceCreateRequestDataCollectionArgs()
         {
         }
+        public static new AKSServiceCreateRequestDataCollectionArgs Empty => new AKSServiceCreateRequestDataCollectionArgs();
     }
 }

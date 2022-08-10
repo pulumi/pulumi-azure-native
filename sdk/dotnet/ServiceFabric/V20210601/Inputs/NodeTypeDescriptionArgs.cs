@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     /// </summary>
-    public sealed class NodeTypeDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class NodeTypeDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The range of ports from which cluster assigned port to Service Fabric applications.
@@ -112,5 +112,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
         public NodeTypeDescriptionArgs()
         {
         }
+        public static new NodeTypeDescriptionArgs Empty => new NodeTypeDescriptionArgs();
     }
 }

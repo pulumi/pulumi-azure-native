@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
     /// <summary>
     /// Policy creation properties.
     /// </summary>
-    public sealed class CreatePolicyInputPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CreatePolicyInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ReplicationProviderSettings.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
         public CreatePolicyInputPropertiesArgs()
         {
         }
+        public static new CreatePolicyInputPropertiesArgs Empty => new CreatePolicyInputPropertiesArgs();
     }
 }

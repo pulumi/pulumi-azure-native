@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// SQL stored procedure parameter.
     /// </summary>
-    public sealed class StoredProcedureParameterArgs : Pulumi.ResourceArgs
+    public sealed class StoredProcedureParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Stored procedure parameter type.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public StoredProcedureParameterArgs()
         {
         }
+        public static new StoredProcedureParameterArgs Empty => new StoredProcedureParameterArgs();
     }
 }

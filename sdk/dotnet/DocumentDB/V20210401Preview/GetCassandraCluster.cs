@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview
     }
 
 
-    public sealed class GetCassandraClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetCassandraClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Managed Cassandra cluster name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview
         public GetCassandraClusterArgs()
         {
         }
+        public static new GetCassandraClusterArgs Empty => new GetCassandraClusterArgs();
     }
 
-    public sealed class GetCassandraClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCassandraClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Managed Cassandra cluster name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview
         public GetCassandraClusterInvokeArgs()
         {
         }
+        public static new GetCassandraClusterInvokeArgs Empty => new GetCassandraClusterInvokeArgs();
     }
 
 

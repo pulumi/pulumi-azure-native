@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Inputs
     /// <summary>
     /// Specifies the network settings for the HANA instance disks.
     /// </summary>
-    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("networkInterfaces")]
         private InputList<Inputs.IpAddressArgs>? _networkInterfaces;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Inputs
         public NetworkProfileArgs()
         {
         }
+        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

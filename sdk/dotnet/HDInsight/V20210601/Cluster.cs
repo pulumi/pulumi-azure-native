@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
     /// The HDInsight cluster.
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight/v20210601:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ETag for the resource
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hdinsight:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -177,5 +177,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

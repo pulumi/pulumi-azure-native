@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801
     /// VpnGatewayNatRule Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210801:NatRule")]
-    public partial class NatRule : Pulumi.CustomResource
+    public partial class NatRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of egress VpnSiteLinkConnections.
@@ -100,13 +100,13 @@ namespace Pulumi.AzureNative.Network.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:NatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:NatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:NatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:NatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:NatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:NatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:NatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:NatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:NatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:NatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:NatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:NatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Network.V20210801
         }
     }
 
-    public sealed class NatRuleArgs : Pulumi.ResourceArgs
+    public sealed class NatRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("externalMappings")]
         private InputList<Inputs.VpnNatRuleMappingArgs>? _externalMappings;
@@ -205,5 +205,6 @@ namespace Pulumi.AzureNative.Network.V20210801
         public NatRuleArgs()
         {
         }
+        public static new NatRuleArgs Empty => new NatRuleArgs();
     }
 }

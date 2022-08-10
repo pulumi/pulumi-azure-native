@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
     /// Response for Disk Pool request.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool/v20210801:DiskPool")]
-    public partial class DiskPool : Pulumi.CustomResource
+    public partial class DiskPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of additional capabilities for Disk Pool.
@@ -124,9 +124,9 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storagepool:DiskPool"},
-                    new Pulumi.Alias { Type = "azure-native:storagepool/v20200315preview:DiskPool"},
-                    new Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:DiskPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagepool:DiskPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20200315preview:DiskPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:DiskPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
         }
     }
 
-    public sealed class DiskPoolArgs : Pulumi.ResourceArgs
+    public sealed class DiskPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalCapabilities")]
         private InputList<string>? _additionalCapabilities;
@@ -249,5 +249,6 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
         public DiskPoolArgs()
         {
         }
+        public static new DiskPoolArgs Empty => new DiskPoolArgs();
     }
 }

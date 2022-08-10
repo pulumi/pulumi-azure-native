@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for Dataworld.
     /// </summary>
-    public sealed class DataworldLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class DataworldLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DataworldLinkedServiceArgs()
         {
         }
+        public static new DataworldLinkedServiceArgs Empty => new DataworldLinkedServiceArgs();
     }
 }

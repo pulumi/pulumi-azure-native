@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20210301
     /// Describes the RedisEnterprise cluster
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20210301:RedisEnterprise")]
-    public partial class RedisEnterprise : Pulumi.CustomResource
+    public partial class RedisEnterprise : global::Pulumi.CustomResource
     {
         /// <summary>
         /// DNS name of the cluster endpoint
@@ -112,11 +112,11 @@ namespace Pulumi.AzureNative.Cache.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cache:RedisEnterprise"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20201001preview:RedisEnterprise"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20210201preview:RedisEnterprise"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20210801:RedisEnterprise"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20220101:RedisEnterprise"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache:RedisEnterprise"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201001preview:RedisEnterprise"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210201preview:RedisEnterprise"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:RedisEnterprise"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220101:RedisEnterprise"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Cache.V20210301
         }
     }
 
-    public sealed class RedisEnterpriseArgs : Pulumi.ResourceArgs
+    public sealed class RedisEnterpriseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -197,5 +197,6 @@ namespace Pulumi.AzureNative.Cache.V20210301
         public RedisEnterpriseArgs()
         {
         }
+        public static new RedisEnterpriseArgs Empty => new RedisEnterpriseArgs();
     }
 }

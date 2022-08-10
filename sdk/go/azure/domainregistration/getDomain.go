@@ -208,7 +208,8 @@ func (o LookupDomainResultOutput) ProvisioningState() pulumi.StringOutput {
 }
 
 // <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and
-//  it is hosted on name servers Azure has programmatic access to.
+//
+//	it is hosted on name servers Azure has programmatic access to.
 func (o LookupDomainResultOutput) ReadyForDnsRecordManagement() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.ReadyForDnsRecordManagement }).(pulumi.BoolOutput)
 }

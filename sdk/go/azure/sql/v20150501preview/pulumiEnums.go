@@ -141,7 +141,7 @@ func (o AutoExecuteStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // AutoExecuteStatusInput is an input type that accepts AutoExecuteStatusArgs and AutoExecuteStatusOutput values.
 // You can construct a concrete instance of `AutoExecuteStatusInput` via:
 //
-//          AutoExecuteStatusArgs{...}
+//	AutoExecuteStatusArgs{...}
 type AutoExecuteStatusInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o BlobAuditingPolicyStatePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // BlobAuditingPolicyStateInput is an input type that accepts BlobAuditingPolicyStateArgs and BlobAuditingPolicyStateOutput values.
 // You can construct a concrete instance of `BlobAuditingPolicyStateInput` via:
 //
-//          BlobAuditingPolicyStateArgs{...}
+//	BlobAuditingPolicyStateArgs{...}
 type BlobAuditingPolicyStateInput interface {
 	pulumi.Input
 

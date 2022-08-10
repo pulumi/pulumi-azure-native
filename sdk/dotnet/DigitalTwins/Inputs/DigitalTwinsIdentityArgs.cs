@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
     /// <summary>
     /// The managed identity for the DigitalTwinsInstance.
     /// </summary>
-    public sealed class DigitalTwinsIdentityArgs : Pulumi.ResourceArgs
+    public sealed class DigitalTwinsIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
         public DigitalTwinsIdentityArgs()
         {
         }
+        public static new DigitalTwinsIdentityArgs Empty => new DigitalTwinsIdentityArgs();
     }
 }

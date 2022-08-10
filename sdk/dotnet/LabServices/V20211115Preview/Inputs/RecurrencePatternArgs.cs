@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview.Inputs
     /// <summary>
     /// Recurrence pattern of a lab schedule.
     /// </summary>
-    public sealed class RecurrencePatternArgs : Pulumi.ResourceArgs
+    public sealed class RecurrencePatternArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When the recurrence will expire. This date is inclusive.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview.Inputs
         public RecurrencePatternArgs()
         {
         }
+        public static new RecurrencePatternArgs Empty => new RecurrencePatternArgs();
     }
 }

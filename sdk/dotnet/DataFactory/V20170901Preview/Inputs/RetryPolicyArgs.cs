@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Execution policy for an activity.
     /// </summary>
-    public sealed class RetryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RetryPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public RetryPolicyArgs()
         {
         }
+        public static new RetryPolicyArgs Empty => new RetryPolicyArgs();
     }
 }

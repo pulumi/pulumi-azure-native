@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// Image Classification. Multi-class image classification is used when an image is classified with only a single label
     /// from a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'.
     /// </summary>
-    public sealed class ImageClassificationArgs : Pulumi.ResourceArgs
+    public sealed class ImageClassificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Collection of registered Tabular Dataset Ids and other data settings required for training and validating models.
@@ -76,5 +76,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             LogVerbosity = "Info";
             PrimaryMetric = "Accuracy";
         }
+        public static new ImageClassificationArgs Empty => new ImageClassificationArgs();
     }
 }

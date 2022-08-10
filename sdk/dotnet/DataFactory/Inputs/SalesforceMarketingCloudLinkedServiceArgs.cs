@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Salesforce Marketing Cloud linked service.
     /// </summary>
-    public sealed class SalesforceMarketingCloudLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class SalesforceMarketingCloudLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SalesforceMarketingCloudLinkedServiceArgs()
         {
         }
+        public static new SalesforceMarketingCloudLinkedServiceArgs Empty => new SalesforceMarketingCloudLinkedServiceArgs();
     }
 }

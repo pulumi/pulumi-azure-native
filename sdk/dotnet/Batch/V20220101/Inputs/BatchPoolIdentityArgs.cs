@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20220101.Inputs
     /// <summary>
     /// The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
     /// </summary>
-    public sealed class BatchPoolIdentityArgs : Pulumi.ResourceArgs
+    public sealed class BatchPoolIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the Batch Pool.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Batch.V20220101.Inputs
         public BatchPoolIdentityArgs()
         {
         }
+        public static new BatchPoolIdentityArgs Empty => new BatchPoolIdentityArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HybridData.V20160601
     /// </summary>
     [Obsolete(@"Version 2016-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:hybriddata/v20160601:DataManager")]
-    public partial class DataManager : Pulumi.CustomResource
+    public partial class DataManager : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the Resource.
@@ -80,8 +80,8 @@ namespace Pulumi.AzureNative.HybridData.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybriddata:DataManager"},
-                    new Pulumi.Alias { Type = "azure-native:hybriddata/v20190601:DataManager"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybriddata:DataManager"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybriddata/v20190601:DataManager"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.HybridData.V20160601
         }
     }
 
-    public sealed class DataManagerArgs : Pulumi.ResourceArgs
+    public sealed class DataManagerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -147,5 +147,6 @@ namespace Pulumi.AzureNative.HybridData.V20160601
         public DataManagerArgs()
         {
         }
+        public static new DataManagerArgs Empty => new DataManagerArgs();
     }
 }

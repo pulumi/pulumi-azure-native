@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180401.Inputs
     /// <summary>
     /// Application Gateway Ssl policy.
     /// </summary>
-    public sealed class ApplicationGatewaySslPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewaySslPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("cipherSuites")]
         private InputList<Union<string, Pulumi.AzureNative.Network.V20180401.ApplicationGatewaySslCipherSuite>>? _cipherSuites;
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Network.V20180401.Inputs
         public ApplicationGatewaySslPolicyArgs()
         {
         }
+        public static new ApplicationGatewaySslPolicyArgs Empty => new ApplicationGatewaySslPolicyArgs();
     }
 }

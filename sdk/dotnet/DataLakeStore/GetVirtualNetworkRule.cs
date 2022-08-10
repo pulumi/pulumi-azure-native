@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataLakeStore
     }
 
 
-    public sealed class GetVirtualNetworkRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Data Lake Store account.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.DataLakeStore
         public GetVirtualNetworkRuleArgs()
         {
         }
+        public static new GetVirtualNetworkRuleArgs Empty => new GetVirtualNetworkRuleArgs();
     }
 
-    public sealed class GetVirtualNetworkRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Data Lake Store account.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.DataLakeStore
         public GetVirtualNetworkRuleInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkRuleInvokeArgs Empty => new GetVirtualNetworkRuleInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20200701Preview
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration/v20200701preview:ConfigurationStore")]
-    public partial class ConfigurationStore : Pulumi.CustomResource
+    public partial class ConfigurationStore : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of configuration store.
@@ -112,14 +112,14 @@ namespace Pulumi.AzureNative.AppConfiguration.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20190201preview:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20191001:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:ConfigurationStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration:ConfigurationStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20190201preview:ConfigurationStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20191001:ConfigurationStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:ConfigurationStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:ConfigurationStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:ConfigurationStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:ConfigurationStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:ConfigurationStore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20200701Preview
         }
     }
 
-    public sealed class ConfigurationStoreArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.AppConfiguration.V20200701Preview
         public ConfigurationStoreArgs()
         {
         }
+        public static new ConfigurationStoreArgs Empty => new ConfigurationStoreArgs();
     }
 }

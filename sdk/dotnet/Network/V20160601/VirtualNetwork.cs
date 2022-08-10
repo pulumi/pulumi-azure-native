@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20160601
     /// </summary>
     [Obsolete(@"Version 2016-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20160601:VirtualNetwork")]
-    public partial class VirtualNetwork : Pulumi.CustomResource
+    public partial class VirtualNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
@@ -107,47 +107,47 @@ namespace Pulumi.AzureNative.Network.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20150615:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160330:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160901:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20161201:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170601:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170801:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171101:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180101:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20150615:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160330:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -169,7 +169,7 @@ namespace Pulumi.AzureNative.Network.V20160601
         }
     }
 
-    public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
@@ -258,5 +258,6 @@ namespace Pulumi.AzureNative.Network.V20160601
         public VirtualNetworkArgs()
         {
         }
+        public static new VirtualNetworkArgs Empty => new VirtualNetworkArgs();
     }
 }

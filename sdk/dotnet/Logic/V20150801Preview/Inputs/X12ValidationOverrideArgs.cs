@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class X12ValidationOverrideArgs : Pulumi.ResourceArgs
+    public sealed class X12ValidationOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to allow leading and trailing spaces and zeroes.
@@ -57,5 +57,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public X12ValidationOverrideArgs()
         {
         }
+        public static new X12ValidationOverrideArgs Empty => new X12ValidationOverrideArgs();
     }
 }

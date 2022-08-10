@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
     /// <summary>
     /// Reference to a public IP address.
     /// </summary>
-    public sealed class ReferencedPublicIpAddressArgs : Pulumi.ResourceArgs
+    public sealed class ReferencedPublicIpAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The PublicIPAddress Reference.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
         public ReferencedPublicIpAddressArgs()
         {
         }
+        public static new ReferencedPublicIpAddressArgs Empty => new ReferencedPublicIpAddressArgs();
     }
 }

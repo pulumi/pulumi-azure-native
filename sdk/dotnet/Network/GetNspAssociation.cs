@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetNspAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetNspAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NSP association.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Network
         public GetNspAssociationArgs()
         {
         }
+        public static new GetNspAssociationArgs Empty => new GetNspAssociationArgs();
     }
 
-    public sealed class GetNspAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNspAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NSP association.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Network
         public GetNspAssociationInvokeArgs()
         {
         }
+        public static new GetNspAssociationInvokeArgs Empty => new GetNspAssociationInvokeArgs();
     }
 
 

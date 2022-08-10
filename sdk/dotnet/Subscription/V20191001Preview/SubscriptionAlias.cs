@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
     /// </summary>
     [Obsolete(@"Version 2019-10-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:subscription/v20191001preview:SubscriptionAlias")]
-    public partial class SubscriptionAlias : Pulumi.CustomResource
+    public partial class SubscriptionAlias : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Alias ID.
@@ -59,9 +59,9 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:subscription:SubscriptionAlias"},
-                    new Pulumi.Alias { Type = "azure-native:subscription/v20200901:SubscriptionAlias"},
-                    new Pulumi.Alias { Type = "azure-native:subscription/v20211001:SubscriptionAlias"},
+                    new global::Pulumi.Alias { Type = "azure-native:subscription:SubscriptionAlias"},
+                    new global::Pulumi.Alias { Type = "azure-native:subscription/v20200901:SubscriptionAlias"},
+                    new global::Pulumi.Alias { Type = "azure-native:subscription/v20211001:SubscriptionAlias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
         }
     }
 
-    public sealed class SubscriptionAliasArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionAliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
@@ -100,5 +100,6 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
         public SubscriptionAliasArgs()
         {
         }
+        public static new SubscriptionAliasArgs Empty => new SubscriptionAliasArgs();
     }
 }

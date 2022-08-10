@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Rest Service linked service.
     /// </summary>
-    public sealed class RestServiceLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class RestServiceLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource you are requesting authorization to use.
@@ -169,5 +169,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public RestServiceLinkedServiceArgs()
         {
         }
+        public static new RestServiceLinkedServiceArgs Empty => new RestServiceLinkedServiceArgs();
     }
 }

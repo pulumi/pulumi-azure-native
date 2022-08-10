@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210410PrivatePreview.Inputs
     /// <summary>
     /// Sku information related properties of a server.
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210410PrivatePreview.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

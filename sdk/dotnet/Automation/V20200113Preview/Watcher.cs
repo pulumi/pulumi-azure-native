@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     /// Definition of the watcher type.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20200113preview:Watcher")]
-    public partial class Watcher : Pulumi.CustomResource
+    public partial class Watcher : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the creation time.
@@ -124,9 +124,9 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation:Watcher"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Watcher"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Watcher"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:Watcher"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Watcher"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Watcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         }
     }
 
-    public sealed class WatcherArgs : Pulumi.ResourceArgs
+    public sealed class WatcherArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -225,5 +225,6 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         public WatcherArgs()
         {
         }
+        public static new WatcherArgs Empty => new WatcherArgs();
     }
 }

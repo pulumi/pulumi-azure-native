@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
     /// <summary>
     /// IaaS VM specific backup protection intent item.
     /// </summary>
-    public sealed class AzureResourceProtectionIntentArgs : Pulumi.ResourceArgs
+    public sealed class AzureResourceProtectionIntentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the backed up item.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         public AzureResourceProtectionIntentArgs()
         {
         }
+        public static new AzureResourceProtectionIntentArgs Empty => new AzureResourceProtectionIntentArgs();
     }
 }

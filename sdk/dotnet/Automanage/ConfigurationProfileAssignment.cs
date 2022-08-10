@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Automanage
     /// API Version: 2020-06-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfileAssignment")]
-    public partial class ConfigurationProfileAssignment : Pulumi.CustomResource
+    public partial class ConfigurationProfileAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -59,9 +59,9 @@ namespace Pulumi.AzureNative.Automanage
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:automanage/v20220504:ConfigurationProfileAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20220504:ConfigurationProfileAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Automanage
         }
     }
 
-    public sealed class ConfigurationProfileAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the configuration profile assignment. Only default is supported.
@@ -112,5 +112,6 @@ namespace Pulumi.AzureNative.Automanage
         public ConfigurationProfileAssignmentArgs()
         {
         }
+        public static new ConfigurationProfileAssignmentArgs Empty => new ConfigurationProfileAssignmentArgs();
     }
 }

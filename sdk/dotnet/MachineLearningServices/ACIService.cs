@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ACIService")]
-    public partial class ACIService : Pulumi.CustomResource
+    public partial class ACIService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -96,11 +96,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:ACIService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:ACIService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:ACIService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:ACIService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:ACIService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:ACIService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:ACIService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:ACIService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:ACIService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:ACIService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class ACIServiceArgs : Pulumi.ResourceArgs
+    public sealed class ACIServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not Application Insights is enabled.
@@ -269,5 +269,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
             AuthEnabled = false;
             SslEnabled = false;
         }
+        public static new ACIServiceArgs Empty => new ACIServiceArgs();
     }
 }

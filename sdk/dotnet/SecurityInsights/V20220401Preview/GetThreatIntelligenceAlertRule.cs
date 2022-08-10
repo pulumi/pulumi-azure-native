@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     }
 
 
-    public sealed class GetThreatIntelligenceAlertRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetThreatIntelligenceAlertRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public GetThreatIntelligenceAlertRuleArgs()
         {
         }
+        public static new GetThreatIntelligenceAlertRuleArgs Empty => new GetThreatIntelligenceAlertRuleArgs();
     }
 
-    public sealed class GetThreatIntelligenceAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetThreatIntelligenceAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public GetThreatIntelligenceAlertRuleInvokeArgs()
         {
         }
+        public static new GetThreatIntelligenceAlertRuleInvokeArgs Empty => new GetThreatIntelligenceAlertRuleInvokeArgs();
     }
 
 

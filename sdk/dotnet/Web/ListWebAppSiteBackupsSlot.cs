@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class ListWebAppSiteBackupsSlotArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppSiteBackupsSlotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Web
         public ListWebAppSiteBackupsSlotArgs()
         {
         }
+        public static new ListWebAppSiteBackupsSlotArgs Empty => new ListWebAppSiteBackupsSlotArgs();
     }
 
-    public sealed class ListWebAppSiteBackupsSlotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppSiteBackupsSlotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Web
         public ListWebAppSiteBackupsSlotInvokeArgs()
         {
         }
+        public static new ListWebAppSiteBackupsSlotInvokeArgs Empty => new ListWebAppSiteBackupsSlotInvokeArgs();
     }
 
 

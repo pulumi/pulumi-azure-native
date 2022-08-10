@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
     /// API Version: 2017-11-03-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hanaonazure:HanaInstance")]
-    public partial class HanaInstance : Pulumi.CustomResource
+    public partial class HanaInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the HANA instance unique ID.
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hanaonazure/v20171103preview:HanaInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:hanaonazure/v20171103preview:HanaInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
         }
     }
 
-    public sealed class HanaInstanceArgs : Pulumi.ResourceArgs
+    public sealed class HanaInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the SAP HANA on Azure instance.
@@ -206,5 +206,6 @@ namespace Pulumi.AzureNative.HanaOnAzure
         public HanaInstanceArgs()
         {
         }
+        public static new HanaInstanceArgs Empty => new HanaInstanceArgs();
     }
 }

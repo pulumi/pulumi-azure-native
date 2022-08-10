@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
 {
 
-    public sealed class LifetimeActionArgs : Pulumi.ResourceArgs
+    public sealed class LifetimeActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action of key rotation policy lifetimeAction.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
         public LifetimeActionArgs()
         {
         }
+        public static new LifetimeActionArgs Empty => new LifetimeActionArgs();
     }
 }

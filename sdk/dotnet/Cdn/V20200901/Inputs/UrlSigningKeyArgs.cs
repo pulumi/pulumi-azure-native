@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// Url signing key
     /// </summary>
-    public sealed class UrlSigningKeyArgs : Pulumi.ResourceArgs
+    public sealed class UrlSigningKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public UrlSigningKeyArgs()
         {
         }
+        public static new UrlSigningKeyArgs Empty => new UrlSigningKeyArgs();
     }
 }

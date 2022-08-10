@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801.Inputs
     /// <summary>
     /// Represents a single status change.
     /// </summary>
-    public sealed class OrderStatusArgs : Pulumi.ResourceArgs
+    public sealed class OrderStatusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Comments related to this status change.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801.Inputs
         public OrderStatusArgs()
         {
         }
+        public static new OrderStatusArgs Empty => new OrderStatusArgs();
     }
 }

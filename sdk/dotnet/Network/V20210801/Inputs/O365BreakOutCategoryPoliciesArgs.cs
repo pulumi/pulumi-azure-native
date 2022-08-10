@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Office365 breakout categories.
     /// </summary>
-    public sealed class O365BreakOutCategoryPoliciesArgs : Pulumi.ResourceArgs
+    public sealed class O365BreakOutCategoryPoliciesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to control allow category.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public O365BreakOutCategoryPoliciesArgs()
         {
         }
+        public static new O365BreakOutCategoryPoliciesArgs Empty => new O365BreakOutCategoryPoliciesArgs();
     }
 }

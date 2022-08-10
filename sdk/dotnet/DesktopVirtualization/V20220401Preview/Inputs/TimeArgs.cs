@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview.Inputs
     /// <summary>
     /// The time for a scaling action to occur.
     /// </summary>
-    public sealed class TimeArgs : Pulumi.ResourceArgs
+    public sealed class TimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hour.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview.Inputs
         public TimeArgs()
         {
         }
+        public static new TimeArgs Empty => new TimeArgs();
     }
 }

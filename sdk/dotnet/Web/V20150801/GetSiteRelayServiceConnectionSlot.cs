@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     }
 
 
-    public sealed class GetSiteRelayServiceConnectionSlotArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteRelayServiceConnectionSlotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name by which the Hybrid Connection is identified
@@ -55,9 +55,10 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetSiteRelayServiceConnectionSlotArgs()
         {
         }
+        public static new GetSiteRelayServiceConnectionSlotArgs Empty => new GetSiteRelayServiceConnectionSlotArgs();
     }
 
-    public sealed class GetSiteRelayServiceConnectionSlotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteRelayServiceConnectionSlotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name by which the Hybrid Connection is identified
@@ -86,6 +87,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetSiteRelayServiceConnectionSlotInvokeArgs()
         {
         }
+        public static new GetSiteRelayServiceConnectionSlotInvokeArgs Empty => new GetSiteRelayServiceConnectionSlotInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
     /// An object that represents a token for a container registry.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20210601preview:Token")]
-    public partial class Token : Pulumi.CustomResource
+    public partial class Token : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of scope map.
@@ -88,12 +88,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:Token"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:Token"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Token"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Token"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Token"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Token"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Token"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:Token"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Token"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Token"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Token"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Token"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
         }
     }
 
-    public sealed class TokenArgs : Pulumi.ResourceArgs
+    public sealed class TokenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The credentials that can be used for authenticating the token.
@@ -156,5 +156,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
         public TokenArgs()
         {
         }
+        public static new TokenArgs Empty => new TokenArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// Class for envelope encryption scheme
     /// </summary>
-    public sealed class CommonEncryptionCencArgs : Pulumi.ResourceArgs
+    public sealed class CommonEncryptionCencArgs : global::Pulumi.ResourceArgs
     {
         [Input("clearTracks")]
         private InputList<Inputs.TrackSelectionArgs>? _clearTracks;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public CommonEncryptionCencArgs()
         {
         }
+        public static new CommonEncryptionCencArgs Empty => new CommonEncryptionCencArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
     /// <summary>
     /// Auto-pausing properties of a Big Data pool powered by Apache Spark
     /// </summary>
-    public sealed class AutoPausePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AutoPausePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of minutes of idle time before the Big Data pool is automatically paused.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
         public AutoPausePropertiesArgs()
         {
         }
+        public static new AutoPausePropertiesArgs Empty => new AutoPausePropertiesArgs();
     }
 }

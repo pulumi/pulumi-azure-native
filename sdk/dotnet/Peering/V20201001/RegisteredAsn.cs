@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Peering.V20201001
     /// </summary>
     [Obsolete(@"Version 2020-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:peering/v20201001:RegisteredAsn")]
-    public partial class RegisteredAsn : Pulumi.CustomResource
+    public partial class RegisteredAsn : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The customer's ASN from which traffic originates.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureNative.Peering.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:peering:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20210101:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20210601:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20220101:RegisteredAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering:RegisteredAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200101preview:RegisteredAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200401:RegisteredAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210101:RegisteredAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:RegisteredAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:RegisteredAsn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Peering.V20201001
         }
     }
 
-    public sealed class RegisteredAsnArgs : Pulumi.ResourceArgs
+    public sealed class RegisteredAsnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The customer's ASN from which traffic originates.
@@ -127,5 +127,6 @@ namespace Pulumi.AzureNative.Peering.V20201001
         public RegisteredAsnArgs()
         {
         }
+        public static new RegisteredAsnArgs Empty => new RegisteredAsnArgs();
     }
 }

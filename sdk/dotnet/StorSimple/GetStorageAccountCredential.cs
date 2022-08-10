@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StorSimple
     }
 
 
-    public sealed class GetStorageAccountCredentialArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageAccountCredentialArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.StorSimple
         public GetStorageAccountCredentialArgs()
         {
         }
+        public static new GetStorageAccountCredentialArgs Empty => new GetStorageAccountCredentialArgs();
     }
 
-    public sealed class GetStorageAccountCredentialInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageAccountCredentialInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.StorSimple
         public GetStorageAccountCredentialInvokeArgs()
         {
         }
+        public static new GetStorageAccountCredentialInvokeArgs Empty => new GetStorageAccountCredentialInvokeArgs();
     }
 
 

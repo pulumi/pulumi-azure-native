@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Regression task in AutoML Table vertical.
     /// </summary>
-    public sealed class RegressionArgs : Pulumi.ResourceArgs
+    public sealed class RegressionArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedModels")]
         private InputList<Union<string, Pulumi.AzureNative.MachineLearningServices.V20220201Preview.RegressionModels>>? _allowedModels;
@@ -87,5 +87,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             LogVerbosity = "Info";
             PrimaryMetric = "NormalizedRootMeanSquaredError";
         }
+        public static new RegressionArgs Empty => new RegressionArgs();
     }
 }

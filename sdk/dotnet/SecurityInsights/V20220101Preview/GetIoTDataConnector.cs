@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
     }
 
 
-    public sealed class GetIoTDataConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetIoTDataConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         public GetIoTDataConnectorArgs()
         {
         }
+        public static new GetIoTDataConnectorArgs Empty => new GetIoTDataConnectorArgs();
     }
 
-    public sealed class GetIoTDataConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIoTDataConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         public GetIoTDataConnectorInvokeArgs()
         {
         }
+        public static new GetIoTDataConnectorInvokeArgs Empty => new GetIoTDataConnectorInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview.Inputs
     /// <summary>
     /// Plan for solution object supported by the OperationsManagement resource provider.
     /// </summary>
-    public sealed class SolutionPlanArgs : Pulumi.ResourceArgs
+    public sealed class SolutionPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview.Inputs
         public SolutionPlanArgs()
         {
         }
+        public static new SolutionPlanArgs Empty => new SolutionPlanArgs();
     }
 }

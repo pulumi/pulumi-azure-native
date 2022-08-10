@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// An alert action.
     /// </summary>
-    public sealed class MetricAlertActionArgs : Pulumi.ResourceArgs
+    public sealed class MetricAlertActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the id of the action group to use.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public MetricAlertActionArgs()
         {
         }
+        public static new MetricAlertActionArgs Empty => new MetricAlertActionArgs();
     }
 }

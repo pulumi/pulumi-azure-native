@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Request body for adding a new or existing data disk to a virtual machine.
     /// </summary>
-    public sealed class DataDiskPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DataDiskPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies options to attach a new disk to the virtual machine.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         public DataDiskPropertiesArgs()
         {
         }
+        public static new DataDiskPropertiesArgs Empty => new DataDiskPropertiesArgs();
     }
 }

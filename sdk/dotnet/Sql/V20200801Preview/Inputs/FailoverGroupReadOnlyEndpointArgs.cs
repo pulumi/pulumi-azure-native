@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview.Inputs
     /// <summary>
     /// Read-only endpoint of the failover group instance.
     /// </summary>
-    public sealed class FailoverGroupReadOnlyEndpointArgs : Pulumi.ResourceArgs
+    public sealed class FailoverGroupReadOnlyEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Failover policy of the read-only endpoint for the failover group.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview.Inputs
         public FailoverGroupReadOnlyEndpointArgs()
         {
         }
+        public static new FailoverGroupReadOnlyEndpointArgs Empty => new FailoverGroupReadOnlyEndpointArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20210601.Inputs
     /// <summary>
     /// Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
     /// </summary>
-    public sealed class IdentityArgs : Pulumi.ResourceArgs
+    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Authorization.V20210601.Inputs
         public IdentityArgs()
         {
         }
+        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

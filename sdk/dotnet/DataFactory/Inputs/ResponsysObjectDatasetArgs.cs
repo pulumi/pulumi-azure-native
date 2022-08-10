@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Responsys dataset.
     /// </summary>
-    public sealed class ResponsysObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class ResponsysObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ResponsysObjectDatasetArgs()
         {
         }
+        public static new ResponsysObjectDatasetArgs Empty => new ResponsysObjectDatasetArgs();
     }
 }

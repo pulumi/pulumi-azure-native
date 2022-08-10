@@ -72,7 +72,7 @@ type BlockchainMemberNodesSku struct {
 // BlockchainMemberNodesSkuInput is an input type that accepts BlockchainMemberNodesSkuArgs and BlockchainMemberNodesSkuOutput values.
 // You can construct a concrete instance of `BlockchainMemberNodesSkuInput` via:
 //
-//          BlockchainMemberNodesSkuArgs{...}
+//	BlockchainMemberNodesSkuArgs{...}
 type BlockchainMemberNodesSkuInput interface {
 	pulumi.Input
 
@@ -109,11 +109,11 @@ func (i BlockchainMemberNodesSkuArgs) ToBlockchainMemberNodesSkuPtrOutputWithCon
 // BlockchainMemberNodesSkuPtrInput is an input type that accepts BlockchainMemberNodesSkuArgs, BlockchainMemberNodesSkuPtr and BlockchainMemberNodesSkuPtrOutput values.
 // You can construct a concrete instance of `BlockchainMemberNodesSkuPtrInput` via:
 //
-//          BlockchainMemberNodesSkuArgs{...}
+//	        BlockchainMemberNodesSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BlockchainMemberNodesSkuPtrInput interface {
 	pulumi.Input
 
@@ -329,7 +329,7 @@ type FirewallRule struct {
 // FirewallRuleInput is an input type that accepts FirewallRuleArgs and FirewallRuleOutput values.
 // You can construct a concrete instance of `FirewallRuleInput` via:
 //
-//          FirewallRuleArgs{...}
+//	FirewallRuleArgs{...}
 type FirewallRuleInput interface {
 	pulumi.Input
 
@@ -362,7 +362,7 @@ func (i FirewallRuleArgs) ToFirewallRuleOutputWithContext(ctx context.Context) F
 // FirewallRuleArrayInput is an input type that accepts FirewallRuleArray and FirewallRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallRuleArrayInput` via:
 //
-//          FirewallRuleArray{ FirewallRuleArgs{...} }
+//	FirewallRuleArray{ FirewallRuleArgs{...} }
 type FirewallRuleArrayInput interface {
 	pulumi.Input
 
@@ -505,7 +505,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -544,11 +544,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 

@@ -23,7 +23,7 @@ type AccountEncryption struct {
 // AccountEncryptionInput is an input type that accepts AccountEncryptionArgs and AccountEncryptionOutput values.
 // You can construct a concrete instance of `AccountEncryptionInput` via:
 //
-//          AccountEncryptionArgs{...}
+//	AccountEncryptionArgs{...}
 type AccountEncryptionInput interface {
 	pulumi.Input
 
@@ -231,7 +231,7 @@ type JwtAuthentication struct {
 // JwtAuthenticationInput is an input type that accepts JwtAuthenticationArgs and JwtAuthenticationOutput values.
 // You can construct a concrete instance of `JwtAuthenticationInput` via:
 //
-//          JwtAuthenticationArgs{...}
+//	JwtAuthenticationArgs{...}
 type JwtAuthenticationInput interface {
 	pulumi.Input
 
@@ -277,11 +277,11 @@ func (i JwtAuthenticationArgs) ToJwtAuthenticationPtrOutputWithContext(ctx conte
 // JwtAuthenticationPtrInput is an input type that accepts JwtAuthenticationArgs, JwtAuthenticationPtr and JwtAuthenticationPtrOutput values.
 // You can construct a concrete instance of `JwtAuthenticationPtrInput` via:
 //
-//          JwtAuthenticationArgs{...}
+//	        JwtAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JwtAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -573,7 +573,7 @@ type KeyVaultProperties struct {
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesInput` via:
 //
-//          KeyVaultPropertiesArgs{...}
+//	KeyVaultPropertiesArgs{...}
 type KeyVaultPropertiesInput interface {
 	pulumi.Input
 
@@ -610,11 +610,11 @@ func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx con
 // KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
 //
-//          KeyVaultPropertiesArgs{...}
+//	        KeyVaultPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KeyVaultPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -790,7 +790,7 @@ type ResourceIdentity struct {
 // ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
 // You can construct a concrete instance of `ResourceIdentityInput` via:
 //
-//          ResourceIdentityArgs{...}
+//	ResourceIdentityArgs{...}
 type ResourceIdentityInput interface {
 	pulumi.Input
 
@@ -827,11 +827,11 @@ func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context
 // ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
 // You can construct a concrete instance of `ResourceIdentityPtrInput` via:
 //
-//          ResourceIdentityArgs{...}
+//	        ResourceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1022,7 +1022,7 @@ type StorageAccount struct {
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
 // You can construct a concrete instance of `StorageAccountInput` via:
 //
-//          StorageAccountArgs{...}
+//	StorageAccountArgs{...}
 type StorageAccountInput interface {
 	pulumi.Input
 
@@ -1053,7 +1053,7 @@ func (i StorageAccountArgs) ToStorageAccountOutputWithContext(ctx context.Contex
 // StorageAccountArrayInput is an input type that accepts StorageAccountArray and StorageAccountArrayOutput values.
 // You can construct a concrete instance of `StorageAccountArrayInput` via:
 //
-//          StorageAccountArray{ StorageAccountArgs{...} }
+//	StorageAccountArray{ StorageAccountArgs{...} }
 type StorageAccountArrayInput interface {
 	pulumi.Input
 
@@ -1252,7 +1252,7 @@ type TokenClaim struct {
 // TokenClaimInput is an input type that accepts TokenClaimArgs and TokenClaimOutput values.
 // You can construct a concrete instance of `TokenClaimInput` via:
 //
-//          TokenClaimArgs{...}
+//	TokenClaimArgs{...}
 type TokenClaimInput interface {
 	pulumi.Input
 
@@ -1283,7 +1283,7 @@ func (i TokenClaimArgs) ToTokenClaimOutputWithContext(ctx context.Context) Token
 // TokenClaimArrayInput is an input type that accepts TokenClaimArray and TokenClaimArrayOutput values.
 // You can construct a concrete instance of `TokenClaimArrayInput` via:
 //
-//          TokenClaimArray{ TokenClaimArgs{...} }
+//	TokenClaimArray{ TokenClaimArgs{...} }
 type TokenClaimArrayInput interface {
 	pulumi.Input
 
@@ -1467,7 +1467,7 @@ type VideoAnalyzerIdentity struct {
 // VideoAnalyzerIdentityInput is an input type that accepts VideoAnalyzerIdentityArgs and VideoAnalyzerIdentityOutput values.
 // You can construct a concrete instance of `VideoAnalyzerIdentityInput` via:
 //
-//          VideoAnalyzerIdentityArgs{...}
+//	VideoAnalyzerIdentityArgs{...}
 type VideoAnalyzerIdentityInput interface {
 	pulumi.Input
 
@@ -1506,11 +1506,11 @@ func (i VideoAnalyzerIdentityArgs) ToVideoAnalyzerIdentityPtrOutputWithContext(c
 // VideoAnalyzerIdentityPtrInput is an input type that accepts VideoAnalyzerIdentityArgs, VideoAnalyzerIdentityPtr and VideoAnalyzerIdentityPtrOutput values.
 // You can construct a concrete instance of `VideoAnalyzerIdentityPtrInput` via:
 //
-//          VideoAnalyzerIdentityArgs{...}
+//	        VideoAnalyzerIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VideoAnalyzerIdentityPtrInput interface {
 	pulumi.Input
 

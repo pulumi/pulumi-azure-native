@@ -193,7 +193,7 @@ func (o IdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // IdentityTypeInput is an input type that accepts IdentityTypeArgs and IdentityTypeOutput values.
 // You can construct a concrete instance of `IdentityTypeInput` via:
 //
-//          IdentityTypeArgs{...}
+//	IdentityTypeArgs{...}
 type IdentityTypeInput interface {
 	pulumi.Input
 

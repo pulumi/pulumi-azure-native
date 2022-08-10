@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20191201.Inputs
     /// <summary>
     /// Describes Protocol and thumbprint of Windows Remote Management listener
     /// </summary>
-    public sealed class WinRMListenerArgs : Pulumi.ResourceArgs
+    public sealed class WinRMListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: &lt;br&gt;&lt;br&gt; {&lt;br&gt;  "data":"&lt;Base64-encoded-certificate&gt;",&lt;br&gt;  "dataType":"pfx",&lt;br&gt;  "password":"&lt;pfx-file-password&gt;"&lt;br&gt;}
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20191201.Inputs
         public WinRMListenerArgs()
         {
         }
+        public static new WinRMListenerArgs Empty => new WinRMListenerArgs();
     }
 }

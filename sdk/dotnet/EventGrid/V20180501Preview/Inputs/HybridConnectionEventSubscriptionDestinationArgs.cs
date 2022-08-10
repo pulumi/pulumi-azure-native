@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20180501Preview.Inputs
     /// <summary>
     /// Information about the HybridConnection destination for an event subscription.
     /// </summary>
-    public sealed class HybridConnectionEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
+    public sealed class HybridConnectionEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the endpoint for the event subscription destination
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.EventGrid.V20180501Preview.Inputs
         public HybridConnectionEventSubscriptionDestinationArgs()
         {
         }
+        public static new HybridConnectionEventSubscriptionDestinationArgs Empty => new HybridConnectionEventSubscriptionDestinationArgs();
     }
 }

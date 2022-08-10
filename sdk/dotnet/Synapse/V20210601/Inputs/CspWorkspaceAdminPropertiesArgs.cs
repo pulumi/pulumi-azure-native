@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
     /// <summary>
     /// Initial workspace AAD admin properties for a CSP subscription
     /// </summary>
-    public sealed class CspWorkspaceAdminPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CspWorkspaceAdminPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AAD object ID of initial workspace admin
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
         public CspWorkspaceAdminPropertiesArgs()
         {
         }
+        public static new CspWorkspaceAdminPropertiesArgs Empty => new CspWorkspaceAdminPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// SAP ODP Linked Service.
     /// </summary>
-    public sealed class SapOdpLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class SapOdpLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -169,5 +169,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SapOdpLinkedServiceArgs()
         {
         }
+        public static new SapOdpLinkedServiceArgs Empty => new SapOdpLinkedServiceArgs();
     }
 }

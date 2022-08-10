@@ -179,7 +179,7 @@ func (o RelaytypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // RelaytypeInput is an input type that accepts RelaytypeArgs and RelaytypeOutput values.
 // You can construct a concrete instance of `RelaytypeInput` via:
 //
-//          RelaytypeArgs{...}
+//	RelaytypeArgs{...}
 type RelaytypeInput interface {
 	pulumi.Input
 

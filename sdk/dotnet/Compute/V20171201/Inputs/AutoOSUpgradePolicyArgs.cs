@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20171201.Inputs
     /// <summary>
     /// The configuration parameters used for performing automatic OS upgrade.
     /// </summary>
-    public sealed class AutoOSUpgradePolicyArgs : Pulumi.ResourceArgs
+    public sealed class AutoOSUpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether OS image rollback feature should be disabled. Default value is false.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20171201.Inputs
         public AutoOSUpgradePolicyArgs()
         {
         }
+        public static new AutoOSUpgradePolicyArgs Empty => new AutoOSUpgradePolicyArgs();
     }
 }

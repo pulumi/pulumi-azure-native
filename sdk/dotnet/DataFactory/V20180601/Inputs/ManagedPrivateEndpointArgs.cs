@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Properties of a managed private endpoint
     /// </summary>
-    public sealed class ManagedPrivateEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ManagedPrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("fqdns")]
         private InputList<string>? _fqdns;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ManagedPrivateEndpointArgs()
         {
         }
+        public static new ManagedPrivateEndpointArgs Empty => new ManagedPrivateEndpointArgs();
     }
 }

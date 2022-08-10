@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.V20160301.Inputs
 {
 
-    public sealed class BasicAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class BasicAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the password, return value will always be empty.
@@ -34,5 +34,6 @@ namespace Pulumi.AzureNative.Scheduler.V20160301.Inputs
         public BasicAuthenticationArgs()
         {
         }
+        public static new BasicAuthenticationArgs Empty => new BasicAuthenticationArgs();
     }
 }

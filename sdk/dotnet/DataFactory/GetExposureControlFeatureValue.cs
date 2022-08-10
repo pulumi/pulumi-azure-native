@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
 
-    public sealed class GetExposureControlFeatureValueArgs : Pulumi.InvokeArgs
+    public sealed class GetExposureControlFeatureValueArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The feature name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.DataFactory
         public GetExposureControlFeatureValueArgs()
         {
         }
+        public static new GetExposureControlFeatureValueArgs Empty => new GetExposureControlFeatureValueArgs();
     }
 
-    public sealed class GetExposureControlFeatureValueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExposureControlFeatureValueInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The feature name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.DataFactory
         public GetExposureControlFeatureValueInvokeArgs()
         {
         }
+        public static new GetExposureControlFeatureValueInvokeArgs Empty => new GetExposureControlFeatureValueInvokeArgs();
     }
 
 

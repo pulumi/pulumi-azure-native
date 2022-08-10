@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ImportExport.V20200801
     /// Contains the job information.
     /// </summary>
     [AzureNativeResourceType("azure-native:importexport/v20200801:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the job identity details
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.ImportExport.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:importexport:Job"},
-                    new Pulumi.Alias { Type = "azure-native:importexport/v20161101:Job"},
-                    new Pulumi.Alias { Type = "azure-native:importexport/v20210101:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:importexport:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:importexport/v20161101:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:importexport/v20210101:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.ImportExport.V20200801
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the import/export job.
@@ -141,5 +141,6 @@ namespace Pulumi.AzureNative.ImportExport.V20200801
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 }

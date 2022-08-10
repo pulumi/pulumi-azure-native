@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Container for environment specification versions.
     /// </summary>
-    public sealed class EnvironmentContainerArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The asset description text.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public EnvironmentContainerArgs()
         {
         }
+        public static new EnvironmentContainerArgs Empty => new EnvironmentContainerArgs();
     }
 }

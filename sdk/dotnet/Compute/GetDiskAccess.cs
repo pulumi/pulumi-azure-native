@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
 
-    public sealed class GetDiskAccessArgs : Pulumi.InvokeArgs
+    public sealed class GetDiskAccessArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Compute
         public GetDiskAccessArgs()
         {
         }
+        public static new GetDiskAccessArgs Empty => new GetDiskAccessArgs();
     }
 
-    public sealed class GetDiskAccessInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDiskAccessInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Compute
         public GetDiskAccessInvokeArgs()
         {
         }
+        public static new GetDiskAccessInvokeArgs Empty => new GetDiskAccessInvokeArgs();
     }
 
 

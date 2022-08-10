@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20170901.Inputs
     /// <summary>
     /// An SOA record.
     /// </summary>
-    public sealed class SoaRecordArgs : Pulumi.ResourceArgs
+    public sealed class SoaRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email contact for this SOA record.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Network.V20170901.Inputs
         public SoaRecordArgs()
         {
         }
+        public static new SoaRecordArgs Empty => new SoaRecordArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Square Service dataset.
     /// </summary>
-    public sealed class SquareObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SquareObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SquareObjectDatasetArgs()
         {
         }
+        public static new SquareObjectDatasetArgs Empty => new SquareObjectDatasetArgs();
     }
 }

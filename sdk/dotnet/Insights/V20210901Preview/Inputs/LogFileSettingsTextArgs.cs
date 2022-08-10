@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
     /// <summary>
     /// Text settings
     /// </summary>
-    public sealed class LogFileSettingsTextArgs : Pulumi.ResourceArgs
+    public sealed class LogFileSettingsTextArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// One of the supported timestamp formats
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
         public LogFileSettingsTextArgs()
         {
         }
+        public static new LogFileSettingsTextArgs Empty => new LogFileSettingsTextArgs();
     }
 }

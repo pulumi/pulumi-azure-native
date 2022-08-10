@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The cluster create parameters.
     /// </summary>
-    public sealed class ClusterCreatePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCreatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cluster definition.
@@ -109,5 +109,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         {
             Tier = "Standard";
         }
+        public static new ClusterCreatePropertiesArgs Empty => new ClusterCreatePropertiesArgs();
     }
 }

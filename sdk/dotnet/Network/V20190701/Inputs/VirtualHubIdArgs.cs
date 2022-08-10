@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
     /// <summary>
     /// Virtual Hub identifier.
     /// </summary>
-    public sealed class VirtualHubIdArgs : Pulumi.ResourceArgs
+    public sealed class VirtualHubIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
         public VirtualHubIdArgs()
         {
         }
+        public static new VirtualHubIdArgs Empty => new VirtualHubIdArgs();
     }
 }

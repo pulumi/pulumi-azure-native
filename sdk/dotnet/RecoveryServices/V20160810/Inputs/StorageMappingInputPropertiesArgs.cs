@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
     /// <summary>
     /// Storage mapping input properties.
     /// </summary>
-    public sealed class StorageMappingInputPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class StorageMappingInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the storage object.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
         public StorageMappingInputPropertiesArgs()
         {
         }
+        public static new StorageMappingInputPropertiesArgs Empty => new StorageMappingInputPropertiesArgs();
     }
 }

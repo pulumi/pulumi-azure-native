@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20190121
     /// Class representing an Event Grid data connection.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20190121:EventGridDataConnection")]
-    public partial class EventGridDataConnection : Pulumi.CustomResource
+    public partial class EventGridDataConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The event hub consumer group.
@@ -108,16 +108,16 @@ namespace Pulumi.AzureNative.Kusto.V20190121
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kusto:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20190515:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:EventGridDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.Kusto.V20190121
         }
     }
 
-    public sealed class EventGridDataConnectionArgs : Pulumi.ResourceArgs
+    public sealed class EventGridDataConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -217,5 +217,6 @@ namespace Pulumi.AzureNative.Kusto.V20190121
         public EventGridDataConnectionArgs()
         {
         }
+        public static new EventGridDataConnectionArgs Empty => new EventGridDataConnectionArgs();
     }
 }

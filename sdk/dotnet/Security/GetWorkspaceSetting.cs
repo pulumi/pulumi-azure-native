@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security
     }
 
 
-    public sealed class GetWorkspaceSettingArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceSettingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the security setting
@@ -38,9 +38,10 @@ namespace Pulumi.AzureNative.Security
         public GetWorkspaceSettingArgs()
         {
         }
+        public static new GetWorkspaceSettingArgs Empty => new GetWorkspaceSettingArgs();
     }
 
-    public sealed class GetWorkspaceSettingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceSettingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the security setting
@@ -51,6 +52,7 @@ namespace Pulumi.AzureNative.Security
         public GetWorkspaceSettingInvokeArgs()
         {
         }
+        public static new GetWorkspaceSettingInvokeArgs Empty => new GetWorkspaceSettingInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
-    public sealed class AutoUserSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class AutoUserSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value is nonAdmin.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Batch.Inputs
         public AutoUserSpecificationArgs()
         {
         }
+        public static new AutoUserSpecificationArgs Empty => new AutoUserSpecificationArgs();
     }
 }

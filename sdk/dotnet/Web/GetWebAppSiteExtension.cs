@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetWebAppSiteExtensionArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppSiteExtensionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Site name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Web
         public GetWebAppSiteExtensionArgs()
         {
         }
+        public static new GetWebAppSiteExtensionArgs Empty => new GetWebAppSiteExtensionArgs();
     }
 
-    public sealed class GetWebAppSiteExtensionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppSiteExtensionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Site name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Web
         public GetWebAppSiteExtensionInvokeArgs()
         {
         }
+        public static new GetWebAppSiteExtensionInvokeArgs Empty => new GetWebAppSiteExtensionInvokeArgs();
     }
 
 

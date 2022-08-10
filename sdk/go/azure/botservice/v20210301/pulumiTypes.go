@@ -160,7 +160,7 @@ func (val *BotProperties) Defaults() *BotProperties {
 // BotPropertiesInput is an input type that accepts BotPropertiesArgs and BotPropertiesOutput values.
 // You can construct a concrete instance of `BotPropertiesInput` via:
 //
-//          BotPropertiesArgs{...}
+//	BotPropertiesArgs{...}
 type BotPropertiesInput interface {
 	pulumi.Input
 
@@ -261,11 +261,11 @@ func (i BotPropertiesArgs) ToBotPropertiesPtrOutputWithContext(ctx context.Conte
 // BotPropertiesPtrInput is an input type that accepts BotPropertiesArgs, BotPropertiesPtr and BotPropertiesPtrOutput values.
 // You can construct a concrete instance of `BotPropertiesPtrInput` via:
 //
-//          BotPropertiesArgs{...}
+//	        BotPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1204,7 +1204,7 @@ type ConnectionSettingParameter struct {
 // ConnectionSettingParameterInput is an input type that accepts ConnectionSettingParameterArgs and ConnectionSettingParameterOutput values.
 // You can construct a concrete instance of `ConnectionSettingParameterInput` via:
 //
-//          ConnectionSettingParameterArgs{...}
+//	ConnectionSettingParameterArgs{...}
 type ConnectionSettingParameterInput interface {
 	pulumi.Input
 
@@ -1235,7 +1235,7 @@ func (i ConnectionSettingParameterArgs) ToConnectionSettingParameterOutputWithCo
 // ConnectionSettingParameterArrayInput is an input type that accepts ConnectionSettingParameterArray and ConnectionSettingParameterArrayOutput values.
 // You can construct a concrete instance of `ConnectionSettingParameterArrayInput` via:
 //
-//          ConnectionSettingParameterArray{ ConnectionSettingParameterArgs{...} }
+//	ConnectionSettingParameterArray{ ConnectionSettingParameterArgs{...} }
 type ConnectionSettingParameterArrayInput interface {
 	pulumi.Input
 
@@ -1380,7 +1380,7 @@ type ConnectionSettingProperties struct {
 // ConnectionSettingPropertiesInput is an input type that accepts ConnectionSettingPropertiesArgs and ConnectionSettingPropertiesOutput values.
 // You can construct a concrete instance of `ConnectionSettingPropertiesInput` via:
 //
-//          ConnectionSettingPropertiesArgs{...}
+//	ConnectionSettingPropertiesArgs{...}
 type ConnectionSettingPropertiesInput interface {
 	pulumi.Input
 
@@ -1433,11 +1433,11 @@ func (i ConnectionSettingPropertiesArgs) ToConnectionSettingPropertiesPtrOutputW
 // ConnectionSettingPropertiesPtrInput is an input type that accepts ConnectionSettingPropertiesArgs, ConnectionSettingPropertiesPtr and ConnectionSettingPropertiesPtrOutput values.
 // You can construct a concrete instance of `ConnectionSettingPropertiesPtrInput` via:
 //
-//          ConnectionSettingPropertiesArgs{...}
+//	        ConnectionSettingPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionSettingPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2591,7 +2591,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -2628,11 +2628,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 

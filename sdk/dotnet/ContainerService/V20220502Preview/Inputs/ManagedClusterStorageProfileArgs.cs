@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview.Inputs
     /// <summary>
     /// Storage profile for the container service cluster.
     /// </summary>
-    public sealed class ManagedClusterStorageProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterStorageProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AzureBlob CSI Driver settings for the storage profile.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview.Inputs
         public ManagedClusterStorageProfileArgs()
         {
         }
+        public static new ManagedClusterStorageProfileArgs Empty => new ManagedClusterStorageProfileArgs();
     }
 }

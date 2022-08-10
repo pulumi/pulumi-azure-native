@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// Describes related incident information for the bookmark
     /// </summary>
-    public sealed class IncidentInfoArgs : Pulumi.ResourceArgs
+    public sealed class IncidentInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Incident Id
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public IncidentInfoArgs()
         {
         }
+        public static new IncidentInfoArgs Empty => new IncidentInfoArgs();
     }
 }

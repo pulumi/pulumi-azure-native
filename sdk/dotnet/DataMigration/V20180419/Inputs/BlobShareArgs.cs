@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
     /// <summary>
     /// Blob container storage information.
     /// </summary>
-    public sealed class BlobShareArgs : Pulumi.ResourceArgs
+    public sealed class BlobShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SAS URI of Azure Storage Account Container.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
         public BlobShareArgs()
         {
         }
+        public static new BlobShareArgs Empty => new BlobShareArgs();
     }
 }

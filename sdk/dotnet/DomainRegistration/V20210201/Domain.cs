@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210201
     /// Information about a domain.
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration/v20210201:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         [Output("authCode")]
         public Output<string?> AuthCode { get; private set; } = null!;
@@ -158,18 +158,18 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:domainregistration:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20150401:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20180201:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20190801:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20200601:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20200901:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20201001:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20201201:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210101:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210115:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210301:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20220301:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20150401:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20180201:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20190801:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20200601:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20200901:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20201001:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20201201:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210101:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210115:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210301:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20220301:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -191,7 +191,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210201
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         [Input("authCode")]
         public Input<string>? AuthCode { get; set; }
@@ -296,5 +296,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210201
         {
             AutoRenew = true;
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 }

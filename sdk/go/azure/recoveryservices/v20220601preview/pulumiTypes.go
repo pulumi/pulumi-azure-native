@@ -3139,7 +3139,7 @@ type PrivateEndpoint struct {
 // PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
 // You can construct a concrete instance of `PrivateEndpointInput` via:
 //
-//          PrivateEndpointArgs{...}
+//	PrivateEndpointArgs{...}
 type PrivateEndpointInput interface {
 	pulumi.Input
 
@@ -3176,11 +3176,11 @@ func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.C
 // PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPtrInput` via:
 //
-//          PrivateEndpointArgs{...}
+//	        PrivateEndpointArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateEndpointPtrInput interface {
 	pulumi.Input
 
@@ -3283,7 +3283,7 @@ type PrivateEndpointConnectionType struct {
 // PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
 //
-//          PrivateEndpointConnectionTypeArgs{...}
+//	PrivateEndpointConnectionTypeArgs{...}
 type PrivateEndpointConnectionTypeInput interface {
 	pulumi.Input
 
@@ -3324,11 +3324,11 @@ func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypePtrOut
 // PrivateEndpointConnectionTypePtrInput is an input type that accepts PrivateEndpointConnectionTypeArgs, PrivateEndpointConnectionTypePtr and PrivateEndpointConnectionTypePtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionTypePtrInput` via:
 //
-//          PrivateEndpointConnectionTypeArgs{...}
+//	        PrivateEndpointConnectionTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateEndpointConnectionTypePtrInput interface {
 	pulumi.Input
 
@@ -3565,7 +3565,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -3606,11 +3606,11 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 // PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	        PrivateLinkServiceConnectionStateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateLinkServiceConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -3832,7 +3832,7 @@ type ResourceGuardOperationDetail struct {
 // ResourceGuardOperationDetailInput is an input type that accepts ResourceGuardOperationDetailArgs and ResourceGuardOperationDetailOutput values.
 // You can construct a concrete instance of `ResourceGuardOperationDetailInput` via:
 //
-//          ResourceGuardOperationDetailArgs{...}
+//	ResourceGuardOperationDetailArgs{...}
 type ResourceGuardOperationDetailInput interface {
 	pulumi.Input
 
@@ -3860,7 +3860,7 @@ func (i ResourceGuardOperationDetailArgs) ToResourceGuardOperationDetailOutputWi
 // ResourceGuardOperationDetailArrayInput is an input type that accepts ResourceGuardOperationDetailArray and ResourceGuardOperationDetailArrayOutput values.
 // You can construct a concrete instance of `ResourceGuardOperationDetailArrayInput` via:
 //
-//          ResourceGuardOperationDetailArray{ ResourceGuardOperationDetailArgs{...} }
+//	ResourceGuardOperationDetailArray{ ResourceGuardOperationDetailArgs{...} }
 type ResourceGuardOperationDetailArrayInput interface {
 	pulumi.Input
 
@@ -3981,7 +3981,7 @@ type ResourceGuardProxyBase struct {
 // ResourceGuardProxyBaseInput is an input type that accepts ResourceGuardProxyBaseArgs and ResourceGuardProxyBaseOutput values.
 // You can construct a concrete instance of `ResourceGuardProxyBaseInput` via:
 //
-//          ResourceGuardProxyBaseArgs{...}
+//	ResourceGuardProxyBaseArgs{...}
 type ResourceGuardProxyBaseInput interface {
 	pulumi.Input
 
@@ -4019,11 +4019,11 @@ func (i ResourceGuardProxyBaseArgs) ToResourceGuardProxyBasePtrOutputWithContext
 // ResourceGuardProxyBasePtrInput is an input type that accepts ResourceGuardProxyBaseArgs, ResourceGuardProxyBasePtr and ResourceGuardProxyBasePtrOutput values.
 // You can construct a concrete instance of `ResourceGuardProxyBasePtrInput` via:
 //
-//          ResourceGuardProxyBaseArgs{...}
+//	        ResourceGuardProxyBaseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceGuardProxyBasePtrInput interface {
 	pulumi.Input
 

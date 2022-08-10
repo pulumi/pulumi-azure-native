@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     }
 
 
-    public sealed class GetPeriodicTimerEventTriggerArgs : Pulumi.InvokeArgs
+    public sealed class GetPeriodicTimerEventTriggerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public GetPeriodicTimerEventTriggerArgs()
         {
         }
+        public static new GetPeriodicTimerEventTriggerArgs Empty => new GetPeriodicTimerEventTriggerArgs();
     }
 
-    public sealed class GetPeriodicTimerEventTriggerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPeriodicTimerEventTriggerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public GetPeriodicTimerEventTriggerInvokeArgs()
         {
         }
+        public static new GetPeriodicTimerEventTriggerInvokeArgs Empty => new GetPeriodicTimerEventTriggerInvokeArgs();
     }
 
 

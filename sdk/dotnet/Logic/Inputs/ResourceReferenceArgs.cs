@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The resource reference.
     /// </summary>
-    public sealed class ResourceReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public ResourceReferenceArgs()
         {
         }
+        public static new ResourceReferenceArgs Empty => new ResourceReferenceArgs();
     }
 }

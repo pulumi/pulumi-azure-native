@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
     /// The private endpoint connection of a workspace
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks/v20220401preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource name.
@@ -58,8 +58,8 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:databricks:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection
@@ -110,5 +110,6 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataCatalog.Inputs
     /// <summary>
     /// User principals.
     /// </summary>
-    public sealed class PrincipalsArgs : Pulumi.ResourceArgs
+    public sealed class PrincipalsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Object Id for the user
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataCatalog.Inputs
         public PrincipalsArgs()
         {
         }
+        public static new PrincipalsArgs Empty => new PrincipalsArgs();
     }
 }

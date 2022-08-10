@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20200501.Inputs
     /// <summary>
     /// Properties of Connection state request.
     /// </summary>
-    public sealed class ConnectionStateRequestBodyPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionStateRequestBodyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private endpoint connection state.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Migrate.V20200501.Inputs
         public ConnectionStateRequestBodyPropertiesArgs()
         {
         }
+        public static new ConnectionStateRequestBodyPropertiesArgs Empty => new ConnectionStateRequestBodyPropertiesArgs();
     }
 }

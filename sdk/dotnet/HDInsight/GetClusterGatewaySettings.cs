@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HDInsight
     }
 
 
-    public sealed class GetClusterGatewaySettingsArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterGatewaySettingsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.HDInsight
         public GetClusterGatewaySettingsArgs()
         {
         }
+        public static new GetClusterGatewaySettingsArgs Empty => new GetClusterGatewaySettingsArgs();
     }
 
-    public sealed class GetClusterGatewaySettingsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterGatewaySettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.HDInsight
         public GetClusterGatewaySettingsInvokeArgs()
         {
         }
+        public static new GetClusterGatewaySettingsInvokeArgs Empty => new GetClusterGatewaySettingsInvokeArgs();
     }
 
 

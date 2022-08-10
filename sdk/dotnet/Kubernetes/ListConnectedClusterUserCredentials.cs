@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Kubernetes
     }
 
 
-    public sealed class ListConnectedClusterUserCredentialsArgs : Pulumi.InvokeArgs
+    public sealed class ListConnectedClusterUserCredentialsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The mode of client authentication.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.Kubernetes
         public ListConnectedClusterUserCredentialsArgs()
         {
         }
+        public static new ListConnectedClusterUserCredentialsArgs Empty => new ListConnectedClusterUserCredentialsArgs();
     }
 
-    public sealed class ListConnectedClusterUserCredentialsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListConnectedClusterUserCredentialsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The mode of client authentication.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.Kubernetes
         public ListConnectedClusterUserCredentialsInvokeArgs()
         {
         }
+        public static new ListConnectedClusterUserCredentialsInvokeArgs Empty => new ListConnectedClusterUserCredentialsInvokeArgs();
     }
 
 

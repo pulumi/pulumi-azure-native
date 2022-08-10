@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Describes a virtual machines IP Configuration's PublicIPAddress configuration
     /// </summary>
-    public sealed class VirtualMachinePublicIPAddressConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachinePublicIPAddressConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify what happens to the public IP address when the VM is deleted
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public VirtualMachinePublicIPAddressConfigurationArgs()
         {
         }
+        public static new VirtualMachinePublicIPAddressConfigurationArgs Empty => new VirtualMachinePublicIPAddressConfigurationArgs();
     }
 }

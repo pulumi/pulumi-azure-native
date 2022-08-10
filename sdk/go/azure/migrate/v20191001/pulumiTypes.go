@@ -49,7 +49,7 @@ type AssessmentProperties struct {
 // AssessmentPropertiesInput is an input type that accepts AssessmentPropertiesArgs and AssessmentPropertiesOutput values.
 // You can construct a concrete instance of `AssessmentPropertiesInput` via:
 //
-//          AssessmentPropertiesArgs{...}
+//	AssessmentPropertiesArgs{...}
 type AssessmentPropertiesInput interface {
 	pulumi.Input
 
@@ -436,7 +436,7 @@ type CollectorAgentProperties struct {
 // CollectorAgentPropertiesInput is an input type that accepts CollectorAgentPropertiesArgs and CollectorAgentPropertiesOutput values.
 // You can construct a concrete instance of `CollectorAgentPropertiesInput` via:
 //
-//          CollectorAgentPropertiesArgs{...}
+//	CollectorAgentPropertiesArgs{...}
 type CollectorAgentPropertiesInput interface {
 	pulumi.Input
 
@@ -471,11 +471,11 @@ func (i CollectorAgentPropertiesArgs) ToCollectorAgentPropertiesPtrOutputWithCon
 // CollectorAgentPropertiesPtrInput is an input type that accepts CollectorAgentPropertiesArgs, CollectorAgentPropertiesPtr and CollectorAgentPropertiesPtrOutput values.
 // You can construct a concrete instance of `CollectorAgentPropertiesPtrInput` via:
 //
-//          CollectorAgentPropertiesArgs{...}
+//	        CollectorAgentPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CollectorAgentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -675,7 +675,7 @@ type CollectorBodyAgentSpnProperties struct {
 // CollectorBodyAgentSpnPropertiesInput is an input type that accepts CollectorBodyAgentSpnPropertiesArgs and CollectorBodyAgentSpnPropertiesOutput values.
 // You can construct a concrete instance of `CollectorBodyAgentSpnPropertiesInput` via:
 //
-//          CollectorBodyAgentSpnPropertiesArgs{...}
+//	CollectorBodyAgentSpnPropertiesArgs{...}
 type CollectorBodyAgentSpnPropertiesInput interface {
 	pulumi.Input
 
@@ -719,11 +719,11 @@ func (i CollectorBodyAgentSpnPropertiesArgs) ToCollectorBodyAgentSpnPropertiesPt
 // CollectorBodyAgentSpnPropertiesPtrInput is an input type that accepts CollectorBodyAgentSpnPropertiesArgs, CollectorBodyAgentSpnPropertiesPtr and CollectorBodyAgentSpnPropertiesPtrOutput values.
 // You can construct a concrete instance of `CollectorBodyAgentSpnPropertiesPtrInput` via:
 //
-//          CollectorBodyAgentSpnPropertiesArgs{...}
+//	        CollectorBodyAgentSpnPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CollectorBodyAgentSpnPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1007,7 +1007,7 @@ type CollectorProperties struct {
 // CollectorPropertiesInput is an input type that accepts CollectorPropertiesArgs and CollectorPropertiesOutput values.
 // You can construct a concrete instance of `CollectorPropertiesInput` via:
 //
-//          CollectorPropertiesArgs{...}
+//	CollectorPropertiesArgs{...}
 type CollectorPropertiesInput interface {
 	pulumi.Input
 
@@ -1044,11 +1044,11 @@ func (i CollectorPropertiesArgs) ToCollectorPropertiesPtrOutputWithContext(ctx c
 // CollectorPropertiesPtrInput is an input type that accepts CollectorPropertiesArgs, CollectorPropertiesPtr and CollectorPropertiesPtrOutput values.
 // You can construct a concrete instance of `CollectorPropertiesPtrInput` via:
 //
-//          CollectorPropertiesArgs{...}
+//	        CollectorPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CollectorPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1202,7 +1202,7 @@ type GroupProperties struct {
 // GroupPropertiesInput is an input type that accepts GroupPropertiesArgs and GroupPropertiesOutput values.
 // You can construct a concrete instance of `GroupPropertiesInput` via:
 //
-//          GroupPropertiesArgs{...}
+//	GroupPropertiesArgs{...}
 type GroupPropertiesInput interface {
 	pulumi.Input
 
@@ -1323,7 +1323,7 @@ type ImportCollectorProperties struct {
 // ImportCollectorPropertiesInput is an input type that accepts ImportCollectorPropertiesArgs and ImportCollectorPropertiesOutput values.
 // You can construct a concrete instance of `ImportCollectorPropertiesInput` via:
 //
-//          ImportCollectorPropertiesArgs{...}
+//	ImportCollectorPropertiesArgs{...}
 type ImportCollectorPropertiesInput interface {
 	pulumi.Input
 
@@ -1358,11 +1358,11 @@ func (i ImportCollectorPropertiesArgs) ToImportCollectorPropertiesPtrOutputWithC
 // ImportCollectorPropertiesPtrInput is an input type that accepts ImportCollectorPropertiesArgs, ImportCollectorPropertiesPtr and ImportCollectorPropertiesPtrOutput values.
 // You can construct a concrete instance of `ImportCollectorPropertiesPtrInput` via:
 //
-//          ImportCollectorPropertiesArgs{...}
+//	        ImportCollectorPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImportCollectorPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1490,7 +1490,7 @@ type PrivateEndpointConnectionProperties struct {
 // PrivateEndpointConnectionPropertiesInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs and PrivateEndpointConnectionPropertiesOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInput` via:
 //
-//          PrivateEndpointConnectionPropertiesArgs{...}
+//	PrivateEndpointConnectionPropertiesArgs{...}
 type PrivateEndpointConnectionPropertiesInput interface {
 	pulumi.Input
 
@@ -1669,7 +1669,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -1710,11 +1710,11 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 // PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	        PrivateLinkServiceConnectionStateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateLinkServiceConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -1947,7 +1947,7 @@ type ProjectProperties struct {
 // ProjectPropertiesInput is an input type that accepts ProjectPropertiesArgs and ProjectPropertiesOutput values.
 // You can construct a concrete instance of `ProjectPropertiesInput` via:
 //
-//          ProjectPropertiesArgs{...}
+//	ProjectPropertiesArgs{...}
 type ProjectPropertiesInput interface {
 	pulumi.Input
 
@@ -1994,11 +1994,11 @@ func (i ProjectPropertiesArgs) ToProjectPropertiesPtrOutputWithContext(ctx conte
 // ProjectPropertiesPtrInput is an input type that accepts ProjectPropertiesArgs, ProjectPropertiesPtr and ProjectPropertiesPtrOutput values.
 // You can construct a concrete instance of `ProjectPropertiesPtrInput` via:
 //
-//          ProjectPropertiesArgs{...}
+//	        ProjectPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProjectPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2323,7 +2323,7 @@ type VmUptime struct {
 // VmUptimeInput is an input type that accepts VmUptimeArgs and VmUptimeOutput values.
 // You can construct a concrete instance of `VmUptimeInput` via:
 //
-//          VmUptimeArgs{...}
+//	VmUptimeArgs{...}
 type VmUptimeInput interface {
 	pulumi.Input
 

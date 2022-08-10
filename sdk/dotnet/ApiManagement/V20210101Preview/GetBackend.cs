@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     }
 
 
-    public sealed class GetBackendArgs : Pulumi.InvokeArgs
+    public sealed class GetBackendArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public GetBackendArgs()
         {
         }
+        public static new GetBackendArgs Empty => new GetBackendArgs();
     }
 
-    public sealed class GetBackendInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBackendInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public GetBackendInvokeArgs()
         {
         }
+        public static new GetBackendInvokeArgs Empty => new GetBackendInvokeArgs();
     }
 
 

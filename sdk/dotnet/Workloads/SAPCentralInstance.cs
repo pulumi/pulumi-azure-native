@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Workloads
     /// API Version: 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SAPCentralInstance")]
-    public partial class SAPCentralInstance : Pulumi.CustomResource
+    public partial class SAPCentralInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Defines the SAP ERS Server properties.
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPCentralInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPCentralInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -171,7 +171,7 @@ namespace Pulumi.AzureNative.Workloads
         }
     }
 
-    public sealed class SAPCentralInstanceArgs : Pulumi.ResourceArgs
+    public sealed class SAPCentralInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Central Instance name string modeled as parameter for auto generation to work correctly.
@@ -212,5 +212,6 @@ namespace Pulumi.AzureNative.Workloads
         public SAPCentralInstanceArgs()
         {
         }
+        public static new SAPCentralInstanceArgs Empty => new SAPCentralInstanceArgs();
     }
 }

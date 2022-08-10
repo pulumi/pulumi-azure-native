@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     }
 
 
-    public sealed class GetScheduledAlertRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledAlertRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetScheduledAlertRuleArgs()
         {
         }
+        public static new GetScheduledAlertRuleArgs Empty => new GetScheduledAlertRuleArgs();
     }
 
-    public sealed class GetScheduledAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public GetScheduledAlertRuleInvokeArgs()
         {
         }
+        public static new GetScheduledAlertRuleInvokeArgs Empty => new GetScheduledAlertRuleInvokeArgs();
     }
 
 

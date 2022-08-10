@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
     /// <summary>
     /// Represents a supported source signal configuration in Fusion detection.
     /// </summary>
-    public sealed class FusionSourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class FusionSourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether this source signal is enabled or disabled in Fusion detection.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
         public FusionSourceSettingsArgs()
         {
         }
+        public static new FusionSourceSettingsArgs Empty => new FusionSourceSettingsArgs();
     }
 }

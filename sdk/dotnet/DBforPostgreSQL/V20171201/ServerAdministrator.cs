@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
     /// Represents a and external administrator to be created.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20171201:ServerAdministrator")]
-    public partial class ServerAdministrator : Pulumi.CustomResource
+    public partial class ServerAdministrator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The type of administrator.
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:ServerAdministrator"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:ServerAdministrator"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:ServerAdministrator"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:ServerAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         }
     }
 
-    public sealed class ServerAdministratorArgs : Pulumi.ResourceArgs
+    public sealed class ServerAdministratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of administrator.
@@ -140,5 +140,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         public ServerAdministratorArgs()
         {
         }
+        public static new ServerAdministratorArgs Empty => new ServerAdministratorArgs();
     }
 }

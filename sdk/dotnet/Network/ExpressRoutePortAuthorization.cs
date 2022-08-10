@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRoutePortAuthorization")]
-    public partial class ExpressRoutePortAuthorization : Pulumi.CustomResource
+    public partial class ExpressRoutePortAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The authorization key.
@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRoutePortAuthorization"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRoutePortAuthorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRoutePortAuthorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRoutePortAuthorization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class ExpressRoutePortAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRoutePortAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the authorization.
@@ -141,5 +141,6 @@ namespace Pulumi.AzureNative.Network
         public ExpressRoutePortAuthorizationArgs()
         {
         }
+        public static new ExpressRoutePortAuthorizationArgs Empty => new ExpressRoutePortAuthorizationArgs();
     }
 }

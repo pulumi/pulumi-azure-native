@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
     /// <summary>
     /// Delete option with duration
     /// </summary>
-    public sealed class AbsoluteDeleteOptionArgs : Pulumi.ResourceArgs
+    public sealed class AbsoluteDeleteOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Duration of deletion after given timespan
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         public AbsoluteDeleteOptionArgs()
         {
         }
+        public static new AbsoluteDeleteOptionArgs Empty => new AbsoluteDeleteOptionArgs();
     }
 }

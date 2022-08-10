@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
     /// <summary>
     /// Describes an image source that is a managed image in customer subscription.
     /// </summary>
-    public sealed class ImageTemplateManagedImageSourceArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplateManagedImageSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource id of the managed image in customer subscription
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         public ImageTemplateManagedImageSourceArgs()
         {
         }
+        public static new ImageTemplateManagedImageSourceArgs Empty => new ImageTemplateManagedImageSourceArgs();
     }
 }

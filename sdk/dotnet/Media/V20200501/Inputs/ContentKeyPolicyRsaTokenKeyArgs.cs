@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// Specifies a RSA key for token validation
     /// </summary>
-    public sealed class ContentKeyPolicyRsaTokenKeyArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyRsaTokenKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The RSA Parameter exponent
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public ContentKeyPolicyRsaTokenKeyArgs()
         {
         }
+        public static new ContentKeyPolicyRsaTokenKeyArgs Empty => new ContentKeyPolicyRsaTokenKeyArgs();
     }
 }

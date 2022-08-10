@@ -146,7 +146,7 @@ func (o PostgresInstanceSkuTierPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // PostgresInstanceSkuTierInput is an input type that accepts PostgresInstanceSkuTierArgs and PostgresInstanceSkuTierOutput values.
 // You can construct a concrete instance of `PostgresInstanceSkuTierInput` via:
 //
-//          PostgresInstanceSkuTierArgs{...}
+//	PostgresInstanceSkuTierArgs{...}
 type PostgresInstanceSkuTierInput interface {
 	pulumi.Input
 
@@ -311,7 +311,7 @@ func (o SqlManagedInstanceSkuTierPtrOutput) ToStringPtrOutputWithContext(ctx con
 // SqlManagedInstanceSkuTierInput is an input type that accepts SqlManagedInstanceSkuTierArgs and SqlManagedInstanceSkuTierOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceSkuTierInput` via:
 //
-//          SqlManagedInstanceSkuTierArgs{...}
+//	SqlManagedInstanceSkuTierArgs{...}
 type SqlManagedInstanceSkuTierInput interface {
 	pulumi.Input
 

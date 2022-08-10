@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190801.Inputs
     /// <summary>
     /// The type of IoT Security recommendation.
     /// </summary>
-    public sealed class RecommendationConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RecommendationConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of IoT Security recommendation.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Security.V20190801.Inputs
         {
             Status = "Enabled";
         }
+        public static new RecommendationConfigurationPropertiesArgs Empty => new RecommendationConfigurationPropertiesArgs();
     }
 }

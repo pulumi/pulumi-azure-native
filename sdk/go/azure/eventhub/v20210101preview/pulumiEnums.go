@@ -156,7 +156,7 @@ func (o EncodingCaptureDescriptionPtrOutput) ToStringPtrOutputWithContext(ctx co
 // EncodingCaptureDescriptionInput is an input type that accepts EncodingCaptureDescriptionArgs and EncodingCaptureDescriptionOutput values.
 // You can construct a concrete instance of `EncodingCaptureDescriptionInput` via:
 //
-//          EncodingCaptureDescriptionArgs{...}
+//	EncodingCaptureDescriptionArgs{...}
 type EncodingCaptureDescriptionInput interface {
 	pulumi.Input
 
@@ -340,7 +340,7 @@ func (o EntityStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // EntityStatusInput is an input type that accepts EntityStatusArgs and EntityStatusOutput values.
 // You can construct a concrete instance of `EntityStatusInput` via:
 //
-//          EntityStatusArgs{...}
+//	EntityStatusArgs{...}
 type EntityStatusInput interface {
 	pulumi.Input
 
@@ -504,7 +504,7 @@ func (o KeySourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // KeySourceInput is an input type that accepts KeySourceArgs and KeySourceOutput values.
 // You can construct a concrete instance of `KeySourceInput` via:
 //
-//          KeySourceArgs{...}
+//	KeySourceArgs{...}
 type KeySourceInput interface {
 	pulumi.Input
 
@@ -671,7 +671,7 @@ func (o ManagedServiceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 // ManagedServiceIdentityTypeInput is an input type that accepts ManagedServiceIdentityTypeArgs and ManagedServiceIdentityTypeOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityTypeInput` via:
 //
-//          ManagedServiceIdentityTypeArgs{...}
+//	ManagedServiceIdentityTypeArgs{...}
 type ManagedServiceIdentityTypeInput interface {
 	pulumi.Input
 

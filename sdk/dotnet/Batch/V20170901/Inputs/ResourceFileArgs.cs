@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20170901.Inputs
 {
 
-    public sealed class ResourceFileArgs : Pulumi.ResourceArgs
+    public sealed class ResourceFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This URL must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Batch.V20170901.Inputs
         public ResourceFileArgs()
         {
         }
+        public static new ResourceFileArgs Empty => new ResourceFileArgs();
     }
 }

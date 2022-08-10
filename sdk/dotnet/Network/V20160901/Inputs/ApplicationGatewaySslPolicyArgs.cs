@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
     /// <summary>
     /// Application gateway SSL policy.
     /// </summary>
-    public sealed class ApplicationGatewaySslPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewaySslPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("disabledSslProtocols")]
         private InputList<Union<string, Pulumi.AzureNative.Network.V20160901.ApplicationGatewaySslProtocol>>? _disabledSslProtocols;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20160901.Inputs
         public ApplicationGatewaySslPolicyArgs()
         {
         }
+        public static new ApplicationGatewaySslPolicyArgs Empty => new ApplicationGatewaySslPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Trigger referenced dependency.
     /// </summary>
-    public sealed class TriggerDependencyReferenceArgs : Pulumi.ResourceArgs
+    public sealed class TriggerDependencyReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Referenced trigger.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public TriggerDependencyReferenceArgs()
         {
         }
+        public static new TriggerDependencyReferenceArgs Empty => new TriggerDependencyReferenceArgs();
     }
 }

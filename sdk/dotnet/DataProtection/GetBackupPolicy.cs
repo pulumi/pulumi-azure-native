@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataProtection
     }
 
 
-    public sealed class GetBackupPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupPolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("backupPolicyName", required: true)]
         public string BackupPolicyName { get; set; } = null!;
@@ -47,9 +47,10 @@ namespace Pulumi.AzureNative.DataProtection
         public GetBackupPolicyArgs()
         {
         }
+        public static new GetBackupPolicyArgs Empty => new GetBackupPolicyArgs();
     }
 
-    public sealed class GetBackupPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("backupPolicyName", required: true)]
         public Input<string> BackupPolicyName { get; set; } = null!;
@@ -69,6 +70,7 @@ namespace Pulumi.AzureNative.DataProtection
         public GetBackupPolicyInvokeArgs()
         {
         }
+        public static new GetBackupPolicyInvokeArgs Empty => new GetBackupPolicyInvokeArgs();
     }
 
 

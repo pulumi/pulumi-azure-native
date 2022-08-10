@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
     /// <summary>
     /// Describes the script sources for run command.
     /// </summary>
-    public sealed class VirtualMachineRunCommandScriptSourceArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineRunCommandScriptSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a commandId of predefined built-in script.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
         public VirtualMachineRunCommandScriptSourceArgs()
         {
         }
+        public static new VirtualMachineRunCommandScriptSourceArgs Empty => new VirtualMachineRunCommandScriptSourceArgs();
     }
 }

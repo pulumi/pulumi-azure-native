@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20220201
     /// Class representing an event hub data connection.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20220201:EventHubDataConnection")]
-    public partial class EventHubDataConnection : Pulumi.CustomResource
+    public partial class EventHubDataConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The event hub messages compression type
@@ -138,16 +138,16 @@ namespace Pulumi.AzureNative.Kusto.V20220201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kusto:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20190121:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20190515:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:EventHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:EventHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:EventHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:EventHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:EventHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:EventHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:EventHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:EventHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:EventHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:EventHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:EventHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -169,7 +169,7 @@ namespace Pulumi.AzureNative.Kusto.V20220201
         }
     }
 
-    public sealed class EventHubDataConnectionArgs : Pulumi.ResourceArgs
+    public sealed class EventHubDataConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -272,5 +272,6 @@ namespace Pulumi.AzureNative.Kusto.V20220201
         {
             DatabaseRouting = "Single";
         }
+        public static new EventHubDataConnectionArgs Empty => new EventHubDataConnectionArgs();
     }
 }

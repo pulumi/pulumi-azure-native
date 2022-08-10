@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190601.Inputs
     /// <summary>
     /// The Action Groups information, used by the alert rule.
     /// </summary>
-    public sealed class ActionGroupsInformationArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupsInformationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional custom email subject to use in email notifications.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190601.Inputs
         public ActionGroupsInformationArgs()
         {
         }
+        public static new ActionGroupsInformationArgs Empty => new ActionGroupsInformationArgs();
     }
 }

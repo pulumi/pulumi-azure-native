@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20210101.Inputs
     /// <summary>
     /// The schedule associated with the export.
     /// </summary>
-    public sealed class ExportScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ExportScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The schedule recurrence.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.CostManagement.V20210101.Inputs
         public ExportScheduleArgs()
         {
         }
+        public static new ExportScheduleArgs Empty => new ExportScheduleArgs();
     }
 }

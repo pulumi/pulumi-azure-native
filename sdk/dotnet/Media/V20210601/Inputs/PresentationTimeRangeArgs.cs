@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// The presentation time range, this is asset related and not recommended for Account Filter.
     /// </summary>
-    public sealed class PresentationTimeRangeArgs : Pulumi.ResourceArgs
+    public sealed class PresentationTimeRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The absolute end time boundary.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public PresentationTimeRangeArgs()
         {
         }
+        public static new PresentationTimeRangeArgs Empty => new PresentationTimeRangeArgs();
     }
 }

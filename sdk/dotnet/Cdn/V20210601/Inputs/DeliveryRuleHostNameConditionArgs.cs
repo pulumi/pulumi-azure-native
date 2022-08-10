@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the HostName condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleHostNameConditionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleHostNameConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public DeliveryRuleHostNameConditionArgs()
         {
         }
+        public static new DeliveryRuleHostNameConditionArgs Empty => new DeliveryRuleHostNameConditionArgs();
     }
 }

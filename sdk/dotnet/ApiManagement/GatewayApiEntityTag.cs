@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:GatewayApiEntityTag")]
-    public partial class GatewayApiEntityTag : Pulumi.CustomResource
+    public partial class GatewayApiEntityTag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
@@ -161,14 +161,14 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayApiEntityTag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayApiEntityTag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayApiEntityTag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GatewayApiEntityTag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayApiEntityTag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayApiEntityTag"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
     }
 
-    public sealed class GatewayApiEntityTagArgs : Pulumi.ResourceArgs
+    public sealed class GatewayApiEntityTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -225,5 +225,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public GatewayApiEntityTagArgs()
         {
         }
+        public static new GatewayApiEntityTagArgs Empty => new GatewayApiEntityTagArgs();
     }
 }

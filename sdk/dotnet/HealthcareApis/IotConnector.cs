@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// API Version: 2022-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:IotConnector")]
-    public partial class IotConnector : Pulumi.CustomResource
+    public partial class IotConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Device Mappings.
@@ -101,10 +101,10 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:IotConnector"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnector"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:IotConnector"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:IotConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:IotConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.HealthcareApis
         }
     }
 
-    public sealed class IotConnectorArgs : Pulumi.ResourceArgs
+    public sealed class IotConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Device Mappings.
@@ -185,5 +185,6 @@ namespace Pulumi.AzureNative.HealthcareApis
         public IotConnectorArgs()
         {
         }
+        public static new IotConnectorArgs Empty => new IotConnectorArgs();
     }
 }

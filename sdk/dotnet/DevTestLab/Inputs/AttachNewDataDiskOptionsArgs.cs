@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Properties to attach new disk to the Virtual Machine.
     /// </summary>
-    public sealed class AttachNewDataDiskOptionsArgs : Pulumi.ResourceArgs
+    public sealed class AttachNewDataDiskOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the disk to be attached.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         public AttachNewDataDiskOptionsArgs()
         {
         }
+        public static new AttachNewDataDiskOptionsArgs Empty => new AttachNewDataDiskOptionsArgs();
     }
 }

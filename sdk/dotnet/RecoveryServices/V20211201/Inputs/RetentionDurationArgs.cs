@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// <summary>
     /// Retention duration.
     /// </summary>
-    public sealed class RetentionDurationArgs : Pulumi.ResourceArgs
+    public sealed class RetentionDurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Count of duration types. Retention duration is obtained by the counting the duration type Count times.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public RetentionDurationArgs()
         {
         }
+        public static new RetentionDurationArgs Empty => new RetentionDurationArgs();
     }
 }

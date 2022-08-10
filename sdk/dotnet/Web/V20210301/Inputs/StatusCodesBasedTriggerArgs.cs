@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
     /// <summary>
     /// Trigger based on status code.
     /// </summary>
-    public sealed class StatusCodesBasedTriggerArgs : Pulumi.ResourceArgs
+    public sealed class StatusCodesBasedTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Request Count.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
         public StatusCodesBasedTriggerArgs()
         {
         }
+        public static new StatusCodesBasedTriggerArgs Empty => new StatusCodesBasedTriggerArgs();
     }
 }

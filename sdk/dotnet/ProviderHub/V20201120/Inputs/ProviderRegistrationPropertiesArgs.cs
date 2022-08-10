@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class ProviderRegistrationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ProviderRegistrationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("capabilities")]
         private InputList<Inputs.ResourceProviderCapabilitiesArgs>? _capabilities;
@@ -75,5 +75,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public ProviderRegistrationPropertiesArgs()
         {
         }
+        public static new ProviderRegistrationPropertiesArgs Empty => new ProviderRegistrationPropertiesArgs();
     }
 }

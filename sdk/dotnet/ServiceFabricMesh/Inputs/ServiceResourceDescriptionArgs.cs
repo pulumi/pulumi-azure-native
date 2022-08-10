@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     /// <summary>
     /// This type describes a service resource.
     /// </summary>
-    public sealed class ServiceResourceDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceResourceDescriptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoScalingPolicies")]
         private InputList<Inputs.AutoScalingPolicyArgs>? _autoScalingPolicies;
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
         public ServiceResourceDescriptionArgs()
         {
         }
+        public static new ServiceResourceDescriptionArgs Empty => new ServiceResourceDescriptionArgs();
     }
 }

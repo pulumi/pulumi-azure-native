@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
 
-    public sealed class ListServiceTestKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListServiceTestKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.AppPlatform
         public ListServiceTestKeysArgs()
         {
         }
+        public static new ListServiceTestKeysArgs Empty => new ListServiceTestKeysArgs();
     }
 
-    public sealed class ListServiceTestKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListServiceTestKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.AppPlatform
         public ListServiceTestKeysInvokeArgs()
         {
         }
+        public static new ListServiceTestKeysInvokeArgs Empty => new ListServiceTestKeysInvokeArgs();
     }
 
 

@@ -23,7 +23,7 @@ type CustomerSecret struct {
 // CustomerSecretInput is an input type that accepts CustomerSecretArgs and CustomerSecretOutput values.
 // You can construct a concrete instance of `CustomerSecretInput` via:
 //
-//          CustomerSecretArgs{...}
+//	CustomerSecretArgs{...}
 type CustomerSecretInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i CustomerSecretArgs) ToCustomerSecretOutputWithContext(ctx context.Contex
 // CustomerSecretArrayInput is an input type that accepts CustomerSecretArray and CustomerSecretArrayOutput values.
 // You can construct a concrete instance of `CustomerSecretArrayInput` via:
 //
-//          CustomerSecretArray{ CustomerSecretArgs{...} }
+//	CustomerSecretArray{ CustomerSecretArgs{...} }
 type CustomerSecretArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type Schedule struct {
 // ScheduleInput is an input type that accepts ScheduleArgs and ScheduleOutput values.
 // You can construct a concrete instance of `ScheduleInput` via:
 //
-//          ScheduleArgs{...}
+//	ScheduleArgs{...}
 type ScheduleInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ func (i ScheduleArgs) ToScheduleOutputWithContext(ctx context.Context) ScheduleO
 // ScheduleArrayInput is an input type that accepts ScheduleArray and ScheduleArrayOutput values.
 // You can construct a concrete instance of `ScheduleArrayInput` via:
 //
-//          ScheduleArray{ ScheduleArgs{...} }
+//	ScheduleArray{ ScheduleArgs{...} }
 type ScheduleArrayInput interface {
 	pulumi.Input
 
@@ -361,7 +361,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -400,11 +400,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 

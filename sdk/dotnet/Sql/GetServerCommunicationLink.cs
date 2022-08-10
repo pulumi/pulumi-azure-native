@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetServerCommunicationLinkArgs : Pulumi.InvokeArgs
+    public sealed class GetServerCommunicationLinkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the server communication link.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Sql
         public GetServerCommunicationLinkArgs()
         {
         }
+        public static new GetServerCommunicationLinkArgs Empty => new GetServerCommunicationLinkArgs();
     }
 
-    public sealed class GetServerCommunicationLinkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerCommunicationLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the server communication link.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Sql
         public GetServerCommunicationLinkInvokeArgs()
         {
         }
+        public static new GetServerCommunicationLinkInvokeArgs Empty => new GetServerCommunicationLinkInvokeArgs();
     }
 
 

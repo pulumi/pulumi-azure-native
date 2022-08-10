@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The custom dataset.
     /// </summary>
-    public sealed class CustomDatasetArgs : Pulumi.ResourceArgs
+    public sealed class CustomDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public CustomDatasetArgs()
         {
         }
+        public static new CustomDatasetArgs Empty => new CustomDatasetArgs();
     }
 }

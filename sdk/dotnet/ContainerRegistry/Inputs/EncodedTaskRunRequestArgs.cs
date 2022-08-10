@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The parameters for a quick task run request.
     /// </summary>
-    public sealed class EncodedTaskRunRequestArgs : Pulumi.ResourceArgs
+    public sealed class EncodedTaskRunRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The machine configuration of the run agent.
@@ -100,5 +100,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
             IsArchiveEnabled = false;
             Timeout = 3600;
         }
+        public static new EncodedTaskRunRequestArgs Empty => new EncodedTaskRunRequestArgs();
     }
 }

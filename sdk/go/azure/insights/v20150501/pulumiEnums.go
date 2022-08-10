@@ -148,7 +148,7 @@ func (o FavoriteTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // FavoriteTypeInput is an input type that accepts FavoriteTypeArgs and FavoriteTypeOutput values.
 // You can construct a concrete instance of `FavoriteTypeInput` via:
 //
-//          FavoriteTypeArgs{...}
+//	FavoriteTypeArgs{...}
 type FavoriteTypeInput interface {
 	pulumi.Input
 
@@ -362,7 +362,7 @@ func (o WebTestKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // WebTestKindInput is an input type that accepts WebTestKindArgs and WebTestKindOutput values.
 // You can construct a concrete instance of `WebTestKindInput` via:
 //
-//          WebTestKindArgs{...}
+//	WebTestKindArgs{...}
 type WebTestKindInput interface {
 	pulumi.Input
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview.Inputs
     /// <summary>
     /// A load balancer configuration for an availability group listener.
     /// </summary>
-    public sealed class LoadBalancerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource id of the load balancer.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview.Inputs
         public LoadBalancerConfigurationArgs()
         {
         }
+        public static new LoadBalancerConfigurationArgs Empty => new LoadBalancerConfigurationArgs();
     }
 }

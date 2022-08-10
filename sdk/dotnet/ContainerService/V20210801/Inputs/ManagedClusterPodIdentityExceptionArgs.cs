@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210801.Inputs
     /// <summary>
     /// See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
     /// </summary>
-    public sealed class ManagedClusterPodIdentityExceptionArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterPodIdentityExceptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the pod identity exception.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ContainerService.V20210801.Inputs
         public ManagedClusterPodIdentityExceptionArgs()
         {
         }
+        public static new ManagedClusterPodIdentityExceptionArgs Empty => new ManagedClusterPodIdentityExceptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
     /// <summary>
     /// AzureStorage backup policy.
     /// </summary>
-    public sealed class AzureFileShareProtectionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AzureFileShareProtectionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
         public AzureFileShareProtectionPolicyArgs()
         {
         }
+        public static new AzureFileShareProtectionPolicyArgs Empty => new AzureFileShareProtectionPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// Details about the Active Directory domain controllers associated with this AD connector instance
     /// </summary>
-    public sealed class ActiveDirectoryDomainControllersArgs : Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryDomainControllersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the Primary Domain Controller (PDC) in the AD domain.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public ActiveDirectoryDomainControllersArgs()
         {
         }
+        public static new ActiveDirectoryDomainControllersArgs Empty => new ActiveDirectoryDomainControllersArgs();
     }
 }

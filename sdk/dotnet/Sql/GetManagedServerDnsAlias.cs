@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetManagedServerDnsAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedServerDnsAliasArgs : global::Pulumi.InvokeArgs
     {
         [Input("dnsAliasName", required: true)]
         public string DnsAliasName { get; set; } = null!;
@@ -47,9 +47,10 @@ namespace Pulumi.AzureNative.Sql
         public GetManagedServerDnsAliasArgs()
         {
         }
+        public static new GetManagedServerDnsAliasArgs Empty => new GetManagedServerDnsAliasArgs();
     }
 
-    public sealed class GetManagedServerDnsAliasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedServerDnsAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("dnsAliasName", required: true)]
         public Input<string> DnsAliasName { get; set; } = null!;
@@ -69,6 +70,7 @@ namespace Pulumi.AzureNative.Sql
         public GetManagedServerDnsAliasInvokeArgs()
         {
         }
+        public static new GetManagedServerDnsAliasInvokeArgs Empty => new GetManagedServerDnsAliasInvokeArgs();
     }
 
 

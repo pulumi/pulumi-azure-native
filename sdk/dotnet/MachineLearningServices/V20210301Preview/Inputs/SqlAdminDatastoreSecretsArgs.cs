@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Datastore SQL Admin secrets.
     /// </summary>
-    public sealed class SqlAdminDatastoreSecretsArgs : Pulumi.ResourceArgs
+    public sealed class SqlAdminDatastoreSecretsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SQL database password.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public SqlAdminDatastoreSecretsArgs()
         {
         }
+        public static new SqlAdminDatastoreSecretsArgs Empty => new SqlAdminDatastoreSecretsArgs();
     }
 }

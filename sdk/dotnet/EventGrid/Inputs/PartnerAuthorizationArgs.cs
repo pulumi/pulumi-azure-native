@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// <summary>
     /// The partner authorization details.
     /// </summary>
-    public sealed class PartnerAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class PartnerAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizedPartnersList")]
         private InputList<Inputs.PartnerArgs>? _authorizedPartnersList;
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public PartnerAuthorizationArgs()
         {
         }
+        public static new PartnerAuthorizationArgs Empty => new PartnerAuthorizationArgs();
     }
 }

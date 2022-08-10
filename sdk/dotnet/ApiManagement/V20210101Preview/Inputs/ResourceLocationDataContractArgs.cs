@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Inputs
     /// <summary>
     /// Resource location data properties.
     /// </summary>
-    public sealed class ResourceLocationDataContractArgs : Pulumi.ResourceArgs
+    public sealed class ResourceLocationDataContractArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The city or locality where the resource is located.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Inputs
         public ResourceLocationDataContractArgs()
         {
         }
+        public static new ResourceLocationDataContractArgs Empty => new ResourceLocationDataContractArgs();
     }
 }

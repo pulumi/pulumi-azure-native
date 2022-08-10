@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.Inputs
     /// <summary>
     /// The contact detail class.
     /// </summary>
-    public sealed class ContactDetailArgs : Pulumi.ResourceArgs
+    public sealed class ContactDetailArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The e-mail address of the contact.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Peering.Inputs
         public ContactDetailArgs()
         {
         }
+        public static new ContactDetailArgs Empty => new ContactDetailArgs();
     }
 }

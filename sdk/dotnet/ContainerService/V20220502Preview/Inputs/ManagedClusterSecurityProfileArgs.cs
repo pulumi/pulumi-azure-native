@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview.Inputs
     /// <summary>
     /// Security profile for the container service cluster.
     /// </summary>
-    public sealed class ManagedClusterSecurityProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterSecurityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Key Vault [key management service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) settings for the security profile.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview.Inputs
         public ManagedClusterSecurityProfileArgs()
         {
         }
+        public static new ManagedClusterSecurityProfileArgs Empty => new ManagedClusterSecurityProfileArgs();
     }
 }

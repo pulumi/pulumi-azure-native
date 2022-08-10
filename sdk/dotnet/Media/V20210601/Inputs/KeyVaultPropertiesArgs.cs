@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Inputs
 {
 
-    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
+        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

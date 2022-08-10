@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220331Preview.Inputs
     /// <summary>
     /// Tagging criteria
     /// </summary>
-    public sealed class TaggingCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class TaggingCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("criteria")]
         private InputList<Inputs.ScheduleBasedBackupCriteriaArgs>? _criteria;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DataProtection.V20220331Preview.Inputs
         public TaggingCriteriaArgs()
         {
         }
+        public static new TaggingCriteriaArgs Empty => new TaggingCriteriaArgs();
     }
 }

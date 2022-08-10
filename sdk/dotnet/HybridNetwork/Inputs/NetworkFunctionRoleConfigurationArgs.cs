@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.Inputs
     /// <summary>
     /// Network function role configuration.
     /// </summary>
-    public sealed class NetworkFunctionRoleConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkFunctionRoleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the custom settings for the virtual machine.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.HybridNetwork.Inputs
         public NetworkFunctionRoleConfigurationArgs()
         {
         }
+        public static new NetworkFunctionRoleConfigurationArgs Empty => new NetworkFunctionRoleConfigurationArgs();
     }
 }

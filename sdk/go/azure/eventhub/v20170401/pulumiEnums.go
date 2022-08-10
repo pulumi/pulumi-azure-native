@@ -156,7 +156,7 @@ func (o EncodingCaptureDescriptionPtrOutput) ToStringPtrOutputWithContext(ctx co
 // EncodingCaptureDescriptionInput is an input type that accepts EncodingCaptureDescriptionArgs and EncodingCaptureDescriptionOutput values.
 // You can construct a concrete instance of `EncodingCaptureDescriptionInput` via:
 //
-//          EncodingCaptureDescriptionArgs{...}
+//	EncodingCaptureDescriptionArgs{...}
 type EncodingCaptureDescriptionInput interface {
 	pulumi.Input
 
@@ -328,7 +328,7 @@ func (o EntityStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // EntityStatusInput is an input type that accepts EntityStatusArgs and EntityStatusOutput values.
 // You can construct a concrete instance of `EntityStatusInput` via:
 //
-//          EntityStatusArgs{...}
+//	EntityStatusArgs{...}
 type EntityStatusInput interface {
 	pulumi.Input
 

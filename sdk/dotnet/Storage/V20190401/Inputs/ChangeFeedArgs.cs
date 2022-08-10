@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20190401.Inputs
     /// <summary>
     /// The blob service properties for change feed events.
     /// </summary>
-    public sealed class ChangeFeedArgs : Pulumi.ResourceArgs
+    public sealed class ChangeFeedArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether change feed event logging is enabled for the Blob service.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Storage.V20190401.Inputs
         public ChangeFeedArgs()
         {
         }
+        public static new ChangeFeedArgs Empty => new ChangeFeedArgs();
     }
 }

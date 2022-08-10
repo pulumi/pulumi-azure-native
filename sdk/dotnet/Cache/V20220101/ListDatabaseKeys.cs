@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cache.V20220101
     }
 
 
-    public sealed class ListDatabaseKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListDatabaseKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Cache.V20220101
         public ListDatabaseKeysArgs()
         {
         }
+        public static new ListDatabaseKeysArgs Empty => new ListDatabaseKeysArgs();
     }
 
-    public sealed class ListDatabaseKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListDatabaseKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Cache.V20220101
         public ListDatabaseKeysInvokeArgs()
         {
         }
+        public static new ListDatabaseKeysInvokeArgs Empty => new ListDatabaseKeysInvokeArgs();
     }
 
 

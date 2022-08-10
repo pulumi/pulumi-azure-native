@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210901.Inputs
     /// <summary>
     /// A private link resource
     /// </summary>
-    public sealed class PrivateLinkResourceArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The group ID of the resource.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.ContainerService.V20210901.Inputs
         public PrivateLinkResourceArgs()
         {
         }
+        public static new PrivateLinkResourceArgs Empty => new PrivateLinkResourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The CSPM monitoring for GCP offering
     /// </summary>
-    public sealed class CspmMonitorGcpOfferingArgs : Pulumi.ResourceArgs
+    public sealed class CspmMonitorGcpOfferingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The native cloud connection configuration
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public CspmMonitorGcpOfferingArgs()
         {
         }
+        public static new CspmMonitorGcpOfferingArgs Empty => new CspmMonitorGcpOfferingArgs();
     }
 }

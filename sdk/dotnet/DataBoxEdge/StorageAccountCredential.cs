@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:StorageAccountCredential")]
-    public partial class StorageAccountCredential : Pulumi.CustomResource
+    public partial class StorageAccountCredential : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Encrypted storage key.
@@ -107,19 +107,19 @@ namespace Pulumi.AzureNative.DataBoxEdge
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:StorageAccountCredential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         }
     }
 
-    public sealed class StorageAccountCredentialArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encrypted storage key.
@@ -212,5 +212,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public StorageAccountCredentialArgs()
         {
         }
+        public static new StorageAccountCredentialArgs Empty => new StorageAccountCredentialArgs();
     }
 }

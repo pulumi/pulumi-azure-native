@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
     /// <summary>
     /// Storage Configurations for SQL Data, Log and TempDb.
     /// </summary>
-    public sealed class StorageConfigurationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class StorageConfigurationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Disk configuration to apply to SQL Server.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public StorageConfigurationSettingsArgs()
         {
         }
+        public static new StorageConfigurationSettingsArgs Empty => new StorageConfigurationSettingsArgs();
     }
 }

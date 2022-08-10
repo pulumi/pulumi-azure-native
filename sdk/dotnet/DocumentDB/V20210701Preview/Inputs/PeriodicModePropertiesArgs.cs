@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
     /// <summary>
     /// Configuration values for periodic mode backup
     /// </summary>
-    public sealed class PeriodicModePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PeriodicModePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An integer representing the interval in minutes between two backups
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
         public PeriodicModePropertiesArgs()
         {
         }
+        public static new PeriodicModePropertiesArgs Empty => new PeriodicModePropertiesArgs();
     }
 }

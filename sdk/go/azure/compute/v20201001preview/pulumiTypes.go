@@ -19,7 +19,7 @@ type CloudServiceExtensionProfile struct {
 // CloudServiceExtensionProfileInput is an input type that accepts CloudServiceExtensionProfileArgs and CloudServiceExtensionProfileOutput values.
 // You can construct a concrete instance of `CloudServiceExtensionProfileInput` via:
 //
-//          CloudServiceExtensionProfileArgs{...}
+//	CloudServiceExtensionProfileArgs{...}
 type CloudServiceExtensionProfileInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i CloudServiceExtensionProfileArgs) ToCloudServiceExtensionProfilePtrOutpu
 // CloudServiceExtensionProfilePtrInput is an input type that accepts CloudServiceExtensionProfileArgs, CloudServiceExtensionProfilePtr and CloudServiceExtensionProfilePtrOutput values.
 // You can construct a concrete instance of `CloudServiceExtensionProfilePtrInput` via:
 //
-//          CloudServiceExtensionProfileArgs{...}
+//	        CloudServiceExtensionProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloudServiceExtensionProfilePtrInput interface {
 	pulumi.Input
 
@@ -238,7 +238,7 @@ type CloudServiceExtensionProperties struct {
 // CloudServiceExtensionPropertiesInput is an input type that accepts CloudServiceExtensionPropertiesArgs and CloudServiceExtensionPropertiesOutput values.
 // You can construct a concrete instance of `CloudServiceExtensionPropertiesInput` via:
 //
-//          CloudServiceExtensionPropertiesArgs{...}
+//	CloudServiceExtensionPropertiesArgs{...}
 type CloudServiceExtensionPropertiesInput interface {
 	pulumi.Input
 
@@ -294,11 +294,11 @@ func (i CloudServiceExtensionPropertiesArgs) ToCloudServiceExtensionPropertiesPt
 // CloudServiceExtensionPropertiesPtrInput is an input type that accepts CloudServiceExtensionPropertiesArgs, CloudServiceExtensionPropertiesPtr and CloudServiceExtensionPropertiesPtrOutput values.
 // You can construct a concrete instance of `CloudServiceExtensionPropertiesPtrInput` via:
 //
-//          CloudServiceExtensionPropertiesArgs{...}
+//	        CloudServiceExtensionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloudServiceExtensionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -750,7 +750,7 @@ type CloudServiceNetworkProfile struct {
 // CloudServiceNetworkProfileInput is an input type that accepts CloudServiceNetworkProfileArgs and CloudServiceNetworkProfileOutput values.
 // You can construct a concrete instance of `CloudServiceNetworkProfileInput` via:
 //
-//          CloudServiceNetworkProfileArgs{...}
+//	CloudServiceNetworkProfileArgs{...}
 type CloudServiceNetworkProfileInput interface {
 	pulumi.Input
 
@@ -788,11 +788,11 @@ func (i CloudServiceNetworkProfileArgs) ToCloudServiceNetworkProfilePtrOutputWit
 // CloudServiceNetworkProfilePtrInput is an input type that accepts CloudServiceNetworkProfileArgs, CloudServiceNetworkProfilePtr and CloudServiceNetworkProfilePtrOutput values.
 // You can construct a concrete instance of `CloudServiceNetworkProfilePtrInput` via:
 //
-//          CloudServiceNetworkProfileArgs{...}
+//	        CloudServiceNetworkProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloudServiceNetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -980,7 +980,7 @@ type CloudServiceOsProfile struct {
 // CloudServiceOsProfileInput is an input type that accepts CloudServiceOsProfileArgs and CloudServiceOsProfileOutput values.
 // You can construct a concrete instance of `CloudServiceOsProfileInput` via:
 //
-//          CloudServiceOsProfileArgs{...}
+//	CloudServiceOsProfileArgs{...}
 type CloudServiceOsProfileInput interface {
 	pulumi.Input
 
@@ -1017,11 +1017,11 @@ func (i CloudServiceOsProfileArgs) ToCloudServiceOsProfilePtrOutputWithContext(c
 // CloudServiceOsProfilePtrInput is an input type that accepts CloudServiceOsProfileArgs, CloudServiceOsProfilePtr and CloudServiceOsProfilePtrOutput values.
 // You can construct a concrete instance of `CloudServiceOsProfilePtrInput` via:
 //
-//          CloudServiceOsProfileArgs{...}
+//	        CloudServiceOsProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloudServiceOsProfilePtrInput interface {
 	pulumi.Input
 
@@ -1201,7 +1201,7 @@ type CloudServiceProperties struct {
 // CloudServicePropertiesInput is an input type that accepts CloudServicePropertiesArgs and CloudServicePropertiesOutput values.
 // You can construct a concrete instance of `CloudServicePropertiesInput` via:
 //
-//          CloudServicePropertiesArgs{...}
+//	CloudServicePropertiesArgs{...}
 type CloudServicePropertiesInput interface {
 	pulumi.Input
 
@@ -1259,11 +1259,11 @@ func (i CloudServicePropertiesArgs) ToCloudServicePropertiesPtrOutputWithContext
 // CloudServicePropertiesPtrInput is an input type that accepts CloudServicePropertiesArgs, CloudServicePropertiesPtr and CloudServicePropertiesPtrOutput values.
 // You can construct a concrete instance of `CloudServicePropertiesPtrInput` via:
 //
-//          CloudServicePropertiesArgs{...}
+//	        CloudServicePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloudServicePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1600,7 +1600,7 @@ type CloudServiceRoleProfile struct {
 // CloudServiceRoleProfileInput is an input type that accepts CloudServiceRoleProfileArgs and CloudServiceRoleProfileOutput values.
 // You can construct a concrete instance of `CloudServiceRoleProfileInput` via:
 //
-//          CloudServiceRoleProfileArgs{...}
+//	CloudServiceRoleProfileArgs{...}
 type CloudServiceRoleProfileInput interface {
 	pulumi.Input
 
@@ -1637,11 +1637,11 @@ func (i CloudServiceRoleProfileArgs) ToCloudServiceRoleProfilePtrOutputWithConte
 // CloudServiceRoleProfilePtrInput is an input type that accepts CloudServiceRoleProfileArgs, CloudServiceRoleProfilePtr and CloudServiceRoleProfilePtrOutput values.
 // You can construct a concrete instance of `CloudServiceRoleProfilePtrInput` via:
 //
-//          CloudServiceRoleProfileArgs{...}
+//	        CloudServiceRoleProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloudServiceRoleProfilePtrInput interface {
 	pulumi.Input
 
@@ -1742,7 +1742,7 @@ type CloudServiceRoleProfileProperties struct {
 // CloudServiceRoleProfilePropertiesInput is an input type that accepts CloudServiceRoleProfilePropertiesArgs and CloudServiceRoleProfilePropertiesOutput values.
 // You can construct a concrete instance of `CloudServiceRoleProfilePropertiesInput` via:
 //
-//          CloudServiceRoleProfilePropertiesArgs{...}
+//	CloudServiceRoleProfilePropertiesArgs{...}
 type CloudServiceRoleProfilePropertiesInput interface {
 	pulumi.Input
 
@@ -1773,7 +1773,7 @@ func (i CloudServiceRoleProfilePropertiesArgs) ToCloudServiceRoleProfileProperti
 // CloudServiceRoleProfilePropertiesArrayInput is an input type that accepts CloudServiceRoleProfilePropertiesArray and CloudServiceRoleProfilePropertiesArrayOutput values.
 // You can construct a concrete instance of `CloudServiceRoleProfilePropertiesArrayInput` via:
 //
-//          CloudServiceRoleProfilePropertiesArray{ CloudServiceRoleProfilePropertiesArgs{...} }
+//	CloudServiceRoleProfilePropertiesArray{ CloudServiceRoleProfilePropertiesArgs{...} }
 type CloudServiceRoleProfilePropertiesArrayInput interface {
 	pulumi.Input
 
@@ -1966,7 +1966,7 @@ type CloudServiceRoleSku struct {
 // CloudServiceRoleSkuInput is an input type that accepts CloudServiceRoleSkuArgs and CloudServiceRoleSkuOutput values.
 // You can construct a concrete instance of `CloudServiceRoleSkuInput` via:
 //
-//          CloudServiceRoleSkuArgs{...}
+//	CloudServiceRoleSkuArgs{...}
 type CloudServiceRoleSkuInput interface {
 	pulumi.Input
 
@@ -2007,11 +2007,11 @@ func (i CloudServiceRoleSkuArgs) ToCloudServiceRoleSkuPtrOutputWithContext(ctx c
 // CloudServiceRoleSkuPtrInput is an input type that accepts CloudServiceRoleSkuArgs, CloudServiceRoleSkuPtr and CloudServiceRoleSkuPtrOutput values.
 // You can construct a concrete instance of `CloudServiceRoleSkuPtrInput` via:
 //
-//          CloudServiceRoleSkuArgs{...}
+//	        CloudServiceRoleSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloudServiceRoleSkuPtrInput interface {
 	pulumi.Input
 
@@ -2233,7 +2233,7 @@ type CloudServiceVaultAndSecretReference struct {
 // CloudServiceVaultAndSecretReferenceInput is an input type that accepts CloudServiceVaultAndSecretReferenceArgs and CloudServiceVaultAndSecretReferenceOutput values.
 // You can construct a concrete instance of `CloudServiceVaultAndSecretReferenceInput` via:
 //
-//          CloudServiceVaultAndSecretReferenceArgs{...}
+//	CloudServiceVaultAndSecretReferenceArgs{...}
 type CloudServiceVaultAndSecretReferenceInput interface {
 	pulumi.Input
 
@@ -2269,11 +2269,11 @@ func (i CloudServiceVaultAndSecretReferenceArgs) ToCloudServiceVaultAndSecretRef
 // CloudServiceVaultAndSecretReferencePtrInput is an input type that accepts CloudServiceVaultAndSecretReferenceArgs, CloudServiceVaultAndSecretReferencePtr and CloudServiceVaultAndSecretReferencePtrOutput values.
 // You can construct a concrete instance of `CloudServiceVaultAndSecretReferencePtrInput` via:
 //
-//          CloudServiceVaultAndSecretReferenceArgs{...}
+//	        CloudServiceVaultAndSecretReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloudServiceVaultAndSecretReferencePtrInput interface {
 	pulumi.Input
 
@@ -2451,7 +2451,7 @@ type CloudServiceVaultCertificate struct {
 // CloudServiceVaultCertificateInput is an input type that accepts CloudServiceVaultCertificateArgs and CloudServiceVaultCertificateOutput values.
 // You can construct a concrete instance of `CloudServiceVaultCertificateInput` via:
 //
-//          CloudServiceVaultCertificateArgs{...}
+//	CloudServiceVaultCertificateArgs{...}
 type CloudServiceVaultCertificateInput interface {
 	pulumi.Input
 
@@ -2480,7 +2480,7 @@ func (i CloudServiceVaultCertificateArgs) ToCloudServiceVaultCertificateOutputWi
 // CloudServiceVaultCertificateArrayInput is an input type that accepts CloudServiceVaultCertificateArray and CloudServiceVaultCertificateArrayOutput values.
 // You can construct a concrete instance of `CloudServiceVaultCertificateArrayInput` via:
 //
-//          CloudServiceVaultCertificateArray{ CloudServiceVaultCertificateArgs{...} }
+//	CloudServiceVaultCertificateArray{ CloudServiceVaultCertificateArgs{...} }
 type CloudServiceVaultCertificateArrayInput interface {
 	pulumi.Input
 
@@ -2599,7 +2599,7 @@ type CloudServiceVaultSecretGroup struct {
 // CloudServiceVaultSecretGroupInput is an input type that accepts CloudServiceVaultSecretGroupArgs and CloudServiceVaultSecretGroupOutput values.
 // You can construct a concrete instance of `CloudServiceVaultSecretGroupInput` via:
 //
-//          CloudServiceVaultSecretGroupArgs{...}
+//	CloudServiceVaultSecretGroupArgs{...}
 type CloudServiceVaultSecretGroupInput interface {
 	pulumi.Input
 
@@ -2630,7 +2630,7 @@ func (i CloudServiceVaultSecretGroupArgs) ToCloudServiceVaultSecretGroupOutputWi
 // CloudServiceVaultSecretGroupArrayInput is an input type that accepts CloudServiceVaultSecretGroupArray and CloudServiceVaultSecretGroupArrayOutput values.
 // You can construct a concrete instance of `CloudServiceVaultSecretGroupArrayInput` via:
 //
-//          CloudServiceVaultSecretGroupArray{ CloudServiceVaultSecretGroupArgs{...} }
+//	CloudServiceVaultSecretGroupArray{ CloudServiceVaultSecretGroupArgs{...} }
 type CloudServiceVaultSecretGroupArrayInput interface {
 	pulumi.Input
 
@@ -2763,7 +2763,7 @@ type Extension struct {
 // ExtensionInput is an input type that accepts ExtensionArgs and ExtensionOutput values.
 // You can construct a concrete instance of `ExtensionInput` via:
 //
-//          ExtensionArgs{...}
+//	ExtensionArgs{...}
 type ExtensionInput interface {
 	pulumi.Input
 
@@ -2794,7 +2794,7 @@ func (i ExtensionArgs) ToExtensionOutputWithContext(ctx context.Context) Extensi
 // ExtensionArrayInput is an input type that accepts ExtensionArray and ExtensionArrayOutput values.
 // You can construct a concrete instance of `ExtensionArrayInput` via:
 //
-//          ExtensionArray{ ExtensionArgs{...} }
+//	ExtensionArray{ ExtensionArgs{...} }
 type ExtensionArrayInput interface {
 	pulumi.Input
 
@@ -2924,7 +2924,7 @@ type LoadBalancerConfiguration struct {
 // LoadBalancerConfigurationInput is an input type that accepts LoadBalancerConfigurationArgs and LoadBalancerConfigurationOutput values.
 // You can construct a concrete instance of `LoadBalancerConfigurationInput` via:
 //
-//          LoadBalancerConfigurationArgs{...}
+//	LoadBalancerConfigurationArgs{...}
 type LoadBalancerConfigurationInput interface {
 	pulumi.Input
 
@@ -2954,7 +2954,7 @@ func (i LoadBalancerConfigurationArgs) ToLoadBalancerConfigurationOutputWithCont
 // LoadBalancerConfigurationArrayInput is an input type that accepts LoadBalancerConfigurationArray and LoadBalancerConfigurationArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerConfigurationArrayInput` via:
 //
-//          LoadBalancerConfigurationArray{ LoadBalancerConfigurationArgs{...} }
+//	LoadBalancerConfigurationArray{ LoadBalancerConfigurationArgs{...} }
 type LoadBalancerConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -3028,7 +3028,7 @@ type LoadBalancerConfigurationProperties struct {
 // LoadBalancerConfigurationPropertiesInput is an input type that accepts LoadBalancerConfigurationPropertiesArgs and LoadBalancerConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `LoadBalancerConfigurationPropertiesInput` via:
 //
-//          LoadBalancerConfigurationPropertiesArgs{...}
+//	LoadBalancerConfigurationPropertiesArgs{...}
 type LoadBalancerConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -3064,11 +3064,11 @@ func (i LoadBalancerConfigurationPropertiesArgs) ToLoadBalancerConfigurationProp
 // LoadBalancerConfigurationPropertiesPtrInput is an input type that accepts LoadBalancerConfigurationPropertiesArgs, LoadBalancerConfigurationPropertiesPtr and LoadBalancerConfigurationPropertiesPtrOutput values.
 // You can construct a concrete instance of `LoadBalancerConfigurationPropertiesPtrInput` via:
 //
-//          LoadBalancerConfigurationPropertiesArgs{...}
+//	        LoadBalancerConfigurationPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoadBalancerConfigurationPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3281,7 +3281,7 @@ type LoadBalancerFrontendIPConfiguration struct {
 // LoadBalancerFrontendIPConfigurationInput is an input type that accepts LoadBalancerFrontendIPConfigurationArgs and LoadBalancerFrontendIPConfigurationOutput values.
 // You can construct a concrete instance of `LoadBalancerFrontendIPConfigurationInput` via:
 //
-//          LoadBalancerFrontendIPConfigurationArgs{...}
+//	LoadBalancerFrontendIPConfigurationArgs{...}
 type LoadBalancerFrontendIPConfigurationInput interface {
 	pulumi.Input
 
@@ -3310,7 +3310,7 @@ func (i LoadBalancerFrontendIPConfigurationArgs) ToLoadBalancerFrontendIPConfigu
 // LoadBalancerFrontendIPConfigurationArrayInput is an input type that accepts LoadBalancerFrontendIPConfigurationArray and LoadBalancerFrontendIPConfigurationArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerFrontendIPConfigurationArrayInput` via:
 //
-//          LoadBalancerFrontendIPConfigurationArray{ LoadBalancerFrontendIPConfigurationArgs{...} }
+//	LoadBalancerFrontendIPConfigurationArray{ LoadBalancerFrontendIPConfigurationArgs{...} }
 type LoadBalancerFrontendIPConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -3388,7 +3388,7 @@ type LoadBalancerFrontendIPConfigurationProperties struct {
 // LoadBalancerFrontendIPConfigurationPropertiesInput is an input type that accepts LoadBalancerFrontendIPConfigurationPropertiesArgs and LoadBalancerFrontendIPConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `LoadBalancerFrontendIPConfigurationPropertiesInput` via:
 //
-//          LoadBalancerFrontendIPConfigurationPropertiesArgs{...}
+//	LoadBalancerFrontendIPConfigurationPropertiesArgs{...}
 type LoadBalancerFrontendIPConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -3427,11 +3427,11 @@ func (i LoadBalancerFrontendIPConfigurationPropertiesArgs) ToLoadBalancerFronten
 // LoadBalancerFrontendIPConfigurationPropertiesPtrInput is an input type that accepts LoadBalancerFrontendIPConfigurationPropertiesArgs, LoadBalancerFrontendIPConfigurationPropertiesPtr and LoadBalancerFrontendIPConfigurationPropertiesPtrOutput values.
 // You can construct a concrete instance of `LoadBalancerFrontendIPConfigurationPropertiesPtrInput` via:
 //
-//          LoadBalancerFrontendIPConfigurationPropertiesArgs{...}
+//	        LoadBalancerFrontendIPConfigurationPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoadBalancerFrontendIPConfigurationPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3696,7 +3696,7 @@ type SubResource struct {
 // SubResourceInput is an input type that accepts SubResourceArgs and SubResourceOutput values.
 // You can construct a concrete instance of `SubResourceInput` via:
 //
-//          SubResourceArgs{...}
+//	SubResourceArgs{...}
 type SubResourceInput interface {
 	pulumi.Input
 
@@ -3732,11 +3732,11 @@ func (i SubResourceArgs) ToSubResourcePtrOutputWithContext(ctx context.Context) 
 // SubResourcePtrInput is an input type that accepts SubResourceArgs, SubResourcePtr and SubResourcePtrOutput values.
 // You can construct a concrete instance of `SubResourcePtrInput` via:
 //
-//          SubResourceArgs{...}
+//	        SubResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubResourcePtrInput interface {
 	pulumi.Input
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
     /// <summary>
     /// The configuration parameters used while performing a rolling upgrade.
     /// </summary>
-    public sealed class RollingUpgradePolicyArgs : Pulumi.ResourceArgs
+    public sealed class RollingUpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
         public RollingUpgradePolicyArgs()
         {
         }
+        public static new RollingUpgradePolicyArgs Empty => new RollingUpgradePolicyArgs();
     }
 }

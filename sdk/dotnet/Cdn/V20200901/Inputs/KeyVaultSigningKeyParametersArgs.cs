@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// Describes the parameters for using a user's KeyVault for URL Signing Key.
     /// </summary>
-    public sealed class KeyVaultSigningKeyParametersArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultSigningKeyParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;
@@ -51,5 +51,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public KeyVaultSigningKeyParametersArgs()
         {
         }
+        public static new KeyVaultSigningKeyParametersArgs Empty => new KeyVaultSigningKeyParametersArgs();
     }
 }

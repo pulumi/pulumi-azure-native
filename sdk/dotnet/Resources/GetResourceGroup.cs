@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Resources
     }
 
 
-    public sealed class GetResourceGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group to get. The name is case insensitive.
@@ -38,9 +38,10 @@ namespace Pulumi.AzureNative.Resources
         public GetResourceGroupArgs()
         {
         }
+        public static new GetResourceGroupArgs Empty => new GetResourceGroupArgs();
     }
 
-    public sealed class GetResourceGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group to get. The name is case insensitive.
@@ -51,6 +52,7 @@ namespace Pulumi.AzureNative.Resources
         public GetResourceGroupInvokeArgs()
         {
         }
+        public static new GetResourceGroupInvokeArgs Empty => new GetResourceGroupInvokeArgs();
     }
 
 

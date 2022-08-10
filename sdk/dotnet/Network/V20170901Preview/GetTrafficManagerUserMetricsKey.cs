@@ -20,11 +20,12 @@ namespace Pulumi.AzureNative.Network.V20170901Preview
     }
 
 
-    public sealed class GetTrafficManagerUserMetricsKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficManagerUserMetricsKeyArgs : global::Pulumi.InvokeArgs
     {
         public GetTrafficManagerUserMetricsKeyArgs()
         {
         }
+        public static new GetTrafficManagerUserMetricsKeyArgs Empty => new GetTrafficManagerUserMetricsKeyArgs();
     }
 
 

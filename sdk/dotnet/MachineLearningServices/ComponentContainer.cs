@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2022-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ComponentContainer")]
-    public partial class ComponentContainer : Pulumi.CustomResource
+    public partial class ComponentContainer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -65,8 +65,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:ComponentContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:ComponentContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:ComponentContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:ComponentContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class ComponentContainerArgs : Pulumi.ResourceArgs
+    public sealed class ComponentContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -117,5 +117,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public ComponentContainerArgs()
         {
         }
+        public static new ComponentContainerArgs Empty => new ComponentContainerArgs();
     }
 }

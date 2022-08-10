@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Inputs
     /// <summary>
     /// Authentication configuration information
     /// </summary>
-    public sealed class ServiceAuthenticationConfigurationInfoArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAuthenticationConfigurationInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The audience url for the service
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Inputs
         public ServiceAuthenticationConfigurationInfoArgs()
         {
         }
+        public static new ServiceAuthenticationConfigurationInfoArgs Empty => new ServiceAuthenticationConfigurationInfoArgs();
     }
 }

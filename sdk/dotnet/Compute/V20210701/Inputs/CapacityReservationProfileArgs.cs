@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// The parameters of a capacity reservation Profile.
     /// </summary>
-    public sealed class CapacityReservationProfileArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public CapacityReservationProfileArgs()
         {
         }
+        public static new CapacityReservationProfileArgs Empty => new CapacityReservationProfileArgs();
     }
 }

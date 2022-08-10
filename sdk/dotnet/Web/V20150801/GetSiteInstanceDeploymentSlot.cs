@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     }
 
 
-    public sealed class GetSiteInstanceDeploymentSlotArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteInstanceDeploymentSlotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the deployment
@@ -61,9 +61,10 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetSiteInstanceDeploymentSlotArgs()
         {
         }
+        public static new GetSiteInstanceDeploymentSlotArgs Empty => new GetSiteInstanceDeploymentSlotArgs();
     }
 
-    public sealed class GetSiteInstanceDeploymentSlotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteInstanceDeploymentSlotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the deployment
@@ -98,6 +99,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetSiteInstanceDeploymentSlotInvokeArgs()
         {
         }
+        public static new GetSiteInstanceDeploymentSlotInvokeArgs Empty => new GetSiteInstanceDeploymentSlotInvokeArgs();
     }
 
 

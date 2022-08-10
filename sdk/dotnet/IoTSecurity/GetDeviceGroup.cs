@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.IoTSecurity
     }
 
 
-    public sealed class GetDeviceGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDeviceGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Device group name
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.IoTSecurity
         public GetDeviceGroupArgs()
         {
         }
+        public static new GetDeviceGroupArgs Empty => new GetDeviceGroupArgs();
     }
 
-    public sealed class GetDeviceGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeviceGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Device group name
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.IoTSecurity
         public GetDeviceGroupInvokeArgs()
         {
         }
+        public static new GetDeviceGroupInvokeArgs Empty => new GetDeviceGroupInvokeArgs();
     }
 
 

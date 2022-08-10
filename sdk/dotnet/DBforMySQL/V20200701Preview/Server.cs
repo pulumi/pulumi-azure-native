@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
     /// Represents a server.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql/v20200701preview:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -190,10 +190,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -215,7 +215,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -352,5 +352,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 }

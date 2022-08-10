@@ -188,7 +188,7 @@ type IdentitySource struct {
 // IdentitySourceInput is an input type that accepts IdentitySourceArgs and IdentitySourceOutput values.
 // You can construct a concrete instance of `IdentitySourceInput` via:
 //
-//          IdentitySourceArgs{...}
+//	IdentitySourceArgs{...}
 type IdentitySourceInput interface {
 	pulumi.Input
 
@@ -235,7 +235,7 @@ func (i IdentitySourceArgs) ToIdentitySourceOutputWithContext(ctx context.Contex
 // IdentitySourceArrayInput is an input type that accepts IdentitySourceArray and IdentitySourceArrayOutput values.
 // You can construct a concrete instance of `IdentitySourceArrayInput` via:
 //
-//          IdentitySourceArray{ IdentitySourceArgs{...} }
+//	IdentitySourceArray{ IdentitySourceArgs{...} }
 type IdentitySourceArrayInput interface {
 	pulumi.Input
 
@@ -460,7 +460,7 @@ type ManagementCluster struct {
 // ManagementClusterInput is an input type that accepts ManagementClusterArgs and ManagementClusterOutput values.
 // You can construct a concrete instance of `ManagementClusterInput` via:
 //
-//          ManagementClusterArgs{...}
+//	ManagementClusterArgs{...}
 type ManagementClusterInput interface {
 	pulumi.Input
 
@@ -562,7 +562,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

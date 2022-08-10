@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     /// </summary>
     [Obsolete(@"Version 2020-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:synapse/v20201201:SqlPoolWorkloadClassifier")]
-    public partial class SqlPoolWorkloadClassifier : Pulumi.CustomResource
+    public partial class SqlPoolWorkloadClassifier : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The workload classifier context.
@@ -89,13 +89,13 @@ namespace Pulumi.AzureNative.Synapse.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse:SqlPoolWorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolWorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolWorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolWorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolWorkloadClassifier"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:SqlPoolWorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolWorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolWorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolWorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolWorkloadClassifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         }
     }
 
-    public sealed class SqlPoolWorkloadClassifierArgs : Pulumi.ResourceArgs
+    public sealed class SqlPoolWorkloadClassifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The workload classifier context.
@@ -188,5 +188,6 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public SqlPoolWorkloadClassifierArgs()
         {
         }
+        public static new SqlPoolWorkloadClassifierArgs Empty => new SqlPoolWorkloadClassifierArgs();
     }
 }

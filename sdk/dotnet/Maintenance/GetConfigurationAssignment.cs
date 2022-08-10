@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Maintenance
     }
 
 
-    public sealed class GetConfigurationAssignmentArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Configuration assignment name
@@ -62,9 +62,10 @@ namespace Pulumi.AzureNative.Maintenance
         public GetConfigurationAssignmentArgs()
         {
         }
+        public static new GetConfigurationAssignmentArgs Empty => new GetConfigurationAssignmentArgs();
     }
 
-    public sealed class GetConfigurationAssignmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Configuration assignment name
@@ -99,6 +100,7 @@ namespace Pulumi.AzureNative.Maintenance
         public GetConfigurationAssignmentInvokeArgs()
         {
         }
+        public static new GetConfigurationAssignmentInvokeArgs Empty => new GetConfigurationAssignmentInvokeArgs();
     }
 
 

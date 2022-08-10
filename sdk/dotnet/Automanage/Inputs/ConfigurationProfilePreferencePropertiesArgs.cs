@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.Inputs
     /// <summary>
     /// Automanage configuration profile preference properties.
     /// </summary>
-    public sealed class ConfigurationProfilePreferencePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfilePreferencePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The custom preferences for Azure Antimalware.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Automanage.Inputs
         public ConfigurationProfilePreferencePropertiesArgs()
         {
         }
+        public static new ConfigurationProfilePreferencePropertiesArgs Empty => new ConfigurationProfilePreferencePropertiesArgs();
     }
 }

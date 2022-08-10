@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
     /// Description of a namespace resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20220101preview:Namespace")]
-    public partial class Namespace : Pulumi.CustomResource
+    public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Alternate name for namespace
@@ -160,14 +160,14 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicebus:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,7 +189,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
         }
     }
 
-    public sealed class NamespaceArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alternate name for namespace
@@ -285,5 +285,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
         {
             PublicNetworkAccess = "Enabled";
         }
+        public static new NamespaceArgs Empty => new NamespaceArgs();
     }
 }

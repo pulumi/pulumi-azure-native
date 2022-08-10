@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515.Inputs
     /// <summary>
     /// The object that represents all properties related to capacity enforcement on an account.
     /// </summary>
-    public sealed class CapacityArgs : Pulumi.ResourceArgs
+    public sealed class CapacityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515.Inputs
         public CapacityArgs()
         {
         }
+        public static new CapacityArgs Empty => new CapacityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The Dynamics entity dataset.
     /// </summary>
-    public sealed class DynamicsEntityDatasetArgs : Pulumi.ResourceArgs
+    public sealed class DynamicsEntityDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DynamicsEntityDatasetArgs()
         {
         }
+        public static new DynamicsEntityDatasetArgs Empty => new DynamicsEntityDatasetArgs();
     }
 }

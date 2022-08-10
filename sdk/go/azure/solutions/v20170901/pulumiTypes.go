@@ -23,7 +23,7 @@ type ApplicationArtifact struct {
 // ApplicationArtifactInput is an input type that accepts ApplicationArtifactArgs and ApplicationArtifactOutput values.
 // You can construct a concrete instance of `ApplicationArtifactInput` via:
 //
-//          ApplicationArtifactArgs{...}
+//	ApplicationArtifactArgs{...}
 type ApplicationArtifactInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i ApplicationArtifactArgs) ToApplicationArtifactOutputWithContext(ctx cont
 // ApplicationArtifactArrayInput is an input type that accepts ApplicationArtifactArray and ApplicationArtifactArrayOutput values.
 // You can construct a concrete instance of `ApplicationArtifactArrayInput` via:
 //
-//          ApplicationArtifactArray{ ApplicationArtifactArgs{...} }
+//	ApplicationArtifactArray{ ApplicationArtifactArgs{...} }
 type ApplicationArtifactArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type ApplicationProviderAuthorization struct {
 // ApplicationProviderAuthorizationInput is an input type that accepts ApplicationProviderAuthorizationArgs and ApplicationProviderAuthorizationOutput values.
 // You can construct a concrete instance of `ApplicationProviderAuthorizationInput` via:
 //
-//          ApplicationProviderAuthorizationArgs{...}
+//	ApplicationProviderAuthorizationArgs{...}
 type ApplicationProviderAuthorizationInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ func (i ApplicationProviderAuthorizationArgs) ToApplicationProviderAuthorization
 // ApplicationProviderAuthorizationArrayInput is an input type that accepts ApplicationProviderAuthorizationArray and ApplicationProviderAuthorizationArrayOutput values.
 // You can construct a concrete instance of `ApplicationProviderAuthorizationArrayInput` via:
 //
-//          ApplicationProviderAuthorizationArray{ ApplicationProviderAuthorizationArgs{...} }
+//	ApplicationProviderAuthorizationArray{ ApplicationProviderAuthorizationArgs{...} }
 type ApplicationProviderAuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -359,7 +359,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -396,11 +396,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -601,7 +601,7 @@ type Plan struct {
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
 // You can construct a concrete instance of `PlanInput` via:
 //
-//          PlanArgs{...}
+//	PlanArgs{...}
 type PlanInput interface {
 	pulumi.Input
 
@@ -646,11 +646,11 @@ func (i PlanArgs) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput 
 // PlanPtrInput is an input type that accepts PlanArgs, PlanPtr and PlanPtrOutput values.
 // You can construct a concrete instance of `PlanPtrInput` via:
 //
-//          PlanArgs{...}
+//	        PlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlanPtrInput interface {
 	pulumi.Input
 
@@ -947,7 +947,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -994,11 +994,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 

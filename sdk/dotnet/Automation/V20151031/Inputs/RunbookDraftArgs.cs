@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20151031.Inputs
 {
 
-    public sealed class RunbookDraftArgs : Pulumi.ResourceArgs
+    public sealed class RunbookDraftArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the creation time of the runbook draft.
@@ -63,5 +63,6 @@ namespace Pulumi.AzureNative.Automation.V20151031.Inputs
         public RunbookDraftArgs()
         {
         }
+        public static new RunbookDraftArgs Empty => new RunbookDraftArgs();
     }
 }

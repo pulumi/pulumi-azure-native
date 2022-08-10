@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
     /// Represents NRT alert rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220601preview:NrtAlertRule")]
-    public partial class NrtAlertRule : Pulumi.CustomResource
+    public partial class NrtAlertRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The alert details override settings
@@ -174,17 +174,17 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:NrtAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:NrtAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:NrtAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:NrtAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:NrtAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:NrtAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:NrtAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:NrtAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:NrtAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:NrtAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:NrtAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -206,7 +206,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         }
     }
 
-    public sealed class NrtAlertRuleArgs : Pulumi.ResourceArgs
+    public sealed class NrtAlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The alert details override settings
@@ -350,5 +350,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         public NrtAlertRuleArgs()
         {
         }
+        public static new NrtAlertRuleArgs Empty => new NrtAlertRuleArgs();
     }
 }

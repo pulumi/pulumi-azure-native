@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// API Version: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:ServiceFabric")]
-    public partial class ServiceFabric : Pulumi.CustomResource
+    public partial class ServiceFabric : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The applicable schedule for the virtual machine.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ServiceFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ServiceFabric"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.DevTestLab
         }
     }
 
-    public sealed class ServiceFabricArgs : Pulumi.ResourceArgs
+    public sealed class ServiceFabricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of the environment under which the service fabric resource is present
@@ -176,5 +176,6 @@ namespace Pulumi.AzureNative.DevTestLab
         public ServiceFabricArgs()
         {
         }
+        public static new ServiceFabricArgs Empty => new ServiceFabricArgs();
     }
 }

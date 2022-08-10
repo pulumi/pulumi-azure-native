@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101.Inputs
     /// <summary>
     /// Description of an additional API Management resource location.
     /// </summary>
-    public sealed class AdditionalLocationArgs : Pulumi.ResourceArgs
+    public sealed class AdditionalLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location name of the additional region among Azure Data center regions.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101.Inputs
         public AdditionalLocationArgs()
         {
         }
+        public static new AdditionalLocationArgs Empty => new AdditionalLocationArgs();
     }
 }

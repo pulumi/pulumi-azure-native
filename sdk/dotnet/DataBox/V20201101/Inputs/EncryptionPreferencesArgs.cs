@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
     /// <summary>
     /// Preferences related to the Encryption.
     /// </summary>
-    public sealed class EncryptionPreferencesArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionPreferencesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines secondary layer of software-based encryption enablement.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
         {
             DoubleEncryption = "Disabled";
         }
+        public static new EncryptionPreferencesArgs Empty => new EncryptionPreferencesArgs();
     }
 }

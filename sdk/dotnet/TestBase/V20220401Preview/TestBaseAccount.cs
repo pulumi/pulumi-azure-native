@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
     /// The Test Base Account resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase/v20220401preview:TestBaseAccount")]
-    public partial class TestBaseAccount : Pulumi.CustomResource
+    public partial class TestBaseAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The access level of the Test Base Account.
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:testbase:TestBaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:TestBaseAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase:TestBaseAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:TestBaseAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         }
     }
 
-    public sealed class TestBaseAccountArgs : Pulumi.ResourceArgs
+    public sealed class TestBaseAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -164,5 +164,6 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         public TestBaseAccountArgs()
         {
         }
+        public static new TestBaseAccountArgs Empty => new TestBaseAccountArgs();
     }
 }

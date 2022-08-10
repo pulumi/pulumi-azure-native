@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Presto server source.
     /// </summary>
-    public sealed class PrestoSourceArgs : Pulumi.ResourceArgs
+    public sealed class PrestoSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public PrestoSourceArgs()
         {
         }
+        public static new PrestoSourceArgs Empty => new PrestoSourceArgs();
     }
 }

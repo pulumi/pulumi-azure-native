@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
     /// A database resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20190601preview:Database")]
-    public partial class Database : Pulumi.CustomResource
+    public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
@@ -230,17 +230,17 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:Database"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:Database"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:Database"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20171001preview:Database"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Database"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Database"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:Database"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Database"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Database"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Database"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -262,7 +262,7 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
         }
     }
 
-    public sealed class DatabaseArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
@@ -473,5 +473,6 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
         public DatabaseArgs()
         {
         }
+        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 }

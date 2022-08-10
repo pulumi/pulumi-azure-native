@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827.Inputs
     /// <summary>
     /// Azure SKU definition.
     /// </summary>
-    public sealed class AzureSkuArgs : Pulumi.ResourceArgs
+    public sealed class AzureSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of instances of the cluster.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Kusto.V20210827.Inputs
         public AzureSkuArgs()
         {
         }
+        public static new AzureSkuArgs Empty => new AzureSkuArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20201001.Inputs
 {
 
-    public sealed class InstantRPAdditionalDetailsArgs : Pulumi.ResourceArgs
+    public sealed class InstantRPAdditionalDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("azureBackupRGNamePrefix")]
         public Input<string>? AzureBackupRGNamePrefix { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20201001.Inputs
         public InstantRPAdditionalDetailsArgs()
         {
         }
+        public static new InstantRPAdditionalDetailsArgs Empty => new InstantRPAdditionalDetailsArgs();
     }
 }

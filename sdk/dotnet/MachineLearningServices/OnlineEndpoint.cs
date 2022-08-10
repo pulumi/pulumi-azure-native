@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:OnlineEndpoint")]
-    public partial class OnlineEndpoint : Pulumi.CustomResource
+    public partial class OnlineEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Service identity associated with a resource.
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:OnlineEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:OnlineEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
     }
 
-    public sealed class OnlineEndpointArgs : Pulumi.ResourceArgs
+    public sealed class OnlineEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Online Endpoint name.
@@ -171,5 +171,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public OnlineEndpointArgs()
         {
         }
+        public static new OnlineEndpointArgs Empty => new OnlineEndpointArgs();
     }
 }

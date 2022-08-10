@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601.Inputs
     /// <summary>
     /// The monthly retention schedule.
     /// </summary>
-    public sealed class MonthlyRetentionScheduleArgs : Pulumi.ResourceArgs
+    public sealed class MonthlyRetentionScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Retention duration of the retention policy.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601.Inputs
         public MonthlyRetentionScheduleArgs()
         {
         }
+        public static new MonthlyRetentionScheduleArgs Empty => new MonthlyRetentionScheduleArgs();
     }
 }

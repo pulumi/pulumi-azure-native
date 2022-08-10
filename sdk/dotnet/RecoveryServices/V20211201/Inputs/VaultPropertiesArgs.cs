@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// <summary>
     /// Properties of the vault.
     /// </summary>
-    public sealed class VaultPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class VaultPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Customer Managed Key details of the resource.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public VaultPropertiesArgs()
         {
         }
+        public static new VaultPropertiesArgs Empty => new VaultPropertiesArgs();
     }
 }

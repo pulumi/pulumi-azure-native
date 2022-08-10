@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The Informix table dataset.
     /// </summary>
-    public sealed class InformixTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class InformixTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InformixTableDatasetArgs()
         {
         }
+        public static new InformixTableDatasetArgs Empty => new InformixTableDatasetArgs();
     }
 }

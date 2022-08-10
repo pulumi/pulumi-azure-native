@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210401
     /// The alert rule information
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule")]
-    public partial class SmartDetectorAlertRule : Pulumi.CustomResource
+    public partial class SmartDetectorAlertRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The alert rule actions.
@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement:SmartDetectorAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement:SmartDetectorAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210401
         }
     }
 
-    public sealed class SmartDetectorAlertRuleArgs : Pulumi.ResourceArgs
+    public sealed class SmartDetectorAlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The alert rule actions.
@@ -226,5 +226,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210401
         {
             Location = "global";
         }
+        public static new SmartDetectorAlertRuleArgs Empty => new SmartDetectorAlertRuleArgs();
     }
 }

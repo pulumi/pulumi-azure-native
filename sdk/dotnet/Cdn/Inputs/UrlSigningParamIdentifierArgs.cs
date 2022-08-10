@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// <summary>
     /// Defines how to identify a parameter for a specific purpose e.g. expires
     /// </summary>
-    public sealed class UrlSigningParamIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class UrlSigningParamIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the purpose of the parameter
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public UrlSigningParamIdentifierArgs()
         {
         }
+        public static new UrlSigningParamIdentifierArgs Empty => new UrlSigningParamIdentifierArgs();
     }
 }

@@ -25,7 +25,7 @@ type ContainerServiceAgentPoolProfile struct {
 // ContainerServiceAgentPoolProfileInput is an input type that accepts ContainerServiceAgentPoolProfileArgs and ContainerServiceAgentPoolProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceAgentPoolProfileInput` via:
 //
-//          ContainerServiceAgentPoolProfileArgs{...}
+//	ContainerServiceAgentPoolProfileArgs{...}
 type ContainerServiceAgentPoolProfileInput interface {
 	pulumi.Input
 
@@ -60,7 +60,7 @@ func (i ContainerServiceAgentPoolProfileArgs) ToContainerServiceAgentPoolProfile
 // ContainerServiceAgentPoolProfileArrayInput is an input type that accepts ContainerServiceAgentPoolProfileArray and ContainerServiceAgentPoolProfileArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceAgentPoolProfileArrayInput` via:
 //
-//          ContainerServiceAgentPoolProfileArray{ ContainerServiceAgentPoolProfileArgs{...} }
+//	ContainerServiceAgentPoolProfileArray{ ContainerServiceAgentPoolProfileArgs{...} }
 type ContainerServiceAgentPoolProfileArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +219,7 @@ type ContainerServiceDiagnosticsProfile struct {
 // ContainerServiceDiagnosticsProfileInput is an input type that accepts ContainerServiceDiagnosticsProfileArgs and ContainerServiceDiagnosticsProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceDiagnosticsProfileInput` via:
 //
-//          ContainerServiceDiagnosticsProfileArgs{...}
+//	ContainerServiceDiagnosticsProfileArgs{...}
 type ContainerServiceDiagnosticsProfileInput interface {
 	pulumi.Input
 
@@ -255,11 +255,11 @@ func (i ContainerServiceDiagnosticsProfileArgs) ToContainerServiceDiagnosticsPro
 // ContainerServiceDiagnosticsProfilePtrInput is an input type that accepts ContainerServiceDiagnosticsProfileArgs, ContainerServiceDiagnosticsProfilePtr and ContainerServiceDiagnosticsProfilePtrOutput values.
 // You can construct a concrete instance of `ContainerServiceDiagnosticsProfilePtrInput` via:
 //
-//          ContainerServiceDiagnosticsProfileArgs{...}
+//	        ContainerServiceDiagnosticsProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServiceDiagnosticsProfilePtrInput interface {
 	pulumi.Input
 
@@ -419,7 +419,7 @@ type ContainerServiceLinuxProfile struct {
 // ContainerServiceLinuxProfileInput is an input type that accepts ContainerServiceLinuxProfileArgs and ContainerServiceLinuxProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceLinuxProfileInput` via:
 //
-//          ContainerServiceLinuxProfileArgs{...}
+//	ContainerServiceLinuxProfileArgs{...}
 type ContainerServiceLinuxProfileInput interface {
 	pulumi.Input
 
@@ -529,7 +529,7 @@ func (val *ContainerServiceMasterProfile) Defaults() *ContainerServiceMasterProf
 // ContainerServiceMasterProfileInput is an input type that accepts ContainerServiceMasterProfileArgs and ContainerServiceMasterProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceMasterProfileInput` via:
 //
-//          ContainerServiceMasterProfileArgs{...}
+//	ContainerServiceMasterProfileArgs{...}
 type ContainerServiceMasterProfileInput interface {
 	pulumi.Input
 
@@ -655,7 +655,7 @@ type ContainerServiceOrchestratorProfile struct {
 // ContainerServiceOrchestratorProfileInput is an input type that accepts ContainerServiceOrchestratorProfileArgs and ContainerServiceOrchestratorProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceOrchestratorProfileInput` via:
 //
-//          ContainerServiceOrchestratorProfileArgs{...}
+//	ContainerServiceOrchestratorProfileArgs{...}
 type ContainerServiceOrchestratorProfileInput interface {
 	pulumi.Input
 
@@ -692,11 +692,11 @@ func (i ContainerServiceOrchestratorProfileArgs) ToContainerServiceOrchestratorP
 // ContainerServiceOrchestratorProfilePtrInput is an input type that accepts ContainerServiceOrchestratorProfileArgs, ContainerServiceOrchestratorProfilePtr and ContainerServiceOrchestratorProfilePtrOutput values.
 // You can construct a concrete instance of `ContainerServiceOrchestratorProfilePtrInput` via:
 //
-//          ContainerServiceOrchestratorProfileArgs{...}
+//	        ContainerServiceOrchestratorProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServiceOrchestratorProfilePtrInput interface {
 	pulumi.Input
 
@@ -857,7 +857,7 @@ type ContainerServiceSshConfiguration struct {
 // ContainerServiceSshConfigurationInput is an input type that accepts ContainerServiceSshConfigurationArgs and ContainerServiceSshConfigurationOutput values.
 // You can construct a concrete instance of `ContainerServiceSshConfigurationInput` via:
 //
-//          ContainerServiceSshConfigurationArgs{...}
+//	ContainerServiceSshConfigurationArgs{...}
 type ContainerServiceSshConfigurationInput interface {
 	pulumi.Input
 
@@ -940,7 +940,7 @@ type ContainerServiceSshPublicKey struct {
 // ContainerServiceSshPublicKeyInput is an input type that accepts ContainerServiceSshPublicKeyArgs and ContainerServiceSshPublicKeyOutput values.
 // You can construct a concrete instance of `ContainerServiceSshPublicKeyInput` via:
 //
-//          ContainerServiceSshPublicKeyArgs{...}
+//	ContainerServiceSshPublicKeyArgs{...}
 type ContainerServiceSshPublicKeyInput interface {
 	pulumi.Input
 
@@ -969,7 +969,7 @@ func (i ContainerServiceSshPublicKeyArgs) ToContainerServiceSshPublicKeyOutputWi
 // ContainerServiceSshPublicKeyArrayInput is an input type that accepts ContainerServiceSshPublicKeyArray and ContainerServiceSshPublicKeyArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceSshPublicKeyArrayInput` via:
 //
-//          ContainerServiceSshPublicKeyArray{ ContainerServiceSshPublicKeyArgs{...} }
+//	ContainerServiceSshPublicKeyArray{ ContainerServiceSshPublicKeyArgs{...} }
 type ContainerServiceSshPublicKeyArrayInput interface {
 	pulumi.Input
 
@@ -1086,7 +1086,7 @@ type ContainerServiceVMDiagnostics struct {
 // ContainerServiceVMDiagnosticsInput is an input type that accepts ContainerServiceVMDiagnosticsArgs and ContainerServiceVMDiagnosticsOutput values.
 // You can construct a concrete instance of `ContainerServiceVMDiagnosticsInput` via:
 //
-//          ContainerServiceVMDiagnosticsArgs{...}
+//	ContainerServiceVMDiagnosticsArgs{...}
 type ContainerServiceVMDiagnosticsInput interface {
 	pulumi.Input
 
@@ -1123,11 +1123,11 @@ func (i ContainerServiceVMDiagnosticsArgs) ToContainerServiceVMDiagnosticsPtrOut
 // ContainerServiceVMDiagnosticsPtrInput is an input type that accepts ContainerServiceVMDiagnosticsArgs, ContainerServiceVMDiagnosticsPtr and ContainerServiceVMDiagnosticsPtrOutput values.
 // You can construct a concrete instance of `ContainerServiceVMDiagnosticsPtrInput` via:
 //
-//          ContainerServiceVMDiagnosticsArgs{...}
+//	        ContainerServiceVMDiagnosticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServiceVMDiagnosticsPtrInput interface {
 	pulumi.Input
 
@@ -1305,7 +1305,7 @@ type ContainerServiceWindowsProfile struct {
 // ContainerServiceWindowsProfileInput is an input type that accepts ContainerServiceWindowsProfileArgs and ContainerServiceWindowsProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceWindowsProfileInput` via:
 //
-//          ContainerServiceWindowsProfileArgs{...}
+//	ContainerServiceWindowsProfileArgs{...}
 type ContainerServiceWindowsProfileInput interface {
 	pulumi.Input
 
@@ -1344,11 +1344,11 @@ func (i ContainerServiceWindowsProfileArgs) ToContainerServiceWindowsProfilePtrO
 // ContainerServiceWindowsProfilePtrInput is an input type that accepts ContainerServiceWindowsProfileArgs, ContainerServiceWindowsProfilePtr and ContainerServiceWindowsProfilePtrOutput values.
 // You can construct a concrete instance of `ContainerServiceWindowsProfilePtrInput` via:
 //
-//          ContainerServiceWindowsProfileArgs{...}
+//	        ContainerServiceWindowsProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServiceWindowsProfilePtrInput interface {
 	pulumi.Input
 

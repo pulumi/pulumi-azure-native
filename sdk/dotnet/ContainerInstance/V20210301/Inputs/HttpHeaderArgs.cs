@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Inputs
     /// <summary>
     /// The HTTP header
     /// </summary>
-    public sealed class HttpHeaderArgs : Pulumi.ResourceArgs
+    public sealed class HttpHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The header name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Inputs
         public HttpHeaderArgs()
         {
         }
+        public static new HttpHeaderArgs Empty => new HttpHeaderArgs();
     }
 }

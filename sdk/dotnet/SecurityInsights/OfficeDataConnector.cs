@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// API Version: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:OfficeDataConnector")]
-    public partial class OfficeDataConnector : Pulumi.CustomResource
+    public partial class OfficeDataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -85,17 +85,17 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:OfficeDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:OfficeDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:OfficeDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:OfficeDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:OfficeDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:OfficeDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:OfficeDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:OfficeDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:OfficeDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:OfficeDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:OfficeDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:OfficeDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class OfficeDataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class OfficeDataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -159,5 +159,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public OfficeDataConnectorArgs()
         {
         }
+        public static new OfficeDataConnectorArgs Empty => new OfficeDataConnectorArgs();
     }
 }

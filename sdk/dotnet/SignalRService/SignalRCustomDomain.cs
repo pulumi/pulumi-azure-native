@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SignalRService
     /// API Version: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalRCustomDomain")]
-    public partial class SignalRCustomDomain : Pulumi.CustomResource
+    public partial class SignalRCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Reference to a resource.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.SignalRService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.SignalRService
         }
     }
 
-    public sealed class SignalRCustomDomainArgs : Pulumi.ResourceArgs
+    public sealed class SignalRCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reference to a resource.
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.SignalRService
         public SignalRCustomDomainArgs()
         {
         }
+        public static new SignalRCustomDomainArgs Empty => new SignalRCustomDomainArgs();
     }
 }

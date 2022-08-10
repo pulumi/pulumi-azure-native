@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The integration account sku.
     /// </summary>
-    public sealed class IntegrationAccountSkuArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sku name.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public IntegrationAccountSkuArgs()
         {
         }
+        public static new IntegrationAccountSkuArgs Empty => new IntegrationAccountSkuArgs();
     }
 }

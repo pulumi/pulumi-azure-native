@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
     /// Response to get user settings
     /// </summary>
     [AzureNativeResourceType("azure-native:portal/v20181001:UserSettings")]
-    public partial class UserSettings : Pulumi.CustomResource
+    public partial class UserSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The cloud shell user settings properties.
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:portal:UserSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:portal:UserSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
         }
     }
 
-    public sealed class UserSettingsArgs : Pulumi.ResourceArgs
+    public sealed class UserSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cloud shell user settings properties.
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.Portal.V20181001
         public UserSettingsArgs()
         {
         }
+        public static new UserSettingsArgs Empty => new UserSettingsArgs();
     }
 }

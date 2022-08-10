@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
     /// <summary>
     /// The compute isolation properties.
     /// </summary>
-    public sealed class ComputeIsolationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ComputeIsolationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flag indicates whether enable compute isolation or not.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
         public ComputeIsolationPropertiesArgs()
         {
         }
+        public static new ComputeIsolationPropertiesArgs Empty => new ComputeIsolationPropertiesArgs();
     }
 }

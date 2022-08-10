@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
     /// A report resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20180801preview:Report")]
-    public partial class Report : Pulumi.CustomResource
+    public partial class Report : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Has definition for the report.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:costmanagement:Report"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:Report"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         }
     }
 
-    public sealed class ReportArgs : Pulumi.ResourceArgs
+    public sealed class ReportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Has definition for the report.
@@ -139,5 +139,6 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         public ReportArgs()
         {
         }
+        public static new ReportArgs Empty => new ReportArgs();
     }
 }

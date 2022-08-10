@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
     /// <summary>
     /// Describes the certificate details.
     /// </summary>
-    public sealed class CertificateDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class CertificateDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Thumbprint of the primary certificate.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         public CertificateDescriptionArgs()
         {
         }
+        public static new CertificateDescriptionArgs Empty => new CertificateDescriptionArgs();
     }
 }

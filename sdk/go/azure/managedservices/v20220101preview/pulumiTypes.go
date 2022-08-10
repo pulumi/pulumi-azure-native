@@ -25,7 +25,7 @@ type Authorization struct {
 // AuthorizationInput is an input type that accepts AuthorizationArgs and AuthorizationOutput values.
 // You can construct a concrete instance of `AuthorizationInput` via:
 //
-//          AuthorizationArgs{...}
+//	AuthorizationArgs{...}
 type AuthorizationInput interface {
 	pulumi.Input
 
@@ -60,7 +60,7 @@ func (i AuthorizationArgs) ToAuthorizationOutputWithContext(ctx context.Context)
 // AuthorizationArrayInput is an input type that accepts AuthorizationArray and AuthorizationArrayOutput values.
 // You can construct a concrete instance of `AuthorizationArrayInput` via:
 //
-//          AuthorizationArray{ AuthorizationArgs{...} }
+//	AuthorizationArray{ AuthorizationArgs{...} }
 type AuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +215,7 @@ type EligibleApprover struct {
 // EligibleApproverInput is an input type that accepts EligibleApproverArgs and EligibleApproverOutput values.
 // You can construct a concrete instance of `EligibleApproverInput` via:
 //
-//          EligibleApproverArgs{...}
+//	EligibleApproverArgs{...}
 type EligibleApproverInput interface {
 	pulumi.Input
 
@@ -246,7 +246,7 @@ func (i EligibleApproverArgs) ToEligibleApproverOutputWithContext(ctx context.Co
 // EligibleApproverArrayInput is an input type that accepts EligibleApproverArray and EligibleApproverArrayOutput values.
 // You can construct a concrete instance of `EligibleApproverArrayInput` via:
 //
-//          EligibleApproverArray{ EligibleApproverArgs{...} }
+//	EligibleApproverArray{ EligibleApproverArgs{...} }
 type EligibleApproverArrayInput interface {
 	pulumi.Input
 
@@ -392,7 +392,7 @@ func (val *EligibleAuthorization) Defaults() *EligibleAuthorization {
 // EligibleAuthorizationInput is an input type that accepts EligibleAuthorizationArgs and EligibleAuthorizationOutput values.
 // You can construct a concrete instance of `EligibleAuthorizationInput` via:
 //
-//          EligibleAuthorizationArgs{...}
+//	EligibleAuthorizationArgs{...}
 type EligibleAuthorizationInput interface {
 	pulumi.Input
 
@@ -436,7 +436,7 @@ func (i EligibleAuthorizationArgs) ToEligibleAuthorizationOutputWithContext(ctx 
 // EligibleAuthorizationArrayInput is an input type that accepts EligibleAuthorizationArray and EligibleAuthorizationArrayOutput values.
 // You can construct a concrete instance of `EligibleAuthorizationArrayInput` via:
 //
-//          EligibleAuthorizationArray{ EligibleAuthorizationArgs{...} }
+//	EligibleAuthorizationArray{ EligibleAuthorizationArgs{...} }
 type EligibleAuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -620,7 +620,7 @@ func (val *JustInTimeAccessPolicy) Defaults() *JustInTimeAccessPolicy {
 // JustInTimeAccessPolicyInput is an input type that accepts JustInTimeAccessPolicyArgs and JustInTimeAccessPolicyOutput values.
 // You can construct a concrete instance of `JustInTimeAccessPolicyInput` via:
 //
-//          JustInTimeAccessPolicyArgs{...}
+//	JustInTimeAccessPolicyArgs{...}
 type JustInTimeAccessPolicyInput interface {
 	pulumi.Input
 
@@ -675,11 +675,11 @@ func (i JustInTimeAccessPolicyArgs) ToJustInTimeAccessPolicyPtrOutputWithContext
 // JustInTimeAccessPolicyPtrInput is an input type that accepts JustInTimeAccessPolicyArgs, JustInTimeAccessPolicyPtr and JustInTimeAccessPolicyPtrOutput values.
 // You can construct a concrete instance of `JustInTimeAccessPolicyPtrInput` via:
 //
-//          JustInTimeAccessPolicyArgs{...}
+//	        JustInTimeAccessPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JustInTimeAccessPolicyPtrInput interface {
 	pulumi.Input
 
@@ -924,7 +924,7 @@ type Plan struct {
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
 // You can construct a concrete instance of `PlanInput` via:
 //
-//          PlanArgs{...}
+//	PlanArgs{...}
 type PlanInput interface {
 	pulumi.Input
 
@@ -967,11 +967,11 @@ func (i PlanArgs) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput 
 // PlanPtrInput is an input type that accepts PlanArgs, PlanPtr and PlanPtrOutput values.
 // You can construct a concrete instance of `PlanPtrInput` via:
 //
-//          PlanArgs{...}
+//	        PlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlanPtrInput interface {
 	pulumi.Input
 
@@ -1226,7 +1226,7 @@ type RegistrationAssignmentProperties struct {
 // RegistrationAssignmentPropertiesInput is an input type that accepts RegistrationAssignmentPropertiesArgs and RegistrationAssignmentPropertiesOutput values.
 // You can construct a concrete instance of `RegistrationAssignmentPropertiesInput` via:
 //
-//          RegistrationAssignmentPropertiesArgs{...}
+//	RegistrationAssignmentPropertiesArgs{...}
 type RegistrationAssignmentPropertiesInput interface {
 	pulumi.Input
 
@@ -1263,11 +1263,11 @@ func (i RegistrationAssignmentPropertiesArgs) ToRegistrationAssignmentProperties
 // RegistrationAssignmentPropertiesPtrInput is an input type that accepts RegistrationAssignmentPropertiesArgs, RegistrationAssignmentPropertiesPtr and RegistrationAssignmentPropertiesPtrOutput values.
 // You can construct a concrete instance of `RegistrationAssignmentPropertiesPtrInput` via:
 //
-//          RegistrationAssignmentPropertiesArgs{...}
+//	        RegistrationAssignmentPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RegistrationAssignmentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1683,7 +1683,7 @@ type RegistrationDefinitionProperties struct {
 // RegistrationDefinitionPropertiesInput is an input type that accepts RegistrationDefinitionPropertiesArgs and RegistrationDefinitionPropertiesOutput values.
 // You can construct a concrete instance of `RegistrationDefinitionPropertiesInput` via:
 //
-//          RegistrationDefinitionPropertiesArgs{...}
+//	RegistrationDefinitionPropertiesArgs{...}
 type RegistrationDefinitionPropertiesInput interface {
 	pulumi.Input
 
@@ -1728,11 +1728,11 @@ func (i RegistrationDefinitionPropertiesArgs) ToRegistrationDefinitionProperties
 // RegistrationDefinitionPropertiesPtrInput is an input type that accepts RegistrationDefinitionPropertiesArgs, RegistrationDefinitionPropertiesPtr and RegistrationDefinitionPropertiesPtrOutput values.
 // You can construct a concrete instance of `RegistrationDefinitionPropertiesPtrInput` via:
 //
-//          RegistrationDefinitionPropertiesArgs{...}
+//	        RegistrationDefinitionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RegistrationDefinitionPropertiesPtrInput interface {
 	pulumi.Input
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220301.Inputs
     /// <summary>
     /// Backup Vault
     /// </summary>
-    public sealed class BackupVaultArgs : Pulumi.ResourceArgs
+    public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
     {
         [Input("storageSettings", required: true)]
         private InputList<Inputs.StorageSettingArgs>? _storageSettings;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataProtection.V20220301.Inputs
         public BackupVaultArgs()
         {
         }
+        public static new BackupVaultArgs Empty => new BackupVaultArgs();
     }
 }

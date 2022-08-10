@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Kusto
     }
 
 
-    public sealed class GetEventHubDataConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetEventHubDataConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.Kusto
         public GetEventHubDataConnectionArgs()
         {
         }
+        public static new GetEventHubDataConnectionArgs Empty => new GetEventHubDataConnectionArgs();
     }
 
-    public sealed class GetEventHubDataConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventHubDataConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.Kusto
         public GetEventHubDataConnectionInvokeArgs()
         {
         }
+        public static new GetEventHubDataConnectionInvokeArgs Empty => new GetEventHubDataConnectionInvokeArgs();
     }
 
 

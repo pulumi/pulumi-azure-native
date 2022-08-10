@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// Configures the Play Right in the PlayReady license.
     /// </summary>
-    public sealed class ContentKeyPolicyPlayReadyPlayRightArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPlayReadyPlayRightArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public ContentKeyPolicyPlayReadyPlayRightArgs()
         {
         }
+        public static new ContentKeyPolicyPlayReadyPlayRightArgs Empty => new ContentKeyPolicyPlayReadyPlayRightArgs();
     }
 }

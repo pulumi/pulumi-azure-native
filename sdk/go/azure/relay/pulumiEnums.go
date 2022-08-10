@@ -140,7 +140,7 @@ func (o AccessRightsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // AccessRightsInput is an input type that accepts AccessRightsArgs and AccessRightsOutput values.
 // You can construct a concrete instance of `AccessRightsInput` via:
 //
-//          AccessRightsArgs{...}
+//	AccessRightsArgs{...}
 type AccessRightsInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (in *accessRightsPtr) ToAccessRightsPtrOutputWithContext(ctx context.Contex
 // AccessRightsArrayInput is an input type that accepts AccessRightsArray and AccessRightsArrayOutput values.
 // You can construct a concrete instance of `AccessRightsArrayInput` via:
 //
-//          AccessRightsArray{ AccessRightsArgs{...} }
+//	AccessRightsArray{ AccessRightsArgs{...} }
 type AccessRightsArrayInput interface {
 	pulumi.Input
 
@@ -360,7 +360,7 @@ func (o RelaytypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // RelaytypeInput is an input type that accepts RelaytypeArgs and RelaytypeOutput values.
 // You can construct a concrete instance of `RelaytypeInput` via:
 //
-//          RelaytypeArgs{...}
+//	RelaytypeArgs{...}
 type RelaytypeInput interface {
 	pulumi.Input
 
@@ -524,7 +524,7 @@ func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
 // You can construct a concrete instance of `SkuNameInput` via:
 //
-//          SkuNameArgs{...}
+//	SkuNameArgs{...}
 type SkuNameInput interface {
 	pulumi.Input
 
@@ -688,7 +688,7 @@ func (o SkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuTierInput is an input type that accepts SkuTierArgs and SkuTierOutput values.
 // You can construct a concrete instance of `SkuTierInput` via:
 //
-//          SkuTierArgs{...}
+//	SkuTierArgs{...}
 type SkuTierInput interface {
 	pulumi.Input
 

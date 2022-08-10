@@ -21,7 +21,7 @@ type ManagedServiceIdentity struct {
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityInput` via:
 //
-//          ManagedServiceIdentityArgs{...}
+//	ManagedServiceIdentityArgs{...}
 type ManagedServiceIdentityInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext
 // ManagedServiceIdentityPtrInput is an input type that accepts ManagedServiceIdentityArgs, ManagedServiceIdentityPtr and ManagedServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityPtrInput` via:
 //
-//          ManagedServiceIdentityArgs{...}
+//	        ManagedServiceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagedServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -293,7 +293,7 @@ type MediaServicesForPutRequest struct {
 // MediaServicesForPutRequestInput is an input type that accepts MediaServicesForPutRequestArgs and MediaServicesForPutRequestOutput values.
 // You can construct a concrete instance of `MediaServicesForPutRequestInput` via:
 //
-//          MediaServicesForPutRequestArgs{...}
+//	MediaServicesForPutRequestArgs{...}
 type MediaServicesForPutRequestInput interface {
 	pulumi.Input
 
@@ -332,11 +332,11 @@ func (i MediaServicesForPutRequestArgs) ToMediaServicesForPutRequestPtrOutputWit
 // MediaServicesForPutRequestPtrInput is an input type that accepts MediaServicesForPutRequestArgs, MediaServicesForPutRequestPtr and MediaServicesForPutRequestPtrOutput values.
 // You can construct a concrete instance of `MediaServicesForPutRequestPtrInput` via:
 //
-//          MediaServicesForPutRequestArgs{...}
+//	        MediaServicesForPutRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MediaServicesForPutRequestPtrInput interface {
 	pulumi.Input
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService.V20160330
     /// </summary>
     [Obsolete(@"Version 2016-03-30 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerservice/v20160330:ContainerService")]
-    public partial class ContainerService : Pulumi.CustomResource
+    public partial class ContainerService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Properties of the agent pool.
@@ -107,9 +107,9 @@ namespace Pulumi.AzureNative.ContainerService.V20160330
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20151101preview:ContainerService"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20160930:ContainerService"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20170131:ContainerService"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20151101preview:ContainerService"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20160930:ContainerService"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20170131:ContainerService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.ContainerService.V20160330
         }
     }
 
-    public sealed class ContainerServiceArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentPoolProfiles", required: true)]
         private InputList<Inputs.ContainerServiceAgentPoolProfileArgs>? _agentPoolProfiles;
@@ -208,5 +208,6 @@ namespace Pulumi.AzureNative.ContainerService.V20160330
         public ContainerServiceArgs()
         {
         }
+        public static new ContainerServiceArgs Empty => new ContainerServiceArgs();
     }
 }

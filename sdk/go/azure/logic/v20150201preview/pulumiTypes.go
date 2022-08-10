@@ -20,7 +20,7 @@ type ContentHash struct {
 // ContentHashInput is an input type that accepts ContentHashArgs and ContentHashOutput values.
 // You can construct a concrete instance of `ContentHashInput` via:
 //
-//          ContentHashArgs{...}
+//	ContentHashArgs{...}
 type ContentHashInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i ContentHashArgs) ToContentHashPtrOutputWithContext(ctx context.Context) 
 // ContentHashPtrInput is an input type that accepts ContentHashArgs, ContentHashPtr and ContentHashPtrOutput values.
 // You can construct a concrete instance of `ContentHashPtrInput` via:
 //
-//          ContentHashArgs{...}
+//	        ContentHashArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContentHashPtrInput interface {
 	pulumi.Input
 
@@ -257,7 +257,7 @@ type ContentLink struct {
 // ContentLinkInput is an input type that accepts ContentLinkArgs and ContentLinkOutput values.
 // You can construct a concrete instance of `ContentLinkInput` via:
 //
-//          ContentLinkArgs{...}
+//	ContentLinkArgs{...}
 type ContentLinkInput interface {
 	pulumi.Input
 
@@ -301,11 +301,11 @@ func (i ContentLinkArgs) ToContentLinkPtrOutputWithContext(ctx context.Context) 
 // ContentLinkPtrInput is an input type that accepts ContentLinkArgs, ContentLinkPtr and ContentLinkPtrOutput values.
 // You can construct a concrete instance of `ContentLinkPtrInput` via:
 //
-//          ContentLinkArgs{...}
+//	        ContentLinkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContentLinkPtrInput interface {
 	pulumi.Input
 
@@ -588,7 +588,7 @@ type ResourceReference struct {
 // ResourceReferenceInput is an input type that accepts ResourceReferenceArgs and ResourceReferenceOutput values.
 // You can construct a concrete instance of `ResourceReferenceInput` via:
 //
-//          ResourceReferenceArgs{...}
+//	ResourceReferenceArgs{...}
 type ResourceReferenceInput interface {
 	pulumi.Input
 
@@ -624,11 +624,11 @@ func (i ResourceReferenceArgs) ToResourceReferencePtrOutputWithContext(ctx conte
 // ResourceReferencePtrInput is an input type that accepts ResourceReferenceArgs, ResourceReferencePtr and ResourceReferencePtrOutput values.
 // You can construct a concrete instance of `ResourceReferencePtrInput` via:
 //
-//          ResourceReferenceArgs{...}
+//	        ResourceReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceReferencePtrInput interface {
 	pulumi.Input
 
@@ -819,7 +819,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -857,11 +857,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -1052,7 +1052,7 @@ type WorkflowParameter struct {
 // WorkflowParameterInput is an input type that accepts WorkflowParameterArgs and WorkflowParameterOutput values.
 // You can construct a concrete instance of `WorkflowParameterInput` via:
 //
-//          WorkflowParameterArgs{...}
+//	WorkflowParameterArgs{...}
 type WorkflowParameterInput interface {
 	pulumi.Input
 
@@ -1084,7 +1084,7 @@ func (i WorkflowParameterArgs) ToWorkflowParameterOutputWithContext(ctx context.
 // WorkflowParameterMapInput is an input type that accepts WorkflowParameterMap and WorkflowParameterMapOutput values.
 // You can construct a concrete instance of `WorkflowParameterMapInput` via:
 //
-//          WorkflowParameterMap{ "key": WorkflowParameterArgs{...} }
+//	WorkflowParameterMap{ "key": WorkflowParameterArgs{...} }
 type WorkflowParameterMapInput interface {
 	pulumi.Input
 

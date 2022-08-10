@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200615.Inputs
     /// <summary>
     /// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
     /// </summary>
-    public sealed class RoutingPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RoutingPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Devices.V20200615.Inputs
         public RoutingPropertiesArgs()
         {
         }
+        public static new RoutingPropertiesArgs Empty => new RoutingPropertiesArgs();
     }
 }

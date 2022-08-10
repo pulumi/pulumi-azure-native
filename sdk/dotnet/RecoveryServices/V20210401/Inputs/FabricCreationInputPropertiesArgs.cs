@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401.Inputs
     /// <summary>
     /// Properties of site details provided during the time of site creation.
     /// </summary>
-    public sealed class FabricCreationInputPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FabricCreationInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fabric provider specific creation input.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401.Inputs
         public FabricCreationInputPropertiesArgs()
         {
         }
+        public static new FabricCreationInputPropertiesArgs Empty => new FabricCreationInputPropertiesArgs();
     }
 }

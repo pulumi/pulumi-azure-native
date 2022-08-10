@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetNspAssociationsProxyArgs : Pulumi.InvokeArgs
+    public sealed class GetNspAssociationsProxyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NSP association.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Network
         public GetNspAssociationsProxyArgs()
         {
         }
+        public static new GetNspAssociationsProxyArgs Empty => new GetNspAssociationsProxyArgs();
     }
 
-    public sealed class GetNspAssociationsProxyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNspAssociationsProxyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NSP association.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Network
         public GetNspAssociationsProxyInvokeArgs()
         {
         }
+        public static new GetNspAssociationsProxyInvokeArgs Empty => new GetNspAssociationsProxyInvokeArgs();
     }
 
 

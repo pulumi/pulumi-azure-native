@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// </summary>
     [Obsolete(@"Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.")]
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:KustoPoolDatabase")]
-    public partial class KustoPoolDatabase : Pulumi.CustomResource
+    public partial class KustoPoolDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of the database
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse:KustoPoolDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:KustoPoolDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
     }
 
-    public sealed class KustoPoolDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class KustoPoolDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public KustoPoolDatabaseArgs()
         {
         }
+        public static new KustoPoolDatabaseArgs Empty => new KustoPoolDatabaseArgs();
     }
 }

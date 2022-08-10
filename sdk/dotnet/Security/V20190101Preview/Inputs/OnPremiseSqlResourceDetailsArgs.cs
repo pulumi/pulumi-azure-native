@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
     /// <summary>
     /// Details of the On Premise Sql resource that was assessed
     /// </summary>
-    public sealed class OnPremiseSqlResourceDetailsArgs : Pulumi.ResourceArgs
+    public sealed class OnPremiseSqlResourceDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Sql database name installed on the machine
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
         public OnPremiseSqlResourceDetailsArgs()
         {
         }
+        public static new OnPremiseSqlResourceDetailsArgs Empty => new OnPremiseSqlResourceDetailsArgs();
     }
 }

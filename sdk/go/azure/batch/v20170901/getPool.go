@@ -133,9 +133,9 @@ func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.
 
 // Values are:
 //
-//  Steady - The pool is not resizing. There are no changes to the number of nodes in the pool in progress. A pool enters this state when it is created and when no operations are being performed on the pool to change the number of dedicated nodes.
-//  Resizing - The pool is resizing; that is, compute nodes are being added to or removed from the pool.
-//  Stopping - The pool was resizing, but the user has requested that the resize be stopped, but the stop request has not yet been completed.
+//	Steady - The pool is not resizing. There are no changes to the number of nodes in the pool in progress. A pool enters this state when it is created and when no operations are being performed on the pool to change the number of dedicated nodes.
+//	Resizing - The pool is resizing; that is, compute nodes are being added to or removed from the pool.
+//	Stopping - The pool was resizing, but the user has requested that the resize be stopped, but the stop request has not yet been completed.
 func (o LookupPoolResultOutput) AllocationState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.AllocationState }).(pulumi.StringOutput)
 }
@@ -227,8 +227,8 @@ func (o LookupPoolResultOutput) NetworkConfiguration() NetworkConfigurationRespo
 
 // Values are:
 //
-//  Succeeded - The pool is available to run tasks subject to the availability of compute nodes.
-//  Deleting - The user has requested that the pool be deleted, but the delete operation has not yet completed.
+//	Succeeded - The pool is available to run tasks subject to the availability of compute nodes.
+//	Deleting - The user has requested that the pool be deleted, but the delete operation has not yet completed.
 func (o LookupPoolResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }

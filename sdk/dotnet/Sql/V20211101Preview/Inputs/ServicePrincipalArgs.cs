@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview.Inputs
     /// <summary>
     /// The managed instance's service principal configuration for a resource.
     /// </summary>
-    public sealed class ServicePrincipalArgs : Pulumi.ResourceArgs
+    public sealed class ServicePrincipalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Service principal type.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview.Inputs
         public ServicePrincipalArgs()
         {
         }
+        public static new ServicePrincipalArgs Empty => new ServicePrincipalArgs();
     }
 }

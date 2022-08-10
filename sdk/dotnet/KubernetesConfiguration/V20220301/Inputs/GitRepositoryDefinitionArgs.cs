@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301.Inputs
     /// <summary>
     /// Parameters to reconcile to the GitRepository source kind type.
     /// </summary>
-    public sealed class GitRepositoryDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class GitRepositoryDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
@@ -68,5 +68,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301.Inputs
             SyncIntervalInSeconds = 600;
             TimeoutInSeconds = 600;
         }
+        public static new GitRepositoryDefinitionArgs Empty => new GitRepositoryDefinitionArgs();
     }
 }

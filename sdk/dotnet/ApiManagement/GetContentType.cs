@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetContentTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetContentTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Content type identifier.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetContentTypeArgs()
         {
         }
+        public static new GetContentTypeArgs Empty => new GetContentTypeArgs();
     }
 
-    public sealed class GetContentTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContentTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Content type identifier.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetContentTypeInvokeArgs()
         {
         }
+        public static new GetContentTypeInvokeArgs Empty => new GetContentTypeInvokeArgs();
     }
 
 

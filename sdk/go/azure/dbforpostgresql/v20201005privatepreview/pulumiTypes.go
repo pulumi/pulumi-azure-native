@@ -25,7 +25,7 @@ type MaintenanceWindow struct {
 // MaintenanceWindowInput is an input type that accepts MaintenanceWindowArgs and MaintenanceWindowOutput values.
 // You can construct a concrete instance of `MaintenanceWindowInput` via:
 //
-//          MaintenanceWindowArgs{...}
+//	MaintenanceWindowArgs{...}
 type MaintenanceWindowInput interface {
 	pulumi.Input
 
@@ -68,11 +68,11 @@ func (i MaintenanceWindowArgs) ToMaintenanceWindowPtrOutputWithContext(ctx conte
 // MaintenanceWindowPtrInput is an input type that accepts MaintenanceWindowArgs, MaintenanceWindowPtr and MaintenanceWindowPtrOutput values.
 // You can construct a concrete instance of `MaintenanceWindowPtrInput` via:
 //
-//          MaintenanceWindowArgs{...}
+//	        MaintenanceWindowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MaintenanceWindowPtrInput interface {
 	pulumi.Input
 
@@ -327,7 +327,7 @@ type ServerGroupPropertiesDelegatedSubnetArguments struct {
 // ServerGroupPropertiesDelegatedSubnetArgumentsInput is an input type that accepts ServerGroupPropertiesDelegatedSubnetArgumentsArgs and ServerGroupPropertiesDelegatedSubnetArgumentsOutput values.
 // You can construct a concrete instance of `ServerGroupPropertiesDelegatedSubnetArgumentsInput` via:
 //
-//          ServerGroupPropertiesDelegatedSubnetArgumentsArgs{...}
+//	ServerGroupPropertiesDelegatedSubnetArgumentsArgs{...}
 type ServerGroupPropertiesDelegatedSubnetArgumentsInput interface {
 	pulumi.Input
 
@@ -364,11 +364,11 @@ func (i ServerGroupPropertiesDelegatedSubnetArgumentsArgs) ToServerGroupProperti
 // ServerGroupPropertiesDelegatedSubnetArgumentsPtrInput is an input type that accepts ServerGroupPropertiesDelegatedSubnetArgumentsArgs, ServerGroupPropertiesDelegatedSubnetArgumentsPtr and ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput values.
 // You can construct a concrete instance of `ServerGroupPropertiesDelegatedSubnetArgumentsPtrInput` via:
 //
-//          ServerGroupPropertiesDelegatedSubnetArgumentsArgs{...}
+//	        ServerGroupPropertiesDelegatedSubnetArgumentsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerGroupPropertiesDelegatedSubnetArgumentsPtrInput interface {
 	pulumi.Input
 
@@ -467,7 +467,7 @@ type ServerGroupPropertiesPrivateDnsZoneArguments struct {
 // ServerGroupPropertiesPrivateDnsZoneArgumentsInput is an input type that accepts ServerGroupPropertiesPrivateDnsZoneArgumentsArgs and ServerGroupPropertiesPrivateDnsZoneArgumentsOutput values.
 // You can construct a concrete instance of `ServerGroupPropertiesPrivateDnsZoneArgumentsInput` via:
 //
-//          ServerGroupPropertiesPrivateDnsZoneArgumentsArgs{...}
+//	ServerGroupPropertiesPrivateDnsZoneArgumentsArgs{...}
 type ServerGroupPropertiesPrivateDnsZoneArgumentsInput interface {
 	pulumi.Input
 
@@ -504,11 +504,11 @@ func (i ServerGroupPropertiesPrivateDnsZoneArgumentsArgs) ToServerGroupPropertie
 // ServerGroupPropertiesPrivateDnsZoneArgumentsPtrInput is an input type that accepts ServerGroupPropertiesPrivateDnsZoneArgumentsArgs, ServerGroupPropertiesPrivateDnsZoneArgumentsPtr and ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput values.
 // You can construct a concrete instance of `ServerGroupPropertiesPrivateDnsZoneArgumentsPtrInput` via:
 //
-//          ServerGroupPropertiesPrivateDnsZoneArgumentsArgs{...}
+//	        ServerGroupPropertiesPrivateDnsZoneArgumentsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerGroupPropertiesPrivateDnsZoneArgumentsPtrInput interface {
 	pulumi.Input
 
@@ -794,7 +794,7 @@ type ServerRoleGroup struct {
 // ServerRoleGroupInput is an input type that accepts ServerRoleGroupArgs and ServerRoleGroupOutput values.
 // You can construct a concrete instance of `ServerRoleGroupInput` via:
 //
-//          ServerRoleGroupArgs{...}
+//	ServerRoleGroupArgs{...}
 type ServerRoleGroupInput interface {
 	pulumi.Input
 
@@ -835,7 +835,7 @@ func (i ServerRoleGroupArgs) ToServerRoleGroupOutputWithContext(ctx context.Cont
 // ServerRoleGroupArrayInput is an input type that accepts ServerRoleGroupArray and ServerRoleGroupArrayOutput values.
 // You can construct a concrete instance of `ServerRoleGroupArrayInput` via:
 //
-//          ServerRoleGroupArray{ ServerRoleGroupArgs{...} }
+//	ServerRoleGroupArray{ ServerRoleGroupArgs{...} }
 type ServerRoleGroupArrayInput interface {
 	pulumi.Input
 

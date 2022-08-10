@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
     }
 
 
-    public sealed class GetIoTAddonArgs : Pulumi.InvokeArgs
+    public sealed class GetIoTAddonArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The addon name.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
         public GetIoTAddonArgs()
         {
         }
+        public static new GetIoTAddonArgs Empty => new GetIoTAddonArgs();
     }
 
-    public sealed class GetIoTAddonInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIoTAddonInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The addon name.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
         public GetIoTAddonInvokeArgs()
         {
         }
+        public static new GetIoTAddonInvokeArgs Empty => new GetIoTAddonInvokeArgs();
     }
 
 

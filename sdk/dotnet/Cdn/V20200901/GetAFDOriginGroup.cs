@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     }
 
 
-    public sealed class GetAFDOriginGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetAFDOriginGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the origin group which is unique within the endpoint.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public GetAFDOriginGroupArgs()
         {
         }
+        public static new GetAFDOriginGroupArgs Empty => new GetAFDOriginGroupArgs();
     }
 
-    public sealed class GetAFDOriginGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAFDOriginGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the origin group which is unique within the endpoint.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public GetAFDOriginGroupInvokeArgs()
         {
         }
+        public static new GetAFDOriginGroupInvokeArgs Empty => new GetAFDOriginGroupInvokeArgs();
     }
 
 

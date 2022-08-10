@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// DW Copy Command settings.
     /// </summary>
-    public sealed class DWCopyCommandSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DWCopyCommandSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalOptions")]
         private InputMap<string>? _additionalOptions;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DWCopyCommandSettingsArgs()
         {
         }
+        public static new DWCopyCommandSettingsArgs Empty => new DWCopyCommandSettingsArgs();
     }
 }

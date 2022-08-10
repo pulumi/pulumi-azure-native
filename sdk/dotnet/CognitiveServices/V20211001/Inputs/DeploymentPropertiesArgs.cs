@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20211001.Inputs
     /// <summary>
     /// Properties of Cognitive Services account deployment.
     /// </summary>
-    public sealed class DeploymentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties of Cognitive Services account deployment model.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20211001.Inputs
         public DeploymentPropertiesArgs()
         {
         }
+        public static new DeploymentPropertiesArgs Empty => new DeploymentPropertiesArgs();
     }
 }

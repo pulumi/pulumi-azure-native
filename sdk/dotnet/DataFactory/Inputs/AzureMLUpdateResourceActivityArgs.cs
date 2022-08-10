@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure ML Update Resource management activity.
     /// </summary>
-    public sealed class AzureMLUpdateResourceActivityArgs : Pulumi.ResourceArgs
+    public sealed class AzureMLUpdateResourceActivityArgs : global::Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureMLUpdateResourceActivityArgs()
         {
         }
+        public static new AzureMLUpdateResourceActivityArgs Empty => new AzureMLUpdateResourceActivityArgs();
     }
 }

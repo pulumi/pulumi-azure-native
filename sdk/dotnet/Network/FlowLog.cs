@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FlowLog")]
-    public partial class FlowLog : Pulumi.CustomResource
+    public partial class FlowLog : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Flag to enable/disable flow logging.
@@ -119,20 +119,20 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:FlowLog"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:FlowLog"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:FlowLog"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class FlowLogArgs : Pulumi.ResourceArgs
+    public sealed class FlowLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to enable/disable flow logging.
@@ -237,5 +237,6 @@ namespace Pulumi.AzureNative.Network
         public FlowLogArgs()
         {
         }
+        public static new FlowLogArgs Empty => new FlowLogArgs();
     }
 }

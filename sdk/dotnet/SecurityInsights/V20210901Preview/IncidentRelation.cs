@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     /// Represents a relation between two resources
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20210901preview:IncidentRelation")]
-    public partial class IncidentRelation : Pulumi.CustomResource
+    public partial class IncidentRelation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -88,17 +88,17 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:IncidentRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:IncidentRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:IncidentRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:IncidentRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:IncidentRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:IncidentRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:IncidentRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:IncidentRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:IncidentRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:IncidentRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:IncidentRelation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         }
     }
 
-    public sealed class IncidentRelationArgs : Pulumi.ResourceArgs
+    public sealed class IncidentRelationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Incident ID
@@ -155,5 +155,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public IncidentRelationArgs()
         {
         }
+        public static new IncidentRelationArgs Empty => new IncidentRelationArgs();
     }
 }

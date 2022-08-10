@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20210430.Inputs
     /// <summary>
     /// Properties of Cognitive Services account.
     /// </summary>
-    public sealed class AccountPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AccountPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedFqdnList")]
         private InputList<string>? _allowedFqdnList;
@@ -83,5 +83,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20210430.Inputs
         public AccountPropertiesArgs()
         {
         }
+        public static new AccountPropertiesArgs Empty => new AccountPropertiesArgs();
     }
 }

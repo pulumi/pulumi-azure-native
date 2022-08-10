@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure data lake store write settings.
     /// </summary>
-    public sealed class AzureDataLakeStoreWriteSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataLakeStoreWriteSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of copy behavior for copy sink.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureDataLakeStoreWriteSettingsArgs()
         {
         }
+        public static new AzureDataLakeStoreWriteSettingsArgs Empty => new AzureDataLakeStoreWriteSettingsArgs();
     }
 }

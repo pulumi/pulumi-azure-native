@@ -19,7 +19,7 @@ type AccountIdentity struct {
 // AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
 // You can construct a concrete instance of `AccountIdentityInput` via:
 //
-//          AccountIdentityArgs{...}
+//	AccountIdentityArgs{...}
 type AccountIdentityInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AccountIdentityArgs) ToAccountIdentityPtrOutputWithContext(ctx context.C
 // AccountIdentityPtrInput is an input type that accepts AccountIdentityArgs, AccountIdentityPtr and AccountIdentityPtrOutput values.
 // You can construct a concrete instance of `AccountIdentityPtrInput` via:
 //
-//          AccountIdentityArgs{...}
+//	        AccountIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountIdentityPtrInput interface {
 	pulumi.Input
 
@@ -319,7 +319,7 @@ type ConfigurationProfileAssignmentProperties struct {
 // ConfigurationProfileAssignmentPropertiesInput is an input type that accepts ConfigurationProfileAssignmentPropertiesArgs and ConfigurationProfileAssignmentPropertiesOutput values.
 // You can construct a concrete instance of `ConfigurationProfileAssignmentPropertiesInput` via:
 //
-//          ConfigurationProfileAssignmentPropertiesArgs{...}
+//	ConfigurationProfileAssignmentPropertiesArgs{...}
 type ConfigurationProfileAssignmentPropertiesInput interface {
 	pulumi.Input
 
@@ -362,11 +362,11 @@ func (i ConfigurationProfileAssignmentPropertiesArgs) ToConfigurationProfileAssi
 // ConfigurationProfileAssignmentPropertiesPtrInput is an input type that accepts ConfigurationProfileAssignmentPropertiesArgs, ConfigurationProfileAssignmentPropertiesPtr and ConfigurationProfileAssignmentPropertiesPtrOutput values.
 // You can construct a concrete instance of `ConfigurationProfileAssignmentPropertiesPtrInput` via:
 //
-//          ConfigurationProfileAssignmentPropertiesArgs{...}
+//	        ConfigurationProfileAssignmentPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationProfileAssignmentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -585,7 +585,7 @@ type ConfigurationProfilePreferenceAntiMalware struct {
 // ConfigurationProfilePreferenceAntiMalwareInput is an input type that accepts ConfigurationProfilePreferenceAntiMalwareArgs and ConfigurationProfilePreferenceAntiMalwareOutput values.
 // You can construct a concrete instance of `ConfigurationProfilePreferenceAntiMalwareInput` via:
 //
-//          ConfigurationProfilePreferenceAntiMalwareArgs{...}
+//	ConfigurationProfilePreferenceAntiMalwareArgs{...}
 type ConfigurationProfilePreferenceAntiMalwareInput interface {
 	pulumi.Input
 
@@ -632,11 +632,11 @@ func (i ConfigurationProfilePreferenceAntiMalwareArgs) ToConfigurationProfilePre
 // ConfigurationProfilePreferenceAntiMalwarePtrInput is an input type that accepts ConfigurationProfilePreferenceAntiMalwareArgs, ConfigurationProfilePreferenceAntiMalwarePtr and ConfigurationProfilePreferenceAntiMalwarePtrOutput values.
 // You can construct a concrete instance of `ConfigurationProfilePreferenceAntiMalwarePtrInput` via:
 //
-//          ConfigurationProfilePreferenceAntiMalwareArgs{...}
+//	        ConfigurationProfilePreferenceAntiMalwareArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationProfilePreferenceAntiMalwarePtrInput interface {
 	pulumi.Input
 
@@ -957,7 +957,7 @@ type ConfigurationProfilePreferenceProperties struct {
 // ConfigurationProfilePreferencePropertiesInput is an input type that accepts ConfigurationProfilePreferencePropertiesArgs and ConfigurationProfilePreferencePropertiesOutput values.
 // You can construct a concrete instance of `ConfigurationProfilePreferencePropertiesInput` via:
 //
-//          ConfigurationProfilePreferencePropertiesArgs{...}
+//	ConfigurationProfilePreferencePropertiesArgs{...}
 type ConfigurationProfilePreferencePropertiesInput interface {
 	pulumi.Input
 
@@ -996,11 +996,11 @@ func (i ConfigurationProfilePreferencePropertiesArgs) ToConfigurationProfilePref
 // ConfigurationProfilePreferencePropertiesPtrInput is an input type that accepts ConfigurationProfilePreferencePropertiesArgs, ConfigurationProfilePreferencePropertiesPtr and ConfigurationProfilePreferencePropertiesPtrOutput values.
 // You can construct a concrete instance of `ConfigurationProfilePreferencePropertiesPtrInput` via:
 //
-//          ConfigurationProfilePreferencePropertiesArgs{...}
+//	        ConfigurationProfilePreferencePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationProfilePreferencePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1161,7 +1161,7 @@ type ConfigurationProfilePreferenceVmBackup struct {
 // ConfigurationProfilePreferenceVmBackupInput is an input type that accepts ConfigurationProfilePreferenceVmBackupArgs and ConfigurationProfilePreferenceVmBackupOutput values.
 // You can construct a concrete instance of `ConfigurationProfilePreferenceVmBackupInput` via:
 //
-//          ConfigurationProfilePreferenceVmBackupArgs{...}
+//	ConfigurationProfilePreferenceVmBackupArgs{...}
 type ConfigurationProfilePreferenceVmBackupInput interface {
 	pulumi.Input
 
@@ -1204,11 +1204,11 @@ func (i ConfigurationProfilePreferenceVmBackupArgs) ToConfigurationProfilePrefer
 // ConfigurationProfilePreferenceVmBackupPtrInput is an input type that accepts ConfigurationProfilePreferenceVmBackupArgs, ConfigurationProfilePreferenceVmBackupPtr and ConfigurationProfilePreferenceVmBackupPtrOutput values.
 // You can construct a concrete instance of `ConfigurationProfilePreferenceVmBackupPtrInput` via:
 //
-//          ConfigurationProfilePreferenceVmBackupArgs{...}
+//	        ConfigurationProfilePreferenceVmBackupArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationProfilePreferenceVmBackupPtrInput interface {
 	pulumi.Input
 

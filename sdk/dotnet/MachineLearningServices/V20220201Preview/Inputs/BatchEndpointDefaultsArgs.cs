@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Batch endpoint default values
     /// </summary>
-    public sealed class BatchEndpointDefaultsArgs : Pulumi.ResourceArgs
+    public sealed class BatchEndpointDefaultsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the deployment that will be default for the endpoint.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public BatchEndpointDefaultsArgs()
         {
         }
+        public static new BatchEndpointDefaultsArgs Empty => new BatchEndpointDefaultsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170714.Inputs
     /// <summary>
     /// Represents the SKU name and Azure pricing tier for Analysis Services resource.
     /// </summary>
-    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the SKU level.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170714.Inputs
         public ResourceSkuArgs()
         {
         }
+        public static new ResourceSkuArgs Empty => new ResourceSkuArgs();
     }
 }

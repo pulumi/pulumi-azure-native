@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200601.Inputs
     /// <summary>
     /// NumberGreaterThanOrEquals Advanced Filter.
     /// </summary>
-    public sealed class NumberGreaterThanOrEqualsAdvancedFilterArgs : Pulumi.ResourceArgs
+    public sealed class NumberGreaterThanOrEqualsAdvancedFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The field/property in the event based on which you want to filter.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.EventGrid.V20200601.Inputs
         public NumberGreaterThanOrEqualsAdvancedFilterArgs()
         {
         }
+        public static new NumberGreaterThanOrEqualsAdvancedFilterArgs Empty => new NumberGreaterThanOrEqualsAdvancedFilterArgs();
     }
 }

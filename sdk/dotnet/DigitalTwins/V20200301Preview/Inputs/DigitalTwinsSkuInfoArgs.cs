@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview.Inputs
     /// <summary>
     /// Information about the SKU of the DigitalTwinsInstance.
     /// </summary>
-    public sealed class DigitalTwinsSkuInfoArgs : Pulumi.ResourceArgs
+    public sealed class DigitalTwinsSkuInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview.Inputs
         public DigitalTwinsSkuInfoArgs()
         {
         }
+        public static new DigitalTwinsSkuInfoArgs Empty => new DigitalTwinsSkuInfoArgs();
     }
 }

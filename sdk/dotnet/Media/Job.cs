@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Media
     /// API Version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureNative.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180701:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20200501:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20210601:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20211101:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.Media
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -217,5 +217,6 @@ namespace Pulumi.AzureNative.Media
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 }

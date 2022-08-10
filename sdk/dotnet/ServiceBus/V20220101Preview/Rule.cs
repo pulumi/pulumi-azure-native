@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
     /// Description of Rule Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20220101preview:Rule")]
-    public partial class Rule : Pulumi.CustomResource
+    public partial class Rule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
@@ -88,12 +88,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicebus:Rule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Rule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Rule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Rule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Rule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Rule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:Rule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Rule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Rule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Rule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Rule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Rule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
         }
     }
 
-    public sealed class RuleArgs : Pulumi.ResourceArgs
+    public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
@@ -174,5 +174,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
         public RuleArgs()
         {
         }
+        public static new RuleArgs Empty => new RuleArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
     }
 
 
-    public sealed class GetPartnerTopicArgs : Pulumi.InvokeArgs
+    public sealed class GetPartnerTopicArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the partner topic.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         public GetPartnerTopicArgs()
         {
         }
+        public static new GetPartnerTopicArgs Empty => new GetPartnerTopicArgs();
     }
 
-    public sealed class GetPartnerTopicInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPartnerTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the partner topic.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         public GetPartnerTopicInvokeArgs()
         {
         }
+        public static new GetPartnerTopicInvokeArgs Empty => new GetPartnerTopicInvokeArgs();
     }
 
 

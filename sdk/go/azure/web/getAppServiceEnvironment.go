@@ -195,7 +195,8 @@ func (o LookupAppServiceEnvironmentResultOutput) Status() pulumi.StringOutput {
 }
 
 // <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-//  (most likely because NSG blocked the incoming traffic).
+//
+//	(most likely because NSG blocked the incoming traffic).
 func (o LookupAppServiceEnvironmentResultOutput) Suspended() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAppServiceEnvironmentResult) bool { return v.Suspended }).(pulumi.BoolOutput)
 }

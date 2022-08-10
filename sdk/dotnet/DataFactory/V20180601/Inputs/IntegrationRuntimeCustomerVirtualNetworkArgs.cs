@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
     /// </summary>
-    public sealed class IntegrationRuntimeCustomerVirtualNetworkArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeCustomerVirtualNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of subnet to which Azure-SSIS integration runtime will join.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public IntegrationRuntimeCustomerVirtualNetworkArgs()
         {
         }
+        public static new IntegrationRuntimeCustomerVirtualNetworkArgs Empty => new IntegrationRuntimeCustomerVirtualNetworkArgs();
     }
 }

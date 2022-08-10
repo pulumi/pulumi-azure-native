@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.Inputs
     /// <summary>
     /// Properties of the throttling policy
     /// </summary>
-    public sealed class ThrottlingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ThrottlingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.EventHub.Inputs
         public ThrottlingPolicyArgs()
         {
         }
+        public static new ThrottlingPolicyArgs Empty => new ThrottlingPolicyArgs();
     }
 }

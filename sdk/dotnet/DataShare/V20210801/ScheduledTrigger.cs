@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     /// A type of trigger based on schedule
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20210801:ScheduledTrigger")]
-    public partial class ScheduledTrigger : Pulumi.CustomResource
+    public partial class ScheduledTrigger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Time at which the trigger was created.
@@ -114,11 +114,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare:ScheduledTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ScheduledTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:ScheduledTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ScheduledTrigger"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ScheduledTrigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ScheduledTrigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ScheduledTrigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ScheduledTrigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ScheduledTrigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ScheduledTrigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         }
     }
 
-    public sealed class ScheduledTriggerArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -194,5 +194,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public ScheduledTriggerArgs()
         {
         }
+        public static new ScheduledTriggerArgs Empty => new ScheduledTriggerArgs();
     }
 }

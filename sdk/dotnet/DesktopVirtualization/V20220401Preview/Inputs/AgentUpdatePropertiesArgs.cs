@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview.Inputs
     /// <summary>
     /// The session host configuration for updating agent, monitoring agent, and stack component.
     /// </summary>
-    public sealed class AgentUpdatePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AgentUpdatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview.Inputs
         public AgentUpdatePropertiesArgs()
         {
         }
+        public static new AgentUpdatePropertiesArgs Empty => new AgentUpdatePropertiesArgs();
     }
 }

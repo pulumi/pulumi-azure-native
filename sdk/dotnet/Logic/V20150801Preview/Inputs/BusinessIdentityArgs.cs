@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class BusinessIdentityArgs : Pulumi.ResourceArgs
+    public sealed class BusinessIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The business identity qualifier.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public BusinessIdentityArgs()
         {
         }
+        public static new BusinessIdentityArgs Empty => new BusinessIdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180501.Inputs
     /// <summary>
     /// A CAA record.
     /// </summary>
-    public sealed class CaaRecordArgs : Pulumi.ResourceArgs
+    public sealed class CaaRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flags for this CAA record as an integer between 0 and 255.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20180501.Inputs
         public CaaRecordArgs()
         {
         }
+        public static new CaaRecordArgs Empty => new CaaRecordArgs();
     }
 }

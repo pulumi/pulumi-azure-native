@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220202Preview.Inputs
     /// <summary>
     /// The OIDC issuer profile of the Managed Cluster.
     /// </summary>
-    public sealed class ManagedClusterOIDCIssuerProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterOIDCIssuerProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the OIDC issuer is enabled.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220202Preview.Inputs
         public ManagedClusterOIDCIssuerProfileArgs()
         {
         }
+        public static new ManagedClusterOIDCIssuerProfileArgs Empty => new ManagedClusterOIDCIssuerProfileArgs();
     }
 }

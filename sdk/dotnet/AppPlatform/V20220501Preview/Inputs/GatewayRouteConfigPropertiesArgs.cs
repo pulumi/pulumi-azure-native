@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// API route config of the Spring Cloud Gateway
     /// </summary>
-    public sealed class GatewayRouteConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource Id of the Azure Spring Apps app, required unless route defines `uri`.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public GatewayRouteConfigPropertiesArgs()
         {
         }
+        public static new GatewayRouteConfigPropertiesArgs Empty => new GatewayRouteConfigPropertiesArgs();
     }
 }

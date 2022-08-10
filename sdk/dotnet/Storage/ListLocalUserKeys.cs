@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Storage
     }
 
 
-    public sealed class ListLocalUserKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListLocalUserKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Storage
         public ListLocalUserKeysArgs()
         {
         }
+        public static new ListLocalUserKeysArgs Empty => new ListLocalUserKeysArgs();
     }
 
-    public sealed class ListLocalUserKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListLocalUserKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Storage
         public ListLocalUserKeysInvokeArgs()
         {
         }
+        public static new ListLocalUserKeysInvokeArgs Empty => new ListLocalUserKeysInvokeArgs();
     }
 
 

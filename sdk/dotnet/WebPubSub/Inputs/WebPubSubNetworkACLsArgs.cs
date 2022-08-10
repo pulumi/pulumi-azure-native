@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
     /// <summary>
     /// Network ACLs for the resource
     /// </summary>
-    public sealed class WebPubSubNetworkACLsArgs : Pulumi.ResourceArgs
+    public sealed class WebPubSubNetworkACLsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default action when no other rule matches
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
         {
             DefaultAction = "Deny";
         }
+        public static new WebPubSubNetworkACLsArgs Empty => new WebPubSubNetworkACLsArgs();
     }
 }

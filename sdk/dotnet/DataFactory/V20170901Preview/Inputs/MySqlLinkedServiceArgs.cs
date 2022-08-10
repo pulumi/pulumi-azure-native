@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Linked service for MySQL data source.
     /// </summary>
-    public sealed class MySqlLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class MySqlLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public MySqlLinkedServiceArgs()
         {
         }
+        public static new MySqlLinkedServiceArgs Empty => new MySqlLinkedServiceArgs();
     }
 }

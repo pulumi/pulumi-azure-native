@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
     /// EventGrid Topic
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20210601preview:Topic")]
-    public partial class Topic : Pulumi.CustomResource
+    public partial class Topic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
@@ -146,22 +146,22 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180101:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180101:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
         }
     }
 
-    public sealed class TopicArgs : Pulumi.ResourceArgs
+    public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
@@ -283,5 +283,6 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
             Kind = "Azure";
             PublicNetworkAccess = "Enabled";
         }
+        public static new TopicArgs Empty => new TopicArgs();
     }
 }

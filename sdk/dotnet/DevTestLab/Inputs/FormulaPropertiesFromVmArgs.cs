@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
     /// <summary>
     /// Information about a VM from which a formula is to be created.
     /// </summary>
-    public sealed class FormulaPropertiesFromVmArgs : Pulumi.ResourceArgs
+    public sealed class FormulaPropertiesFromVmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the VM from which a formula is to be created.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         public FormulaPropertiesFromVmArgs()
         {
         }
+        public static new FormulaPropertiesFromVmArgs Empty => new FormulaPropertiesFromVmArgs();
     }
 }

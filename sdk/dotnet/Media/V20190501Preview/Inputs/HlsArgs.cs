@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20190501Preview.Inputs
     /// <summary>
     /// The HLS configuration.
     /// </summary>
-    public sealed class HlsArgs : Pulumi.ResourceArgs
+    public sealed class HlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of fragments per HTTP Live Streaming (HLS) segment.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Media.V20190501Preview.Inputs
         public HlsArgs()
         {
         }
+        public static new HlsArgs Empty => new HlsArgs();
     }
 }

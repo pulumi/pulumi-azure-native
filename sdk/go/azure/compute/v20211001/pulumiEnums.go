@@ -174,7 +174,7 @@ func (o HostCachingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // HostCachingInput is an input type that accepts HostCachingArgs and HostCachingOutput values.
 // You can construct a concrete instance of `HostCachingInput` via:
 //
-//          HostCachingArgs{...}
+//	HostCachingArgs{...}
 type HostCachingInput interface {
 	pulumi.Input
 
@@ -347,7 +347,7 @@ func (o OperatingSystemStateTypesPtrOutput) ToStringPtrOutputWithContext(ctx con
 // OperatingSystemStateTypesInput is an input type that accepts OperatingSystemStateTypesArgs and OperatingSystemStateTypesOutput values.
 // You can construct a concrete instance of `OperatingSystemStateTypesInput` via:
 //
-//          OperatingSystemStateTypesArgs{...}
+//	OperatingSystemStateTypesArgs{...}
 type OperatingSystemStateTypesInput interface {
 	pulumi.Input
 
@@ -512,7 +512,7 @@ func (o OperatingSystemTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // OperatingSystemTypesInput is an input type that accepts OperatingSystemTypesArgs and OperatingSystemTypesOutput values.
 // You can construct a concrete instance of `OperatingSystemTypesInput` via:
 //
-//          OperatingSystemTypesArgs{...}
+//	OperatingSystemTypesArgs{...}
 type OperatingSystemTypesInput interface {
 	pulumi.Input
 

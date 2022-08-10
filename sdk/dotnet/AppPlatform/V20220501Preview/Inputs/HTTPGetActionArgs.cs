@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// HTTPGetAction describes an action based on HTTP Get requests.
     /// </summary>
-    public sealed class HTTPGetActionArgs : Pulumi.ResourceArgs
+    public sealed class HTTPGetActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path to access on the HTTP server.
@@ -41,5 +41,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public HTTPGetActionArgs()
         {
         }
+        public static new HTTPGetActionArgs Empty => new HTTPGetActionArgs();
     }
 }

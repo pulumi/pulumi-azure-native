@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
     /// <summary>
     /// The cluster definition.
     /// </summary>
-    public sealed class ClusterDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ClusterDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The link to the blueprint.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         public ClusterDefinitionArgs()
         {
         }
+        public static new ClusterDefinitionArgs Empty => new ClusterDefinitionArgs();
     }
 }

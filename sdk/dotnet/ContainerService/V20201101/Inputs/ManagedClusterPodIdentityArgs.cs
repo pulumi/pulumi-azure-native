@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20201101.Inputs
 {
 
-    public sealed class ManagedClusterPodIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterPodIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information of the user assigned identity.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.ContainerService.V20201101.Inputs
         public ManagedClusterPodIdentityArgs()
         {
         }
+        public static new ManagedClusterPodIdentityArgs Empty => new ManagedClusterPodIdentityArgs();
     }
 }

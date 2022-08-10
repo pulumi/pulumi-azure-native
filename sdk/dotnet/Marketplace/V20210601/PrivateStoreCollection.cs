@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Marketplace.V20210601
     /// The Collection data structure.
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace/v20210601:PrivateStoreCollection")]
-    public partial class PrivateStoreCollection : Pulumi.CustomResource
+    public partial class PrivateStoreCollection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicating whether all subscriptions are selected (=true) or not (=false).
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNative.Marketplace.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:marketplace:PrivateStoreCollection"},
-                    new Pulumi.Alias { Type = "azure-native:marketplace/v20211201:PrivateStoreCollection"},
-                    new Pulumi.Alias { Type = "azure-native:marketplace/v20220301:PrivateStoreCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:marketplace:PrivateStoreCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:marketplace/v20211201:PrivateStoreCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:marketplace/v20220301:PrivateStoreCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Marketplace.V20210601
         }
     }
 
-    public sealed class PrivateStoreCollectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateStoreCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicating whether all subscriptions are selected (=true) or not (=false).
@@ -177,5 +177,6 @@ namespace Pulumi.AzureNative.Marketplace.V20210601
         public PrivateStoreCollectionArgs()
         {
         }
+        public static new PrivateStoreCollectionArgs Empty => new PrivateStoreCollectionArgs();
     }
 }

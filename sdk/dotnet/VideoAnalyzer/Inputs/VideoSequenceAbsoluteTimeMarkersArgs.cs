@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
     /// <summary>
     /// A sequence of absolute datetime ranges as a string. The datetime values should follow IS08601, and the sum of the ranges should add up to 24 hours or less. Currently, there can be only one range specified in the sequence.
     /// </summary>
-    public sealed class VideoSequenceAbsoluteTimeMarkersArgs : Pulumi.ResourceArgs
+    public sealed class VideoSequenceAbsoluteTimeMarkersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sequence of datetime ranges. Example: '[["2021-10-05T03:30:00Z", "2021-10-05T03:40:00Z"]]'.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         public VideoSequenceAbsoluteTimeMarkersArgs()
         {
         }
+        public static new VideoSequenceAbsoluteTimeMarkersArgs Empty => new VideoSequenceAbsoluteTimeMarkersArgs();
     }
 }

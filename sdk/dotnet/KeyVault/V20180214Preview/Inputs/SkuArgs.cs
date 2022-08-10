@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20180214Preview.Inputs
     /// <summary>
     /// SKU details
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SKU family name
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.KeyVault.V20180214Preview.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

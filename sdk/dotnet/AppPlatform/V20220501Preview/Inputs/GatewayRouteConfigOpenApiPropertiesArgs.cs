@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// OpenAPI properties of Spring Cloud Gateway route config.
     /// </summary>
-    public sealed class GatewayRouteConfigOpenApiPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteConfigOpenApiPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URI of OpenAPI specification.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public GatewayRouteConfigOpenApiPropertiesArgs()
         {
         }
+        public static new GatewayRouteConfigOpenApiPropertiesArgs Empty => new GatewayRouteConfigOpenApiPropertiesArgs();
     }
 }

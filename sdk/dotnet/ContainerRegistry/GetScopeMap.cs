@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
 
-    public sealed class GetScopeMapArgs : Pulumi.InvokeArgs
+    public sealed class GetScopeMapArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public GetScopeMapArgs()
         {
         }
+        public static new GetScopeMapArgs Empty => new GetScopeMapArgs();
     }
 
-    public sealed class GetScopeMapInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScopeMapInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public GetScopeMapInvokeArgs()
         {
         }
+        public static new GetScopeMapInvokeArgs Empty => new GetScopeMapInvokeArgs();
     }
 
 

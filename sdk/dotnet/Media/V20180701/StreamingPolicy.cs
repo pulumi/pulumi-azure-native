@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701
     /// A Streaming Policy resource
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20180701:StreamingPolicy")]
-    public partial class StreamingPolicy : Pulumi.CustomResource
+    public partial class StreamingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration of CommonEncryptionCbcs
@@ -88,12 +88,12 @@ namespace Pulumi.AzureNative.Media.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:media:StreamingPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media:StreamingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Media.V20180701
         }
     }
 
-    public sealed class StreamingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -168,5 +168,6 @@ namespace Pulumi.AzureNative.Media.V20180701
         public StreamingPolicyArgs()
         {
         }
+        public static new StreamingPolicyArgs Empty => new StreamingPolicyArgs();
     }
 }

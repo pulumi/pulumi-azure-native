@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20150801.Inputs
     /// <summary>
     /// SKU parameters supplied to the create Redis operation.
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Cache.V20150801.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

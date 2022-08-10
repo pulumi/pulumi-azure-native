@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
     /// Content type contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210801:ContentType")]
-    public partial class ContentType : Pulumi.CustomResource
+    public partial class ContentType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Content type description.
@@ -70,13 +70,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:ContentType"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ContentType"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ContentType"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ContentType"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ContentType"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ContentType"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ContentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ContentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ContentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ContentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ContentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ContentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ContentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ContentType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         }
     }
 
-    public sealed class ContentTypeArgs : Pulumi.ResourceArgs
+    public sealed class ContentTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content type identifier.
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         public ContentTypeArgs()
         {
         }
+        public static new ContentTypeArgs Empty => new ContentTypeArgs();
     }
 }

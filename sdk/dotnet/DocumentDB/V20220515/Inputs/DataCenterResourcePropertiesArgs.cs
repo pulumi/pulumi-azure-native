@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515.Inputs
     /// <summary>
     /// Properties of a managed Cassandra data center.
     /// </summary>
-    public sealed class DataCenterResourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DataCenterResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515.Inputs
         public DataCenterResourcePropertiesArgs()
         {
         }
+        public static new DataCenterResourcePropertiesArgs Empty => new DataCenterResourcePropertiesArgs();
     }
 }

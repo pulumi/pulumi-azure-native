@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Inputs
     /// <summary>
     /// Definition of the connection fields.
     /// </summary>
-    public sealed class FieldDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class FieldDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the isEncrypted flag of the connection field definition.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Inputs
         public FieldDefinitionArgs()
         {
         }
+        public static new FieldDefinitionArgs Empty => new FieldDefinitionArgs();
     }
 }

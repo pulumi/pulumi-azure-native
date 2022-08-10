@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     /// API Version: 2020-02-14.
     /// </summary>
     [AzureNativeResourceType("azure-native:virtualmachineimages:VirtualMachineImageTemplate")]
-    public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
+    public partial class VirtualMachineImageTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
@@ -119,12 +119,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
-                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"},
-                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"},
-                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
-                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate"},
-                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         }
     }
 
-    public sealed class VirtualMachineImageTemplateArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineImageTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
@@ -230,5 +230,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         {
             BuildTimeoutInMinutes = 0;
         }
+        public static new VirtualMachineImageTemplateArgs Empty => new VirtualMachineImageTemplateArgs();
     }
 }

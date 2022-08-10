@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Google BigQuery service dataset.
     /// </summary>
-    public sealed class GoogleBigQueryObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class GoogleBigQueryObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public GoogleBigQueryObjectDatasetArgs()
         {
         }
+        public static new GoogleBigQueryObjectDatasetArgs Empty => new GoogleBigQueryObjectDatasetArgs();
     }
 }

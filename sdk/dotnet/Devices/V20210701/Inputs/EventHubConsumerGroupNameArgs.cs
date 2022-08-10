@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20210701.Inputs
     /// <summary>
     /// The EventHub consumer group name.
     /// </summary>
-    public sealed class EventHubConsumerGroupNameArgs : Pulumi.ResourceArgs
+    public sealed class EventHubConsumerGroupNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// EventHub consumer group name
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Devices.V20210701.Inputs
         public EventHubConsumerGroupNameArgs()
         {
         }
+        public static new EventHubConsumerGroupNameArgs Empty => new EventHubConsumerGroupNameArgs();
     }
 }

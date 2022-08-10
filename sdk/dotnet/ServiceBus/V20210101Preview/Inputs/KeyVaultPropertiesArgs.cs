@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview.Inputs
     /// <summary>
     /// Properties to configure keyVault Properties
     /// </summary>
-    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("identity")]
         public Input<Inputs.UserAssignedIdentityPropertiesArgs>? Identity { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
+        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

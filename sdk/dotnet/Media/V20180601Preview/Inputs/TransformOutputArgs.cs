@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
     /// </summary>
-    public sealed class TransformOutputArgs : Pulumi.ResourceArgs
+    public sealed class TransformOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The default is stop.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public TransformOutputArgs()
         {
         }
+        public static new TransformOutputArgs Empty => new TransformOutputArgs();
     }
 }

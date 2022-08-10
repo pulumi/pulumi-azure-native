@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     }
 
 
-    public sealed class GetDataSetMappingArgs : Pulumi.InvokeArgs
+    public sealed class GetDataSetMappingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -55,9 +55,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public GetDataSetMappingArgs()
         {
         }
+        public static new GetDataSetMappingArgs Empty => new GetDataSetMappingArgs();
     }
 
-    public sealed class GetDataSetMappingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataSetMappingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -86,6 +87,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public GetDataSetMappingInvokeArgs()
         {
         }
+        public static new GetDataSetMappingInvokeArgs Empty => new GetDataSetMappingInvokeArgs();
     }
 
 

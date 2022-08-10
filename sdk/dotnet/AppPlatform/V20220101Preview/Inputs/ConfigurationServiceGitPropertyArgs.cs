@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
     /// <summary>
     /// Property of git environment.
     /// </summary>
-    public sealed class ConfigurationServiceGitPropertyArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationServiceGitPropertyArgs : global::Pulumi.ResourceArgs
     {
         [Input("repositories")]
         private InputList<Inputs.ConfigurationServiceGitRepositoryArgs>? _repositories;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
         public ConfigurationServiceGitPropertyArgs()
         {
         }
+        public static new ConfigurationServiceGitPropertyArgs Empty => new ConfigurationServiceGitPropertyArgs();
     }
 }

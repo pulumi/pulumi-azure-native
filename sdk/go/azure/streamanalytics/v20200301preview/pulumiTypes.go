@@ -135,7 +135,7 @@ type ClusterSku struct {
 // ClusterSkuInput is an input type that accepts ClusterSkuArgs and ClusterSkuOutput values.
 // You can construct a concrete instance of `ClusterSkuInput` via:
 //
-//          ClusterSkuArgs{...}
+//	ClusterSkuArgs{...}
 type ClusterSkuInput interface {
 	pulumi.Input
 
@@ -174,11 +174,11 @@ func (i ClusterSkuArgs) ToClusterSkuPtrOutputWithContext(ctx context.Context) Cl
 // ClusterSkuPtrInput is an input type that accepts ClusterSkuArgs, ClusterSkuPtr and ClusterSkuPtrOutput values.
 // You can construct a concrete instance of `ClusterSkuPtrInput` via:
 //
-//          ClusterSkuArgs{...}
+//	        ClusterSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterSkuPtrInput interface {
 	pulumi.Input
 
@@ -369,7 +369,7 @@ type PrivateEndpointProperties struct {
 // PrivateEndpointPropertiesInput is an input type that accepts PrivateEndpointPropertiesArgs and PrivateEndpointPropertiesOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertiesInput` via:
 //
-//          PrivateEndpointPropertiesArgs{...}
+//	PrivateEndpointPropertiesArgs{...}
 type PrivateEndpointPropertiesInput interface {
 	pulumi.Input
 
@@ -406,11 +406,11 @@ func (i PrivateEndpointPropertiesArgs) ToPrivateEndpointPropertiesPtrOutputWithC
 // PrivateEndpointPropertiesPtrInput is an input type that accepts PrivateEndpointPropertiesArgs, PrivateEndpointPropertiesPtr and PrivateEndpointPropertiesPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertiesPtrInput` via:
 //
-//          PrivateEndpointPropertiesArgs{...}
+//	        PrivateEndpointPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateEndpointPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -642,7 +642,7 @@ type PrivateLinkServiceConnection struct {
 // PrivateLinkServiceConnectionInput is an input type that accepts PrivateLinkServiceConnectionArgs and PrivateLinkServiceConnectionOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionInput` via:
 //
-//          PrivateLinkServiceConnectionArgs{...}
+//	PrivateLinkServiceConnectionArgs{...}
 type PrivateLinkServiceConnectionInput interface {
 	pulumi.Input
 
@@ -673,7 +673,7 @@ func (i PrivateLinkServiceConnectionArgs) ToPrivateLinkServiceConnectionOutputWi
 // PrivateLinkServiceConnectionArrayInput is an input type that accepts PrivateLinkServiceConnectionArray and PrivateLinkServiceConnectionArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionArrayInput` via:
 //
-//          PrivateLinkServiceConnectionArray{ PrivateLinkServiceConnectionArgs{...} }
+//	PrivateLinkServiceConnectionArray{ PrivateLinkServiceConnectionArgs{...} }
 type PrivateLinkServiceConnectionArrayInput interface {
 	pulumi.Input
 

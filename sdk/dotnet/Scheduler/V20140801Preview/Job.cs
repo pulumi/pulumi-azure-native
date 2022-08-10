@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview
 {
     [Obsolete(@"Version 2014-08-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:scheduler/v20140801preview:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the job resource name.
@@ -56,9 +56,9 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:scheduler:Job"},
-                    new Pulumi.Alias { Type = "azure-native:scheduler/v20160101:Job"},
-                    new Pulumi.Alias { Type = "azure-native:scheduler/v20160301:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:scheduler:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20160101:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20160301:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The job collection name.
@@ -109,5 +109,6 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 }

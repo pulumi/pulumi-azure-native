@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601
     }
 
 
-    public sealed class GetVaultArgs : Pulumi.InvokeArgs
+    public sealed class GetVaultArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601
         public GetVaultArgs()
         {
         }
+        public static new GetVaultArgs Empty => new GetVaultArgs();
     }
 
-    public sealed class GetVaultInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVaultInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601
         public GetVaultInvokeArgs()
         {
         }
+        public static new GetVaultInvokeArgs Empty => new GetVaultInvokeArgs();
     }
 
 

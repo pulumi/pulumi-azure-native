@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20220701.Inputs
     /// <summary>
     /// A set of rules governing the network accessibility of a vault.
     /// </summary>
-    public sealed class NetworkRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.KeyVault.V20220701.Inputs
         public NetworkRuleSetArgs()
         {
         }
+        public static new NetworkRuleSetArgs Empty => new NetworkRuleSetArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     }
 
 
-    public sealed class GetLinkedServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetLinkedServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         public GetLinkedServiceArgs()
         {
         }
+        public static new GetLinkedServiceArgs Empty => new GetLinkedServiceArgs();
     }
 
-    public sealed class GetLinkedServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLinkedServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The factory name.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         public GetLinkedServiceInvokeArgs()
         {
         }
+        public static new GetLinkedServiceInvokeArgs Empty => new GetLinkedServiceInvokeArgs();
     }
 
 

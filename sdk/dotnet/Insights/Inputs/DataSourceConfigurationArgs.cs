@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Inputs
 {
 
-    public sealed class DataSourceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventLogs")]
         private InputList<Inputs.EventLogConfigurationArgs>? _eventLogs;
@@ -51,5 +51,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public DataSourceConfigurationArgs()
         {
         }
+        public static new DataSourceConfigurationArgs Empty => new DataSourceConfigurationArgs();
     }
 }

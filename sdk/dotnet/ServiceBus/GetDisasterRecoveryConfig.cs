@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ServiceBus
     }
 
 
-    public sealed class GetDisasterRecoveryConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetDisasterRecoveryConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Disaster Recovery configuration name
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ServiceBus
         public GetDisasterRecoveryConfigArgs()
         {
         }
+        public static new GetDisasterRecoveryConfigArgs Empty => new GetDisasterRecoveryConfigArgs();
     }
 
-    public sealed class GetDisasterRecoveryConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDisasterRecoveryConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Disaster Recovery configuration name
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public GetDisasterRecoveryConfigInvokeArgs()
         {
         }
+        public static new GetDisasterRecoveryConfigInvokeArgs Empty => new GetDisasterRecoveryConfigInvokeArgs();
     }
 
 

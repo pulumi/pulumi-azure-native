@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
     }
 
 
-    public sealed class GetApplicationTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application type name resource.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
         public GetApplicationTypeArgs()
         {
         }
+        public static new GetApplicationTypeArgs Empty => new GetApplicationTypeArgs();
     }
 
-    public sealed class GetApplicationTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application type name resource.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
         public GetApplicationTypeInvokeArgs()
         {
         }
+        public static new GetApplicationTypeInvokeArgs Empty => new GetApplicationTypeInvokeArgs();
     }
 
 

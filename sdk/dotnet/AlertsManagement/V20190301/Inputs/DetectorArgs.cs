@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190301.Inputs
     /// <summary>
     /// The detector information. By default this is not populated, unless it's specified in expandDetector
     /// </summary>
-    public sealed class DetectorArgs : Pulumi.ResourceArgs
+    public sealed class DetectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190301.Inputs
         public DetectorArgs()
         {
         }
+        public static new DetectorArgs Empty => new DetectorArgs();
     }
 }

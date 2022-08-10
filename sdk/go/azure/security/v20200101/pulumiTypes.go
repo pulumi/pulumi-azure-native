@@ -102,7 +102,7 @@ type AssessmentStatus struct {
 // AssessmentStatusInput is an input type that accepts AssessmentStatusArgs and AssessmentStatusOutput values.
 // You can construct a concrete instance of `AssessmentStatusInput` via:
 //
-//          AssessmentStatusArgs{...}
+//	AssessmentStatusArgs{...}
 type AssessmentStatusInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ type JitNetworkAccessPolicyVirtualMachine struct {
 // JitNetworkAccessPolicyVirtualMachineInput is an input type that accepts JitNetworkAccessPolicyVirtualMachineArgs and JitNetworkAccessPolicyVirtualMachineOutput values.
 // You can construct a concrete instance of `JitNetworkAccessPolicyVirtualMachineInput` via:
 //
-//          JitNetworkAccessPolicyVirtualMachineArgs{...}
+//	JitNetworkAccessPolicyVirtualMachineArgs{...}
 type JitNetworkAccessPolicyVirtualMachineInput interface {
 	pulumi.Input
 
@@ -262,7 +262,7 @@ func (i JitNetworkAccessPolicyVirtualMachineArgs) ToJitNetworkAccessPolicyVirtua
 // JitNetworkAccessPolicyVirtualMachineArrayInput is an input type that accepts JitNetworkAccessPolicyVirtualMachineArray and JitNetworkAccessPolicyVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `JitNetworkAccessPolicyVirtualMachineArrayInput` via:
 //
-//          JitNetworkAccessPolicyVirtualMachineArray{ JitNetworkAccessPolicyVirtualMachineArgs{...} }
+//	JitNetworkAccessPolicyVirtualMachineArray{ JitNetworkAccessPolicyVirtualMachineArgs{...} }
 type JitNetworkAccessPolicyVirtualMachineArrayInput interface {
 	pulumi.Input
 
@@ -407,7 +407,7 @@ type JitNetworkAccessPortRule struct {
 // JitNetworkAccessPortRuleInput is an input type that accepts JitNetworkAccessPortRuleArgs and JitNetworkAccessPortRuleOutput values.
 // You can construct a concrete instance of `JitNetworkAccessPortRuleInput` via:
 //
-//          JitNetworkAccessPortRuleArgs{...}
+//	JitNetworkAccessPortRuleArgs{...}
 type JitNetworkAccessPortRuleInput interface {
 	pulumi.Input
 
@@ -441,7 +441,7 @@ func (i JitNetworkAccessPortRuleArgs) ToJitNetworkAccessPortRuleOutputWithContex
 // JitNetworkAccessPortRuleArrayInput is an input type that accepts JitNetworkAccessPortRuleArray and JitNetworkAccessPortRuleArrayOutput values.
 // You can construct a concrete instance of `JitNetworkAccessPortRuleArrayInput` via:
 //
-//          JitNetworkAccessPortRuleArray{ JitNetworkAccessPortRuleArgs{...} }
+//	JitNetworkAccessPortRuleArray{ JitNetworkAccessPortRuleArgs{...} }
 type JitNetworkAccessPortRuleArrayInput interface {
 	pulumi.Input
 
@@ -601,7 +601,7 @@ type JitNetworkAccessRequest struct {
 // JitNetworkAccessRequestInput is an input type that accepts JitNetworkAccessRequestArgs and JitNetworkAccessRequestOutput values.
 // You can construct a concrete instance of `JitNetworkAccessRequestInput` via:
 //
-//          JitNetworkAccessRequestArgs{...}
+//	JitNetworkAccessRequestArgs{...}
 type JitNetworkAccessRequestInput interface {
 	pulumi.Input
 
@@ -634,7 +634,7 @@ func (i JitNetworkAccessRequestArgs) ToJitNetworkAccessRequestOutputWithContext(
 // JitNetworkAccessRequestArrayInput is an input type that accepts JitNetworkAccessRequestArray and JitNetworkAccessRequestArrayOutput values.
 // You can construct a concrete instance of `JitNetworkAccessRequestArrayInput` via:
 //
-//          JitNetworkAccessRequestArray{ JitNetworkAccessRequestArgs{...} }
+//	JitNetworkAccessRequestArray{ JitNetworkAccessRequestArgs{...} }
 type JitNetworkAccessRequestArrayInput interface {
 	pulumi.Input
 
@@ -728,7 +728,7 @@ type JitNetworkAccessRequestPort struct {
 // JitNetworkAccessRequestPortInput is an input type that accepts JitNetworkAccessRequestPortArgs and JitNetworkAccessRequestPortOutput values.
 // You can construct a concrete instance of `JitNetworkAccessRequestPortInput` via:
 //
-//          JitNetworkAccessRequestPortArgs{...}
+//	JitNetworkAccessRequestPortArgs{...}
 type JitNetworkAccessRequestPortInput interface {
 	pulumi.Input
 
@@ -767,7 +767,7 @@ func (i JitNetworkAccessRequestPortArgs) ToJitNetworkAccessRequestPortOutputWith
 // JitNetworkAccessRequestPortArrayInput is an input type that accepts JitNetworkAccessRequestPortArray and JitNetworkAccessRequestPortArrayOutput values.
 // You can construct a concrete instance of `JitNetworkAccessRequestPortArrayInput` via:
 //
-//          JitNetworkAccessRequestPortArray{ JitNetworkAccessRequestPortArgs{...} }
+//	JitNetworkAccessRequestPortArray{ JitNetworkAccessRequestPortArgs{...} }
 type JitNetworkAccessRequestPortArrayInput interface {
 	pulumi.Input
 
@@ -1016,7 +1016,7 @@ type JitNetworkAccessRequestVirtualMachine struct {
 // JitNetworkAccessRequestVirtualMachineInput is an input type that accepts JitNetworkAccessRequestVirtualMachineArgs and JitNetworkAccessRequestVirtualMachineOutput values.
 // You can construct a concrete instance of `JitNetworkAccessRequestVirtualMachineInput` via:
 //
-//          JitNetworkAccessRequestVirtualMachineArgs{...}
+//	JitNetworkAccessRequestVirtualMachineArgs{...}
 type JitNetworkAccessRequestVirtualMachineInput interface {
 	pulumi.Input
 
@@ -1046,7 +1046,7 @@ func (i JitNetworkAccessRequestVirtualMachineArgs) ToJitNetworkAccessRequestVirt
 // JitNetworkAccessRequestVirtualMachineArrayInput is an input type that accepts JitNetworkAccessRequestVirtualMachineArray and JitNetworkAccessRequestVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `JitNetworkAccessRequestVirtualMachineArrayInput` via:
 //
-//          JitNetworkAccessRequestVirtualMachineArray{ JitNetworkAccessRequestVirtualMachineArgs{...} }
+//	JitNetworkAccessRequestVirtualMachineArray{ JitNetworkAccessRequestVirtualMachineArgs{...} }
 type JitNetworkAccessRequestVirtualMachineArrayInput interface {
 	pulumi.Input
 
@@ -1256,7 +1256,7 @@ type PathRecommendation struct {
 // PathRecommendationInput is an input type that accepts PathRecommendationArgs and PathRecommendationOutput values.
 // You can construct a concrete instance of `PathRecommendationInput` via:
 //
-//          PathRecommendationArgs{...}
+//	PathRecommendationArgs{...}
 type PathRecommendationInput interface {
 	pulumi.Input
 
@@ -1299,7 +1299,7 @@ func (i PathRecommendationArgs) ToPathRecommendationOutputWithContext(ctx contex
 // PathRecommendationArrayInput is an input type that accepts PathRecommendationArray and PathRecommendationArrayOutput values.
 // You can construct a concrete instance of `PathRecommendationArrayInput` via:
 //
-//          PathRecommendationArray{ PathRecommendationArgs{...} }
+//	PathRecommendationArray{ PathRecommendationArgs{...} }
 type PathRecommendationArrayInput interface {
 	pulumi.Input
 
@@ -1512,7 +1512,7 @@ type ProtectionMode struct {
 // ProtectionModeInput is an input type that accepts ProtectionModeArgs and ProtectionModeOutput values.
 // You can construct a concrete instance of `ProtectionModeInput` via:
 //
-//          ProtectionModeArgs{...}
+//	ProtectionModeArgs{...}
 type ProtectionModeInput interface {
 	pulumi.Input
 
@@ -1555,11 +1555,11 @@ func (i ProtectionModeArgs) ToProtectionModePtrOutputWithContext(ctx context.Con
 // ProtectionModePtrInput is an input type that accepts ProtectionModeArgs, ProtectionModePtr and ProtectionModePtrOutput values.
 // You can construct a concrete instance of `ProtectionModePtrInput` via:
 //
-//          ProtectionModeArgs{...}
+//	        ProtectionModeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProtectionModePtrInput interface {
 	pulumi.Input
 
@@ -1820,7 +1820,7 @@ type PublisherInfo struct {
 // PublisherInfoInput is an input type that accepts PublisherInfoArgs and PublisherInfoOutput values.
 // You can construct a concrete instance of `PublisherInfoInput` via:
 //
-//          PublisherInfoArgs{...}
+//	PublisherInfoArgs{...}
 type PublisherInfoInput interface {
 	pulumi.Input
 
@@ -1863,11 +1863,11 @@ func (i PublisherInfoArgs) ToPublisherInfoPtrOutputWithContext(ctx context.Conte
 // PublisherInfoPtrInput is an input type that accepts PublisherInfoArgs, PublisherInfoPtr and PublisherInfoPtrOutput values.
 // You can construct a concrete instance of `PublisherInfoPtrInput` via:
 //
-//          PublisherInfoArgs{...}
+//	        PublisherInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PublisherInfoPtrInput interface {
 	pulumi.Input
 
@@ -2126,7 +2126,7 @@ type SecurityAssessmentMetadataPartnerData struct {
 // SecurityAssessmentMetadataPartnerDataInput is an input type that accepts SecurityAssessmentMetadataPartnerDataArgs and SecurityAssessmentMetadataPartnerDataOutput values.
 // You can construct a concrete instance of `SecurityAssessmentMetadataPartnerDataInput` via:
 //
-//          SecurityAssessmentMetadataPartnerDataArgs{...}
+//	SecurityAssessmentMetadataPartnerDataArgs{...}
 type SecurityAssessmentMetadataPartnerDataInput interface {
 	pulumi.Input
 
@@ -2167,11 +2167,11 @@ func (i SecurityAssessmentMetadataPartnerDataArgs) ToSecurityAssessmentMetadataP
 // SecurityAssessmentMetadataPartnerDataPtrInput is an input type that accepts SecurityAssessmentMetadataPartnerDataArgs, SecurityAssessmentMetadataPartnerDataPtr and SecurityAssessmentMetadataPartnerDataPtrOutput values.
 // You can construct a concrete instance of `SecurityAssessmentMetadataPartnerDataPtrInput` via:
 //
-//          SecurityAssessmentMetadataPartnerDataArgs{...}
+//	        SecurityAssessmentMetadataPartnerDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SecurityAssessmentMetadataPartnerDataPtrInput interface {
 	pulumi.Input
 
@@ -2412,7 +2412,7 @@ type SecurityAssessmentMetadataProperties struct {
 // SecurityAssessmentMetadataPropertiesInput is an input type that accepts SecurityAssessmentMetadataPropertiesArgs and SecurityAssessmentMetadataPropertiesOutput values.
 // You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesInput` via:
 //
-//          SecurityAssessmentMetadataPropertiesArgs{...}
+//	SecurityAssessmentMetadataPropertiesArgs{...}
 type SecurityAssessmentMetadataPropertiesInput interface {
 	pulumi.Input
 
@@ -2467,11 +2467,11 @@ func (i SecurityAssessmentMetadataPropertiesArgs) ToSecurityAssessmentMetadataPr
 // SecurityAssessmentMetadataPropertiesPtrInput is an input type that accepts SecurityAssessmentMetadataPropertiesArgs, SecurityAssessmentMetadataPropertiesPtr and SecurityAssessmentMetadataPropertiesPtrOutput values.
 // You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesPtrInput` via:
 //
-//          SecurityAssessmentMetadataPropertiesArgs{...}
+//	        SecurityAssessmentMetadataPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SecurityAssessmentMetadataPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2963,7 +2963,7 @@ type SecurityAssessmentPartnerData struct {
 // SecurityAssessmentPartnerDataInput is an input type that accepts SecurityAssessmentPartnerDataArgs and SecurityAssessmentPartnerDataOutput values.
 // You can construct a concrete instance of `SecurityAssessmentPartnerDataInput` via:
 //
-//          SecurityAssessmentPartnerDataArgs{...}
+//	SecurityAssessmentPartnerDataArgs{...}
 type SecurityAssessmentPartnerDataInput interface {
 	pulumi.Input
 
@@ -3002,11 +3002,11 @@ func (i SecurityAssessmentPartnerDataArgs) ToSecurityAssessmentPartnerDataPtrOut
 // SecurityAssessmentPartnerDataPtrInput is an input type that accepts SecurityAssessmentPartnerDataArgs, SecurityAssessmentPartnerDataPtr and SecurityAssessmentPartnerDataPtrOutput values.
 // You can construct a concrete instance of `SecurityAssessmentPartnerDataPtrInput` via:
 //
-//          SecurityAssessmentPartnerDataArgs{...}
+//	        SecurityAssessmentPartnerDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SecurityAssessmentPartnerDataPtrInput interface {
 	pulumi.Input
 
@@ -3199,7 +3199,7 @@ type UserRecommendation struct {
 // UserRecommendationInput is an input type that accepts UserRecommendationArgs and UserRecommendationOutput values.
 // You can construct a concrete instance of `UserRecommendationInput` via:
 //
-//          UserRecommendationArgs{...}
+//	UserRecommendationArgs{...}
 type UserRecommendationInput interface {
 	pulumi.Input
 
@@ -3230,7 +3230,7 @@ func (i UserRecommendationArgs) ToUserRecommendationOutputWithContext(ctx contex
 // UserRecommendationArrayInput is an input type that accepts UserRecommendationArray and UserRecommendationArrayOutput values.
 // You can construct a concrete instance of `UserRecommendationArrayInput` via:
 //
-//          UserRecommendationArray{ UserRecommendationArgs{...} }
+//	UserRecommendationArray{ UserRecommendationArgs{...} }
 type UserRecommendationArrayInput interface {
 	pulumi.Input
 
@@ -3365,7 +3365,7 @@ type VmRecommendation struct {
 // VmRecommendationInput is an input type that accepts VmRecommendationArgs and VmRecommendationOutput values.
 // You can construct a concrete instance of `VmRecommendationInput` via:
 //
-//          VmRecommendationArgs{...}
+//	VmRecommendationArgs{...}
 type VmRecommendationInput interface {
 	pulumi.Input
 
@@ -3400,7 +3400,7 @@ func (i VmRecommendationArgs) ToVmRecommendationOutputWithContext(ctx context.Co
 // VmRecommendationArrayInput is an input type that accepts VmRecommendationArray and VmRecommendationArrayOutput values.
 // You can construct a concrete instance of `VmRecommendationArrayInput` via:
 //
-//          VmRecommendationArray{ VmRecommendationArgs{...} }
+//	VmRecommendationArray{ VmRecommendationArgs{...} }
 type VmRecommendationArrayInput interface {
 	pulumi.Input
 

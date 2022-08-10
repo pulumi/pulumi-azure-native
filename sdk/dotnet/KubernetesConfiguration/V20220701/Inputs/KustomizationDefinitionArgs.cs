@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701.Inputs
     /// <summary>
     /// The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
     /// </summary>
-    public sealed class KustomizationDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class KustomizationDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("dependsOn")]
         private InputList<string>? _dependsOn;
@@ -71,5 +71,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701.Inputs
             SyncIntervalInSeconds = 600;
             TimeoutInSeconds = 600;
         }
+        public static new KustomizationDefinitionArgs Empty => new KustomizationDefinitionArgs();
     }
 }

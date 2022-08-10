@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     /// Gateway certificate authority details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority")]
-    public partial class GatewayCertificateAuthority : Pulumi.CustomResource
+    public partial class GatewayCertificateAuthority : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Determines whether certificate authority is trusted.
@@ -58,12 +58,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GatewayCertificateAuthority"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayCertificateAuthority"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayCertificateAuthority"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         }
     }
 
-    public sealed class GatewayCertificateAuthorityArgs : Pulumi.ResourceArgs
+    public sealed class GatewayCertificateAuthorityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -120,5 +120,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public GatewayCertificateAuthorityArgs()
         {
         }
+        public static new GatewayCertificateAuthorityArgs Empty => new GatewayCertificateAuthorityArgs();
     }
 }

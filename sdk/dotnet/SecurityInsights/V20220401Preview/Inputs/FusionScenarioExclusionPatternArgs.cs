@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
     /// <summary>
     /// Represents a Fusion scenario exclusion patterns in Fusion detection.
     /// </summary>
-    public sealed class FusionScenarioExclusionPatternArgs : Pulumi.ResourceArgs
+    public sealed class FusionScenarioExclusionPatternArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DateTime when scenario exclusion pattern is added in UTC.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview.Inputs
         public FusionScenarioExclusionPatternArgs()
         {
         }
+        public static new FusionScenarioExclusionPatternArgs Empty => new FusionScenarioExclusionPatternArgs();
     }
 }

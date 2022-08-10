@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes a network reference in a service.
     /// </summary>
-    public sealed class NetworkRefArgs : Pulumi.ResourceArgs
+    public sealed class NetworkRefArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointRefs")]
         private InputList<Inputs.EndpointRefArgs>? _endpointRefs;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public NetworkRefArgs()
         {
         }
+        public static new NetworkRefArgs Empty => new NetworkRefArgs();
     }
 }

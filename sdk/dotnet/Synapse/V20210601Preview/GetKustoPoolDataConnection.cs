@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     }
 
 
-    public sealed class GetKustoPoolDataConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetKustoPoolDataConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data connection.
@@ -61,9 +61,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public GetKustoPoolDataConnectionArgs()
         {
         }
+        public static new GetKustoPoolDataConnectionArgs Empty => new GetKustoPoolDataConnectionArgs();
     }
 
-    public sealed class GetKustoPoolDataConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKustoPoolDataConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data connection.
@@ -98,6 +99,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public GetKustoPoolDataConnectionInvokeArgs()
         {
         }
+        public static new GetKustoPoolDataConnectionInvokeArgs Empty => new GetKustoPoolDataConnectionInvokeArgs();
     }
 
 

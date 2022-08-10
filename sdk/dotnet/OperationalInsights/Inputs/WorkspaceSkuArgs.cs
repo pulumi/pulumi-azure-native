@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
     /// <summary>
     /// The SKU (tier) of a workspace.
     /// </summary>
-    public sealed class WorkspaceSkuArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
         public WorkspaceSkuArgs()
         {
         }
+        public static new WorkspaceSkuArgs Empty => new WorkspaceSkuArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The location of azure blob dataset.
     /// </summary>
-    public sealed class AzureBlobStorageLocationArgs : Pulumi.ResourceArgs
+    public sealed class AzureBlobStorageLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the container of azure blob. Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureBlobStorageLocationArgs()
         {
         }
+        public static new AzureBlobStorageLocationArgs Empty => new AzureBlobStorageLocationArgs();
     }
 }

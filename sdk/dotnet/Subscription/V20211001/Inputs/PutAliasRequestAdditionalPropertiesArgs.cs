@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Subscription.V20211001.Inputs
     /// <summary>
     /// Put subscription additional properties.
     /// </summary>
-    public sealed class PutAliasRequestAdditionalPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PutAliasRequestAdditionalPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Management group Id for the subscription.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Subscription.V20211001.Inputs
         public PutAliasRequestAdditionalPropertiesArgs()
         {
         }
+        public static new PutAliasRequestAdditionalPropertiesArgs Empty => new PutAliasRequestAdditionalPropertiesArgs();
     }
 }

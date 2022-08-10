@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
     /// </summary>
     [Obsolete(@"Version 2020-12-16-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:testbase/v20201216preview:FavoriteProcess")]
-    public partial class FavoriteProcess : Pulumi.CustomResource
+    public partial class FavoriteProcess : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
@@ -65,8 +65,8 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:testbase:FavoriteProcess"},
-                    new Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:FavoriteProcess"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase:FavoriteProcess"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:FavoriteProcess"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         }
     }
 
-    public sealed class FavoriteProcessArgs : Pulumi.ResourceArgs
+    public sealed class FavoriteProcessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
@@ -123,5 +123,6 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         public FavoriteProcessArgs()
         {
         }
+        public static new FavoriteProcessArgs Empty => new FavoriteProcessArgs();
     }
 }

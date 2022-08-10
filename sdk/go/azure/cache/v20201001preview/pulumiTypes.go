@@ -21,7 +21,7 @@ type EnterpriseSku struct {
 // EnterpriseSkuInput is an input type that accepts EnterpriseSkuArgs and EnterpriseSkuOutput values.
 // You can construct a concrete instance of `EnterpriseSkuInput` via:
 //
-//          EnterpriseSkuArgs{...}
+//	EnterpriseSkuArgs{...}
 type EnterpriseSkuInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type Module struct {
 // ModuleInput is an input type that accepts ModuleArgs and ModuleOutput values.
 // You can construct a concrete instance of `ModuleInput` via:
 //
-//          ModuleArgs{...}
+//	ModuleArgs{...}
 type ModuleInput interface {
 	pulumi.Input
 
@@ -149,7 +149,7 @@ func (i ModuleArgs) ToModuleOutputWithContext(ctx context.Context) ModuleOutput 
 // ModuleArrayInput is an input type that accepts ModuleArray and ModuleArrayOutput values.
 // You can construct a concrete instance of `ModuleArrayInput` via:
 //
-//          ModuleArray{ ModuleArgs{...} }
+//	ModuleArray{ ModuleArgs{...} }
 type ModuleArrayInput interface {
 	pulumi.Input
 
@@ -432,7 +432,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 

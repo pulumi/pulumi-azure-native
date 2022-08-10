@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     }
 
 
-    public sealed class GetServerFarmArgs : Pulumi.InvokeArgs
+    public sealed class GetServerFarmArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of App Service Plan
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetServerFarmArgs()
         {
         }
+        public static new GetServerFarmArgs Empty => new GetServerFarmArgs();
     }
 
-    public sealed class GetServerFarmInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerFarmInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of App Service Plan
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetServerFarmInvokeArgs()
         {
         }
+        public static new GetServerFarmInvokeArgs Empty => new GetServerFarmInvokeArgs();
     }
 
 

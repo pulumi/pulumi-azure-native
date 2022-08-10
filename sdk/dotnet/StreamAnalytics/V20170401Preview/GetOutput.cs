@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
     }
 
 
-    public sealed class GetOutputArgs : Pulumi.InvokeArgs
+    public sealed class GetOutputArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the streaming job.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
         public GetOutputArgs()
         {
         }
+        public static new GetOutputArgs Empty => new GetOutputArgs();
     }
 
-    public sealed class GetOutputInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOutputInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the streaming job.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
         public GetOutputInvokeArgs()
         {
         }
+        public static new GetOutputInvokeArgs Empty => new GetOutputInvokeArgs();
     }
 
 

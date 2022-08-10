@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220515.Inputs
     /// <summary>
     /// An Open Container Initiative (OCI) artifact.
     /// </summary>
-    public sealed class ServiceOciArtifactEntryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceOciArtifactEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The artifact digest.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220515.Inputs
         public ServiceOciArtifactEntryArgs()
         {
         }
+        public static new ServiceOciArtifactEntryArgs Empty => new ServiceOciArtifactEntryArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// API Version: 2017-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:VirtualNetworkRule")]
-    public partial class VirtualNetworkRule : Pulumi.CustomResource
+    public partial class VirtualNetworkRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Create firewall rule before the virtual network has vnet service endpoint enabled.
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         }
     }
 
-    public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Create firewall rule before the virtual network has vnet service endpoint enabled.
@@ -129,5 +129,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         public VirtualNetworkRuleArgs()
         {
         }
+        public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }
 }

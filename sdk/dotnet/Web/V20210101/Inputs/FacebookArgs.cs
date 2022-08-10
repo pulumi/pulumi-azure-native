@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// The configuration settings of the Facebook provider.
     /// </summary>
-    public sealed class FacebookArgs : Pulumi.ResourceArgs
+    public sealed class FacebookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the Facebook provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public FacebookArgs()
         {
         }
+        public static new FacebookArgs Empty => new FacebookArgs();
     }
 }

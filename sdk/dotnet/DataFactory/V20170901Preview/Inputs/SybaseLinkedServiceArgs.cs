@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Linked service for Sybase data source.
     /// </summary>
-    public sealed class SybaseLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class SybaseLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SybaseLinkedServiceArgs()
         {
         }
+        public static new SybaseLinkedServiceArgs Empty => new SybaseLinkedServiceArgs();
     }
 }

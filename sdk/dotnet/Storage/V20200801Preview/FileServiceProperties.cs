@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
     /// </summary>
     [Obsolete(@"Version 2020-08-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20200801preview:FileServiceProperties")]
-    public partial class FileServiceProperties : Pulumi.CustomResource
+    public partial class FileServiceProperties : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
@@ -77,15 +77,15 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storage:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:FileServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage:FileServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190401:FileServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:FileServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:FileServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:FileServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:FileServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:FileServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:FileServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:FileServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
         }
     }
 
-    public sealed class FileServicePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FileServicePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -148,5 +148,6 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
         public FileServicePropertiesArgs()
         {
         }
+        public static new FileServicePropertiesArgs Empty => new FileServicePropertiesArgs();
     }
 }

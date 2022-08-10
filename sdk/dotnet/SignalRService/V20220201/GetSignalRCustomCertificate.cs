@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
     }
 
 
-    public sealed class GetSignalRCustomCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetSignalRCustomCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Custom certificate name
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
         public GetSignalRCustomCertificateArgs()
         {
         }
+        public static new GetSignalRCustomCertificateArgs Empty => new GetSignalRCustomCertificateArgs();
     }
 
-    public sealed class GetSignalRCustomCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSignalRCustomCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Custom certificate name
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
         public GetSignalRCustomCertificateInvokeArgs()
         {
         }
+        public static new GetSignalRCustomCertificateInvokeArgs Empty => new GetSignalRCustomCertificateInvokeArgs();
     }
 
 

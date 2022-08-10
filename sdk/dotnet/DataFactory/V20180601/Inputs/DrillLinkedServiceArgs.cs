@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Drill server linked service.
     /// </summary>
-    public sealed class DrillLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class DrillLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DrillLinkedServiceArgs()
         {
         }
+        public static new DrillLinkedServiceArgs Empty => new DrillLinkedServiceArgs();
     }
 }

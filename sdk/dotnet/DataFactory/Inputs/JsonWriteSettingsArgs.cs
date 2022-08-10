@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Json write settings.
     /// </summary>
-    public sealed class JsonWriteSettingsArgs : Pulumi.ResourceArgs
+    public sealed class JsonWriteSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public JsonWriteSettingsArgs()
         {
         }
+        public static new JsonWriteSettingsArgs Empty => new JsonWriteSettingsArgs();
     }
 }

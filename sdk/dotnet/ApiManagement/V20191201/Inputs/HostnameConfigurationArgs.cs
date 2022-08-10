@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201.Inputs
     /// <summary>
     /// Custom hostname configuration.
     /// </summary>
-    public sealed class HostnameConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class HostnameConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate information.
@@ -68,5 +68,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201.Inputs
             DefaultSslBinding = false;
             NegotiateClientCertificate = false;
         }
+        public static new HostnameConfigurationArgs Empty => new HostnameConfigurationArgs();
     }
 }

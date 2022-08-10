@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615.Inputs
     /// <summary>
     /// IsNullOrUndefined Advanced Filter.
     /// </summary>
-    public sealed class IsNullOrUndefinedAdvancedFilterArgs : Pulumi.ResourceArgs
+    public sealed class IsNullOrUndefinedAdvancedFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The field/property in the event based on which you want to filter.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.EventGrid.V20220615.Inputs
         public IsNullOrUndefinedAdvancedFilterArgs()
         {
         }
+        public static new IsNullOrUndefinedAdvancedFilterArgs Empty => new IsNullOrUndefinedAdvancedFilterArgs();
     }
 }

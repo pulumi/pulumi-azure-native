@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210
     }
 
 
-    public sealed class GetReplicationRecoveryPlanArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationRecoveryPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the recovery plan.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210
         public GetReplicationRecoveryPlanArgs()
         {
         }
+        public static new GetReplicationRecoveryPlanArgs Empty => new GetReplicationRecoveryPlanArgs();
     }
 
-    public sealed class GetReplicationRecoveryPlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationRecoveryPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the recovery plan.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210
         public GetReplicationRecoveryPlanInvokeArgs()
         {
         }
+        public static new GetReplicationRecoveryPlanInvokeArgs Empty => new GetReplicationRecoveryPlanInvokeArgs();
     }
 
 

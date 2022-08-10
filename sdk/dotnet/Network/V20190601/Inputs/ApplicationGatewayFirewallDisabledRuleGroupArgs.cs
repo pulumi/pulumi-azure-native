@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
     /// <summary>
     /// Allows to disable rules within a rule group or an entire rule group.
     /// </summary>
-    public sealed class ApplicationGatewayFirewallDisabledRuleGroupArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayFirewallDisabledRuleGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the rule group that will be disabled.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
         public ApplicationGatewayFirewallDisabledRuleGroupArgs()
         {
         }
+        public static new ApplicationGatewayFirewallDisabledRuleGroupArgs Empty => new ApplicationGatewayFirewallDisabledRuleGroupArgs();
     }
 }

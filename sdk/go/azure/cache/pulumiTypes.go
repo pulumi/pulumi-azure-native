@@ -21,7 +21,7 @@ type EnterpriseSku struct {
 // EnterpriseSkuInput is an input type that accepts EnterpriseSkuArgs and EnterpriseSkuOutput values.
 // You can construct a concrete instance of `EnterpriseSkuInput` via:
 //
-//          EnterpriseSkuArgs{...}
+//	EnterpriseSkuArgs{...}
 type EnterpriseSkuInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type Module struct {
 // ModuleInput is an input type that accepts ModuleArgs and ModuleOutput values.
 // You can construct a concrete instance of `ModuleInput` via:
 //
-//          ModuleArgs{...}
+//	ModuleArgs{...}
 type ModuleInput interface {
 	pulumi.Input
 
@@ -149,7 +149,7 @@ func (i ModuleArgs) ToModuleOutputWithContext(ctx context.Context) ModuleOutput 
 // ModuleArrayInput is an input type that accepts ModuleArray and ModuleArrayOutput values.
 // You can construct a concrete instance of `ModuleArrayInput` via:
 //
-//          ModuleArray{ ModuleArgs{...} }
+//	ModuleArray{ ModuleArgs{...} }
 type ModuleArrayInput interface {
 	pulumi.Input
 
@@ -291,7 +291,7 @@ type Persistence struct {
 // PersistenceInput is an input type that accepts PersistenceArgs and PersistenceOutput values.
 // You can construct a concrete instance of `PersistenceInput` via:
 //
-//          PersistenceArgs{...}
+//	PersistenceArgs{...}
 type PersistenceInput interface {
 	pulumi.Input
 
@@ -334,11 +334,11 @@ func (i PersistenceArgs) ToPersistencePtrOutputWithContext(ctx context.Context) 
 // PersistencePtrInput is an input type that accepts PersistenceArgs, PersistencePtr and PersistencePtrOutput values.
 // You can construct a concrete instance of `PersistencePtrInput` via:
 //
-//          PersistenceArgs{...}
+//	        PersistenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PersistencePtrInput interface {
 	pulumi.Input
 
@@ -740,7 +740,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -900,7 +900,7 @@ type RedisCommonPropertiesRedisConfiguration struct {
 // RedisCommonPropertiesRedisConfigurationInput is an input type that accepts RedisCommonPropertiesRedisConfigurationArgs and RedisCommonPropertiesRedisConfigurationOutput values.
 // You can construct a concrete instance of `RedisCommonPropertiesRedisConfigurationInput` via:
 //
-//          RedisCommonPropertiesRedisConfigurationArgs{...}
+//	RedisCommonPropertiesRedisConfigurationArgs{...}
 type RedisCommonPropertiesRedisConfigurationInput interface {
 	pulumi.Input
 
@@ -955,11 +955,11 @@ func (i RedisCommonPropertiesRedisConfigurationArgs) ToRedisCommonPropertiesRedi
 // RedisCommonPropertiesRedisConfigurationPtrInput is an input type that accepts RedisCommonPropertiesRedisConfigurationArgs, RedisCommonPropertiesRedisConfigurationPtr and RedisCommonPropertiesRedisConfigurationPtrOutput values.
 // You can construct a concrete instance of `RedisCommonPropertiesRedisConfigurationPtrInput` via:
 //
-//          RedisCommonPropertiesRedisConfigurationArgs{...}
+//	        RedisCommonPropertiesRedisConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RedisCommonPropertiesRedisConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1549,7 +1549,7 @@ type ScheduleEntry struct {
 // ScheduleEntryInput is an input type that accepts ScheduleEntryArgs and ScheduleEntryOutput values.
 // You can construct a concrete instance of `ScheduleEntryInput` via:
 //
-//          ScheduleEntryArgs{...}
+//	ScheduleEntryArgs{...}
 type ScheduleEntryInput interface {
 	pulumi.Input
 
@@ -1582,7 +1582,7 @@ func (i ScheduleEntryArgs) ToScheduleEntryOutputWithContext(ctx context.Context)
 // ScheduleEntryArrayInput is an input type that accepts ScheduleEntryArray and ScheduleEntryArrayOutput values.
 // You can construct a concrete instance of `ScheduleEntryArrayInput` via:
 //
-//          ScheduleEntryArray{ ScheduleEntryArgs{...} }
+//	ScheduleEntryArray{ ScheduleEntryArgs{...} }
 type ScheduleEntryArrayInput interface {
 	pulumi.Input
 
@@ -1727,7 +1727,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

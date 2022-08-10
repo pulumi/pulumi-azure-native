@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     /// A managed instance key.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210801preview:ManagedInstanceKey")]
-    public partial class ManagedInstanceKey : Pulumi.CustomResource
+    public partial class ManagedInstanceKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Key auto rotation opt-in flag. Either true or false.
@@ -76,14 +76,14 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:ManagedInstanceKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20171001preview:ManagedInstanceKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstanceKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstanceKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedInstanceKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstanceKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstanceKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstanceKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:ManagedInstanceKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:ManagedInstanceKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstanceKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstanceKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedInstanceKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstanceKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstanceKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstanceKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         }
     }
 
-    public sealed class ManagedInstanceKeyArgs : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the managed instance key to be operated on (updated or created).
@@ -140,5 +140,6 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public ManagedInstanceKeyArgs()
         {
         }
+        public static new ManagedInstanceKeyArgs Empty => new ManagedInstanceKeyArgs();
     }
 }

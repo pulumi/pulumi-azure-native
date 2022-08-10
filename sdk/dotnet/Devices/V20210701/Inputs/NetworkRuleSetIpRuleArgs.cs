@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20210701.Inputs
     /// <summary>
     /// IP Rule to be applied as part of Network Rule Set
     /// </summary>
-    public sealed class NetworkRuleSetIpRuleArgs : Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetIpRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP Filter Action
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Devices.V20210701.Inputs
         {
             Action = "Allow";
         }
+        public static new NetworkRuleSetIpRuleArgs Empty => new NetworkRuleSetIpRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
     /// <summary>
     /// Nested parameter definition.
     /// </summary>
-    public sealed class ModeValueInfoArgs : Pulumi.ResourceArgs
+    public sealed class ModeValueInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The interface string name for the nested parameter.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
         public ModeValueInfoArgs()
         {
         }
+        public static new ModeValueInfoArgs Empty => new ModeValueInfoArgs();
     }
 }

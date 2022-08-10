@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// Configuration of Azure web site
     /// </summary>
-    public sealed class SiteConfigArgs : Pulumi.ResourceArgs
+    public sealed class SiteConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Always On
@@ -354,5 +354,6 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public SiteConfigArgs()
         {
         }
+        public static new SiteConfigArgs Empty => new SiteConfigArgs();
     }
 }
