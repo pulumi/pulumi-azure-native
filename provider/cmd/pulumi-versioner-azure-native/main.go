@@ -183,23 +183,23 @@ func pending(outputDir, versionFile string) error {
 }
 
 func v1(outputDir string) error {
-	providers, err := openapi.SpecVersions()
+	specVersions, err := versioning.ReadSpecVersions(path.Join(outputDir, "spec.json"))
 	if err != nil {
 		return err
 	}
 
-	activePathVersions, err := providerlist.ReadProviderList()
+	v2Config, err := versioning.ReadDefaultConfig(path.Join(outputDir, "v1-config.yaml"))
 	if err != nil {
 		return err
 	}
 
-	v1 := openapi.CalculateProviderDefaults(activePathVersions, providers)
+	v2, err := versioning.DefaultConfigToCuratedVersion(specVersions, v2Config)
 	if err != nil {
 		return err
 	}
 
 	return emitFiles(outputDir, map[Filename]Data{
-		"v1.json": v1,
+		"v1.json": v2,
 	})
 }
 
