@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -39,6 +40,10 @@ export interface GetSecurityConnectorApplicationArgs {
  * Security Application over a given scope
  */
 export interface GetSecurityConnectorApplicationResult {
+    /**
+     * The application conditionSets - see examples
+     */
+    readonly conditionSets: outputs.security.v20220701preview.ApplicationConditionResponse[][][];
     /**
      * description of the application
      */

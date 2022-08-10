@@ -276,8 +276,7 @@ func (o LookupWebAppResultOutput) HostNames() pulumi.StringArrayOutput {
 }
 
 // <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-//
-//	If <code>true</code>, the app is only accessible via API management process.
+//  If <code>true</code>, the app is only accessible via API management process.
 func (o LookupWebAppResultOutput) HostNamesDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupWebAppResult) *bool { return v.HostNamesDisabled }).(pulumi.BoolPtrOutput)
 }

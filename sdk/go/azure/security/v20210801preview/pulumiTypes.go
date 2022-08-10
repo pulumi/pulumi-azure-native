@@ -19,7 +19,7 @@ type AssignedComponentItem struct {
 // AssignedComponentItemInput is an input type that accepts AssignedComponentItemArgs and AssignedComponentItemOutput values.
 // You can construct a concrete instance of `AssignedComponentItemInput` via:
 //
-//	AssignedComponentItemArgs{...}
+//          AssignedComponentItemArgs{...}
 type AssignedComponentItemInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AssignedComponentItemArgs) ToAssignedComponentItemPtrOutputWithContext(c
 // AssignedComponentItemPtrInput is an input type that accepts AssignedComponentItemArgs, AssignedComponentItemPtr and AssignedComponentItemPtrOutput values.
 // You can construct a concrete instance of `AssignedComponentItemPtrInput` via:
 //
-//	        AssignedComponentItemArgs{...}
+//          AssignedComponentItemArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AssignedComponentItemPtrInput interface {
 	pulumi.Input
 
@@ -219,7 +219,7 @@ type AssignedStandardItem struct {
 // AssignedStandardItemInput is an input type that accepts AssignedStandardItemArgs and AssignedStandardItemOutput values.
 // You can construct a concrete instance of `AssignedStandardItemInput` via:
 //
-//	AssignedStandardItemArgs{...}
+//          AssignedStandardItemArgs{...}
 type AssignedStandardItemInput interface {
 	pulumi.Input
 
@@ -256,11 +256,11 @@ func (i AssignedStandardItemArgs) ToAssignedStandardItemPtrOutputWithContext(ctx
 // AssignedStandardItemPtrInput is an input type that accepts AssignedStandardItemArgs, AssignedStandardItemPtr and AssignedStandardItemPtrOutput values.
 // You can construct a concrete instance of `AssignedStandardItemPtrInput` via:
 //
-//	        AssignedStandardItemArgs{...}
+//          AssignedStandardItemArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AssignedStandardItemPtrInput interface {
 	pulumi.Input
 
@@ -419,7 +419,7 @@ type AssignmentPropertiesAdditionalData struct {
 // AssignmentPropertiesAdditionalDataInput is an input type that accepts AssignmentPropertiesAdditionalDataArgs and AssignmentPropertiesAdditionalDataOutput values.
 // You can construct a concrete instance of `AssignmentPropertiesAdditionalDataInput` via:
 //
-//	AssignmentPropertiesAdditionalDataArgs{...}
+//          AssignmentPropertiesAdditionalDataArgs{...}
 type AssignmentPropertiesAdditionalDataInput interface {
 	pulumi.Input
 
@@ -456,11 +456,11 @@ func (i AssignmentPropertiesAdditionalDataArgs) ToAssignmentPropertiesAdditional
 // AssignmentPropertiesAdditionalDataPtrInput is an input type that accepts AssignmentPropertiesAdditionalDataArgs, AssignmentPropertiesAdditionalDataPtr and AssignmentPropertiesAdditionalDataPtrOutput values.
 // You can construct a concrete instance of `AssignmentPropertiesAdditionalDataPtrInput` via:
 //
-//	        AssignmentPropertiesAdditionalDataArgs{...}
+//          AssignmentPropertiesAdditionalDataArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AssignmentPropertiesAdditionalDataPtrInput interface {
 	pulumi.Input
 
@@ -619,7 +619,7 @@ type StandardComponentProperties struct {
 // StandardComponentPropertiesInput is an input type that accepts StandardComponentPropertiesArgs and StandardComponentPropertiesOutput values.
 // You can construct a concrete instance of `StandardComponentPropertiesInput` via:
 //
-//	StandardComponentPropertiesArgs{...}
+//          StandardComponentPropertiesArgs{...}
 type StandardComponentPropertiesInput interface {
 	pulumi.Input
 
@@ -648,7 +648,7 @@ func (i StandardComponentPropertiesArgs) ToStandardComponentPropertiesOutputWith
 // StandardComponentPropertiesArrayInput is an input type that accepts StandardComponentPropertiesArray and StandardComponentPropertiesArrayOutput values.
 // You can construct a concrete instance of `StandardComponentPropertiesArrayInput` via:
 //
-//	StandardComponentPropertiesArray{ StandardComponentPropertiesArgs{...} }
+//          StandardComponentPropertiesArray{ StandardComponentPropertiesArgs{...} }
 type StandardComponentPropertiesArrayInput interface {
 	pulumi.Input
 

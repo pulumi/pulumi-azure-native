@@ -142,7 +142,7 @@ func (o AadAuthFailureModePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // AadAuthFailureModeInput is an input type that accepts AadAuthFailureModeArgs and AadAuthFailureModeOutput values.
 // You can construct a concrete instance of `AadAuthFailureModeInput` via:
 //
-//	AadAuthFailureModeArgs{...}
+//          AadAuthFailureModeArgs{...}
 type AadAuthFailureModeInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ func (o HostingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // HostingModeInput is an input type that accepts HostingModeArgs and HostingModeOutput values.
 // You can construct a concrete instance of `HostingModeInput` via:
 //
-//	HostingModeArgs{...}
+//          HostingModeArgs{...}
 type HostingModeInput interface {
 	pulumi.Input
 
@@ -494,7 +494,7 @@ func (o PrivateLinkServiceConnectionStatusPtrOutput) ToStringPtrOutputWithContex
 // PrivateLinkServiceConnectionStatusInput is an input type that accepts PrivateLinkServiceConnectionStatusArgs and PrivateLinkServiceConnectionStatusOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatusInput` via:
 //
-//	PrivateLinkServiceConnectionStatusArgs{...}
+//          PrivateLinkServiceConnectionStatusArgs{...}
 type PrivateLinkServiceConnectionStatusInput interface {
 	pulumi.Input
 
@@ -691,7 +691,7 @@ func (o SearchEncryptionWithCmkPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // SearchEncryptionWithCmkInput is an input type that accepts SearchEncryptionWithCmkArgs and SearchEncryptionWithCmkOutput values.
 // You can construct a concrete instance of `SearchEncryptionWithCmkInput` via:
 //
-//	SearchEncryptionWithCmkArgs{...}
+//          SearchEncryptionWithCmkArgs{...}
 type SearchEncryptionWithCmkInput interface {
 	pulumi.Input
 

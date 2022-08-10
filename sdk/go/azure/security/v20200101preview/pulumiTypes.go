@@ -145,7 +145,7 @@ type HybridComputeSettingsProperties struct {
 // HybridComputeSettingsPropertiesInput is an input type that accepts HybridComputeSettingsPropertiesArgs and HybridComputeSettingsPropertiesOutput values.
 // You can construct a concrete instance of `HybridComputeSettingsPropertiesInput` via:
 //
-//	HybridComputeSettingsPropertiesArgs{...}
+//          HybridComputeSettingsPropertiesArgs{...}
 type HybridComputeSettingsPropertiesInput interface {
 	pulumi.Input
 
@@ -190,11 +190,11 @@ func (i HybridComputeSettingsPropertiesArgs) ToHybridComputeSettingsPropertiesPt
 // HybridComputeSettingsPropertiesPtrInput is an input type that accepts HybridComputeSettingsPropertiesArgs, HybridComputeSettingsPropertiesPtr and HybridComputeSettingsPropertiesPtrOutput values.
 // You can construct a concrete instance of `HybridComputeSettingsPropertiesPtrInput` via:
 //
-//	        HybridComputeSettingsPropertiesArgs{...}
+//          HybridComputeSettingsPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type HybridComputeSettingsPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -502,7 +502,7 @@ type ProxyServerProperties struct {
 // ProxyServerPropertiesInput is an input type that accepts ProxyServerPropertiesArgs and ProxyServerPropertiesOutput values.
 // You can construct a concrete instance of `ProxyServerPropertiesInput` via:
 //
-//	ProxyServerPropertiesArgs{...}
+//          ProxyServerPropertiesArgs{...}
 type ProxyServerPropertiesInput interface {
 	pulumi.Input
 
@@ -541,11 +541,11 @@ func (i ProxyServerPropertiesArgs) ToProxyServerPropertiesPtrOutputWithContext(c
 // ProxyServerPropertiesPtrInput is an input type that accepts ProxyServerPropertiesArgs, ProxyServerPropertiesPtr and ProxyServerPropertiesPtrOutput values.
 // You can construct a concrete instance of `ProxyServerPropertiesPtrInput` via:
 //
-//	        ProxyServerPropertiesArgs{...}
+//          ProxyServerPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ProxyServerPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -738,7 +738,7 @@ type SecurityContactPropertiesAlertNotifications struct {
 // SecurityContactPropertiesAlertNotificationsInput is an input type that accepts SecurityContactPropertiesAlertNotificationsArgs and SecurityContactPropertiesAlertNotificationsOutput values.
 // You can construct a concrete instance of `SecurityContactPropertiesAlertNotificationsInput` via:
 //
-//	SecurityContactPropertiesAlertNotificationsArgs{...}
+//          SecurityContactPropertiesAlertNotificationsArgs{...}
 type SecurityContactPropertiesAlertNotificationsInput interface {
 	pulumi.Input
 
@@ -777,11 +777,11 @@ func (i SecurityContactPropertiesAlertNotificationsArgs) ToSecurityContactProper
 // SecurityContactPropertiesAlertNotificationsPtrInput is an input type that accepts SecurityContactPropertiesAlertNotificationsArgs, SecurityContactPropertiesAlertNotificationsPtr and SecurityContactPropertiesAlertNotificationsPtrOutput values.
 // You can construct a concrete instance of `SecurityContactPropertiesAlertNotificationsPtrInput` via:
 //
-//	        SecurityContactPropertiesAlertNotificationsArgs{...}
+//          SecurityContactPropertiesAlertNotificationsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SecurityContactPropertiesAlertNotificationsPtrInput interface {
 	pulumi.Input
 
@@ -897,7 +897,7 @@ type SecurityContactPropertiesNotificationsByRole struct {
 // SecurityContactPropertiesNotificationsByRoleInput is an input type that accepts SecurityContactPropertiesNotificationsByRoleArgs and SecurityContactPropertiesNotificationsByRoleOutput values.
 // You can construct a concrete instance of `SecurityContactPropertiesNotificationsByRoleInput` via:
 //
-//	SecurityContactPropertiesNotificationsByRoleArgs{...}
+//          SecurityContactPropertiesNotificationsByRoleArgs{...}
 type SecurityContactPropertiesNotificationsByRoleInput interface {
 	pulumi.Input
 
@@ -936,11 +936,11 @@ func (i SecurityContactPropertiesNotificationsByRoleArgs) ToSecurityContactPrope
 // SecurityContactPropertiesNotificationsByRolePtrInput is an input type that accepts SecurityContactPropertiesNotificationsByRoleArgs, SecurityContactPropertiesNotificationsByRolePtr and SecurityContactPropertiesNotificationsByRolePtrOutput values.
 // You can construct a concrete instance of `SecurityContactPropertiesNotificationsByRolePtrInput` via:
 //
-//	        SecurityContactPropertiesNotificationsByRoleArgs{...}
+//          SecurityContactPropertiesNotificationsByRoleArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SecurityContactPropertiesNotificationsByRolePtrInput interface {
 	pulumi.Input
 
@@ -1210,7 +1210,7 @@ type ServicePrincipalProperties struct {
 // ServicePrincipalPropertiesInput is an input type that accepts ServicePrincipalPropertiesArgs and ServicePrincipalPropertiesOutput values.
 // You can construct a concrete instance of `ServicePrincipalPropertiesInput` via:
 //
-//	ServicePrincipalPropertiesArgs{...}
+//          ServicePrincipalPropertiesArgs{...}
 type ServicePrincipalPropertiesInput interface {
 	pulumi.Input
 
@@ -1249,11 +1249,11 @@ func (i ServicePrincipalPropertiesArgs) ToServicePrincipalPropertiesPtrOutputWit
 // ServicePrincipalPropertiesPtrInput is an input type that accepts ServicePrincipalPropertiesArgs, ServicePrincipalPropertiesPtr and ServicePrincipalPropertiesPtrOutput values.
 // You can construct a concrete instance of `ServicePrincipalPropertiesPtrInput` via:
 //
-//	        ServicePrincipalPropertiesArgs{...}
+//          ServicePrincipalPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServicePrincipalPropertiesPtrInput interface {
 	pulumi.Input
 

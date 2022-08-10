@@ -25,7 +25,7 @@ type Authorization struct {
 // AuthorizationInput is an input type that accepts AuthorizationArgs and AuthorizationOutput values.
 // You can construct a concrete instance of `AuthorizationInput` via:
 //
-//	AuthorizationArgs{...}
+//          AuthorizationArgs{...}
 type AuthorizationInput interface {
 	pulumi.Input
 
@@ -60,7 +60,7 @@ func (i AuthorizationArgs) ToAuthorizationOutputWithContext(ctx context.Context)
 // AuthorizationArrayInput is an input type that accepts AuthorizationArray and AuthorizationArrayOutput values.
 // You can construct a concrete instance of `AuthorizationArrayInput` via:
 //
-//	AuthorizationArray{ AuthorizationArgs{...} }
+//          AuthorizationArray{ AuthorizationArgs{...} }
 type AuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +219,7 @@ type Plan struct {
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
 // You can construct a concrete instance of `PlanInput` via:
 //
-//	PlanArgs{...}
+//          PlanArgs{...}
 type PlanInput interface {
 	pulumi.Input
 
@@ -262,11 +262,11 @@ func (i PlanArgs) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput 
 // PlanPtrInput is an input type that accepts PlanArgs, PlanPtr and PlanPtrOutput values.
 // You can construct a concrete instance of `PlanPtrInput` via:
 //
-//	        PlanArgs{...}
+//          PlanArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PlanPtrInput interface {
 	pulumi.Input
 
@@ -521,7 +521,7 @@ type RegistrationAssignmentProperties struct {
 // RegistrationAssignmentPropertiesInput is an input type that accepts RegistrationAssignmentPropertiesArgs and RegistrationAssignmentPropertiesOutput values.
 // You can construct a concrete instance of `RegistrationAssignmentPropertiesInput` via:
 //
-//	RegistrationAssignmentPropertiesArgs{...}
+//          RegistrationAssignmentPropertiesArgs{...}
 type RegistrationAssignmentPropertiesInput interface {
 	pulumi.Input
 
@@ -558,11 +558,11 @@ func (i RegistrationAssignmentPropertiesArgs) ToRegistrationAssignmentProperties
 // RegistrationAssignmentPropertiesPtrInput is an input type that accepts RegistrationAssignmentPropertiesArgs, RegistrationAssignmentPropertiesPtr and RegistrationAssignmentPropertiesPtrOutput values.
 // You can construct a concrete instance of `RegistrationAssignmentPropertiesPtrInput` via:
 //
-//	        RegistrationAssignmentPropertiesArgs{...}
+//          RegistrationAssignmentPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RegistrationAssignmentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -948,7 +948,7 @@ type RegistrationDefinitionProperties struct {
 // RegistrationDefinitionPropertiesInput is an input type that accepts RegistrationDefinitionPropertiesArgs and RegistrationDefinitionPropertiesOutput values.
 // You can construct a concrete instance of `RegistrationDefinitionPropertiesInput` via:
 //
-//	RegistrationDefinitionPropertiesArgs{...}
+//          RegistrationDefinitionPropertiesArgs{...}
 type RegistrationDefinitionPropertiesInput interface {
 	pulumi.Input
 
@@ -991,11 +991,11 @@ func (i RegistrationDefinitionPropertiesArgs) ToRegistrationDefinitionProperties
 // RegistrationDefinitionPropertiesPtrInput is an input type that accepts RegistrationDefinitionPropertiesArgs, RegistrationDefinitionPropertiesPtr and RegistrationDefinitionPropertiesPtrOutput values.
 // You can construct a concrete instance of `RegistrationDefinitionPropertiesPtrInput` via:
 //
-//	        RegistrationDefinitionPropertiesArgs{...}
+//          RegistrationDefinitionPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RegistrationDefinitionPropertiesPtrInput interface {
 	pulumi.Input
 

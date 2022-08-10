@@ -16,6 +16,8 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
+	// The application conditionSets - see examples
+	ConditionSets ApplicationConditionResponseArrayArrayArrayOutput `pulumi:"conditionSets"`
 	// description of the application
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// display name of the application
@@ -35,6 +37,9 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ConditionSets == nil {
+		return nil, errors.New("invalid value for required argument 'ConditionSets'")
+	}
 	if args.SourceResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'SourceResourceType'")
 	}
@@ -78,6 +83,8 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	// The security Application key - unique key for the standard application
 	ApplicationId *string `pulumi:"applicationId"`
+	// The application conditionSets - see examples
+	ConditionSets [][][]ApplicationCondition `pulumi:"conditionSets"`
 	// description of the application
 	Description *string `pulumi:"description"`
 	// display name of the application
@@ -90,6 +97,8 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	// The security Application key - unique key for the standard application
 	ApplicationId pulumi.StringPtrInput
+	// The application conditionSets - see examples
+	ConditionSets ApplicationConditionArrayArrayArrayInput
 	// description of the application
 	Description pulumi.StringPtrInput
 	// display name of the application
@@ -133,6 +142,11 @@ func (o ApplicationOutput) ToApplicationOutput() ApplicationOutput {
 
 func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) ApplicationOutput {
 	return o
+}
+
+// The application conditionSets - see examples
+func (o ApplicationOutput) ConditionSets() ApplicationConditionResponseArrayArrayArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationConditionResponseArrayArrayArrayOutput { return v.ConditionSets }).(ApplicationConditionResponseArrayArrayArrayOutput)
 }
 
 // description of the application

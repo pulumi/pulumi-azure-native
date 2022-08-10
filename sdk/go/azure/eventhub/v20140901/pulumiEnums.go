@@ -140,7 +140,7 @@ func (o AccessRightsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // AccessRightsInput is an input type that accepts AccessRightsArgs and AccessRightsOutput values.
 // You can construct a concrete instance of `AccessRightsInput` via:
 //
-//	AccessRightsArgs{...}
+//          AccessRightsArgs{...}
 type AccessRightsInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (in *accessRightsPtr) ToAccessRightsPtrOutputWithContext(ctx context.Contex
 // AccessRightsArrayInput is an input type that accepts AccessRightsArray and AccessRightsArrayOutput values.
 // You can construct a concrete instance of `AccessRightsArrayInput` via:
 //
-//	AccessRightsArray{ AccessRightsArgs{...} }
+//          AccessRightsArray{ AccessRightsArgs{...} }
 type AccessRightsArrayInput interface {
 	pulumi.Input
 
@@ -357,7 +357,7 @@ func (o EntityStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // EntityStatusInput is an input type that accepts EntityStatusArgs and EntityStatusOutput values.
 // You can construct a concrete instance of `EntityStatusInput` via:
 //
-//	EntityStatusArgs{...}
+//          EntityStatusArgs{...}
 type EntityStatusInput interface {
 	pulumi.Input
 
@@ -533,7 +533,7 @@ func (o NamespaceStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // NamespaceStateEnumInput is an input type that accepts NamespaceStateEnumArgs and NamespaceStateEnumOutput values.
 // You can construct a concrete instance of `NamespaceStateEnumInput` via:
 //
-//	NamespaceStateEnumArgs{...}
+//          NamespaceStateEnumArgs{...}
 type NamespaceStateEnumInput interface {
 	pulumi.Input
 

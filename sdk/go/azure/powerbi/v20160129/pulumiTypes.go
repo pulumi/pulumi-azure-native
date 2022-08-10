@@ -20,7 +20,7 @@ type AzureSku struct {
 // AzureSkuInput is an input type that accepts AzureSkuArgs and AzureSkuOutput values.
 // You can construct a concrete instance of `AzureSkuInput` via:
 //
-//	AzureSkuArgs{...}
+//          AzureSkuArgs{...}
 type AzureSkuInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i AzureSkuArgs) ToAzureSkuPtrOutputWithContext(ctx context.Context) AzureS
 // AzureSkuPtrInput is an input type that accepts AzureSkuArgs, AzureSkuPtr and AzureSkuPtrOutput values.
 // You can construct a concrete instance of `AzureSkuPtrInput` via:
 //
-//	        AzureSkuArgs{...}
+//          AzureSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AzureSkuPtrInput interface {
 	pulumi.Input
 

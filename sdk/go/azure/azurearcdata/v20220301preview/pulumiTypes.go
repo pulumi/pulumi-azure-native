@@ -42,7 +42,7 @@ func (val *ActiveDirectoryConnectorDNSDetails) Defaults() *ActiveDirectoryConnec
 // ActiveDirectoryConnectorDNSDetailsInput is an input type that accepts ActiveDirectoryConnectorDNSDetailsArgs and ActiveDirectoryConnectorDNSDetailsOutput values.
 // You can construct a concrete instance of `ActiveDirectoryConnectorDNSDetailsInput` via:
 //
-//	ActiveDirectoryConnectorDNSDetailsArgs{...}
+//          ActiveDirectoryConnectorDNSDetailsArgs{...}
 type ActiveDirectoryConnectorDNSDetailsInput interface {
 	pulumi.Input
 
@@ -217,7 +217,7 @@ func (val *ActiveDirectoryConnectorDomainDetails) Defaults() *ActiveDirectoryCon
 // ActiveDirectoryConnectorDomainDetailsInput is an input type that accepts ActiveDirectoryConnectorDomainDetailsArgs and ActiveDirectoryConnectorDomainDetailsOutput values.
 // You can construct a concrete instance of `ActiveDirectoryConnectorDomainDetailsInput` via:
 //
-//	ActiveDirectoryConnectorDomainDetailsArgs{...}
+//          ActiveDirectoryConnectorDomainDetailsArgs{...}
 type ActiveDirectoryConnectorDomainDetailsInput interface {
 	pulumi.Input
 
@@ -397,7 +397,7 @@ func (val *ActiveDirectoryConnectorProperties) Defaults() *ActiveDirectoryConnec
 // ActiveDirectoryConnectorPropertiesInput is an input type that accepts ActiveDirectoryConnectorPropertiesArgs and ActiveDirectoryConnectorPropertiesOutput values.
 // You can construct a concrete instance of `ActiveDirectoryConnectorPropertiesInput` via:
 //
-//	ActiveDirectoryConnectorPropertiesArgs{...}
+//          ActiveDirectoryConnectorPropertiesArgs{...}
 type ActiveDirectoryConnectorPropertiesInput interface {
 	pulumi.Input
 
@@ -554,7 +554,7 @@ func (val *ActiveDirectoryConnectorSpec) Defaults() *ActiveDirectoryConnectorSpe
 // ActiveDirectoryConnectorSpecInput is an input type that accepts ActiveDirectoryConnectorSpecArgs and ActiveDirectoryConnectorSpecOutput values.
 // You can construct a concrete instance of `ActiveDirectoryConnectorSpecInput` via:
 //
-//	ActiveDirectoryConnectorSpecArgs{...}
+//          ActiveDirectoryConnectorSpecArgs{...}
 type ActiveDirectoryConnectorSpecInput interface {
 	pulumi.Input
 
@@ -677,7 +677,7 @@ type ActiveDirectoryConnectorStatus struct {
 // ActiveDirectoryConnectorStatusInput is an input type that accepts ActiveDirectoryConnectorStatusArgs and ActiveDirectoryConnectorStatusOutput values.
 // You can construct a concrete instance of `ActiveDirectoryConnectorStatusInput` via:
 //
-//	ActiveDirectoryConnectorStatusArgs{...}
+//          ActiveDirectoryConnectorStatusArgs{...}
 type ActiveDirectoryConnectorStatusInput interface {
 	pulumi.Input
 
@@ -718,11 +718,11 @@ func (i ActiveDirectoryConnectorStatusArgs) ToActiveDirectoryConnectorStatusPtrO
 // ActiveDirectoryConnectorStatusPtrInput is an input type that accepts ActiveDirectoryConnectorStatusArgs, ActiveDirectoryConnectorStatusPtr and ActiveDirectoryConnectorStatusPtrOutput values.
 // You can construct a concrete instance of `ActiveDirectoryConnectorStatusPtrInput` via:
 //
-//	        ActiveDirectoryConnectorStatusArgs{...}
+//          ActiveDirectoryConnectorStatusArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ActiveDirectoryConnectorStatusPtrInput interface {
 	pulumi.Input
 
@@ -945,7 +945,7 @@ type ActiveDirectoryDomainController struct {
 // ActiveDirectoryDomainControllerInput is an input type that accepts ActiveDirectoryDomainControllerArgs and ActiveDirectoryDomainControllerOutput values.
 // You can construct a concrete instance of `ActiveDirectoryDomainControllerInput` via:
 //
-//	ActiveDirectoryDomainControllerArgs{...}
+//          ActiveDirectoryDomainControllerArgs{...}
 type ActiveDirectoryDomainControllerInput interface {
 	pulumi.Input
 
@@ -982,11 +982,11 @@ func (i ActiveDirectoryDomainControllerArgs) ToActiveDirectoryDomainControllerPt
 // ActiveDirectoryDomainControllerPtrInput is an input type that accepts ActiveDirectoryDomainControllerArgs, ActiveDirectoryDomainControllerPtr and ActiveDirectoryDomainControllerPtrOutput values.
 // You can construct a concrete instance of `ActiveDirectoryDomainControllerPtrInput` via:
 //
-//	        ActiveDirectoryDomainControllerArgs{...}
+//          ActiveDirectoryDomainControllerArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ActiveDirectoryDomainControllerPtrInput interface {
 	pulumi.Input
 
@@ -1015,7 +1015,7 @@ func (i *activeDirectoryDomainControllerPtrType) ToActiveDirectoryDomainControll
 // ActiveDirectoryDomainControllerArrayInput is an input type that accepts ActiveDirectoryDomainControllerArray and ActiveDirectoryDomainControllerArrayOutput values.
 // You can construct a concrete instance of `ActiveDirectoryDomainControllerArrayInput` via:
 //
-//	ActiveDirectoryDomainControllerArray{ ActiveDirectoryDomainControllerArgs{...} }
+//          ActiveDirectoryDomainControllerArray{ ActiveDirectoryDomainControllerArgs{...} }
 type ActiveDirectoryDomainControllerArrayInput interface {
 	pulumi.Input
 
@@ -1212,7 +1212,7 @@ type ActiveDirectoryDomainControllers struct {
 // ActiveDirectoryDomainControllersInput is an input type that accepts ActiveDirectoryDomainControllersArgs and ActiveDirectoryDomainControllersOutput values.
 // You can construct a concrete instance of `ActiveDirectoryDomainControllersInput` via:
 //
-//	ActiveDirectoryDomainControllersArgs{...}
+//          ActiveDirectoryDomainControllersArgs{...}
 type ActiveDirectoryDomainControllersInput interface {
 	pulumi.Input
 
@@ -1315,7 +1315,7 @@ type ActiveDirectoryInformation struct {
 // ActiveDirectoryInformationInput is an input type that accepts ActiveDirectoryInformationArgs and ActiveDirectoryInformationOutput values.
 // You can construct a concrete instance of `ActiveDirectoryInformationInput` via:
 //
-//	ActiveDirectoryInformationArgs{...}
+//          ActiveDirectoryInformationArgs{...}
 type ActiveDirectoryInformationInput interface {
 	pulumi.Input
 
@@ -1352,11 +1352,11 @@ func (i ActiveDirectoryInformationArgs) ToActiveDirectoryInformationPtrOutputWit
 // ActiveDirectoryInformationPtrInput is an input type that accepts ActiveDirectoryInformationArgs, ActiveDirectoryInformationPtr and ActiveDirectoryInformationPtrOutput values.
 // You can construct a concrete instance of `ActiveDirectoryInformationPtrInput` via:
 //
-//	        ActiveDirectoryInformationArgs{...}
+//          ActiveDirectoryInformationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ActiveDirectoryInformationPtrInput interface {
 	pulumi.Input
 
@@ -1457,7 +1457,7 @@ type BasicLoginInformation struct {
 // BasicLoginInformationInput is an input type that accepts BasicLoginInformationArgs and BasicLoginInformationOutput values.
 // You can construct a concrete instance of `BasicLoginInformationInput` via:
 //
-//	BasicLoginInformationArgs{...}
+//          BasicLoginInformationArgs{...}
 type BasicLoginInformationInput interface {
 	pulumi.Input
 
@@ -1496,11 +1496,11 @@ func (i BasicLoginInformationArgs) ToBasicLoginInformationPtrOutputWithContext(c
 // BasicLoginInformationPtrInput is an input type that accepts BasicLoginInformationArgs, BasicLoginInformationPtr and BasicLoginInformationPtrOutput values.
 // You can construct a concrete instance of `BasicLoginInformationPtrInput` via:
 //
-//	        BasicLoginInformationArgs{...}
+//          BasicLoginInformationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BasicLoginInformationPtrInput interface {
 	pulumi.Input
 
@@ -1709,7 +1709,7 @@ func (val *DataControllerProperties) Defaults() *DataControllerProperties {
 // DataControllerPropertiesInput is an input type that accepts DataControllerPropertiesArgs and DataControllerPropertiesOutput values.
 // You can construct a concrete instance of `DataControllerPropertiesInput` via:
 //
-//	DataControllerPropertiesArgs{...}
+//          DataControllerPropertiesArgs{...}
 type DataControllerPropertiesInput interface {
 	pulumi.Input
 
@@ -1987,7 +1987,7 @@ type ExtendedLocation struct {
 // ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
 // You can construct a concrete instance of `ExtendedLocationInput` via:
 //
-//	ExtendedLocationArgs{...}
+//          ExtendedLocationArgs{...}
 type ExtendedLocationInput interface {
 	pulumi.Input
 
@@ -2026,11 +2026,11 @@ func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context
 // ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
 // You can construct a concrete instance of `ExtendedLocationPtrInput` via:
 //
-//	        ExtendedLocationArgs{...}
+//          ExtendedLocationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ExtendedLocationPtrInput interface {
 	pulumi.Input
 
@@ -2223,7 +2223,7 @@ type K8sResourceRequirements struct {
 // K8sResourceRequirementsInput is an input type that accepts K8sResourceRequirementsArgs and K8sResourceRequirementsOutput values.
 // You can construct a concrete instance of `K8sResourceRequirementsInput` via:
 //
-//	K8sResourceRequirementsArgs{...}
+//          K8sResourceRequirementsArgs{...}
 type K8sResourceRequirementsInput interface {
 	pulumi.Input
 
@@ -2262,11 +2262,11 @@ func (i K8sResourceRequirementsArgs) ToK8sResourceRequirementsPtrOutputWithConte
 // K8sResourceRequirementsPtrInput is an input type that accepts K8sResourceRequirementsArgs, K8sResourceRequirementsPtr and K8sResourceRequirementsPtrOutput values.
 // You can construct a concrete instance of `K8sResourceRequirementsPtrInput` via:
 //
-//	        K8sResourceRequirementsArgs{...}
+//          K8sResourceRequirementsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type K8sResourceRequirementsPtrInput interface {
 	pulumi.Input
 
@@ -2457,7 +2457,7 @@ type K8sScheduling struct {
 // K8sSchedulingInput is an input type that accepts K8sSchedulingArgs and K8sSchedulingOutput values.
 // You can construct a concrete instance of `K8sSchedulingInput` via:
 //
-//	K8sSchedulingArgs{...}
+//          K8sSchedulingArgs{...}
 type K8sSchedulingInput interface {
 	pulumi.Input
 
@@ -2494,11 +2494,11 @@ func (i K8sSchedulingArgs) ToK8sSchedulingPtrOutputWithContext(ctx context.Conte
 // K8sSchedulingPtrInput is an input type that accepts K8sSchedulingArgs, K8sSchedulingPtr and K8sSchedulingPtrOutput values.
 // You can construct a concrete instance of `K8sSchedulingPtrInput` via:
 //
-//	        K8sSchedulingArgs{...}
+//          K8sSchedulingArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type K8sSchedulingPtrInput interface {
 	pulumi.Input
 
@@ -2597,7 +2597,7 @@ type K8sSchedulingOptions struct {
 // K8sSchedulingOptionsInput is an input type that accepts K8sSchedulingOptionsArgs and K8sSchedulingOptionsOutput values.
 // You can construct a concrete instance of `K8sSchedulingOptionsInput` via:
 //
-//	K8sSchedulingOptionsArgs{...}
+//          K8sSchedulingOptionsArgs{...}
 type K8sSchedulingOptionsInput interface {
 	pulumi.Input
 
@@ -2634,11 +2634,11 @@ func (i K8sSchedulingOptionsArgs) ToK8sSchedulingOptionsPtrOutputWithContext(ctx
 // K8sSchedulingOptionsPtrInput is an input type that accepts K8sSchedulingOptionsArgs, K8sSchedulingOptionsPtr and K8sSchedulingOptionsPtrOutput values.
 // You can construct a concrete instance of `K8sSchedulingOptionsPtrInput` via:
 //
-//	        K8sSchedulingOptionsArgs{...}
+//          K8sSchedulingOptionsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type K8sSchedulingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -2857,7 +2857,7 @@ type KeytabInformation struct {
 // KeytabInformationInput is an input type that accepts KeytabInformationArgs and KeytabInformationOutput values.
 // You can construct a concrete instance of `KeytabInformationInput` via:
 //
-//	KeytabInformationArgs{...}
+//          KeytabInformationArgs{...}
 type KeytabInformationInput interface {
 	pulumi.Input
 
@@ -2894,11 +2894,11 @@ func (i KeytabInformationArgs) ToKeytabInformationPtrOutputWithContext(ctx conte
 // KeytabInformationPtrInput is an input type that accepts KeytabInformationArgs, KeytabInformationPtr and KeytabInformationPtrOutput values.
 // You can construct a concrete instance of `KeytabInformationPtrInput` via:
 //
-//	        KeytabInformationArgs{...}
+//          KeytabInformationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeytabInformationPtrInput interface {
 	pulumi.Input
 
@@ -2999,7 +2999,7 @@ type LogAnalyticsWorkspaceConfig struct {
 // LogAnalyticsWorkspaceConfigInput is an input type that accepts LogAnalyticsWorkspaceConfigArgs and LogAnalyticsWorkspaceConfigOutput values.
 // You can construct a concrete instance of `LogAnalyticsWorkspaceConfigInput` via:
 //
-//	LogAnalyticsWorkspaceConfigArgs{...}
+//          LogAnalyticsWorkspaceConfigArgs{...}
 type LogAnalyticsWorkspaceConfigInput interface {
 	pulumi.Input
 
@@ -3038,11 +3038,11 @@ func (i LogAnalyticsWorkspaceConfigArgs) ToLogAnalyticsWorkspaceConfigPtrOutputW
 // LogAnalyticsWorkspaceConfigPtrInput is an input type that accepts LogAnalyticsWorkspaceConfigArgs, LogAnalyticsWorkspaceConfigPtr and LogAnalyticsWorkspaceConfigPtrOutput values.
 // You can construct a concrete instance of `LogAnalyticsWorkspaceConfigPtrInput` via:
 //
-//	        LogAnalyticsWorkspaceConfigArgs{...}
+//          LogAnalyticsWorkspaceConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LogAnalyticsWorkspaceConfigPtrInput interface {
 	pulumi.Input
 
@@ -3220,7 +3220,7 @@ type OnPremiseProperty struct {
 // OnPremisePropertyInput is an input type that accepts OnPremisePropertyArgs and OnPremisePropertyOutput values.
 // You can construct a concrete instance of `OnPremisePropertyInput` via:
 //
-//	OnPremisePropertyArgs{...}
+//          OnPremisePropertyArgs{...}
 type OnPremisePropertyInput interface {
 	pulumi.Input
 
@@ -3261,11 +3261,11 @@ func (i OnPremisePropertyArgs) ToOnPremisePropertyPtrOutputWithContext(ctx conte
 // OnPremisePropertyPtrInput is an input type that accepts OnPremisePropertyArgs, OnPremisePropertyPtr and OnPremisePropertyPtrOutput values.
 // You can construct a concrete instance of `OnPremisePropertyPtrInput` via:
 //
-//	        OnPremisePropertyArgs{...}
+//          OnPremisePropertyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OnPremisePropertyPtrInput interface {
 	pulumi.Input
 
@@ -3496,7 +3496,7 @@ type PostgresInstanceProperties struct {
 // PostgresInstancePropertiesInput is an input type that accepts PostgresInstancePropertiesArgs and PostgresInstancePropertiesOutput values.
 // You can construct a concrete instance of `PostgresInstancePropertiesInput` via:
 //
-//	PostgresInstancePropertiesArgs{...}
+//          PostgresInstancePropertiesArgs{...}
 type PostgresInstancePropertiesInput interface {
 	pulumi.Input
 
@@ -3669,7 +3669,7 @@ func (val *PostgresInstanceSku) Defaults() *PostgresInstanceSku {
 // PostgresInstanceSkuInput is an input type that accepts PostgresInstanceSkuArgs and PostgresInstanceSkuOutput values.
 // You can construct a concrete instance of `PostgresInstanceSkuInput` via:
 //
-//	PostgresInstanceSkuArgs{...}
+//          PostgresInstanceSkuArgs{...}
 type PostgresInstanceSkuInput interface {
 	pulumi.Input
 
@@ -3730,11 +3730,11 @@ func (i PostgresInstanceSkuArgs) ToPostgresInstanceSkuPtrOutputWithContext(ctx c
 // PostgresInstanceSkuPtrInput is an input type that accepts PostgresInstanceSkuArgs, PostgresInstanceSkuPtr and PostgresInstanceSkuPtrOutput values.
 // You can construct a concrete instance of `PostgresInstanceSkuPtrInput` via:
 //
-//	        PostgresInstanceSkuArgs{...}
+//          PostgresInstanceSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PostgresInstanceSkuPtrInput interface {
 	pulumi.Input
 
@@ -4070,7 +4070,7 @@ type SqlManagedInstanceK8sRaw struct {
 // SqlManagedInstanceK8sRawInput is an input type that accepts SqlManagedInstanceK8sRawArgs and SqlManagedInstanceK8sRawOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceK8sRawInput` via:
 //
-//	SqlManagedInstanceK8sRawArgs{...}
+//          SqlManagedInstanceK8sRawArgs{...}
 type SqlManagedInstanceK8sRawInput interface {
 	pulumi.Input
 
@@ -4107,11 +4107,11 @@ func (i SqlManagedInstanceK8sRawArgs) ToSqlManagedInstanceK8sRawPtrOutputWithCon
 // SqlManagedInstanceK8sRawPtrInput is an input type that accepts SqlManagedInstanceK8sRawArgs, SqlManagedInstanceK8sRawPtr and SqlManagedInstanceK8sRawPtrOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceK8sRawPtrInput` via:
 //
-//	        SqlManagedInstanceK8sRawArgs{...}
+//          SqlManagedInstanceK8sRawArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SqlManagedInstanceK8sRawPtrInput interface {
 	pulumi.Input
 
@@ -4272,7 +4272,7 @@ type SqlManagedInstanceK8sSpec struct {
 // SqlManagedInstanceK8sSpecInput is an input type that accepts SqlManagedInstanceK8sSpecArgs and SqlManagedInstanceK8sSpecOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceK8sSpecInput` via:
 //
-//	SqlManagedInstanceK8sSpecArgs{...}
+//          SqlManagedInstanceK8sSpecArgs{...}
 type SqlManagedInstanceK8sSpecInput interface {
 	pulumi.Input
 
@@ -4311,11 +4311,11 @@ func (i SqlManagedInstanceK8sSpecArgs) ToSqlManagedInstanceK8sSpecPtrOutputWithC
 // SqlManagedInstanceK8sSpecPtrInput is an input type that accepts SqlManagedInstanceK8sSpecArgs, SqlManagedInstanceK8sSpecPtr and SqlManagedInstanceK8sSpecPtrOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceK8sSpecPtrInput` via:
 //
-//	        SqlManagedInstanceK8sSpecArgs{...}
+//          SqlManagedInstanceK8sSpecArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SqlManagedInstanceK8sSpecPtrInput interface {
 	pulumi.Input
 
@@ -4539,7 +4539,7 @@ func (val *SqlManagedInstanceProperties) Defaults() *SqlManagedInstancePropertie
 // SqlManagedInstancePropertiesInput is an input type that accepts SqlManagedInstancePropertiesArgs and SqlManagedInstancePropertiesOutput values.
 // You can construct a concrete instance of `SqlManagedInstancePropertiesInput` via:
 //
-//	SqlManagedInstancePropertiesArgs{...}
+//          SqlManagedInstancePropertiesArgs{...}
 type SqlManagedInstancePropertiesInput interface {
 	pulumi.Input
 
@@ -4813,7 +4813,7 @@ func (val *SqlManagedInstanceSku) Defaults() *SqlManagedInstanceSku {
 // SqlManagedInstanceSkuInput is an input type that accepts SqlManagedInstanceSkuArgs and SqlManagedInstanceSkuOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceSkuInput` via:
 //
-//	SqlManagedInstanceSkuArgs{...}
+//          SqlManagedInstanceSkuArgs{...}
 type SqlManagedInstanceSkuInput interface {
 	pulumi.Input
 
@@ -4874,11 +4874,11 @@ func (i SqlManagedInstanceSkuArgs) ToSqlManagedInstanceSkuPtrOutputWithContext(c
 // SqlManagedInstanceSkuPtrInput is an input type that accepts SqlManagedInstanceSkuArgs, SqlManagedInstanceSkuPtr and SqlManagedInstanceSkuPtrOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceSkuPtrInput` via:
 //
-//	        SqlManagedInstanceSkuArgs{...}
+//          SqlManagedInstanceSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SqlManagedInstanceSkuPtrInput interface {
 	pulumi.Input
 
@@ -5244,7 +5244,7 @@ type SqlServerInstanceProperties struct {
 // SqlServerInstancePropertiesInput is an input type that accepts SqlServerInstancePropertiesArgs and SqlServerInstancePropertiesOutput values.
 // You can construct a concrete instance of `SqlServerInstancePropertiesInput` via:
 //
-//	SqlServerInstancePropertiesArgs{...}
+//          SqlServerInstancePropertiesArgs{...}
 type SqlServerInstancePropertiesInput interface {
 	pulumi.Input
 
@@ -5311,11 +5311,11 @@ func (i SqlServerInstancePropertiesArgs) ToSqlServerInstancePropertiesPtrOutputW
 // SqlServerInstancePropertiesPtrInput is an input type that accepts SqlServerInstancePropertiesArgs, SqlServerInstancePropertiesPtr and SqlServerInstancePropertiesPtrOutput values.
 // You can construct a concrete instance of `SqlServerInstancePropertiesPtrInput` via:
 //
-//	        SqlServerInstancePropertiesArgs{...}
+//          SqlServerInstancePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SqlServerInstancePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -5851,7 +5851,7 @@ type UploadServicePrincipal struct {
 // UploadServicePrincipalInput is an input type that accepts UploadServicePrincipalArgs and UploadServicePrincipalOutput values.
 // You can construct a concrete instance of `UploadServicePrincipalInput` via:
 //
-//	UploadServicePrincipalArgs{...}
+//          UploadServicePrincipalArgs{...}
 type UploadServicePrincipalInput interface {
 	pulumi.Input
 
@@ -5894,11 +5894,11 @@ func (i UploadServicePrincipalArgs) ToUploadServicePrincipalPtrOutputWithContext
 // UploadServicePrincipalPtrInput is an input type that accepts UploadServicePrincipalArgs, UploadServicePrincipalPtr and UploadServicePrincipalPtrOutput values.
 // You can construct a concrete instance of `UploadServicePrincipalPtrInput` via:
 //
-//	        UploadServicePrincipalArgs{...}
+//          UploadServicePrincipalArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type UploadServicePrincipalPtrInput interface {
 	pulumi.Input
 
@@ -6140,7 +6140,7 @@ type UploadWatermark struct {
 // UploadWatermarkInput is an input type that accepts UploadWatermarkArgs and UploadWatermarkOutput values.
 // You can construct a concrete instance of `UploadWatermarkInput` via:
 //
-//	UploadWatermarkArgs{...}
+//          UploadWatermarkArgs{...}
 type UploadWatermarkInput interface {
 	pulumi.Input
 
@@ -6181,11 +6181,11 @@ func (i UploadWatermarkArgs) ToUploadWatermarkPtrOutputWithContext(ctx context.C
 // UploadWatermarkPtrInput is an input type that accepts UploadWatermarkArgs, UploadWatermarkPtr and UploadWatermarkPtrOutput values.
 // You can construct a concrete instance of `UploadWatermarkPtrInput` via:
 //
-//	        UploadWatermarkArgs{...}
+//          UploadWatermarkArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type UploadWatermarkPtrInput interface {
 	pulumi.Input
 

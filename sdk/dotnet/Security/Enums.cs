@@ -101,6 +101,43 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// The application Condition's Operator, for example Contains for id or In for list of possible IDs, see examples
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationConditionOperator : IEquatable<ApplicationConditionOperator>
+    {
+        private readonly string _value;
+
+        private ApplicationConditionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Checks that the string value of the data defined in Property contains the given value
+        /// </summary>
+        public static ApplicationConditionOperator Contains { get; } = new ApplicationConditionOperator("Contains");
+        /// <summary>
+        /// Checks that the string value of the data defined in Property equals any of the given values (exact fit)
+        /// </summary>
+        public static ApplicationConditionOperator In { get; } = new ApplicationConditionOperator("In");
+
+        public static bool operator ==(ApplicationConditionOperator left, ApplicationConditionOperator right) => left.Equals(right);
+        public static bool operator !=(ApplicationConditionOperator left, ApplicationConditionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationConditionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationConditionOperator other && Equals(other);
+        public bool Equals(ApplicationConditionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The application source, what it affects, e.g. Assessments
     /// </summary>
     [EnumType]

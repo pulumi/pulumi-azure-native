@@ -166,7 +166,7 @@ func (o KindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 // KindInput is an input type that accepts KindArgs and KindOutput values.
 // You can construct a concrete instance of `KindInput` via:
 //
-//	KindArgs{...}
+//          KindArgs{...}
 type KindInput interface {
 	pulumi.Input
 

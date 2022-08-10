@@ -33,7 +33,7 @@ type ActiveDirectory struct {
 // ActiveDirectoryInput is an input type that accepts ActiveDirectoryArgs and ActiveDirectoryOutput values.
 // You can construct a concrete instance of `ActiveDirectoryInput` via:
 //
-//	ActiveDirectoryArgs{...}
+//          ActiveDirectoryArgs{...}
 type ActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -76,7 +76,7 @@ func (i ActiveDirectoryArgs) ToActiveDirectoryOutputWithContext(ctx context.Cont
 // ActiveDirectoryArrayInput is an input type that accepts ActiveDirectoryArray and ActiveDirectoryArrayOutput values.
 // You can construct a concrete instance of `ActiveDirectoryArrayInput` via:
 //
-//	ActiveDirectoryArray{ ActiveDirectoryArgs{...} }
+//          ActiveDirectoryArray{ ActiveDirectoryArgs{...} }
 type ActiveDirectoryArrayInput interface {
 	pulumi.Input
 
@@ -289,7 +289,7 @@ type ExportPolicyRule struct {
 // ExportPolicyRuleInput is an input type that accepts ExportPolicyRuleArgs and ExportPolicyRuleOutput values.
 // You can construct a concrete instance of `ExportPolicyRuleInput` via:
 //
-//	ExportPolicyRuleArgs{...}
+//          ExportPolicyRuleArgs{...}
 type ExportPolicyRuleInput interface {
 	pulumi.Input
 
@@ -330,7 +330,7 @@ func (i ExportPolicyRuleArgs) ToExportPolicyRuleOutputWithContext(ctx context.Co
 // ExportPolicyRuleArrayInput is an input type that accepts ExportPolicyRuleArray and ExportPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `ExportPolicyRuleArrayInput` via:
 //
-//	ExportPolicyRuleArray{ ExportPolicyRuleArgs{...} }
+//          ExportPolicyRuleArray{ ExportPolicyRuleArgs{...} }
 type ExportPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -531,7 +531,7 @@ type MountTargetProperties struct {
 // MountTargetPropertiesInput is an input type that accepts MountTargetPropertiesArgs and MountTargetPropertiesOutput values.
 // You can construct a concrete instance of `MountTargetPropertiesInput` via:
 //
-//	MountTargetPropertiesArgs{...}
+//          MountTargetPropertiesArgs{...}
 type MountTargetPropertiesInput interface {
 	pulumi.Input
 
@@ -572,7 +572,7 @@ func (i MountTargetPropertiesArgs) ToMountTargetPropertiesOutputWithContext(ctx 
 // MountTargetPropertiesArrayInput is an input type that accepts MountTargetPropertiesArray and MountTargetPropertiesArrayOutput values.
 // You can construct a concrete instance of `MountTargetPropertiesArrayInput` via:
 //
-//	MountTargetPropertiesArray{ MountTargetPropertiesArgs{...} }
+//          MountTargetPropertiesArray{ MountTargetPropertiesArgs{...} }
 type MountTargetPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -788,7 +788,7 @@ type ReplicationObject struct {
 // ReplicationObjectInput is an input type that accepts ReplicationObjectArgs and ReplicationObjectOutput values.
 // You can construct a concrete instance of `ReplicationObjectInput` via:
 //
-//	ReplicationObjectArgs{...}
+//          ReplicationObjectArgs{...}
 type ReplicationObjectInput interface {
 	pulumi.Input
 
@@ -831,11 +831,11 @@ func (i ReplicationObjectArgs) ToReplicationObjectPtrOutputWithContext(ctx conte
 // ReplicationObjectPtrInput is an input type that accepts ReplicationObjectArgs, ReplicationObjectPtr and ReplicationObjectPtrOutput values.
 // You can construct a concrete instance of `ReplicationObjectPtrInput` via:
 //
-//	        ReplicationObjectArgs{...}
+//          ReplicationObjectArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ReplicationObjectPtrInput interface {
 	pulumi.Input
 
@@ -1090,7 +1090,7 @@ type VolumePropertiesDataProtection struct {
 // VolumePropertiesDataProtectionInput is an input type that accepts VolumePropertiesDataProtectionArgs and VolumePropertiesDataProtectionOutput values.
 // You can construct a concrete instance of `VolumePropertiesDataProtectionInput` via:
 //
-//	VolumePropertiesDataProtectionArgs{...}
+//          VolumePropertiesDataProtectionArgs{...}
 type VolumePropertiesDataProtectionInput interface {
 	pulumi.Input
 
@@ -1127,11 +1127,11 @@ func (i VolumePropertiesDataProtectionArgs) ToVolumePropertiesDataProtectionPtrO
 // VolumePropertiesDataProtectionPtrInput is an input type that accepts VolumePropertiesDataProtectionArgs, VolumePropertiesDataProtectionPtr and VolumePropertiesDataProtectionPtrOutput values.
 // You can construct a concrete instance of `VolumePropertiesDataProtectionPtrInput` via:
 //
-//	        VolumePropertiesDataProtectionArgs{...}
+//          VolumePropertiesDataProtectionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type VolumePropertiesDataProtectionPtrInput interface {
 	pulumi.Input
 
@@ -1230,7 +1230,7 @@ type VolumePropertiesExportPolicy struct {
 // VolumePropertiesExportPolicyInput is an input type that accepts VolumePropertiesExportPolicyArgs and VolumePropertiesExportPolicyOutput values.
 // You can construct a concrete instance of `VolumePropertiesExportPolicyInput` via:
 //
-//	VolumePropertiesExportPolicyArgs{...}
+//          VolumePropertiesExportPolicyArgs{...}
 type VolumePropertiesExportPolicyInput interface {
 	pulumi.Input
 
@@ -1267,11 +1267,11 @@ func (i VolumePropertiesExportPolicyArgs) ToVolumePropertiesExportPolicyPtrOutpu
 // VolumePropertiesExportPolicyPtrInput is an input type that accepts VolumePropertiesExportPolicyArgs, VolumePropertiesExportPolicyPtr and VolumePropertiesExportPolicyPtrOutput values.
 // You can construct a concrete instance of `VolumePropertiesExportPolicyPtrInput` via:
 //
-//	        VolumePropertiesExportPolicyArgs{...}
+//          VolumePropertiesExportPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type VolumePropertiesExportPolicyPtrInput interface {
 	pulumi.Input
 

@@ -420,7 +420,7 @@ func (o ApiOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.SubscriptionRequired }).(pulumi.BoolPtrOutput)
 }
 
-// A URL to the Terms of Service for the API. MUST be in the format of a URL.
+//  A URL to the Terms of Service for the API. MUST be in the format of a URL.
 func (o ApiOutput) TermsOfServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.TermsOfServiceUrl }).(pulumi.StringPtrOutput)
 }

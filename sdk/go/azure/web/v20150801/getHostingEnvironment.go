@@ -278,8 +278,7 @@ func (o LookupHostingEnvironmentResultOutput) SubscriptionId() pulumi.StringPtrO
 }
 
 // True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-//
-//	(most likely because NSG blocked the incoming traffic)
+//             (most likely because NSG blocked the incoming traffic)
 func (o LookupHostingEnvironmentResultOutput) Suspended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupHostingEnvironmentResult) *bool { return v.Suspended }).(pulumi.BoolPtrOutput)
 }

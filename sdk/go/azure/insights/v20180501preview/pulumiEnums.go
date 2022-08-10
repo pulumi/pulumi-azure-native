@@ -181,7 +181,7 @@ func (o WebTestKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // WebTestKindInput is an input type that accepts WebTestKindArgs and WebTestKindOutput values.
 // You can construct a concrete instance of `WebTestKindInput` via:
 //
-//	WebTestKindArgs{...}
+//          WebTestKindArgs{...}
 type WebTestKindInput interface {
 	pulumi.Input
 
@@ -348,7 +348,7 @@ func (o WebTestKindEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // WebTestKindEnumInput is an input type that accepts WebTestKindEnumArgs and WebTestKindEnumOutput values.
 // You can construct a concrete instance of `WebTestKindEnumInput` via:
 //
-//	WebTestKindEnumArgs{...}
+//          WebTestKindEnumArgs{...}
 type WebTestKindEnumInput interface {
 	pulumi.Input
 

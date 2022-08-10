@@ -86,7 +86,7 @@ type IotDpsPropertiesDescription struct {
 // IotDpsPropertiesDescriptionInput is an input type that accepts IotDpsPropertiesDescriptionArgs and IotDpsPropertiesDescriptionOutput values.
 // You can construct a concrete instance of `IotDpsPropertiesDescriptionInput` via:
 //
-//	IotDpsPropertiesDescriptionArgs{...}
+//          IotDpsPropertiesDescriptionArgs{...}
 type IotDpsPropertiesDescriptionInput interface {
 	pulumi.Input
 
@@ -241,7 +241,7 @@ type IotDpsSkuInfo struct {
 // IotDpsSkuInfoInput is an input type that accepts IotDpsSkuInfoArgs and IotDpsSkuInfoOutput values.
 // You can construct a concrete instance of `IotDpsSkuInfoInput` via:
 //
-//	IotDpsSkuInfoArgs{...}
+//          IotDpsSkuInfoArgs{...}
 type IotDpsSkuInfoInput interface {
 	pulumi.Input
 
@@ -343,7 +343,7 @@ type IotHubDefinitionDescription struct {
 // IotHubDefinitionDescriptionInput is an input type that accepts IotHubDefinitionDescriptionArgs and IotHubDefinitionDescriptionOutput values.
 // You can construct a concrete instance of `IotHubDefinitionDescriptionInput` via:
 //
-//	IotHubDefinitionDescriptionArgs{...}
+//          IotHubDefinitionDescriptionArgs{...}
 type IotHubDefinitionDescriptionInput interface {
 	pulumi.Input
 
@@ -376,7 +376,7 @@ func (i IotHubDefinitionDescriptionArgs) ToIotHubDefinitionDescriptionOutputWith
 // IotHubDefinitionDescriptionArrayInput is an input type that accepts IotHubDefinitionDescriptionArray and IotHubDefinitionDescriptionArrayOutput values.
 // You can construct a concrete instance of `IotHubDefinitionDescriptionArrayInput` via:
 //
-//	IotHubDefinitionDescriptionArray{ IotHubDefinitionDescriptionArgs{...} }
+//          IotHubDefinitionDescriptionArray{ IotHubDefinitionDescriptionArgs{...} }
 type IotHubDefinitionDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -536,7 +536,7 @@ type SharedAccessSignatureAuthorizationRuleAccessRightsDescription struct {
 // SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInput is an input type that accepts SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs and SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput values.
 // You can construct a concrete instance of `SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInput` via:
 //
-//	SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs{...}
+//          SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs{...}
 type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInput interface {
 	pulumi.Input
 
@@ -571,7 +571,7 @@ func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs) ToSha
 // SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayInput is an input type that accepts SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArray and SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput values.
 // You can construct a concrete instance of `SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayInput` via:
 //
-//	SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArray{ SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs{...} }
+//          SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArray{ SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs{...} }
 type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayInput interface {
 	pulumi.Input
 

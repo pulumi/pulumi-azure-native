@@ -140,7 +140,7 @@ func (o CmkIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // CmkIdentityTypeInput is an input type that accepts CmkIdentityTypeArgs and CmkIdentityTypeOutput values.
 // You can construct a concrete instance of `CmkIdentityTypeInput` via:
 //
-//	CmkIdentityTypeArgs{...}
+//          CmkIdentityTypeArgs{...}
 type CmkIdentityTypeInput interface {
 	pulumi.Input
 
@@ -316,7 +316,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//	ResourceIdentityTypeArgs{...}
+//          ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 

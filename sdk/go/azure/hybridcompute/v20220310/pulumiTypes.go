@@ -327,7 +327,7 @@ type HybridComputePrivateLinkScopeProperties struct {
 // HybridComputePrivateLinkScopePropertiesInput is an input type that accepts HybridComputePrivateLinkScopePropertiesArgs and HybridComputePrivateLinkScopePropertiesOutput values.
 // You can construct a concrete instance of `HybridComputePrivateLinkScopePropertiesInput` via:
 //
-//	HybridComputePrivateLinkScopePropertiesArgs{...}
+//          HybridComputePrivateLinkScopePropertiesArgs{...}
 type HybridComputePrivateLinkScopePropertiesInput interface {
 	pulumi.Input
 
@@ -364,11 +364,11 @@ func (i HybridComputePrivateLinkScopePropertiesArgs) ToHybridComputePrivateLinkS
 // HybridComputePrivateLinkScopePropertiesPtrInput is an input type that accepts HybridComputePrivateLinkScopePropertiesArgs, HybridComputePrivateLinkScopePropertiesPtr and HybridComputePrivateLinkScopePropertiesPtrOutput values.
 // You can construct a concrete instance of `HybridComputePrivateLinkScopePropertiesPtrInput` via:
 //
-//	        HybridComputePrivateLinkScopePropertiesArgs{...}
+//          HybridComputePrivateLinkScopePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type HybridComputePrivateLinkScopePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -516,7 +516,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//	IdentityArgs{...}
+//          IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -553,11 +553,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//	        IdentityArgs{...}
+//          IdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -756,7 +756,7 @@ type LocationData struct {
 // LocationDataInput is an input type that accepts LocationDataArgs and LocationDataOutput values.
 // You can construct a concrete instance of `LocationDataInput` via:
 //
-//	LocationDataArgs{...}
+//          LocationDataArgs{...}
 type LocationDataInput interface {
 	pulumi.Input
 
@@ -799,11 +799,11 @@ func (i LocationDataArgs) ToLocationDataPtrOutputWithContext(ctx context.Context
 // LocationDataPtrInput is an input type that accepts LocationDataArgs, LocationDataPtr and LocationDataPtrOutput values.
 // You can construct a concrete instance of `LocationDataPtrInput` via:
 //
-//	        LocationDataArgs{...}
+//          LocationDataArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LocationDataPtrInput interface {
 	pulumi.Input
 
@@ -1064,7 +1064,7 @@ type MachineExtensionInstanceView struct {
 // MachineExtensionInstanceViewInput is an input type that accepts MachineExtensionInstanceViewArgs and MachineExtensionInstanceViewOutput values.
 // You can construct a concrete instance of `MachineExtensionInstanceViewInput` via:
 //
-//	MachineExtensionInstanceViewArgs{...}
+//          MachineExtensionInstanceViewArgs{...}
 type MachineExtensionInstanceViewInput interface {
 	pulumi.Input
 
@@ -1107,11 +1107,11 @@ func (i MachineExtensionInstanceViewArgs) ToMachineExtensionInstanceViewPtrOutpu
 // MachineExtensionInstanceViewPtrInput is an input type that accepts MachineExtensionInstanceViewArgs, MachineExtensionInstanceViewPtr and MachineExtensionInstanceViewPtrOutput values.
 // You can construct a concrete instance of `MachineExtensionInstanceViewPtrInput` via:
 //
-//	        MachineExtensionInstanceViewArgs{...}
+//          MachineExtensionInstanceViewArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MachineExtensionInstanceViewPtrInput interface {
 	pulumi.Input
 
@@ -1140,7 +1140,7 @@ func (i *machineExtensionInstanceViewPtrType) ToMachineExtensionInstanceViewPtrO
 // MachineExtensionInstanceViewArrayInput is an input type that accepts MachineExtensionInstanceViewArray and MachineExtensionInstanceViewArrayOutput values.
 // You can construct a concrete instance of `MachineExtensionInstanceViewArrayInput` via:
 //
-//	MachineExtensionInstanceViewArray{ MachineExtensionInstanceViewArgs{...} }
+//          MachineExtensionInstanceViewArray{ MachineExtensionInstanceViewArgs{...} }
 type MachineExtensionInstanceViewArrayInput interface {
 	pulumi.Input
 
@@ -1569,7 +1569,7 @@ type MachineExtensionInstanceViewStatus struct {
 // MachineExtensionInstanceViewStatusInput is an input type that accepts MachineExtensionInstanceViewStatusArgs and MachineExtensionInstanceViewStatusOutput values.
 // You can construct a concrete instance of `MachineExtensionInstanceViewStatusInput` via:
 //
-//	MachineExtensionInstanceViewStatusArgs{...}
+//          MachineExtensionInstanceViewStatusArgs{...}
 type MachineExtensionInstanceViewStatusInput interface {
 	pulumi.Input
 
@@ -1614,11 +1614,11 @@ func (i MachineExtensionInstanceViewStatusArgs) ToMachineExtensionInstanceViewSt
 // MachineExtensionInstanceViewStatusPtrInput is an input type that accepts MachineExtensionInstanceViewStatusArgs, MachineExtensionInstanceViewStatusPtr and MachineExtensionInstanceViewStatusPtrOutput values.
 // You can construct a concrete instance of `MachineExtensionInstanceViewStatusPtrInput` via:
 //
-//	        MachineExtensionInstanceViewStatusArgs{...}
+//          MachineExtensionInstanceViewStatusArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MachineExtensionInstanceViewStatusPtrInput interface {
 	pulumi.Input
 
@@ -1793,7 +1793,7 @@ type MachineExtensionProperties struct {
 // MachineExtensionPropertiesInput is an input type that accepts MachineExtensionPropertiesArgs and MachineExtensionPropertiesOutput values.
 // You can construct a concrete instance of `MachineExtensionPropertiesInput` via:
 //
-//	MachineExtensionPropertiesArgs{...}
+//          MachineExtensionPropertiesArgs{...}
 type MachineExtensionPropertiesInput interface {
 	pulumi.Input
 
@@ -1846,11 +1846,11 @@ func (i MachineExtensionPropertiesArgs) ToMachineExtensionPropertiesPtrOutputWit
 // MachineExtensionPropertiesPtrInput is an input type that accepts MachineExtensionPropertiesArgs, MachineExtensionPropertiesPtr and MachineExtensionPropertiesPtrOutput values.
 // You can construct a concrete instance of `MachineExtensionPropertiesPtrInput` via:
 //
-//	        MachineExtensionPropertiesArgs{...}
+//          MachineExtensionPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MachineExtensionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2178,7 +2178,7 @@ type MachineProperties struct {
 // MachinePropertiesInput is an input type that accepts MachinePropertiesArgs and MachinePropertiesOutput values.
 // You can construct a concrete instance of `MachinePropertiesInput` via:
 //
-//	MachinePropertiesArgs{...}
+//          MachinePropertiesArgs{...}
 type MachinePropertiesInput interface {
 	pulumi.Input
 
@@ -2233,11 +2233,11 @@ func (i MachinePropertiesArgs) ToMachinePropertiesPtrOutputWithContext(ctx conte
 // MachinePropertiesPtrInput is an input type that accepts MachinePropertiesArgs, MachinePropertiesPtr and MachinePropertiesPtrOutput values.
 // You can construct a concrete instance of `MachinePropertiesPtrInput` via:
 //
-//	        MachinePropertiesArgs{...}
+//          MachinePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MachinePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2681,7 +2681,7 @@ type OSProfile struct {
 // OSProfileInput is an input type that accepts OSProfileArgs and OSProfileOutput values.
 // You can construct a concrete instance of `OSProfileInput` via:
 //
-//	OSProfileArgs{...}
+//          OSProfileArgs{...}
 type OSProfileInput interface {
 	pulumi.Input
 
@@ -2720,11 +2720,11 @@ func (i OSProfileArgs) ToOSProfilePtrOutputWithContext(ctx context.Context) OSPr
 // OSProfilePtrInput is an input type that accepts OSProfileArgs, OSProfilePtr and OSProfilePtrOutput values.
 // You can construct a concrete instance of `OSProfilePtrInput` via:
 //
-//	        OSProfileArgs{...}
+//          OSProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OSProfilePtrInput interface {
 	pulumi.Input
 
@@ -2840,7 +2840,7 @@ type OSProfileLinuxConfiguration struct {
 // OSProfileLinuxConfigurationInput is an input type that accepts OSProfileLinuxConfigurationArgs and OSProfileLinuxConfigurationOutput values.
 // You can construct a concrete instance of `OSProfileLinuxConfigurationInput` via:
 //
-//	OSProfileLinuxConfigurationArgs{...}
+//          OSProfileLinuxConfigurationArgs{...}
 type OSProfileLinuxConfigurationInput interface {
 	pulumi.Input
 
@@ -2879,11 +2879,11 @@ func (i OSProfileLinuxConfigurationArgs) ToOSProfileLinuxConfigurationPtrOutputW
 // OSProfileLinuxConfigurationPtrInput is an input type that accepts OSProfileLinuxConfigurationArgs, OSProfileLinuxConfigurationPtr and OSProfileLinuxConfigurationPtrOutput values.
 // You can construct a concrete instance of `OSProfileLinuxConfigurationPtrInput` via:
 //
-//	        OSProfileLinuxConfigurationArgs{...}
+//          OSProfileLinuxConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OSProfileLinuxConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3247,7 +3247,7 @@ type OSProfileWindowsConfiguration struct {
 // OSProfileWindowsConfigurationInput is an input type that accepts OSProfileWindowsConfigurationArgs and OSProfileWindowsConfigurationOutput values.
 // You can construct a concrete instance of `OSProfileWindowsConfigurationInput` via:
 //
-//	OSProfileWindowsConfigurationArgs{...}
+//          OSProfileWindowsConfigurationArgs{...}
 type OSProfileWindowsConfigurationInput interface {
 	pulumi.Input
 
@@ -3286,11 +3286,11 @@ func (i OSProfileWindowsConfigurationArgs) ToOSProfileWindowsConfigurationPtrOut
 // OSProfileWindowsConfigurationPtrInput is an input type that accepts OSProfileWindowsConfigurationArgs, OSProfileWindowsConfigurationPtr and OSProfileWindowsConfigurationPtrOutput values.
 // You can construct a concrete instance of `OSProfileWindowsConfigurationPtrInput` via:
 //
-//	        OSProfileWindowsConfigurationArgs{...}
+//          OSProfileWindowsConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OSProfileWindowsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3475,7 +3475,7 @@ type PrivateEndpointConnectionProperties struct {
 // PrivateEndpointConnectionPropertiesInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs and PrivateEndpointConnectionPropertiesOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInput` via:
 //
-//	PrivateEndpointConnectionPropertiesArgs{...}
+//          PrivateEndpointConnectionPropertiesArgs{...}
 type PrivateEndpointConnectionPropertiesInput interface {
 	pulumi.Input
 
@@ -3514,11 +3514,11 @@ func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionProp
 // PrivateEndpointConnectionPropertiesPtrInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs, PrivateEndpointConnectionPropertiesPtr and PrivateEndpointConnectionPropertiesPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPtrInput` via:
 //
-//	        PrivateEndpointConnectionPropertiesArgs{...}
+//          PrivateEndpointConnectionPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointConnectionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3749,7 +3749,7 @@ type PrivateEndpointProperty struct {
 // PrivateEndpointPropertyInput is an input type that accepts PrivateEndpointPropertyArgs and PrivateEndpointPropertyOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertyInput` via:
 //
-//	PrivateEndpointPropertyArgs{...}
+//          PrivateEndpointPropertyArgs{...}
 type PrivateEndpointPropertyInput interface {
 	pulumi.Input
 
@@ -3786,11 +3786,11 @@ func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyPtrOutputWithConte
 // PrivateEndpointPropertyPtrInput is an input type that accepts PrivateEndpointPropertyArgs, PrivateEndpointPropertyPtr and PrivateEndpointPropertyPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertyPtrInput` via:
 //
-//	        PrivateEndpointPropertyArgs{...}
+//          PrivateEndpointPropertyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointPropertyPtrInput interface {
 	pulumi.Input
 
@@ -3951,7 +3951,7 @@ type PrivateLinkServiceConnectionStateProperty struct {
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyInput` via:
 //
-//	PrivateLinkServiceConnectionStatePropertyArgs{...}
+//          PrivateLinkServiceConnectionStatePropertyArgs{...}
 type PrivateLinkServiceConnectionStatePropertyInput interface {
 	pulumi.Input
 
@@ -3990,11 +3990,11 @@ func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConne
 // PrivateLinkServiceConnectionStatePropertyPtrInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs, PrivateLinkServiceConnectionStatePropertyPtr and PrivateLinkServiceConnectionStatePropertyPtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyPtrInput` via:
 //
-//	        PrivateLinkServiceConnectionStatePropertyArgs{...}
+//          PrivateLinkServiceConnectionStatePropertyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkServiceConnectionStatePropertyPtrInput interface {
 	pulumi.Input
 
@@ -4204,7 +4204,7 @@ type ServiceStatus struct {
 // ServiceStatusInput is an input type that accepts ServiceStatusArgs and ServiceStatusOutput values.
 // You can construct a concrete instance of `ServiceStatusInput` via:
 //
-//	ServiceStatusArgs{...}
+//          ServiceStatusArgs{...}
 type ServiceStatusInput interface {
 	pulumi.Input
 
@@ -4243,11 +4243,11 @@ func (i ServiceStatusArgs) ToServiceStatusPtrOutputWithContext(ctx context.Conte
 // ServiceStatusPtrInput is an input type that accepts ServiceStatusArgs, ServiceStatusPtr and ServiceStatusPtrOutput values.
 // You can construct a concrete instance of `ServiceStatusPtrInput` via:
 //
-//	        ServiceStatusArgs{...}
+//          ServiceStatusArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServiceStatusPtrInput interface {
 	pulumi.Input
 
@@ -4440,7 +4440,7 @@ type ServiceStatuses struct {
 // ServiceStatusesInput is an input type that accepts ServiceStatusesArgs and ServiceStatusesOutput values.
 // You can construct a concrete instance of `ServiceStatusesInput` via:
 //
-//	ServiceStatusesArgs{...}
+//          ServiceStatusesArgs{...}
 type ServiceStatusesInput interface {
 	pulumi.Input
 
@@ -4479,11 +4479,11 @@ func (i ServiceStatusesArgs) ToServiceStatusesPtrOutputWithContext(ctx context.C
 // ServiceStatusesPtrInput is an input type that accepts ServiceStatusesArgs, ServiceStatusesPtr and ServiceStatusesPtrOutput values.
 // You can construct a concrete instance of `ServiceStatusesPtrInput` via:
 //
-//	        ServiceStatusesArgs{...}
+//          ServiceStatusesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServiceStatusesPtrInput interface {
 	pulumi.Input
 

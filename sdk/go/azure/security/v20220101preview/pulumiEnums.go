@@ -3,6 +3,16 @@
 
 package v20220101preview
 
+// The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
+type GovernanceRuleConditionOperator string
+
+const (
+	// Checks that the string value of the data defined in Property equals the given value - exact fit
+	GovernanceRuleConditionOperatorEquals = GovernanceRuleConditionOperator("Equals")
+	// Checks that the string value of the data defined in Property equals any of the given values (exact fit)
+	GovernanceRuleConditionOperatorIn = GovernanceRuleConditionOperator("In")
+)
+
 // The owner type for the governance rule owner source
 type GovernanceRuleOwnerSourceType string
 

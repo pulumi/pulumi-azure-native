@@ -23,7 +23,7 @@ type ADLSGen2StorageAccountPath struct {
 // ADLSGen2StorageAccountPathInput is an input type that accepts ADLSGen2StorageAccountPathArgs and ADLSGen2StorageAccountPathOutput values.
 // You can construct a concrete instance of `ADLSGen2StorageAccountPathInput` via:
 //
-//	ADLSGen2StorageAccountPathArgs{...}
+//          ADLSGen2StorageAccountPathArgs{...}
 type ADLSGen2StorageAccountPathInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i ADLSGen2StorageAccountPathArgs) ToADLSGen2StorageAccountPathOutputWithCo
 // ADLSGen2StorageAccountPathArrayInput is an input type that accepts ADLSGen2StorageAccountPathArray and ADLSGen2StorageAccountPathArrayOutput values.
 // You can construct a concrete instance of `ADLSGen2StorageAccountPathArrayInput` via:
 //
-//	ADLSGen2StorageAccountPathArray{ ADLSGen2StorageAccountPathArgs{...} }
+//          ADLSGen2StorageAccountPathArray{ ADLSGen2StorageAccountPathArgs{...} }
 type ADLSGen2StorageAccountPathArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +201,7 @@ type BlobStorageAccountPath struct {
 // BlobStorageAccountPathInput is an input type that accepts BlobStorageAccountPathArgs and BlobStorageAccountPathOutput values.
 // You can construct a concrete instance of `BlobStorageAccountPathInput` via:
 //
-//	BlobStorageAccountPathArgs{...}
+//          BlobStorageAccountPathArgs{...}
 type BlobStorageAccountPathInput interface {
 	pulumi.Input
 
@@ -234,7 +234,7 @@ func (i BlobStorageAccountPathArgs) ToBlobStorageAccountPathOutputWithContext(ct
 // BlobStorageAccountPathArrayInput is an input type that accepts BlobStorageAccountPathArray and BlobStorageAccountPathArrayOutput values.
 // You can construct a concrete instance of `BlobStorageAccountPathArrayInput` via:
 //
-//	BlobStorageAccountPathArray{ BlobStorageAccountPathArgs{...} }
+//          BlobStorageAccountPathArray{ BlobStorageAccountPathArgs{...} }
 type BlobStorageAccountPathArrayInput interface {
 	pulumi.Input
 
@@ -375,7 +375,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//	IdentityArgs{...}
+//          IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 

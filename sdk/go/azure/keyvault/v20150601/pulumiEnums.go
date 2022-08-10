@@ -203,7 +203,7 @@ func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
 // You can construct a concrete instance of `SkuNameInput` via:
 //
-//	SkuNameArgs{...}
+//          SkuNameArgs{...}
 type SkuNameInput interface {
 	pulumi.Input
 

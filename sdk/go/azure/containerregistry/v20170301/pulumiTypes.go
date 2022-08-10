@@ -72,7 +72,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -162,7 +162,7 @@ type StorageAccountParameters struct {
 // StorageAccountParametersInput is an input type that accepts StorageAccountParametersArgs and StorageAccountParametersOutput values.
 // You can construct a concrete instance of `StorageAccountParametersInput` via:
 //
-//	StorageAccountParametersArgs{...}
+//          StorageAccountParametersArgs{...}
 type StorageAccountParametersInput interface {
 	pulumi.Input
 

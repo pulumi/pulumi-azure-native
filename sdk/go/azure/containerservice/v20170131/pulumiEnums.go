@@ -142,7 +142,7 @@ func (o ContainerServiceOrchestratorTypesPtrOutput) ToStringPtrOutputWithContext
 // ContainerServiceOrchestratorTypesInput is an input type that accepts ContainerServiceOrchestratorTypesArgs and ContainerServiceOrchestratorTypesOutput values.
 // You can construct a concrete instance of `ContainerServiceOrchestratorTypesInput` via:
 //
-//	ContainerServiceOrchestratorTypesArgs{...}
+//          ContainerServiceOrchestratorTypesArgs{...}
 type ContainerServiceOrchestratorTypesInput interface {
 	pulumi.Input
 

@@ -536,7 +536,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//	IdentityArgs{...}
+//          IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -573,11 +573,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//	        IdentityArgs{...}
+//          IdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -931,7 +931,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -970,11 +970,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 

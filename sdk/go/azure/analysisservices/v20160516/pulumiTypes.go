@@ -36,7 +36,7 @@ func (val *ResourceSku) Defaults() *ResourceSku {
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
 // You can construct a concrete instance of `ResourceSkuInput` via:
 //
-//	ResourceSkuArgs{...}
+//          ResourceSkuArgs{...}
 type ResourceSkuInput interface {
 	pulumi.Input
 
@@ -169,7 +169,7 @@ type ServerAdministrators struct {
 // ServerAdministratorsInput is an input type that accepts ServerAdministratorsArgs and ServerAdministratorsOutput values.
 // You can construct a concrete instance of `ServerAdministratorsInput` via:
 //
-//	ServerAdministratorsArgs{...}
+//          ServerAdministratorsArgs{...}
 type ServerAdministratorsInput interface {
 	pulumi.Input
 
@@ -206,11 +206,11 @@ func (i ServerAdministratorsArgs) ToServerAdministratorsPtrOutputWithContext(ctx
 // ServerAdministratorsPtrInput is an input type that accepts ServerAdministratorsArgs, ServerAdministratorsPtr and ServerAdministratorsPtrOutput values.
 // You can construct a concrete instance of `ServerAdministratorsPtrInput` via:
 //
-//	        ServerAdministratorsArgs{...}
+//          ServerAdministratorsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServerAdministratorsPtrInput interface {
 	pulumi.Input
 

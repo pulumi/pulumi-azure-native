@@ -41,6 +41,10 @@ export interface GetSecurityConnectorGovernanceRuleArgs {
  */
 export interface GetSecurityConnectorGovernanceRuleResult {
     /**
+     * The governance rule conditionSets - see examples
+     */
+    readonly conditionSets: outputs.security.v20220101preview.ConditionResponse[][][];
+    /**
      * description of the governanceRule
      */
     readonly description?: string;

@@ -23,7 +23,7 @@ type AdvancedSchedule struct {
 // AdvancedScheduleInput is an input type that accepts AdvancedScheduleArgs and AdvancedScheduleOutput values.
 // You can construct a concrete instance of `AdvancedScheduleInput` via:
 //
-//	AdvancedScheduleArgs{...}
+//          AdvancedScheduleArgs{...}
 type AdvancedScheduleInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i AdvancedScheduleArgs) ToAdvancedSchedulePtrOutputWithContext(ctx context
 // AdvancedSchedulePtrInput is an input type that accepts AdvancedScheduleArgs, AdvancedSchedulePtr and AdvancedSchedulePtrOutput values.
 // You can construct a concrete instance of `AdvancedSchedulePtrInput` via:
 //
-//	        AdvancedScheduleArgs{...}
+//          AdvancedScheduleArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AdvancedSchedulePtrInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type AdvancedScheduleMonthlyOccurrence struct {
 // AdvancedScheduleMonthlyOccurrenceInput is an input type that accepts AdvancedScheduleMonthlyOccurrenceArgs and AdvancedScheduleMonthlyOccurrenceOutput values.
 // You can construct a concrete instance of `AdvancedScheduleMonthlyOccurrenceInput` via:
 //
-//	AdvancedScheduleMonthlyOccurrenceArgs{...}
+//          AdvancedScheduleMonthlyOccurrenceArgs{...}
 type AdvancedScheduleMonthlyOccurrenceInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ func (i AdvancedScheduleMonthlyOccurrenceArgs) ToAdvancedScheduleMonthlyOccurren
 // AdvancedScheduleMonthlyOccurrenceArrayInput is an input type that accepts AdvancedScheduleMonthlyOccurrenceArray and AdvancedScheduleMonthlyOccurrenceArrayOutput values.
 // You can construct a concrete instance of `AdvancedScheduleMonthlyOccurrenceArrayInput` via:
 //
-//	AdvancedScheduleMonthlyOccurrenceArray{ AdvancedScheduleMonthlyOccurrenceArgs{...} }
+//          AdvancedScheduleMonthlyOccurrenceArray{ AdvancedScheduleMonthlyOccurrenceArgs{...} }
 type AdvancedScheduleMonthlyOccurrenceArrayInput interface {
 	pulumi.Input
 
@@ -455,7 +455,7 @@ type ConnectionTypeAssociationProperty struct {
 // ConnectionTypeAssociationPropertyInput is an input type that accepts ConnectionTypeAssociationPropertyArgs and ConnectionTypeAssociationPropertyOutput values.
 // You can construct a concrete instance of `ConnectionTypeAssociationPropertyInput` via:
 //
-//	ConnectionTypeAssociationPropertyArgs{...}
+//          ConnectionTypeAssociationPropertyArgs{...}
 type ConnectionTypeAssociationPropertyInput interface {
 	pulumi.Input
 
@@ -572,7 +572,7 @@ type ContentHash struct {
 // ContentHashInput is an input type that accepts ContentHashArgs and ContentHashOutput values.
 // You can construct a concrete instance of `ContentHashInput` via:
 //
-//	ContentHashArgs{...}
+//          ContentHashArgs{...}
 type ContentHashInput interface {
 	pulumi.Input
 
@@ -611,11 +611,11 @@ func (i ContentHashArgs) ToContentHashPtrOutputWithContext(ctx context.Context) 
 // ContentHashPtrInput is an input type that accepts ContentHashArgs, ContentHashPtr and ContentHashPtrOutput values.
 // You can construct a concrete instance of `ContentHashPtrInput` via:
 //
-//	        ContentHashArgs{...}
+//          ContentHashArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContentHashPtrInput interface {
 	pulumi.Input
 
@@ -810,7 +810,7 @@ type ContentLink struct {
 // ContentLinkInput is an input type that accepts ContentLinkArgs and ContentLinkOutput values.
 // You can construct a concrete instance of `ContentLinkInput` via:
 //
-//	ContentLinkArgs{...}
+//          ContentLinkArgs{...}
 type ContentLinkInput interface {
 	pulumi.Input
 
@@ -851,11 +851,11 @@ func (i ContentLinkArgs) ToContentLinkPtrOutputWithContext(ctx context.Context) 
 // ContentLinkPtrInput is an input type that accepts ContentLinkArgs, ContentLinkPtr and ContentLinkPtrOutput values.
 // You can construct a concrete instance of `ContentLinkPtrInput` via:
 //
-//	        ContentLinkArgs{...}
+//          ContentLinkArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContentLinkPtrInput interface {
 	pulumi.Input
 
@@ -1084,7 +1084,7 @@ type ContentSource struct {
 // ContentSourceInput is an input type that accepts ContentSourceArgs and ContentSourceOutput values.
 // You can construct a concrete instance of `ContentSourceInput` via:
 //
-//	ContentSourceArgs{...}
+//          ContentSourceArgs{...}
 type ContentSourceInput interface {
 	pulumi.Input
 
@@ -1271,7 +1271,7 @@ type DscConfigurationAssociationProperty struct {
 // DscConfigurationAssociationPropertyInput is an input type that accepts DscConfigurationAssociationPropertyArgs and DscConfigurationAssociationPropertyOutput values.
 // You can construct a concrete instance of `DscConfigurationAssociationPropertyInput` via:
 //
-//	DscConfigurationAssociationPropertyArgs{...}
+//          DscConfigurationAssociationPropertyArgs{...}
 type DscConfigurationAssociationPropertyInput interface {
 	pulumi.Input
 
@@ -1392,7 +1392,7 @@ type DscConfigurationParameter struct {
 // DscConfigurationParameterInput is an input type that accepts DscConfigurationParameterArgs and DscConfigurationParameterOutput values.
 // You can construct a concrete instance of `DscConfigurationParameterInput` via:
 //
-//	DscConfigurationParameterArgs{...}
+//          DscConfigurationParameterArgs{...}
 type DscConfigurationParameterInput interface {
 	pulumi.Input
 
@@ -1427,7 +1427,7 @@ func (i DscConfigurationParameterArgs) ToDscConfigurationParameterOutputWithCont
 // DscConfigurationParameterMapInput is an input type that accepts DscConfigurationParameterMap and DscConfigurationParameterMapOutput values.
 // You can construct a concrete instance of `DscConfigurationParameterMapInput` via:
 //
-//	DscConfigurationParameterMap{ "key": DscConfigurationParameterArgs{...} }
+//          DscConfigurationParameterMap{ "key": DscConfigurationParameterArgs{...} }
 type DscConfigurationParameterMapInput interface {
 	pulumi.Input
 
@@ -1584,7 +1584,7 @@ type FieldDefinition struct {
 // FieldDefinitionInput is an input type that accepts FieldDefinitionArgs and FieldDefinitionOutput values.
 // You can construct a concrete instance of `FieldDefinitionInput` via:
 //
-//	FieldDefinitionArgs{...}
+//          FieldDefinitionArgs{...}
 type FieldDefinitionInput interface {
 	pulumi.Input
 
@@ -1617,7 +1617,7 @@ func (i FieldDefinitionArgs) ToFieldDefinitionOutputWithContext(ctx context.Cont
 // FieldDefinitionMapInput is an input type that accepts FieldDefinitionMap and FieldDefinitionMapOutput values.
 // You can construct a concrete instance of `FieldDefinitionMapInput` via:
 //
-//	FieldDefinitionMap{ "key": FieldDefinitionArgs{...} }
+//          FieldDefinitionMap{ "key": FieldDefinitionArgs{...} }
 type FieldDefinitionMapInput interface {
 	pulumi.Input
 
@@ -1895,7 +1895,7 @@ type RunbookAssociationProperty struct {
 // RunbookAssociationPropertyInput is an input type that accepts RunbookAssociationPropertyArgs and RunbookAssociationPropertyOutput values.
 // You can construct a concrete instance of `RunbookAssociationPropertyInput` via:
 //
-//	RunbookAssociationPropertyArgs{...}
+//          RunbookAssociationPropertyArgs{...}
 type RunbookAssociationPropertyInput interface {
 	pulumi.Input
 
@@ -1932,11 +1932,11 @@ func (i RunbookAssociationPropertyArgs) ToRunbookAssociationPropertyPtrOutputWit
 // RunbookAssociationPropertyPtrInput is an input type that accepts RunbookAssociationPropertyArgs, RunbookAssociationPropertyPtr and RunbookAssociationPropertyPtrOutput values.
 // You can construct a concrete instance of `RunbookAssociationPropertyPtrInput` via:
 //
-//	        RunbookAssociationPropertyArgs{...}
+//          RunbookAssociationPropertyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RunbookAssociationPropertyPtrInput interface {
 	pulumi.Input
 
@@ -2104,7 +2104,7 @@ type RunbookDraft struct {
 // RunbookDraftInput is an input type that accepts RunbookDraftArgs and RunbookDraftOutput values.
 // You can construct a concrete instance of `RunbookDraftInput` via:
 //
-//	RunbookDraftArgs{...}
+//          RunbookDraftArgs{...}
 type RunbookDraftInput interface {
 	pulumi.Input
 
@@ -2150,11 +2150,11 @@ func (i RunbookDraftArgs) ToRunbookDraftPtrOutputWithContext(ctx context.Context
 // RunbookDraftPtrInput is an input type that accepts RunbookDraftArgs, RunbookDraftPtr and RunbookDraftPtrOutput values.
 // You can construct a concrete instance of `RunbookDraftPtrInput` via:
 //
-//	        RunbookDraftArgs{...}
+//          RunbookDraftArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RunbookDraftPtrInput interface {
 	pulumi.Input
 
@@ -2476,7 +2476,7 @@ type RunbookParameter struct {
 // RunbookParameterInput is an input type that accepts RunbookParameterArgs and RunbookParameterOutput values.
 // You can construct a concrete instance of `RunbookParameterInput` via:
 //
-//	RunbookParameterArgs{...}
+//          RunbookParameterArgs{...}
 type RunbookParameterInput interface {
 	pulumi.Input
 
@@ -2511,7 +2511,7 @@ func (i RunbookParameterArgs) ToRunbookParameterOutputWithContext(ctx context.Co
 // RunbookParameterMapInput is an input type that accepts RunbookParameterMap and RunbookParameterMapOutput values.
 // You can construct a concrete instance of `RunbookParameterMapInput` via:
 //
-//	RunbookParameterMap{ "key": RunbookParameterArgs{...} }
+//          RunbookParameterMap{ "key": RunbookParameterArgs{...} }
 type RunbookParameterMapInput interface {
 	pulumi.Input
 
@@ -2664,7 +2664,7 @@ type ScheduleAssociationProperty struct {
 // ScheduleAssociationPropertyInput is an input type that accepts ScheduleAssociationPropertyArgs and ScheduleAssociationPropertyOutput values.
 // You can construct a concrete instance of `ScheduleAssociationPropertyInput` via:
 //
-//	ScheduleAssociationPropertyArgs{...}
+//          ScheduleAssociationPropertyArgs{...}
 type ScheduleAssociationPropertyInput interface {
 	pulumi.Input
 
@@ -2783,7 +2783,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -2824,11 +2824,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 

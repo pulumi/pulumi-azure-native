@@ -36,7 +36,7 @@ func (val *Action) Defaults() *Action {
 // ActionInput is an input type that accepts ActionArgs and ActionOutput values.
 // You can construct a concrete instance of `ActionInput` via:
 //
-//	ActionArgs{...}
+//          ActionArgs{...}
 type ActionInput interface {
 	pulumi.Input
 
@@ -88,11 +88,11 @@ func (i ActionArgs) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrO
 // ActionPtrInput is an input type that accepts ActionArgs, ActionPtr and ActionPtrOutput values.
 // You can construct a concrete instance of `ActionPtrInput` via:
 //
-//	        ActionArgs{...}
+//          ActionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ActionPtrInput interface {
 	pulumi.Input
 
@@ -359,7 +359,7 @@ func (val *CorrelationFilter) Defaults() *CorrelationFilter {
 // CorrelationFilterInput is an input type that accepts CorrelationFilterArgs and CorrelationFilterOutput values.
 // You can construct a concrete instance of `CorrelationFilterInput` via:
 //
-//	CorrelationFilterArgs{...}
+//          CorrelationFilterArgs{...}
 type CorrelationFilterInput interface {
 	pulumi.Input
 
@@ -425,11 +425,11 @@ func (i CorrelationFilterArgs) ToCorrelationFilterPtrOutputWithContext(ctx conte
 // CorrelationFilterPtrInput is an input type that accepts CorrelationFilterArgs, CorrelationFilterPtr and CorrelationFilterPtrOutput values.
 // You can construct a concrete instance of `CorrelationFilterPtrInput` via:
 //
-//	        CorrelationFilterArgs{...}
+//          CorrelationFilterArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CorrelationFilterPtrInput interface {
 	pulumi.Input
 
@@ -958,7 +958,7 @@ func (val *NWRuleSetIpRules) Defaults() *NWRuleSetIpRules {
 // NWRuleSetIpRulesInput is an input type that accepts NWRuleSetIpRulesArgs and NWRuleSetIpRulesOutput values.
 // You can construct a concrete instance of `NWRuleSetIpRulesInput` via:
 //
-//	NWRuleSetIpRulesArgs{...}
+//          NWRuleSetIpRulesArgs{...}
 type NWRuleSetIpRulesInput interface {
 	pulumi.Input
 
@@ -1000,7 +1000,7 @@ func (i NWRuleSetIpRulesArgs) ToNWRuleSetIpRulesOutputWithContext(ctx context.Co
 // NWRuleSetIpRulesArrayInput is an input type that accepts NWRuleSetIpRulesArray and NWRuleSetIpRulesArrayOutput values.
 // You can construct a concrete instance of `NWRuleSetIpRulesArrayInput` via:
 //
-//	NWRuleSetIpRulesArray{ NWRuleSetIpRulesArgs{...} }
+//          NWRuleSetIpRulesArray{ NWRuleSetIpRulesArgs{...} }
 type NWRuleSetIpRulesArrayInput interface {
 	pulumi.Input
 
@@ -1144,7 +1144,7 @@ type NWRuleSetVirtualNetworkRules struct {
 // NWRuleSetVirtualNetworkRulesInput is an input type that accepts NWRuleSetVirtualNetworkRulesArgs and NWRuleSetVirtualNetworkRulesOutput values.
 // You can construct a concrete instance of `NWRuleSetVirtualNetworkRulesInput` via:
 //
-//	NWRuleSetVirtualNetworkRulesArgs{...}
+//          NWRuleSetVirtualNetworkRulesArgs{...}
 type NWRuleSetVirtualNetworkRulesInput interface {
 	pulumi.Input
 
@@ -1175,7 +1175,7 @@ func (i NWRuleSetVirtualNetworkRulesArgs) ToNWRuleSetVirtualNetworkRulesOutputWi
 // NWRuleSetVirtualNetworkRulesArrayInput is an input type that accepts NWRuleSetVirtualNetworkRulesArray and NWRuleSetVirtualNetworkRulesArrayOutput values.
 // You can construct a concrete instance of `NWRuleSetVirtualNetworkRulesArrayInput` via:
 //
-//	NWRuleSetVirtualNetworkRulesArray{ NWRuleSetVirtualNetworkRulesArgs{...} }
+//          NWRuleSetVirtualNetworkRulesArray{ NWRuleSetVirtualNetworkRulesArgs{...} }
 type NWRuleSetVirtualNetworkRulesArrayInput interface {
 	pulumi.Input
 
@@ -1308,7 +1308,7 @@ type SBSku struct {
 // SBSkuInput is an input type that accepts SBSkuArgs and SBSkuOutput values.
 // You can construct a concrete instance of `SBSkuInput` via:
 //
-//	SBSkuArgs{...}
+//          SBSkuArgs{...}
 type SBSkuInput interface {
 	pulumi.Input
 
@@ -1349,11 +1349,11 @@ func (i SBSkuArgs) ToSBSkuPtrOutputWithContext(ctx context.Context) SBSkuPtrOutp
 // SBSkuPtrInput is an input type that accepts SBSkuArgs, SBSkuPtr and SBSkuPtrOutput values.
 // You can construct a concrete instance of `SBSkuPtrInput` via:
 //
-//	        SBSkuArgs{...}
+//          SBSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SBSkuPtrInput interface {
 	pulumi.Input
 
@@ -1597,7 +1597,7 @@ func (val *SqlFilter) Defaults() *SqlFilter {
 // SqlFilterInput is an input type that accepts SqlFilterArgs and SqlFilterOutput values.
 // You can construct a concrete instance of `SqlFilterInput` via:
 //
-//	SqlFilterArgs{...}
+//          SqlFilterArgs{...}
 type SqlFilterInput interface {
 	pulumi.Input
 
@@ -1652,11 +1652,11 @@ func (i SqlFilterArgs) ToSqlFilterPtrOutputWithContext(ctx context.Context) SqlF
 // SqlFilterPtrInput is an input type that accepts SqlFilterArgs, SqlFilterPtr and SqlFilterPtrOutput values.
 // You can construct a concrete instance of `SqlFilterPtrInput` via:
 //
-//	        SqlFilterArgs{...}
+//          SqlFilterArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SqlFilterPtrInput interface {
 	pulumi.Input
 
@@ -1896,7 +1896,7 @@ type Subnet struct {
 // SubnetInput is an input type that accepts SubnetArgs and SubnetOutput values.
 // You can construct a concrete instance of `SubnetInput` via:
 //
-//	SubnetArgs{...}
+//          SubnetArgs{...}
 type SubnetInput interface {
 	pulumi.Input
 
@@ -1933,11 +1933,11 @@ func (i SubnetArgs) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPtrO
 // SubnetPtrInput is an input type that accepts SubnetArgs, SubnetPtr and SubnetPtrOutput values.
 // You can construct a concrete instance of `SubnetPtrInput` via:
 //
-//	        SubnetArgs{...}
+//          SubnetArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SubnetPtrInput interface {
 	pulumi.Input
 

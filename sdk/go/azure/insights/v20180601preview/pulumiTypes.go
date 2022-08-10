@@ -21,7 +21,7 @@ type DataSource struct {
 // DataSourceInput is an input type that accepts DataSourceArgs and DataSourceOutput values.
 // You can construct a concrete instance of `DataSourceInput` via:
 //
-//	DataSourceArgs{...}
+//          DataSourceArgs{...}
 type DataSourceInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i DataSourceArgs) ToDataSourceOutputWithContext(ctx context.Context) DataS
 // DataSourceArrayInput is an input type that accepts DataSourceArray and DataSourceArrayOutput values.
 // You can construct a concrete instance of `DataSourceArrayInput` via:
 //
-//	DataSourceArray{ DataSourceArgs{...} }
+//          DataSourceArray{ DataSourceArgs{...} }
 type DataSourceArrayInput interface {
 	pulumi.Input
 
@@ -134,7 +134,7 @@ type DataSourceConfiguration struct {
 // DataSourceConfigurationInput is an input type that accepts DataSourceConfigurationArgs and DataSourceConfigurationOutput values.
 // You can construct a concrete instance of `DataSourceConfigurationInput` via:
 //
-//	DataSourceConfigurationArgs{...}
+//          DataSourceConfigurationArgs{...}
 type DataSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -297,7 +297,7 @@ type EtwEventConfiguration struct {
 // EtwEventConfigurationInput is an input type that accepts EtwEventConfigurationArgs and EtwEventConfigurationOutput values.
 // You can construct a concrete instance of `EtwEventConfigurationInput` via:
 //
-//	EtwEventConfigurationArgs{...}
+//          EtwEventConfigurationArgs{...}
 type EtwEventConfigurationInput interface {
 	pulumi.Input
 
@@ -326,7 +326,7 @@ func (i EtwEventConfigurationArgs) ToEtwEventConfigurationOutputWithContext(ctx 
 // EtwEventConfigurationArrayInput is an input type that accepts EtwEventConfigurationArray and EtwEventConfigurationArrayOutput values.
 // You can construct a concrete instance of `EtwEventConfigurationArrayInput` via:
 //
-//	EtwEventConfigurationArray{ EtwEventConfigurationArgs{...} }
+//          EtwEventConfigurationArray{ EtwEventConfigurationArgs{...} }
 type EtwEventConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -454,7 +454,7 @@ type EtwProviderConfiguration struct {
 // EtwProviderConfigurationInput is an input type that accepts EtwProviderConfigurationArgs and EtwProviderConfigurationOutput values.
 // You can construct a concrete instance of `EtwProviderConfigurationInput` via:
 //
-//	EtwProviderConfigurationArgs{...}
+//          EtwProviderConfigurationArgs{...}
 type EtwProviderConfigurationInput interface {
 	pulumi.Input
 
@@ -482,7 +482,7 @@ func (i EtwProviderConfigurationArgs) ToEtwProviderConfigurationOutputWithContex
 // EtwProviderConfigurationArrayInput is an input type that accepts EtwProviderConfigurationArray and EtwProviderConfigurationArrayOutput values.
 // You can construct a concrete instance of `EtwProviderConfigurationArrayInput` via:
 //
-//	EtwProviderConfigurationArray{ EtwProviderConfigurationArgs{...} }
+//          EtwProviderConfigurationArray{ EtwProviderConfigurationArgs{...} }
 type EtwProviderConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -601,7 +601,7 @@ type EventLogConfiguration struct {
 // EventLogConfigurationInput is an input type that accepts EventLogConfigurationArgs and EventLogConfigurationOutput values.
 // You can construct a concrete instance of `EventLogConfigurationInput` via:
 //
-//	EventLogConfigurationArgs{...}
+//          EventLogConfigurationArgs{...}
 type EventLogConfigurationInput interface {
 	pulumi.Input
 
@@ -629,7 +629,7 @@ func (i EventLogConfigurationArgs) ToEventLogConfigurationOutputWithContext(ctx 
 // EventLogConfigurationArrayInput is an input type that accepts EventLogConfigurationArray and EventLogConfigurationArrayOutput values.
 // You can construct a concrete instance of `EventLogConfigurationArrayInput` via:
 //
-//	EventLogConfigurationArray{ EventLogConfigurationArgs{...} }
+//          EventLogConfigurationArray{ EventLogConfigurationArgs{...} }
 type EventLogConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -749,7 +749,7 @@ type PerformanceCounterConfiguration struct {
 // PerformanceCounterConfigurationInput is an input type that accepts PerformanceCounterConfigurationArgs and PerformanceCounterConfigurationOutput values.
 // You can construct a concrete instance of `PerformanceCounterConfigurationInput` via:
 //
-//	PerformanceCounterConfigurationArgs{...}
+//          PerformanceCounterConfigurationArgs{...}
 type PerformanceCounterConfigurationInput interface {
 	pulumi.Input
 
@@ -778,7 +778,7 @@ func (i PerformanceCounterConfigurationArgs) ToPerformanceCounterConfigurationOu
 // PerformanceCounterConfigurationArrayInput is an input type that accepts PerformanceCounterConfigurationArray and PerformanceCounterConfigurationArrayOutput values.
 // You can construct a concrete instance of `PerformanceCounterConfigurationArrayInput` via:
 //
-//	PerformanceCounterConfigurationArray{ PerformanceCounterConfigurationArgs{...} }
+//          PerformanceCounterConfigurationArray{ PerformanceCounterConfigurationArgs{...} }
 type PerformanceCounterConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -905,7 +905,7 @@ type SinkConfiguration struct {
 // SinkConfigurationInput is an input type that accepts SinkConfigurationArgs and SinkConfigurationOutput values.
 // You can construct a concrete instance of `SinkConfigurationInput` via:
 //
-//	SinkConfigurationArgs{...}
+//          SinkConfigurationArgs{...}
 type SinkConfigurationInput interface {
 	pulumi.Input
 
@@ -932,7 +932,7 @@ func (i SinkConfigurationArgs) ToSinkConfigurationOutputWithContext(ctx context.
 // SinkConfigurationArrayInput is an input type that accepts SinkConfigurationArray and SinkConfigurationArrayOutput values.
 // You can construct a concrete instance of `SinkConfigurationArrayInput` via:
 //
-//	SinkConfigurationArray{ SinkConfigurationArgs{...} }
+//          SinkConfigurationArray{ SinkConfigurationArgs{...} }
 type SinkConfigurationArrayInput interface {
 	pulumi.Input
 

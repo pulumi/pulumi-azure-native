@@ -141,7 +141,7 @@ func (o StatusLevelTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // StatusLevelTypesInput is an input type that accepts StatusLevelTypesArgs and StatusLevelTypesOutput values.
 // You can construct a concrete instance of `StatusLevelTypesInput` via:
 //
-//	StatusLevelTypesArgs{...}
+//          StatusLevelTypesArgs{...}
 type StatusLevelTypesInput interface {
 	pulumi.Input
 

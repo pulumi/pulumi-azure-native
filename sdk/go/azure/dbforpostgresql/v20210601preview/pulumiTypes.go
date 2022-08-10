@@ -38,7 +38,7 @@ func (val *Backup) Defaults() *Backup {
 // BackupInput is an input type that accepts BackupArgs and BackupOutput values.
 // You can construct a concrete instance of `BackupInput` via:
 //
-//	BackupArgs{...}
+//          BackupArgs{...}
 type BackupInput interface {
 	pulumi.Input
 
@@ -91,11 +91,11 @@ func (i BackupArgs) ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrO
 // BackupPtrInput is an input type that accepts BackupArgs, BackupPtr and BackupPtrOutput values.
 // You can construct a concrete instance of `BackupPtrInput` via:
 //
-//	        BackupArgs{...}
+//          BackupArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BackupPtrInput interface {
 	pulumi.Input
 
@@ -339,7 +339,7 @@ func (val *HighAvailability) Defaults() *HighAvailability {
 // HighAvailabilityInput is an input type that accepts HighAvailabilityArgs and HighAvailabilityOutput values.
 // You can construct a concrete instance of `HighAvailabilityInput` via:
 //
-//	HighAvailabilityArgs{...}
+//          HighAvailabilityArgs{...}
 type HighAvailabilityInput interface {
 	pulumi.Input
 
@@ -392,11 +392,11 @@ func (i HighAvailabilityArgs) ToHighAvailabilityPtrOutputWithContext(ctx context
 // HighAvailabilityPtrInput is an input type that accepts HighAvailabilityArgs, HighAvailabilityPtr and HighAvailabilityPtrOutput values.
 // You can construct a concrete instance of `HighAvailabilityPtrInput` via:
 //
-//	        HighAvailabilityArgs{...}
+//          HighAvailabilityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type HighAvailabilityPtrInput interface {
 	pulumi.Input
 
@@ -652,7 +652,7 @@ func (val *MaintenanceWindow) Defaults() *MaintenanceWindow {
 // MaintenanceWindowInput is an input type that accepts MaintenanceWindowArgs and MaintenanceWindowOutput values.
 // You can construct a concrete instance of `MaintenanceWindowInput` via:
 //
-//	MaintenanceWindowArgs{...}
+//          MaintenanceWindowArgs{...}
 type MaintenanceWindowInput interface {
 	pulumi.Input
 
@@ -715,11 +715,11 @@ func (i MaintenanceWindowArgs) ToMaintenanceWindowPtrOutputWithContext(ctx conte
 // MaintenanceWindowPtrInput is an input type that accepts MaintenanceWindowArgs, MaintenanceWindowPtr and MaintenanceWindowPtrOutput values.
 // You can construct a concrete instance of `MaintenanceWindowPtrInput` via:
 //
-//	        MaintenanceWindowArgs{...}
+//          MaintenanceWindowArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MaintenanceWindowPtrInput interface {
 	pulumi.Input
 
@@ -1018,7 +1018,7 @@ func (val *Network) Defaults() *Network {
 // NetworkInput is an input type that accepts NetworkArgs and NetworkOutput values.
 // You can construct a concrete instance of `NetworkInput` via:
 //
-//	NetworkArgs{...}
+//          NetworkArgs{...}
 type NetworkInput interface {
 	pulumi.Input
 
@@ -1071,11 +1071,11 @@ func (i NetworkArgs) ToNetworkPtrOutputWithContext(ctx context.Context) NetworkP
 // NetworkPtrInput is an input type that accepts NetworkArgs, NetworkPtr and NetworkPtrOutput values.
 // You can construct a concrete instance of `NetworkPtrInput` via:
 //
-//	        NetworkArgs{...}
+//          NetworkArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NetworkPtrInput interface {
 	pulumi.Input
 
@@ -1302,7 +1302,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1341,11 +1341,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -1536,7 +1536,7 @@ type Storage struct {
 // StorageInput is an input type that accepts StorageArgs and StorageOutput values.
 // You can construct a concrete instance of `StorageInput` via:
 //
-//	StorageArgs{...}
+//          StorageArgs{...}
 type StorageInput interface {
 	pulumi.Input
 
@@ -1573,11 +1573,11 @@ func (i StorageArgs) ToStoragePtrOutputWithContext(ctx context.Context) StorageP
 // StoragePtrInput is an input type that accepts StorageArgs, StoragePtr and StoragePtrOutput values.
 // You can construct a concrete instance of `StoragePtrInput` via:
 //
-//	        StorageArgs{...}
+//          StorageArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type StoragePtrInput interface {
 	pulumi.Input
 

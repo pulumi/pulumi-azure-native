@@ -21,7 +21,7 @@ type ConfigurationProfileAssignmentProperties struct {
 // ConfigurationProfileAssignmentPropertiesInput is an input type that accepts ConfigurationProfileAssignmentPropertiesArgs and ConfigurationProfileAssignmentPropertiesOutput values.
 // You can construct a concrete instance of `ConfigurationProfileAssignmentPropertiesInput` via:
 //
-//	ConfigurationProfileAssignmentPropertiesArgs{...}
+//          ConfigurationProfileAssignmentPropertiesArgs{...}
 type ConfigurationProfileAssignmentPropertiesInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ConfigurationProfileAssignmentPropertiesArgs) ToConfigurationProfileAssi
 // ConfigurationProfileAssignmentPropertiesPtrInput is an input type that accepts ConfigurationProfileAssignmentPropertiesArgs, ConfigurationProfileAssignmentPropertiesPtr and ConfigurationProfileAssignmentPropertiesPtrOutput values.
 // You can construct a concrete instance of `ConfigurationProfileAssignmentPropertiesPtrInput` via:
 //
-//	        ConfigurationProfileAssignmentPropertiesArgs{...}
+//          ConfigurationProfileAssignmentPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ConfigurationProfileAssignmentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -229,7 +229,7 @@ type ConfigurationProfileProperties struct {
 // ConfigurationProfilePropertiesInput is an input type that accepts ConfigurationProfilePropertiesArgs and ConfigurationProfilePropertiesOutput values.
 // You can construct a concrete instance of `ConfigurationProfilePropertiesInput` via:
 //
-//	ConfigurationProfilePropertiesArgs{...}
+//          ConfigurationProfilePropertiesArgs{...}
 type ConfigurationProfilePropertiesInput interface {
 	pulumi.Input
 
@@ -268,11 +268,11 @@ func (i ConfigurationProfilePropertiesArgs) ToConfigurationProfilePropertiesPtrO
 // ConfigurationProfilePropertiesPtrInput is an input type that accepts ConfigurationProfilePropertiesArgs, ConfigurationProfilePropertiesPtr and ConfigurationProfilePropertiesPtrOutput values.
 // You can construct a concrete instance of `ConfigurationProfilePropertiesPtrInput` via:
 //
-//	        ConfigurationProfilePropertiesArgs{...}
+//          ConfigurationProfilePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ConfigurationProfilePropertiesPtrInput interface {
 	pulumi.Input
 

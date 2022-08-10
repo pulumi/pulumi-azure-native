@@ -200,7 +200,7 @@ func (o InfrastructurePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // InfrastructureInput is an input type that accepts InfrastructureArgs and InfrastructureOutput values.
 // You can construct a concrete instance of `InfrastructureInput` via:
 //
-//	InfrastructureArgs{...}
+//          InfrastructureArgs{...}
 type InfrastructureInput interface {
 	pulumi.Input
 
@@ -365,7 +365,7 @@ func (o SqlManagedInstanceSkuTierPtrOutput) ToStringPtrOutputWithContext(ctx con
 // SqlManagedInstanceSkuTierInput is an input type that accepts SqlManagedInstanceSkuTierArgs and SqlManagedInstanceSkuTierOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceSkuTierInput` via:
 //
-//	SqlManagedInstanceSkuTierArgs{...}
+//          SqlManagedInstanceSkuTierArgs{...}
 type SqlManagedInstanceSkuTierInput interface {
 	pulumi.Input
 

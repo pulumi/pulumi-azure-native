@@ -21,7 +21,7 @@ type AttestationEvidence struct {
 // AttestationEvidenceInput is an input type that accepts AttestationEvidenceArgs and AttestationEvidenceOutput values.
 // You can construct a concrete instance of `AttestationEvidenceInput` via:
 //
-//	AttestationEvidenceArgs{...}
+//          AttestationEvidenceArgs{...}
 type AttestationEvidenceInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i AttestationEvidenceArgs) ToAttestationEvidenceOutputWithContext(ctx cont
 // AttestationEvidenceArrayInput is an input type that accepts AttestationEvidenceArray and AttestationEvidenceArrayOutput values.
 // You can construct a concrete instance of `AttestationEvidenceArrayInput` via:
 //
-//	AttestationEvidenceArray{ AttestationEvidenceArgs{...} }
+//          AttestationEvidenceArray{ AttestationEvidenceArgs{...} }
 type AttestationEvidenceArrayInput interface {
 	pulumi.Input
 

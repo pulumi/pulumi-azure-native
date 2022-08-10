@@ -84,7 +84,7 @@ type HybridComputePrivateLinkScopeProperties struct {
 // HybridComputePrivateLinkScopePropertiesInput is an input type that accepts HybridComputePrivateLinkScopePropertiesArgs and HybridComputePrivateLinkScopePropertiesOutput values.
 // You can construct a concrete instance of `HybridComputePrivateLinkScopePropertiesInput` via:
 //
-//	HybridComputePrivateLinkScopePropertiesArgs{...}
+//          HybridComputePrivateLinkScopePropertiesArgs{...}
 type HybridComputePrivateLinkScopePropertiesInput interface {
 	pulumi.Input
 
@@ -121,11 +121,11 @@ func (i HybridComputePrivateLinkScopePropertiesArgs) ToHybridComputePrivateLinkS
 // HybridComputePrivateLinkScopePropertiesPtrInput is an input type that accepts HybridComputePrivateLinkScopePropertiesArgs, HybridComputePrivateLinkScopePropertiesPtr and HybridComputePrivateLinkScopePropertiesPtrOutput values.
 // You can construct a concrete instance of `HybridComputePrivateLinkScopePropertiesPtrInput` via:
 //
-//	        HybridComputePrivateLinkScopePropertiesArgs{...}
+//          HybridComputePrivateLinkScopePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type HybridComputePrivateLinkScopePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -270,7 +270,7 @@ type LocationData struct {
 // LocationDataInput is an input type that accepts LocationDataArgs and LocationDataOutput values.
 // You can construct a concrete instance of `LocationDataInput` via:
 //
-//	LocationDataArgs{...}
+//          LocationDataArgs{...}
 type LocationDataInput interface {
 	pulumi.Input
 
@@ -313,11 +313,11 @@ func (i LocationDataArgs) ToLocationDataPtrOutputWithContext(ctx context.Context
 // LocationDataPtrInput is an input type that accepts LocationDataArgs, LocationDataPtr and LocationDataPtrOutput values.
 // You can construct a concrete instance of `LocationDataPtrInput` via:
 //
-//	        LocationDataArgs{...}
+//          LocationDataArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LocationDataPtrInput interface {
 	pulumi.Input
 
@@ -881,7 +881,7 @@ type MachineIdentity struct {
 // MachineIdentityInput is an input type that accepts MachineIdentityArgs and MachineIdentityOutput values.
 // You can construct a concrete instance of `MachineIdentityInput` via:
 //
-//	MachineIdentityArgs{...}
+//          MachineIdentityArgs{...}
 type MachineIdentityInput interface {
 	pulumi.Input
 
@@ -917,11 +917,11 @@ func (i MachineIdentityArgs) ToMachineIdentityPtrOutputWithContext(ctx context.C
 // MachineIdentityPtrInput is an input type that accepts MachineIdentityArgs, MachineIdentityPtr and MachineIdentityPtrOutput values.
 // You can construct a concrete instance of `MachineIdentityPtrInput` via:
 //
-//	        MachineIdentityArgs{...}
+//          MachineIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MachineIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1173,7 +1173,7 @@ type PrivateEndpointConnectionProperties struct {
 // PrivateEndpointConnectionPropertiesInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs and PrivateEndpointConnectionPropertiesOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInput` via:
 //
-//	PrivateEndpointConnectionPropertiesArgs{...}
+//          PrivateEndpointConnectionPropertiesArgs{...}
 type PrivateEndpointConnectionPropertiesInput interface {
 	pulumi.Input
 
@@ -1212,11 +1212,11 @@ func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionProp
 // PrivateEndpointConnectionPropertiesPtrInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs, PrivateEndpointConnectionPropertiesPtr and PrivateEndpointConnectionPropertiesPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPtrInput` via:
 //
-//	        PrivateEndpointConnectionPropertiesArgs{...}
+//          PrivateEndpointConnectionPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointConnectionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1376,7 +1376,7 @@ type PrivateEndpointProperty struct {
 // PrivateEndpointPropertyInput is an input type that accepts PrivateEndpointPropertyArgs and PrivateEndpointPropertyOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertyInput` via:
 //
-//	PrivateEndpointPropertyArgs{...}
+//          PrivateEndpointPropertyArgs{...}
 type PrivateEndpointPropertyInput interface {
 	pulumi.Input
 
@@ -1413,11 +1413,11 @@ func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyPtrOutputWithConte
 // PrivateEndpointPropertyPtrInput is an input type that accepts PrivateEndpointPropertyArgs, PrivateEndpointPropertyPtr and PrivateEndpointPropertyPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertyPtrInput` via:
 //
-//	        PrivateEndpointPropertyArgs{...}
+//          PrivateEndpointPropertyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointPropertyPtrInput interface {
 	pulumi.Input
 
@@ -1578,7 +1578,7 @@ type PrivateLinkServiceConnectionStateProperty struct {
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyInput` via:
 //
-//	PrivateLinkServiceConnectionStatePropertyArgs{...}
+//          PrivateLinkServiceConnectionStatePropertyArgs{...}
 type PrivateLinkServiceConnectionStatePropertyInput interface {
 	pulumi.Input
 
@@ -1617,11 +1617,11 @@ func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConne
 // PrivateLinkServiceConnectionStatePropertyPtrInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs, PrivateLinkServiceConnectionStatePropertyPtr and PrivateLinkServiceConnectionStatePropertyPtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyPtrInput` via:
 //
-//	        PrivateLinkServiceConnectionStatePropertyArgs{...}
+//          PrivateLinkServiceConnectionStatePropertyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkServiceConnectionStatePropertyPtrInput interface {
 	pulumi.Input
 

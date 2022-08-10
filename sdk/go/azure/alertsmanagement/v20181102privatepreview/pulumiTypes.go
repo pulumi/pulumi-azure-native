@@ -27,7 +27,7 @@ type ActionRuleProperties struct {
 // ActionRulePropertiesInput is an input type that accepts ActionRulePropertiesArgs and ActionRulePropertiesOutput values.
 // You can construct a concrete instance of `ActionRulePropertiesInput` via:
 //
-//	ActionRulePropertiesArgs{...}
+//          ActionRulePropertiesArgs{...}
 type ActionRulePropertiesInput interface {
 	pulumi.Input
 
@@ -72,11 +72,11 @@ func (i ActionRulePropertiesArgs) ToActionRulePropertiesPtrOutputWithContext(ctx
 // ActionRulePropertiesPtrInput is an input type that accepts ActionRulePropertiesArgs, ActionRulePropertiesPtr and ActionRulePropertiesPtrOutput values.
 // You can construct a concrete instance of `ActionRulePropertiesPtrInput` via:
 //
-//	        ActionRulePropertiesArgs{...}
+//          ActionRulePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ActionRulePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -326,7 +326,7 @@ type Condition struct {
 // ConditionInput is an input type that accepts ConditionArgs and ConditionOutput values.
 // You can construct a concrete instance of `ConditionInput` via:
 //
-//	ConditionArgs{...}
+//          ConditionArgs{...}
 type ConditionInput interface {
 	pulumi.Input
 
@@ -365,11 +365,11 @@ func (i ConditionArgs) ToConditionPtrOutputWithContext(ctx context.Context) Cond
 // ConditionPtrInput is an input type that accepts ConditionArgs, ConditionPtr and ConditionPtrOutput values.
 // You can construct a concrete instance of `ConditionPtrInput` via:
 //
-//	        ConditionArgs{...}
+//          ConditionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ConditionPtrInput interface {
 	pulumi.Input
 
@@ -580,7 +580,7 @@ type Conditions struct {
 // ConditionsInput is an input type that accepts ConditionsArgs and ConditionsOutput values.
 // You can construct a concrete instance of `ConditionsInput` via:
 //
-//	ConditionsArgs{...}
+//          ConditionsArgs{...}
 type ConditionsInput interface {
 	pulumi.Input
 
@@ -637,11 +637,11 @@ func (i ConditionsArgs) ToConditionsPtrOutputWithContext(ctx context.Context) Co
 // ConditionsPtrInput is an input type that accepts ConditionsArgs, ConditionsPtr and ConditionsPtrOutput values.
 // You can construct a concrete instance of `ConditionsPtrInput` via:
 //
-//	        ConditionsArgs{...}
+//          ConditionsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ConditionsPtrInput interface {
 	pulumi.Input
 
@@ -1122,7 +1122,7 @@ type Scope struct {
 // ScopeInput is an input type that accepts ScopeArgs and ScopeOutput values.
 // You can construct a concrete instance of `ScopeInput` via:
 //
-//	ScopeArgs{...}
+//          ScopeArgs{...}
 type ScopeInput interface {
 	pulumi.Input
 
@@ -1161,11 +1161,11 @@ func (i ScopeArgs) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutp
 // ScopePtrInput is an input type that accepts ScopeArgs, ScopePtr and ScopePtrOutput values.
 // You can construct a concrete instance of `ScopePtrInput` via:
 //
-//	        ScopeArgs{...}
+//          ScopeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ScopePtrInput interface {
 	pulumi.Input
 
@@ -1358,7 +1358,7 @@ type SuppressionConfig struct {
 // SuppressionConfigInput is an input type that accepts SuppressionConfigArgs and SuppressionConfigOutput values.
 // You can construct a concrete instance of `SuppressionConfigInput` via:
 //
-//	SuppressionConfigArgs{...}
+//          SuppressionConfigArgs{...}
 type SuppressionConfigInput interface {
 	pulumi.Input
 
@@ -1397,11 +1397,11 @@ func (i SuppressionConfigArgs) ToSuppressionConfigPtrOutputWithContext(ctx conte
 // SuppressionConfigPtrInput is an input type that accepts SuppressionConfigArgs, SuppressionConfigPtr and SuppressionConfigPtrOutput values.
 // You can construct a concrete instance of `SuppressionConfigPtrInput` via:
 //
-//	        SuppressionConfigArgs{...}
+//          SuppressionConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SuppressionConfigPtrInput interface {
 	pulumi.Input
 
@@ -1600,7 +1600,7 @@ type SuppressionSchedule struct {
 // SuppressionScheduleInput is an input type that accepts SuppressionScheduleArgs and SuppressionScheduleOutput values.
 // You can construct a concrete instance of `SuppressionScheduleInput` via:
 //
-//	SuppressionScheduleArgs{...}
+//          SuppressionScheduleArgs{...}
 type SuppressionScheduleInput interface {
 	pulumi.Input
 
@@ -1645,11 +1645,11 @@ func (i SuppressionScheduleArgs) ToSuppressionSchedulePtrOutputWithContext(ctx c
 // SuppressionSchedulePtrInput is an input type that accepts SuppressionScheduleArgs, SuppressionSchedulePtr and SuppressionSchedulePtrOutput values.
 // You can construct a concrete instance of `SuppressionSchedulePtrInput` via:
 //
-//	        SuppressionScheduleArgs{...}
+//          SuppressionScheduleArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SuppressionSchedulePtrInput interface {
 	pulumi.Input
 

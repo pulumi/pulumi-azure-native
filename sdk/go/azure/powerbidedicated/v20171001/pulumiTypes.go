@@ -19,7 +19,7 @@ type DedicatedCapacityAdministrators struct {
 // DedicatedCapacityAdministratorsInput is an input type that accepts DedicatedCapacityAdministratorsArgs and DedicatedCapacityAdministratorsOutput values.
 // You can construct a concrete instance of `DedicatedCapacityAdministratorsInput` via:
 //
-//	DedicatedCapacityAdministratorsArgs{...}
+//          DedicatedCapacityAdministratorsArgs{...}
 type DedicatedCapacityAdministratorsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i DedicatedCapacityAdministratorsArgs) ToDedicatedCapacityAdministratorsPt
 // DedicatedCapacityAdministratorsPtrInput is an input type that accepts DedicatedCapacityAdministratorsArgs, DedicatedCapacityAdministratorsPtr and DedicatedCapacityAdministratorsPtrOutput values.
 // You can construct a concrete instance of `DedicatedCapacityAdministratorsPtrInput` via:
 //
-//	        DedicatedCapacityAdministratorsArgs{...}
+//          DedicatedCapacityAdministratorsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DedicatedCapacityAdministratorsPtrInput interface {
 	pulumi.Input
 
@@ -223,7 +223,7 @@ type ResourceSku struct {
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
 // You can construct a concrete instance of `ResourceSkuInput` via:
 //
-//	ResourceSkuArgs{...}
+//          ResourceSkuArgs{...}
 type ResourceSkuInput interface {
 	pulumi.Input
 

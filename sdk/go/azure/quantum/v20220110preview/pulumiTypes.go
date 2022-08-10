@@ -29,7 +29,7 @@ type Provider struct {
 // ProviderInput is an input type that accepts ProviderArgs and ProviderOutput values.
 // You can construct a concrete instance of `ProviderInput` via:
 //
-//	ProviderArgs{...}
+//          ProviderArgs{...}
 type ProviderInput interface {
 	pulumi.Input
 
@@ -68,7 +68,7 @@ func (i ProviderArgs) ToProviderOutputWithContext(ctx context.Context) ProviderO
 // ProviderArrayInput is an input type that accepts ProviderArray and ProviderArrayOutput values.
 // You can construct a concrete instance of `ProviderArrayInput` via:
 //
-//	ProviderArray{ ProviderArgs{...} }
+//          ProviderArray{ ProviderArgs{...} }
 type ProviderArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +245,7 @@ type QuantumWorkspaceIdentity struct {
 // QuantumWorkspaceIdentityInput is an input type that accepts QuantumWorkspaceIdentityArgs and QuantumWorkspaceIdentityOutput values.
 // You can construct a concrete instance of `QuantumWorkspaceIdentityInput` via:
 //
-//	QuantumWorkspaceIdentityArgs{...}
+//          QuantumWorkspaceIdentityArgs{...}
 type QuantumWorkspaceIdentityInput interface {
 	pulumi.Input
 
@@ -282,11 +282,11 @@ func (i QuantumWorkspaceIdentityArgs) ToQuantumWorkspaceIdentityPtrOutputWithCon
 // QuantumWorkspaceIdentityPtrInput is an input type that accepts QuantumWorkspaceIdentityArgs, QuantumWorkspaceIdentityPtr and QuantumWorkspaceIdentityPtrOutput values.
 // You can construct a concrete instance of `QuantumWorkspaceIdentityPtrInput` via:
 //
-//	        QuantumWorkspaceIdentityArgs{...}
+//          QuantumWorkspaceIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type QuantumWorkspaceIdentityPtrInput interface {
 	pulumi.Input
 

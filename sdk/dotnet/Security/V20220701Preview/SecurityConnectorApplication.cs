@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
     public partial class SecurityConnectorApplication : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The application conditionSets - see examples
+        /// </summary>
+        [Output("conditionSets")]
+        public Output<ImmutableArray<ImmutableArray<ImmutableArray<Outputs.ApplicationConditionResponse>>>> ConditionSets { get; private set; } = null!;
+
+        /// <summary>
         /// description of the application
         /// </summary>
         [Output("description")]
@@ -99,6 +105,18 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
+
+        [Input("conditionSets", required: true)]
+        private InputList<ImmutableArray<ImmutableArray<Inputs.ApplicationConditionArgs>>>? _conditionSets;
+
+        /// <summary>
+        /// The application conditionSets - see examples
+        /// </summary>
+        public InputList<ImmutableArray<ImmutableArray<Inputs.ApplicationConditionArgs>>> ConditionSets
+        {
+            get => _conditionSets ?? (_conditionSets = new InputList<ImmutableArray<ImmutableArray<Inputs.ApplicationConditionArgs>>>());
+            set => _conditionSets = value;
+        }
 
         /// <summary>
         /// description of the application

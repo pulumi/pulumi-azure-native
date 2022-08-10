@@ -113,7 +113,7 @@ type PartitionKeyProperty struct {
 // PartitionKeyPropertyInput is an input type that accepts PartitionKeyPropertyArgs and PartitionKeyPropertyOutput values.
 // You can construct a concrete instance of `PartitionKeyPropertyInput` via:
 //
-//	PartitionKeyPropertyArgs{...}
+//          PartitionKeyPropertyArgs{...}
 type PartitionKeyPropertyInput interface {
 	pulumi.Input
 
@@ -144,7 +144,7 @@ func (i PartitionKeyPropertyArgs) ToPartitionKeyPropertyOutputWithContext(ctx co
 // PartitionKeyPropertyArrayInput is an input type that accepts PartitionKeyPropertyArray and PartitionKeyPropertyArrayOutput values.
 // You can construct a concrete instance of `PartitionKeyPropertyArrayInput` via:
 //
-//	PartitionKeyPropertyArray{ PartitionKeyPropertyArgs{...} }
+//          PartitionKeyPropertyArray{ PartitionKeyPropertyArgs{...} }
 type PartitionKeyPropertyArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +275,7 @@ type ReferenceDataSetKeyProperty struct {
 // ReferenceDataSetKeyPropertyInput is an input type that accepts ReferenceDataSetKeyPropertyArgs and ReferenceDataSetKeyPropertyOutput values.
 // You can construct a concrete instance of `ReferenceDataSetKeyPropertyInput` via:
 //
-//	ReferenceDataSetKeyPropertyArgs{...}
+//          ReferenceDataSetKeyPropertyArgs{...}
 type ReferenceDataSetKeyPropertyInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (i ReferenceDataSetKeyPropertyArgs) ToReferenceDataSetKeyPropertyOutputWith
 // ReferenceDataSetKeyPropertyArrayInput is an input type that accepts ReferenceDataSetKeyPropertyArray and ReferenceDataSetKeyPropertyArrayOutput values.
 // You can construct a concrete instance of `ReferenceDataSetKeyPropertyArrayInput` via:
 //
-//	ReferenceDataSetKeyPropertyArray{ ReferenceDataSetKeyPropertyArgs{...} }
+//          ReferenceDataSetKeyPropertyArray{ ReferenceDataSetKeyPropertyArgs{...} }
 type ReferenceDataSetKeyPropertyArrayInput interface {
 	pulumi.Input
 
@@ -437,7 +437,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

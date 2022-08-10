@@ -153,7 +153,7 @@ func (o AccessRightsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // AccessRightsInput is an input type that accepts AccessRightsArgs and AccessRightsOutput values.
 // You can construct a concrete instance of `AccessRightsInput` via:
 //
-//	AccessRightsArgs{...}
+//          AccessRightsArgs{...}
 type AccessRightsInput interface {
 	pulumi.Input
 
@@ -355,7 +355,7 @@ func (o IpFilterActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // IpFilterActionTypeInput is an input type that accepts IpFilterActionTypeArgs and IpFilterActionTypeOutput values.
 // You can construct a concrete instance of `IpFilterActionTypeInput` via:
 //
-//	IpFilterActionTypeArgs{...}
+//          IpFilterActionTypeArgs{...}
 type IpFilterActionTypeInput interface {
 	pulumi.Input
 
@@ -547,7 +547,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//	ResourceIdentityTypeArgs{...}
+//          ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 

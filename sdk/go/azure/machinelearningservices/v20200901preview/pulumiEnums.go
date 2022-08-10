@@ -193,7 +193,7 @@ func (o LinkedServiceLinkTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // LinkedServiceLinkTypeInput is an input type that accepts LinkedServiceLinkTypeArgs and LinkedServiceLinkTypeOutput values.
 // You can construct a concrete instance of `LinkedServiceLinkTypeInput` via:
 //
-//	LinkedServiceLinkTypeArgs{...}
+//          LinkedServiceLinkTypeArgs{...}
 type LinkedServiceLinkTypeInput interface {
 	pulumi.Input
 
@@ -396,7 +396,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//	ResourceIdentityTypeArgs{...}
+//          ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 

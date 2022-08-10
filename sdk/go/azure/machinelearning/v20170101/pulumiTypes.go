@@ -33,7 +33,7 @@ type AssetItem struct {
 // AssetItemInput is an input type that accepts AssetItemArgs and AssetItemOutput values.
 // You can construct a concrete instance of `AssetItemInput` via:
 //
-//	AssetItemArgs{...}
+//          AssetItemArgs{...}
 type AssetItemInput interface {
 	pulumi.Input
 
@@ -76,7 +76,7 @@ func (i AssetItemArgs) ToAssetItemOutputWithContext(ctx context.Context) AssetIt
 // AssetItemMapInput is an input type that accepts AssetItemMap and AssetItemMapOutput values.
 // You can construct a concrete instance of `AssetItemMapInput` via:
 //
-//	AssetItemMap{ "key": AssetItemArgs{...} }
+//          AssetItemMap{ "key": AssetItemArgs{...} }
 type AssetItemMapInput interface {
 	pulumi.Input
 
@@ -279,7 +279,7 @@ type BlobLocation struct {
 // BlobLocationInput is an input type that accepts BlobLocationArgs and BlobLocationOutput values.
 // You can construct a concrete instance of `BlobLocationInput` via:
 //
-//	BlobLocationArgs{...}
+//          BlobLocationArgs{...}
 type BlobLocationInput interface {
 	pulumi.Input
 
@@ -318,11 +318,11 @@ func (i BlobLocationArgs) ToBlobLocationPtrOutputWithContext(ctx context.Context
 // BlobLocationPtrInput is an input type that accepts BlobLocationArgs, BlobLocationPtr and BlobLocationPtrOutput values.
 // You can construct a concrete instance of `BlobLocationPtrInput` via:
 //
-//	        BlobLocationArgs{...}
+//          BlobLocationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BlobLocationPtrInput interface {
 	pulumi.Input
 
@@ -521,7 +521,7 @@ type ColumnSpecification struct {
 // ColumnSpecificationInput is an input type that accepts ColumnSpecificationArgs and ColumnSpecificationOutput values.
 // You can construct a concrete instance of `ColumnSpecificationInput` via:
 //
-//	ColumnSpecificationArgs{...}
+//          ColumnSpecificationArgs{...}
 type ColumnSpecificationInput interface {
 	pulumi.Input
 
@@ -558,7 +558,7 @@ func (i ColumnSpecificationArgs) ToColumnSpecificationOutputWithContext(ctx cont
 // ColumnSpecificationMapInput is an input type that accepts ColumnSpecificationMap and ColumnSpecificationMapOutput values.
 // You can construct a concrete instance of `ColumnSpecificationMapInput` via:
 //
-//	ColumnSpecificationMap{ "key": ColumnSpecificationArgs{...} }
+//          ColumnSpecificationMap{ "key": ColumnSpecificationArgs{...} }
 type ColumnSpecificationMapInput interface {
 	pulumi.Input
 
@@ -723,7 +723,7 @@ type CommitmentPlan struct {
 // CommitmentPlanInput is an input type that accepts CommitmentPlanArgs and CommitmentPlanOutput values.
 // You can construct a concrete instance of `CommitmentPlanInput` via:
 //
-//	CommitmentPlanArgs{...}
+//          CommitmentPlanArgs{...}
 type CommitmentPlanInput interface {
 	pulumi.Input
 
@@ -760,11 +760,11 @@ func (i CommitmentPlanArgs) ToCommitmentPlanPtrOutputWithContext(ctx context.Con
 // CommitmentPlanPtrInput is an input type that accepts CommitmentPlanArgs, CommitmentPlanPtr and CommitmentPlanPtrOutput values.
 // You can construct a concrete instance of `CommitmentPlanPtrInput` via:
 //
-//	        CommitmentPlanArgs{...}
+//          CommitmentPlanArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CommitmentPlanPtrInput interface {
 	pulumi.Input
 
@@ -925,7 +925,7 @@ type DiagnosticsConfiguration struct {
 // DiagnosticsConfigurationInput is an input type that accepts DiagnosticsConfigurationArgs and DiagnosticsConfigurationOutput values.
 // You can construct a concrete instance of `DiagnosticsConfigurationInput` via:
 //
-//	DiagnosticsConfigurationArgs{...}
+//          DiagnosticsConfigurationArgs{...}
 type DiagnosticsConfigurationInput interface {
 	pulumi.Input
 
@@ -964,11 +964,11 @@ func (i DiagnosticsConfigurationArgs) ToDiagnosticsConfigurationPtrOutputWithCon
 // DiagnosticsConfigurationPtrInput is an input type that accepts DiagnosticsConfigurationArgs, DiagnosticsConfigurationPtr and DiagnosticsConfigurationPtrOutput values.
 // You can construct a concrete instance of `DiagnosticsConfigurationPtrInput` via:
 //
-//	        DiagnosticsConfigurationArgs{...}
+//          DiagnosticsConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DiagnosticsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1161,7 +1161,7 @@ type ExampleRequest struct {
 // ExampleRequestInput is an input type that accepts ExampleRequestArgs and ExampleRequestOutput values.
 // You can construct a concrete instance of `ExampleRequestInput` via:
 //
-//	ExampleRequestArgs{...}
+//          ExampleRequestArgs{...}
 type ExampleRequestInput interface {
 	pulumi.Input
 
@@ -1200,11 +1200,11 @@ func (i ExampleRequestArgs) ToExampleRequestPtrOutputWithContext(ctx context.Con
 // ExampleRequestPtrInput is an input type that accepts ExampleRequestArgs, ExampleRequestPtr and ExampleRequestPtrOutput values.
 // You can construct a concrete instance of `ExampleRequestPtrInput` via:
 //
-//	        ExampleRequestArgs{...}
+//          ExampleRequestArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ExampleRequestPtrInput interface {
 	pulumi.Input
 
@@ -1401,7 +1401,7 @@ type GraphEdge struct {
 // GraphEdgeInput is an input type that accepts GraphEdgeArgs and GraphEdgeOutput values.
 // You can construct a concrete instance of `GraphEdgeInput` via:
 //
-//	GraphEdgeArgs{...}
+//          GraphEdgeArgs{...}
 type GraphEdgeInput interface {
 	pulumi.Input
 
@@ -1436,7 +1436,7 @@ func (i GraphEdgeArgs) ToGraphEdgeOutputWithContext(ctx context.Context) GraphEd
 // GraphEdgeArrayInput is an input type that accepts GraphEdgeArray and GraphEdgeArrayOutput values.
 // You can construct a concrete instance of `GraphEdgeArrayInput` via:
 //
-//	GraphEdgeArray{ GraphEdgeArgs{...} }
+//          GraphEdgeArray{ GraphEdgeArgs{...} }
 type GraphEdgeArrayInput interface {
 	pulumi.Input
 
@@ -1595,7 +1595,7 @@ type GraphNode struct {
 // GraphNodeInput is an input type that accepts GraphNodeArgs and GraphNodeOutput values.
 // You can construct a concrete instance of `GraphNodeInput` via:
 //
-//	GraphNodeArgs{...}
+//          GraphNodeArgs{...}
 type GraphNodeInput interface {
 	pulumi.Input
 
@@ -1630,7 +1630,7 @@ func (i GraphNodeArgs) ToGraphNodeOutputWithContext(ctx context.Context) GraphNo
 // GraphNodeMapInput is an input type that accepts GraphNodeMap and GraphNodeMapOutput values.
 // You can construct a concrete instance of `GraphNodeMapInput` via:
 //
-//	GraphNodeMap{ "key": GraphNodeArgs{...} }
+//          GraphNodeMap{ "key": GraphNodeArgs{...} }
 type GraphNodeMapInput interface {
 	pulumi.Input
 
@@ -1787,7 +1787,7 @@ type GraphPackage struct {
 // GraphPackageInput is an input type that accepts GraphPackageArgs and GraphPackageOutput values.
 // You can construct a concrete instance of `GraphPackageInput` via:
 //
-//	GraphPackageArgs{...}
+//          GraphPackageArgs{...}
 type GraphPackageInput interface {
 	pulumi.Input
 
@@ -1828,11 +1828,11 @@ func (i GraphPackageArgs) ToGraphPackagePtrOutputWithContext(ctx context.Context
 // GraphPackagePtrInput is an input type that accepts GraphPackageArgs, GraphPackagePtr and GraphPackagePtrOutput values.
 // You can construct a concrete instance of `GraphPackagePtrInput` via:
 //
-//	        GraphPackageArgs{...}
+//          GraphPackageArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GraphPackagePtrInput interface {
 	pulumi.Input
 
@@ -2059,7 +2059,7 @@ type GraphParameter struct {
 // GraphParameterInput is an input type that accepts GraphParameterArgs and GraphParameterOutput values.
 // You can construct a concrete instance of `GraphParameterInput` via:
 //
-//	GraphParameterArgs{...}
+//          GraphParameterArgs{...}
 type GraphParameterInput interface {
 	pulumi.Input
 
@@ -2092,7 +2092,7 @@ func (i GraphParameterArgs) ToGraphParameterOutputWithContext(ctx context.Contex
 // GraphParameterMapInput is an input type that accepts GraphParameterMap and GraphParameterMapOutput values.
 // You can construct a concrete instance of `GraphParameterMapInput` via:
 //
-//	GraphParameterMap{ "key": GraphParameterArgs{...} }
+//          GraphParameterMap{ "key": GraphParameterArgs{...} }
 type GraphParameterMapInput interface {
 	pulumi.Input
 
@@ -2175,7 +2175,7 @@ type GraphParameterLink struct {
 // GraphParameterLinkInput is an input type that accepts GraphParameterLinkArgs and GraphParameterLinkOutput values.
 // You can construct a concrete instance of `GraphParameterLinkInput` via:
 //
-//	GraphParameterLinkArgs{...}
+//          GraphParameterLinkArgs{...}
 type GraphParameterLinkInput interface {
 	pulumi.Input
 
@@ -2206,7 +2206,7 @@ func (i GraphParameterLinkArgs) ToGraphParameterLinkOutputWithContext(ctx contex
 // GraphParameterLinkArrayInput is an input type that accepts GraphParameterLinkArray and GraphParameterLinkArrayOutput values.
 // You can construct a concrete instance of `GraphParameterLinkArrayInput` via:
 //
-//	GraphParameterLinkArray{ GraphParameterLinkArgs{...} }
+//          GraphParameterLinkArray{ GraphParameterLinkArgs{...} }
 type GraphParameterLinkArrayInput interface {
 	pulumi.Input
 
@@ -2408,7 +2408,7 @@ func (val *InputPort) Defaults() *InputPort {
 // InputPortInput is an input type that accepts InputPortArgs and InputPortOutput values.
 // You can construct a concrete instance of `InputPortInput` via:
 //
-//	InputPortArgs{...}
+//          InputPortArgs{...}
 type InputPortInput interface {
 	pulumi.Input
 
@@ -2448,7 +2448,7 @@ func (i InputPortArgs) ToInputPortOutputWithContext(ctx context.Context) InputPo
 // InputPortMapInput is an input type that accepts InputPortMap and InputPortMapOutput values.
 // You can construct a concrete instance of `InputPortMapInput` via:
 //
-//	InputPortMap{ "key": InputPortArgs{...} }
+//          InputPortMap{ "key": InputPortArgs{...} }
 type InputPortMapInput interface {
 	pulumi.Input
 
@@ -2578,7 +2578,7 @@ type MachineLearningWorkspace struct {
 // MachineLearningWorkspaceInput is an input type that accepts MachineLearningWorkspaceArgs and MachineLearningWorkspaceOutput values.
 // You can construct a concrete instance of `MachineLearningWorkspaceInput` via:
 //
-//	MachineLearningWorkspaceArgs{...}
+//          MachineLearningWorkspaceArgs{...}
 type MachineLearningWorkspaceInput interface {
 	pulumi.Input
 
@@ -2615,11 +2615,11 @@ func (i MachineLearningWorkspaceArgs) ToMachineLearningWorkspacePtrOutputWithCon
 // MachineLearningWorkspacePtrInput is an input type that accepts MachineLearningWorkspaceArgs, MachineLearningWorkspacePtr and MachineLearningWorkspacePtrOutput values.
 // You can construct a concrete instance of `MachineLearningWorkspacePtrInput` via:
 //
-//	        MachineLearningWorkspaceArgs{...}
+//          MachineLearningWorkspaceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MachineLearningWorkspacePtrInput interface {
 	pulumi.Input
 
@@ -2780,7 +2780,7 @@ type ModeValueInfo struct {
 // ModeValueInfoInput is an input type that accepts ModeValueInfoArgs and ModeValueInfoOutput values.
 // You can construct a concrete instance of `ModeValueInfoInput` via:
 //
-//	ModeValueInfoArgs{...}
+//          ModeValueInfoArgs{...}
 type ModeValueInfoInput interface {
 	pulumi.Input
 
@@ -2811,7 +2811,7 @@ func (i ModeValueInfoArgs) ToModeValueInfoOutputWithContext(ctx context.Context)
 // ModeValueInfoMapInput is an input type that accepts ModeValueInfoMap and ModeValueInfoMapOutput values.
 // You can construct a concrete instance of `ModeValueInfoMapInput` via:
 //
-//	ModeValueInfoMap{ "key": ModeValueInfoArgs{...} }
+//          ModeValueInfoMap{ "key": ModeValueInfoArgs{...} }
 type ModeValueInfoMapInput interface {
 	pulumi.Input
 
@@ -2944,7 +2944,7 @@ type ModuleAssetParameter struct {
 // ModuleAssetParameterInput is an input type that accepts ModuleAssetParameterArgs and ModuleAssetParameterOutput values.
 // You can construct a concrete instance of `ModuleAssetParameterInput` via:
 //
-//	ModuleAssetParameterArgs{...}
+//          ModuleAssetParameterArgs{...}
 type ModuleAssetParameterInput interface {
 	pulumi.Input
 
@@ -2977,7 +2977,7 @@ func (i ModuleAssetParameterArgs) ToModuleAssetParameterOutputWithContext(ctx co
 // ModuleAssetParameterArrayInput is an input type that accepts ModuleAssetParameterArray and ModuleAssetParameterArrayOutput values.
 // You can construct a concrete instance of `ModuleAssetParameterArrayInput` via:
 //
-//	ModuleAssetParameterArray{ ModuleAssetParameterArgs{...} }
+//          ModuleAssetParameterArray{ ModuleAssetParameterArgs{...} }
 type ModuleAssetParameterArrayInput interface {
 	pulumi.Input
 
@@ -3131,7 +3131,7 @@ func (val *OutputPort) Defaults() *OutputPort {
 // OutputPortInput is an input type that accepts OutputPortArgs and OutputPortOutput values.
 // You can construct a concrete instance of `OutputPortInput` via:
 //
-//	OutputPortArgs{...}
+//          OutputPortArgs{...}
 type OutputPortInput interface {
 	pulumi.Input
 
@@ -3171,7 +3171,7 @@ func (i OutputPortArgs) ToOutputPortOutputWithContext(ctx context.Context) Outpu
 // OutputPortMapInput is an input type that accepts OutputPortMap and OutputPortMapOutput values.
 // You can construct a concrete instance of `OutputPortMapInput` via:
 //
-//	OutputPortMap{ "key": OutputPortArgs{...} }
+//          OutputPortMap{ "key": OutputPortArgs{...} }
 type OutputPortMapInput interface {
 	pulumi.Input
 
@@ -3301,7 +3301,7 @@ type RealtimeConfiguration struct {
 // RealtimeConfigurationInput is an input type that accepts RealtimeConfigurationArgs and RealtimeConfigurationOutput values.
 // You can construct a concrete instance of `RealtimeConfigurationInput` via:
 //
-//	RealtimeConfigurationArgs{...}
+//          RealtimeConfigurationArgs{...}
 type RealtimeConfigurationInput interface {
 	pulumi.Input
 
@@ -3338,11 +3338,11 @@ func (i RealtimeConfigurationArgs) ToRealtimeConfigurationPtrOutputWithContext(c
 // RealtimeConfigurationPtrInput is an input type that accepts RealtimeConfigurationArgs, RealtimeConfigurationPtr and RealtimeConfigurationPtrOutput values.
 // You can construct a concrete instance of `RealtimeConfigurationPtrInput` via:
 //
-//	        RealtimeConfigurationArgs{...}
+//          RealtimeConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RealtimeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3519,7 +3519,7 @@ func (val *ServiceInputOutputSpecification) Defaults() *ServiceInputOutputSpecif
 // ServiceInputOutputSpecificationInput is an input type that accepts ServiceInputOutputSpecificationArgs and ServiceInputOutputSpecificationOutput values.
 // You can construct a concrete instance of `ServiceInputOutputSpecificationInput` via:
 //
-//	ServiceInputOutputSpecificationArgs{...}
+//          ServiceInputOutputSpecificationArgs{...}
 type ServiceInputOutputSpecificationInput interface {
 	pulumi.Input
 
@@ -3573,11 +3573,11 @@ func (i ServiceInputOutputSpecificationArgs) ToServiceInputOutputSpecificationPt
 // ServiceInputOutputSpecificationPtrInput is an input type that accepts ServiceInputOutputSpecificationArgs, ServiceInputOutputSpecificationPtr and ServiceInputOutputSpecificationPtrOutput values.
 // You can construct a concrete instance of `ServiceInputOutputSpecificationPtrInput` via:
 //
-//	        ServiceInputOutputSpecificationArgs{...}
+//          ServiceInputOutputSpecificationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServiceInputOutputSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -3848,7 +3848,7 @@ type StorageAccount struct {
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
 // You can construct a concrete instance of `StorageAccountInput` via:
 //
-//	StorageAccountArgs{...}
+//          StorageAccountArgs{...}
 type StorageAccountInput interface {
 	pulumi.Input
 
@@ -3887,11 +3887,11 @@ func (i StorageAccountArgs) ToStorageAccountPtrOutputWithContext(ctx context.Con
 // StorageAccountPtrInput is an input type that accepts StorageAccountArgs, StorageAccountPtr and StorageAccountPtrOutput values.
 // You can construct a concrete instance of `StorageAccountPtrInput` via:
 //
-//	        StorageAccountArgs{...}
+//          StorageAccountArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type StorageAccountPtrInput interface {
 	pulumi.Input
 
@@ -4102,7 +4102,7 @@ func (val *TableSpecification) Defaults() *TableSpecification {
 // TableSpecificationInput is an input type that accepts TableSpecificationArgs and TableSpecificationOutput values.
 // You can construct a concrete instance of `TableSpecificationInput` via:
 //
-//	TableSpecificationArgs{...}
+//          TableSpecificationArgs{...}
 type TableSpecificationInput interface {
 	pulumi.Input
 
@@ -4150,7 +4150,7 @@ func (i TableSpecificationArgs) ToTableSpecificationOutputWithContext(ctx contex
 // TableSpecificationMapInput is an input type that accepts TableSpecificationMap and TableSpecificationMapOutput values.
 // You can construct a concrete instance of `TableSpecificationMapInput` via:
 //
-//	TableSpecificationMap{ "key": TableSpecificationArgs{...} }
+//          TableSpecificationMap{ "key": TableSpecificationArgs{...} }
 type TableSpecificationMapInput interface {
 	pulumi.Input
 
@@ -4329,7 +4329,7 @@ type WebServiceKeys struct {
 // WebServiceKeysInput is an input type that accepts WebServiceKeysArgs and WebServiceKeysOutput values.
 // You can construct a concrete instance of `WebServiceKeysInput` via:
 //
-//	WebServiceKeysArgs{...}
+//          WebServiceKeysArgs{...}
 type WebServiceKeysInput interface {
 	pulumi.Input
 
@@ -4368,11 +4368,11 @@ func (i WebServiceKeysArgs) ToWebServiceKeysPtrOutputWithContext(ctx context.Con
 // WebServiceKeysPtrInput is an input type that accepts WebServiceKeysArgs, WebServiceKeysPtr and WebServiceKeysPtrOutput values.
 // You can construct a concrete instance of `WebServiceKeysPtrInput` via:
 //
-//	        WebServiceKeysArgs{...}
+//          WebServiceKeysArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WebServiceKeysPtrInput interface {
 	pulumi.Input
 
@@ -4565,7 +4565,7 @@ type WebServiceParameter struct {
 // WebServiceParameterInput is an input type that accepts WebServiceParameterArgs and WebServiceParameterOutput values.
 // You can construct a concrete instance of `WebServiceParameterInput` via:
 //
-//	WebServiceParameterArgs{...}
+//          WebServiceParameterArgs{...}
 type WebServiceParameterInput interface {
 	pulumi.Input
 
@@ -4596,7 +4596,7 @@ func (i WebServiceParameterArgs) ToWebServiceParameterOutputWithContext(ctx cont
 // WebServiceParameterMapInput is an input type that accepts WebServiceParameterMap and WebServiceParameterMapOutput values.
 // You can construct a concrete instance of `WebServiceParameterMapInput` via:
 //
-//	WebServiceParameterMap{ "key": WebServiceParameterArgs{...} }
+//          WebServiceParameterMap{ "key": WebServiceParameterArgs{...} }
 type WebServiceParameterMapInput interface {
 	pulumi.Input
 
@@ -4775,7 +4775,7 @@ func (val *WebServicePropertiesForGraph) Defaults() *WebServicePropertiesForGrap
 // WebServicePropertiesForGraphInput is an input type that accepts WebServicePropertiesForGraphArgs and WebServicePropertiesForGraphOutput values.
 // You can construct a concrete instance of `WebServicePropertiesForGraphInput` via:
 //
-//	WebServicePropertiesForGraphArgs{...}
+//          WebServicePropertiesForGraphArgs{...}
 type WebServicePropertiesForGraphInput interface {
 	pulumi.Input
 

@@ -19,7 +19,7 @@ type DelegatedSubnetArguments struct {
 // DelegatedSubnetArgumentsInput is an input type that accepts DelegatedSubnetArgumentsArgs and DelegatedSubnetArgumentsOutput values.
 // You can construct a concrete instance of `DelegatedSubnetArgumentsInput` via:
 //
-//	DelegatedSubnetArgumentsArgs{...}
+//          DelegatedSubnetArgumentsArgs{...}
 type DelegatedSubnetArgumentsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i DelegatedSubnetArgumentsArgs) ToDelegatedSubnetArgumentsPtrOutputWithCon
 // DelegatedSubnetArgumentsPtrInput is an input type that accepts DelegatedSubnetArgumentsArgs, DelegatedSubnetArgumentsPtr and DelegatedSubnetArgumentsPtrOutput values.
 // You can construct a concrete instance of `DelegatedSubnetArgumentsPtrInput` via:
 //
-//	        DelegatedSubnetArgumentsArgs{...}
+//          DelegatedSubnetArgumentsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DelegatedSubnetArgumentsPtrInput interface {
 	pulumi.Input
 
@@ -219,7 +219,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//	IdentityArgs{...}
+//          IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -256,11 +256,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//	        IdentityArgs{...}
+//          IdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -459,7 +459,7 @@ type MaintenanceWindow struct {
 // MaintenanceWindowInput is an input type that accepts MaintenanceWindowArgs and MaintenanceWindowOutput values.
 // You can construct a concrete instance of `MaintenanceWindowInput` via:
 //
-//	MaintenanceWindowArgs{...}
+//          MaintenanceWindowArgs{...}
 type MaintenanceWindowInput interface {
 	pulumi.Input
 
@@ -502,11 +502,11 @@ func (i MaintenanceWindowArgs) ToMaintenanceWindowPtrOutputWithContext(ctx conte
 // MaintenanceWindowPtrInput is an input type that accepts MaintenanceWindowArgs, MaintenanceWindowPtr and MaintenanceWindowPtrOutput values.
 // You can construct a concrete instance of `MaintenanceWindowPtrInput` via:
 //
-//	        MaintenanceWindowArgs{...}
+//          MaintenanceWindowArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MaintenanceWindowPtrInput interface {
 	pulumi.Input
 
@@ -763,7 +763,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -802,11 +802,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -1003,7 +1003,7 @@ type StorageProfile struct {
 // StorageProfileInput is an input type that accepts StorageProfileArgs and StorageProfileOutput values.
 // You can construct a concrete instance of `StorageProfileInput` via:
 //
-//	StorageProfileArgs{...}
+//          StorageProfileArgs{...}
 type StorageProfileInput interface {
 	pulumi.Input
 
@@ -1046,11 +1046,11 @@ func (i StorageProfileArgs) ToStorageProfilePtrOutputWithContext(ctx context.Con
 // StorageProfilePtrInput is an input type that accepts StorageProfileArgs, StorageProfilePtr and StorageProfilePtrOutput values.
 // You can construct a concrete instance of `StorageProfilePtrInput` via:
 //
-//	        StorageProfileArgs{...}
+//          StorageProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type StorageProfilePtrInput interface {
 	pulumi.Input
 

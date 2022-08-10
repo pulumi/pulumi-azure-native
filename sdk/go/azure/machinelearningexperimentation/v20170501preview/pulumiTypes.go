@@ -21,7 +21,7 @@ type StorageAccountProperties struct {
 // StorageAccountPropertiesInput is an input type that accepts StorageAccountPropertiesArgs and StorageAccountPropertiesOutput values.
 // You can construct a concrete instance of `StorageAccountPropertiesInput` via:
 //
-//	StorageAccountPropertiesArgs{...}
+//          StorageAccountPropertiesArgs{...}
 type StorageAccountPropertiesInput interface {
 	pulumi.Input
 

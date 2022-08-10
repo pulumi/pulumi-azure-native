@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public sealed class GetSecurityConnectorGovernanceRuleResult
     {
         /// <summary>
+        /// The governance rule conditionSets - see examples
+        /// </summary>
+        public readonly ImmutableArray<ImmutableArray<ImmutableArray<Outputs.ConditionResponse>>> ConditionSets;
+        /// <summary>
         /// description of the governanceRule
         /// </summary>
         public readonly string? Description;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
 
         [OutputConstructor]
         private GetSecurityConnectorGovernanceRuleResult(
+            ImmutableArray<ImmutableArray<ImmutableArray<Outputs.ConditionResponse>>> conditionSets,
+
             string? description,
 
             string displayName,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
 
             string type)
         {
+            ConditionSets = conditionSets;
             Description = description;
             DisplayName = displayName;
             GovernanceEmailNotification = governanceEmailNotification;

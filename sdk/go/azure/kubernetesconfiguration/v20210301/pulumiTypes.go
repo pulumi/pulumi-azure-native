@@ -68,7 +68,7 @@ type HelmOperatorProperties struct {
 // HelmOperatorPropertiesInput is an input type that accepts HelmOperatorPropertiesArgs and HelmOperatorPropertiesOutput values.
 // You can construct a concrete instance of `HelmOperatorPropertiesInput` via:
 //
-//	HelmOperatorPropertiesArgs{...}
+//          HelmOperatorPropertiesArgs{...}
 type HelmOperatorPropertiesInput interface {
 	pulumi.Input
 
@@ -107,11 +107,11 @@ func (i HelmOperatorPropertiesArgs) ToHelmOperatorPropertiesPtrOutputWithContext
 // HelmOperatorPropertiesPtrInput is an input type that accepts HelmOperatorPropertiesArgs, HelmOperatorPropertiesPtr and HelmOperatorPropertiesPtrOutput values.
 // You can construct a concrete instance of `HelmOperatorPropertiesPtrInput` via:
 //
-//	        HelmOperatorPropertiesArgs{...}
+//          HelmOperatorPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type HelmOperatorPropertiesPtrInput interface {
 	pulumi.Input
 

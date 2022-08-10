@@ -19,7 +19,7 @@ type CreatorProperties struct {
 // CreatorPropertiesInput is an input type that accepts CreatorPropertiesArgs and CreatorPropertiesOutput values.
 // You can construct a concrete instance of `CreatorPropertiesInput` via:
 //
-//	CreatorPropertiesArgs{...}
+//          CreatorPropertiesArgs{...}
 type CreatorPropertiesInput interface {
 	pulumi.Input
 
@@ -120,7 +120,7 @@ func (val *MapsAccountProperties) Defaults() *MapsAccountProperties {
 // MapsAccountPropertiesInput is an input type that accepts MapsAccountPropertiesArgs and MapsAccountPropertiesOutput values.
 // You can construct a concrete instance of `MapsAccountPropertiesInput` via:
 //
-//	MapsAccountPropertiesArgs{...}
+//          MapsAccountPropertiesArgs{...}
 type MapsAccountPropertiesInput interface {
 	pulumi.Input
 
@@ -168,11 +168,11 @@ func (i MapsAccountPropertiesArgs) ToMapsAccountPropertiesPtrOutputWithContext(c
 // MapsAccountPropertiesPtrInput is an input type that accepts MapsAccountPropertiesArgs, MapsAccountPropertiesPtr and MapsAccountPropertiesPtrOutput values.
 // You can construct a concrete instance of `MapsAccountPropertiesPtrInput` via:
 //
-//	        MapsAccountPropertiesArgs{...}
+//          MapsAccountPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MapsAccountPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -324,7 +324,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

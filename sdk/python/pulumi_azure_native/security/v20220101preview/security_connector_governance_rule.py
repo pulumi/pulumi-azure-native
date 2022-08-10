@@ -17,6 +17,7 @@ __all__ = ['SecurityConnectorGovernanceRuleArgs', 'SecurityConnectorGovernanceRu
 @pulumi.input_type
 class SecurityConnectorGovernanceRuleArgs:
     def __init__(__self__, *,
+                 condition_sets: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]]]],
                  display_name: pulumi.Input[str],
                  owner_source: pulumi.Input['GovernanceRuleOwnerSourceArgs'],
                  resource_group_name: pulumi.Input[str],
@@ -32,6 +33,7 @@ class SecurityConnectorGovernanceRuleArgs:
                  rule_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityConnectorGovernanceRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]]]] condition_sets: The governance rule conditionSets - see examples
         :param pulumi.Input[str] display_name: display name of the governanceRule
         :param pulumi.Input['GovernanceRuleOwnerSourceArgs'] owner_source: The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -46,6 +48,7 @@ class SecurityConnectorGovernanceRuleArgs:
         :param pulumi.Input[str] remediation_timeframe: Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
         :param pulumi.Input[str] rule_id: The security GovernanceRule key - unique key for the standard GovernanceRule
         """
+        pulumi.set(__self__, "condition_sets", condition_sets)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "owner_source", owner_source)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -65,6 +68,18 @@ class SecurityConnectorGovernanceRuleArgs:
             pulumi.set(__self__, "remediation_timeframe", remediation_timeframe)
         if rule_id is not None:
             pulumi.set(__self__, "rule_id", rule_id)
+
+    @property
+    @pulumi.getter(name="conditionSets")
+    def condition_sets(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]]]]:
+        """
+        The governance rule conditionSets - see examples
+        """
+        return pulumi.get(self, "condition_sets")
+
+    @condition_sets.setter
+    def condition_sets(self, value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]]]]):
+        pulumi.set(self, "condition_sets", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -228,6 +243,7 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 condition_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConditionArgs']]]]]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  governance_email_notification: Optional[pulumi.Input[pulumi.InputType['GovernanceRuleEmailNotificationArgs']]] = None,
@@ -247,6 +263,7 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConditionArgs']]]]]]]] condition_sets: The governance rule conditionSets - see examples
         :param pulumi.Input[str] description: description of the governanceRule
         :param pulumi.Input[str] display_name: display name of the governanceRule
         :param pulumi.Input[pulumi.InputType['GovernanceRuleEmailNotificationArgs']] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
@@ -285,6 +302,7 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 condition_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConditionArgs']]]]]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  governance_email_notification: Optional[pulumi.Input[pulumi.InputType['GovernanceRuleEmailNotificationArgs']]] = None,
@@ -307,6 +325,9 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityConnectorGovernanceRuleArgs.__new__(SecurityConnectorGovernanceRuleArgs)
 
+            if condition_sets is None and not opts.urn:
+                raise TypeError("Missing required property 'condition_sets'")
+            __props__.__dict__["condition_sets"] = condition_sets
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -358,6 +379,7 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
 
         __props__ = SecurityConnectorGovernanceRuleArgs.__new__(SecurityConnectorGovernanceRuleArgs)
 
+        __props__.__dict__["condition_sets"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["governance_email_notification"] = None
@@ -371,6 +393,14 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
         __props__.__dict__["source_resource_type"] = None
         __props__.__dict__["type"] = None
         return SecurityConnectorGovernanceRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="conditionSets")
+    def condition_sets(self) -> pulumi.Output[Sequence[Sequence[Sequence['outputs.ConditionResponse']]]]:
+        """
+        The governance rule conditionSets - see examples
+        """
+        return pulumi.get(self, "condition_sets")
 
     @property
     @pulumi.getter

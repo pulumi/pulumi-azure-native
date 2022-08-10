@@ -3417,7 +3417,7 @@ type FactoryIdentity struct {
 // FactoryIdentityInput is an input type that accepts FactoryIdentityArgs and FactoryIdentityOutput values.
 // You can construct a concrete instance of `FactoryIdentityInput` via:
 //
-//	FactoryIdentityArgs{...}
+//          FactoryIdentityArgs{...}
 type FactoryIdentityInput interface {
 	pulumi.Input
 
@@ -3454,11 +3454,11 @@ func (i FactoryIdentityArgs) ToFactoryIdentityPtrOutputWithContext(ctx context.C
 // FactoryIdentityPtrInput is an input type that accepts FactoryIdentityArgs, FactoryIdentityPtr and FactoryIdentityPtrOutput values.
 // You can construct a concrete instance of `FactoryIdentityPtrInput` via:
 //
-//	        FactoryIdentityArgs{...}
+//          FactoryIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type FactoryIdentityPtrInput interface {
 	pulumi.Input
 
@@ -3663,7 +3663,7 @@ type FactoryVSTSConfiguration struct {
 // FactoryVSTSConfigurationInput is an input type that accepts FactoryVSTSConfigurationArgs and FactoryVSTSConfigurationOutput values.
 // You can construct a concrete instance of `FactoryVSTSConfigurationInput` via:
 //
-//	FactoryVSTSConfigurationArgs{...}
+//          FactoryVSTSConfigurationArgs{...}
 type FactoryVSTSConfigurationInput interface {
 	pulumi.Input
 
@@ -3712,11 +3712,11 @@ func (i FactoryVSTSConfigurationArgs) ToFactoryVSTSConfigurationPtrOutputWithCon
 // FactoryVSTSConfigurationPtrInput is an input type that accepts FactoryVSTSConfigurationArgs, FactoryVSTSConfigurationPtr and FactoryVSTSConfigurationPtrOutput values.
 // You can construct a concrete instance of `FactoryVSTSConfigurationPtrInput` via:
 //
-//	        FactoryVSTSConfigurationArgs{...}
+//          FactoryVSTSConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type FactoryVSTSConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -7474,7 +7474,7 @@ type ParameterSpecification struct {
 // ParameterSpecificationInput is an input type that accepts ParameterSpecificationArgs and ParameterSpecificationOutput values.
 // You can construct a concrete instance of `ParameterSpecificationInput` via:
 //
-//	ParameterSpecificationArgs{...}
+//          ParameterSpecificationArgs{...}
 type ParameterSpecificationInput interface {
 	pulumi.Input
 
@@ -7505,7 +7505,7 @@ func (i ParameterSpecificationArgs) ToParameterSpecificationOutputWithContext(ct
 // ParameterSpecificationMapInput is an input type that accepts ParameterSpecificationMap and ParameterSpecificationMapOutput values.
 // You can construct a concrete instance of `ParameterSpecificationMapInput` via:
 //
-//	ParameterSpecificationMap{ "key": ParameterSpecificationArgs{...} }
+//          ParameterSpecificationMap{ "key": ParameterSpecificationArgs{...} }
 type ParameterSpecificationMapInput interface {
 	pulumi.Input
 

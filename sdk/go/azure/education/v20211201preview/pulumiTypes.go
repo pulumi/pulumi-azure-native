@@ -21,7 +21,7 @@ type Amount struct {
 // AmountInput is an input type that accepts AmountArgs and AmountOutput values.
 // You can construct a concrete instance of `AmountInput` via:
 //
-//	AmountArgs{...}
+//          AmountArgs{...}
 type AmountInput interface {
 	pulumi.Input
 

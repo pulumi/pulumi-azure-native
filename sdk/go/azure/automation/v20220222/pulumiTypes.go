@@ -19,7 +19,7 @@ type RunAsCredentialAssociationProperty struct {
 // RunAsCredentialAssociationPropertyInput is an input type that accepts RunAsCredentialAssociationPropertyArgs and RunAsCredentialAssociationPropertyOutput values.
 // You can construct a concrete instance of `RunAsCredentialAssociationPropertyInput` via:
 //
-//	RunAsCredentialAssociationPropertyArgs{...}
+//          RunAsCredentialAssociationPropertyArgs{...}
 type RunAsCredentialAssociationPropertyInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i RunAsCredentialAssociationPropertyArgs) ToRunAsCredentialAssociationProp
 // RunAsCredentialAssociationPropertyPtrInput is an input type that accepts RunAsCredentialAssociationPropertyArgs, RunAsCredentialAssociationPropertyPtr and RunAsCredentialAssociationPropertyPtrOutput values.
 // You can construct a concrete instance of `RunAsCredentialAssociationPropertyPtrInput` via:
 //
-//	        RunAsCredentialAssociationPropertyArgs{...}
+//          RunAsCredentialAssociationPropertyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RunAsCredentialAssociationPropertyPtrInput interface {
 	pulumi.Input
 

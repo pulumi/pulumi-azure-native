@@ -140,7 +140,7 @@ func (o ApplianceArtifactTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // ApplianceArtifactTypeInput is an input type that accepts ApplianceArtifactTypeArgs and ApplianceArtifactTypeOutput values.
 // You can construct a concrete instance of `ApplianceArtifactTypeInput` via:
 //
-//	ApplianceArtifactTypeArgs{...}
+//          ApplianceArtifactTypeArgs{...}
 type ApplianceArtifactTypeInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o ApplianceLockLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // ApplianceLockLevelInput is an input type that accepts ApplianceLockLevelArgs and ApplianceLockLevelOutput values.
 // You can construct a concrete instance of `ApplianceLockLevelInput` via:
 //
-//	ApplianceLockLevelArgs{...}
+//          ApplianceLockLevelArgs{...}
 type ApplianceLockLevelInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//	ResourceIdentityTypeArgs{...}
+//          ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 

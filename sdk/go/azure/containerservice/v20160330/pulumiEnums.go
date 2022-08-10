@@ -140,7 +140,7 @@ func (o ContainerServiceOchestratorTypesPtrOutput) ToStringPtrOutputWithContext(
 // ContainerServiceOchestratorTypesInput is an input type that accepts ContainerServiceOchestratorTypesArgs and ContainerServiceOchestratorTypesOutput values.
 // You can construct a concrete instance of `ContainerServiceOchestratorTypesInput` via:
 //
-//	ContainerServiceOchestratorTypesArgs{...}
+//          ContainerServiceOchestratorTypesArgs{...}
 type ContainerServiceOchestratorTypesInput interface {
 	pulumi.Input
 

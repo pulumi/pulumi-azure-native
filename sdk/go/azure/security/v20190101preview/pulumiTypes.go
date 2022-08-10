@@ -49,7 +49,7 @@ type AssessmentStatus struct {
 // AssessmentStatusInput is an input type that accepts AssessmentStatusArgs and AssessmentStatusOutput values.
 // You can construct a concrete instance of `AssessmentStatusInput` via:
 //
-//	AssessmentStatusArgs{...}
+//          AssessmentStatusArgs{...}
 type AssessmentStatusInput interface {
 	pulumi.Input
 
@@ -221,7 +221,7 @@ type AutomationRuleSet struct {
 // AutomationRuleSetInput is an input type that accepts AutomationRuleSetArgs and AutomationRuleSetOutput values.
 // You can construct a concrete instance of `AutomationRuleSetInput` via:
 //
-//	AutomationRuleSetArgs{...}
+//          AutomationRuleSetArgs{...}
 type AutomationRuleSetInput interface {
 	pulumi.Input
 
@@ -249,7 +249,7 @@ func (i AutomationRuleSetArgs) ToAutomationRuleSetOutputWithContext(ctx context.
 // AutomationRuleSetArrayInput is an input type that accepts AutomationRuleSetArray and AutomationRuleSetArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleSetArrayInput` via:
 //
-//	AutomationRuleSetArray{ AutomationRuleSetArgs{...} }
+//          AutomationRuleSetArray{ AutomationRuleSetArgs{...} }
 type AutomationRuleSetArrayInput interface {
 	pulumi.Input
 
@@ -365,7 +365,7 @@ type AutomationScope struct {
 // AutomationScopeInput is an input type that accepts AutomationScopeArgs and AutomationScopeOutput values.
 // You can construct a concrete instance of `AutomationScopeInput` via:
 //
-//	AutomationScopeArgs{...}
+//          AutomationScopeArgs{...}
 type AutomationScopeInput interface {
 	pulumi.Input
 
@@ -396,7 +396,7 @@ func (i AutomationScopeArgs) ToAutomationScopeOutputWithContext(ctx context.Cont
 // AutomationScopeArrayInput is an input type that accepts AutomationScopeArray and AutomationScopeArrayOutput values.
 // You can construct a concrete instance of `AutomationScopeArrayInput` via:
 //
-//	AutomationScopeArray{ AutomationScopeArgs{...} }
+//          AutomationScopeArray{ AutomationScopeArgs{...} }
 type AutomationScopeArrayInput interface {
 	pulumi.Input
 
@@ -527,7 +527,7 @@ type AutomationSource struct {
 // AutomationSourceInput is an input type that accepts AutomationSourceArgs and AutomationSourceOutput values.
 // You can construct a concrete instance of `AutomationSourceInput` via:
 //
-//	AutomationSourceArgs{...}
+//          AutomationSourceArgs{...}
 type AutomationSourceInput interface {
 	pulumi.Input
 
@@ -558,7 +558,7 @@ func (i AutomationSourceArgs) ToAutomationSourceOutputWithContext(ctx context.Co
 // AutomationSourceArrayInput is an input type that accepts AutomationSourceArray and AutomationSourceArrayOutput values.
 // You can construct a concrete instance of `AutomationSourceArrayInput` via:
 //
-//	AutomationSourceArray{ AutomationSourceArgs{...} }
+//          AutomationSourceArray{ AutomationSourceArgs{...} }
 type AutomationSourceArrayInput interface {
 	pulumi.Input
 
@@ -693,7 +693,7 @@ type AutomationTriggeringRule struct {
 // AutomationTriggeringRuleInput is an input type that accepts AutomationTriggeringRuleArgs and AutomationTriggeringRuleOutput values.
 // You can construct a concrete instance of `AutomationTriggeringRuleInput` via:
 //
-//	AutomationTriggeringRuleArgs{...}
+//          AutomationTriggeringRuleArgs{...}
 type AutomationTriggeringRuleInput interface {
 	pulumi.Input
 
@@ -728,7 +728,7 @@ func (i AutomationTriggeringRuleArgs) ToAutomationTriggeringRuleOutputWithContex
 // AutomationTriggeringRuleArrayInput is an input type that accepts AutomationTriggeringRuleArray and AutomationTriggeringRuleArrayOutput values.
 // You can construct a concrete instance of `AutomationTriggeringRuleArrayInput` via:
 //
-//	AutomationTriggeringRuleArray{ AutomationTriggeringRuleArgs{...} }
+//          AutomationTriggeringRuleArray{ AutomationTriggeringRuleArgs{...} }
 type AutomationTriggeringRuleArrayInput interface {
 	pulumi.Input
 
@@ -965,7 +965,7 @@ type ScopeElement struct {
 // ScopeElementInput is an input type that accepts ScopeElementArgs and ScopeElementOutput values.
 // You can construct a concrete instance of `ScopeElementInput` via:
 //
-//	ScopeElementArgs{...}
+//          ScopeElementArgs{...}
 type ScopeElementInput interface {
 	pulumi.Input
 
@@ -994,7 +994,7 @@ func (i ScopeElementArgs) ToScopeElementOutputWithContext(ctx context.Context) S
 // ScopeElementArrayInput is an input type that accepts ScopeElementArray and ScopeElementArrayOutput values.
 // You can construct a concrete instance of `ScopeElementArrayInput` via:
 //
-//	ScopeElementArray{ ScopeElementArgs{...} }
+//          ScopeElementArray{ ScopeElementArgs{...} }
 type ScopeElementArrayInput interface {
 	pulumi.Input
 
@@ -1110,7 +1110,7 @@ type SuppressionAlertsScope struct {
 // SuppressionAlertsScopeInput is an input type that accepts SuppressionAlertsScopeArgs and SuppressionAlertsScopeOutput values.
 // You can construct a concrete instance of `SuppressionAlertsScopeInput` via:
 //
-//	SuppressionAlertsScopeArgs{...}
+//          SuppressionAlertsScopeArgs{...}
 type SuppressionAlertsScopeInput interface {
 	pulumi.Input
 
@@ -1146,11 +1146,11 @@ func (i SuppressionAlertsScopeArgs) ToSuppressionAlertsScopePtrOutputWithContext
 // SuppressionAlertsScopePtrInput is an input type that accepts SuppressionAlertsScopeArgs, SuppressionAlertsScopePtr and SuppressionAlertsScopePtrOutput values.
 // You can construct a concrete instance of `SuppressionAlertsScopePtrInput` via:
 //
-//	        SuppressionAlertsScopeArgs{...}
+//          SuppressionAlertsScopeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SuppressionAlertsScopePtrInput interface {
 	pulumi.Input
 

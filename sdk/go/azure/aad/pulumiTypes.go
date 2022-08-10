@@ -128,7 +128,7 @@ func (val *DomainSecuritySettings) Defaults() *DomainSecuritySettings {
 // DomainSecuritySettingsInput is an input type that accepts DomainSecuritySettingsArgs and DomainSecuritySettingsOutput values.
 // You can construct a concrete instance of `DomainSecuritySettingsInput` via:
 //
-//	DomainSecuritySettingsArgs{...}
+//          DomainSecuritySettingsArgs{...}
 type DomainSecuritySettingsInput interface {
 	pulumi.Input
 
@@ -206,11 +206,11 @@ func (i DomainSecuritySettingsArgs) ToDomainSecuritySettingsPtrOutputWithContext
 // DomainSecuritySettingsPtrInput is an input type that accepts DomainSecuritySettingsArgs, DomainSecuritySettingsPtr and DomainSecuritySettingsPtrOutput values.
 // You can construct a concrete instance of `DomainSecuritySettingsPtrInput` via:
 //
-//	        DomainSecuritySettingsArgs{...}
+//          DomainSecuritySettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DomainSecuritySettingsPtrInput interface {
 	pulumi.Input
 
@@ -606,7 +606,7 @@ type ForestTrust struct {
 // ForestTrustInput is an input type that accepts ForestTrustArgs and ForestTrustOutput values.
 // You can construct a concrete instance of `ForestTrustInput` via:
 //
-//	ForestTrustArgs{...}
+//          ForestTrustArgs{...}
 type ForestTrustInput interface {
 	pulumi.Input
 
@@ -643,7 +643,7 @@ func (i ForestTrustArgs) ToForestTrustOutputWithContext(ctx context.Context) For
 // ForestTrustArrayInput is an input type that accepts ForestTrustArray and ForestTrustArrayOutput values.
 // You can construct a concrete instance of `ForestTrustArrayInput` via:
 //
-//	ForestTrustArray{ ForestTrustArgs{...} }
+//          ForestTrustArray{ ForestTrustArgs{...} }
 type ForestTrustArrayInput interface {
 	pulumi.Input
 
@@ -979,7 +979,7 @@ func (val *LdapsSettings) Defaults() *LdapsSettings {
 // LdapsSettingsInput is an input type that accepts LdapsSettingsArgs and LdapsSettingsOutput values.
 // You can construct a concrete instance of `LdapsSettingsInput` via:
 //
-//	LdapsSettingsArgs{...}
+//          LdapsSettingsArgs{...}
 type LdapsSettingsInput interface {
 	pulumi.Input
 
@@ -1036,11 +1036,11 @@ func (i LdapsSettingsArgs) ToLdapsSettingsPtrOutputWithContext(ctx context.Conte
 // LdapsSettingsPtrInput is an input type that accepts LdapsSettingsArgs, LdapsSettingsPtr and LdapsSettingsPtrOutput values.
 // You can construct a concrete instance of `LdapsSettingsPtrInput` via:
 //
-//	        LdapsSettingsArgs{...}
+//          LdapsSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LdapsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1440,7 +1440,7 @@ type NotificationSettings struct {
 // NotificationSettingsInput is an input type that accepts NotificationSettingsArgs and NotificationSettingsOutput values.
 // You can construct a concrete instance of `NotificationSettingsInput` via:
 //
-//	NotificationSettingsArgs{...}
+//          NotificationSettingsArgs{...}
 type NotificationSettingsInput interface {
 	pulumi.Input
 
@@ -1481,11 +1481,11 @@ func (i NotificationSettingsArgs) ToNotificationSettingsPtrOutputWithContext(ctx
 // NotificationSettingsPtrInput is an input type that accepts NotificationSettingsArgs, NotificationSettingsPtr and NotificationSettingsPtrOutput values.
 // You can construct a concrete instance of `NotificationSettingsPtrInput` via:
 //
-//	        NotificationSettingsArgs{...}
+//          NotificationSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NotificationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1710,7 +1710,7 @@ type ReplicaSet struct {
 // ReplicaSetInput is an input type that accepts ReplicaSetArgs and ReplicaSetOutput values.
 // You can construct a concrete instance of `ReplicaSetInput` via:
 //
-//	ReplicaSetArgs{...}
+//          ReplicaSetArgs{...}
 type ReplicaSetInput interface {
 	pulumi.Input
 
@@ -1741,7 +1741,7 @@ func (i ReplicaSetArgs) ToReplicaSetOutputWithContext(ctx context.Context) Repli
 // ReplicaSetArrayInput is an input type that accepts ReplicaSetArray and ReplicaSetArrayOutput values.
 // You can construct a concrete instance of `ReplicaSetArrayInput` via:
 //
-//	ReplicaSetArray{ ReplicaSetArgs{...} }
+//          ReplicaSetArray{ ReplicaSetArgs{...} }
 type ReplicaSetArrayInput interface {
 	pulumi.Input
 
@@ -1928,7 +1928,7 @@ type ResourceForestSettings struct {
 // ResourceForestSettingsInput is an input type that accepts ResourceForestSettingsArgs and ResourceForestSettingsOutput values.
 // You can construct a concrete instance of `ResourceForestSettingsInput` via:
 //
-//	ResourceForestSettingsArgs{...}
+//          ResourceForestSettingsArgs{...}
 type ResourceForestSettingsInput interface {
 	pulumi.Input
 
@@ -1967,11 +1967,11 @@ func (i ResourceForestSettingsArgs) ToResourceForestSettingsPtrOutputWithContext
 // ResourceForestSettingsPtrInput is an input type that accepts ResourceForestSettingsArgs, ResourceForestSettingsPtr and ResourceForestSettingsPtrOutput values.
 // You can construct a concrete instance of `ResourceForestSettingsPtrInput` via:
 //
-//	        ResourceForestSettingsArgs{...}
+//          ResourceForestSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceForestSettingsPtrInput interface {
 	pulumi.Input
 

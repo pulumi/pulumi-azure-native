@@ -29,7 +29,7 @@ type AccessReviewHistoryInstance struct {
 // AccessReviewHistoryInstanceInput is an input type that accepts AccessReviewHistoryInstanceArgs and AccessReviewHistoryInstanceOutput values.
 // You can construct a concrete instance of `AccessReviewHistoryInstanceInput` via:
 //
-//	AccessReviewHistoryInstanceArgs{...}
+//          AccessReviewHistoryInstanceArgs{...}
 type AccessReviewHistoryInstanceInput interface {
 	pulumi.Input
 
@@ -68,7 +68,7 @@ func (i AccessReviewHistoryInstanceArgs) ToAccessReviewHistoryInstanceOutputWith
 // AccessReviewHistoryInstanceArrayInput is an input type that accepts AccessReviewHistoryInstanceArray and AccessReviewHistoryInstanceArrayOutput values.
 // You can construct a concrete instance of `AccessReviewHistoryInstanceArrayInput` via:
 //
-//	AccessReviewHistoryInstanceArray{ AccessReviewHistoryInstanceArgs{...} }
+//          AccessReviewHistoryInstanceArray{ AccessReviewHistoryInstanceArgs{...} }
 type AccessReviewHistoryInstanceArrayInput interface {
 	pulumi.Input
 
@@ -286,7 +286,7 @@ type AccessReviewInstance struct {
 // AccessReviewInstanceInput is an input type that accepts AccessReviewInstanceArgs and AccessReviewInstanceOutput values.
 // You can construct a concrete instance of `AccessReviewInstanceInput` via:
 //
-//	AccessReviewInstanceArgs{...}
+//          AccessReviewInstanceArgs{...}
 type AccessReviewInstanceInput interface {
 	pulumi.Input
 
@@ -321,7 +321,7 @@ func (i AccessReviewInstanceArgs) ToAccessReviewInstanceOutputWithContext(ctx co
 // AccessReviewInstanceArrayInput is an input type that accepts AccessReviewInstanceArray and AccessReviewInstanceArrayOutput values.
 // You can construct a concrete instance of `AccessReviewInstanceArrayInput` via:
 //
-//	AccessReviewInstanceArray{ AccessReviewInstanceArgs{...} }
+//          AccessReviewInstanceArray{ AccessReviewInstanceArgs{...} }
 type AccessReviewInstanceArrayInput interface {
 	pulumi.Input
 
@@ -509,7 +509,7 @@ type AccessReviewReviewer struct {
 // AccessReviewReviewerInput is an input type that accepts AccessReviewReviewerArgs and AccessReviewReviewerOutput values.
 // You can construct a concrete instance of `AccessReviewReviewerInput` via:
 //
-//	AccessReviewReviewerArgs{...}
+//          AccessReviewReviewerArgs{...}
 type AccessReviewReviewerInput interface {
 	pulumi.Input
 
@@ -538,7 +538,7 @@ func (i AccessReviewReviewerArgs) ToAccessReviewReviewerOutputWithContext(ctx co
 // AccessReviewReviewerArrayInput is an input type that accepts AccessReviewReviewerArray and AccessReviewReviewerArrayOutput values.
 // You can construct a concrete instance of `AccessReviewReviewerArrayInput` via:
 //
-//	AccessReviewReviewerArray{ AccessReviewReviewerArgs{...} }
+//          AccessReviewReviewerArray{ AccessReviewReviewerArgs{...} }
 type AccessReviewReviewerArrayInput interface {
 	pulumi.Input
 
@@ -672,7 +672,7 @@ type AccessReviewScope struct {
 // AccessReviewScopeInput is an input type that accepts AccessReviewScopeArgs and AccessReviewScopeOutput values.
 // You can construct a concrete instance of `AccessReviewScopeInput` via:
 //
-//	AccessReviewScopeArgs{...}
+//          AccessReviewScopeArgs{...}
 type AccessReviewScopeInput interface {
 	pulumi.Input
 
@@ -711,7 +711,7 @@ func (i AccessReviewScopeArgs) ToAccessReviewScopeOutputWithContext(ctx context.
 // AccessReviewScopeArrayInput is an input type that accepts AccessReviewScopeArray and AccessReviewScopeArrayOutput values.
 // You can construct a concrete instance of `AccessReviewScopeArrayInput` via:
 //
-//	AccessReviewScopeArray{ AccessReviewScopeArgs{...} }
+//          AccessReviewScopeArray{ AccessReviewScopeArgs{...} }
 type AccessReviewScopeArrayInput interface {
 	pulumi.Input
 
@@ -946,7 +946,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//	IdentityArgs{...}
+//          IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -983,11 +983,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//	        IdentityArgs{...}
+//          IdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -1180,7 +1180,7 @@ type ManagementLockOwner struct {
 // ManagementLockOwnerInput is an input type that accepts ManagementLockOwnerArgs and ManagementLockOwnerOutput values.
 // You can construct a concrete instance of `ManagementLockOwnerInput` via:
 //
-//	ManagementLockOwnerArgs{...}
+//          ManagementLockOwnerArgs{...}
 type ManagementLockOwnerInput interface {
 	pulumi.Input
 
@@ -1209,7 +1209,7 @@ func (i ManagementLockOwnerArgs) ToManagementLockOwnerOutputWithContext(ctx cont
 // ManagementLockOwnerArrayInput is an input type that accepts ManagementLockOwnerArray and ManagementLockOwnerArrayOutput values.
 // You can construct a concrete instance of `ManagementLockOwnerArrayInput` via:
 //
-//	ManagementLockOwnerArray{ ManagementLockOwnerArgs{...} }
+//          ManagementLockOwnerArray{ ManagementLockOwnerArgs{...} }
 type ManagementLockOwnerArrayInput interface {
 	pulumi.Input
 
@@ -1328,7 +1328,7 @@ type NonComplianceMessage struct {
 // NonComplianceMessageInput is an input type that accepts NonComplianceMessageArgs and NonComplianceMessageOutput values.
 // You can construct a concrete instance of `NonComplianceMessageInput` via:
 //
-//	NonComplianceMessageArgs{...}
+//          NonComplianceMessageArgs{...}
 type NonComplianceMessageInput interface {
 	pulumi.Input
 
@@ -1359,7 +1359,7 @@ func (i NonComplianceMessageArgs) ToNonComplianceMessageOutputWithContext(ctx co
 // NonComplianceMessageArrayInput is an input type that accepts NonComplianceMessageArray and NonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `NonComplianceMessageArrayInput` via:
 //
-//	NonComplianceMessageArray{ NonComplianceMessageArgs{...} }
+//          NonComplianceMessageArray{ NonComplianceMessageArgs{...} }
 type NonComplianceMessageArrayInput interface {
 	pulumi.Input
 
@@ -1494,7 +1494,7 @@ type ParameterDefinitionsValue struct {
 // ParameterDefinitionsValueInput is an input type that accepts ParameterDefinitionsValueArgs and ParameterDefinitionsValueOutput values.
 // You can construct a concrete instance of `ParameterDefinitionsValueInput` via:
 //
-//	ParameterDefinitionsValueArgs{...}
+//          ParameterDefinitionsValueArgs{...}
 type ParameterDefinitionsValueInput interface {
 	pulumi.Input
 
@@ -1529,7 +1529,7 @@ func (i ParameterDefinitionsValueArgs) ToParameterDefinitionsValueOutputWithCont
 // ParameterDefinitionsValueMapInput is an input type that accepts ParameterDefinitionsValueMap and ParameterDefinitionsValueMapOutput values.
 // You can construct a concrete instance of `ParameterDefinitionsValueMapInput` via:
 //
-//	ParameterDefinitionsValueMap{ "key": ParameterDefinitionsValueArgs{...} }
+//          ParameterDefinitionsValueMap{ "key": ParameterDefinitionsValueArgs{...} }
 type ParameterDefinitionsValueMapInput interface {
 	pulumi.Input
 
@@ -1621,7 +1621,7 @@ type ParameterDefinitionsValueMetadata struct {
 // ParameterDefinitionsValueMetadataInput is an input type that accepts ParameterDefinitionsValueMetadataArgs and ParameterDefinitionsValueMetadataOutput values.
 // You can construct a concrete instance of `ParameterDefinitionsValueMetadataInput` via:
 //
-//	ParameterDefinitionsValueMetadataArgs{...}
+//          ParameterDefinitionsValueMetadataArgs{...}
 type ParameterDefinitionsValueMetadataInput interface {
 	pulumi.Input
 
@@ -1664,11 +1664,11 @@ func (i ParameterDefinitionsValueMetadataArgs) ToParameterDefinitionsValueMetada
 // ParameterDefinitionsValueMetadataPtrInput is an input type that accepts ParameterDefinitionsValueMetadataArgs, ParameterDefinitionsValueMetadataPtr and ParameterDefinitionsValueMetadataPtrOutput values.
 // You can construct a concrete instance of `ParameterDefinitionsValueMetadataPtrInput` via:
 //
-//	        ParameterDefinitionsValueMetadataArgs{...}
+//          ParameterDefinitionsValueMetadataArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ParameterDefinitionsValueMetadataPtrInput interface {
 	pulumi.Input
 
@@ -1992,7 +1992,7 @@ type ParameterValuesValue struct {
 // ParameterValuesValueInput is an input type that accepts ParameterValuesValueArgs and ParameterValuesValueOutput values.
 // You can construct a concrete instance of `ParameterValuesValueInput` via:
 //
-//	ParameterValuesValueArgs{...}
+//          ParameterValuesValueArgs{...}
 type ParameterValuesValueInput interface {
 	pulumi.Input
 
@@ -2021,7 +2021,7 @@ func (i ParameterValuesValueArgs) ToParameterValuesValueOutputWithContext(ctx co
 // ParameterValuesValueMapInput is an input type that accepts ParameterValuesValueMap and ParameterValuesValueMapOutput values.
 // You can construct a concrete instance of `ParameterValuesValueMapInput` via:
 //
-//	ParameterValuesValueMap{ "key": ParameterValuesValueArgs{...} }
+//          ParameterValuesValueMap{ "key": ParameterValuesValueArgs{...} }
 type ParameterValuesValueMapInput interface {
 	pulumi.Input
 
@@ -2144,7 +2144,7 @@ type Permission struct {
 // PermissionInput is an input type that accepts PermissionArgs and PermissionOutput values.
 // You can construct a concrete instance of `PermissionInput` via:
 //
-//	PermissionArgs{...}
+//          PermissionArgs{...}
 type PermissionInput interface {
 	pulumi.Input
 
@@ -2179,7 +2179,7 @@ func (i PermissionArgs) ToPermissionOutputWithContext(ctx context.Context) Permi
 // PermissionArrayInput is an input type that accepts PermissionArray and PermissionArrayOutput values.
 // You can construct a concrete instance of `PermissionArrayInput` via:
 //
-//	PermissionArray{ PermissionArgs{...} }
+//          PermissionArray{ PermissionArgs{...} }
 type PermissionArrayInput interface {
 	pulumi.Input
 
@@ -2664,7 +2664,7 @@ type PolicyDefinitionGroup struct {
 // PolicyDefinitionGroupInput is an input type that accepts PolicyDefinitionGroupArgs and PolicyDefinitionGroupOutput values.
 // You can construct a concrete instance of `PolicyDefinitionGroupInput` via:
 //
-//	PolicyDefinitionGroupArgs{...}
+//          PolicyDefinitionGroupArgs{...}
 type PolicyDefinitionGroupInput interface {
 	pulumi.Input
 
@@ -2701,7 +2701,7 @@ func (i PolicyDefinitionGroupArgs) ToPolicyDefinitionGroupOutputWithContext(ctx 
 // PolicyDefinitionGroupArrayInput is an input type that accepts PolicyDefinitionGroupArray and PolicyDefinitionGroupArrayOutput values.
 // You can construct a concrete instance of `PolicyDefinitionGroupArrayInput` via:
 //
-//	PolicyDefinitionGroupArray{ PolicyDefinitionGroupArgs{...} }
+//          PolicyDefinitionGroupArray{ PolicyDefinitionGroupArgs{...} }
 type PolicyDefinitionGroupArrayInput interface {
 	pulumi.Input
 
@@ -2872,7 +2872,7 @@ type PolicyDefinitionReference struct {
 // PolicyDefinitionReferenceInput is an input type that accepts PolicyDefinitionReferenceArgs and PolicyDefinitionReferenceOutput values.
 // You can construct a concrete instance of `PolicyDefinitionReferenceInput` via:
 //
-//	PolicyDefinitionReferenceArgs{...}
+//          PolicyDefinitionReferenceArgs{...}
 type PolicyDefinitionReferenceInput interface {
 	pulumi.Input
 
@@ -2907,7 +2907,7 @@ func (i PolicyDefinitionReferenceArgs) ToPolicyDefinitionReferenceOutputWithCont
 // PolicyDefinitionReferenceArrayInput is an input type that accepts PolicyDefinitionReferenceArray and PolicyDefinitionReferenceArrayOutput values.
 // You can construct a concrete instance of `PolicyDefinitionReferenceArrayInput` via:
 //
-//	PolicyDefinitionReferenceArray{ PolicyDefinitionReferenceArgs{...} }
+//          PolicyDefinitionReferenceArray{ PolicyDefinitionReferenceArgs{...} }
 type PolicyDefinitionReferenceArrayInput interface {
 	pulumi.Input
 
@@ -3171,7 +3171,7 @@ type PrivateLinkAssociationProperties struct {
 // PrivateLinkAssociationPropertiesInput is an input type that accepts PrivateLinkAssociationPropertiesArgs and PrivateLinkAssociationPropertiesOutput values.
 // You can construct a concrete instance of `PrivateLinkAssociationPropertiesInput` via:
 //
-//	PrivateLinkAssociationPropertiesArgs{...}
+//          PrivateLinkAssociationPropertiesArgs{...}
 type PrivateLinkAssociationPropertiesInput interface {
 	pulumi.Input
 
@@ -3208,11 +3208,11 @@ func (i PrivateLinkAssociationPropertiesArgs) ToPrivateLinkAssociationProperties
 // PrivateLinkAssociationPropertiesPtrInput is an input type that accepts PrivateLinkAssociationPropertiesArgs, PrivateLinkAssociationPropertiesPtr and PrivateLinkAssociationPropertiesPtrOutput values.
 // You can construct a concrete instance of `PrivateLinkAssociationPropertiesPtrInput` via:
 //
-//	        PrivateLinkAssociationPropertiesArgs{...}
+//          PrivateLinkAssociationPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkAssociationPropertiesPtrInput interface {
 	pulumi.Input
 

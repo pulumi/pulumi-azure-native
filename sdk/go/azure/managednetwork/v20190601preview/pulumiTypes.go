@@ -174,7 +174,7 @@ type ManagedNetworkPeeringPolicyProperties struct {
 // ManagedNetworkPeeringPolicyPropertiesInput is an input type that accepts ManagedNetworkPeeringPolicyPropertiesArgs and ManagedNetworkPeeringPolicyPropertiesOutput values.
 // You can construct a concrete instance of `ManagedNetworkPeeringPolicyPropertiesInput` via:
 //
-//	ManagedNetworkPeeringPolicyPropertiesArgs{...}
+//          ManagedNetworkPeeringPolicyPropertiesArgs{...}
 type ManagedNetworkPeeringPolicyPropertiesInput interface {
 	pulumi.Input
 
@@ -217,11 +217,11 @@ func (i ManagedNetworkPeeringPolicyPropertiesArgs) ToManagedNetworkPeeringPolicy
 // ManagedNetworkPeeringPolicyPropertiesPtrInput is an input type that accepts ManagedNetworkPeeringPolicyPropertiesArgs, ManagedNetworkPeeringPolicyPropertiesPtr and ManagedNetworkPeeringPolicyPropertiesPtrOutput values.
 // You can construct a concrete instance of `ManagedNetworkPeeringPolicyPropertiesPtrInput` via:
 //
-//	        ManagedNetworkPeeringPolicyPropertiesArgs{...}
+//          ManagedNetworkPeeringPolicyPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedNetworkPeeringPolicyPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -586,7 +586,7 @@ type ResourceId struct {
 // ResourceIdInput is an input type that accepts ResourceIdArgs and ResourceIdOutput values.
 // You can construct a concrete instance of `ResourceIdInput` via:
 //
-//	ResourceIdArgs{...}
+//          ResourceIdArgs{...}
 type ResourceIdInput interface {
 	pulumi.Input
 
@@ -623,11 +623,11 @@ func (i ResourceIdArgs) ToResourceIdPtrOutputWithContext(ctx context.Context) Re
 // ResourceIdPtrInput is an input type that accepts ResourceIdArgs, ResourceIdPtr and ResourceIdPtrOutput values.
 // You can construct a concrete instance of `ResourceIdPtrInput` via:
 //
-//	        ResourceIdArgs{...}
+//          ResourceIdArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceIdPtrInput interface {
 	pulumi.Input
 
@@ -656,7 +656,7 @@ func (i *resourceIdPtrType) ToResourceIdPtrOutputWithContext(ctx context.Context
 // ResourceIdArrayInput is an input type that accepts ResourceIdArray and ResourceIdArrayOutput values.
 // You can construct a concrete instance of `ResourceIdArrayInput` via:
 //
-//	ResourceIdArray{ ResourceIdArgs{...} }
+//          ResourceIdArray{ ResourceIdArgs{...} }
 type ResourceIdArrayInput interface {
 	pulumi.Input
 
@@ -857,7 +857,7 @@ type Scope struct {
 // ScopeInput is an input type that accepts ScopeArgs and ScopeOutput values.
 // You can construct a concrete instance of `ScopeInput` via:
 //
-//	ScopeArgs{...}
+//          ScopeArgs{...}
 type ScopeInput interface {
 	pulumi.Input
 
@@ -900,11 +900,11 @@ func (i ScopeArgs) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutp
 // ScopePtrInput is an input type that accepts ScopeArgs, ScopePtr and ScopePtrOutput values.
 // You can construct a concrete instance of `ScopePtrInput` via:
 //
-//	        ScopeArgs{...}
+//          ScopeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ScopePtrInput interface {
 	pulumi.Input
 

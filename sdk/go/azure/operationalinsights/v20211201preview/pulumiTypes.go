@@ -27,7 +27,7 @@ type Column struct {
 // ColumnInput is an input type that accepts ColumnArgs and ColumnOutput values.
 // You can construct a concrete instance of `ColumnInput` via:
 //
-//	ColumnArgs{...}
+//          ColumnArgs{...}
 type ColumnInput interface {
 	pulumi.Input
 
@@ -64,7 +64,7 @@ func (i ColumnArgs) ToColumnOutputWithContext(ctx context.Context) ColumnOutput 
 // ColumnArrayInput is an input type that accepts ColumnArray and ColumnArrayOutput values.
 // You can construct a concrete instance of `ColumnArrayInput` via:
 //
-//	ColumnArray{ ColumnArgs{...} }
+//          ColumnArray{ ColumnArgs{...} }
 type ColumnArrayInput interface {
 	pulumi.Input
 
@@ -300,7 +300,7 @@ type RestoredLogs struct {
 // RestoredLogsInput is an input type that accepts RestoredLogsArgs and RestoredLogsOutput values.
 // You can construct a concrete instance of `RestoredLogsInput` via:
 //
-//	RestoredLogsArgs{...}
+//          RestoredLogsArgs{...}
 type RestoredLogsInput interface {
 	pulumi.Input
 
@@ -341,11 +341,11 @@ func (i RestoredLogsArgs) ToRestoredLogsPtrOutputWithContext(ctx context.Context
 // RestoredLogsPtrInput is an input type that accepts RestoredLogsArgs, RestoredLogsPtr and RestoredLogsPtrOutput values.
 // You can construct a concrete instance of `RestoredLogsPtrInput` via:
 //
-//	        RestoredLogsArgs{...}
+//          RestoredLogsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RestoredLogsPtrInput interface {
 	pulumi.Input
 
@@ -651,7 +651,7 @@ type Schema struct {
 // SchemaInput is an input type that accepts SchemaArgs and SchemaOutput values.
 // You can construct a concrete instance of `SchemaInput` via:
 //
-//	SchemaArgs{...}
+//          SchemaArgs{...}
 type SchemaInput interface {
 	pulumi.Input
 
@@ -694,11 +694,11 @@ func (i SchemaArgs) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrO
 // SchemaPtrInput is an input type that accepts SchemaArgs, SchemaPtr and SchemaPtrOutput values.
 // You can construct a concrete instance of `SchemaPtrInput` via:
 //
-//	        SchemaArgs{...}
+//          SchemaArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SchemaPtrInput interface {
 	pulumi.Input
 
@@ -1114,7 +1114,7 @@ type SearchResults struct {
 // SearchResultsInput is an input type that accepts SearchResultsArgs and SearchResultsOutput values.
 // You can construct a concrete instance of `SearchResultsInput` via:
 //
-//	SearchResultsArgs{...}
+//          SearchResultsArgs{...}
 type SearchResultsInput interface {
 	pulumi.Input
 
@@ -1159,11 +1159,11 @@ func (i SearchResultsArgs) ToSearchResultsPtrOutputWithContext(ctx context.Conte
 // SearchResultsPtrInput is an input type that accepts SearchResultsArgs, SearchResultsPtr and SearchResultsPtrOutput values.
 // You can construct a concrete instance of `SearchResultsPtrInput` via:
 //
-//	        SearchResultsArgs{...}
+//          SearchResultsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SearchResultsPtrInput interface {
 	pulumi.Input
 
@@ -1528,7 +1528,7 @@ type WorkspaceCapping struct {
 // WorkspaceCappingInput is an input type that accepts WorkspaceCappingArgs and WorkspaceCappingOutput values.
 // You can construct a concrete instance of `WorkspaceCappingInput` via:
 //
-//	WorkspaceCappingArgs{...}
+//          WorkspaceCappingArgs{...}
 type WorkspaceCappingInput interface {
 	pulumi.Input
 
@@ -1565,11 +1565,11 @@ func (i WorkspaceCappingArgs) ToWorkspaceCappingPtrOutputWithContext(ctx context
 // WorkspaceCappingPtrInput is an input type that accepts WorkspaceCappingArgs, WorkspaceCappingPtr and WorkspaceCappingPtrOutput values.
 // You can construct a concrete instance of `WorkspaceCappingPtrInput` via:
 //
-//	        WorkspaceCappingArgs{...}
+//          WorkspaceCappingArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WorkspaceCappingPtrInput interface {
 	pulumi.Input
 
@@ -1770,7 +1770,7 @@ type WorkspaceFeatures struct {
 // WorkspaceFeaturesInput is an input type that accepts WorkspaceFeaturesArgs and WorkspaceFeaturesOutput values.
 // You can construct a concrete instance of `WorkspaceFeaturesInput` via:
 //
-//	WorkspaceFeaturesArgs{...}
+//          WorkspaceFeaturesArgs{...}
 type WorkspaceFeaturesInput interface {
 	pulumi.Input
 
@@ -1815,11 +1815,11 @@ func (i WorkspaceFeaturesArgs) ToWorkspaceFeaturesPtrOutputWithContext(ctx conte
 // WorkspaceFeaturesPtrInput is an input type that accepts WorkspaceFeaturesArgs, WorkspaceFeaturesPtr and WorkspaceFeaturesPtrOutput values.
 // You can construct a concrete instance of `WorkspaceFeaturesPtrInput` via:
 //
-//	        WorkspaceFeaturesArgs{...}
+//          WorkspaceFeaturesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WorkspaceFeaturesPtrInput interface {
 	pulumi.Input
 
@@ -2108,7 +2108,7 @@ type WorkspaceSku struct {
 // WorkspaceSkuInput is an input type that accepts WorkspaceSkuArgs and WorkspaceSkuOutput values.
 // You can construct a concrete instance of `WorkspaceSkuInput` via:
 //
-//	WorkspaceSkuArgs{...}
+//          WorkspaceSkuArgs{...}
 type WorkspaceSkuInput interface {
 	pulumi.Input
 
@@ -2147,11 +2147,11 @@ func (i WorkspaceSkuArgs) ToWorkspaceSkuPtrOutputWithContext(ctx context.Context
 // WorkspaceSkuPtrInput is an input type that accepts WorkspaceSkuArgs, WorkspaceSkuPtr and WorkspaceSkuPtrOutput values.
 // You can construct a concrete instance of `WorkspaceSkuPtrInput` via:
 //
-//	        WorkspaceSkuArgs{...}
+//          WorkspaceSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WorkspaceSkuPtrInput interface {
 	pulumi.Input
 

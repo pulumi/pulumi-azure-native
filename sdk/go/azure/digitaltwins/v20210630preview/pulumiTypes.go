@@ -36,7 +36,7 @@ type AzureDataExplorerConnectionProperties struct {
 // AzureDataExplorerConnectionPropertiesInput is an input type that accepts AzureDataExplorerConnectionPropertiesArgs and AzureDataExplorerConnectionPropertiesOutput values.
 // You can construct a concrete instance of `AzureDataExplorerConnectionPropertiesInput` via:
 //
-//	AzureDataExplorerConnectionPropertiesArgs{...}
+//          AzureDataExplorerConnectionPropertiesArgs{...}
 type AzureDataExplorerConnectionPropertiesInput interface {
 	pulumi.Input
 
@@ -90,11 +90,11 @@ func (i AzureDataExplorerConnectionPropertiesArgs) ToAzureDataExplorerConnection
 // AzureDataExplorerConnectionPropertiesPtrInput is an input type that accepts AzureDataExplorerConnectionPropertiesArgs, AzureDataExplorerConnectionPropertiesPtr and AzureDataExplorerConnectionPropertiesPtrOutput values.
 // You can construct a concrete instance of `AzureDataExplorerConnectionPropertiesPtrInput` via:
 //
-//	        AzureDataExplorerConnectionPropertiesArgs{...}
+//          AzureDataExplorerConnectionPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AzureDataExplorerConnectionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -408,7 +408,7 @@ type ConnectionProperties struct {
 // ConnectionPropertiesInput is an input type that accepts ConnectionPropertiesArgs and ConnectionPropertiesOutput values.
 // You can construct a concrete instance of `ConnectionPropertiesInput` via:
 //
-//	ConnectionPropertiesArgs{...}
+//          ConnectionPropertiesArgs{...}
 type ConnectionPropertiesInput interface {
 	pulumi.Input
 
@@ -476,7 +476,7 @@ type ConnectionPropertiesPrivateLinkServiceConnectionState struct {
 // ConnectionPropertiesPrivateLinkServiceConnectionStateInput is an input type that accepts ConnectionPropertiesPrivateLinkServiceConnectionStateArgs and ConnectionPropertiesPrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `ConnectionPropertiesPrivateLinkServiceConnectionStateInput` via:
 //
-//	ConnectionPropertiesPrivateLinkServiceConnectionStateArgs{...}
+//          ConnectionPropertiesPrivateLinkServiceConnectionStateArgs{...}
 type ConnectionPropertiesPrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -517,11 +517,11 @@ func (i ConnectionPropertiesPrivateLinkServiceConnectionStateArgs) ToConnectionP
 // ConnectionPropertiesPrivateLinkServiceConnectionStatePtrInput is an input type that accepts ConnectionPropertiesPrivateLinkServiceConnectionStateArgs, ConnectionPropertiesPrivateLinkServiceConnectionStatePtr and ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput values.
 // You can construct a concrete instance of `ConnectionPropertiesPrivateLinkServiceConnectionStatePtrInput` via:
 //
-//	        ConnectionPropertiesPrivateLinkServiceConnectionStateArgs{...}
+//          ConnectionPropertiesPrivateLinkServiceConnectionStateArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ConnectionPropertiesPrivateLinkServiceConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -795,7 +795,7 @@ type DigitalTwinsIdentity struct {
 // DigitalTwinsIdentityInput is an input type that accepts DigitalTwinsIdentityArgs and DigitalTwinsIdentityOutput values.
 // You can construct a concrete instance of `DigitalTwinsIdentityInput` via:
 //
-//	DigitalTwinsIdentityArgs{...}
+//          DigitalTwinsIdentityArgs{...}
 type DigitalTwinsIdentityInput interface {
 	pulumi.Input
 
@@ -832,11 +832,11 @@ func (i DigitalTwinsIdentityArgs) ToDigitalTwinsIdentityPtrOutputWithContext(ctx
 // DigitalTwinsIdentityPtrInput is an input type that accepts DigitalTwinsIdentityArgs, DigitalTwinsIdentityPtr and DigitalTwinsIdentityPtrOutput values.
 // You can construct a concrete instance of `DigitalTwinsIdentityPtrInput` via:
 //
-//	        DigitalTwinsIdentityArgs{...}
+//          DigitalTwinsIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DigitalTwinsIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1117,7 +1117,7 @@ type PrivateEndpointConnectionType struct {
 // PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
 //
-//	PrivateEndpointConnectionTypeArgs{...}
+//          PrivateEndpointConnectionTypeArgs{...}
 type PrivateEndpointConnectionTypeInput interface {
 	pulumi.Input
 
@@ -1146,7 +1146,7 @@ func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput
 // PrivateEndpointConnectionTypeArrayInput is an input type that accepts PrivateEndpointConnectionTypeArray and PrivateEndpointConnectionTypeArrayOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionTypeArrayInput` via:
 //
-//	PrivateEndpointConnectionTypeArray{ PrivateEndpointConnectionTypeArgs{...} }
+//          PrivateEndpointConnectionTypeArray{ PrivateEndpointConnectionTypeArgs{...} }
 type PrivateEndpointConnectionTypeArrayInput interface {
 	pulumi.Input
 

@@ -140,7 +140,7 @@ func (o AccessPolicyRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // AccessPolicyRoleInput is an input type that accepts AccessPolicyRoleArgs and AccessPolicyRoleOutput values.
 // You can construct a concrete instance of `AccessPolicyRoleInput` via:
 //
-//	AccessPolicyRoleArgs{...}
+//          AccessPolicyRoleArgs{...}
 type AccessPolicyRoleInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (in *accessPolicyRolePtr) ToAccessPolicyRolePtrOutputWithContext(ctx contex
 // AccessPolicyRoleArrayInput is an input type that accepts AccessPolicyRoleArray and AccessPolicyRoleArrayOutput values.
 // You can construct a concrete instance of `AccessPolicyRoleArrayInput` via:
 //
-//	AccessPolicyRoleArray{ AccessPolicyRoleArgs{...} }
+//          AccessPolicyRoleArray{ AccessPolicyRoleArgs{...} }
 type AccessPolicyRoleArrayInput interface {
 	pulumi.Input
 
@@ -350,7 +350,7 @@ func (o DataStringComparisonBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx 
 // DataStringComparisonBehaviorInput is an input type that accepts DataStringComparisonBehaviorArgs and DataStringComparisonBehaviorOutput values.
 // You can construct a concrete instance of `DataStringComparisonBehaviorInput` via:
 //
-//	DataStringComparisonBehaviorArgs{...}
+//          DataStringComparisonBehaviorArgs{...}
 type DataStringComparisonBehaviorInput interface {
 	pulumi.Input
 
@@ -515,7 +515,7 @@ func (o KindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 // KindInput is an input type that accepts KindArgs and KindOutput values.
 // You can construct a concrete instance of `KindInput` via:
 //
-//	KindArgs{...}
+//          KindArgs{...}
 type KindInput interface {
 	pulumi.Input
 
@@ -689,7 +689,7 @@ func (o ReferenceDataKeyPropertyTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 // ReferenceDataKeyPropertyTypeInput is an input type that accepts ReferenceDataKeyPropertyTypeArgs and ReferenceDataKeyPropertyTypeOutput values.
 // You can construct a concrete instance of `ReferenceDataKeyPropertyTypeInput` via:
 //
-//	ReferenceDataKeyPropertyTypeArgs{...}
+//          ReferenceDataKeyPropertyTypeArgs{...}
 type ReferenceDataKeyPropertyTypeInput interface {
 	pulumi.Input
 
@@ -854,7 +854,7 @@ func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
 // You can construct a concrete instance of `SkuNameInput` via:
 //
-//	SkuNameArgs{...}
+//          SkuNameArgs{...}
 type SkuNameInput interface {
 	pulumi.Input
 
@@ -1019,7 +1019,7 @@ func (o StorageLimitExceededBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx 
 // StorageLimitExceededBehaviorInput is an input type that accepts StorageLimitExceededBehaviorArgs and StorageLimitExceededBehaviorOutput values.
 // You can construct a concrete instance of `StorageLimitExceededBehaviorInput` via:
 //
-//	StorageLimitExceededBehaviorArgs{...}
+//          StorageLimitExceededBehaviorArgs{...}
 type StorageLimitExceededBehaviorInput interface {
 	pulumi.Input
 

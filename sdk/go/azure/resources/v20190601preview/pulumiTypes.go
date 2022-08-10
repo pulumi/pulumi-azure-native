@@ -85,7 +85,7 @@ type TemplateSpecTemplateArtifact struct {
 // TemplateSpecTemplateArtifactInput is an input type that accepts TemplateSpecTemplateArtifactArgs and TemplateSpecTemplateArtifactOutput values.
 // You can construct a concrete instance of `TemplateSpecTemplateArtifactInput` via:
 //
-//	TemplateSpecTemplateArtifactArgs{...}
+//          TemplateSpecTemplateArtifactArgs{...}
 type TemplateSpecTemplateArtifactInput interface {
 	pulumi.Input
 
@@ -119,7 +119,7 @@ func (i TemplateSpecTemplateArtifactArgs) ToTemplateSpecTemplateArtifactOutputWi
 // TemplateSpecTemplateArtifactArrayInput is an input type that accepts TemplateSpecTemplateArtifactArray and TemplateSpecTemplateArtifactArrayOutput values.
 // You can construct a concrete instance of `TemplateSpecTemplateArtifactArrayInput` via:
 //
-//	TemplateSpecTemplateArtifactArray{ TemplateSpecTemplateArtifactArgs{...} }
+//          TemplateSpecTemplateArtifactArray{ TemplateSpecTemplateArtifactArgs{...} }
 type TemplateSpecTemplateArtifactArrayInput interface {
 	pulumi.Input
 

@@ -106,7 +106,7 @@ type EncryptionProperty struct {
 // EncryptionPropertyInput is an input type that accepts EncryptionPropertyArgs and EncryptionPropertyOutput values.
 // You can construct a concrete instance of `EncryptionPropertyInput` via:
 //
-//	EncryptionPropertyArgs{...}
+//          EncryptionPropertyArgs{...}
 type EncryptionPropertyInput interface {
 	pulumi.Input
 
@@ -144,11 +144,11 @@ func (i EncryptionPropertyArgs) ToEncryptionPropertyPtrOutputWithContext(ctx con
 // EncryptionPropertyPtrInput is an input type that accepts EncryptionPropertyArgs, EncryptionPropertyPtr and EncryptionPropertyPtrOutput values.
 // You can construct a concrete instance of `EncryptionPropertyPtrInput` via:
 //
-//	        EncryptionPropertyArgs{...}
+//          EncryptionPropertyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EncryptionPropertyPtrInput interface {
 	pulumi.Input
 
@@ -820,7 +820,7 @@ type ExportPipelineTargetProperties struct {
 // ExportPipelineTargetPropertiesInput is an input type that accepts ExportPipelineTargetPropertiesArgs and ExportPipelineTargetPropertiesOutput values.
 // You can construct a concrete instance of `ExportPipelineTargetPropertiesInput` via:
 //
-//	ExportPipelineTargetPropertiesArgs{...}
+//          ExportPipelineTargetPropertiesArgs{...}
 type ExportPipelineTargetPropertiesInput interface {
 	pulumi.Input
 
@@ -1006,7 +1006,7 @@ func (val *ExportPolicy) Defaults() *ExportPolicy {
 // ExportPolicyInput is an input type that accepts ExportPolicyArgs and ExportPolicyOutput values.
 // You can construct a concrete instance of `ExportPolicyInput` via:
 //
-//	ExportPolicyArgs{...}
+//          ExportPolicyArgs{...}
 type ExportPolicyInput interface {
 	pulumi.Input
 
@@ -1054,11 +1054,11 @@ func (i ExportPolicyArgs) ToExportPolicyPtrOutputWithContext(ctx context.Context
 // ExportPolicyPtrInput is an input type that accepts ExportPolicyArgs, ExportPolicyPtr and ExportPolicyPtrOutput values.
 // You can construct a concrete instance of `ExportPolicyPtrInput` via:
 //
-//	        ExportPolicyArgs{...}
+//          ExportPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ExportPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1245,7 +1245,7 @@ func (val *IPRule) Defaults() *IPRule {
 // IPRuleInput is an input type that accepts IPRuleArgs and IPRuleOutput values.
 // You can construct a concrete instance of `IPRuleInput` via:
 //
-//	IPRuleArgs{...}
+//          IPRuleArgs{...}
 type IPRuleInput interface {
 	pulumi.Input
 
@@ -1287,7 +1287,7 @@ func (i IPRuleArgs) ToIPRuleOutputWithContext(ctx context.Context) IPRuleOutput 
 // IPRuleArrayInput is an input type that accepts IPRuleArray and IPRuleArrayOutput values.
 // You can construct a concrete instance of `IPRuleArrayInput` via:
 //
-//	IPRuleArray{ IPRuleArgs{...} }
+//          IPRuleArray{ IPRuleArgs{...} }
 type IPRuleArrayInput interface {
 	pulumi.Input
 
@@ -1438,7 +1438,7 @@ type IdentityProperties struct {
 // IdentityPropertiesInput is an input type that accepts IdentityPropertiesArgs and IdentityPropertiesOutput values.
 // You can construct a concrete instance of `IdentityPropertiesInput` via:
 //
-//	IdentityPropertiesArgs{...}
+//          IdentityPropertiesArgs{...}
 type IdentityPropertiesInput interface {
 	pulumi.Input
 
@@ -1484,11 +1484,11 @@ func (i IdentityPropertiesArgs) ToIdentityPropertiesPtrOutputWithContext(ctx con
 // IdentityPropertiesPtrInput is an input type that accepts IdentityPropertiesArgs, IdentityPropertiesPtr and IdentityPropertiesPtrOutput values.
 // You can construct a concrete instance of `IdentityPropertiesPtrInput` via:
 //
-//	        IdentityPropertiesArgs{...}
+//          IdentityPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IdentityPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1557,8 +1557,7 @@ func (o IdentityPropertiesOutput) Type() ResourceIdentityTypePtrOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//
-//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
 	return o.ApplyT(func(v IdentityProperties) map[string]UserIdentityProperties { return v.UserAssignedIdentities }).(UserIdentityPropertiesMapOutput)
 }
@@ -1620,8 +1619,7 @@ func (o IdentityPropertiesPtrOutput) Type() ResourceIdentityTypePtrOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//
-//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesPtrOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
 	return o.ApplyT(func(v *IdentityProperties) map[string]UserIdentityProperties {
 		if v == nil {
@@ -1679,8 +1677,7 @@ func (o IdentityPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//
-//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesResponseOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) map[string]UserIdentityPropertiesResponse {
 		return v.UserAssignedIdentities
@@ -1744,8 +1741,7 @@ func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//
-//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesResponsePtrOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) map[string]UserIdentityPropertiesResponse {
 		if v == nil {
@@ -1783,7 +1779,7 @@ func (val *ImportPipelineSourceProperties) Defaults() *ImportPipelineSourcePrope
 // ImportPipelineSourcePropertiesInput is an input type that accepts ImportPipelineSourcePropertiesArgs and ImportPipelineSourcePropertiesOutput values.
 // You can construct a concrete instance of `ImportPipelineSourcePropertiesInput` via:
 //
-//	ImportPipelineSourcePropertiesArgs{...}
+//          ImportPipelineSourcePropertiesArgs{...}
 type ImportPipelineSourcePropertiesInput interface {
 	pulumi.Input
 
@@ -1981,7 +1977,7 @@ type KeyVaultProperties struct {
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesInput` via:
 //
-//	KeyVaultPropertiesArgs{...}
+//          KeyVaultPropertiesArgs{...}
 type KeyVaultPropertiesInput interface {
 	pulumi.Input
 
@@ -2019,11 +2015,11 @@ func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx con
 // KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
 //
-//	        KeyVaultPropertiesArgs{...}
+//          KeyVaultPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyVaultPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2281,7 +2277,7 @@ func (val *LoggingProperties) Defaults() *LoggingProperties {
 // LoggingPropertiesInput is an input type that accepts LoggingPropertiesArgs and LoggingPropertiesOutput values.
 // You can construct a concrete instance of `LoggingPropertiesInput` via:
 //
-//	LoggingPropertiesArgs{...}
+//          LoggingPropertiesArgs{...}
 type LoggingPropertiesInput interface {
 	pulumi.Input
 
@@ -2334,11 +2330,11 @@ func (i LoggingPropertiesArgs) ToLoggingPropertiesPtrOutputWithContext(ctx conte
 // LoggingPropertiesPtrInput is an input type that accepts LoggingPropertiesArgs, LoggingPropertiesPtr and LoggingPropertiesPtrOutput values.
 // You can construct a concrete instance of `LoggingPropertiesPtrInput` via:
 //
-//	        LoggingPropertiesArgs{...}
+//          LoggingPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LoggingPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2639,7 +2635,7 @@ func (val *NetworkRuleSet) Defaults() *NetworkRuleSet {
 // NetworkRuleSetInput is an input type that accepts NetworkRuleSetArgs and NetworkRuleSetOutput values.
 // You can construct a concrete instance of `NetworkRuleSetInput` via:
 //
-//	NetworkRuleSetArgs{...}
+//          NetworkRuleSetArgs{...}
 type NetworkRuleSetInput interface {
 	pulumi.Input
 
@@ -2691,11 +2687,11 @@ func (i NetworkRuleSetArgs) ToNetworkRuleSetPtrOutputWithContext(ctx context.Con
 // NetworkRuleSetPtrInput is an input type that accepts NetworkRuleSetArgs, NetworkRuleSetPtr and NetworkRuleSetPtrOutput values.
 // You can construct a concrete instance of `NetworkRuleSetPtrInput` via:
 //
-//	        NetworkRuleSetArgs{...}
+//          NetworkRuleSetArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NetworkRuleSetPtrInput interface {
 	pulumi.Input
 
@@ -2932,7 +2928,7 @@ type ParentProperties struct {
 // ParentPropertiesInput is an input type that accepts ParentPropertiesArgs and ParentPropertiesOutput values.
 // You can construct a concrete instance of `ParentPropertiesInput` via:
 //
-//	ParentPropertiesArgs{...}
+//          ParentPropertiesArgs{...}
 type ParentPropertiesInput interface {
 	pulumi.Input
 
@@ -3051,7 +3047,7 @@ func (val *PipelineRunRequest) Defaults() *PipelineRunRequest {
 // PipelineRunRequestInput is an input type that accepts PipelineRunRequestArgs and PipelineRunRequestOutput values.
 // You can construct a concrete instance of `PipelineRunRequestInput` via:
 //
-//	PipelineRunRequestArgs{...}
+//          PipelineRunRequestArgs{...}
 type PipelineRunRequestInput interface {
 	pulumi.Input
 
@@ -3108,11 +3104,11 @@ func (i PipelineRunRequestArgs) ToPipelineRunRequestPtrOutputWithContext(ctx con
 // PipelineRunRequestPtrInput is an input type that accepts PipelineRunRequestArgs, PipelineRunRequestPtr and PipelineRunRequestPtrOutput values.
 // You can construct a concrete instance of `PipelineRunRequestPtrInput` via:
 //
-//	        PipelineRunRequestArgs{...}
+//          PipelineRunRequestArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PipelineRunRequestPtrInput interface {
 	pulumi.Input
 
@@ -3541,7 +3537,7 @@ func (val *PipelineRunSourceProperties) Defaults() *PipelineRunSourceProperties 
 // PipelineRunSourcePropertiesInput is an input type that accepts PipelineRunSourcePropertiesArgs and PipelineRunSourcePropertiesOutput values.
 // You can construct a concrete instance of `PipelineRunSourcePropertiesInput` via:
 //
-//	PipelineRunSourcePropertiesArgs{...}
+//          PipelineRunSourcePropertiesArgs{...}
 type PipelineRunSourcePropertiesInput interface {
 	pulumi.Input
 
@@ -3590,11 +3586,11 @@ func (i PipelineRunSourcePropertiesArgs) ToPipelineRunSourcePropertiesPtrOutputW
 // PipelineRunSourcePropertiesPtrInput is an input type that accepts PipelineRunSourcePropertiesArgs, PipelineRunSourcePropertiesPtr and PipelineRunSourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `PipelineRunSourcePropertiesPtrInput` via:
 //
-//	        PipelineRunSourcePropertiesArgs{...}
+//          PipelineRunSourcePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PipelineRunSourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3809,7 +3805,7 @@ func (val *PipelineRunTargetProperties) Defaults() *PipelineRunTargetProperties 
 // PipelineRunTargetPropertiesInput is an input type that accepts PipelineRunTargetPropertiesArgs and PipelineRunTargetPropertiesOutput values.
 // You can construct a concrete instance of `PipelineRunTargetPropertiesInput` via:
 //
-//	PipelineRunTargetPropertiesArgs{...}
+//          PipelineRunTargetPropertiesArgs{...}
 type PipelineRunTargetPropertiesInput interface {
 	pulumi.Input
 
@@ -3858,11 +3854,11 @@ func (i PipelineRunTargetPropertiesArgs) ToPipelineRunTargetPropertiesPtrOutputW
 // PipelineRunTargetPropertiesPtrInput is an input type that accepts PipelineRunTargetPropertiesArgs, PipelineRunTargetPropertiesPtr and PipelineRunTargetPropertiesPtrOutput values.
 // You can construct a concrete instance of `PipelineRunTargetPropertiesPtrInput` via:
 //
-//	        PipelineRunTargetPropertiesArgs{...}
+//          PipelineRunTargetPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PipelineRunTargetPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -4132,7 +4128,7 @@ func (val *PipelineSourceTriggerProperties) Defaults() *PipelineSourceTriggerPro
 // PipelineSourceTriggerPropertiesInput is an input type that accepts PipelineSourceTriggerPropertiesArgs and PipelineSourceTriggerPropertiesOutput values.
 // You can construct a concrete instance of `PipelineSourceTriggerPropertiesInput` via:
 //
-//	PipelineSourceTriggerPropertiesArgs{...}
+//          PipelineSourceTriggerPropertiesArgs{...}
 type PipelineSourceTriggerPropertiesInput interface {
 	pulumi.Input
 
@@ -4179,11 +4175,11 @@ func (i PipelineSourceTriggerPropertiesArgs) ToPipelineSourceTriggerPropertiesPt
 // PipelineSourceTriggerPropertiesPtrInput is an input type that accepts PipelineSourceTriggerPropertiesArgs, PipelineSourceTriggerPropertiesPtr and PipelineSourceTriggerPropertiesPtrOutput values.
 // You can construct a concrete instance of `PipelineSourceTriggerPropertiesPtrInput` via:
 //
-//	        PipelineSourceTriggerPropertiesArgs{...}
+//          PipelineSourceTriggerPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PipelineSourceTriggerPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -4421,7 +4417,7 @@ func (val *PipelineTriggerProperties) Defaults() *PipelineTriggerProperties {
 // PipelineTriggerPropertiesInput is an input type that accepts PipelineTriggerPropertiesArgs and PipelineTriggerPropertiesOutput values.
 // You can construct a concrete instance of `PipelineTriggerPropertiesInput` via:
 //
-//	PipelineTriggerPropertiesArgs{...}
+//          PipelineTriggerPropertiesArgs{...}
 type PipelineTriggerPropertiesInput interface {
 	pulumi.Input
 
@@ -4466,11 +4462,11 @@ func (i PipelineTriggerPropertiesArgs) ToPipelineTriggerPropertiesPtrOutputWithC
 // PipelineTriggerPropertiesPtrInput is an input type that accepts PipelineTriggerPropertiesArgs, PipelineTriggerPropertiesPtr and PipelineTriggerPropertiesPtrOutput values.
 // You can construct a concrete instance of `PipelineTriggerPropertiesPtrInput` via:
 //
-//	        PipelineTriggerPropertiesArgs{...}
+//          PipelineTriggerPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PipelineTriggerPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -4662,7 +4658,7 @@ func (val *Policies) Defaults() *Policies {
 // PoliciesInput is an input type that accepts PoliciesArgs and PoliciesOutput values.
 // You can construct a concrete instance of `PoliciesInput` via:
 //
-//	PoliciesArgs{...}
+//          PoliciesArgs{...}
 type PoliciesInput interface {
 	pulumi.Input
 
@@ -4714,11 +4710,11 @@ func (i PoliciesArgs) ToPoliciesPtrOutputWithContext(ctx context.Context) Polici
 // PoliciesPtrInput is an input type that accepts PoliciesArgs, PoliciesPtr and PoliciesPtrOutput values.
 // You can construct a concrete instance of `PoliciesPtrInput` via:
 //
-//	        PoliciesArgs{...}
+//          PoliciesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PoliciesPtrInput interface {
 	pulumi.Input
 
@@ -4990,7 +4986,7 @@ type PrivateEndpoint struct {
 // PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
 // You can construct a concrete instance of `PrivateEndpointInput` via:
 //
-//	PrivateEndpointArgs{...}
+//          PrivateEndpointArgs{...}
 type PrivateEndpointInput interface {
 	pulumi.Input
 
@@ -5027,11 +5023,11 @@ func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.C
 // PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPtrInput` via:
 //
-//	        PrivateEndpointArgs{...}
+//          PrivateEndpointArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointPtrInput interface {
 	pulumi.Input
 
@@ -5284,7 +5280,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -5325,11 +5321,11 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 // PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
 //
-//	        PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkServiceConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -5623,7 +5619,7 @@ func (val *QuarantinePolicy) Defaults() *QuarantinePolicy {
 // QuarantinePolicyInput is an input type that accepts QuarantinePolicyArgs and QuarantinePolicyOutput values.
 // You can construct a concrete instance of `QuarantinePolicyInput` via:
 //
-//	QuarantinePolicyArgs{...}
+//          QuarantinePolicyArgs{...}
 type QuarantinePolicyInput interface {
 	pulumi.Input
 
@@ -5671,11 +5667,11 @@ func (i QuarantinePolicyArgs) ToQuarantinePolicyPtrOutputWithContext(ctx context
 // QuarantinePolicyPtrInput is an input type that accepts QuarantinePolicyArgs, QuarantinePolicyPtr and QuarantinePolicyPtrOutput values.
 // You can construct a concrete instance of `QuarantinePolicyPtrInput` via:
 //
-//	        QuarantinePolicyArgs{...}
+//          QuarantinePolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type QuarantinePolicyPtrInput interface {
 	pulumi.Input
 
@@ -6047,7 +6043,7 @@ func (val *RetentionPolicy) Defaults() *RetentionPolicy {
 // RetentionPolicyInput is an input type that accepts RetentionPolicyArgs and RetentionPolicyOutput values.
 // You can construct a concrete instance of `RetentionPolicyInput` via:
 //
-//	RetentionPolicyArgs{...}
+//          RetentionPolicyArgs{...}
 type RetentionPolicyInput interface {
 	pulumi.Input
 
@@ -6100,11 +6096,11 @@ func (i RetentionPolicyArgs) ToRetentionPolicyPtrOutputWithContext(ctx context.C
 // RetentionPolicyPtrInput is an input type that accepts RetentionPolicyArgs, RetentionPolicyPtr and RetentionPolicyPtrOutput values.
 // You can construct a concrete instance of `RetentionPolicyPtrInput` via:
 //
-//	        RetentionPolicyArgs{...}
+//          RetentionPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RetentionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -6329,7 +6325,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -6614,7 +6610,7 @@ type SyncProperties struct {
 // SyncPropertiesInput is an input type that accepts SyncPropertiesArgs and SyncPropertiesOutput values.
 // You can construct a concrete instance of `SyncPropertiesInput` via:
 //
-//	SyncPropertiesArgs{...}
+//          SyncPropertiesArgs{...}
 type SyncPropertiesInput interface {
 	pulumi.Input
 
@@ -7167,7 +7163,7 @@ type TokenCertificate struct {
 // TokenCertificateInput is an input type that accepts TokenCertificateArgs and TokenCertificateOutput values.
 // You can construct a concrete instance of `TokenCertificateInput` via:
 //
-//	TokenCertificateArgs{...}
+//          TokenCertificateArgs{...}
 type TokenCertificateInput interface {
 	pulumi.Input
 
@@ -7201,7 +7197,7 @@ func (i TokenCertificateArgs) ToTokenCertificateOutputWithContext(ctx context.Co
 // TokenCertificateArrayInput is an input type that accepts TokenCertificateArray and TokenCertificateArrayOutput values.
 // You can construct a concrete instance of `TokenCertificateArrayInput` via:
 //
-//	TokenCertificateArray{ TokenCertificateArgs{...} }
+//          TokenCertificateArray{ TokenCertificateArgs{...} }
 type TokenCertificateArrayInput interface {
 	pulumi.Input
 
@@ -7351,7 +7347,7 @@ type TokenCredentialsProperties struct {
 // TokenCredentialsPropertiesInput is an input type that accepts TokenCredentialsPropertiesArgs and TokenCredentialsPropertiesOutput values.
 // You can construct a concrete instance of `TokenCredentialsPropertiesInput` via:
 //
-//	TokenCredentialsPropertiesArgs{...}
+//          TokenCredentialsPropertiesArgs{...}
 type TokenCredentialsPropertiesInput interface {
 	pulumi.Input
 
@@ -7388,11 +7384,11 @@ func (i TokenCredentialsPropertiesArgs) ToTokenCredentialsPropertiesPtrOutputWit
 // TokenCredentialsPropertiesPtrInput is an input type that accepts TokenCredentialsPropertiesArgs, TokenCredentialsPropertiesPtr and TokenCredentialsPropertiesPtrOutput values.
 // You can construct a concrete instance of `TokenCredentialsPropertiesPtrInput` via:
 //
-//	        TokenCredentialsPropertiesArgs{...}
+//          TokenCredentialsPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type TokenCredentialsPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -7577,7 +7573,7 @@ type TokenPassword struct {
 // TokenPasswordInput is an input type that accepts TokenPasswordArgs and TokenPasswordOutput values.
 // You can construct a concrete instance of `TokenPasswordInput` via:
 //
-//	TokenPasswordArgs{...}
+//          TokenPasswordArgs{...}
 type TokenPasswordInput interface {
 	pulumi.Input
 
@@ -7610,7 +7606,7 @@ func (i TokenPasswordArgs) ToTokenPasswordOutputWithContext(ctx context.Context)
 // TokenPasswordArrayInput is an input type that accepts TokenPasswordArray and TokenPasswordArrayOutput values.
 // You can construct a concrete instance of `TokenPasswordArrayInput` via:
 //
-//	TokenPasswordArray{ TokenPasswordArgs{...} }
+//          TokenPasswordArray{ TokenPasswordArgs{...} }
 type TokenPasswordArrayInput interface {
 	pulumi.Input
 
@@ -7777,7 +7773,7 @@ func (val *TrustPolicy) Defaults() *TrustPolicy {
 // TrustPolicyInput is an input type that accepts TrustPolicyArgs and TrustPolicyOutput values.
 // You can construct a concrete instance of `TrustPolicyInput` via:
 //
-//	TrustPolicyArgs{...}
+//          TrustPolicyArgs{...}
 type TrustPolicyInput interface {
 	pulumi.Input
 
@@ -7830,11 +7826,11 @@ func (i TrustPolicyArgs) ToTrustPolicyPtrOutputWithContext(ctx context.Context) 
 // TrustPolicyPtrInput is an input type that accepts TrustPolicyArgs, TrustPolicyPtr and TrustPolicyPtrOutput values.
 // You can construct a concrete instance of `TrustPolicyPtrInput` via:
 //
-//	        TrustPolicyArgs{...}
+//          TrustPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type TrustPolicyPtrInput interface {
 	pulumi.Input
 
@@ -8043,7 +8039,7 @@ type UserIdentityProperties struct {
 // UserIdentityPropertiesInput is an input type that accepts UserIdentityPropertiesArgs and UserIdentityPropertiesOutput values.
 // You can construct a concrete instance of `UserIdentityPropertiesInput` via:
 //
-//	UserIdentityPropertiesArgs{...}
+//          UserIdentityPropertiesArgs{...}
 type UserIdentityPropertiesInput interface {
 	pulumi.Input
 
@@ -8073,7 +8069,7 @@ func (i UserIdentityPropertiesArgs) ToUserIdentityPropertiesOutputWithContext(ct
 // UserIdentityPropertiesMapInput is an input type that accepts UserIdentityPropertiesMap and UserIdentityPropertiesMapOutput values.
 // You can construct a concrete instance of `UserIdentityPropertiesMapInput` via:
 //
-//	UserIdentityPropertiesMap{ "key": UserIdentityPropertiesArgs{...} }
+//          UserIdentityPropertiesMap{ "key": UserIdentityPropertiesArgs{...} }
 type UserIdentityPropertiesMapInput interface {
 	pulumi.Input
 
@@ -8214,7 +8210,7 @@ func (val *VirtualNetworkRule) Defaults() *VirtualNetworkRule {
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleInput` via:
 //
-//	VirtualNetworkRuleArgs{...}
+//          VirtualNetworkRuleArgs{...}
 type VirtualNetworkRuleInput interface {
 	pulumi.Input
 
@@ -8256,7 +8252,7 @@ func (i VirtualNetworkRuleArgs) ToVirtualNetworkRuleOutputWithContext(ctx contex
 // VirtualNetworkRuleArrayInput is an input type that accepts VirtualNetworkRuleArray and VirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleArrayInput` via:
 //
-//	VirtualNetworkRuleArray{ VirtualNetworkRuleArgs{...} }
+//          VirtualNetworkRuleArray{ VirtualNetworkRuleArgs{...} }
 type VirtualNetworkRuleArrayInput interface {
 	pulumi.Input
 

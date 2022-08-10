@@ -149,7 +149,7 @@ func (o DatabaseTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // DatabaseTierInput is an input type that accepts DatabaseTierArgs and DatabaseTierOutput values.
 // You can construct a concrete instance of `DatabaseTierInput` via:
 //
-//	DatabaseTierArgs{...}
+//          DatabaseTierArgs{...}
 type DatabaseTierInput interface {
 	pulumi.Input
 
@@ -322,7 +322,7 @@ func (o DiskStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // DiskStorageTypeInput is an input type that accepts DiskStorageTypeArgs and DiskStorageTypeOutput values.
 // You can construct a concrete instance of `DiskStorageTypeInput` via:
 //
-//	DiskStorageTypeArgs{...}
+//          DiskStorageTypeArgs{...}
 type DiskStorageTypeInput interface {
 	pulumi.Input
 
@@ -681,7 +681,7 @@ func (o SkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuTierInput is an input type that accepts SkuTierArgs and SkuTierOutput values.
 // You can construct a concrete instance of `SkuTierInput` via:
 //
-//	SkuTierArgs{...}
+//          SkuTierArgs{...}
 type SkuTierInput interface {
 	pulumi.Input
 

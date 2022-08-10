@@ -19,7 +19,7 @@ type AppSkuInfo struct {
 // AppSkuInfoInput is an input type that accepts AppSkuInfoArgs and AppSkuInfoOutput values.
 // You can construct a concrete instance of `AppSkuInfoInput` via:
 //
-//	AppSkuInfoArgs{...}
+//          AppSkuInfoArgs{...}
 type AppSkuInfoInput interface {
 	pulumi.Input
 
@@ -164,7 +164,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -273,7 +273,7 @@ type SystemAssignedServiceIdentity struct {
 // SystemAssignedServiceIdentityInput is an input type that accepts SystemAssignedServiceIdentityArgs and SystemAssignedServiceIdentityOutput values.
 // You can construct a concrete instance of `SystemAssignedServiceIdentityInput` via:
 //
-//	SystemAssignedServiceIdentityArgs{...}
+//          SystemAssignedServiceIdentityArgs{...}
 type SystemAssignedServiceIdentityInput interface {
 	pulumi.Input
 
@@ -310,11 +310,11 @@ func (i SystemAssignedServiceIdentityArgs) ToSystemAssignedServiceIdentityPtrOut
 // SystemAssignedServiceIdentityPtrInput is an input type that accepts SystemAssignedServiceIdentityArgs, SystemAssignedServiceIdentityPtr and SystemAssignedServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `SystemAssignedServiceIdentityPtrInput` via:
 //
-//	        SystemAssignedServiceIdentityArgs{...}
+//          SystemAssignedServiceIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SystemAssignedServiceIdentityPtrInput interface {
 	pulumi.Input
 

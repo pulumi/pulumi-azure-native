@@ -147,7 +147,7 @@ func (o ParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // ParameterTypeInput is an input type that accepts ParameterTypeArgs and ParameterTypeOutput values.
 // You can construct a concrete instance of `ParameterTypeInput` via:
 //
-//	ParameterTypeArgs{...}
+//          ParameterTypeArgs{...}
 type ParameterTypeInput interface {
 	pulumi.Input
 
@@ -316,7 +316,7 @@ func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
 // You can construct a concrete instance of `SkuNameInput` via:
 //
-//	SkuNameArgs{...}
+//          SkuNameArgs{...}
 type SkuNameInput interface {
 	pulumi.Input
 
@@ -484,7 +484,7 @@ func (o WorkflowStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // WorkflowStateEnumInput is an input type that accepts WorkflowStateEnumArgs and WorkflowStateEnumOutput values.
 // You can construct a concrete instance of `WorkflowStateEnumInput` via:
 //
-//	WorkflowStateEnumArgs{...}
+//          WorkflowStateEnumArgs{...}
 type WorkflowStateEnumInput interface {
 	pulumi.Input
 

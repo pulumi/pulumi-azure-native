@@ -175,7 +175,7 @@ func (o EntityStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // EntityStatusInput is an input type that accepts EntityStatusArgs and EntityStatusOutput values.
 // You can construct a concrete instance of `EntityStatusInput` via:
 //
-//	EntityStatusArgs{...}
+//          EntityStatusArgs{...}
 type EntityStatusInput interface {
 	pulumi.Input
 

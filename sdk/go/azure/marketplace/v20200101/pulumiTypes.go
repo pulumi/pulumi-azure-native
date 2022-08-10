@@ -18,7 +18,7 @@ type Plan struct {
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
 // You can construct a concrete instance of `PlanInput` via:
 //
-//	PlanArgs{...}
+//          PlanArgs{...}
 type PlanInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i PlanArgs) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 // PlanArrayInput is an input type that accepts PlanArray and PlanArrayOutput values.
 // You can construct a concrete instance of `PlanArrayInput` via:
 //
-//	PlanArray{ PlanArgs{...} }
+//          PlanArray{ PlanArgs{...} }
 type PlanArrayInput interface {
 	pulumi.Input
 

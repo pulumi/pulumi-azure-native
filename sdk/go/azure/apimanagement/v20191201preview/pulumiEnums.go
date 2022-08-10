@@ -179,7 +179,7 @@ func (o AuthorizationMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // AuthorizationMethodInput is an input type that accepts AuthorizationMethodArgs and AuthorizationMethodOutput values.
 // You can construct a concrete instance of `AuthorizationMethodInput` via:
 //
-//	AuthorizationMethodArgs{...}
+//          AuthorizationMethodArgs{...}
 type AuthorizationMethodInput interface {
 	pulumi.Input
 
@@ -217,7 +217,7 @@ func (in *authorizationMethodPtr) ToAuthorizationMethodPtrOutputWithContext(ctx 
 // AuthorizationMethodArrayInput is an input type that accepts AuthorizationMethodArray and AuthorizationMethodArrayOutput values.
 // You can construct a concrete instance of `AuthorizationMethodArrayInput` via:
 //
-//	AuthorizationMethodArray{ AuthorizationMethodArgs{...} }
+//          AuthorizationMethodArray{ AuthorizationMethodArgs{...} }
 type AuthorizationMethodArrayInput interface {
 	pulumi.Input
 
@@ -475,7 +475,7 @@ func (o GroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // GroupTypeInput is an input type that accepts GroupTypeArgs and GroupTypeOutput values.
 // You can construct a concrete instance of `GroupTypeInput` via:
 //
-//	GroupTypeArgs{...}
+//          GroupTypeArgs{...}
 type GroupTypeInput interface {
 	pulumi.Input
 
@@ -681,7 +681,7 @@ func (o KeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // KeyTypeInput is an input type that accepts KeyTypeArgs and KeyTypeOutput values.
 // You can construct a concrete instance of `KeyTypeInput` via:
 //
-//	KeyTypeArgs{...}
+//          KeyTypeArgs{...}
 type KeyTypeInput interface {
 	pulumi.Input
 
@@ -870,7 +870,7 @@ func (o ProductStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // ProductStateEnumInput is an input type that accepts ProductStateEnumArgs and ProductStateEnumOutput values.
 // You can construct a concrete instance of `ProductStateEnumInput` via:
 //
-//	ProductStateEnumArgs{...}
+//          ProductStateEnumArgs{...}
 type ProductStateEnumInput interface {
 	pulumi.Input
 
@@ -1034,7 +1034,7 @@ func (o ProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 // ProtocolInput is an input type that accepts ProtocolArgs and ProtocolOutput values.
 // You can construct a concrete instance of `ProtocolInput` via:
 //
-//	ProtocolArgs{...}
+//          ProtocolArgs{...}
 type ProtocolInput interface {
 	pulumi.Input
 
@@ -1072,7 +1072,7 @@ func (in *protocolPtr) ToProtocolPtrOutputWithContext(ctx context.Context) Proto
 // ProtocolArrayInput is an input type that accepts ProtocolArray and ProtocolArrayOutput values.
 // You can construct a concrete instance of `ProtocolArrayInput` via:
 //
-//	ProtocolArray{ ProtocolArgs{...} }
+//          ProtocolArray{ ProtocolArgs{...} }
 type ProtocolArrayInput interface {
 	pulumi.Input
 
@@ -1243,7 +1243,7 @@ func (o ProvisioningStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // ProvisioningStateInput is an input type that accepts ProvisioningStateArgs and ProvisioningStateOutput values.
 // You can construct a concrete instance of `ProvisioningStateInput` via:
 //
-//	ProvisioningStateArgs{...}
+//          ProvisioningStateArgs{...}
 type ProvisioningStateInput interface {
 	pulumi.Input
 
@@ -1303,8 +1303,8 @@ const (
 )
 
 // Type of Api to create.
-//   - `http` creates a SOAP to REST API
-//   - `soap` creates a SOAP pass-through API .
+//  * `http` creates a SOAP to REST API
+//  * `soap` creates a SOAP pass-through API .
 type SoapApiType string
 
 const (
@@ -1464,7 +1464,7 @@ func (o SubscriptionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context
 // SubscriptionStateEnumInput is an input type that accepts SubscriptionStateEnumArgs and SubscriptionStateEnumOutput values.
 // You can construct a concrete instance of `SubscriptionStateEnumInput` via:
 //
-//	SubscriptionStateEnumArgs{...}
+//          SubscriptionStateEnumArgs{...}
 type SubscriptionStateEnumInput interface {
 	pulumi.Input
 

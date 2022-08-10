@@ -31,6 +31,8 @@ type LookupSecurityConnectorGovernanceRuleArgs struct {
 
 // Security GovernanceRule over a given scope
 type LookupSecurityConnectorGovernanceRuleResult struct {
+	// The governance rule conditionSets - see examples
+	ConditionSets [][][]ConditionResponse `pulumi:"conditionSets"`
 	// description of the governanceRule
 	Description *string `pulumi:"description"`
 	// display name of the governanceRule
@@ -98,6 +100,11 @@ func (o LookupSecurityConnectorGovernanceRuleResultOutput) ToLookupSecurityConne
 
 func (o LookupSecurityConnectorGovernanceRuleResultOutput) ToLookupSecurityConnectorGovernanceRuleResultOutputWithContext(ctx context.Context) LookupSecurityConnectorGovernanceRuleResultOutput {
 	return o
+}
+
+// The governance rule conditionSets - see examples
+func (o LookupSecurityConnectorGovernanceRuleResultOutput) ConditionSets() ConditionResponseArrayArrayArrayOutput {
+	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) [][][]ConditionResponse { return v.ConditionSets }).(ConditionResponseArrayArrayArrayOutput)
 }
 
 // description of the governanceRule

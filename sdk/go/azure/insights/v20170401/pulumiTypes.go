@@ -21,7 +21,7 @@ type ActivityLogAlertActionGroup struct {
 // ActivityLogAlertActionGroupInput is an input type that accepts ActivityLogAlertActionGroupArgs and ActivityLogAlertActionGroupOutput values.
 // You can construct a concrete instance of `ActivityLogAlertActionGroupInput` via:
 //
-//	ActivityLogAlertActionGroupArgs{...}
+//          ActivityLogAlertActionGroupArgs{...}
 type ActivityLogAlertActionGroupInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ActivityLogAlertActionGroupArgs) ToActivityLogAlertActionGroupOutputWith
 // ActivityLogAlertActionGroupArrayInput is an input type that accepts ActivityLogAlertActionGroupArray and ActivityLogAlertActionGroupArrayOutput values.
 // You can construct a concrete instance of `ActivityLogAlertActionGroupArrayInput` via:
 //
-//	ActivityLogAlertActionGroupArray{ ActivityLogAlertActionGroupArgs{...} }
+//          ActivityLogAlertActionGroupArray{ ActivityLogAlertActionGroupArgs{...} }
 type ActivityLogAlertActionGroupArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +181,7 @@ type ActivityLogAlertActionList struct {
 // ActivityLogAlertActionListInput is an input type that accepts ActivityLogAlertActionListArgs and ActivityLogAlertActionListOutput values.
 // You can construct a concrete instance of `ActivityLogAlertActionListInput` via:
 //
-//	ActivityLogAlertActionListArgs{...}
+//          ActivityLogAlertActionListArgs{...}
 type ActivityLogAlertActionListInput interface {
 	pulumi.Input
 
@@ -264,7 +264,7 @@ type ActivityLogAlertAllOfCondition struct {
 // ActivityLogAlertAllOfConditionInput is an input type that accepts ActivityLogAlertAllOfConditionArgs and ActivityLogAlertAllOfConditionOutput values.
 // You can construct a concrete instance of `ActivityLogAlertAllOfConditionInput` via:
 //
-//	ActivityLogAlertAllOfConditionArgs{...}
+//          ActivityLogAlertAllOfConditionArgs{...}
 type ActivityLogAlertAllOfConditionInput interface {
 	pulumi.Input
 
@@ -347,7 +347,7 @@ type ActivityLogAlertLeafCondition struct {
 // ActivityLogAlertLeafConditionInput is an input type that accepts ActivityLogAlertLeafConditionArgs and ActivityLogAlertLeafConditionOutput values.
 // You can construct a concrete instance of `ActivityLogAlertLeafConditionInput` via:
 //
-//	ActivityLogAlertLeafConditionArgs{...}
+//          ActivityLogAlertLeafConditionArgs{...}
 type ActivityLogAlertLeafConditionInput interface {
 	pulumi.Input
 
@@ -378,7 +378,7 @@ func (i ActivityLogAlertLeafConditionArgs) ToActivityLogAlertLeafConditionOutput
 // ActivityLogAlertLeafConditionArrayInput is an input type that accepts ActivityLogAlertLeafConditionArray and ActivityLogAlertLeafConditionArrayOutput values.
 // You can construct a concrete instance of `ActivityLogAlertLeafConditionArrayInput` via:
 //
-//	ActivityLogAlertLeafConditionArray{ ActivityLogAlertLeafConditionArgs{...} }
+//          ActivityLogAlertLeafConditionArray{ ActivityLogAlertLeafConditionArgs{...} }
 type ActivityLogAlertLeafConditionArrayInput interface {
 	pulumi.Input
 
@@ -517,7 +517,7 @@ type AutomationRunbookReceiver struct {
 // AutomationRunbookReceiverInput is an input type that accepts AutomationRunbookReceiverArgs and AutomationRunbookReceiverOutput values.
 // You can construct a concrete instance of `AutomationRunbookReceiverInput` via:
 //
-//	AutomationRunbookReceiverArgs{...}
+//          AutomationRunbookReceiverArgs{...}
 type AutomationRunbookReceiverInput interface {
 	pulumi.Input
 
@@ -556,7 +556,7 @@ func (i AutomationRunbookReceiverArgs) ToAutomationRunbookReceiverOutputWithCont
 // AutomationRunbookReceiverArrayInput is an input type that accepts AutomationRunbookReceiverArray and AutomationRunbookReceiverArrayOutput values.
 // You can construct a concrete instance of `AutomationRunbookReceiverArrayInput` via:
 //
-//	AutomationRunbookReceiverArray{ AutomationRunbookReceiverArgs{...} }
+//          AutomationRunbookReceiverArray{ AutomationRunbookReceiverArgs{...} }
 type AutomationRunbookReceiverArrayInput interface {
 	pulumi.Input
 
@@ -735,7 +735,7 @@ type AzureAppPushReceiver struct {
 // AzureAppPushReceiverInput is an input type that accepts AzureAppPushReceiverArgs and AzureAppPushReceiverOutput values.
 // You can construct a concrete instance of `AzureAppPushReceiverInput` via:
 //
-//	AzureAppPushReceiverArgs{...}
+//          AzureAppPushReceiverArgs{...}
 type AzureAppPushReceiverInput interface {
 	pulumi.Input
 
@@ -766,7 +766,7 @@ func (i AzureAppPushReceiverArgs) ToAzureAppPushReceiverOutputWithContext(ctx co
 // AzureAppPushReceiverArrayInput is an input type that accepts AzureAppPushReceiverArray and AzureAppPushReceiverArrayOutput values.
 // You can construct a concrete instance of `AzureAppPushReceiverArrayInput` via:
 //
-//	AzureAppPushReceiverArray{ AzureAppPushReceiverArgs{...} }
+//          AzureAppPushReceiverArray{ AzureAppPushReceiverArgs{...} }
 type AzureAppPushReceiverArrayInput interface {
 	pulumi.Input
 
@@ -897,7 +897,7 @@ type EmailReceiver struct {
 // EmailReceiverInput is an input type that accepts EmailReceiverArgs and EmailReceiverOutput values.
 // You can construct a concrete instance of `EmailReceiverInput` via:
 //
-//	EmailReceiverArgs{...}
+//          EmailReceiverArgs{...}
 type EmailReceiverInput interface {
 	pulumi.Input
 
@@ -928,7 +928,7 @@ func (i EmailReceiverArgs) ToEmailReceiverOutputWithContext(ctx context.Context)
 // EmailReceiverArrayInput is an input type that accepts EmailReceiverArray and EmailReceiverArrayOutput values.
 // You can construct a concrete instance of `EmailReceiverArrayInput` via:
 //
-//	EmailReceiverArray{ EmailReceiverArgs{...} }
+//          EmailReceiverArray{ EmailReceiverArgs{...} }
 type EmailReceiverArrayInput interface {
 	pulumi.Input
 
@@ -1072,7 +1072,7 @@ type ItsmReceiver struct {
 // ItsmReceiverInput is an input type that accepts ItsmReceiverArgs and ItsmReceiverOutput values.
 // You can construct a concrete instance of `ItsmReceiverInput` via:
 //
-//	ItsmReceiverArgs{...}
+//          ItsmReceiverArgs{...}
 type ItsmReceiverInput interface {
 	pulumi.Input
 
@@ -1109,7 +1109,7 @@ func (i ItsmReceiverArgs) ToItsmReceiverOutputWithContext(ctx context.Context) I
 // ItsmReceiverArrayInput is an input type that accepts ItsmReceiverArray and ItsmReceiverArrayOutput values.
 // You can construct a concrete instance of `ItsmReceiverArrayInput` via:
 //
-//	ItsmReceiverArray{ ItsmReceiverArgs{...} }
+//          ItsmReceiverArray{ ItsmReceiverArgs{...} }
 type ItsmReceiverArrayInput interface {
 	pulumi.Input
 
@@ -1278,7 +1278,7 @@ type SmsReceiver struct {
 // SmsReceiverInput is an input type that accepts SmsReceiverArgs and SmsReceiverOutput values.
 // You can construct a concrete instance of `SmsReceiverInput` via:
 //
-//	SmsReceiverArgs{...}
+//          SmsReceiverArgs{...}
 type SmsReceiverInput interface {
 	pulumi.Input
 
@@ -1311,7 +1311,7 @@ func (i SmsReceiverArgs) ToSmsReceiverOutputWithContext(ctx context.Context) Sms
 // SmsReceiverArrayInput is an input type that accepts SmsReceiverArray and SmsReceiverArrayOutput values.
 // You can construct a concrete instance of `SmsReceiverArrayInput` via:
 //
-//	SmsReceiverArray{ SmsReceiverArgs{...} }
+//          SmsReceiverArray{ SmsReceiverArgs{...} }
 type SmsReceiverArrayInput interface {
 	pulumi.Input
 
@@ -1461,7 +1461,7 @@ type WebhookReceiver struct {
 // WebhookReceiverInput is an input type that accepts WebhookReceiverArgs and WebhookReceiverOutput values.
 // You can construct a concrete instance of `WebhookReceiverInput` via:
 //
-//	WebhookReceiverArgs{...}
+//          WebhookReceiverArgs{...}
 type WebhookReceiverInput interface {
 	pulumi.Input
 
@@ -1492,7 +1492,7 @@ func (i WebhookReceiverArgs) ToWebhookReceiverOutputWithContext(ctx context.Cont
 // WebhookReceiverArrayInput is an input type that accepts WebhookReceiverArray and WebhookReceiverArrayOutput values.
 // You can construct a concrete instance of `WebhookReceiverArrayInput` via:
 //
-//	WebhookReceiverArray{ WebhookReceiverArgs{...} }
+//          WebhookReceiverArray{ WebhookReceiverArgs{...} }
 type WebhookReceiverArrayInput interface {
 	pulumi.Input
 

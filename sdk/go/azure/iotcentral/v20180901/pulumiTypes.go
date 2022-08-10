@@ -19,7 +19,7 @@ type AppSkuInfo struct {
 // AppSkuInfoInput is an input type that accepts AppSkuInfoArgs and AppSkuInfoOutput values.
 // You can construct a concrete instance of `AppSkuInfoInput` via:
 //
-//	AppSkuInfoArgs{...}
+//          AppSkuInfoArgs{...}
 type AppSkuInfoInput interface {
 	pulumi.Input
 

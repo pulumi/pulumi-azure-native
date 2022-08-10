@@ -19,7 +19,7 @@ type AgentPoolUpgradeSettings struct {
 // AgentPoolUpgradeSettingsInput is an input type that accepts AgentPoolUpgradeSettingsArgs and AgentPoolUpgradeSettingsOutput values.
 // You can construct a concrete instance of `AgentPoolUpgradeSettingsInput` via:
 //
-//	AgentPoolUpgradeSettingsArgs{...}
+//          AgentPoolUpgradeSettingsArgs{...}
 type AgentPoolUpgradeSettingsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AgentPoolUpgradeSettingsArgs) ToAgentPoolUpgradeSettingsPtrOutputWithCon
 // AgentPoolUpgradeSettingsPtrInput is an input type that accepts AgentPoolUpgradeSettingsArgs, AgentPoolUpgradeSettingsPtr and AgentPoolUpgradeSettingsPtrOutput values.
 // You can construct a concrete instance of `AgentPoolUpgradeSettingsPtrInput` via:
 //
-//	        AgentPoolUpgradeSettingsArgs{...}
+//          AgentPoolUpgradeSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AgentPoolUpgradeSettingsPtrInput interface {
 	pulumi.Input
 
@@ -221,7 +221,7 @@ type ContainerServiceLinuxProfile struct {
 // ContainerServiceLinuxProfileInput is an input type that accepts ContainerServiceLinuxProfileArgs and ContainerServiceLinuxProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceLinuxProfileInput` via:
 //
-//	ContainerServiceLinuxProfileArgs{...}
+//          ContainerServiceLinuxProfileArgs{...}
 type ContainerServiceLinuxProfileInput interface {
 	pulumi.Input
 
@@ -260,11 +260,11 @@ func (i ContainerServiceLinuxProfileArgs) ToContainerServiceLinuxProfilePtrOutpu
 // ContainerServiceLinuxProfilePtrInput is an input type that accepts ContainerServiceLinuxProfileArgs, ContainerServiceLinuxProfilePtr and ContainerServiceLinuxProfilePtrOutput values.
 // You can construct a concrete instance of `ContainerServiceLinuxProfilePtrInput` via:
 //
-//	        ContainerServiceLinuxProfileArgs{...}
+//          ContainerServiceLinuxProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContainerServiceLinuxProfilePtrInput interface {
 	pulumi.Input
 
@@ -512,7 +512,7 @@ func (val *ContainerServiceNetworkProfile) Defaults() *ContainerServiceNetworkPr
 // ContainerServiceNetworkProfileInput is an input type that accepts ContainerServiceNetworkProfileArgs and ContainerServiceNetworkProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceNetworkProfileInput` via:
 //
-//	ContainerServiceNetworkProfileArgs{...}
+//          ContainerServiceNetworkProfileArgs{...}
 type ContainerServiceNetworkProfileInput interface {
 	pulumi.Input
 
@@ -596,11 +596,11 @@ func (i ContainerServiceNetworkProfileArgs) ToContainerServiceNetworkProfilePtrO
 // ContainerServiceNetworkProfilePtrInput is an input type that accepts ContainerServiceNetworkProfileArgs, ContainerServiceNetworkProfilePtr and ContainerServiceNetworkProfilePtrOutput values.
 // You can construct a concrete instance of `ContainerServiceNetworkProfilePtrInput` via:
 //
-//	        ContainerServiceNetworkProfileArgs{...}
+//          ContainerServiceNetworkProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContainerServiceNetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -1122,7 +1122,7 @@ type ContainerServiceSshConfiguration struct {
 // ContainerServiceSshConfigurationInput is an input type that accepts ContainerServiceSshConfigurationArgs and ContainerServiceSshConfigurationOutput values.
 // You can construct a concrete instance of `ContainerServiceSshConfigurationInput` via:
 //
-//	ContainerServiceSshConfigurationArgs{...}
+//          ContainerServiceSshConfigurationArgs{...}
 type ContainerServiceSshConfigurationInput interface {
 	pulumi.Input
 
@@ -1159,11 +1159,11 @@ func (i ContainerServiceSshConfigurationArgs) ToContainerServiceSshConfiguration
 // ContainerServiceSshConfigurationPtrInput is an input type that accepts ContainerServiceSshConfigurationArgs, ContainerServiceSshConfigurationPtr and ContainerServiceSshConfigurationPtrOutput values.
 // You can construct a concrete instance of `ContainerServiceSshConfigurationPtrInput` via:
 //
-//	        ContainerServiceSshConfigurationArgs{...}
+//          ContainerServiceSshConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContainerServiceSshConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1324,7 +1324,7 @@ type ContainerServiceSshPublicKey struct {
 // ContainerServiceSshPublicKeyInput is an input type that accepts ContainerServiceSshPublicKeyArgs and ContainerServiceSshPublicKeyOutput values.
 // You can construct a concrete instance of `ContainerServiceSshPublicKeyInput` via:
 //
-//	ContainerServiceSshPublicKeyArgs{...}
+//          ContainerServiceSshPublicKeyArgs{...}
 type ContainerServiceSshPublicKeyInput interface {
 	pulumi.Input
 
@@ -1353,7 +1353,7 @@ func (i ContainerServiceSshPublicKeyArgs) ToContainerServiceSshPublicKeyOutputWi
 // ContainerServiceSshPublicKeyArrayInput is an input type that accepts ContainerServiceSshPublicKeyArray and ContainerServiceSshPublicKeyArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceSshPublicKeyArrayInput` via:
 //
-//	ContainerServiceSshPublicKeyArray{ ContainerServiceSshPublicKeyArgs{...} }
+//          ContainerServiceSshPublicKeyArray{ ContainerServiceSshPublicKeyArgs{...} }
 type ContainerServiceSshPublicKeyArrayInput interface {
 	pulumi.Input
 
@@ -1525,7 +1525,7 @@ type ExtendedLocation struct {
 // ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
 // You can construct a concrete instance of `ExtendedLocationInput` via:
 //
-//	ExtendedLocationArgs{...}
+//          ExtendedLocationArgs{...}
 type ExtendedLocationInput interface {
 	pulumi.Input
 
@@ -1564,11 +1564,11 @@ func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context
 // ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
 // You can construct a concrete instance of `ExtendedLocationPtrInput` via:
 //
-//	        ExtendedLocationArgs{...}
+//          ExtendedLocationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ExtendedLocationPtrInput interface {
 	pulumi.Input
 
@@ -1779,7 +1779,7 @@ type KubeletConfig struct {
 // KubeletConfigInput is an input type that accepts KubeletConfigArgs and KubeletConfigOutput values.
 // You can construct a concrete instance of `KubeletConfigInput` via:
 //
-//	KubeletConfigArgs{...}
+//          KubeletConfigArgs{...}
 type KubeletConfigInput interface {
 	pulumi.Input
 
@@ -1836,11 +1836,11 @@ func (i KubeletConfigArgs) ToKubeletConfigPtrOutputWithContext(ctx context.Conte
 // KubeletConfigPtrInput is an input type that accepts KubeletConfigArgs, KubeletConfigPtr and KubeletConfigPtrOutput values.
 // You can construct a concrete instance of `KubeletConfigPtrInput` via:
 //
-//	        KubeletConfigArgs{...}
+//          KubeletConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KubeletConfigPtrInput interface {
 	pulumi.Input
 
@@ -2325,7 +2325,7 @@ type LinuxOSConfig struct {
 // LinuxOSConfigInput is an input type that accepts LinuxOSConfigArgs and LinuxOSConfigOutput values.
 // You can construct a concrete instance of `LinuxOSConfigInput` via:
 //
-//	LinuxOSConfigArgs{...}
+//          LinuxOSConfigArgs{...}
 type LinuxOSConfigInput interface {
 	pulumi.Input
 
@@ -2368,11 +2368,11 @@ func (i LinuxOSConfigArgs) ToLinuxOSConfigPtrOutputWithContext(ctx context.Conte
 // LinuxOSConfigPtrInput is an input type that accepts LinuxOSConfigArgs, LinuxOSConfigPtr and LinuxOSConfigPtrOutput values.
 // You can construct a concrete instance of `LinuxOSConfigPtrInput` via:
 //
-//	        LinuxOSConfigArgs{...}
+//          LinuxOSConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LinuxOSConfigPtrInput interface {
 	pulumi.Input
 
@@ -2639,7 +2639,7 @@ type ManagedClusterAADProfile struct {
 // ManagedClusterAADProfileInput is an input type that accepts ManagedClusterAADProfileArgs and ManagedClusterAADProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterAADProfileInput` via:
 //
-//	ManagedClusterAADProfileArgs{...}
+//          ManagedClusterAADProfileArgs{...}
 type ManagedClusterAADProfileInput interface {
 	pulumi.Input
 
@@ -2688,11 +2688,11 @@ func (i ManagedClusterAADProfileArgs) ToManagedClusterAADProfilePtrOutputWithCon
 // ManagedClusterAADProfilePtrInput is an input type that accepts ManagedClusterAADProfileArgs, ManagedClusterAADProfilePtr and ManagedClusterAADProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterAADProfilePtrInput` via:
 //
-//	        ManagedClusterAADProfileArgs{...}
+//          ManagedClusterAADProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterAADProfilePtrInput interface {
 	pulumi.Input
 
@@ -3049,7 +3049,7 @@ type ManagedClusterAPIServerAccessProfile struct {
 // ManagedClusterAPIServerAccessProfileInput is an input type that accepts ManagedClusterAPIServerAccessProfileArgs and ManagedClusterAPIServerAccessProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterAPIServerAccessProfileInput` via:
 //
-//	ManagedClusterAPIServerAccessProfileArgs{...}
+//          ManagedClusterAPIServerAccessProfileArgs{...}
 type ManagedClusterAPIServerAccessProfileInput interface {
 	pulumi.Input
 
@@ -3092,11 +3092,11 @@ func (i ManagedClusterAPIServerAccessProfileArgs) ToManagedClusterAPIServerAcces
 // ManagedClusterAPIServerAccessProfilePtrInput is an input type that accepts ManagedClusterAPIServerAccessProfileArgs, ManagedClusterAPIServerAccessProfilePtr and ManagedClusterAPIServerAccessProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterAPIServerAccessProfilePtrInput` via:
 //
-//	        ManagedClusterAPIServerAccessProfileArgs{...}
+//          ManagedClusterAPIServerAccessProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterAPIServerAccessProfilePtrInput interface {
 	pulumi.Input
 
@@ -3353,7 +3353,7 @@ type ManagedClusterAddonProfile struct {
 // ManagedClusterAddonProfileInput is an input type that accepts ManagedClusterAddonProfileArgs and ManagedClusterAddonProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterAddonProfileInput` via:
 //
-//	ManagedClusterAddonProfileArgs{...}
+//          ManagedClusterAddonProfileArgs{...}
 type ManagedClusterAddonProfileInput interface {
 	pulumi.Input
 
@@ -3384,7 +3384,7 @@ func (i ManagedClusterAddonProfileArgs) ToManagedClusterAddonProfileOutputWithCo
 // ManagedClusterAddonProfileMapInput is an input type that accepts ManagedClusterAddonProfileMap and ManagedClusterAddonProfileMapOutput values.
 // You can construct a concrete instance of `ManagedClusterAddonProfileMapInput` via:
 //
-//	ManagedClusterAddonProfileMap{ "key": ManagedClusterAddonProfileArgs{...} }
+//          ManagedClusterAddonProfileMap{ "key": ManagedClusterAddonProfileArgs{...} }
 type ManagedClusterAddonProfileMapInput interface {
 	pulumi.Input
 
@@ -3630,7 +3630,7 @@ type ManagedClusterAgentPoolProfile struct {
 // ManagedClusterAgentPoolProfileInput is an input type that accepts ManagedClusterAgentPoolProfileArgs and ManagedClusterAgentPoolProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterAgentPoolProfileInput` via:
 //
-//	ManagedClusterAgentPoolProfileArgs{...}
+//          ManagedClusterAgentPoolProfileArgs{...}
 type ManagedClusterAgentPoolProfileInput interface {
 	pulumi.Input
 
@@ -3727,7 +3727,7 @@ func (i ManagedClusterAgentPoolProfileArgs) ToManagedClusterAgentPoolProfileOutp
 // ManagedClusterAgentPoolProfileArrayInput is an input type that accepts ManagedClusterAgentPoolProfileArray and ManagedClusterAgentPoolProfileArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterAgentPoolProfileArrayInput` via:
 //
-//	ManagedClusterAgentPoolProfileArray{ ManagedClusterAgentPoolProfileArgs{...} }
+//          ManagedClusterAgentPoolProfileArray{ ManagedClusterAgentPoolProfileArgs{...} }
 type ManagedClusterAgentPoolProfileArrayInput interface {
 	pulumi.Input
 
@@ -4275,7 +4275,7 @@ type ManagedClusterAutoUpgradeProfile struct {
 // ManagedClusterAutoUpgradeProfileInput is an input type that accepts ManagedClusterAutoUpgradeProfileArgs and ManagedClusterAutoUpgradeProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterAutoUpgradeProfileInput` via:
 //
-//	ManagedClusterAutoUpgradeProfileArgs{...}
+//          ManagedClusterAutoUpgradeProfileArgs{...}
 type ManagedClusterAutoUpgradeProfileInput interface {
 	pulumi.Input
 
@@ -4312,11 +4312,11 @@ func (i ManagedClusterAutoUpgradeProfileArgs) ToManagedClusterAutoUpgradeProfile
 // ManagedClusterAutoUpgradeProfilePtrInput is an input type that accepts ManagedClusterAutoUpgradeProfileArgs, ManagedClusterAutoUpgradeProfilePtr and ManagedClusterAutoUpgradeProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterAutoUpgradeProfilePtrInput` via:
 //
-//	        ManagedClusterAutoUpgradeProfileArgs{...}
+//          ManagedClusterAutoUpgradeProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterAutoUpgradeProfilePtrInput interface {
 	pulumi.Input
 
@@ -4481,7 +4481,7 @@ type ManagedClusterHTTPProxyConfig struct {
 // ManagedClusterHTTPProxyConfigInput is an input type that accepts ManagedClusterHTTPProxyConfigArgs and ManagedClusterHTTPProxyConfigOutput values.
 // You can construct a concrete instance of `ManagedClusterHTTPProxyConfigInput` via:
 //
-//	ManagedClusterHTTPProxyConfigArgs{...}
+//          ManagedClusterHTTPProxyConfigArgs{...}
 type ManagedClusterHTTPProxyConfigInput interface {
 	pulumi.Input
 
@@ -4524,11 +4524,11 @@ func (i ManagedClusterHTTPProxyConfigArgs) ToManagedClusterHTTPProxyConfigPtrOut
 // ManagedClusterHTTPProxyConfigPtrInput is an input type that accepts ManagedClusterHTTPProxyConfigArgs, ManagedClusterHTTPProxyConfigPtr and ManagedClusterHTTPProxyConfigPtrOutput values.
 // You can construct a concrete instance of `ManagedClusterHTTPProxyConfigPtrInput` via:
 //
-//	        ManagedClusterHTTPProxyConfigArgs{...}
+//          ManagedClusterHTTPProxyConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterHTTPProxyConfigPtrInput interface {
 	pulumi.Input
 
@@ -4785,7 +4785,7 @@ type ManagedClusterIdentity struct {
 // ManagedClusterIdentityInput is an input type that accepts ManagedClusterIdentityArgs and ManagedClusterIdentityOutput values.
 // You can construct a concrete instance of `ManagedClusterIdentityInput` via:
 //
-//	ManagedClusterIdentityArgs{...}
+//          ManagedClusterIdentityArgs{...}
 type ManagedClusterIdentityInput interface {
 	pulumi.Input
 
@@ -4824,11 +4824,11 @@ func (i ManagedClusterIdentityArgs) ToManagedClusterIdentityPtrOutputWithContext
 // ManagedClusterIdentityPtrInput is an input type that accepts ManagedClusterIdentityArgs, ManagedClusterIdentityPtr and ManagedClusterIdentityPtrOutput values.
 // You can construct a concrete instance of `ManagedClusterIdentityPtrInput` via:
 //
-//	        ManagedClusterIdentityArgs{...}
+//          ManagedClusterIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterIdentityPtrInput interface {
 	pulumi.Input
 
@@ -5135,7 +5135,7 @@ func (val *ManagedClusterLoadBalancerProfile) Defaults() *ManagedClusterLoadBala
 // ManagedClusterLoadBalancerProfileInput is an input type that accepts ManagedClusterLoadBalancerProfileArgs and ManagedClusterLoadBalancerProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterLoadBalancerProfileInput` via:
 //
-//	ManagedClusterLoadBalancerProfileArgs{...}
+//          ManagedClusterLoadBalancerProfileArgs{...}
 type ManagedClusterLoadBalancerProfileInput interface {
 	pulumi.Input
 
@@ -5197,11 +5197,11 @@ func (i ManagedClusterLoadBalancerProfileArgs) ToManagedClusterLoadBalancerProfi
 // ManagedClusterLoadBalancerProfilePtrInput is an input type that accepts ManagedClusterLoadBalancerProfileArgs, ManagedClusterLoadBalancerProfilePtr and ManagedClusterLoadBalancerProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterLoadBalancerProfilePtrInput` via:
 //
-//	        ManagedClusterLoadBalancerProfileArgs{...}
+//          ManagedClusterLoadBalancerProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterLoadBalancerProfilePtrInput interface {
 	pulumi.Input
 
@@ -5394,7 +5394,7 @@ func (val *ManagedClusterLoadBalancerProfileManagedOutboundIPs) Defaults() *Mana
 // ManagedClusterLoadBalancerProfileManagedOutboundIPsInput is an input type that accepts ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs and ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput values.
 // You can construct a concrete instance of `ManagedClusterLoadBalancerProfileManagedOutboundIPsInput` via:
 //
-//	ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs{...}
+//          ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs{...}
 type ManagedClusterLoadBalancerProfileManagedOutboundIPsInput interface {
 	pulumi.Input
 
@@ -5442,11 +5442,11 @@ func (i ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs) ToManagedCluste
 // ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs, ManagedClusterLoadBalancerProfileManagedOutboundIPsPtr and ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput values.
 // You can construct a concrete instance of `ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrInput` via:
 //
-//	        ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs{...}
+//          ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrInput interface {
 	pulumi.Input
 
@@ -5545,7 +5545,7 @@ type ManagedClusterLoadBalancerProfileOutboundIPPrefixes struct {
 // ManagedClusterLoadBalancerProfileOutboundIPPrefixesInput is an input type that accepts ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs and ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput values.
 // You can construct a concrete instance of `ManagedClusterLoadBalancerProfileOutboundIPPrefixesInput` via:
 //
-//	ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs{...}
+//          ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs{...}
 type ManagedClusterLoadBalancerProfileOutboundIPPrefixesInput interface {
 	pulumi.Input
 
@@ -5582,11 +5582,11 @@ func (i ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs) ToManagedCluste
 // ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs, ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtr and ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput values.
 // You can construct a concrete instance of `ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrInput` via:
 //
-//	        ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs{...}
+//          ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrInput interface {
 	pulumi.Input
 
@@ -5687,7 +5687,7 @@ type ManagedClusterLoadBalancerProfileOutboundIPs struct {
 // ManagedClusterLoadBalancerProfileOutboundIPsInput is an input type that accepts ManagedClusterLoadBalancerProfileOutboundIPsArgs and ManagedClusterLoadBalancerProfileOutboundIPsOutput values.
 // You can construct a concrete instance of `ManagedClusterLoadBalancerProfileOutboundIPsInput` via:
 //
-//	ManagedClusterLoadBalancerProfileOutboundIPsArgs{...}
+//          ManagedClusterLoadBalancerProfileOutboundIPsArgs{...}
 type ManagedClusterLoadBalancerProfileOutboundIPsInput interface {
 	pulumi.Input
 
@@ -5724,11 +5724,11 @@ func (i ManagedClusterLoadBalancerProfileOutboundIPsArgs) ToManagedClusterLoadBa
 // ManagedClusterLoadBalancerProfileOutboundIPsPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileOutboundIPsArgs, ManagedClusterLoadBalancerProfileOutboundIPsPtr and ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput values.
 // You can construct a concrete instance of `ManagedClusterLoadBalancerProfileOutboundIPsPtrInput` via:
 //
-//	        ManagedClusterLoadBalancerProfileOutboundIPsArgs{...}
+//          ManagedClusterLoadBalancerProfileOutboundIPsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterLoadBalancerProfileOutboundIPsPtrInput interface {
 	pulumi.Input
 
@@ -6209,7 +6209,7 @@ func (val *ManagedClusterManagedOutboundIPProfile) Defaults() *ManagedClusterMan
 // ManagedClusterManagedOutboundIPProfileInput is an input type that accepts ManagedClusterManagedOutboundIPProfileArgs and ManagedClusterManagedOutboundIPProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterManagedOutboundIPProfileInput` via:
 //
-//	ManagedClusterManagedOutboundIPProfileArgs{...}
+//          ManagedClusterManagedOutboundIPProfileArgs{...}
 type ManagedClusterManagedOutboundIPProfileInput interface {
 	pulumi.Input
 
@@ -6257,11 +6257,11 @@ func (i ManagedClusterManagedOutboundIPProfileArgs) ToManagedClusterManagedOutbo
 // ManagedClusterManagedOutboundIPProfilePtrInput is an input type that accepts ManagedClusterManagedOutboundIPProfileArgs, ManagedClusterManagedOutboundIPProfilePtr and ManagedClusterManagedOutboundIPProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterManagedOutboundIPProfilePtrInput` via:
 //
-//	        ManagedClusterManagedOutboundIPProfileArgs{...}
+//          ManagedClusterManagedOutboundIPProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterManagedOutboundIPProfilePtrInput interface {
 	pulumi.Input
 
@@ -6452,7 +6452,7 @@ func (val *ManagedClusterNATGatewayProfile) Defaults() *ManagedClusterNATGateway
 // ManagedClusterNATGatewayProfileInput is an input type that accepts ManagedClusterNATGatewayProfileArgs and ManagedClusterNATGatewayProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterNATGatewayProfileInput` via:
 //
-//	ManagedClusterNATGatewayProfileArgs{...}
+//          ManagedClusterNATGatewayProfileArgs{...}
 type ManagedClusterNATGatewayProfileInput interface {
 	pulumi.Input
 
@@ -6505,11 +6505,11 @@ func (i ManagedClusterNATGatewayProfileArgs) ToManagedClusterNATGatewayProfilePt
 // ManagedClusterNATGatewayProfilePtrInput is an input type that accepts ManagedClusterNATGatewayProfileArgs, ManagedClusterNATGatewayProfilePtr and ManagedClusterNATGatewayProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterNATGatewayProfilePtrInput` via:
 //
-//	        ManagedClusterNATGatewayProfileArgs{...}
+//          ManagedClusterNATGatewayProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterNATGatewayProfilePtrInput interface {
 	pulumi.Input
 
@@ -6759,7 +6759,7 @@ type ManagedClusterPodIdentity struct {
 // ManagedClusterPodIdentityInput is an input type that accepts ManagedClusterPodIdentityArgs and ManagedClusterPodIdentityOutput values.
 // You can construct a concrete instance of `ManagedClusterPodIdentityInput` via:
 //
-//	ManagedClusterPodIdentityArgs{...}
+//          ManagedClusterPodIdentityArgs{...}
 type ManagedClusterPodIdentityInput interface {
 	pulumi.Input
 
@@ -6794,7 +6794,7 @@ func (i ManagedClusterPodIdentityArgs) ToManagedClusterPodIdentityOutputWithCont
 // ManagedClusterPodIdentityArrayInput is an input type that accepts ManagedClusterPodIdentityArray and ManagedClusterPodIdentityArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterPodIdentityArrayInput` via:
 //
-//	ManagedClusterPodIdentityArray{ ManagedClusterPodIdentityArgs{...} }
+//          ManagedClusterPodIdentityArray{ ManagedClusterPodIdentityArgs{...} }
 type ManagedClusterPodIdentityArrayInput interface {
 	pulumi.Input
 
@@ -6884,7 +6884,7 @@ type ManagedClusterPodIdentityException struct {
 // ManagedClusterPodIdentityExceptionInput is an input type that accepts ManagedClusterPodIdentityExceptionArgs and ManagedClusterPodIdentityExceptionOutput values.
 // You can construct a concrete instance of `ManagedClusterPodIdentityExceptionInput` via:
 //
-//	ManagedClusterPodIdentityExceptionArgs{...}
+//          ManagedClusterPodIdentityExceptionArgs{...}
 type ManagedClusterPodIdentityExceptionInput interface {
 	pulumi.Input
 
@@ -6917,7 +6917,7 @@ func (i ManagedClusterPodIdentityExceptionArgs) ToManagedClusterPodIdentityExcep
 // ManagedClusterPodIdentityExceptionArrayInput is an input type that accepts ManagedClusterPodIdentityExceptionArray and ManagedClusterPodIdentityExceptionArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterPodIdentityExceptionArrayInput` via:
 //
-//	ManagedClusterPodIdentityExceptionArray{ ManagedClusterPodIdentityExceptionArgs{...} }
+//          ManagedClusterPodIdentityExceptionArray{ ManagedClusterPodIdentityExceptionArgs{...} }
 type ManagedClusterPodIdentityExceptionArrayInput interface {
 	pulumi.Input
 
@@ -7064,7 +7064,7 @@ type ManagedClusterPodIdentityProfile struct {
 // ManagedClusterPodIdentityProfileInput is an input type that accepts ManagedClusterPodIdentityProfileArgs and ManagedClusterPodIdentityProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterPodIdentityProfileInput` via:
 //
-//	ManagedClusterPodIdentityProfileArgs{...}
+//          ManagedClusterPodIdentityProfileArgs{...}
 type ManagedClusterPodIdentityProfileInput interface {
 	pulumi.Input
 
@@ -7107,11 +7107,11 @@ func (i ManagedClusterPodIdentityProfileArgs) ToManagedClusterPodIdentityProfile
 // ManagedClusterPodIdentityProfilePtrInput is an input type that accepts ManagedClusterPodIdentityProfileArgs, ManagedClusterPodIdentityProfilePtr and ManagedClusterPodIdentityProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterPodIdentityProfilePtrInput` via:
 //
-//	        ManagedClusterPodIdentityProfileArgs{...}
+//          ManagedClusterPodIdentityProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterPodIdentityProfilePtrInput interface {
 	pulumi.Input
 
@@ -7706,7 +7706,7 @@ type ManagedClusterPropertiesAutoScalerProfile struct {
 // ManagedClusterPropertiesAutoScalerProfileInput is an input type that accepts ManagedClusterPropertiesAutoScalerProfileArgs and ManagedClusterPropertiesAutoScalerProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterPropertiesAutoScalerProfileInput` via:
 //
-//	ManagedClusterPropertiesAutoScalerProfileArgs{...}
+//          ManagedClusterPropertiesAutoScalerProfileArgs{...}
 type ManagedClusterPropertiesAutoScalerProfileInput interface {
 	pulumi.Input
 
@@ -7775,11 +7775,11 @@ func (i ManagedClusterPropertiesAutoScalerProfileArgs) ToManagedClusterPropertie
 // ManagedClusterPropertiesAutoScalerProfilePtrInput is an input type that accepts ManagedClusterPropertiesAutoScalerProfileArgs, ManagedClusterPropertiesAutoScalerProfilePtr and ManagedClusterPropertiesAutoScalerProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterPropertiesAutoScalerProfilePtrInput` via:
 //
-//	        ManagedClusterPropertiesAutoScalerProfileArgs{...}
+//          ManagedClusterPropertiesAutoScalerProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterPropertiesAutoScalerProfilePtrInput interface {
 	pulumi.Input
 
@@ -8454,7 +8454,7 @@ type ManagedClusterSKU struct {
 // ManagedClusterSKUInput is an input type that accepts ManagedClusterSKUArgs and ManagedClusterSKUOutput values.
 // You can construct a concrete instance of `ManagedClusterSKUInput` via:
 //
-//	ManagedClusterSKUArgs{...}
+//          ManagedClusterSKUArgs{...}
 type ManagedClusterSKUInput interface {
 	pulumi.Input
 
@@ -8493,11 +8493,11 @@ func (i ManagedClusterSKUArgs) ToManagedClusterSKUPtrOutputWithContext(ctx conte
 // ManagedClusterSKUPtrInput is an input type that accepts ManagedClusterSKUArgs, ManagedClusterSKUPtr and ManagedClusterSKUPtrOutput values.
 // You can construct a concrete instance of `ManagedClusterSKUPtrInput` via:
 //
-//	        ManagedClusterSKUArgs{...}
+//          ManagedClusterSKUArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterSKUPtrInput interface {
 	pulumi.Input
 
@@ -8688,7 +8688,7 @@ type ManagedClusterSecurityProfile struct {
 // ManagedClusterSecurityProfileInput is an input type that accepts ManagedClusterSecurityProfileArgs and ManagedClusterSecurityProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterSecurityProfileInput` via:
 //
-//	ManagedClusterSecurityProfileArgs{...}
+//          ManagedClusterSecurityProfileArgs{...}
 type ManagedClusterSecurityProfileInput interface {
 	pulumi.Input
 
@@ -8725,11 +8725,11 @@ func (i ManagedClusterSecurityProfileArgs) ToManagedClusterSecurityProfilePtrOut
 // ManagedClusterSecurityProfilePtrInput is an input type that accepts ManagedClusterSecurityProfileArgs, ManagedClusterSecurityProfilePtr and ManagedClusterSecurityProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterSecurityProfilePtrInput` via:
 //
-//	        ManagedClusterSecurityProfileArgs{...}
+//          ManagedClusterSecurityProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterSecurityProfilePtrInput interface {
 	pulumi.Input
 
@@ -8832,7 +8832,7 @@ type ManagedClusterSecurityProfileAzureDefender struct {
 // ManagedClusterSecurityProfileAzureDefenderInput is an input type that accepts ManagedClusterSecurityProfileAzureDefenderArgs and ManagedClusterSecurityProfileAzureDefenderOutput values.
 // You can construct a concrete instance of `ManagedClusterSecurityProfileAzureDefenderInput` via:
 //
-//	ManagedClusterSecurityProfileAzureDefenderArgs{...}
+//          ManagedClusterSecurityProfileAzureDefenderArgs{...}
 type ManagedClusterSecurityProfileAzureDefenderInput interface {
 	pulumi.Input
 
@@ -8871,11 +8871,11 @@ func (i ManagedClusterSecurityProfileAzureDefenderArgs) ToManagedClusterSecurity
 // ManagedClusterSecurityProfileAzureDefenderPtrInput is an input type that accepts ManagedClusterSecurityProfileAzureDefenderArgs, ManagedClusterSecurityProfileAzureDefenderPtr and ManagedClusterSecurityProfileAzureDefenderPtrOutput values.
 // You can construct a concrete instance of `ManagedClusterSecurityProfileAzureDefenderPtrInput` via:
 //
-//	        ManagedClusterSecurityProfileAzureDefenderArgs{...}
+//          ManagedClusterSecurityProfileAzureDefenderArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterSecurityProfileAzureDefenderPtrInput interface {
 	pulumi.Input
 
@@ -9132,7 +9132,7 @@ type ManagedClusterServicePrincipalProfile struct {
 // ManagedClusterServicePrincipalProfileInput is an input type that accepts ManagedClusterServicePrincipalProfileArgs and ManagedClusterServicePrincipalProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterServicePrincipalProfileInput` via:
 //
-//	ManagedClusterServicePrincipalProfileArgs{...}
+//          ManagedClusterServicePrincipalProfileArgs{...}
 type ManagedClusterServicePrincipalProfileInput interface {
 	pulumi.Input
 
@@ -9171,11 +9171,11 @@ func (i ManagedClusterServicePrincipalProfileArgs) ToManagedClusterServicePrinci
 // ManagedClusterServicePrincipalProfilePtrInput is an input type that accepts ManagedClusterServicePrincipalProfileArgs, ManagedClusterServicePrincipalProfilePtr and ManagedClusterServicePrincipalProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterServicePrincipalProfilePtrInput` via:
 //
-//	        ManagedClusterServicePrincipalProfileArgs{...}
+//          ManagedClusterServicePrincipalProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterServicePrincipalProfilePtrInput interface {
 	pulumi.Input
 
@@ -9372,7 +9372,7 @@ type ManagedClusterWindowsProfile struct {
 // ManagedClusterWindowsProfileInput is an input type that accepts ManagedClusterWindowsProfileArgs and ManagedClusterWindowsProfileOutput values.
 // You can construct a concrete instance of `ManagedClusterWindowsProfileInput` via:
 //
-//	ManagedClusterWindowsProfileArgs{...}
+//          ManagedClusterWindowsProfileArgs{...}
 type ManagedClusterWindowsProfileInput interface {
 	pulumi.Input
 
@@ -9415,11 +9415,11 @@ func (i ManagedClusterWindowsProfileArgs) ToManagedClusterWindowsProfilePtrOutpu
 // ManagedClusterWindowsProfilePtrInput is an input type that accepts ManagedClusterWindowsProfileArgs, ManagedClusterWindowsProfilePtr and ManagedClusterWindowsProfilePtrOutput values.
 // You can construct a concrete instance of `ManagedClusterWindowsProfilePtrInput` via:
 //
-//	        ManagedClusterWindowsProfileArgs{...}
+//          ManagedClusterWindowsProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedClusterWindowsProfilePtrInput interface {
 	pulumi.Input
 
@@ -9700,7 +9700,7 @@ type PrivateEndpoint struct {
 // PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
 // You can construct a concrete instance of `PrivateEndpointInput` via:
 //
-//	PrivateEndpointArgs{...}
+//          PrivateEndpointArgs{...}
 type PrivateEndpointInput interface {
 	pulumi.Input
 
@@ -9737,11 +9737,11 @@ func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.C
 // PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPtrInput` via:
 //
-//	        PrivateEndpointArgs{...}
+//          PrivateEndpointArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointPtrInput interface {
 	pulumi.Input
 
@@ -9908,7 +9908,7 @@ type PrivateLinkResource struct {
 // PrivateLinkResourceInput is an input type that accepts PrivateLinkResourceArgs and PrivateLinkResourceOutput values.
 // You can construct a concrete instance of `PrivateLinkResourceInput` via:
 //
-//	PrivateLinkResourceArgs{...}
+//          PrivateLinkResourceArgs{...}
 type PrivateLinkResourceInput interface {
 	pulumi.Input
 
@@ -9945,7 +9945,7 @@ func (i PrivateLinkResourceArgs) ToPrivateLinkResourceOutputWithContext(ctx cont
 // PrivateLinkResourceArrayInput is an input type that accepts PrivateLinkResourceArray and PrivateLinkResourceArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkResourceArrayInput` via:
 //
-//	PrivateLinkResourceArray{ PrivateLinkResourceArgs{...} }
+//          PrivateLinkResourceArray{ PrivateLinkResourceArgs{...} }
 type PrivateLinkResourceArrayInput interface {
 	pulumi.Input
 
@@ -10119,7 +10119,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -10214,7 +10214,7 @@ type ResourceReference struct {
 // ResourceReferenceInput is an input type that accepts ResourceReferenceArgs and ResourceReferenceOutput values.
 // You can construct a concrete instance of `ResourceReferenceInput` via:
 //
-//	ResourceReferenceArgs{...}
+//          ResourceReferenceArgs{...}
 type ResourceReferenceInput interface {
 	pulumi.Input
 
@@ -10243,7 +10243,7 @@ func (i ResourceReferenceArgs) ToResourceReferenceOutputWithContext(ctx context.
 // ResourceReferenceArrayInput is an input type that accepts ResourceReferenceArray and ResourceReferenceArrayOutput values.
 // You can construct a concrete instance of `ResourceReferenceArrayInput` via:
 //
-//	ResourceReferenceArray{ ResourceReferenceArgs{...} }
+//          ResourceReferenceArray{ ResourceReferenceArgs{...} }
 type ResourceReferenceArrayInput interface {
 	pulumi.Input
 
@@ -10414,7 +10414,7 @@ type SysctlConfig struct {
 // SysctlConfigInput is an input type that accepts SysctlConfigArgs and SysctlConfigOutput values.
 // You can construct a concrete instance of `SysctlConfigInput` via:
 //
-//	SysctlConfigArgs{...}
+//          SysctlConfigArgs{...}
 type SysctlConfigInput interface {
 	pulumi.Input
 
@@ -10505,11 +10505,11 @@ func (i SysctlConfigArgs) ToSysctlConfigPtrOutputWithContext(ctx context.Context
 // SysctlConfigPtrInput is an input type that accepts SysctlConfigArgs, SysctlConfigPtr and SysctlConfigPtrOutput values.
 // You can construct a concrete instance of `SysctlConfigPtrInput` via:
 //
-//	        SysctlConfigArgs{...}
+//          SysctlConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SysctlConfigPtrInput interface {
 	pulumi.Input
 
@@ -11595,7 +11595,7 @@ type TimeInWeek struct {
 // TimeInWeekInput is an input type that accepts TimeInWeekArgs and TimeInWeekOutput values.
 // You can construct a concrete instance of `TimeInWeekInput` via:
 //
-//	TimeInWeekArgs{...}
+//          TimeInWeekArgs{...}
 type TimeInWeekInput interface {
 	pulumi.Input
 
@@ -11626,7 +11626,7 @@ func (i TimeInWeekArgs) ToTimeInWeekOutputWithContext(ctx context.Context) TimeI
 // TimeInWeekArrayInput is an input type that accepts TimeInWeekArray and TimeInWeekArrayOutput values.
 // You can construct a concrete instance of `TimeInWeekArrayInput` via:
 //
-//	TimeInWeekArray{ TimeInWeekArgs{...} }
+//          TimeInWeekArray{ TimeInWeekArgs{...} }
 type TimeInWeekArrayInput interface {
 	pulumi.Input
 
@@ -11757,7 +11757,7 @@ type TimeSpan struct {
 // TimeSpanInput is an input type that accepts TimeSpanArgs and TimeSpanOutput values.
 // You can construct a concrete instance of `TimeSpanInput` via:
 //
-//	TimeSpanArgs{...}
+//          TimeSpanArgs{...}
 type TimeSpanInput interface {
 	pulumi.Input
 
@@ -11788,7 +11788,7 @@ func (i TimeSpanArgs) ToTimeSpanOutputWithContext(ctx context.Context) TimeSpanO
 // TimeSpanArrayInput is an input type that accepts TimeSpanArray and TimeSpanArrayOutput values.
 // You can construct a concrete instance of `TimeSpanArrayInput` via:
 //
-//	TimeSpanArray{ TimeSpanArgs{...} }
+//          TimeSpanArray{ TimeSpanArgs{...} }
 type TimeSpanArrayInput interface {
 	pulumi.Input
 
@@ -11921,7 +11921,7 @@ type UserAssignedIdentity struct {
 // UserAssignedIdentityInput is an input type that accepts UserAssignedIdentityArgs and UserAssignedIdentityOutput values.
 // You can construct a concrete instance of `UserAssignedIdentityInput` via:
 //
-//	UserAssignedIdentityArgs{...}
+//          UserAssignedIdentityArgs{...}
 type UserAssignedIdentityInput interface {
 	pulumi.Input
 
@@ -11954,7 +11954,7 @@ func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutputWithContext(ctx co
 // UserAssignedIdentityMapInput is an input type that accepts UserAssignedIdentityMap and UserAssignedIdentityMapOutput values.
 // You can construct a concrete instance of `UserAssignedIdentityMapInput` via:
 //
-//	UserAssignedIdentityMap{ "key": UserAssignedIdentityArgs{...} }
+//          UserAssignedIdentityMap{ "key": UserAssignedIdentityArgs{...} }
 type UserAssignedIdentityMapInput interface {
 	pulumi.Input
 

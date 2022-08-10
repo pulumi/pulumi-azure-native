@@ -149,7 +149,7 @@ type Schedule struct {
 // ScheduleInput is an input type that accepts ScheduleArgs and ScheduleOutput values.
 // You can construct a concrete instance of `ScheduleInput` via:
 //
-//	ScheduleArgs{...}
+//          ScheduleArgs{...}
 type ScheduleInput interface {
 	pulumi.Input
 
@@ -188,11 +188,11 @@ func (i ScheduleArgs) ToSchedulePtrOutputWithContext(ctx context.Context) Schedu
 // SchedulePtrInput is an input type that accepts ScheduleArgs, SchedulePtr and SchedulePtrOutput values.
 // You can construct a concrete instance of `SchedulePtrInput` via:
 //
-//	        ScheduleArgs{...}
+//          ScheduleArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SchedulePtrInput interface {
 	pulumi.Input
 
@@ -389,7 +389,7 @@ type Source struct {
 // SourceInput is an input type that accepts SourceArgs and SourceOutput values.
 // You can construct a concrete instance of `SourceInput` via:
 //
-//	SourceArgs{...}
+//          SourceArgs{...}
 type SourceInput interface {
 	pulumi.Input
 

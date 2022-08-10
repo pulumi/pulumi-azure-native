@@ -19,7 +19,7 @@ type DigitalTwinsSkuInfo struct {
 // DigitalTwinsSkuInfoInput is an input type that accepts DigitalTwinsSkuInfoArgs and DigitalTwinsSkuInfoOutput values.
 // You can construct a concrete instance of `DigitalTwinsSkuInfoInput` via:
 //
-//	DigitalTwinsSkuInfoArgs{...}
+//          DigitalTwinsSkuInfoArgs{...}
 type DigitalTwinsSkuInfoInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i DigitalTwinsSkuInfoArgs) ToDigitalTwinsSkuInfoPtrOutputWithContext(ctx c
 // DigitalTwinsSkuInfoPtrInput is an input type that accepts DigitalTwinsSkuInfoArgs, DigitalTwinsSkuInfoPtr and DigitalTwinsSkuInfoPtrOutput values.
 // You can construct a concrete instance of `DigitalTwinsSkuInfoPtrInput` via:
 //
-//	        DigitalTwinsSkuInfoArgs{...}
+//          DigitalTwinsSkuInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DigitalTwinsSkuInfoPtrInput interface {
 	pulumi.Input
 

@@ -243,7 +243,7 @@ type ExportDataset struct {
 // ExportDatasetInput is an input type that accepts ExportDatasetArgs and ExportDatasetOutput values.
 // You can construct a concrete instance of `ExportDatasetInput` via:
 //
-//	ExportDatasetArgs{...}
+//          ExportDatasetArgs{...}
 type ExportDatasetInput interface {
 	pulumi.Input
 
@@ -282,11 +282,11 @@ func (i ExportDatasetArgs) ToExportDatasetPtrOutputWithContext(ctx context.Conte
 // ExportDatasetPtrInput is an input type that accepts ExportDatasetArgs, ExportDatasetPtr and ExportDatasetPtrOutput values.
 // You can construct a concrete instance of `ExportDatasetPtrInput` via:
 //
-//	        ExportDatasetArgs{...}
+//          ExportDatasetArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ExportDatasetPtrInput interface {
 	pulumi.Input
 
@@ -400,7 +400,7 @@ type ExportDatasetConfiguration struct {
 // ExportDatasetConfigurationInput is an input type that accepts ExportDatasetConfigurationArgs and ExportDatasetConfigurationOutput values.
 // You can construct a concrete instance of `ExportDatasetConfigurationInput` via:
 //
-//	ExportDatasetConfigurationArgs{...}
+//          ExportDatasetConfigurationArgs{...}
 type ExportDatasetConfigurationInput interface {
 	pulumi.Input
 
@@ -437,11 +437,11 @@ func (i ExportDatasetConfigurationArgs) ToExportDatasetConfigurationPtrOutputWit
 // ExportDatasetConfigurationPtrInput is an input type that accepts ExportDatasetConfigurationArgs, ExportDatasetConfigurationPtr and ExportDatasetConfigurationPtrOutput values.
 // You can construct a concrete instance of `ExportDatasetConfigurationPtrInput` via:
 //
-//	        ExportDatasetConfigurationArgs{...}
+//          ExportDatasetConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ExportDatasetConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -683,7 +683,7 @@ type ExportDefinition struct {
 // ExportDefinitionInput is an input type that accepts ExportDefinitionArgs and ExportDefinitionOutput values.
 // You can construct a concrete instance of `ExportDefinitionInput` via:
 //
-//	ExportDefinitionArgs{...}
+//          ExportDefinitionArgs{...}
 type ExportDefinitionInput interface {
 	pulumi.Input
 
@@ -878,7 +878,7 @@ type ExportDeliveryDestination struct {
 // ExportDeliveryDestinationInput is an input type that accepts ExportDeliveryDestinationArgs and ExportDeliveryDestinationOutput values.
 // You can construct a concrete instance of `ExportDeliveryDestinationInput` via:
 //
-//	ExportDeliveryDestinationArgs{...}
+//          ExportDeliveryDestinationArgs{...}
 type ExportDeliveryDestinationInput interface {
 	pulumi.Input
 
@@ -1072,7 +1072,7 @@ type ExportDeliveryInfo struct {
 // ExportDeliveryInfoInput is an input type that accepts ExportDeliveryInfoArgs and ExportDeliveryInfoOutput values.
 // You can construct a concrete instance of `ExportDeliveryInfoInput` via:
 //
-//	ExportDeliveryInfoArgs{...}
+//          ExportDeliveryInfoArgs{...}
 type ExportDeliveryInfoInput interface {
 	pulumi.Input
 
@@ -1379,7 +1379,7 @@ type ExportRecurrencePeriod struct {
 // ExportRecurrencePeriodInput is an input type that accepts ExportRecurrencePeriodArgs and ExportRecurrencePeriodOutput values.
 // You can construct a concrete instance of `ExportRecurrencePeriodInput` via:
 //
-//	ExportRecurrencePeriodArgs{...}
+//          ExportRecurrencePeriodArgs{...}
 type ExportRecurrencePeriodInput interface {
 	pulumi.Input
 
@@ -1418,11 +1418,11 @@ func (i ExportRecurrencePeriodArgs) ToExportRecurrencePeriodPtrOutputWithContext
 // ExportRecurrencePeriodPtrInput is an input type that accepts ExportRecurrencePeriodArgs, ExportRecurrencePeriodPtr and ExportRecurrencePeriodPtrOutput values.
 // You can construct a concrete instance of `ExportRecurrencePeriodPtrInput` via:
 //
-//	        ExportRecurrencePeriodArgs{...}
+//          ExportRecurrencePeriodArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ExportRecurrencePeriodPtrInput interface {
 	pulumi.Input
 
@@ -1617,7 +1617,7 @@ type ExportSchedule struct {
 // ExportScheduleInput is an input type that accepts ExportScheduleArgs and ExportScheduleOutput values.
 // You can construct a concrete instance of `ExportScheduleInput` via:
 //
-//	ExportScheduleArgs{...}
+//          ExportScheduleArgs{...}
 type ExportScheduleInput interface {
 	pulumi.Input
 
@@ -1658,11 +1658,11 @@ func (i ExportScheduleArgs) ToExportSchedulePtrOutputWithContext(ctx context.Con
 // ExportSchedulePtrInput is an input type that accepts ExportScheduleArgs, ExportSchedulePtr and ExportSchedulePtrOutput values.
 // You can construct a concrete instance of `ExportSchedulePtrInput` via:
 //
-//	        ExportScheduleArgs{...}
+//          ExportScheduleArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ExportSchedulePtrInput interface {
 	pulumi.Input
 
@@ -1887,7 +1887,7 @@ type ExportTimePeriod struct {
 // ExportTimePeriodInput is an input type that accepts ExportTimePeriodArgs and ExportTimePeriodOutput values.
 // You can construct a concrete instance of `ExportTimePeriodInput` via:
 //
-//	ExportTimePeriodArgs{...}
+//          ExportTimePeriodArgs{...}
 type ExportTimePeriodInput interface {
 	pulumi.Input
 
@@ -1926,11 +1926,11 @@ func (i ExportTimePeriodArgs) ToExportTimePeriodPtrOutputWithContext(ctx context
 // ExportTimePeriodPtrInput is an input type that accepts ExportTimePeriodArgs, ExportTimePeriodPtr and ExportTimePeriodPtrOutput values.
 // You can construct a concrete instance of `ExportTimePeriodPtrInput` via:
 //
-//	        ExportTimePeriodArgs{...}
+//          ExportTimePeriodArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ExportTimePeriodPtrInput interface {
 	pulumi.Input
 

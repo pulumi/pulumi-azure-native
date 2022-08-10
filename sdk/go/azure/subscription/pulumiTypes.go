@@ -27,7 +27,7 @@ type PutAliasRequestProperties struct {
 // PutAliasRequestPropertiesInput is an input type that accepts PutAliasRequestPropertiesArgs and PutAliasRequestPropertiesOutput values.
 // You can construct a concrete instance of `PutAliasRequestPropertiesInput` via:
 //
-//	PutAliasRequestPropertiesArgs{...}
+//          PutAliasRequestPropertiesArgs{...}
 type PutAliasRequestPropertiesInput interface {
 	pulumi.Input
 

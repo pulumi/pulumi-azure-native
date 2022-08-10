@@ -139,7 +139,7 @@ func (o AccessControlEntryActionPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // AccessControlEntryActionInput is an input type that accepts AccessControlEntryActionArgs and AccessControlEntryActionOutput values.
 // You can construct a concrete instance of `AccessControlEntryActionInput` via:
 //
-//	AccessControlEntryActionArgs{...}
+//          AccessControlEntryActionArgs{...}
 type AccessControlEntryActionInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o AutoHealActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // AutoHealActionTypeInput is an input type that accepts AutoHealActionTypeArgs and AutoHealActionTypeOutput values.
 // You can construct a concrete instance of `AutoHealActionTypeInput` via:
 //
-//	AutoHealActionTypeArgs{...}
+//          AutoHealActionTypeArgs{...}
 type AutoHealActionTypeInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (o AzureResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // AzureResourceTypeInput is an input type that accepts AzureResourceTypeArgs and AzureResourceTypeOutput values.
 // You can construct a concrete instance of `AzureResourceTypeInput` via:
 //
-//	AzureResourceTypeArgs{...}
+//          AzureResourceTypeArgs{...}
 type AzureResourceTypeInput interface {
 	pulumi.Input
 
@@ -515,9 +515,8 @@ const (
 )
 
 // Gets or sets the default authentication provider to use when multiple providers are configured.
-//
-//	This setting is only needed if multiple providers are configured and the unauthenticated client
-//	action is set to "RedirectToLoginPage".
+//             This setting is only needed if multiple providers are configured and the unauthenticated client
+//             action is set to "RedirectToLoginPage".
 type BuiltInAuthenticationProvider string
 
 const (
@@ -650,7 +649,7 @@ func (o BuiltInAuthenticationProviderPtrOutput) ToStringPtrOutputWithContext(ctx
 // BuiltInAuthenticationProviderInput is an input type that accepts BuiltInAuthenticationProviderArgs and BuiltInAuthenticationProviderOutput values.
 // You can construct a concrete instance of `BuiltInAuthenticationProviderInput` via:
 //
-//	BuiltInAuthenticationProviderArgs{...}
+//          BuiltInAuthenticationProviderArgs{...}
 type BuiltInAuthenticationProviderInput interface {
 	pulumi.Input
 
@@ -816,7 +815,7 @@ func (o ComputeModeOptionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // ComputeModeOptionsInput is an input type that accepts ComputeModeOptionsArgs and ComputeModeOptionsOutput values.
 // You can construct a concrete instance of `ComputeModeOptionsInput` via:
 //
-//	ComputeModeOptionsArgs{...}
+//          ComputeModeOptionsArgs{...}
 type ComputeModeOptionsInput interface {
 	pulumi.Input
 
@@ -981,7 +980,7 @@ func (o CustomHostNameDnsRecordTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // CustomHostNameDnsRecordTypeInput is an input type that accepts CustomHostNameDnsRecordTypeArgs and CustomHostNameDnsRecordTypeOutput values.
 // You can construct a concrete instance of `CustomHostNameDnsRecordTypeInput` via:
 //
-//	CustomHostNameDnsRecordTypeArgs{...}
+//          CustomHostNameDnsRecordTypeArgs{...}
 type CustomHostNameDnsRecordTypeInput interface {
 	pulumi.Input
 
@@ -1148,7 +1147,7 @@ func (o DatabaseServerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // DatabaseServerTypeInput is an input type that accepts DatabaseServerTypeArgs and DatabaseServerTypeOutput values.
 // You can construct a concrete instance of `DatabaseServerTypeInput` via:
 //
-//	DatabaseServerTypeArgs{...}
+//          DatabaseServerTypeArgs{...}
 type DatabaseServerTypeInput interface {
 	pulumi.Input
 
@@ -1313,7 +1312,7 @@ func (o FrequencyUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // FrequencyUnitInput is an input type that accepts FrequencyUnitArgs and FrequencyUnitOutput values.
 // You can construct a concrete instance of `FrequencyUnitInput` via:
 //
-//	FrequencyUnitArgs{...}
+//          FrequencyUnitArgs{...}
 type FrequencyUnitInput interface {
 	pulumi.Input
 
@@ -1478,7 +1477,7 @@ func (o HostNameTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // HostNameTypeInput is an input type that accepts HostNameTypeArgs and HostNameTypeOutput values.
 // You can construct a concrete instance of `HostNameTypeInput` via:
 //
-//	HostNameTypeArgs{...}
+//          HostNameTypeArgs{...}
 type HostNameTypeInput interface {
 	pulumi.Input
 
@@ -1645,7 +1644,7 @@ func (o HostingEnvironmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // HostingEnvironmentStatusInput is an input type that accepts HostingEnvironmentStatusArgs and HostingEnvironmentStatusOutput values.
 // You can construct a concrete instance of `HostingEnvironmentStatusInput` via:
 //
-//	HostingEnvironmentStatusArgs{...}
+//          HostingEnvironmentStatusArgs{...}
 type HostingEnvironmentStatusInput interface {
 	pulumi.Input
 
@@ -1811,7 +1810,7 @@ func (o InternalLoadBalancingModePtrOutput) ToStringPtrOutputWithContext(ctx con
 // InternalLoadBalancingModeInput is an input type that accepts InternalLoadBalancingModeArgs and InternalLoadBalancingModeOutput values.
 // You can construct a concrete instance of `InternalLoadBalancingModeInput` via:
 //
-//	InternalLoadBalancingModeArgs{...}
+//          InternalLoadBalancingModeArgs{...}
 type InternalLoadBalancingModeInput interface {
 	pulumi.Input
 
@@ -1979,7 +1978,7 @@ func (o LogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 // LogLevelInput is an input type that accepts LogLevelArgs and LogLevelOutput values.
 // You can construct a concrete instance of `LogLevelInput` via:
 //
-//	LogLevelArgs{...}
+//          LogLevelArgs{...}
 type LogLevelInput interface {
 	pulumi.Input
 
@@ -2144,7 +2143,7 @@ func (o ManagedPipelineModePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // ManagedPipelineModeInput is an input type that accepts ManagedPipelineModeArgs and ManagedPipelineModeOutput values.
 // You can construct a concrete instance of `ManagedPipelineModeInput` via:
 //
-//	ManagedPipelineModeArgs{...}
+//          ManagedPipelineModeArgs{...}
 type ManagedPipelineModeInput interface {
 	pulumi.Input
 
@@ -2312,7 +2311,7 @@ func (o ProvisioningStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // ProvisioningStateInput is an input type that accepts ProvisioningStateArgs and ProvisioningStateOutput values.
 // You can construct a concrete instance of `ProvisioningStateInput` via:
 //
-//	ProvisioningStateArgs{...}
+//          ProvisioningStateArgs{...}
 type ProvisioningStateInput interface {
 	pulumi.Input
 
@@ -2480,7 +2479,7 @@ func (o SiteLoadBalancingPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // SiteLoadBalancingInput is an input type that accepts SiteLoadBalancingArgs and SiteLoadBalancingOutput values.
 // You can construct a concrete instance of `SiteLoadBalancingInput` via:
 //
-//	SiteLoadBalancingArgs{...}
+//          SiteLoadBalancingArgs{...}
 type SiteLoadBalancingInput interface {
 	pulumi.Input
 
@@ -2646,7 +2645,7 @@ func (o SslStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 // SslStateInput is an input type that accepts SslStateArgs and SslStateOutput values.
 // You can construct a concrete instance of `SslStateInput` via:
 //
-//	SslStateArgs{...}
+//          SslStateArgs{...}
 type SslStateInput interface {
 	pulumi.Input
 
@@ -2811,7 +2810,7 @@ func (o UnauthenticatedClientActionPtrOutput) ToStringPtrOutputWithContext(ctx c
 // UnauthenticatedClientActionInput is an input type that accepts UnauthenticatedClientActionArgs and UnauthenticatedClientActionOutput values.
 // You can construct a concrete instance of `UnauthenticatedClientActionInput` via:
 //
-//	UnauthenticatedClientActionArgs{...}
+//          UnauthenticatedClientActionArgs{...}
 type UnauthenticatedClientActionInput interface {
 	pulumi.Input
 
@@ -2978,7 +2977,7 @@ func (o WorkerSizeOptionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // WorkerSizeOptionsInput is an input type that accepts WorkerSizeOptionsArgs and WorkerSizeOptionsOutput values.
 // You can construct a concrete instance of `WorkerSizeOptionsInput` via:
 //
-//	WorkerSizeOptionsArgs{...}
+//          WorkerSizeOptionsArgs{...}
 type WorkerSizeOptionsInput interface {
 	pulumi.Input
 

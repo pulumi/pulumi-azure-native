@@ -19,7 +19,7 @@ type DefenderSettingsPropertiesMdeIntegration struct {
 // DefenderSettingsPropertiesMdeIntegrationInput is an input type that accepts DefenderSettingsPropertiesMdeIntegrationArgs and DefenderSettingsPropertiesMdeIntegrationOutput values.
 // You can construct a concrete instance of `DefenderSettingsPropertiesMdeIntegrationInput` via:
 //
-//	DefenderSettingsPropertiesMdeIntegrationArgs{...}
+//          DefenderSettingsPropertiesMdeIntegrationArgs{...}
 type DefenderSettingsPropertiesMdeIntegrationInput interface {
 	pulumi.Input
 

@@ -5,10 +5,25 @@
 from enum import Enum
 
 __all__ = [
+    'GovernanceRuleConditionOperator',
     'GovernanceRuleOwnerSourceType',
     'GovernanceRuleSourceResourceType',
     'GovernanceRuleType',
 ]
+
+
+class GovernanceRuleConditionOperator(str, Enum):
+    """
+    The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
+    """
+    EQUALS = "Equals"
+    """
+    Checks that the string value of the data defined in Property equals the given value - exact fit
+    """
+    IN_ = "In"
+    """
+    Checks that the string value of the data defined in Property equals any of the given values (exact fit)
+    """
 
 
 class GovernanceRuleOwnerSourceType(str, Enum):

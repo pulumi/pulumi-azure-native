@@ -21,7 +21,7 @@ type BudgetTimePeriod struct {
 // BudgetTimePeriodInput is an input type that accepts BudgetTimePeriodArgs and BudgetTimePeriodOutput values.
 // You can construct a concrete instance of `BudgetTimePeriodInput` via:
 //
-//	BudgetTimePeriodArgs{...}
+//          BudgetTimePeriodArgs{...}
 type BudgetTimePeriodInput interface {
 	pulumi.Input
 
@@ -157,7 +157,7 @@ type Notification struct {
 // NotificationInput is an input type that accepts NotificationArgs and NotificationOutput values.
 // You can construct a concrete instance of `NotificationInput` via:
 //
-//	NotificationArgs{...}
+//          NotificationArgs{...}
 type NotificationInput interface {
 	pulumi.Input
 
@@ -194,7 +194,7 @@ func (i NotificationArgs) ToNotificationOutputWithContext(ctx context.Context) N
 // NotificationMapInput is an input type that accepts NotificationMap and NotificationMapOutput values.
 // You can construct a concrete instance of `NotificationMapInput` via:
 //
-//	NotificationMap{ "key": NotificationArgs{...} }
+//          NotificationMap{ "key": NotificationArgs{...} }
 type NotificationMapInput interface {
 	pulumi.Input
 

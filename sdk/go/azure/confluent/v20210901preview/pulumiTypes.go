@@ -27,7 +27,7 @@ type OfferDetail struct {
 // OfferDetailInput is an input type that accepts OfferDetailArgs and OfferDetailOutput values.
 // You can construct a concrete instance of `OfferDetailInput` via:
 //
-//	OfferDetailArgs{...}
+//          OfferDetailArgs{...}
 type OfferDetailInput interface {
 	pulumi.Input
 
@@ -236,7 +236,7 @@ type UserDetail struct {
 // UserDetailInput is an input type that accepts UserDetailArgs and UserDetailOutput values.
 // You can construct a concrete instance of `UserDetailInput` via:
 //
-//	UserDetailArgs{...}
+//          UserDetailArgs{...}
 type UserDetailInput interface {
 	pulumi.Input
 

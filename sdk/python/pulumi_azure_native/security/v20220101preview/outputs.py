@@ -11,12 +11,60 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ConditionResponse',
     'GovernanceAssignmentAdditionalDataResponse',
     'GovernanceEmailNotificationResponse',
     'GovernanceRuleEmailNotificationResponse',
     'GovernanceRuleOwnerSourceResponse',
     'RemediationEtaResponse',
 ]
+
+@pulumi.output_type
+class ConditionResponse(dict):
+    """
+    Governance rule's condition
+    """
+    def __init__(__self__, *,
+                 operator: Optional[str] = None,
+                 property: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Governance rule's condition
+        :param str operator: The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
+        :param str property: The governance rule Condition's Property, e.g. Severity or AssessmentKey, see examples
+        :param str value: The governance rule Condition's Value like severity Low, High or assessments keys, see examples
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if property is not None:
+            pulumi.set(__self__, "property", property)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The governance rule Condition's Value like severity Low, High or assessments keys, see examples
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def property(self) -> Optional[str]:
+        """
+        The governance rule Condition's Property, e.g. Severity or AssessmentKey, see examples
+        """
+        return pulumi.get(self, "property")
+
 
 @pulumi.output_type
 class GovernanceAssignmentAdditionalDataResponse(dict):

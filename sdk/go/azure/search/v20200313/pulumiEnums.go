@@ -140,7 +140,7 @@ func (o HostingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // HostingModeInput is an input type that accepts HostingModeArgs and HostingModeOutput values.
 // You can construct a concrete instance of `HostingModeInput` via:
 //
-//	HostingModeArgs{...}
+//          HostingModeArgs{...}
 type HostingModeInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o IdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // IdentityTypeInput is an input type that accepts IdentityTypeArgs and IdentityTypeOutput values.
 // You can construct a concrete instance of `IdentityTypeInput` via:
 //
-//	IdentityTypeArgs{...}
+//          IdentityTypeArgs{...}
 type IdentityTypeInput interface {
 	pulumi.Input
 
@@ -472,7 +472,7 @@ func (o PrivateLinkServiceConnectionStatusPtrOutput) ToStringPtrOutputWithContex
 // PrivateLinkServiceConnectionStatusInput is an input type that accepts PrivateLinkServiceConnectionStatusArgs and PrivateLinkServiceConnectionStatusOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatusInput` via:
 //
-//	PrivateLinkServiceConnectionStatusArgs{...}
+//          PrivateLinkServiceConnectionStatusArgs{...}
 type PrivateLinkServiceConnectionStatusInput interface {
 	pulumi.Input
 
@@ -637,7 +637,7 @@ func (o PublicNetworkAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // PublicNetworkAccessInput is an input type that accepts PublicNetworkAccessArgs and PublicNetworkAccessOutput values.
 // You can construct a concrete instance of `PublicNetworkAccessInput` via:
 //
-//	PublicNetworkAccessArgs{...}
+//          PublicNetworkAccessArgs{...}
 type PublicNetworkAccessInput interface {
 	pulumi.Input
 
@@ -807,7 +807,7 @@ func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
 // You can construct a concrete instance of `SkuNameInput` via:
 //
-//	SkuNameArgs{...}
+//          SkuNameArgs{...}
 type SkuNameInput interface {
 	pulumi.Input
 

@@ -87,7 +87,7 @@ type Gen2StorageConfigurationInput struct {
 // Gen2StorageConfigurationInputInput is an input type that accepts Gen2StorageConfigurationInputArgs and Gen2StorageConfigurationInputOutput values.
 // You can construct a concrete instance of `Gen2StorageConfigurationInputInput` via:
 //
-//	Gen2StorageConfigurationInputArgs{...}
+//          Gen2StorageConfigurationInputArgs{...}
 type Gen2StorageConfigurationInputInput interface {
 	pulumi.Input
 
@@ -210,7 +210,7 @@ type LocalTimestamp struct {
 // LocalTimestampInput is an input type that accepts LocalTimestampArgs and LocalTimestampOutput values.
 // You can construct a concrete instance of `LocalTimestampInput` via:
 //
-//	LocalTimestampArgs{...}
+//          LocalTimestampArgs{...}
 type LocalTimestampInput interface {
 	pulumi.Input
 
@@ -249,11 +249,11 @@ func (i LocalTimestampArgs) ToLocalTimestampPtrOutputWithContext(ctx context.Con
 // LocalTimestampPtrInput is an input type that accepts LocalTimestampArgs, LocalTimestampPtr and LocalTimestampPtrOutput values.
 // You can construct a concrete instance of `LocalTimestampPtrInput` via:
 //
-//	        LocalTimestampArgs{...}
+//          LocalTimestampArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LocalTimestampPtrInput interface {
 	pulumi.Input
 
@@ -504,7 +504,7 @@ type LocalTimestampTimeZoneOffset struct {
 // LocalTimestampTimeZoneOffsetInput is an input type that accepts LocalTimestampTimeZoneOffsetArgs and LocalTimestampTimeZoneOffsetOutput values.
 // You can construct a concrete instance of `LocalTimestampTimeZoneOffsetInput` via:
 //
-//	LocalTimestampTimeZoneOffsetArgs{...}
+//          LocalTimestampTimeZoneOffsetArgs{...}
 type LocalTimestampTimeZoneOffsetInput interface {
 	pulumi.Input
 
@@ -541,11 +541,11 @@ func (i LocalTimestampTimeZoneOffsetArgs) ToLocalTimestampTimeZoneOffsetPtrOutpu
 // LocalTimestampTimeZoneOffsetPtrInput is an input type that accepts LocalTimestampTimeZoneOffsetArgs, LocalTimestampTimeZoneOffsetPtr and LocalTimestampTimeZoneOffsetPtrOutput values.
 // You can construct a concrete instance of `LocalTimestampTimeZoneOffsetPtrInput` via:
 //
-//	        LocalTimestampTimeZoneOffsetArgs{...}
+//          LocalTimestampTimeZoneOffsetArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LocalTimestampTimeZoneOffsetPtrInput interface {
 	pulumi.Input
 
@@ -708,7 +708,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -819,7 +819,7 @@ type ReferenceDataSetKeyProperty struct {
 // ReferenceDataSetKeyPropertyInput is an input type that accepts ReferenceDataSetKeyPropertyArgs and ReferenceDataSetKeyPropertyOutput values.
 // You can construct a concrete instance of `ReferenceDataSetKeyPropertyInput` via:
 //
-//	ReferenceDataSetKeyPropertyArgs{...}
+//          ReferenceDataSetKeyPropertyArgs{...}
 type ReferenceDataSetKeyPropertyInput interface {
 	pulumi.Input
 
@@ -850,7 +850,7 @@ func (i ReferenceDataSetKeyPropertyArgs) ToReferenceDataSetKeyPropertyOutputWith
 // ReferenceDataSetKeyPropertyArrayInput is an input type that accepts ReferenceDataSetKeyPropertyArray and ReferenceDataSetKeyPropertyArrayOutput values.
 // You can construct a concrete instance of `ReferenceDataSetKeyPropertyArrayInput` via:
 //
-//	ReferenceDataSetKeyPropertyArray{ ReferenceDataSetKeyPropertyArgs{...} }
+//          ReferenceDataSetKeyPropertyArray{ ReferenceDataSetKeyPropertyArgs{...} }
 type ReferenceDataSetKeyPropertyArrayInput interface {
 	pulumi.Input
 
@@ -981,7 +981,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1078,7 +1078,7 @@ type TimeSeriesIdProperty struct {
 // TimeSeriesIdPropertyInput is an input type that accepts TimeSeriesIdPropertyArgs and TimeSeriesIdPropertyOutput values.
 // You can construct a concrete instance of `TimeSeriesIdPropertyInput` via:
 //
-//	TimeSeriesIdPropertyArgs{...}
+//          TimeSeriesIdPropertyArgs{...}
 type TimeSeriesIdPropertyInput interface {
 	pulumi.Input
 
@@ -1109,7 +1109,7 @@ func (i TimeSeriesIdPropertyArgs) ToTimeSeriesIdPropertyOutputWithContext(ctx co
 // TimeSeriesIdPropertyArrayInput is an input type that accepts TimeSeriesIdPropertyArray and TimeSeriesIdPropertyArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesIdPropertyArrayInput` via:
 //
-//	TimeSeriesIdPropertyArray{ TimeSeriesIdPropertyArgs{...} }
+//          TimeSeriesIdPropertyArray{ TimeSeriesIdPropertyArgs{...} }
 type TimeSeriesIdPropertyArrayInput interface {
 	pulumi.Input
 
@@ -1278,7 +1278,7 @@ type WarmStoreConfigurationProperties struct {
 // WarmStoreConfigurationPropertiesInput is an input type that accepts WarmStoreConfigurationPropertiesArgs and WarmStoreConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `WarmStoreConfigurationPropertiesInput` via:
 //
-//	WarmStoreConfigurationPropertiesArgs{...}
+//          WarmStoreConfigurationPropertiesArgs{...}
 type WarmStoreConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -1315,11 +1315,11 @@ func (i WarmStoreConfigurationPropertiesArgs) ToWarmStoreConfigurationProperties
 // WarmStoreConfigurationPropertiesPtrInput is an input type that accepts WarmStoreConfigurationPropertiesArgs, WarmStoreConfigurationPropertiesPtr and WarmStoreConfigurationPropertiesPtrOutput values.
 // You can construct a concrete instance of `WarmStoreConfigurationPropertiesPtrInput` via:
 //
-//	        WarmStoreConfigurationPropertiesArgs{...}
+//          WarmStoreConfigurationPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WarmStoreConfigurationPropertiesPtrInput interface {
 	pulumi.Input
 

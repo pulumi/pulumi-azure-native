@@ -120,7 +120,7 @@ type IncidentLabel struct {
 // IncidentLabelInput is an input type that accepts IncidentLabelArgs and IncidentLabelOutput values.
 // You can construct a concrete instance of `IncidentLabelInput` via:
 //
-//	IncidentLabelArgs{...}
+//          IncidentLabelArgs{...}
 type IncidentLabelInput interface {
 	pulumi.Input
 
@@ -149,7 +149,7 @@ func (i IncidentLabelArgs) ToIncidentLabelOutputWithContext(ctx context.Context)
 // IncidentLabelArrayInput is an input type that accepts IncidentLabelArray and IncidentLabelArrayOutput values.
 // You can construct a concrete instance of `IncidentLabelArrayInput` via:
 //
-//	IncidentLabelArray{ IncidentLabelArgs{...} }
+//          IncidentLabelArray{ IncidentLabelArgs{...} }
 type IncidentLabelArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +279,7 @@ type IncidentOwnerInfo struct {
 // IncidentOwnerInfoInput is an input type that accepts IncidentOwnerInfoArgs and IncidentOwnerInfoOutput values.
 // You can construct a concrete instance of `IncidentOwnerInfoInput` via:
 //
-//	IncidentOwnerInfoArgs{...}
+//          IncidentOwnerInfoArgs{...}
 type IncidentOwnerInfoInput interface {
 	pulumi.Input
 
@@ -322,11 +322,11 @@ func (i IncidentOwnerInfoArgs) ToIncidentOwnerInfoPtrOutputWithContext(ctx conte
 // IncidentOwnerInfoPtrInput is an input type that accepts IncidentOwnerInfoArgs, IncidentOwnerInfoPtr and IncidentOwnerInfoPtrOutput values.
 // You can construct a concrete instance of `IncidentOwnerInfoPtrInput` via:
 //
-//	        IncidentOwnerInfoArgs{...}
+//          IncidentOwnerInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IncidentOwnerInfoPtrInput interface {
 	pulumi.Input
 
@@ -650,7 +650,7 @@ type ThreatIntelligenceExternalReference struct {
 // ThreatIntelligenceExternalReferenceInput is an input type that accepts ThreatIntelligenceExternalReferenceArgs and ThreatIntelligenceExternalReferenceOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceExternalReferenceInput` via:
 //
-//	ThreatIntelligenceExternalReferenceArgs{...}
+//          ThreatIntelligenceExternalReferenceArgs{...}
 type ThreatIntelligenceExternalReferenceInput interface {
 	pulumi.Input
 
@@ -687,7 +687,7 @@ func (i ThreatIntelligenceExternalReferenceArgs) ToThreatIntelligenceExternalRef
 // ThreatIntelligenceExternalReferenceArrayInput is an input type that accepts ThreatIntelligenceExternalReferenceArray and ThreatIntelligenceExternalReferenceArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceExternalReferenceArrayInput` via:
 //
-//	ThreatIntelligenceExternalReferenceArray{ ThreatIntelligenceExternalReferenceArgs{...} }
+//          ThreatIntelligenceExternalReferenceArray{ ThreatIntelligenceExternalReferenceArgs{...} }
 type ThreatIntelligenceExternalReferenceArrayInput interface {
 	pulumi.Input
 
@@ -782,7 +782,7 @@ type ThreatIntelligenceGranularMarkingModel struct {
 // ThreatIntelligenceGranularMarkingModelInput is an input type that accepts ThreatIntelligenceGranularMarkingModelArgs and ThreatIntelligenceGranularMarkingModelOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceGranularMarkingModelInput` via:
 //
-//	ThreatIntelligenceGranularMarkingModelArgs{...}
+//          ThreatIntelligenceGranularMarkingModelArgs{...}
 type ThreatIntelligenceGranularMarkingModelInput interface {
 	pulumi.Input
 
@@ -815,7 +815,7 @@ func (i ThreatIntelligenceGranularMarkingModelArgs) ToThreatIntelligenceGranular
 // ThreatIntelligenceGranularMarkingModelArrayInput is an input type that accepts ThreatIntelligenceGranularMarkingModelArray and ThreatIntelligenceGranularMarkingModelArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceGranularMarkingModelArrayInput` via:
 //
-//	ThreatIntelligenceGranularMarkingModelArray{ ThreatIntelligenceGranularMarkingModelArgs{...} }
+//          ThreatIntelligenceGranularMarkingModelArray{ ThreatIntelligenceGranularMarkingModelArgs{...} }
 type ThreatIntelligenceGranularMarkingModelArrayInput interface {
 	pulumi.Input
 
@@ -898,7 +898,7 @@ type ThreatIntelligenceKillChainPhase struct {
 // ThreatIntelligenceKillChainPhaseInput is an input type that accepts ThreatIntelligenceKillChainPhaseArgs and ThreatIntelligenceKillChainPhaseOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceKillChainPhaseInput` via:
 //
-//	ThreatIntelligenceKillChainPhaseArgs{...}
+//          ThreatIntelligenceKillChainPhaseArgs{...}
 type ThreatIntelligenceKillChainPhaseInput interface {
 	pulumi.Input
 
@@ -929,7 +929,7 @@ func (i ThreatIntelligenceKillChainPhaseArgs) ToThreatIntelligenceKillChainPhase
 // ThreatIntelligenceKillChainPhaseArrayInput is an input type that accepts ThreatIntelligenceKillChainPhaseArray and ThreatIntelligenceKillChainPhaseArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceKillChainPhaseArrayInput` via:
 //
-//	ThreatIntelligenceKillChainPhaseArray{ ThreatIntelligenceKillChainPhaseArgs{...} }
+//          ThreatIntelligenceKillChainPhaseArray{ ThreatIntelligenceKillChainPhaseArgs{...} }
 type ThreatIntelligenceKillChainPhaseArrayInput interface {
 	pulumi.Input
 
@@ -1007,7 +1007,7 @@ type ThreatIntelligenceParsedPattern struct {
 // ThreatIntelligenceParsedPatternInput is an input type that accepts ThreatIntelligenceParsedPatternArgs and ThreatIntelligenceParsedPatternOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceParsedPatternInput` via:
 //
-//	ThreatIntelligenceParsedPatternArgs{...}
+//          ThreatIntelligenceParsedPatternArgs{...}
 type ThreatIntelligenceParsedPatternInput interface {
 	pulumi.Input
 
@@ -1038,7 +1038,7 @@ func (i ThreatIntelligenceParsedPatternArgs) ToThreatIntelligenceParsedPatternOu
 // ThreatIntelligenceParsedPatternArrayInput is an input type that accepts ThreatIntelligenceParsedPatternArray and ThreatIntelligenceParsedPatternArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceParsedPatternArrayInput` via:
 //
-//	ThreatIntelligenceParsedPatternArray{ ThreatIntelligenceParsedPatternArgs{...} }
+//          ThreatIntelligenceParsedPatternArray{ ThreatIntelligenceParsedPatternArgs{...} }
 type ThreatIntelligenceParsedPatternArrayInput interface {
 	pulumi.Input
 
@@ -1118,7 +1118,7 @@ type ThreatIntelligenceParsedPatternTypeValue struct {
 // ThreatIntelligenceParsedPatternTypeValueInput is an input type that accepts ThreatIntelligenceParsedPatternTypeValueArgs and ThreatIntelligenceParsedPatternTypeValueOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceParsedPatternTypeValueInput` via:
 //
-//	ThreatIntelligenceParsedPatternTypeValueArgs{...}
+//          ThreatIntelligenceParsedPatternTypeValueArgs{...}
 type ThreatIntelligenceParsedPatternTypeValueInput interface {
 	pulumi.Input
 
@@ -1149,7 +1149,7 @@ func (i ThreatIntelligenceParsedPatternTypeValueArgs) ToThreatIntelligenceParsed
 // ThreatIntelligenceParsedPatternTypeValueArrayInput is an input type that accepts ThreatIntelligenceParsedPatternTypeValueArray and ThreatIntelligenceParsedPatternTypeValueArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceParsedPatternTypeValueArrayInput` via:
 //
-//	ThreatIntelligenceParsedPatternTypeValueArray{ ThreatIntelligenceParsedPatternTypeValueArgs{...} }
+//          ThreatIntelligenceParsedPatternTypeValueArray{ ThreatIntelligenceParsedPatternTypeValueArgs{...} }
 type ThreatIntelligenceParsedPatternTypeValueArrayInput interface {
 	pulumi.Input
 
@@ -1225,7 +1225,7 @@ type WatchlistUserInfo struct {
 // WatchlistUserInfoInput is an input type that accepts WatchlistUserInfoArgs and WatchlistUserInfoOutput values.
 // You can construct a concrete instance of `WatchlistUserInfoInput` via:
 //
-//	WatchlistUserInfoArgs{...}
+//          WatchlistUserInfoArgs{...}
 type WatchlistUserInfoInput interface {
 	pulumi.Input
 
@@ -1262,11 +1262,11 @@ func (i WatchlistUserInfoArgs) ToWatchlistUserInfoPtrOutputWithContext(ctx conte
 // WatchlistUserInfoPtrInput is an input type that accepts WatchlistUserInfoArgs, WatchlistUserInfoPtr and WatchlistUserInfoPtrOutput values.
 // You can construct a concrete instance of `WatchlistUserInfoPtrInput` via:
 //
-//	        WatchlistUserInfoArgs{...}
+//          WatchlistUserInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WatchlistUserInfoPtrInput interface {
 	pulumi.Input
 

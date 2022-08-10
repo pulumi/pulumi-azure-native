@@ -142,7 +142,7 @@ func (o HostnameTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // HostnameTypeInput is an input type that accepts HostnameTypeArgs and HostnameTypeOutput values.
 // You can construct a concrete instance of `HostnameTypeInput` via:
 //
-//	HostnameTypeArgs{...}
+//          HostnameTypeArgs{...}
 type HostnameTypeInput interface {
 	pulumi.Input
 
@@ -308,7 +308,7 @@ func (o SkuTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuTypeInput is an input type that accepts SkuTypeArgs and SkuTypeOutput values.
 // You can construct a concrete instance of `SkuTypeInput` via:
 //
-//	SkuTypeArgs{...}
+//          SkuTypeArgs{...}
 type SkuTypeInput interface {
 	pulumi.Input
 
@@ -474,7 +474,7 @@ func (o VirtualNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // VirtualNetworkTypeInput is an input type that accepts VirtualNetworkTypeArgs and VirtualNetworkTypeOutput values.
 // You can construct a concrete instance of `VirtualNetworkTypeInput` via:
 //
-//	VirtualNetworkTypeArgs{...}
+//          VirtualNetworkTypeArgs{...}
 type VirtualNetworkTypeInput interface {
 	pulumi.Input
 

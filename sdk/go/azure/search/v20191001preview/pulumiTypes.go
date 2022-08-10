@@ -19,7 +19,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//	IdentityArgs{...}
+//          IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//	        IdentityArgs{...}
+//          IdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -253,7 +253,7 @@ type IpRule struct {
 // IpRuleInput is an input type that accepts IpRuleArgs and IpRuleOutput values.
 // You can construct a concrete instance of `IpRuleInput` via:
 //
-//	IpRuleArgs{...}
+//          IpRuleArgs{...}
 type IpRuleInput interface {
 	pulumi.Input
 
@@ -282,7 +282,7 @@ func (i IpRuleArgs) ToIpRuleOutputWithContext(ctx context.Context) IpRuleOutput 
 // IpRuleArrayInput is an input type that accepts IpRuleArray and IpRuleArrayOutput values.
 // You can construct a concrete instance of `IpRuleArrayInput` via:
 //
-//	IpRuleArray{ IpRuleArgs{...} }
+//          IpRuleArray{ IpRuleArgs{...} }
 type IpRuleArrayInput interface {
 	pulumi.Input
 
@@ -414,7 +414,7 @@ func (val *NetworkRuleSet) Defaults() *NetworkRuleSet {
 // NetworkRuleSetInput is an input type that accepts NetworkRuleSetArgs and NetworkRuleSetOutput values.
 // You can construct a concrete instance of `NetworkRuleSetInput` via:
 //
-//	NetworkRuleSetArgs{...}
+//          NetworkRuleSetArgs{...}
 type NetworkRuleSetInput interface {
 	pulumi.Input
 
@@ -464,11 +464,11 @@ func (i NetworkRuleSetArgs) ToNetworkRuleSetPtrOutputWithContext(ctx context.Con
 // NetworkRuleSetPtrInput is an input type that accepts NetworkRuleSetArgs, NetworkRuleSetPtr and NetworkRuleSetPtrOutput values.
 // You can construct a concrete instance of `NetworkRuleSetPtrInput` via:
 //
-//	        NetworkRuleSetArgs{...}
+//          NetworkRuleSetArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NetworkRuleSetPtrInput interface {
 	pulumi.Input
 
@@ -685,7 +685,7 @@ func (val *PrivateEndpointConnectionProperties) Defaults() *PrivateEndpointConne
 // PrivateEndpointConnectionPropertiesInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs and PrivateEndpointConnectionPropertiesOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInput` via:
 //
-//	PrivateEndpointConnectionPropertiesArgs{...}
+//          PrivateEndpointConnectionPropertiesArgs{...}
 type PrivateEndpointConnectionPropertiesInput interface {
 	pulumi.Input
 
@@ -733,11 +733,11 @@ func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionProp
 // PrivateEndpointConnectionPropertiesPtrInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs, PrivateEndpointConnectionPropertiesPtr and PrivateEndpointConnectionPropertiesPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPtrInput` via:
 //
-//	        PrivateEndpointConnectionPropertiesArgs{...}
+//          PrivateEndpointConnectionPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointConnectionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -855,7 +855,7 @@ type PrivateEndpointConnectionPropertiesPrivateEndpoint struct {
 // PrivateEndpointConnectionPropertiesPrivateEndpointInput is an input type that accepts PrivateEndpointConnectionPropertiesPrivateEndpointArgs and PrivateEndpointConnectionPropertiesPrivateEndpointOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPrivateEndpointInput` via:
 //
-//	PrivateEndpointConnectionPropertiesPrivateEndpointArgs{...}
+//          PrivateEndpointConnectionPropertiesPrivateEndpointArgs{...}
 type PrivateEndpointConnectionPropertiesPrivateEndpointInput interface {
 	pulumi.Input
 
@@ -892,11 +892,11 @@ func (i PrivateEndpointConnectionPropertiesPrivateEndpointArgs) ToPrivateEndpoin
 // PrivateEndpointConnectionPropertiesPrivateEndpointPtrInput is an input type that accepts PrivateEndpointConnectionPropertiesPrivateEndpointArgs, PrivateEndpointConnectionPropertiesPrivateEndpointPtr and PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPrivateEndpointPtrInput` via:
 //
-//	        PrivateEndpointConnectionPropertiesPrivateEndpointArgs{...}
+//          PrivateEndpointConnectionPropertiesPrivateEndpointArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointConnectionPropertiesPrivateEndpointPtrInput interface {
 	pulumi.Input
 
@@ -1012,7 +1012,7 @@ func (val *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState)
 // PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateInput is an input type that accepts PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs and PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs{...}
+//          PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs{...}
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -1064,11 +1064,11 @@ func (i PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs
 // PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs, PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtr and PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrInput` via:
 //
-//	        PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs{...}
+//          PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -1601,7 +1601,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1638,11 +1638,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 

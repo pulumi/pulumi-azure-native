@@ -21,7 +21,7 @@ type AADProperties struct {
 // AADPropertiesInput is an input type that accepts AADPropertiesArgs and AADPropertiesOutput values.
 // You can construct a concrete instance of `AADPropertiesInput` via:
 //
-//	AADPropertiesArgs{...}
+//          AADPropertiesArgs{...}
 type AADPropertiesInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i AADPropertiesArgs) ToAADPropertiesPtrOutputWithContext(ctx context.Conte
 // AADPropertiesPtrInput is an input type that accepts AADPropertiesArgs, AADPropertiesPtr and AADPropertiesPtrOutput values.
 // You can construct a concrete instance of `AADPropertiesPtrInput` via:
 //
-//	        AADPropertiesArgs{...}
+//          AADPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AADPropertiesPtrInput interface {
 	pulumi.Input
 

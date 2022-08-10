@@ -23,7 +23,7 @@ type DashboardLens struct {
 // DashboardLensInput is an input type that accepts DashboardLensArgs and DashboardLensOutput values.
 // You can construct a concrete instance of `DashboardLensInput` via:
 //
-//	DashboardLensArgs{...}
+//          DashboardLensArgs{...}
 type DashboardLensInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i DashboardLensArgs) ToDashboardLensOutputWithContext(ctx context.Context)
 // DashboardLensMapInput is an input type that accepts DashboardLensMap and DashboardLensMapOutput values.
 // You can construct a concrete instance of `DashboardLensMapInput` via:
 //
-//	DashboardLensMap{ "key": DashboardLensArgs{...} }
+//          DashboardLensMap{ "key": DashboardLensArgs{...} }
 type DashboardLensMapInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type DashboardParts struct {
 // DashboardPartsInput is an input type that accepts DashboardPartsArgs and DashboardPartsOutput values.
 // You can construct a concrete instance of `DashboardPartsInput` via:
 //
-//	DashboardPartsArgs{...}
+//          DashboardPartsArgs{...}
 type DashboardPartsInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ func (i DashboardPartsArgs) ToDashboardPartsOutputWithContext(ctx context.Contex
 // DashboardPartsMapInput is an input type that accepts DashboardPartsMap and DashboardPartsMapOutput values.
 // You can construct a concrete instance of `DashboardPartsMapInput` via:
 //
-//	DashboardPartsMap{ "key": DashboardPartsArgs{...} }
+//          DashboardPartsMap{ "key": DashboardPartsArgs{...} }
 type DashboardPartsMapInput interface {
 	pulumi.Input
 
@@ -314,7 +314,7 @@ type DashboardPartsPosition struct {
 // DashboardPartsPositionInput is an input type that accepts DashboardPartsPositionArgs and DashboardPartsPositionOutput values.
 // You can construct a concrete instance of `DashboardPartsPositionInput` via:
 //
-//	DashboardPartsPositionArgs{...}
+//          DashboardPartsPositionArgs{...}
 type DashboardPartsPositionInput interface {
 	pulumi.Input
 

@@ -839,7 +839,7 @@ func (o TriggerOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // TriggerOperatorInput is an input type that accepts TriggerOperatorArgs and TriggerOperatorOutput values.
 // You can construct a concrete instance of `TriggerOperatorInput` via:
 //
-//	TriggerOperatorArgs{...}
+//          TriggerOperatorArgs{...}
 type TriggerOperatorInput interface {
 	pulumi.Input
 

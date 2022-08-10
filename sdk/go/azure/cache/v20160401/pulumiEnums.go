@@ -147,7 +147,7 @@ func (o DayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // DayOfWeekInput is an input type that accepts DayOfWeekArgs and DayOfWeekOutput values.
 // You can construct a concrete instance of `DayOfWeekInput` via:
 //
-//	DayOfWeekArgs{...}
+//          DayOfWeekArgs{...}
 type DayOfWeekInput interface {
 	pulumi.Input
 

@@ -21,7 +21,7 @@ type ContentHash struct {
 // ContentHashInput is an input type that accepts ContentHashArgs and ContentHashOutput values.
 // You can construct a concrete instance of `ContentHashInput` via:
 //
-//	ContentHashArgs{...}
+//          ContentHashArgs{...}
 type ContentHashInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ContentHashArgs) ToContentHashPtrOutputWithContext(ctx context.Context) 
 // ContentHashPtrInput is an input type that accepts ContentHashArgs, ContentHashPtr and ContentHashPtrOutput values.
 // You can construct a concrete instance of `ContentHashPtrInput` via:
 //
-//	        ContentHashArgs{...}
+//          ContentHashArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContentHashPtrInput interface {
 	pulumi.Input
 
@@ -259,7 +259,7 @@ type ContentLink struct {
 // ContentLinkInput is an input type that accepts ContentLinkArgs and ContentLinkOutput values.
 // You can construct a concrete instance of `ContentLinkInput` via:
 //
-//	ContentLinkArgs{...}
+//          ContentLinkArgs{...}
 type ContentLinkInput interface {
 	pulumi.Input
 
@@ -300,11 +300,11 @@ func (i ContentLinkArgs) ToContentLinkPtrOutputWithContext(ctx context.Context) 
 // ContentLinkPtrInput is an input type that accepts ContentLinkArgs, ContentLinkPtr and ContentLinkPtrOutput values.
 // You can construct a concrete instance of `ContentLinkPtrInput` via:
 //
-//	        ContentLinkArgs{...}
+//          ContentLinkArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContentLinkPtrInput interface {
 	pulumi.Input
 
@@ -613,7 +613,7 @@ type RunbookDraft struct {
 // RunbookDraftInput is an input type that accepts RunbookDraftArgs and RunbookDraftOutput values.
 // You can construct a concrete instance of `RunbookDraftInput` via:
 //
-//	RunbookDraftArgs{...}
+//          RunbookDraftArgs{...}
 type RunbookDraftInput interface {
 	pulumi.Input
 
@@ -659,11 +659,11 @@ func (i RunbookDraftArgs) ToRunbookDraftPtrOutputWithContext(ctx context.Context
 // RunbookDraftPtrInput is an input type that accepts RunbookDraftArgs, RunbookDraftPtr and RunbookDraftPtrOutput values.
 // You can construct a concrete instance of `RunbookDraftPtrInput` via:
 //
-//	        RunbookDraftArgs{...}
+//          RunbookDraftArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RunbookDraftPtrInput interface {
 	pulumi.Input
 
@@ -985,7 +985,7 @@ type RunbookParameter struct {
 // RunbookParameterInput is an input type that accepts RunbookParameterArgs and RunbookParameterOutput values.
 // You can construct a concrete instance of `RunbookParameterInput` via:
 //
-//	RunbookParameterArgs{...}
+//          RunbookParameterArgs{...}
 type RunbookParameterInput interface {
 	pulumi.Input
 
@@ -1020,7 +1020,7 @@ func (i RunbookParameterArgs) ToRunbookParameterOutputWithContext(ctx context.Co
 // RunbookParameterMapInput is an input type that accepts RunbookParameterMap and RunbookParameterMapOutput values.
 // You can construct a concrete instance of `RunbookParameterMapInput` via:
 //
-//	RunbookParameterMap{ "key": RunbookParameterArgs{...} }
+//          RunbookParameterMap{ "key": RunbookParameterArgs{...} }
 type RunbookParameterMapInput interface {
 	pulumi.Input
 

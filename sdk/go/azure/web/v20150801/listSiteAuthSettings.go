@@ -165,51 +165,45 @@ func (o ListSiteAuthSettingsResultOutput) AadClientId() pulumi.StringPtrOutput {
 }
 
 // Gets or sets a list of login parameters to send to the OpenID Connect authorization endpoint when
-//
-//	a user logs in. Each parameter must be in the form "key=value".
+//             a user logs in. Each parameter must be in the form "key=value".
 func (o ListSiteAuthSettingsResultOutput) AdditionalLoginParams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) []string { return v.AdditionalLoginParams }).(pulumi.StringArrayOutput)
 }
 
 // Gets or sets a list of allowed audience values to consider when validating JWTs issued by
-//
-//	Azure Active Directory. Note that the {Microsoft.Web.Hosting.Administration.SiteAuthSettings.ClientId} value is always considered an
-//	allowed audience, regardless of this setting.
+//             Azure Active Directory. Note that the {Microsoft.Web.Hosting.Administration.SiteAuthSettings.ClientId} value is always considered an
+//             allowed audience, regardless of this setting.
 func (o ListSiteAuthSettingsResultOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
 
 // Gets or sets a collection of external URLs that can be redirected to as part of logging in
-//
-//	or logging out of the web app. Note that the query string part of the URL is ignored.
-//	This is an advanced setting typically only needed by Windows Store application backends.
-//	Note that URLs within the current domain are always implicitly allowed.
+//             or logging out of the web app. Note that the query string part of the URL is ignored.
+//             This is an advanced setting typically only needed by Windows Store application backends.
+//             Note that URLs within the current domain are always implicitly allowed.
 func (o ListSiteAuthSettingsResultOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
 }
 
 // Gets or sets the Client ID of this relying party application, known as the client_id.
-//
-//	This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
-//	other 3rd party OpenID Connect providers.
-//	More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+//             This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+//             other 3rd party OpenID Connect providers.
+//             More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
 func (o ListSiteAuthSettingsResultOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
-//
-//	This setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.
-//	Otherwise, the OpenID Connect Authorization Code Flow is used to authenticate end users.
-//	More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+//             This setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.
+//             Otherwise, the OpenID Connect Authorization Code Flow is used to authenticate end users.
+//             More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
 func (o ListSiteAuthSettingsResultOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the default authentication provider to use when multiple providers are configured.
-//
-//	This setting is only needed if multiple providers are configured and the unauthenticated client
-//	action is set to "RedirectToLoginPage".
+//             This setting is only needed if multiple providers are configured and the unauthenticated client
+//             action is set to "RedirectToLoginPage".
 func (o ListSiteAuthSettingsResultOutput) DefaultProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.DefaultProvider }).(pulumi.StringPtrOutput)
 }
@@ -220,89 +214,78 @@ func (o ListSiteAuthSettingsResultOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Gets or sets the App ID of the Facebook app used for login.
-//
-//	This setting is required for enabling Facebook Login.
-//	Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+//             This setting is required for enabling Facebook Login.
+//             Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
 func (o ListSiteAuthSettingsResultOutput) FacebookAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.FacebookAppId }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the App Secret of the Facebook app used for Facebook Login.
-//
-//	This setting is required for enabling Facebook Login.
-//	Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+//             This setting is required for enabling Facebook Login.
+//             Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
 func (o ListSiteAuthSettingsResultOutput) FacebookAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.FacebookAppSecret }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.
-//
-//	This setting is optional.
-//	Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+//             This setting is optional.
+//             Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
 func (o ListSiteAuthSettingsResultOutput) FacebookOAuthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) []string { return v.FacebookOAuthScopes }).(pulumi.StringArrayOutput)
 }
 
 // Gets or sets the OpenID Connect Client ID for the Google web application.
-//
-//	This setting is required for enabling Google Sign-In.
-//	Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+//             This setting is required for enabling Google Sign-In.
+//             Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
 func (o ListSiteAuthSettingsResultOutput) GoogleClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.GoogleClientId }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the client secret associated with the Google web application.
-//
-//	This setting is required for enabling Google Sign-In.
-//	Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+//             This setting is required for enabling Google Sign-In.
+//             Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
 func (o ListSiteAuthSettingsResultOutput) GoogleClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.GoogleClientSecret }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
-//
-//	This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
-//	Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+//             This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
+//             Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
 func (o ListSiteAuthSettingsResultOutput) GoogleOAuthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) []string { return v.GoogleOAuthScopes }).(pulumi.StringArrayOutput)
 }
 
 // Gets or sets the relative path prefix used by platform HTTP APIs.
-//
-//	Changing this value is not recommended except for compatibility reasons.
+//             Changing this value is not recommended except for compatibility reasons.
 func (o ListSiteAuthSettingsResultOutput) HttpApiPrefixPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.HttpApiPrefixPath }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-//
-//	When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
-//	This URI is a case-sensitive identifier for the token issuer.
-//	More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
+//             When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+//             This URI is a case-sensitive identifier for the token issuer.
+//             More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 func (o ListSiteAuthSettingsResultOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the OAuth 2.0 client ID that was created for the app used for authentication.
-//
-//	This setting is required for enabling Microsoft Account authentication.
-//	Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+//             This setting is required for enabling Microsoft Account authentication.
+//             Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
 func (o ListSiteAuthSettingsResultOutput) MicrosoftAccountClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.MicrosoftAccountClientId }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the OAuth 2.0 client secret that was created for the app used for authentication.
-//
-//	This setting is required for enabling Microsoft Account authentication.
-//	Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+//             This setting is required for enabling Microsoft Account authentication.
+//             Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
 func (o ListSiteAuthSettingsResultOutput) MicrosoftAccountClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.MicrosoftAccountClientSecret }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
-//
-//	This setting is optional. If not specified, "wl.basic" is used as the default scope.
-//	Microsoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx
+//             This setting is optional. If not specified, "wl.basic" is used as the default scope.
+//             Microsoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx
 func (o ListSiteAuthSettingsResultOutput) MicrosoftAccountOAuthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) []string { return v.MicrosoftAccountOAuthScopes }).(pulumi.StringArrayOutput)
 }
@@ -312,31 +295,27 @@ func (o ListSiteAuthSettingsResultOutput) OpenIdIssuer() pulumi.StringPtrOutput 
 }
 
 // Gets or sets the number of hours after session token expiration that a session token can be used to
-//
-//	call the token refresh API. The default is 72 hours.
+//             call the token refresh API. The default is 72 hours.
 func (o ListSiteAuthSettingsResultOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
 }
 
 // Gets or sets a value indicating whether to durably store platform-specific security tokens
-//
-//	obtained during login flows. This capability is disabled by default.
+//             obtained during login flows. This capability is disabled by default.
 func (o ListSiteAuthSettingsResultOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *bool { return v.TokenStoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Gets or sets the OAuth 1.0a consumer key of the Twitter application used for sign-in.
-//
-//	This setting is required for enabling Twitter Sign-In.
-//	Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+//             This setting is required for enabling Twitter Sign-In.
+//             Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
 func (o ListSiteAuthSettingsResultOutput) TwitterConsumerKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.TwitterConsumerKey }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
-//
-//	This setting is required for enabling Twitter Sign-In.
-//	Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+//             This setting is required for enabling Twitter Sign-In.
+//             Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
 func (o ListSiteAuthSettingsResultOutput) TwitterConsumerSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListSiteAuthSettingsResult) *string { return v.TwitterConsumerSecret }).(pulumi.StringPtrOutput)
 }

@@ -23,7 +23,7 @@ type AccessModeSettings struct {
 // AccessModeSettingsInput is an input type that accepts AccessModeSettingsArgs and AccessModeSettingsOutput values.
 // You can construct a concrete instance of `AccessModeSettingsInput` via:
 //
-//	AccessModeSettingsArgs{...}
+//          AccessModeSettingsArgs{...}
 type AccessModeSettingsInput interface {
 	pulumi.Input
 
@@ -96,7 +96,7 @@ type AccessModeSettingsExclusion struct {
 // AccessModeSettingsExclusionInput is an input type that accepts AccessModeSettingsExclusionArgs and AccessModeSettingsExclusionOutput values.
 // You can construct a concrete instance of `AccessModeSettingsExclusionInput` via:
 //
-//	AccessModeSettingsExclusionArgs{...}
+//          AccessModeSettingsExclusionArgs{...}
 type AccessModeSettingsExclusionInput interface {
 	pulumi.Input
 
@@ -129,7 +129,7 @@ func (i AccessModeSettingsExclusionArgs) ToAccessModeSettingsExclusionOutputWith
 // AccessModeSettingsExclusionArrayInput is an input type that accepts AccessModeSettingsExclusionArray and AccessModeSettingsExclusionArrayOutput values.
 // You can construct a concrete instance of `AccessModeSettingsExclusionArrayInput` via:
 //
-//	AccessModeSettingsExclusionArray{ AccessModeSettingsExclusionArgs{...} }
+//          AccessModeSettingsExclusionArray{ AccessModeSettingsExclusionArgs{...} }
 type AccessModeSettingsExclusionArrayInput interface {
 	pulumi.Input
 
@@ -457,7 +457,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 

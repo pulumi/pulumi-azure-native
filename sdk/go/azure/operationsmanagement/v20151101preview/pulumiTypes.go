@@ -21,7 +21,7 @@ type ArmTemplateParameter struct {
 // ArmTemplateParameterInput is an input type that accepts ArmTemplateParameterArgs and ArmTemplateParameterOutput values.
 // You can construct a concrete instance of `ArmTemplateParameterInput` via:
 //
-//	ArmTemplateParameterArgs{...}
+//          ArmTemplateParameterArgs{...}
 type ArmTemplateParameterInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ArmTemplateParameterArgs) ToArmTemplateParameterOutputWithContext(ctx co
 // ArmTemplateParameterArrayInput is an input type that accepts ArmTemplateParameterArray and ArmTemplateParameterArrayOutput values.
 // You can construct a concrete instance of `ArmTemplateParameterArrayInput` via:
 //
-//	ArmTemplateParameterArray{ ArmTemplateParameterArgs{...} }
+//          ArmTemplateParameterArray{ ArmTemplateParameterArgs{...} }
 type ArmTemplateParameterArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +181,7 @@ type ManagementAssociationProperties struct {
 // ManagementAssociationPropertiesInput is an input type that accepts ManagementAssociationPropertiesArgs and ManagementAssociationPropertiesOutput values.
 // You can construct a concrete instance of `ManagementAssociationPropertiesInput` via:
 //
-//	ManagementAssociationPropertiesArgs{...}
+//          ManagementAssociationPropertiesArgs{...}
 type ManagementAssociationPropertiesInput interface {
 	pulumi.Input
 
@@ -218,11 +218,11 @@ func (i ManagementAssociationPropertiesArgs) ToManagementAssociationPropertiesPt
 // ManagementAssociationPropertiesPtrInput is an input type that accepts ManagementAssociationPropertiesArgs, ManagementAssociationPropertiesPtr and ManagementAssociationPropertiesPtrOutput values.
 // You can construct a concrete instance of `ManagementAssociationPropertiesPtrInput` via:
 //
-//	        ManagementAssociationPropertiesArgs{...}
+//          ManagementAssociationPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagementAssociationPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -353,7 +353,7 @@ type ManagementConfigurationProperties struct {
 // ManagementConfigurationPropertiesInput is an input type that accepts ManagementConfigurationPropertiesArgs and ManagementConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `ManagementConfigurationPropertiesInput` via:
 //
-//	ManagementConfigurationPropertiesArgs{...}
+//          ManagementConfigurationPropertiesArgs{...}
 type ManagementConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -396,11 +396,11 @@ func (i ManagementConfigurationPropertiesArgs) ToManagementConfigurationProperti
 // ManagementConfigurationPropertiesPtrInput is an input type that accepts ManagementConfigurationPropertiesArgs, ManagementConfigurationPropertiesPtr and ManagementConfigurationPropertiesPtrOutput values.
 // You can construct a concrete instance of `ManagementConfigurationPropertiesPtrInput` via:
 //
-//	        ManagementConfigurationPropertiesArgs{...}
+//          ManagementConfigurationPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagementConfigurationPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -604,7 +604,7 @@ type SolutionPlan struct {
 // SolutionPlanInput is an input type that accepts SolutionPlanArgs and SolutionPlanOutput values.
 // You can construct a concrete instance of `SolutionPlanInput` via:
 //
-//	SolutionPlanArgs{...}
+//          SolutionPlanArgs{...}
 type SolutionPlanInput interface {
 	pulumi.Input
 
@@ -647,11 +647,11 @@ func (i SolutionPlanArgs) ToSolutionPlanPtrOutputWithContext(ctx context.Context
 // SolutionPlanPtrInput is an input type that accepts SolutionPlanArgs, SolutionPlanPtr and SolutionPlanPtrOutput values.
 // You can construct a concrete instance of `SolutionPlanPtrInput` via:
 //
-//	        SolutionPlanArgs{...}
+//          SolutionPlanArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SolutionPlanPtrInput interface {
 	pulumi.Input
 
@@ -910,7 +910,7 @@ type SolutionProperties struct {
 // SolutionPropertiesInput is an input type that accepts SolutionPropertiesArgs and SolutionPropertiesOutput values.
 // You can construct a concrete instance of `SolutionPropertiesInput` via:
 //
-//	SolutionPropertiesArgs{...}
+//          SolutionPropertiesArgs{...}
 type SolutionPropertiesInput interface {
 	pulumi.Input
 
@@ -951,11 +951,11 @@ func (i SolutionPropertiesArgs) ToSolutionPropertiesPtrOutputWithContext(ctx con
 // SolutionPropertiesPtrInput is an input type that accepts SolutionPropertiesArgs, SolutionPropertiesPtr and SolutionPropertiesPtrOutput values.
 // You can construct a concrete instance of `SolutionPropertiesPtrInput` via:
 //
-//	        SolutionPropertiesArgs{...}
+//          SolutionPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SolutionPropertiesPtrInput interface {
 	pulumi.Input
 

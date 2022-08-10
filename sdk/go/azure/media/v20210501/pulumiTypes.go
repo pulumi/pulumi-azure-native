@@ -20,7 +20,7 @@ type AccessControl struct {
 // AccessControlInput is an input type that accepts AccessControlArgs and AccessControlOutput values.
 // You can construct a concrete instance of `AccessControlInput` via:
 //
-//	AccessControlArgs{...}
+//          AccessControlArgs{...}
 type AccessControlInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i AccessControlArgs) ToAccessControlPtrOutputWithContext(ctx context.Conte
 // AccessControlPtrInput is an input type that accepts AccessControlArgs, AccessControlPtr and AccessControlPtrOutput values.
 // You can construct a concrete instance of `AccessControlPtrInput` via:
 //
-//	        AccessControlArgs{...}
+//          AccessControlArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AccessControlPtrInput interface {
 	pulumi.Input
 
@@ -251,7 +251,7 @@ type AccountEncryption struct {
 // AccountEncryptionInput is an input type that accepts AccountEncryptionArgs and AccountEncryptionOutput values.
 // You can construct a concrete instance of `AccountEncryptionInput` via:
 //
-//	AccountEncryptionArgs{...}
+//          AccountEncryptionArgs{...}
 type AccountEncryptionInput interface {
 	pulumi.Input
 
@@ -289,11 +289,11 @@ func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutputWithContext(ctx conte
 // AccountEncryptionPtrInput is an input type that accepts AccountEncryptionArgs, AccountEncryptionPtr and AccountEncryptionPtrOutput values.
 // You can construct a concrete instance of `AccountEncryptionPtrInput` via:
 //
-//	        AccountEncryptionArgs{...}
+//          AccountEncryptionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AccountEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -681,7 +681,7 @@ type KeyDelivery struct {
 // KeyDeliveryInput is an input type that accepts KeyDeliveryArgs and KeyDeliveryOutput values.
 // You can construct a concrete instance of `KeyDeliveryInput` via:
 //
-//	KeyDeliveryArgs{...}
+//          KeyDeliveryArgs{...}
 type KeyDeliveryInput interface {
 	pulumi.Input
 
@@ -717,11 +717,11 @@ func (i KeyDeliveryArgs) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) 
 // KeyDeliveryPtrInput is an input type that accepts KeyDeliveryArgs, KeyDeliveryPtr and KeyDeliveryPtrOutput values.
 // You can construct a concrete instance of `KeyDeliveryPtrInput` via:
 //
-//	        KeyDeliveryArgs{...}
+//          KeyDeliveryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyDeliveryPtrInput interface {
 	pulumi.Input
 
@@ -876,7 +876,7 @@ type KeyVaultProperties struct {
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesInput` via:
 //
-//	KeyVaultPropertiesArgs{...}
+//          KeyVaultPropertiesArgs{...}
 type KeyVaultPropertiesInput interface {
 	pulumi.Input
 
@@ -912,11 +912,11 @@ func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx con
 // KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
 //
-//	        KeyVaultPropertiesArgs{...}
+//          KeyVaultPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyVaultPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1088,7 +1088,7 @@ type MediaServiceIdentity struct {
 // MediaServiceIdentityInput is an input type that accepts MediaServiceIdentityArgs and MediaServiceIdentityOutput values.
 // You can construct a concrete instance of `MediaServiceIdentityInput` via:
 //
-//	MediaServiceIdentityArgs{...}
+//          MediaServiceIdentityArgs{...}
 type MediaServiceIdentityInput interface {
 	pulumi.Input
 
@@ -1124,11 +1124,11 @@ func (i MediaServiceIdentityArgs) ToMediaServiceIdentityPtrOutputWithContext(ctx
 // MediaServiceIdentityPtrInput is an input type that accepts MediaServiceIdentityArgs, MediaServiceIdentityPtr and MediaServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `MediaServiceIdentityPtrInput` via:
 //
-//	        MediaServiceIdentityArgs{...}
+//          MediaServiceIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MediaServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1382,7 +1382,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -1493,7 +1493,7 @@ type StorageAccount struct {
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
 // You can construct a concrete instance of `StorageAccountInput` via:
 //
-//	StorageAccountArgs{...}
+//          StorageAccountArgs{...}
 type StorageAccountInput interface {
 	pulumi.Input
 
@@ -1524,7 +1524,7 @@ func (i StorageAccountArgs) ToStorageAccountOutputWithContext(ctx context.Contex
 // StorageAccountArrayInput is an input type that accepts StorageAccountArray and StorageAccountArrayOutput values.
 // You can construct a concrete instance of `StorageAccountArrayInput` via:
 //
-//	StorageAccountArray{ StorageAccountArgs{...} }
+//          StorageAccountArray{ StorageAccountArgs{...} }
 type StorageAccountArrayInput interface {
 	pulumi.Input
 

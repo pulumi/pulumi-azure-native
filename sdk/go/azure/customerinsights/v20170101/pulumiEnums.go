@@ -143,7 +143,7 @@ func (o CalculationWindowTypesPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // CalculationWindowTypesInput is an input type that accepts CalculationWindowTypesArgs and CalculationWindowTypesOutput values.
 // You can construct a concrete instance of `CalculationWindowTypesInput` via:
 //
-//	CalculationWindowTypesArgs{...}
+//          CalculationWindowTypesArgs{...}
 type CalculationWindowTypesInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ func (o CardinalityTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // CardinalityTypesInput is an input type that accepts CardinalityTypesArgs and CardinalityTypesOutput values.
 // You can construct a concrete instance of `CardinalityTypesInput` via:
 //
-//	CardinalityTypesArgs{...}
+//          CardinalityTypesArgs{...}
 type CardinalityTypesInput interface {
 	pulumi.Input
 
@@ -475,7 +475,7 @@ func (o CompletionOperationTypesPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // CompletionOperationTypesInput is an input type that accepts CompletionOperationTypesArgs and CompletionOperationTypesOutput values.
 // You can construct a concrete instance of `CompletionOperationTypesInput` via:
 //
-//	CompletionOperationTypesArgs{...}
+//          CompletionOperationTypesArgs{...}
 type CompletionOperationTypesInput interface {
 	pulumi.Input
 
@@ -654,7 +654,7 @@ func (o EntityTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // EntityTypesInput is an input type that accepts EntityTypesArgs and EntityTypesOutput values.
 // You can construct a concrete instance of `EntityTypesInput` via:
 //
-//	EntityTypesArgs{...}
+//          EntityTypesArgs{...}
 type EntityTypesInput interface {
 	pulumi.Input
 
@@ -820,7 +820,7 @@ func (o ErrorManagementTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ErrorManagementTypesInput is an input type that accepts ErrorManagementTypesArgs and ErrorManagementTypesOutput values.
 // You can construct a concrete instance of `ErrorManagementTypesInput` via:
 //
-//	ErrorManagementTypesArgs{...}
+//          ErrorManagementTypesArgs{...}
 type ErrorManagementTypesInput interface {
 	pulumi.Input
 
@@ -984,7 +984,7 @@ func (o FormatTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // FormatTypesInput is an input type that accepts FormatTypesArgs and FormatTypesOutput values.
 // You can construct a concrete instance of `FormatTypesInput` via:
 //
-//	FormatTypesArgs{...}
+//          FormatTypesArgs{...}
 type FormatTypesInput interface {
 	pulumi.Input
 
@@ -1152,7 +1152,7 @@ func (o FrequencyTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // FrequencyTypesInput is an input type that accepts FrequencyTypesArgs and FrequencyTypesOutput values.
 // You can construct a concrete instance of `FrequencyTypesInput` via:
 //
-//	FrequencyTypesArgs{...}
+//          FrequencyTypesArgs{...}
 type FrequencyTypesInput interface {
 	pulumi.Input
 
@@ -1317,7 +1317,7 @@ func (o InstanceOperationTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // InstanceOperationTypeInput is an input type that accepts InstanceOperationTypeArgs and InstanceOperationTypeOutput values.
 // You can construct a concrete instance of `InstanceOperationTypeInput` via:
 //
-//	InstanceOperationTypeArgs{...}
+//          InstanceOperationTypeArgs{...}
 type InstanceOperationTypeInput interface {
 	pulumi.Input
 
@@ -1488,7 +1488,7 @@ func (o KpiFunctionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // KpiFunctionsInput is an input type that accepts KpiFunctionsArgs and KpiFunctionsOutput values.
 // You can construct a concrete instance of `KpiFunctionsInput` via:
 //
-//	KpiFunctionsArgs{...}
+//          KpiFunctionsArgs{...}
 type KpiFunctionsInput interface {
 	pulumi.Input
 
@@ -1653,7 +1653,7 @@ func (o LinkTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // LinkTypesInput is an input type that accepts LinkTypesArgs and LinkTypesOutput values.
 // You can construct a concrete instance of `LinkTypesInput` via:
 //
-//	LinkTypesArgs{...}
+//          LinkTypesArgs{...}
 type LinkTypesInput interface {
 	pulumi.Input
 
@@ -1822,7 +1822,7 @@ func (o RoleTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // RoleTypesInput is an input type that accepts RoleTypesArgs and RoleTypesOutput values.
 // You can construct a concrete instance of `RoleTypesInput` via:
 //
-//	RoleTypesArgs{...}
+//          RoleTypesArgs{...}
 type RoleTypesInput interface {
 	pulumi.Input
 

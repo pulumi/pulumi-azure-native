@@ -15,6 +15,8 @@ import (
 type GovernanceRule struct {
 	pulumi.CustomResourceState
 
+	// The governance rule conditionSets - see examples
+	ConditionSets ConditionResponseArrayArrayArrayOutput `pulumi:"conditionSets"`
 	// description of the governanceRule
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// display name of the governanceRule
@@ -48,6 +50,9 @@ func NewGovernanceRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ConditionSets == nil {
+		return nil, errors.New("invalid value for required argument 'ConditionSets'")
+	}
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
@@ -95,6 +100,8 @@ func (GovernanceRuleState) ElementType() reflect.Type {
 }
 
 type governanceRuleArgs struct {
+	// The governance rule conditionSets - see examples
+	ConditionSets [][][]Condition `pulumi:"conditionSets"`
 	// description of the governanceRule
 	Description *string `pulumi:"description"`
 	// display name of the governanceRule
@@ -121,6 +128,8 @@ type governanceRuleArgs struct {
 
 // The set of arguments for constructing a GovernanceRule resource.
 type GovernanceRuleArgs struct {
+	// The governance rule conditionSets - see examples
+	ConditionSets ConditionArrayArrayArrayInput
 	// description of the governanceRule
 	Description pulumi.StringPtrInput
 	// display name of the governanceRule
@@ -180,6 +189,11 @@ func (o GovernanceRuleOutput) ToGovernanceRuleOutput() GovernanceRuleOutput {
 
 func (o GovernanceRuleOutput) ToGovernanceRuleOutputWithContext(ctx context.Context) GovernanceRuleOutput {
 	return o
+}
+
+// The governance rule conditionSets - see examples
+func (o GovernanceRuleOutput) ConditionSets() ConditionResponseArrayArrayArrayOutput {
+	return o.ApplyT(func(v *GovernanceRule) ConditionResponseArrayArrayArrayOutput { return v.ConditionSets }).(ConditionResponseArrayArrayArrayOutput)
 }
 
 // description of the governanceRule

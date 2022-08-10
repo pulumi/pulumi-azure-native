@@ -25,7 +25,7 @@ type ACR struct {
 // ACRInput is an input type that accepts ACRArgs and ACROutput values.
 // You can construct a concrete instance of `ACRInput` via:
 //
-//	ACRArgs{...}
+//          ACRArgs{...}
 type ACRInput interface {
 	pulumi.Input
 
@@ -68,11 +68,11 @@ func (i ACRArgs) ToACRPtrOutputWithContext(ctx context.Context) ACRPtrOutput {
 // ACRPtrInput is an input type that accepts ACRArgs, ACRPtr and ACRPtrOutput values.
 // You can construct a concrete instance of `ACRPtrInput` via:
 //
-//	        ACRArgs{...}
+//          ACRArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ACRPtrInput interface {
 	pulumi.Input
 
@@ -333,7 +333,7 @@ type DeploymentProperties struct {
 // DeploymentPropertiesInput is an input type that accepts DeploymentPropertiesArgs and DeploymentPropertiesOutput values.
 // You can construct a concrete instance of `DeploymentPropertiesInput` via:
 //
-//	DeploymentPropertiesArgs{...}
+//          DeploymentPropertiesArgs{...}
 type DeploymentPropertiesInput interface {
 	pulumi.Input
 
@@ -376,11 +376,11 @@ func (i DeploymentPropertiesArgs) ToDeploymentPropertiesPtrOutputWithContext(ctx
 // DeploymentPropertiesPtrInput is an input type that accepts DeploymentPropertiesArgs, DeploymentPropertiesPtr and DeploymentPropertiesPtrOutput values.
 // You can construct a concrete instance of `DeploymentPropertiesPtrInput` via:
 //
-//	        DeploymentPropertiesArgs{...}
+//          DeploymentPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DeploymentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -661,7 +661,7 @@ type GitHubWorkflowProfileOidcCredentials struct {
 // GitHubWorkflowProfileOidcCredentialsInput is an input type that accepts GitHubWorkflowProfileOidcCredentialsArgs and GitHubWorkflowProfileOidcCredentialsOutput values.
 // You can construct a concrete instance of `GitHubWorkflowProfileOidcCredentialsInput` via:
 //
-//	GitHubWorkflowProfileOidcCredentialsArgs{...}
+//          GitHubWorkflowProfileOidcCredentialsArgs{...}
 type GitHubWorkflowProfileOidcCredentialsInput interface {
 	pulumi.Input
 
@@ -700,11 +700,11 @@ func (i GitHubWorkflowProfileOidcCredentialsArgs) ToGitHubWorkflowProfileOidcCre
 // GitHubWorkflowProfileOidcCredentialsPtrInput is an input type that accepts GitHubWorkflowProfileOidcCredentialsArgs, GitHubWorkflowProfileOidcCredentialsPtr and GitHubWorkflowProfileOidcCredentialsPtrOutput values.
 // You can construct a concrete instance of `GitHubWorkflowProfileOidcCredentialsPtrInput` via:
 //
-//	        GitHubWorkflowProfileOidcCredentialsArgs{...}
+//          GitHubWorkflowProfileOidcCredentialsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GitHubWorkflowProfileOidcCredentialsPtrInput interface {
 	pulumi.Input
 

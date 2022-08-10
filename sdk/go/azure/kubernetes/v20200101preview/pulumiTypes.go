@@ -19,7 +19,7 @@ type AuthenticationDetailsValue struct {
 // AuthenticationDetailsValueInput is an input type that accepts AuthenticationDetailsValueArgs and AuthenticationDetailsValueOutput values.
 // You can construct a concrete instance of `AuthenticationDetailsValueInput` via:
 //
-//	AuthenticationDetailsValueArgs{...}
+//          AuthenticationDetailsValueArgs{...}
 type AuthenticationDetailsValueInput interface {
 	pulumi.Input
 
@@ -78,7 +78,7 @@ type ConnectedClusterAADProfile struct {
 // ConnectedClusterAADProfileInput is an input type that accepts ConnectedClusterAADProfileArgs and ConnectedClusterAADProfileOutput values.
 // You can construct a concrete instance of `ConnectedClusterAADProfileInput` via:
 //
-//	ConnectedClusterAADProfileArgs{...}
+//          ConnectedClusterAADProfileArgs{...}
 type ConnectedClusterAADProfileInput interface {
 	pulumi.Input
 
@@ -187,7 +187,7 @@ type ConnectedClusterIdentity struct {
 // ConnectedClusterIdentityInput is an input type that accepts ConnectedClusterIdentityArgs and ConnectedClusterIdentityOutput values.
 // You can construct a concrete instance of `ConnectedClusterIdentityInput` via:
 //
-//	ConnectedClusterIdentityArgs{...}
+//          ConnectedClusterIdentityArgs{...}
 type ConnectedClusterIdentityInput interface {
 	pulumi.Input
 

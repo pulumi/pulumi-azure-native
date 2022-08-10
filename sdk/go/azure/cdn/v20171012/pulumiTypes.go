@@ -24,7 +24,7 @@ type CacheExpirationActionParameters struct {
 // CacheExpirationActionParametersInput is an input type that accepts CacheExpirationActionParametersArgs and CacheExpirationActionParametersOutput values.
 // You can construct a concrete instance of `CacheExpirationActionParametersInput` via:
 //
-//	CacheExpirationActionParametersArgs{...}
+//          CacheExpirationActionParametersArgs{...}
 type CacheExpirationActionParametersInput interface {
 	pulumi.Input
 
@@ -149,7 +149,7 @@ type DeepCreatedOrigin struct {
 // DeepCreatedOriginInput is an input type that accepts DeepCreatedOriginArgs and DeepCreatedOriginOutput values.
 // You can construct a concrete instance of `DeepCreatedOriginInput` via:
 //
-//	DeepCreatedOriginArgs{...}
+//          DeepCreatedOriginArgs{...}
 type DeepCreatedOriginInput interface {
 	pulumi.Input
 
@@ -184,7 +184,7 @@ func (i DeepCreatedOriginArgs) ToDeepCreatedOriginOutputWithContext(ctx context.
 // DeepCreatedOriginArrayInput is an input type that accepts DeepCreatedOriginArray and DeepCreatedOriginArrayOutput values.
 // You can construct a concrete instance of `DeepCreatedOriginArrayInput` via:
 //
-//	DeepCreatedOriginArray{ DeepCreatedOriginArgs{...} }
+//          DeepCreatedOriginArray{ DeepCreatedOriginArgs{...} }
 type DeepCreatedOriginArrayInput interface {
 	pulumi.Input
 
@@ -341,7 +341,7 @@ type DeliveryRule struct {
 // DeliveryRuleInput is an input type that accepts DeliveryRuleArgs and DeliveryRuleOutput values.
 // You can construct a concrete instance of `DeliveryRuleInput` via:
 //
-//	DeliveryRuleArgs{...}
+//          DeliveryRuleArgs{...}
 type DeliveryRuleInput interface {
 	pulumi.Input
 
@@ -374,7 +374,7 @@ func (i DeliveryRuleArgs) ToDeliveryRuleOutputWithContext(ctx context.Context) D
 // DeliveryRuleArrayInput is an input type that accepts DeliveryRuleArray and DeliveryRuleArrayOutput values.
 // You can construct a concrete instance of `DeliveryRuleArrayInput` via:
 //
-//	DeliveryRuleArray{ DeliveryRuleArgs{...} }
+//          DeliveryRuleArray{ DeliveryRuleArgs{...} }
 type DeliveryRuleArrayInput interface {
 	pulumi.Input
 
@@ -458,7 +458,7 @@ type DeliveryRuleCacheExpirationAction struct {
 // DeliveryRuleCacheExpirationActionInput is an input type that accepts DeliveryRuleCacheExpirationActionArgs and DeliveryRuleCacheExpirationActionOutput values.
 // You can construct a concrete instance of `DeliveryRuleCacheExpirationActionInput` via:
 //
-//	DeliveryRuleCacheExpirationActionArgs{...}
+//          DeliveryRuleCacheExpirationActionArgs{...}
 type DeliveryRuleCacheExpirationActionInput interface {
 	pulumi.Input
 
@@ -490,7 +490,7 @@ func (i DeliveryRuleCacheExpirationActionArgs) ToDeliveryRuleCacheExpirationActi
 // DeliveryRuleCacheExpirationActionArrayInput is an input type that accepts DeliveryRuleCacheExpirationActionArray and DeliveryRuleCacheExpirationActionArrayOutput values.
 // You can construct a concrete instance of `DeliveryRuleCacheExpirationActionArrayInput` via:
 //
-//	DeliveryRuleCacheExpirationActionArray{ DeliveryRuleCacheExpirationActionArgs{...} }
+//          DeliveryRuleCacheExpirationActionArray{ DeliveryRuleCacheExpirationActionArgs{...} }
 type DeliveryRuleCacheExpirationActionArrayInput interface {
 	pulumi.Input
 
@@ -722,7 +722,7 @@ type EndpointPropertiesUpdateParametersDeliveryPolicy struct {
 // EndpointPropertiesUpdateParametersDeliveryPolicyInput is an input type that accepts EndpointPropertiesUpdateParametersDeliveryPolicyArgs and EndpointPropertiesUpdateParametersDeliveryPolicyOutput values.
 // You can construct a concrete instance of `EndpointPropertiesUpdateParametersDeliveryPolicyInput` via:
 //
-//	EndpointPropertiesUpdateParametersDeliveryPolicyArgs{...}
+//          EndpointPropertiesUpdateParametersDeliveryPolicyArgs{...}
 type EndpointPropertiesUpdateParametersDeliveryPolicyInput interface {
 	pulumi.Input
 
@@ -761,11 +761,11 @@ func (i EndpointPropertiesUpdateParametersDeliveryPolicyArgs) ToEndpointProperti
 // EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput is an input type that accepts EndpointPropertiesUpdateParametersDeliveryPolicyArgs, EndpointPropertiesUpdateParametersDeliveryPolicyPtr and EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput values.
 // You can construct a concrete instance of `EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput` via:
 //
-//	        EndpointPropertiesUpdateParametersDeliveryPolicyArgs{...}
+//          EndpointPropertiesUpdateParametersDeliveryPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput interface {
 	pulumi.Input
 
@@ -962,7 +962,7 @@ type GeoFilter struct {
 // GeoFilterInput is an input type that accepts GeoFilterArgs and GeoFilterOutput values.
 // You can construct a concrete instance of `GeoFilterInput` via:
 //
-//	GeoFilterArgs{...}
+//          GeoFilterArgs{...}
 type GeoFilterInput interface {
 	pulumi.Input
 
@@ -995,7 +995,7 @@ func (i GeoFilterArgs) ToGeoFilterOutputWithContext(ctx context.Context) GeoFilt
 // GeoFilterArrayInput is an input type that accepts GeoFilterArray and GeoFilterArrayOutput values.
 // You can construct a concrete instance of `GeoFilterArrayInput` via:
 //
-//	GeoFilterArray{ GeoFilterArgs{...} }
+//          GeoFilterArray{ GeoFilterArgs{...} }
 type GeoFilterArrayInput interface {
 	pulumi.Input
 
@@ -1136,7 +1136,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

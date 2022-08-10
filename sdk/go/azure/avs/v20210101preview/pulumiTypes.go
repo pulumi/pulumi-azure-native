@@ -132,7 +132,7 @@ type DiskPoolVolume struct {
 // DiskPoolVolumeInput is an input type that accepts DiskPoolVolumeArgs and DiskPoolVolumeOutput values.
 // You can construct a concrete instance of `DiskPoolVolumeInput` via:
 //
-//	DiskPoolVolumeArgs{...}
+//          DiskPoolVolumeArgs{...}
 type DiskPoolVolumeInput interface {
 	pulumi.Input
 
@@ -171,11 +171,11 @@ func (i DiskPoolVolumeArgs) ToDiskPoolVolumePtrOutputWithContext(ctx context.Con
 // DiskPoolVolumePtrInput is an input type that accepts DiskPoolVolumeArgs, DiskPoolVolumePtr and DiskPoolVolumePtrOutput values.
 // You can construct a concrete instance of `DiskPoolVolumePtrInput` via:
 //
-//	        DiskPoolVolumeArgs{...}
+//          DiskPoolVolumeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DiskPoolVolumePtrInput interface {
 	pulumi.Input
 
@@ -424,7 +424,7 @@ type IdentitySource struct {
 // IdentitySourceInput is an input type that accepts IdentitySourceArgs and IdentitySourceOutput values.
 // You can construct a concrete instance of `IdentitySourceInput` via:
 //
-//	IdentitySourceArgs{...}
+//          IdentitySourceArgs{...}
 type IdentitySourceInput interface {
 	pulumi.Input
 
@@ -471,7 +471,7 @@ func (i IdentitySourceArgs) ToIdentitySourceOutputWithContext(ctx context.Contex
 // IdentitySourceArrayInput is an input type that accepts IdentitySourceArray and IdentitySourceArrayOutput values.
 // You can construct a concrete instance of `IdentitySourceArrayInput` via:
 //
-//	IdentitySourceArray{ IdentitySourceArgs{...} }
+//          IdentitySourceArray{ IdentitySourceArgs{...} }
 type IdentitySourceArrayInput interface {
 	pulumi.Input
 
@@ -696,7 +696,7 @@ type ManagementCluster struct {
 // ManagementClusterInput is an input type that accepts ManagementClusterArgs and ManagementClusterOutput values.
 // You can construct a concrete instance of `ManagementClusterInput` via:
 //
-//	ManagementClusterArgs{...}
+//          ManagementClusterArgs{...}
 type ManagementClusterInput interface {
 	pulumi.Input
 
@@ -800,7 +800,7 @@ type NetAppVolume struct {
 // NetAppVolumeInput is an input type that accepts NetAppVolumeArgs and NetAppVolumeOutput values.
 // You can construct a concrete instance of `NetAppVolumeInput` via:
 //
-//	NetAppVolumeArgs{...}
+//          NetAppVolumeArgs{...}
 type NetAppVolumeInput interface {
 	pulumi.Input
 
@@ -839,11 +839,11 @@ func (i NetAppVolumeArgs) ToNetAppVolumePtrOutputWithContext(ctx context.Context
 // NetAppVolumePtrInput is an input type that accepts NetAppVolumeArgs, NetAppVolumePtr and NetAppVolumePtrOutput values.
 // You can construct a concrete instance of `NetAppVolumePtrInput` via:
 //
-//	        NetAppVolumeArgs{...}
+//          NetAppVolumeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NetAppVolumePtrInput interface {
 	pulumi.Input
 
@@ -1034,7 +1034,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1163,7 +1163,7 @@ type WorkloadNetworkSegmentSubnet struct {
 // WorkloadNetworkSegmentSubnetInput is an input type that accepts WorkloadNetworkSegmentSubnetArgs and WorkloadNetworkSegmentSubnetOutput values.
 // You can construct a concrete instance of `WorkloadNetworkSegmentSubnetInput` via:
 //
-//	WorkloadNetworkSegmentSubnetArgs{...}
+//          WorkloadNetworkSegmentSubnetArgs{...}
 type WorkloadNetworkSegmentSubnetInput interface {
 	pulumi.Input
 
@@ -1202,11 +1202,11 @@ func (i WorkloadNetworkSegmentSubnetArgs) ToWorkloadNetworkSegmentSubnetPtrOutpu
 // WorkloadNetworkSegmentSubnetPtrInput is an input type that accepts WorkloadNetworkSegmentSubnetArgs, WorkloadNetworkSegmentSubnetPtr and WorkloadNetworkSegmentSubnetPtrOutput values.
 // You can construct a concrete instance of `WorkloadNetworkSegmentSubnetPtrInput` via:
 //
-//	        WorkloadNetworkSegmentSubnetArgs{...}
+//          WorkloadNetworkSegmentSubnetArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WorkloadNetworkSegmentSubnetPtrInput interface {
 	pulumi.Input
 

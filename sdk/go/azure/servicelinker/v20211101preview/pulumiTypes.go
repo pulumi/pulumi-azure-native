@@ -41,7 +41,7 @@ type SecretStore struct {
 // SecretStoreInput is an input type that accepts SecretStoreArgs and SecretStoreOutput values.
 // You can construct a concrete instance of `SecretStoreInput` via:
 //
-//	SecretStoreArgs{...}
+//          SecretStoreArgs{...}
 type SecretStoreInput interface {
 	pulumi.Input
 
@@ -78,11 +78,11 @@ func (i SecretStoreArgs) ToSecretStorePtrOutputWithContext(ctx context.Context) 
 // SecretStorePtrInput is an input type that accepts SecretStoreArgs, SecretStorePtr and SecretStorePtrOutput values.
 // You can construct a concrete instance of `SecretStorePtrInput` via:
 //
-//	        SecretStoreArgs{...}
+//          SecretStoreArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SecretStorePtrInput interface {
 	pulumi.Input
 
@@ -443,7 +443,7 @@ type VNetSolution struct {
 // VNetSolutionInput is an input type that accepts VNetSolutionArgs and VNetSolutionOutput values.
 // You can construct a concrete instance of `VNetSolutionInput` via:
 //
-//	VNetSolutionArgs{...}
+//          VNetSolutionArgs{...}
 type VNetSolutionInput interface {
 	pulumi.Input
 
@@ -480,11 +480,11 @@ func (i VNetSolutionArgs) ToVNetSolutionPtrOutputWithContext(ctx context.Context
 // VNetSolutionPtrInput is an input type that accepts VNetSolutionArgs, VNetSolutionPtr and VNetSolutionPtrOutput values.
 // You can construct a concrete instance of `VNetSolutionPtrInput` via:
 //
-//	        VNetSolutionArgs{...}
+//          VNetSolutionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type VNetSolutionPtrInput interface {
 	pulumi.Input
 

@@ -142,7 +142,7 @@ func (o QueryStringCachingBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx co
 // QueryStringCachingBehaviorInput is an input type that accepts QueryStringCachingBehaviorArgs and QueryStringCachingBehaviorOutput values.
 // You can construct a concrete instance of `QueryStringCachingBehaviorInput` via:
 //
-//	QueryStringCachingBehaviorArgs{...}
+//          QueryStringCachingBehaviorArgs{...}
 type QueryStringCachingBehaviorInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
 // You can construct a concrete instance of `SkuNameInput` via:
 //
-//	SkuNameArgs{...}
+//          SkuNameArgs{...}
 type SkuNameInput interface {
 	pulumi.Input
 

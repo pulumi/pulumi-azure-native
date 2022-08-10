@@ -25,7 +25,7 @@ type AzureFileVolume struct {
 // AzureFileVolumeInput is an input type that accepts AzureFileVolumeArgs and AzureFileVolumeOutput values.
 // You can construct a concrete instance of `AzureFileVolumeInput` via:
 //
-//	AzureFileVolumeArgs{...}
+//          AzureFileVolumeArgs{...}
 type AzureFileVolumeInput interface {
 	pulumi.Input
 
@@ -68,11 +68,11 @@ func (i AzureFileVolumeArgs) ToAzureFileVolumePtrOutputWithContext(ctx context.C
 // AzureFileVolumePtrInput is an input type that accepts AzureFileVolumeArgs, AzureFileVolumePtr and AzureFileVolumePtrOutput values.
 // You can construct a concrete instance of `AzureFileVolumePtrInput` via:
 //
-//	        AzureFileVolumeArgs{...}
+//          AzureFileVolumeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AzureFileVolumePtrInput interface {
 	pulumi.Input
 
@@ -339,7 +339,7 @@ type Container struct {
 // ContainerInput is an input type that accepts ContainerArgs and ContainerOutput values.
 // You can construct a concrete instance of `ContainerInput` via:
 //
-//	ContainerArgs{...}
+//          ContainerArgs{...}
 type ContainerInput interface {
 	pulumi.Input
 
@@ -380,7 +380,7 @@ func (i ContainerArgs) ToContainerOutputWithContext(ctx context.Context) Contain
 // ContainerArrayInput is an input type that accepts ContainerArray and ContainerArrayOutput values.
 // You can construct a concrete instance of `ContainerArrayInput` via:
 //
-//	ContainerArray{ ContainerArgs{...} }
+//          ContainerArray{ ContainerArgs{...} }
 type ContainerArrayInput interface {
 	pulumi.Input
 
@@ -516,7 +516,7 @@ type ContainerPort struct {
 // ContainerPortInput is an input type that accepts ContainerPortArgs and ContainerPortOutput values.
 // You can construct a concrete instance of `ContainerPortInput` via:
 //
-//	ContainerPortArgs{...}
+//          ContainerPortArgs{...}
 type ContainerPortInput interface {
 	pulumi.Input
 
@@ -547,7 +547,7 @@ func (i ContainerPortArgs) ToContainerPortOutputWithContext(ctx context.Context)
 // ContainerPortArrayInput is an input type that accepts ContainerPortArray and ContainerPortArrayOutput values.
 // You can construct a concrete instance of `ContainerPortArrayInput` via:
 //
-//	ContainerPortArray{ ContainerPortArgs{...} }
+//          ContainerPortArray{ ContainerPortArgs{...} }
 type ContainerPortArrayInput interface {
 	pulumi.Input
 
@@ -874,7 +874,7 @@ type EnvironmentVariable struct {
 // EnvironmentVariableInput is an input type that accepts EnvironmentVariableArgs and EnvironmentVariableOutput values.
 // You can construct a concrete instance of `EnvironmentVariableInput` via:
 //
-//	EnvironmentVariableArgs{...}
+//          EnvironmentVariableArgs{...}
 type EnvironmentVariableInput interface {
 	pulumi.Input
 
@@ -905,7 +905,7 @@ func (i EnvironmentVariableArgs) ToEnvironmentVariableOutputWithContext(ctx cont
 // EnvironmentVariableArrayInput is an input type that accepts EnvironmentVariableArray and EnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `EnvironmentVariableArrayInput` via:
 //
-//	EnvironmentVariableArray{ EnvironmentVariableArgs{...} }
+//          EnvironmentVariableArray{ EnvironmentVariableArgs{...} }
 type EnvironmentVariableArrayInput interface {
 	pulumi.Input
 
@@ -1119,7 +1119,7 @@ type ImageRegistryCredential struct {
 // ImageRegistryCredentialInput is an input type that accepts ImageRegistryCredentialArgs and ImageRegistryCredentialOutput values.
 // You can construct a concrete instance of `ImageRegistryCredentialInput` via:
 //
-//	ImageRegistryCredentialArgs{...}
+//          ImageRegistryCredentialArgs{...}
 type ImageRegistryCredentialInput interface {
 	pulumi.Input
 
@@ -1152,7 +1152,7 @@ func (i ImageRegistryCredentialArgs) ToImageRegistryCredentialOutputWithContext(
 // ImageRegistryCredentialArrayInput is an input type that accepts ImageRegistryCredentialArray and ImageRegistryCredentialArrayOutput values.
 // You can construct a concrete instance of `ImageRegistryCredentialArrayInput` via:
 //
-//	ImageRegistryCredentialArray{ ImageRegistryCredentialArgs{...} }
+//          ImageRegistryCredentialArray{ ImageRegistryCredentialArgs{...} }
 type ImageRegistryCredentialArrayInput interface {
 	pulumi.Input
 
@@ -1297,7 +1297,7 @@ type IpAddress struct {
 // IpAddressInput is an input type that accepts IpAddressArgs and IpAddressOutput values.
 // You can construct a concrete instance of `IpAddressInput` via:
 //
-//	IpAddressArgs{...}
+//          IpAddressArgs{...}
 type IpAddressInput interface {
 	pulumi.Input
 
@@ -1338,11 +1338,11 @@ func (i IpAddressArgs) ToIpAddressPtrOutputWithContext(ctx context.Context) IpAd
 // IpAddressPtrInput is an input type that accepts IpAddressArgs, IpAddressPtr and IpAddressPtrOutput values.
 // You can construct a concrete instance of `IpAddressPtrInput` via:
 //
-//	        IpAddressArgs{...}
+//          IpAddressArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IpAddressPtrInput interface {
 	pulumi.Input
 
@@ -1567,7 +1567,7 @@ type Port struct {
 // PortInput is an input type that accepts PortArgs and PortOutput values.
 // You can construct a concrete instance of `PortInput` via:
 //
-//	PortArgs{...}
+//          PortArgs{...}
 type PortInput interface {
 	pulumi.Input
 
@@ -1598,7 +1598,7 @@ func (i PortArgs) ToPortOutputWithContext(ctx context.Context) PortOutput {
 // PortArrayInput is an input type that accepts PortArray and PortArrayOutput values.
 // You can construct a concrete instance of `PortArrayInput` via:
 //
-//	PortArray{ PortArgs{...} }
+//          PortArray{ PortArgs{...} }
 type PortArrayInput interface {
 	pulumi.Input
 
@@ -1729,7 +1729,7 @@ type ResourceLimits struct {
 // ResourceLimitsInput is an input type that accepts ResourceLimitsArgs and ResourceLimitsOutput values.
 // You can construct a concrete instance of `ResourceLimitsInput` via:
 //
-//	ResourceLimitsArgs{...}
+//          ResourceLimitsArgs{...}
 type ResourceLimitsInput interface {
 	pulumi.Input
 
@@ -1768,11 +1768,11 @@ func (i ResourceLimitsArgs) ToResourceLimitsPtrOutputWithContext(ctx context.Con
 // ResourceLimitsPtrInput is an input type that accepts ResourceLimitsArgs, ResourceLimitsPtr and ResourceLimitsPtrOutput values.
 // You can construct a concrete instance of `ResourceLimitsPtrInput` via:
 //
-//	        ResourceLimitsArgs{...}
+//          ResourceLimitsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceLimitsPtrInput interface {
 	pulumi.Input
 
@@ -1965,7 +1965,7 @@ type ResourceRequests struct {
 // ResourceRequestsInput is an input type that accepts ResourceRequestsArgs and ResourceRequestsOutput values.
 // You can construct a concrete instance of `ResourceRequestsInput` via:
 //
-//	ResourceRequestsArgs{...}
+//          ResourceRequestsArgs{...}
 type ResourceRequestsInput interface {
 	pulumi.Input
 
@@ -2062,7 +2062,7 @@ type ResourceRequirements struct {
 // ResourceRequirementsInput is an input type that accepts ResourceRequirementsArgs and ResourceRequirementsOutput values.
 // You can construct a concrete instance of `ResourceRequirementsInput` via:
 //
-//	ResourceRequirementsArgs{...}
+//          ResourceRequirementsArgs{...}
 type ResourceRequirementsInput interface {
 	pulumi.Input
 
@@ -2161,7 +2161,7 @@ type Volume struct {
 // VolumeInput is an input type that accepts VolumeArgs and VolumeOutput values.
 // You can construct a concrete instance of `VolumeInput` via:
 //
-//	VolumeArgs{...}
+//          VolumeArgs{...}
 type VolumeInput interface {
 	pulumi.Input
 
@@ -2194,7 +2194,7 @@ func (i VolumeArgs) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput 
 // VolumeArrayInput is an input type that accepts VolumeArray and VolumeArrayOutput values.
 // You can construct a concrete instance of `VolumeArrayInput` via:
 //
-//	VolumeArray{ VolumeArgs{...} }
+//          VolumeArray{ VolumeArgs{...} }
 type VolumeArrayInput interface {
 	pulumi.Input
 
@@ -2279,7 +2279,7 @@ type VolumeMount struct {
 // VolumeMountInput is an input type that accepts VolumeMountArgs and VolumeMountOutput values.
 // You can construct a concrete instance of `VolumeMountInput` via:
 //
-//	VolumeMountArgs{...}
+//          VolumeMountArgs{...}
 type VolumeMountInput interface {
 	pulumi.Input
 
@@ -2312,7 +2312,7 @@ func (i VolumeMountArgs) ToVolumeMountOutputWithContext(ctx context.Context) Vol
 // VolumeMountArrayInput is an input type that accepts VolumeMountArray and VolumeMountArrayOutput values.
 // You can construct a concrete instance of `VolumeMountArrayInput` via:
 //
-//	VolumeMountArray{ VolumeMountArgs{...} }
+//          VolumeMountArray{ VolumeMountArgs{...} }
 type VolumeMountArrayInput interface {
 	pulumi.Input
 

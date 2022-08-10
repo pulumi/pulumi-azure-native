@@ -19,7 +19,7 @@ type ConnectionStateRequestBodyProperties struct {
 // ConnectionStateRequestBodyPropertiesInput is an input type that accepts ConnectionStateRequestBodyPropertiesArgs and ConnectionStateRequestBodyPropertiesOutput values.
 // You can construct a concrete instance of `ConnectionStateRequestBodyPropertiesInput` via:
 //
-//	ConnectionStateRequestBodyPropertiesArgs{...}
+//          ConnectionStateRequestBodyPropertiesArgs{...}
 type ConnectionStateRequestBodyPropertiesInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ConnectionStateRequestBodyPropertiesArgs) ToConnectionStateRequestBodyPr
 // ConnectionStateRequestBodyPropertiesPtrInput is an input type that accepts ConnectionStateRequestBodyPropertiesArgs, ConnectionStateRequestBodyPropertiesPtr and ConnectionStateRequestBodyPropertiesPtrOutput values.
 // You can construct a concrete instance of `ConnectionStateRequestBodyPropertiesPtrInput` via:
 //
-//	        ConnectionStateRequestBodyPropertiesArgs{...}
+//          ConnectionStateRequestBodyPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ConnectionStateRequestBodyPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -165,7 +165,7 @@ type MigrateProjectProperties struct {
 // MigrateProjectPropertiesInput is an input type that accepts MigrateProjectPropertiesArgs and MigrateProjectPropertiesOutput values.
 // You can construct a concrete instance of `MigrateProjectPropertiesInput` via:
 //
-//	MigrateProjectPropertiesArgs{...}
+//          MigrateProjectPropertiesArgs{...}
 type MigrateProjectPropertiesInput interface {
 	pulumi.Input
 
@@ -206,11 +206,11 @@ func (i MigrateProjectPropertiesArgs) ToMigrateProjectPropertiesPtrOutputWithCon
 // MigrateProjectPropertiesPtrInput is an input type that accepts MigrateProjectPropertiesArgs, MigrateProjectPropertiesPtr and MigrateProjectPropertiesPtrOutput values.
 // You can construct a concrete instance of `MigrateProjectPropertiesPtrInput` via:
 //
-//	        MigrateProjectPropertiesArgs{...}
+//          MigrateProjectPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MigrateProjectPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -543,7 +543,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -584,11 +584,11 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 // PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
 //
-//	        PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkServiceConnectionStatePtrInput interface {
 	pulumi.Input
 

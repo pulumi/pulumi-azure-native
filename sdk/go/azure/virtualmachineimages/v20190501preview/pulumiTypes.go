@@ -51,7 +51,7 @@ type ImageTemplateIdentity struct {
 // ImageTemplateIdentityInput is an input type that accepts ImageTemplateIdentityArgs and ImageTemplateIdentityOutput values.
 // You can construct a concrete instance of `ImageTemplateIdentityInput` via:
 //
-//	ImageTemplateIdentityArgs{...}
+//          ImageTemplateIdentityArgs{...}
 type ImageTemplateIdentityInput interface {
 	pulumi.Input
 
@@ -90,11 +90,11 @@ func (i ImageTemplateIdentityArgs) ToImageTemplateIdentityPtrOutputWithContext(c
 // ImageTemplateIdentityPtrInput is an input type that accepts ImageTemplateIdentityArgs, ImageTemplateIdentityPtr and ImageTemplateIdentityPtrOutput values.
 // You can construct a concrete instance of `ImageTemplateIdentityPtrInput` via:
 //
-//	        ImageTemplateIdentityArgs{...}
+//          ImageTemplateIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ImageTemplateIdentityPtrInput interface {
 	pulumi.Input
 
@@ -660,7 +660,7 @@ type ImageTemplateVmProfile struct {
 // ImageTemplateVmProfileInput is an input type that accepts ImageTemplateVmProfileArgs and ImageTemplateVmProfileOutput values.
 // You can construct a concrete instance of `ImageTemplateVmProfileInput` via:
 //
-//	ImageTemplateVmProfileArgs{...}
+//          ImageTemplateVmProfileArgs{...}
 type ImageTemplateVmProfileInput interface {
 	pulumi.Input
 
@@ -697,11 +697,11 @@ func (i ImageTemplateVmProfileArgs) ToImageTemplateVmProfilePtrOutputWithContext
 // ImageTemplateVmProfilePtrInput is an input type that accepts ImageTemplateVmProfileArgs, ImageTemplateVmProfilePtr and ImageTemplateVmProfilePtrOutput values.
 // You can construct a concrete instance of `ImageTemplateVmProfilePtrInput` via:
 //
-//	        ImageTemplateVmProfileArgs{...}
+//          ImageTemplateVmProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ImageTemplateVmProfilePtrInput interface {
 	pulumi.Input
 

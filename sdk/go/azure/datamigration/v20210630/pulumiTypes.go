@@ -1462,7 +1462,7 @@ type DatabaseInfo struct {
 // DatabaseInfoInput is an input type that accepts DatabaseInfoArgs and DatabaseInfoOutput values.
 // You can construct a concrete instance of `DatabaseInfoInput` via:
 //
-//	DatabaseInfoArgs{...}
+//          DatabaseInfoArgs{...}
 type DatabaseInfoInput interface {
 	pulumi.Input
 
@@ -1491,7 +1491,7 @@ func (i DatabaseInfoArgs) ToDatabaseInfoOutputWithContext(ctx context.Context) D
 // DatabaseInfoArrayInput is an input type that accepts DatabaseInfoArray and DatabaseInfoArrayOutput values.
 // You can construct a concrete instance of `DatabaseInfoArrayInput` via:
 //
-//	DatabaseInfoArray{ DatabaseInfoArgs{...} }
+//          DatabaseInfoArray{ DatabaseInfoArgs{...} }
 type DatabaseInfoArrayInput interface {
 	pulumi.Input
 
@@ -5067,7 +5067,7 @@ type ProjectFileProperties struct {
 // ProjectFilePropertiesInput is an input type that accepts ProjectFilePropertiesArgs and ProjectFilePropertiesOutput values.
 // You can construct a concrete instance of `ProjectFilePropertiesInput` via:
 //
-//	ProjectFilePropertiesArgs{...}
+//          ProjectFilePropertiesArgs{...}
 type ProjectFilePropertiesInput interface {
 	pulumi.Input
 
@@ -5108,11 +5108,11 @@ func (i ProjectFilePropertiesArgs) ToProjectFilePropertiesPtrOutputWithContext(c
 // ProjectFilePropertiesPtrInput is an input type that accepts ProjectFilePropertiesArgs, ProjectFilePropertiesPtr and ProjectFilePropertiesPtrOutput values.
 // You can construct a concrete instance of `ProjectFilePropertiesPtrInput` via:
 //
-//	        ProjectFilePropertiesArgs{...}
+//          ProjectFilePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ProjectFilePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -5393,7 +5393,7 @@ type ServiceSku struct {
 // ServiceSkuInput is an input type that accepts ServiceSkuArgs and ServiceSkuOutput values.
 // You can construct a concrete instance of `ServiceSkuInput` via:
 //
-//	ServiceSkuArgs{...}
+//          ServiceSkuArgs{...}
 type ServiceSkuInput interface {
 	pulumi.Input
 
@@ -5438,11 +5438,11 @@ func (i ServiceSkuArgs) ToServiceSkuPtrOutputWithContext(ctx context.Context) Se
 // ServiceSkuPtrInput is an input type that accepts ServiceSkuArgs, ServiceSkuPtr and ServiceSkuPtrOutput values.
 // You can construct a concrete instance of `ServiceSkuPtrInput` via:
 //
-//	        ServiceSkuArgs{...}
+//          ServiceSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServiceSkuPtrInput interface {
 	pulumi.Input
 

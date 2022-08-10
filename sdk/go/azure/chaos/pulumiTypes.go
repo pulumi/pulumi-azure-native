@@ -21,7 +21,7 @@ type Branch struct {
 // BranchInput is an input type that accepts BranchArgs and BranchOutput values.
 // You can construct a concrete instance of `BranchInput` via:
 //
-//	BranchArgs{...}
+//          BranchArgs{...}
 type BranchInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i BranchArgs) ToBranchOutputWithContext(ctx context.Context) BranchOutput 
 // BranchArrayInput is an input type that accepts BranchArray and BranchArrayOutput values.
 // You can construct a concrete instance of `BranchArrayInput` via:
 //
-//	BranchArray{ BranchArgs{...} }
+//          BranchArray{ BranchArgs{...} }
 type BranchArrayInput interface {
 	pulumi.Input
 
@@ -317,7 +317,7 @@ type ExperimentProperties struct {
 // ExperimentPropertiesInput is an input type that accepts ExperimentPropertiesArgs and ExperimentPropertiesOutput values.
 // You can construct a concrete instance of `ExperimentPropertiesInput` via:
 //
-//	ExperimentPropertiesArgs{...}
+//          ExperimentPropertiesArgs{...}
 type ExperimentPropertiesInput interface {
 	pulumi.Input
 
@@ -442,7 +442,7 @@ type ResourceIdentity struct {
 // ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
 // You can construct a concrete instance of `ResourceIdentityInput` via:
 //
-//	ResourceIdentityArgs{...}
+//          ResourceIdentityArgs{...}
 type ResourceIdentityInput interface {
 	pulumi.Input
 
@@ -479,11 +479,11 @@ func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context
 // ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
 // You can construct a concrete instance of `ResourceIdentityPtrInput` via:
 //
-//	        ResourceIdentityArgs{...}
+//          ResourceIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -680,7 +680,7 @@ type Selector struct {
 // SelectorInput is an input type that accepts SelectorArgs and SelectorOutput values.
 // You can construct a concrete instance of `SelectorInput` via:
 //
-//	SelectorArgs{...}
+//          SelectorArgs{...}
 type SelectorInput interface {
 	pulumi.Input
 
@@ -713,7 +713,7 @@ func (i SelectorArgs) ToSelectorOutputWithContext(ctx context.Context) SelectorO
 // SelectorArrayInput is an input type that accepts SelectorArray and SelectorArrayOutput values.
 // You can construct a concrete instance of `SelectorArrayInput` via:
 //
-//	SelectorArray{ SelectorArgs{...} }
+//          SelectorArray{ SelectorArgs{...} }
 type SelectorArrayInput interface {
 	pulumi.Input
 
@@ -856,7 +856,7 @@ type Step struct {
 // StepInput is an input type that accepts StepArgs and StepOutput values.
 // You can construct a concrete instance of `StepInput` via:
 //
-//	StepArgs{...}
+//          StepArgs{...}
 type StepInput interface {
 	pulumi.Input
 
@@ -887,7 +887,7 @@ func (i StepArgs) ToStepOutputWithContext(ctx context.Context) StepOutput {
 // StepArrayInput is an input type that accepts StepArray and StepArrayOutput values.
 // You can construct a concrete instance of `StepArrayInput` via:
 //
-//	StepArray{ StepArgs{...} }
+//          StepArray{ StepArgs{...} }
 type StepArrayInput interface {
 	pulumi.Input
 
@@ -1079,7 +1079,7 @@ type TargetReference struct {
 // TargetReferenceInput is an input type that accepts TargetReferenceArgs and TargetReferenceOutput values.
 // You can construct a concrete instance of `TargetReferenceInput` via:
 //
-//	TargetReferenceArgs{...}
+//          TargetReferenceArgs{...}
 type TargetReferenceInput interface {
 	pulumi.Input
 
@@ -1110,7 +1110,7 @@ func (i TargetReferenceArgs) ToTargetReferenceOutputWithContext(ctx context.Cont
 // TargetReferenceArrayInput is an input type that accepts TargetReferenceArray and TargetReferenceArrayOutput values.
 // You can construct a concrete instance of `TargetReferenceArrayInput` via:
 //
-//	TargetReferenceArray{ TargetReferenceArgs{...} }
+//          TargetReferenceArray{ TargetReferenceArgs{...} }
 type TargetReferenceArrayInput interface {
 	pulumi.Input
 

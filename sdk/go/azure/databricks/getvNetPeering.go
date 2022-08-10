@@ -121,7 +121,7 @@ func (o GetvNetPeeringResultOutput) DatabricksAddressSpace() AddressSpaceRespons
 	return o.ApplyT(func(v GetvNetPeeringResult) *AddressSpaceResponse { return v.DatabricksAddressSpace }).(AddressSpaceResponsePtrOutput)
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 func (o GetvNetPeeringResultOutput) DatabricksVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
 	return o.ApplyT(func(v GetvNetPeeringResult) *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
 		return v.DatabricksVirtualNetwork
@@ -153,7 +153,7 @@ func (o GetvNetPeeringResultOutput) RemoteAddressSpace() AddressSpaceResponsePtr
 	return o.ApplyT(func(v GetvNetPeeringResult) *AddressSpaceResponse { return v.RemoteAddressSpace }).(AddressSpaceResponsePtrOutput)
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 func (o GetvNetPeeringResultOutput) RemoteVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
 	return o.ApplyT(func(v GetvNetPeeringResult) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
 		return v.RemoteVirtualNetwork

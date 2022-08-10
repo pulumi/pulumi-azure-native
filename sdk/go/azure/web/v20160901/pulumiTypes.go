@@ -23,7 +23,7 @@ type Capability struct {
 // CapabilityInput is an input type that accepts CapabilityArgs and CapabilityOutput values.
 // You can construct a concrete instance of `CapabilityInput` via:
 //
-//	CapabilityArgs{...}
+//          CapabilityArgs{...}
 type CapabilityInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i CapabilityArgs) ToCapabilityOutputWithContext(ctx context.Context) Capab
 // CapabilityArrayInput is an input type that accepts CapabilityArray and CapabilityArrayOutput values.
 // You can construct a concrete instance of `CapabilityArrayInput` via:
 //
-//	CapabilityArray{ CapabilityArgs{...} }
+//          CapabilityArray{ CapabilityArgs{...} }
 type CapabilityArrayInput interface {
 	pulumi.Input
 
@@ -197,7 +197,7 @@ type HostingEnvironmentProfile struct {
 // HostingEnvironmentProfileInput is an input type that accepts HostingEnvironmentProfileArgs and HostingEnvironmentProfileOutput values.
 // You can construct a concrete instance of `HostingEnvironmentProfileInput` via:
 //
-//	HostingEnvironmentProfileArgs{...}
+//          HostingEnvironmentProfileArgs{...}
 type HostingEnvironmentProfileInput interface {
 	pulumi.Input
 
@@ -234,11 +234,11 @@ func (i HostingEnvironmentProfileArgs) ToHostingEnvironmentProfilePtrOutputWithC
 // HostingEnvironmentProfilePtrInput is an input type that accepts HostingEnvironmentProfileArgs, HostingEnvironmentProfilePtr and HostingEnvironmentProfilePtrOutput values.
 // You can construct a concrete instance of `HostingEnvironmentProfilePtrInput` via:
 //
-//	        HostingEnvironmentProfileArgs{...}
+//          HostingEnvironmentProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type HostingEnvironmentProfilePtrInput interface {
 	pulumi.Input
 
@@ -433,7 +433,7 @@ type NameValuePair struct {
 // NameValuePairInput is an input type that accepts NameValuePairArgs and NameValuePairOutput values.
 // You can construct a concrete instance of `NameValuePairInput` via:
 //
-//	NameValuePairArgs{...}
+//          NameValuePairArgs{...}
 type NameValuePairInput interface {
 	pulumi.Input
 
@@ -464,7 +464,7 @@ func (i NameValuePairArgs) ToNameValuePairOutputWithContext(ctx context.Context)
 // NameValuePairArrayInput is an input type that accepts NameValuePairArray and NameValuePairArrayOutput values.
 // You can construct a concrete instance of `NameValuePairArrayInput` via:
 //
-//	NameValuePairArray{ NameValuePairArgs{...} }
+//          NameValuePairArray{ NameValuePairArgs{...} }
 type NameValuePairArrayInput interface {
 	pulumi.Input
 
@@ -599,7 +599,7 @@ type NetworkAccessControlEntry struct {
 // NetworkAccessControlEntryInput is an input type that accepts NetworkAccessControlEntryArgs and NetworkAccessControlEntryOutput values.
 // You can construct a concrete instance of `NetworkAccessControlEntryInput` via:
 //
-//	NetworkAccessControlEntryArgs{...}
+//          NetworkAccessControlEntryArgs{...}
 type NetworkAccessControlEntryInput interface {
 	pulumi.Input
 
@@ -634,7 +634,7 @@ func (i NetworkAccessControlEntryArgs) ToNetworkAccessControlEntryOutputWithCont
 // NetworkAccessControlEntryArrayInput is an input type that accepts NetworkAccessControlEntryArray and NetworkAccessControlEntryArrayOutput values.
 // You can construct a concrete instance of `NetworkAccessControlEntryArrayInput` via:
 //
-//	NetworkAccessControlEntryArray{ NetworkAccessControlEntryArgs{...} }
+//          NetworkAccessControlEntryArray{ NetworkAccessControlEntryArgs{...} }
 type NetworkAccessControlEntryArrayInput interface {
 	pulumi.Input
 
@@ -793,7 +793,7 @@ type SkuCapacity struct {
 // SkuCapacityInput is an input type that accepts SkuCapacityArgs and SkuCapacityOutput values.
 // You can construct a concrete instance of `SkuCapacityInput` via:
 //
-//	SkuCapacityArgs{...}
+//          SkuCapacityArgs{...}
 type SkuCapacityInput interface {
 	pulumi.Input
 
@@ -836,11 +836,11 @@ func (i SkuCapacityArgs) ToSkuCapacityPtrOutputWithContext(ctx context.Context) 
 // SkuCapacityPtrInput is an input type that accepts SkuCapacityArgs, SkuCapacityPtr and SkuCapacityPtrOutput values.
 // You can construct a concrete instance of `SkuCapacityPtrInput` via:
 //
-//	        SkuCapacityArgs{...}
+//          SkuCapacityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuCapacityPtrInput interface {
 	pulumi.Input
 
@@ -1109,7 +1109,7 @@ type SkuDescription struct {
 // SkuDescriptionInput is an input type that accepts SkuDescriptionArgs and SkuDescriptionOutput values.
 // You can construct a concrete instance of `SkuDescriptionInput` via:
 //
-//	SkuDescriptionArgs{...}
+//          SkuDescriptionArgs{...}
 type SkuDescriptionInput interface {
 	pulumi.Input
 
@@ -1160,11 +1160,11 @@ func (i SkuDescriptionArgs) ToSkuDescriptionPtrOutputWithContext(ctx context.Con
 // SkuDescriptionPtrInput is an input type that accepts SkuDescriptionArgs, SkuDescriptionPtr and SkuDescriptionPtrOutput values.
 // You can construct a concrete instance of `SkuDescriptionPtrInput` via:
 //
-//	        SkuDescriptionArgs{...}
+//          SkuDescriptionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuDescriptionPtrInput interface {
 	pulumi.Input
 
@@ -1733,7 +1733,7 @@ type VirtualNetworkProfile struct {
 // VirtualNetworkProfileInput is an input type that accepts VirtualNetworkProfileArgs and VirtualNetworkProfileOutput values.
 // You can construct a concrete instance of `VirtualNetworkProfileInput` via:
 //
-//	VirtualNetworkProfileArgs{...}
+//          VirtualNetworkProfileArgs{...}
 type VirtualNetworkProfileInput interface {
 	pulumi.Input
 
@@ -1848,7 +1848,7 @@ type WorkerPool struct {
 // WorkerPoolInput is an input type that accepts WorkerPoolArgs and WorkerPoolOutput values.
 // You can construct a concrete instance of `WorkerPoolInput` via:
 //
-//	WorkerPoolArgs{...}
+//          WorkerPoolArgs{...}
 type WorkerPoolInput interface {
 	pulumi.Input
 
@@ -1883,7 +1883,7 @@ func (i WorkerPoolArgs) ToWorkerPoolOutputWithContext(ctx context.Context) Worke
 // WorkerPoolArrayInput is an input type that accepts WorkerPoolArray and WorkerPoolArrayOutput values.
 // You can construct a concrete instance of `WorkerPoolArrayInput` via:
 //
-//	WorkerPoolArray{ WorkerPoolArgs{...} }
+//          WorkerPoolArray{ WorkerPoolArgs{...} }
 type WorkerPoolArrayInput interface {
 	pulumi.Input
 

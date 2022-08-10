@@ -23,7 +23,7 @@ type RegistrationInfo struct {
 // RegistrationInfoInput is an input type that accepts RegistrationInfoArgs and RegistrationInfoOutput values.
 // You can construct a concrete instance of `RegistrationInfoInput` via:
 //
-//	RegistrationInfoArgs{...}
+//          RegistrationInfoArgs{...}
 type RegistrationInfoInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i RegistrationInfoArgs) ToRegistrationInfoPtrOutputWithContext(ctx context
 // RegistrationInfoPtrInput is an input type that accepts RegistrationInfoArgs, RegistrationInfoPtr and RegistrationInfoPtrOutput values.
 // You can construct a concrete instance of `RegistrationInfoPtrInput` via:
 //
-//	        RegistrationInfoArgs{...}
+//          RegistrationInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RegistrationInfoPtrInput interface {
 	pulumi.Input
 

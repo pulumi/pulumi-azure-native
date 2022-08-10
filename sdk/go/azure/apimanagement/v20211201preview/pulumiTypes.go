@@ -42,7 +42,7 @@ func (val *AdditionalLocation) Defaults() *AdditionalLocation {
 // AdditionalLocationInput is an input type that accepts AdditionalLocationArgs and AdditionalLocationOutput values.
 // You can construct a concrete instance of `AdditionalLocationInput` via:
 //
-//	AdditionalLocationArgs{...}
+//          AdditionalLocationArgs{...}
 type AdditionalLocationInput interface {
 	pulumi.Input
 
@@ -92,7 +92,7 @@ func (i AdditionalLocationArgs) ToAdditionalLocationOutputWithContext(ctx contex
 // AdditionalLocationArrayInput is an input type that accepts AdditionalLocationArray and AdditionalLocationArrayOutput values.
 // You can construct a concrete instance of `AdditionalLocationArrayInput` via:
 //
-//	AdditionalLocationArray{ AdditionalLocationArgs{...} }
+//          AdditionalLocationArray{ AdditionalLocationArgs{...} }
 type AdditionalLocationArrayInput interface {
 	pulumi.Input
 
@@ -316,7 +316,7 @@ type ApiContactInformation struct {
 // ApiContactInformationInput is an input type that accepts ApiContactInformationArgs and ApiContactInformationOutput values.
 // You can construct a concrete instance of `ApiContactInformationInput` via:
 //
-//	ApiContactInformationArgs{...}
+//          ApiContactInformationArgs{...}
 type ApiContactInformationInput interface {
 	pulumi.Input
 
@@ -357,11 +357,11 @@ func (i ApiContactInformationArgs) ToApiContactInformationPtrOutputWithContext(c
 // ApiContactInformationPtrInput is an input type that accepts ApiContactInformationArgs, ApiContactInformationPtr and ApiContactInformationPtrOutput values.
 // You can construct a concrete instance of `ApiContactInformationPtrInput` via:
 //
-//	        ApiContactInformationArgs{...}
+//          ApiContactInformationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApiContactInformationPtrInput interface {
 	pulumi.Input
 
@@ -586,7 +586,7 @@ type ApiCreateOrUpdatePropertiesWsdlSelector struct {
 // ApiCreateOrUpdatePropertiesWsdlSelectorInput is an input type that accepts ApiCreateOrUpdatePropertiesWsdlSelectorArgs and ApiCreateOrUpdatePropertiesWsdlSelectorOutput values.
 // You can construct a concrete instance of `ApiCreateOrUpdatePropertiesWsdlSelectorInput` via:
 //
-//	ApiCreateOrUpdatePropertiesWsdlSelectorArgs{...}
+//          ApiCreateOrUpdatePropertiesWsdlSelectorArgs{...}
 type ApiCreateOrUpdatePropertiesWsdlSelectorInput interface {
 	pulumi.Input
 
@@ -625,11 +625,11 @@ func (i ApiCreateOrUpdatePropertiesWsdlSelectorArgs) ToApiCreateOrUpdateProperti
 // ApiCreateOrUpdatePropertiesWsdlSelectorPtrInput is an input type that accepts ApiCreateOrUpdatePropertiesWsdlSelectorArgs, ApiCreateOrUpdatePropertiesWsdlSelectorPtr and ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput values.
 // You can construct a concrete instance of `ApiCreateOrUpdatePropertiesWsdlSelectorPtrInput` via:
 //
-//	        ApiCreateOrUpdatePropertiesWsdlSelectorArgs{...}
+//          ApiCreateOrUpdatePropertiesWsdlSelectorArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApiCreateOrUpdatePropertiesWsdlSelectorPtrInput interface {
 	pulumi.Input
 
@@ -745,7 +745,7 @@ type ApiLicenseInformation struct {
 // ApiLicenseInformationInput is an input type that accepts ApiLicenseInformationArgs and ApiLicenseInformationOutput values.
 // You can construct a concrete instance of `ApiLicenseInformationInput` via:
 //
-//	ApiLicenseInformationArgs{...}
+//          ApiLicenseInformationArgs{...}
 type ApiLicenseInformationInput interface {
 	pulumi.Input
 
@@ -784,11 +784,11 @@ func (i ApiLicenseInformationArgs) ToApiLicenseInformationPtrOutputWithContext(c
 // ApiLicenseInformationPtrInput is an input type that accepts ApiLicenseInformationArgs, ApiLicenseInformationPtr and ApiLicenseInformationPtrOutput values.
 // You can construct a concrete instance of `ApiLicenseInformationPtrInput` via:
 //
-//	        ApiLicenseInformationArgs{...}
+//          ApiLicenseInformationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApiLicenseInformationPtrInput interface {
 	pulumi.Input
 
@@ -984,7 +984,7 @@ type ApiManagementServiceIdentity struct {
 // ApiManagementServiceIdentityInput is an input type that accepts ApiManagementServiceIdentityArgs and ApiManagementServiceIdentityOutput values.
 // You can construct a concrete instance of `ApiManagementServiceIdentityInput` via:
 //
-//	ApiManagementServiceIdentityArgs{...}
+//          ApiManagementServiceIdentityArgs{...}
 type ApiManagementServiceIdentityInput interface {
 	pulumi.Input
 
@@ -1026,11 +1026,11 @@ func (i ApiManagementServiceIdentityArgs) ToApiManagementServiceIdentityPtrOutpu
 // ApiManagementServiceIdentityPtrInput is an input type that accepts ApiManagementServiceIdentityArgs, ApiManagementServiceIdentityPtr and ApiManagementServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `ApiManagementServiceIdentityPtrInput` via:
 //
-//	        ApiManagementServiceIdentityArgs{...}
+//          ApiManagementServiceIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApiManagementServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1089,8 +1089,7 @@ func (o ApiManagementServiceIdentityOutput) Type() pulumi.StringOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//
-//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ApiManagementServiceIdentityOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
 	return o.ApplyT(func(v ApiManagementServiceIdentity) map[string]UserIdentityProperties {
 		return v.UserAssignedIdentities
@@ -1134,8 +1133,7 @@ func (o ApiManagementServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//
-//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ApiManagementServiceIdentityPtrOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
 	return o.ApplyT(func(v *ApiManagementServiceIdentity) map[string]UserIdentityProperties {
 		if v == nil {
@@ -1193,8 +1191,7 @@ func (o ApiManagementServiceIdentityResponseOutput) Type() pulumi.StringOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//
-//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ApiManagementServiceIdentityResponseOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v ApiManagementServiceIdentityResponse) map[string]UserIdentityPropertiesResponse {
 		return v.UserAssignedIdentities
@@ -1258,8 +1255,7 @@ func (o ApiManagementServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOu
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//
-//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ApiManagementServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) map[string]UserIdentityPropertiesResponse {
 		if v == nil {
@@ -1280,7 +1276,7 @@ type ApiManagementServiceSkuProperties struct {
 // ApiManagementServiceSkuPropertiesInput is an input type that accepts ApiManagementServiceSkuPropertiesArgs and ApiManagementServiceSkuPropertiesOutput values.
 // You can construct a concrete instance of `ApiManagementServiceSkuPropertiesInput` via:
 //
-//	ApiManagementServiceSkuPropertiesArgs{...}
+//          ApiManagementServiceSkuPropertiesArgs{...}
 type ApiManagementServiceSkuPropertiesInput interface {
 	pulumi.Input
 
@@ -1375,7 +1371,7 @@ type ApiVersionConstraint struct {
 // ApiVersionConstraintInput is an input type that accepts ApiVersionConstraintArgs and ApiVersionConstraintOutput values.
 // You can construct a concrete instance of `ApiVersionConstraintInput` via:
 //
-//	ApiVersionConstraintArgs{...}
+//          ApiVersionConstraintArgs{...}
 type ApiVersionConstraintInput interface {
 	pulumi.Input
 
@@ -1412,11 +1408,11 @@ func (i ApiVersionConstraintArgs) ToApiVersionConstraintPtrOutputWithContext(ctx
 // ApiVersionConstraintPtrInput is an input type that accepts ApiVersionConstraintArgs, ApiVersionConstraintPtr and ApiVersionConstraintPtrOutput values.
 // You can construct a concrete instance of `ApiVersionConstraintPtrInput` via:
 //
-//	        ApiVersionConstraintArgs{...}
+//          ApiVersionConstraintArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApiVersionConstraintPtrInput interface {
 	pulumi.Input
 
@@ -1585,7 +1581,7 @@ type ApiVersionSetContractDetails struct {
 // ApiVersionSetContractDetailsInput is an input type that accepts ApiVersionSetContractDetailsArgs and ApiVersionSetContractDetailsOutput values.
 // You can construct a concrete instance of `ApiVersionSetContractDetailsInput` via:
 //
-//	ApiVersionSetContractDetailsArgs{...}
+//          ApiVersionSetContractDetailsArgs{...}
 type ApiVersionSetContractDetailsInput interface {
 	pulumi.Input
 
@@ -1632,11 +1628,11 @@ func (i ApiVersionSetContractDetailsArgs) ToApiVersionSetContractDetailsPtrOutpu
 // ApiVersionSetContractDetailsPtrInput is an input type that accepts ApiVersionSetContractDetailsArgs, ApiVersionSetContractDetailsPtr and ApiVersionSetContractDetailsPtrOutput values.
 // You can construct a concrete instance of `ApiVersionSetContractDetailsPtrInput` via:
 //
-//	        ApiVersionSetContractDetailsArgs{...}
+//          ApiVersionSetContractDetailsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApiVersionSetContractDetailsPtrInput interface {
 	pulumi.Input
 
@@ -2014,7 +2010,7 @@ type AuthenticationSettingsContract struct {
 // AuthenticationSettingsContractInput is an input type that accepts AuthenticationSettingsContractArgs and AuthenticationSettingsContractOutput values.
 // You can construct a concrete instance of `AuthenticationSettingsContractInput` via:
 //
-//	AuthenticationSettingsContractArgs{...}
+//          AuthenticationSettingsContractArgs{...}
 type AuthenticationSettingsContractInput interface {
 	pulumi.Input
 
@@ -2053,11 +2049,11 @@ func (i AuthenticationSettingsContractArgs) ToAuthenticationSettingsContractPtrO
 // AuthenticationSettingsContractPtrInput is an input type that accepts AuthenticationSettingsContractArgs, AuthenticationSettingsContractPtr and AuthenticationSettingsContractPtrOutput values.
 // You can construct a concrete instance of `AuthenticationSettingsContractPtrInput` via:
 //
-//	        AuthenticationSettingsContractArgs{...}
+//          AuthenticationSettingsContractArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AuthenticationSettingsContractPtrInput interface {
 	pulumi.Input
 
@@ -2254,7 +2250,7 @@ type BackendAuthorizationHeaderCredentials struct {
 // BackendAuthorizationHeaderCredentialsInput is an input type that accepts BackendAuthorizationHeaderCredentialsArgs and BackendAuthorizationHeaderCredentialsOutput values.
 // You can construct a concrete instance of `BackendAuthorizationHeaderCredentialsInput` via:
 //
-//	BackendAuthorizationHeaderCredentialsArgs{...}
+//          BackendAuthorizationHeaderCredentialsArgs{...}
 type BackendAuthorizationHeaderCredentialsInput interface {
 	pulumi.Input
 
@@ -2293,11 +2289,11 @@ func (i BackendAuthorizationHeaderCredentialsArgs) ToBackendAuthorizationHeaderC
 // BackendAuthorizationHeaderCredentialsPtrInput is an input type that accepts BackendAuthorizationHeaderCredentialsArgs, BackendAuthorizationHeaderCredentialsPtr and BackendAuthorizationHeaderCredentialsPtrOutput values.
 // You can construct a concrete instance of `BackendAuthorizationHeaderCredentialsPtrInput` via:
 //
-//	        BackendAuthorizationHeaderCredentialsArgs{...}
+//          BackendAuthorizationHeaderCredentialsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BackendAuthorizationHeaderCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -2496,7 +2492,7 @@ type BackendCredentialsContract struct {
 // BackendCredentialsContractInput is an input type that accepts BackendCredentialsContractArgs and BackendCredentialsContractOutput values.
 // You can construct a concrete instance of `BackendCredentialsContractInput` via:
 //
-//	BackendCredentialsContractArgs{...}
+//          BackendCredentialsContractArgs{...}
 type BackendCredentialsContractInput interface {
 	pulumi.Input
 
@@ -2541,11 +2537,11 @@ func (i BackendCredentialsContractArgs) ToBackendCredentialsContractPtrOutputWit
 // BackendCredentialsContractPtrInput is an input type that accepts BackendCredentialsContractArgs, BackendCredentialsContractPtr and BackendCredentialsContractPtrOutput values.
 // You can construct a concrete instance of `BackendCredentialsContractPtrInput` via:
 //
-//	        BackendCredentialsContractArgs{...}
+//          BackendCredentialsContractArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BackendCredentialsContractPtrInput interface {
 	pulumi.Input
 
@@ -2834,7 +2830,7 @@ type BackendProperties struct {
 // BackendPropertiesInput is an input type that accepts BackendPropertiesArgs and BackendPropertiesOutput values.
 // You can construct a concrete instance of `BackendPropertiesInput` via:
 //
-//	BackendPropertiesArgs{...}
+//          BackendPropertiesArgs{...}
 type BackendPropertiesInput interface {
 	pulumi.Input
 
@@ -2871,11 +2867,11 @@ func (i BackendPropertiesArgs) ToBackendPropertiesPtrOutputWithContext(ctx conte
 // BackendPropertiesPtrInput is an input type that accepts BackendPropertiesArgs, BackendPropertiesPtr and BackendPropertiesPtrOutput values.
 // You can construct a concrete instance of `BackendPropertiesPtrInput` via:
 //
-//	        BackendPropertiesArgs{...}
+//          BackendPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BackendPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3006,7 +3002,7 @@ type BackendProxyContract struct {
 // BackendProxyContractInput is an input type that accepts BackendProxyContractArgs and BackendProxyContractOutput values.
 // You can construct a concrete instance of `BackendProxyContractInput` via:
 //
-//	BackendProxyContractArgs{...}
+//          BackendProxyContractArgs{...}
 type BackendProxyContractInput interface {
 	pulumi.Input
 
@@ -3047,11 +3043,11 @@ func (i BackendProxyContractArgs) ToBackendProxyContractPtrOutputWithContext(ctx
 // BackendProxyContractPtrInput is an input type that accepts BackendProxyContractArgs, BackendProxyContractPtr and BackendProxyContractPtrOutput values.
 // You can construct a concrete instance of `BackendProxyContractPtrInput` via:
 //
-//	        BackendProxyContractArgs{...}
+//          BackendProxyContractArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BackendProxyContractPtrInput interface {
 	pulumi.Input
 
@@ -3284,7 +3280,7 @@ type BackendServiceFabricClusterProperties struct {
 // BackendServiceFabricClusterPropertiesInput is an input type that accepts BackendServiceFabricClusterPropertiesArgs and BackendServiceFabricClusterPropertiesOutput values.
 // You can construct a concrete instance of `BackendServiceFabricClusterPropertiesInput` via:
 //
-//	BackendServiceFabricClusterPropertiesArgs{...}
+//          BackendServiceFabricClusterPropertiesArgs{...}
 type BackendServiceFabricClusterPropertiesInput interface {
 	pulumi.Input
 
@@ -3331,11 +3327,11 @@ func (i BackendServiceFabricClusterPropertiesArgs) ToBackendServiceFabricCluster
 // BackendServiceFabricClusterPropertiesPtrInput is an input type that accepts BackendServiceFabricClusterPropertiesArgs, BackendServiceFabricClusterPropertiesPtr and BackendServiceFabricClusterPropertiesPtrOutput values.
 // You can construct a concrete instance of `BackendServiceFabricClusterPropertiesPtrInput` via:
 //
-//	        BackendServiceFabricClusterPropertiesArgs{...}
+//          BackendServiceFabricClusterPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BackendServiceFabricClusterPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3675,7 +3671,7 @@ func (val *BackendTlsProperties) Defaults() *BackendTlsProperties {
 // BackendTlsPropertiesInput is an input type that accepts BackendTlsPropertiesArgs and BackendTlsPropertiesOutput values.
 // You can construct a concrete instance of `BackendTlsPropertiesInput` via:
 //
-//	BackendTlsPropertiesArgs{...}
+//          BackendTlsPropertiesArgs{...}
 type BackendTlsPropertiesInput interface {
 	pulumi.Input
 
@@ -3728,11 +3724,11 @@ func (i BackendTlsPropertiesArgs) ToBackendTlsPropertiesPtrOutputWithContext(ctx
 // BackendTlsPropertiesPtrInput is an input type that accepts BackendTlsPropertiesArgs, BackendTlsPropertiesPtr and BackendTlsPropertiesPtrOutput values.
 // You can construct a concrete instance of `BackendTlsPropertiesPtrInput` via:
 //
-//	        BackendTlsPropertiesArgs{...}
+//          BackendTlsPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BackendTlsPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3940,7 +3936,7 @@ type BodyDiagnosticSettings struct {
 // BodyDiagnosticSettingsInput is an input type that accepts BodyDiagnosticSettingsArgs and BodyDiagnosticSettingsOutput values.
 // You can construct a concrete instance of `BodyDiagnosticSettingsInput` via:
 //
-//	BodyDiagnosticSettingsArgs{...}
+//          BodyDiagnosticSettingsArgs{...}
 type BodyDiagnosticSettingsInput interface {
 	pulumi.Input
 
@@ -3977,11 +3973,11 @@ func (i BodyDiagnosticSettingsArgs) ToBodyDiagnosticSettingsPtrOutputWithContext
 // BodyDiagnosticSettingsPtrInput is an input type that accepts BodyDiagnosticSettingsArgs, BodyDiagnosticSettingsPtr and BodyDiagnosticSettingsPtrOutput values.
 // You can construct a concrete instance of `BodyDiagnosticSettingsPtrInput` via:
 //
-//	        BodyDiagnosticSettingsArgs{...}
+//          BodyDiagnosticSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BodyDiagnosticSettingsPtrInput interface {
 	pulumi.Input
 
@@ -4146,7 +4142,7 @@ type CertificateConfiguration struct {
 // CertificateConfigurationInput is an input type that accepts CertificateConfigurationArgs and CertificateConfigurationOutput values.
 // You can construct a concrete instance of `CertificateConfigurationInput` via:
 //
-//	CertificateConfigurationArgs{...}
+//          CertificateConfigurationArgs{...}
 type CertificateConfigurationInput interface {
 	pulumi.Input
 
@@ -4181,7 +4177,7 @@ func (i CertificateConfigurationArgs) ToCertificateConfigurationOutputWithContex
 // CertificateConfigurationArrayInput is an input type that accepts CertificateConfigurationArray and CertificateConfigurationArrayOutput values.
 // You can construct a concrete instance of `CertificateConfigurationArrayInput` via:
 //
-//	CertificateConfigurationArray{ CertificateConfigurationArgs{...} }
+//          CertificateConfigurationArray{ CertificateConfigurationArgs{...} }
 type CertificateConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -4338,7 +4334,7 @@ type CertificateInformation struct {
 // CertificateInformationInput is an input type that accepts CertificateInformationArgs and CertificateInformationOutput values.
 // You can construct a concrete instance of `CertificateInformationInput` via:
 //
-//	CertificateInformationArgs{...}
+//          CertificateInformationArgs{...}
 type CertificateInformationInput interface {
 	pulumi.Input
 
@@ -4379,11 +4375,11 @@ func (i CertificateInformationArgs) ToCertificateInformationPtrOutputWithContext
 // CertificateInformationPtrInput is an input type that accepts CertificateInformationArgs, CertificateInformationPtr and CertificateInformationPtrOutput values.
 // You can construct a concrete instance of `CertificateInformationPtrInput` via:
 //
-//	        CertificateInformationArgs{...}
+//          CertificateInformationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CertificateInformationPtrInput interface {
 	pulumi.Input
 
@@ -4607,7 +4603,7 @@ type DataMasking struct {
 // DataMaskingInput is an input type that accepts DataMaskingArgs and DataMaskingOutput values.
 // You can construct a concrete instance of `DataMaskingInput` via:
 //
-//	DataMaskingArgs{...}
+//          DataMaskingArgs{...}
 type DataMaskingInput interface {
 	pulumi.Input
 
@@ -4645,11 +4641,11 @@ func (i DataMaskingArgs) ToDataMaskingPtrOutputWithContext(ctx context.Context) 
 // DataMaskingPtrInput is an input type that accepts DataMaskingArgs, DataMaskingPtr and DataMaskingPtrOutput values.
 // You can construct a concrete instance of `DataMaskingPtrInput` via:
 //
-//	        DataMaskingArgs{...}
+//          DataMaskingArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DataMaskingPtrInput interface {
 	pulumi.Input
 
@@ -4763,7 +4759,7 @@ type DataMaskingEntity struct {
 // DataMaskingEntityInput is an input type that accepts DataMaskingEntityArgs and DataMaskingEntityOutput values.
 // You can construct a concrete instance of `DataMaskingEntityInput` via:
 //
-//	DataMaskingEntityArgs{...}
+//          DataMaskingEntityArgs{...}
 type DataMaskingEntityInput interface {
 	pulumi.Input
 
@@ -4793,7 +4789,7 @@ func (i DataMaskingEntityArgs) ToDataMaskingEntityOutputWithContext(ctx context.
 // DataMaskingEntityArrayInput is an input type that accepts DataMaskingEntityArray and DataMaskingEntityArrayOutput values.
 // You can construct a concrete instance of `DataMaskingEntityArrayInput` via:
 //
-//	DataMaskingEntityArray{ DataMaskingEntityArgs{...} }
+//          DataMaskingEntityArray{ DataMaskingEntityArgs{...} }
 type DataMaskingEntityArrayInput interface {
 	pulumi.Input
 
@@ -4998,7 +4994,7 @@ type EmailTemplateParametersContractProperties struct {
 // EmailTemplateParametersContractPropertiesInput is an input type that accepts EmailTemplateParametersContractPropertiesArgs and EmailTemplateParametersContractPropertiesOutput values.
 // You can construct a concrete instance of `EmailTemplateParametersContractPropertiesInput` via:
 //
-//	EmailTemplateParametersContractPropertiesArgs{...}
+//          EmailTemplateParametersContractPropertiesArgs{...}
 type EmailTemplateParametersContractPropertiesInput interface {
 	pulumi.Input
 
@@ -5031,7 +5027,7 @@ func (i EmailTemplateParametersContractPropertiesArgs) ToEmailTemplateParameters
 // EmailTemplateParametersContractPropertiesArrayInput is an input type that accepts EmailTemplateParametersContractPropertiesArray and EmailTemplateParametersContractPropertiesArrayOutput values.
 // You can construct a concrete instance of `EmailTemplateParametersContractPropertiesArrayInput` via:
 //
-//	EmailTemplateParametersContractPropertiesArray{ EmailTemplateParametersContractPropertiesArgs{...} }
+//          EmailTemplateParametersContractPropertiesArray{ EmailTemplateParametersContractPropertiesArgs{...} }
 type EmailTemplateParametersContractPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -5283,7 +5279,7 @@ func (val *HostnameConfiguration) Defaults() *HostnameConfiguration {
 // HostnameConfigurationInput is an input type that accepts HostnameConfigurationArgs and HostnameConfigurationOutput values.
 // You can construct a concrete instance of `HostnameConfigurationInput` via:
 //
-//	HostnameConfigurationArgs{...}
+//          HostnameConfigurationArgs{...}
 type HostnameConfigurationInput interface {
 	pulumi.Input
 
@@ -5346,7 +5342,7 @@ func (i HostnameConfigurationArgs) ToHostnameConfigurationOutputWithContext(ctx 
 // HostnameConfigurationArrayInput is an input type that accepts HostnameConfigurationArray and HostnameConfigurationArrayOutput values.
 // You can construct a concrete instance of `HostnameConfigurationArrayInput` via:
 //
-//	HostnameConfigurationArray{ HostnameConfigurationArgs{...} }
+//          HostnameConfigurationArray{ HostnameConfigurationArgs{...} }
 type HostnameConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -5604,7 +5600,7 @@ type HttpMessageDiagnostic struct {
 // HttpMessageDiagnosticInput is an input type that accepts HttpMessageDiagnosticArgs and HttpMessageDiagnosticOutput values.
 // You can construct a concrete instance of `HttpMessageDiagnosticInput` via:
 //
-//	HttpMessageDiagnosticArgs{...}
+//          HttpMessageDiagnosticArgs{...}
 type HttpMessageDiagnosticInput interface {
 	pulumi.Input
 
@@ -5645,11 +5641,11 @@ func (i HttpMessageDiagnosticArgs) ToHttpMessageDiagnosticPtrOutputWithContext(c
 // HttpMessageDiagnosticPtrInput is an input type that accepts HttpMessageDiagnosticArgs, HttpMessageDiagnosticPtr and HttpMessageDiagnosticPtrOutput values.
 // You can construct a concrete instance of `HttpMessageDiagnosticPtrInput` via:
 //
-//	        HttpMessageDiagnosticArgs{...}
+//          HttpMessageDiagnosticArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type HttpMessageDiagnosticPtrInput interface {
 	pulumi.Input
 
@@ -5874,7 +5870,7 @@ type KeyVaultContractCreateProperties struct {
 // KeyVaultContractCreatePropertiesInput is an input type that accepts KeyVaultContractCreatePropertiesArgs and KeyVaultContractCreatePropertiesOutput values.
 // You can construct a concrete instance of `KeyVaultContractCreatePropertiesInput` via:
 //
-//	KeyVaultContractCreatePropertiesArgs{...}
+//          KeyVaultContractCreatePropertiesArgs{...}
 type KeyVaultContractCreatePropertiesInput interface {
 	pulumi.Input
 
@@ -5913,11 +5909,11 @@ func (i KeyVaultContractCreatePropertiesArgs) ToKeyVaultContractCreateProperties
 // KeyVaultContractCreatePropertiesPtrInput is an input type that accepts KeyVaultContractCreatePropertiesArgs, KeyVaultContractCreatePropertiesPtr and KeyVaultContractCreatePropertiesPtrOutput values.
 // You can construct a concrete instance of `KeyVaultContractCreatePropertiesPtrInput` via:
 //
-//	        KeyVaultContractCreatePropertiesArgs{...}
+//          KeyVaultContractCreatePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyVaultContractCreatePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -6223,7 +6219,7 @@ type OAuth2AuthenticationSettingsContract struct {
 // OAuth2AuthenticationSettingsContractInput is an input type that accepts OAuth2AuthenticationSettingsContractArgs and OAuth2AuthenticationSettingsContractOutput values.
 // You can construct a concrete instance of `OAuth2AuthenticationSettingsContractInput` via:
 //
-//	OAuth2AuthenticationSettingsContractArgs{...}
+//          OAuth2AuthenticationSettingsContractArgs{...}
 type OAuth2AuthenticationSettingsContractInput interface {
 	pulumi.Input
 
@@ -6262,11 +6258,11 @@ func (i OAuth2AuthenticationSettingsContractArgs) ToOAuth2AuthenticationSettings
 // OAuth2AuthenticationSettingsContractPtrInput is an input type that accepts OAuth2AuthenticationSettingsContractArgs, OAuth2AuthenticationSettingsContractPtr and OAuth2AuthenticationSettingsContractPtrOutput values.
 // You can construct a concrete instance of `OAuth2AuthenticationSettingsContractPtrInput` via:
 //
-//	        OAuth2AuthenticationSettingsContractArgs{...}
+//          OAuth2AuthenticationSettingsContractArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OAuth2AuthenticationSettingsContractPtrInput interface {
 	pulumi.Input
 
@@ -6459,7 +6455,7 @@ type OpenIdAuthenticationSettingsContract struct {
 // OpenIdAuthenticationSettingsContractInput is an input type that accepts OpenIdAuthenticationSettingsContractArgs and OpenIdAuthenticationSettingsContractOutput values.
 // You can construct a concrete instance of `OpenIdAuthenticationSettingsContractInput` via:
 //
-//	OpenIdAuthenticationSettingsContractArgs{...}
+//          OpenIdAuthenticationSettingsContractArgs{...}
 type OpenIdAuthenticationSettingsContractInput interface {
 	pulumi.Input
 
@@ -6498,11 +6494,11 @@ func (i OpenIdAuthenticationSettingsContractArgs) ToOpenIdAuthenticationSettings
 // OpenIdAuthenticationSettingsContractPtrInput is an input type that accepts OpenIdAuthenticationSettingsContractArgs, OpenIdAuthenticationSettingsContractPtr and OpenIdAuthenticationSettingsContractPtrOutput values.
 // You can construct a concrete instance of `OpenIdAuthenticationSettingsContractPtrInput` via:
 //
-//	        OpenIdAuthenticationSettingsContractArgs{...}
+//          OpenIdAuthenticationSettingsContractArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OpenIdAuthenticationSettingsContractPtrInput interface {
 	pulumi.Input
 
@@ -6709,7 +6705,7 @@ type ParameterContract struct {
 // ParameterContractInput is an input type that accepts ParameterContractArgs and ParameterContractOutput values.
 // You can construct a concrete instance of `ParameterContractInput` via:
 //
-//	ParameterContractArgs{...}
+//          ParameterContractArgs{...}
 type ParameterContractInput interface {
 	pulumi.Input
 
@@ -6754,7 +6750,7 @@ func (i ParameterContractArgs) ToParameterContractOutputWithContext(ctx context.
 // ParameterContractArrayInput is an input type that accepts ParameterContractArray and ParameterContractArrayOutput values.
 // You can construct a concrete instance of `ParameterContractArrayInput` via:
 //
-//	ParameterContractArray{ ParameterContractArgs{...} }
+//          ParameterContractArray{ ParameterContractArgs{...} }
 type ParameterContractArrayInput interface {
 	pulumi.Input
 
@@ -6973,7 +6969,7 @@ type ParameterExampleContract struct {
 // ParameterExampleContractInput is an input type that accepts ParameterExampleContractArgs and ParameterExampleContractOutput values.
 // You can construct a concrete instance of `ParameterExampleContractInput` via:
 //
-//	ParameterExampleContractArgs{...}
+//          ParameterExampleContractArgs{...}
 type ParameterExampleContractInput interface {
 	pulumi.Input
 
@@ -7008,7 +7004,7 @@ func (i ParameterExampleContractArgs) ToParameterExampleContractOutputWithContex
 // ParameterExampleContractMapInput is an input type that accepts ParameterExampleContractMap and ParameterExampleContractMapOutput values.
 // You can construct a concrete instance of `ParameterExampleContractMapInput` via:
 //
-//	ParameterExampleContractMap{ "key": ParameterExampleContractArgs{...} }
+//          ParameterExampleContractMap{ "key": ParameterExampleContractArgs{...} }
 type ParameterExampleContractMapInput interface {
 	pulumi.Input
 
@@ -7163,7 +7159,7 @@ type PipelineDiagnosticSettings struct {
 // PipelineDiagnosticSettingsInput is an input type that accepts PipelineDiagnosticSettingsArgs and PipelineDiagnosticSettingsOutput values.
 // You can construct a concrete instance of `PipelineDiagnosticSettingsInput` via:
 //
-//	PipelineDiagnosticSettingsArgs{...}
+//          PipelineDiagnosticSettingsArgs{...}
 type PipelineDiagnosticSettingsInput interface {
 	pulumi.Input
 
@@ -7202,11 +7198,11 @@ func (i PipelineDiagnosticSettingsArgs) ToPipelineDiagnosticSettingsPtrOutputWit
 // PipelineDiagnosticSettingsPtrInput is an input type that accepts PipelineDiagnosticSettingsArgs, PipelineDiagnosticSettingsPtr and PipelineDiagnosticSettingsPtrOutput values.
 // You can construct a concrete instance of `PipelineDiagnosticSettingsPtrInput` via:
 //
-//	        PipelineDiagnosticSettingsArgs{...}
+//          PipelineDiagnosticSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PipelineDiagnosticSettingsPtrInput interface {
 	pulumi.Input
 
@@ -7397,7 +7393,7 @@ type PrivateEndpointConnectionRequestProperties struct {
 // PrivateEndpointConnectionRequestPropertiesInput is an input type that accepts PrivateEndpointConnectionRequestPropertiesArgs and PrivateEndpointConnectionRequestPropertiesOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionRequestPropertiesInput` via:
 //
-//	PrivateEndpointConnectionRequestPropertiesArgs{...}
+//          PrivateEndpointConnectionRequestPropertiesArgs{...}
 type PrivateEndpointConnectionRequestPropertiesInput interface {
 	pulumi.Input
 
@@ -7434,11 +7430,11 @@ func (i PrivateEndpointConnectionRequestPropertiesArgs) ToPrivateEndpointConnect
 // PrivateEndpointConnectionRequestPropertiesPtrInput is an input type that accepts PrivateEndpointConnectionRequestPropertiesArgs, PrivateEndpointConnectionRequestPropertiesPtr and PrivateEndpointConnectionRequestPropertiesPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionRequestPropertiesPtrInput` via:
 //
-//	        PrivateEndpointConnectionRequestPropertiesArgs{...}
+//          PrivateEndpointConnectionRequestPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointConnectionRequestPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -7603,7 +7599,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -7644,11 +7640,11 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 // PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
 //
-//	        PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkServiceConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -7823,7 +7819,7 @@ type RemotePrivateEndpointConnectionWrapper struct {
 // RemotePrivateEndpointConnectionWrapperInput is an input type that accepts RemotePrivateEndpointConnectionWrapperArgs and RemotePrivateEndpointConnectionWrapperOutput values.
 // You can construct a concrete instance of `RemotePrivateEndpointConnectionWrapperInput` via:
 //
-//	RemotePrivateEndpointConnectionWrapperArgs{...}
+//          RemotePrivateEndpointConnectionWrapperArgs{...}
 type RemotePrivateEndpointConnectionWrapperInput interface {
 	pulumi.Input
 
@@ -7858,7 +7854,7 @@ func (i RemotePrivateEndpointConnectionWrapperArgs) ToRemotePrivateEndpointConne
 // RemotePrivateEndpointConnectionWrapperArrayInput is an input type that accepts RemotePrivateEndpointConnectionWrapperArray and RemotePrivateEndpointConnectionWrapperArrayOutput values.
 // You can construct a concrete instance of `RemotePrivateEndpointConnectionWrapperArrayInput` via:
 //
-//	RemotePrivateEndpointConnectionWrapperArray{ RemotePrivateEndpointConnectionWrapperArgs{...} }
+//          RemotePrivateEndpointConnectionWrapperArray{ RemotePrivateEndpointConnectionWrapperArgs{...} }
 type RemotePrivateEndpointConnectionWrapperArrayInput interface {
 	pulumi.Input
 
@@ -8044,7 +8040,7 @@ type RepresentationContract struct {
 // RepresentationContractInput is an input type that accepts RepresentationContractArgs and RepresentationContractOutput values.
 // You can construct a concrete instance of `RepresentationContractInput` via:
 //
-//	RepresentationContractArgs{...}
+//          RepresentationContractArgs{...}
 type RepresentationContractInput interface {
 	pulumi.Input
 
@@ -8081,7 +8077,7 @@ func (i RepresentationContractArgs) ToRepresentationContractOutputWithContext(ct
 // RepresentationContractArrayInput is an input type that accepts RepresentationContractArray and RepresentationContractArrayOutput values.
 // You can construct a concrete instance of `RepresentationContractArrayInput` via:
 //
-//	RepresentationContractArray{ RepresentationContractArgs{...} }
+//          RepresentationContractArray{ RepresentationContractArgs{...} }
 type RepresentationContractArrayInput interface {
 	pulumi.Input
 
@@ -8252,7 +8248,7 @@ type RequestContract struct {
 // RequestContractInput is an input type that accepts RequestContractArgs and RequestContractOutput values.
 // You can construct a concrete instance of `RequestContractInput` via:
 //
-//	RequestContractArgs{...}
+//          RequestContractArgs{...}
 type RequestContractInput interface {
 	pulumi.Input
 
@@ -8295,11 +8291,11 @@ func (i RequestContractArgs) ToRequestContractPtrOutputWithContext(ctx context.C
 // RequestContractPtrInput is an input type that accepts RequestContractArgs, RequestContractPtr and RequestContractPtrOutput values.
 // You can construct a concrete instance of `RequestContractPtrInput` via:
 //
-//	        RequestContractArgs{...}
+//          RequestContractArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RequestContractPtrInput interface {
 	pulumi.Input
 
@@ -8618,7 +8614,7 @@ type ResourceLocationDataContract struct {
 // ResourceLocationDataContractInput is an input type that accepts ResourceLocationDataContractArgs and ResourceLocationDataContractOutput values.
 // You can construct a concrete instance of `ResourceLocationDataContractInput` via:
 //
-//	ResourceLocationDataContractArgs{...}
+//          ResourceLocationDataContractArgs{...}
 type ResourceLocationDataContractInput interface {
 	pulumi.Input
 
@@ -8661,11 +8657,11 @@ func (i ResourceLocationDataContractArgs) ToResourceLocationDataContractPtrOutpu
 // ResourceLocationDataContractPtrInput is an input type that accepts ResourceLocationDataContractArgs, ResourceLocationDataContractPtr and ResourceLocationDataContractPtrOutput values.
 // You can construct a concrete instance of `ResourceLocationDataContractPtrInput` via:
 //
-//	        ResourceLocationDataContractArgs{...}
+//          ResourceLocationDataContractArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceLocationDataContractPtrInput interface {
 	pulumi.Input
 
@@ -8926,7 +8922,7 @@ type ResponseContract struct {
 // ResponseContractInput is an input type that accepts ResponseContractArgs and ResponseContractOutput values.
 // You can construct a concrete instance of `ResponseContractInput` via:
 //
-//	ResponseContractArgs{...}
+//          ResponseContractArgs{...}
 type ResponseContractInput interface {
 	pulumi.Input
 
@@ -8961,7 +8957,7 @@ func (i ResponseContractArgs) ToResponseContractOutputWithContext(ctx context.Co
 // ResponseContractArrayInput is an input type that accepts ResponseContractArray and ResponseContractArrayOutput values.
 // You can construct a concrete instance of `ResponseContractArrayInput` via:
 //
-//	ResponseContractArray{ ResponseContractArgs{...} }
+//          ResponseContractArray{ ResponseContractArgs{...} }
 type ResponseContractArrayInput interface {
 	pulumi.Input
 
@@ -9116,7 +9112,7 @@ type SamplingSettings struct {
 // SamplingSettingsInput is an input type that accepts SamplingSettingsArgs and SamplingSettingsOutput values.
 // You can construct a concrete instance of `SamplingSettingsInput` via:
 //
-//	SamplingSettingsArgs{...}
+//          SamplingSettingsArgs{...}
 type SamplingSettingsInput interface {
 	pulumi.Input
 
@@ -9155,11 +9151,11 @@ func (i SamplingSettingsArgs) ToSamplingSettingsPtrOutputWithContext(ctx context
 // SamplingSettingsPtrInput is an input type that accepts SamplingSettingsArgs, SamplingSettingsPtr and SamplingSettingsPtrOutput values.
 // You can construct a concrete instance of `SamplingSettingsPtrInput` via:
 //
-//	        SamplingSettingsArgs{...}
+//          SamplingSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SamplingSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9352,7 +9348,7 @@ type SubscriptionKeyParameterNamesContract struct {
 // SubscriptionKeyParameterNamesContractInput is an input type that accepts SubscriptionKeyParameterNamesContractArgs and SubscriptionKeyParameterNamesContractOutput values.
 // You can construct a concrete instance of `SubscriptionKeyParameterNamesContractInput` via:
 //
-//	SubscriptionKeyParameterNamesContractArgs{...}
+//          SubscriptionKeyParameterNamesContractArgs{...}
 type SubscriptionKeyParameterNamesContractInput interface {
 	pulumi.Input
 
@@ -9391,11 +9387,11 @@ func (i SubscriptionKeyParameterNamesContractArgs) ToSubscriptionKeyParameterNam
 // SubscriptionKeyParameterNamesContractPtrInput is an input type that accepts SubscriptionKeyParameterNamesContractArgs, SubscriptionKeyParameterNamesContractPtr and SubscriptionKeyParameterNamesContractPtrOutput values.
 // You can construct a concrete instance of `SubscriptionKeyParameterNamesContractPtrInput` via:
 //
-//	        SubscriptionKeyParameterNamesContractArgs{...}
+//          SubscriptionKeyParameterNamesContractArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SubscriptionKeyParameterNamesContractPtrInput interface {
 	pulumi.Input
 
@@ -9649,7 +9645,7 @@ type TokenBodyParameterContract struct {
 // TokenBodyParameterContractInput is an input type that accepts TokenBodyParameterContractArgs and TokenBodyParameterContractOutput values.
 // You can construct a concrete instance of `TokenBodyParameterContractInput` via:
 //
-//	TokenBodyParameterContractArgs{...}
+//          TokenBodyParameterContractArgs{...}
 type TokenBodyParameterContractInput interface {
 	pulumi.Input
 
@@ -9680,7 +9676,7 @@ func (i TokenBodyParameterContractArgs) ToTokenBodyParameterContractOutputWithCo
 // TokenBodyParameterContractArrayInput is an input type that accepts TokenBodyParameterContractArray and TokenBodyParameterContractArrayOutput values.
 // You can construct a concrete instance of `TokenBodyParameterContractArrayInput` via:
 //
-//	TokenBodyParameterContractArray{ TokenBodyParameterContractArgs{...} }
+//          TokenBodyParameterContractArray{ TokenBodyParameterContractArgs{...} }
 type TokenBodyParameterContractArrayInput interface {
 	pulumi.Input
 
@@ -9811,7 +9807,7 @@ type UserIdentityContract struct {
 // UserIdentityContractInput is an input type that accepts UserIdentityContractArgs and UserIdentityContractOutput values.
 // You can construct a concrete instance of `UserIdentityContractInput` via:
 //
-//	UserIdentityContractArgs{...}
+//          UserIdentityContractArgs{...}
 type UserIdentityContractInput interface {
 	pulumi.Input
 
@@ -9842,7 +9838,7 @@ func (i UserIdentityContractArgs) ToUserIdentityContractOutputWithContext(ctx co
 // UserIdentityContractArrayInput is an input type that accepts UserIdentityContractArray and UserIdentityContractArrayOutput values.
 // You can construct a concrete instance of `UserIdentityContractArrayInput` via:
 //
-//	UserIdentityContractArray{ UserIdentityContractArgs{...} }
+//          UserIdentityContractArray{ UserIdentityContractArgs{...} }
 type UserIdentityContractArrayInput interface {
 	pulumi.Input
 
@@ -9972,7 +9968,7 @@ type UserIdentityProperties struct {
 // UserIdentityPropertiesInput is an input type that accepts UserIdentityPropertiesArgs and UserIdentityPropertiesOutput values.
 // You can construct a concrete instance of `UserIdentityPropertiesInput` via:
 //
-//	UserIdentityPropertiesArgs{...}
+//          UserIdentityPropertiesArgs{...}
 type UserIdentityPropertiesInput interface {
 	pulumi.Input
 
@@ -10002,7 +9998,7 @@ func (i UserIdentityPropertiesArgs) ToUserIdentityPropertiesOutputWithContext(ct
 // UserIdentityPropertiesMapInput is an input type that accepts UserIdentityPropertiesMap and UserIdentityPropertiesMapOutput values.
 // You can construct a concrete instance of `UserIdentityPropertiesMapInput` via:
 //
-//	UserIdentityPropertiesMap{ "key": UserIdentityPropertiesArgs{...} }
+//          UserIdentityPropertiesMap{ "key": UserIdentityPropertiesArgs{...} }
 type UserIdentityPropertiesMapInput interface {
 	pulumi.Input
 
@@ -10128,7 +10124,7 @@ type VirtualNetworkConfiguration struct {
 // VirtualNetworkConfigurationInput is an input type that accepts VirtualNetworkConfigurationArgs and VirtualNetworkConfigurationOutput values.
 // You can construct a concrete instance of `VirtualNetworkConfigurationInput` via:
 //
-//	VirtualNetworkConfigurationArgs{...}
+//          VirtualNetworkConfigurationArgs{...}
 type VirtualNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -10165,11 +10161,11 @@ func (i VirtualNetworkConfigurationArgs) ToVirtualNetworkConfigurationPtrOutputW
 // VirtualNetworkConfigurationPtrInput is an input type that accepts VirtualNetworkConfigurationArgs, VirtualNetworkConfigurationPtr and VirtualNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkConfigurationPtrInput` via:
 //
-//	        VirtualNetworkConfigurationArgs{...}
+//          VirtualNetworkConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type VirtualNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -10364,7 +10360,7 @@ type X509CertificateName struct {
 // X509CertificateNameInput is an input type that accepts X509CertificateNameArgs and X509CertificateNameOutput values.
 // You can construct a concrete instance of `X509CertificateNameInput` via:
 //
-//	X509CertificateNameArgs{...}
+//          X509CertificateNameArgs{...}
 type X509CertificateNameInput interface {
 	pulumi.Input
 
@@ -10395,7 +10391,7 @@ func (i X509CertificateNameArgs) ToX509CertificateNameOutputWithContext(ctx cont
 // X509CertificateNameArrayInput is an input type that accepts X509CertificateNameArray and X509CertificateNameArrayOutput values.
 // You can construct a concrete instance of `X509CertificateNameArrayInput` via:
 //
-//	X509CertificateNameArray{ X509CertificateNameArgs{...} }
+//          X509CertificateNameArray{ X509CertificateNameArgs{...} }
 type X509CertificateNameArrayInput interface {
 	pulumi.Input
 

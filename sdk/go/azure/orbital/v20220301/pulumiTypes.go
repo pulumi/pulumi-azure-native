@@ -248,7 +248,7 @@ type ContactParametersContactProfile struct {
 // ContactParametersContactProfileInput is an input type that accepts ContactParametersContactProfileArgs and ContactParametersContactProfileOutput values.
 // You can construct a concrete instance of `ContactParametersContactProfileInput` via:
 //
-//	ContactParametersContactProfileArgs{...}
+//          ContactParametersContactProfileArgs{...}
 type ContactParametersContactProfileInput interface {
 	pulumi.Input
 
@@ -313,7 +313,7 @@ type ContactProfileLink struct {
 // ContactProfileLinkInput is an input type that accepts ContactProfileLinkArgs and ContactProfileLinkOutput values.
 // You can construct a concrete instance of `ContactProfileLinkInput` via:
 //
-//	ContactProfileLinkArgs{...}
+//          ContactProfileLinkArgs{...}
 type ContactProfileLinkInput interface {
 	pulumi.Input
 
@@ -352,7 +352,7 @@ func (i ContactProfileLinkArgs) ToContactProfileLinkOutputWithContext(ctx contex
 // ContactProfileLinkArrayInput is an input type that accepts ContactProfileLinkArray and ContactProfileLinkArrayOutput values.
 // You can construct a concrete instance of `ContactProfileLinkArrayInput` via:
 //
-//	ContactProfileLinkArray{ ContactProfileLinkArgs{...} }
+//          ContactProfileLinkArray{ ContactProfileLinkArgs{...} }
 type ContactProfileLinkArrayInput interface {
 	pulumi.Input
 
@@ -462,7 +462,7 @@ type ContactProfileLinkChannel struct {
 // ContactProfileLinkChannelInput is an input type that accepts ContactProfileLinkChannelArgs and ContactProfileLinkChannelOutput values.
 // You can construct a concrete instance of `ContactProfileLinkChannelInput` via:
 //
-//	ContactProfileLinkChannelArgs{...}
+//          ContactProfileLinkChannelArgs{...}
 type ContactProfileLinkChannelInput interface {
 	pulumi.Input
 
@@ -505,7 +505,7 @@ func (i ContactProfileLinkChannelArgs) ToContactProfileLinkChannelOutputWithCont
 // ContactProfileLinkChannelArrayInput is an input type that accepts ContactProfileLinkChannelArray and ContactProfileLinkChannelArrayOutput values.
 // You can construct a concrete instance of `ContactProfileLinkChannelArrayInput` via:
 //
-//	ContactProfileLinkChannelArray{ ContactProfileLinkChannelArgs{...} }
+//          ContactProfileLinkChannelArray{ ContactProfileLinkChannelArgs{...} }
 type ContactProfileLinkChannelArrayInput interface {
 	pulumi.Input
 
@@ -787,7 +787,7 @@ type ContactProfilesPropertiesNetworkConfiguration struct {
 // ContactProfilesPropertiesNetworkConfigurationInput is an input type that accepts ContactProfilesPropertiesNetworkConfigurationArgs and ContactProfilesPropertiesNetworkConfigurationOutput values.
 // You can construct a concrete instance of `ContactProfilesPropertiesNetworkConfigurationInput` via:
 //
-//	ContactProfilesPropertiesNetworkConfigurationArgs{...}
+//          ContactProfilesPropertiesNetworkConfigurationArgs{...}
 type ContactProfilesPropertiesNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -868,7 +868,7 @@ type ContactsPropertiesContactProfile struct {
 // ContactsPropertiesContactProfileInput is an input type that accepts ContactsPropertiesContactProfileArgs and ContactsPropertiesContactProfileOutput values.
 // You can construct a concrete instance of `ContactsPropertiesContactProfileInput` via:
 //
-//	ContactsPropertiesContactProfileArgs{...}
+//          ContactsPropertiesContactProfileArgs{...}
 type ContactsPropertiesContactProfileInput interface {
 	pulumi.Input
 
@@ -988,7 +988,7 @@ type EndPoint struct {
 // EndPointInput is an input type that accepts EndPointArgs and EndPointOutput values.
 // You can construct a concrete instance of `EndPointInput` via:
 //
-//	EndPointArgs{...}
+//          EndPointArgs{...}
 type EndPointInput interface {
 	pulumi.Input
 
@@ -1119,7 +1119,7 @@ type SpacecraftLink struct {
 // SpacecraftLinkInput is an input type that accepts SpacecraftLinkArgs and SpacecraftLinkOutput values.
 // You can construct a concrete instance of `SpacecraftLinkInput` via:
 //
-//	SpacecraftLinkArgs{...}
+//          SpacecraftLinkArgs{...}
 type SpacecraftLinkInput interface {
 	pulumi.Input
 
@@ -1156,7 +1156,7 @@ func (i SpacecraftLinkArgs) ToSpacecraftLinkOutputWithContext(ctx context.Contex
 // SpacecraftLinkArrayInput is an input type that accepts SpacecraftLinkArray and SpacecraftLinkArrayOutput values.
 // You can construct a concrete instance of `SpacecraftLinkArrayInput` via:
 //
-//	SpacecraftLinkArray{ SpacecraftLinkArgs{...} }
+//          SpacecraftLinkArray{ SpacecraftLinkArgs{...} }
 type SpacecraftLinkArrayInput interface {
 	pulumi.Input
 

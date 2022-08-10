@@ -23,7 +23,7 @@ type LogAnalyticsQueryPackQueryPropertiesRelated struct {
 // LogAnalyticsQueryPackQueryPropertiesRelatedInput is an input type that accepts LogAnalyticsQueryPackQueryPropertiesRelatedArgs and LogAnalyticsQueryPackQueryPropertiesRelatedOutput values.
 // You can construct a concrete instance of `LogAnalyticsQueryPackQueryPropertiesRelatedInput` via:
 //
-//	LogAnalyticsQueryPackQueryPropertiesRelatedArgs{...}
+//          LogAnalyticsQueryPackQueryPropertiesRelatedArgs{...}
 type LogAnalyticsQueryPackQueryPropertiesRelatedInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i LogAnalyticsQueryPackQueryPropertiesRelatedArgs) ToLogAnalyticsQueryPack
 // LogAnalyticsQueryPackQueryPropertiesRelatedPtrInput is an input type that accepts LogAnalyticsQueryPackQueryPropertiesRelatedArgs, LogAnalyticsQueryPackQueryPropertiesRelatedPtr and LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput values.
 // You can construct a concrete instance of `LogAnalyticsQueryPackQueryPropertiesRelatedPtrInput` via:
 //
-//	        LogAnalyticsQueryPackQueryPropertiesRelatedArgs{...}
+//          LogAnalyticsQueryPackQueryPropertiesRelatedArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LogAnalyticsQueryPackQueryPropertiesRelatedPtrInput interface {
 	pulumi.Input
 

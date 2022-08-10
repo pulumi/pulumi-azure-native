@@ -47,7 +47,7 @@ type LogSettings struct {
 // LogSettingsInput is an input type that accepts LogSettingsArgs and LogSettingsOutput values.
 // You can construct a concrete instance of `LogSettingsInput` via:
 //
-//	LogSettingsArgs{...}
+//          LogSettingsArgs{...}
 type LogSettingsInput interface {
 	pulumi.Input
 
@@ -80,7 +80,7 @@ func (i LogSettingsArgs) ToLogSettingsOutputWithContext(ctx context.Context) Log
 // LogSettingsArrayInput is an input type that accepts LogSettingsArray and LogSettingsArrayOutput values.
 // You can construct a concrete instance of `LogSettingsArrayInput` via:
 //
-//	LogSettingsArray{ LogSettingsArgs{...} }
+//          LogSettingsArray{ LogSettingsArgs{...} }
 type LogSettingsArrayInput interface {
 	pulumi.Input
 
@@ -221,7 +221,7 @@ type PrivateEndpoint struct {
 // PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
 // You can construct a concrete instance of `PrivateEndpointInput` via:
 //
-//	PrivateEndpointArgs{...}
+//          PrivateEndpointArgs{...}
 type PrivateEndpointInput interface {
 	pulumi.Input
 
@@ -258,11 +258,11 @@ func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.C
 // PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPtrInput` via:
 //
-//	        PrivateEndpointArgs{...}
+//          PrivateEndpointArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointPtrInput interface {
 	pulumi.Input
 
@@ -425,7 +425,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -466,11 +466,11 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 // PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
 //
-//	        PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkServiceConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -695,7 +695,7 @@ type RetentionPolicy struct {
 // RetentionPolicyInput is an input type that accepts RetentionPolicyArgs and RetentionPolicyOutput values.
 // You can construct a concrete instance of `RetentionPolicyInput` via:
 //
-//	RetentionPolicyArgs{...}
+//          RetentionPolicyArgs{...}
 type RetentionPolicyInput interface {
 	pulumi.Input
 
@@ -734,11 +734,11 @@ func (i RetentionPolicyArgs) ToRetentionPolicyPtrOutputWithContext(ctx context.C
 // RetentionPolicyPtrInput is an input type that accepts RetentionPolicyArgs, RetentionPolicyPtr and RetentionPolicyPtrOutput values.
 // You can construct a concrete instance of `RetentionPolicyPtrInput` via:
 //
-//	        RetentionPolicyArgs{...}
+//          RetentionPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RetentionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -929,7 +929,7 @@ type TagsResource struct {
 // TagsResourceInput is an input type that accepts TagsResourceArgs and TagsResourceOutput values.
 // You can construct a concrete instance of `TagsResourceInput` via:
 //
-//	TagsResourceArgs{...}
+//          TagsResourceArgs{...}
 type TagsResourceInput interface {
 	pulumi.Input
 
@@ -966,11 +966,11 @@ func (i TagsResourceArgs) ToTagsResourcePtrOutputWithContext(ctx context.Context
 // TagsResourcePtrInput is an input type that accepts TagsResourceArgs, TagsResourcePtr and TagsResourcePtrOutput values.
 // You can construct a concrete instance of `TagsResourcePtrInput` via:
 //
-//	        TagsResourceArgs{...}
+//          TagsResourceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type TagsResourcePtrInput interface {
 	pulumi.Input
 

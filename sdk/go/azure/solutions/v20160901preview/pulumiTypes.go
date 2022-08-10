@@ -23,7 +23,7 @@ type ApplianceArtifact struct {
 // ApplianceArtifactInput is an input type that accepts ApplianceArtifactArgs and ApplianceArtifactOutput values.
 // You can construct a concrete instance of `ApplianceArtifactInput` via:
 //
-//	ApplianceArtifactArgs{...}
+//          ApplianceArtifactArgs{...}
 type ApplianceArtifactInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i ApplianceArtifactArgs) ToApplianceArtifactOutputWithContext(ctx context.
 // ApplianceArtifactArrayInput is an input type that accepts ApplianceArtifactArray and ApplianceArtifactArrayOutput values.
 // You can construct a concrete instance of `ApplianceArtifactArrayInput` via:
 //
-//	ApplianceArtifactArray{ ApplianceArtifactArgs{...} }
+//          ApplianceArtifactArray{ ApplianceArtifactArgs{...} }
 type ApplianceArtifactArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type ApplianceProviderAuthorization struct {
 // ApplianceProviderAuthorizationInput is an input type that accepts ApplianceProviderAuthorizationArgs and ApplianceProviderAuthorizationOutput values.
 // You can construct a concrete instance of `ApplianceProviderAuthorizationInput` via:
 //
-//	ApplianceProviderAuthorizationArgs{...}
+//          ApplianceProviderAuthorizationArgs{...}
 type ApplianceProviderAuthorizationInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ func (i ApplianceProviderAuthorizationArgs) ToApplianceProviderAuthorizationOutp
 // ApplianceProviderAuthorizationArrayInput is an input type that accepts ApplianceProviderAuthorizationArray and ApplianceProviderAuthorizationArrayOutput values.
 // You can construct a concrete instance of `ApplianceProviderAuthorizationArrayInput` via:
 //
-//	ApplianceProviderAuthorizationArray{ ApplianceProviderAuthorizationArgs{...} }
+//          ApplianceProviderAuthorizationArray{ ApplianceProviderAuthorizationArgs{...} }
 type ApplianceProviderAuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -359,7 +359,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//	IdentityArgs{...}
+//          IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -396,11 +396,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//	        IdentityArgs{...}
+//          IdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -601,7 +601,7 @@ type Plan struct {
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
 // You can construct a concrete instance of `PlanInput` via:
 //
-//	PlanArgs{...}
+//          PlanArgs{...}
 type PlanInput interface {
 	pulumi.Input
 
@@ -646,11 +646,11 @@ func (i PlanArgs) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput 
 // PlanPtrInput is an input type that accepts PlanArgs, PlanPtr and PlanPtrOutput values.
 // You can construct a concrete instance of `PlanPtrInput` via:
 //
-//	        PlanArgs{...}
+//          PlanArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PlanPtrInput interface {
 	pulumi.Input
 
@@ -947,7 +947,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -994,11 +994,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 

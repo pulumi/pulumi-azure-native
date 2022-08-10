@@ -27,7 +27,7 @@ type CreationData struct {
 // CreationDataInput is an input type that accepts CreationDataArgs and CreationDataOutput values.
 // You can construct a concrete instance of `CreationDataInput` via:
 //
-//	CreationDataArgs{...}
+//          CreationDataArgs{...}
 type CreationDataInput interface {
 	pulumi.Input
 
@@ -164,7 +164,7 @@ type DiskSku struct {
 // DiskSkuInput is an input type that accepts DiskSkuArgs and DiskSkuOutput values.
 // You can construct a concrete instance of `DiskSkuInput` via:
 //
-//	DiskSkuArgs{...}
+//          DiskSkuArgs{...}
 type DiskSkuInput interface {
 	pulumi.Input
 
@@ -201,11 +201,11 @@ func (i DiskSkuArgs) ToDiskSkuPtrOutputWithContext(ctx context.Context) DiskSkuP
 // DiskSkuPtrInput is an input type that accepts DiskSkuArgs, DiskSkuPtr and DiskSkuPtrOutput values.
 // You can construct a concrete instance of `DiskSkuPtrInput` via:
 //
-//	        DiskSkuArgs{...}
+//          DiskSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DiskSkuPtrInput interface {
 	pulumi.Input
 
@@ -395,7 +395,7 @@ type EncryptionSettingsCollection struct {
 // EncryptionSettingsCollectionInput is an input type that accepts EncryptionSettingsCollectionArgs and EncryptionSettingsCollectionOutput values.
 // You can construct a concrete instance of `EncryptionSettingsCollectionInput` via:
 //
-//	EncryptionSettingsCollectionArgs{...}
+//          EncryptionSettingsCollectionArgs{...}
 type EncryptionSettingsCollectionInput interface {
 	pulumi.Input
 
@@ -434,11 +434,11 @@ func (i EncryptionSettingsCollectionArgs) ToEncryptionSettingsCollectionPtrOutpu
 // EncryptionSettingsCollectionPtrInput is an input type that accepts EncryptionSettingsCollectionArgs, EncryptionSettingsCollectionPtr and EncryptionSettingsCollectionPtrOutput values.
 // You can construct a concrete instance of `EncryptionSettingsCollectionPtrInput` via:
 //
-//	        EncryptionSettingsCollectionArgs{...}
+//          EncryptionSettingsCollectionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EncryptionSettingsCollectionPtrInput interface {
 	pulumi.Input
 
@@ -633,7 +633,7 @@ type EncryptionSettingsElement struct {
 // EncryptionSettingsElementInput is an input type that accepts EncryptionSettingsElementArgs and EncryptionSettingsElementOutput values.
 // You can construct a concrete instance of `EncryptionSettingsElementInput` via:
 //
-//	EncryptionSettingsElementArgs{...}
+//          EncryptionSettingsElementArgs{...}
 type EncryptionSettingsElementInput interface {
 	pulumi.Input
 
@@ -664,7 +664,7 @@ func (i EncryptionSettingsElementArgs) ToEncryptionSettingsElementOutputWithCont
 // EncryptionSettingsElementArrayInput is an input type that accepts EncryptionSettingsElementArray and EncryptionSettingsElementArrayOutput values.
 // You can construct a concrete instance of `EncryptionSettingsElementArrayInput` via:
 //
-//	EncryptionSettingsElementArray{ EncryptionSettingsElementArgs{...} }
+//          EncryptionSettingsElementArray{ EncryptionSettingsElementArgs{...} }
 type EncryptionSettingsElementArrayInput interface {
 	pulumi.Input
 
@@ -797,7 +797,7 @@ type ImageDiskReference struct {
 // ImageDiskReferenceInput is an input type that accepts ImageDiskReferenceArgs and ImageDiskReferenceOutput values.
 // You can construct a concrete instance of `ImageDiskReferenceInput` via:
 //
-//	ImageDiskReferenceArgs{...}
+//          ImageDiskReferenceArgs{...}
 type ImageDiskReferenceInput interface {
 	pulumi.Input
 
@@ -836,11 +836,11 @@ func (i ImageDiskReferenceArgs) ToImageDiskReferencePtrOutputWithContext(ctx con
 // ImageDiskReferencePtrInput is an input type that accepts ImageDiskReferenceArgs, ImageDiskReferencePtr and ImageDiskReferencePtrOutput values.
 // You can construct a concrete instance of `ImageDiskReferencePtrInput` via:
 //
-//	        ImageDiskReferenceArgs{...}
+//          ImageDiskReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ImageDiskReferencePtrInput interface {
 	pulumi.Input
 
@@ -1033,7 +1033,7 @@ type KeyVaultAndKeyReference struct {
 // KeyVaultAndKeyReferenceInput is an input type that accepts KeyVaultAndKeyReferenceArgs and KeyVaultAndKeyReferenceOutput values.
 // You can construct a concrete instance of `KeyVaultAndKeyReferenceInput` via:
 //
-//	KeyVaultAndKeyReferenceArgs{...}
+//          KeyVaultAndKeyReferenceArgs{...}
 type KeyVaultAndKeyReferenceInput interface {
 	pulumi.Input
 
@@ -1072,11 +1072,11 @@ func (i KeyVaultAndKeyReferenceArgs) ToKeyVaultAndKeyReferencePtrOutputWithConte
 // KeyVaultAndKeyReferencePtrInput is an input type that accepts KeyVaultAndKeyReferenceArgs, KeyVaultAndKeyReferencePtr and KeyVaultAndKeyReferencePtrOutput values.
 // You can construct a concrete instance of `KeyVaultAndKeyReferencePtrInput` via:
 //
-//	        KeyVaultAndKeyReferenceArgs{...}
+//          KeyVaultAndKeyReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyVaultAndKeyReferencePtrInput interface {
 	pulumi.Input
 
@@ -1269,7 +1269,7 @@ type KeyVaultAndSecretReference struct {
 // KeyVaultAndSecretReferenceInput is an input type that accepts KeyVaultAndSecretReferenceArgs and KeyVaultAndSecretReferenceOutput values.
 // You can construct a concrete instance of `KeyVaultAndSecretReferenceInput` via:
 //
-//	KeyVaultAndSecretReferenceArgs{...}
+//          KeyVaultAndSecretReferenceArgs{...}
 type KeyVaultAndSecretReferenceInput interface {
 	pulumi.Input
 
@@ -1308,11 +1308,11 @@ func (i KeyVaultAndSecretReferenceArgs) ToKeyVaultAndSecretReferencePtrOutputWit
 // KeyVaultAndSecretReferencePtrInput is an input type that accepts KeyVaultAndSecretReferenceArgs, KeyVaultAndSecretReferencePtr and KeyVaultAndSecretReferencePtrOutput values.
 // You can construct a concrete instance of `KeyVaultAndSecretReferencePtrInput` via:
 //
-//	        KeyVaultAndSecretReferenceArgs{...}
+//          KeyVaultAndSecretReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyVaultAndSecretReferencePtrInput interface {
 	pulumi.Input
 
@@ -1503,7 +1503,7 @@ type SnapshotSku struct {
 // SnapshotSkuInput is an input type that accepts SnapshotSkuArgs and SnapshotSkuOutput values.
 // You can construct a concrete instance of `SnapshotSkuInput` via:
 //
-//	SnapshotSkuArgs{...}
+//          SnapshotSkuArgs{...}
 type SnapshotSkuInput interface {
 	pulumi.Input
 
@@ -1540,11 +1540,11 @@ func (i SnapshotSkuArgs) ToSnapshotSkuPtrOutputWithContext(ctx context.Context) 
 // SnapshotSkuPtrInput is an input type that accepts SnapshotSkuArgs, SnapshotSkuPtr and SnapshotSkuPtrOutput values.
 // You can construct a concrete instance of `SnapshotSkuPtrInput` via:
 //
-//	        SnapshotSkuArgs{...}
+//          SnapshotSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SnapshotSkuPtrInput interface {
 	pulumi.Input
 
@@ -1732,7 +1732,7 @@ type SourceVault struct {
 // SourceVaultInput is an input type that accepts SourceVaultArgs and SourceVaultOutput values.
 // You can construct a concrete instance of `SourceVaultInput` via:
 //
-//	SourceVaultArgs{...}
+//          SourceVaultArgs{...}
 type SourceVaultInput interface {
 	pulumi.Input
 
@@ -1769,11 +1769,11 @@ func (i SourceVaultArgs) ToSourceVaultPtrOutputWithContext(ctx context.Context) 
 // SourceVaultPtrInput is an input type that accepts SourceVaultArgs, SourceVaultPtr and SourceVaultPtrOutput values.
 // You can construct a concrete instance of `SourceVaultPtrInput` via:
 //
-//	        SourceVaultArgs{...}
+//          SourceVaultArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SourceVaultPtrInput interface {
 	pulumi.Input
 

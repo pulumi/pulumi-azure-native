@@ -141,7 +141,7 @@ func (o AutoTrackingConfigurationPtrOutput) ToStringPtrOutputWithContext(ctx con
 // AutoTrackingConfigurationInput is an input type that accepts AutoTrackingConfigurationArgs and AutoTrackingConfigurationOutput values.
 // You can construct a concrete instance of `AutoTrackingConfigurationInput` via:
 //
-//	AutoTrackingConfigurationArgs{...}
+//          AutoTrackingConfigurationArgs{...}
 type AutoTrackingConfigurationInput interface {
 	pulumi.Input
 

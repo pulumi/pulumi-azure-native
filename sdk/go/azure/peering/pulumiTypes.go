@@ -35,7 +35,7 @@ type BgpSession struct {
 // BgpSessionInput is an input type that accepts BgpSessionArgs and BgpSessionOutput values.
 // You can construct a concrete instance of `BgpSessionInput` via:
 //
-//	BgpSessionArgs{...}
+//          BgpSessionArgs{...}
 type BgpSessionInput interface {
 	pulumi.Input
 
@@ -88,11 +88,11 @@ func (i BgpSessionArgs) ToBgpSessionPtrOutputWithContext(ctx context.Context) Bg
 // BgpSessionPtrInput is an input type that accepts BgpSessionArgs, BgpSessionPtr and BgpSessionPtrOutput values.
 // You can construct a concrete instance of `BgpSessionPtrInput` via:
 //
-//	        BgpSessionArgs{...}
+//          BgpSessionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BgpSessionPtrInput interface {
 	pulumi.Input
 
@@ -545,7 +545,7 @@ type ContactDetail struct {
 // ContactDetailInput is an input type that accepts ContactDetailArgs and ContactDetailOutput values.
 // You can construct a concrete instance of `ContactDetailInput` via:
 //
-//	ContactDetailArgs{...}
+//          ContactDetailArgs{...}
 type ContactDetailInput interface {
 	pulumi.Input
 
@@ -578,7 +578,7 @@ func (i ContactDetailArgs) ToContactDetailOutputWithContext(ctx context.Context)
 // ContactDetailArrayInput is an input type that accepts ContactDetailArray and ContactDetailArrayOutput values.
 // You can construct a concrete instance of `ContactDetailArrayInput` via:
 //
-//	ContactDetailArray{ ContactDetailArgs{...} }
+//          ContactDetailArray{ ContactDetailArgs{...} }
 type ContactDetailArrayInput interface {
 	pulumi.Input
 
@@ -729,7 +729,7 @@ type DirectConnection struct {
 // DirectConnectionInput is an input type that accepts DirectConnectionArgs and DirectConnectionOutput values.
 // You can construct a concrete instance of `DirectConnectionInput` via:
 //
-//	DirectConnectionArgs{...}
+//          DirectConnectionArgs{...}
 type DirectConnectionInput interface {
 	pulumi.Input
 
@@ -768,7 +768,7 @@ func (i DirectConnectionArgs) ToDirectConnectionOutputWithContext(ctx context.Co
 // DirectConnectionArrayInput is an input type that accepts DirectConnectionArray and DirectConnectionArrayOutput values.
 // You can construct a concrete instance of `DirectConnectionArrayInput` via:
 //
-//	DirectConnectionArray{ DirectConnectionArgs{...} }
+//          DirectConnectionArray{ DirectConnectionArgs{...} }
 type DirectConnectionArrayInput interface {
 	pulumi.Input
 
@@ -977,7 +977,7 @@ type ExchangeConnection struct {
 // ExchangeConnectionInput is an input type that accepts ExchangeConnectionArgs and ExchangeConnectionOutput values.
 // You can construct a concrete instance of `ExchangeConnectionInput` via:
 //
-//	ExchangeConnectionArgs{...}
+//          ExchangeConnectionArgs{...}
 type ExchangeConnectionInput interface {
 	pulumi.Input
 
@@ -1010,7 +1010,7 @@ func (i ExchangeConnectionArgs) ToExchangeConnectionOutputWithContext(ctx contex
 // ExchangeConnectionArrayInput is an input type that accepts ExchangeConnectionArray and ExchangeConnectionArrayOutput values.
 // You can construct a concrete instance of `ExchangeConnectionArrayInput` via:
 //
-//	ExchangeConnectionArray{ ExchangeConnectionArgs{...} }
+//          ExchangeConnectionArray{ ExchangeConnectionArgs{...} }
 type ExchangeConnectionArrayInput interface {
 	pulumi.Input
 
@@ -1169,7 +1169,7 @@ type PeeringPropertiesDirect struct {
 // PeeringPropertiesDirectInput is an input type that accepts PeeringPropertiesDirectArgs and PeeringPropertiesDirectOutput values.
 // You can construct a concrete instance of `PeeringPropertiesDirectInput` via:
 //
-//	PeeringPropertiesDirectArgs{...}
+//          PeeringPropertiesDirectArgs{...}
 type PeeringPropertiesDirectInput interface {
 	pulumi.Input
 
@@ -1210,11 +1210,11 @@ func (i PeeringPropertiesDirectArgs) ToPeeringPropertiesDirectPtrOutputWithConte
 // PeeringPropertiesDirectPtrInput is an input type that accepts PeeringPropertiesDirectArgs, PeeringPropertiesDirectPtr and PeeringPropertiesDirectPtrOutput values.
 // You can construct a concrete instance of `PeeringPropertiesDirectPtrInput` via:
 //
-//	        PeeringPropertiesDirectArgs{...}
+//          PeeringPropertiesDirectArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PeeringPropertiesDirectPtrInput interface {
 	pulumi.Input
 
@@ -1456,7 +1456,7 @@ type PeeringPropertiesExchange struct {
 // PeeringPropertiesExchangeInput is an input type that accepts PeeringPropertiesExchangeArgs and PeeringPropertiesExchangeOutput values.
 // You can construct a concrete instance of `PeeringPropertiesExchangeInput` via:
 //
-//	PeeringPropertiesExchangeArgs{...}
+//          PeeringPropertiesExchangeArgs{...}
 type PeeringPropertiesExchangeInput interface {
 	pulumi.Input
 
@@ -1495,11 +1495,11 @@ func (i PeeringPropertiesExchangeArgs) ToPeeringPropertiesExchangePtrOutputWithC
 // PeeringPropertiesExchangePtrInput is an input type that accepts PeeringPropertiesExchangeArgs, PeeringPropertiesExchangePtr and PeeringPropertiesExchangePtrOutput values.
 // You can construct a concrete instance of `PeeringPropertiesExchangePtrInput` via:
 //
-//	        PeeringPropertiesExchangeArgs{...}
+//          PeeringPropertiesExchangeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PeeringPropertiesExchangePtrInput interface {
 	pulumi.Input
 
@@ -1764,7 +1764,7 @@ type PeeringServiceSku struct {
 // PeeringServiceSkuInput is an input type that accepts PeeringServiceSkuArgs and PeeringServiceSkuOutput values.
 // You can construct a concrete instance of `PeeringServiceSkuInput` via:
 //
-//	PeeringServiceSkuArgs{...}
+//          PeeringServiceSkuArgs{...}
 type PeeringServiceSkuInput interface {
 	pulumi.Input
 
@@ -1801,11 +1801,11 @@ func (i PeeringServiceSkuArgs) ToPeeringServiceSkuPtrOutputWithContext(ctx conte
 // PeeringServiceSkuPtrInput is an input type that accepts PeeringServiceSkuArgs, PeeringServiceSkuPtr and PeeringServiceSkuPtrOutput values.
 // You can construct a concrete instance of `PeeringServiceSkuPtrInput` via:
 //
-//	        PeeringServiceSkuArgs{...}
+//          PeeringServiceSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PeeringServiceSkuPtrInput interface {
 	pulumi.Input
 
@@ -1970,7 +1970,7 @@ type PeeringSku struct {
 // PeeringSkuInput is an input type that accepts PeeringSkuArgs and PeeringSkuOutput values.
 // You can construct a concrete instance of `PeeringSkuInput` via:
 //
-//	PeeringSkuArgs{...}
+//          PeeringSkuArgs{...}
 type PeeringSkuInput interface {
 	pulumi.Input
 
@@ -2093,7 +2093,7 @@ type SubResource struct {
 // SubResourceInput is an input type that accepts SubResourceArgs and SubResourceOutput values.
 // You can construct a concrete instance of `SubResourceInput` via:
 //
-//	SubResourceArgs{...}
+//          SubResourceArgs{...}
 type SubResourceInput interface {
 	pulumi.Input
 
@@ -2130,11 +2130,11 @@ func (i SubResourceArgs) ToSubResourcePtrOutputWithContext(ctx context.Context) 
 // SubResourcePtrInput is an input type that accepts SubResourceArgs, SubResourcePtr and SubResourcePtrOutput values.
 // You can construct a concrete instance of `SubResourcePtrInput` via:
 //
-//	        SubResourceArgs{...}
+//          SubResourceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SubResourcePtrInput interface {
 	pulumi.Input
 

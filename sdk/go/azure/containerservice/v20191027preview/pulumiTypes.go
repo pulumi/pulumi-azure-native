@@ -36,7 +36,7 @@ func (val *NetworkProfile) Defaults() *NetworkProfile {
 // NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
 // You can construct a concrete instance of `NetworkProfileInput` via:
 //
-//	NetworkProfileArgs{...}
+//          NetworkProfileArgs{...}
 type NetworkProfileInput interface {
 	pulumi.Input
 
@@ -88,11 +88,11 @@ func (i NetworkProfileArgs) ToNetworkProfilePtrOutputWithContext(ctx context.Con
 // NetworkProfilePtrInput is an input type that accepts NetworkProfileArgs, NetworkProfilePtr and NetworkProfilePtrOutput values.
 // You can construct a concrete instance of `NetworkProfilePtrInput` via:
 //
-//	        NetworkProfileArgs{...}
+//          NetworkProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -328,7 +328,7 @@ type OpenShiftAPIProperties struct {
 // OpenShiftAPIPropertiesInput is an input type that accepts OpenShiftAPIPropertiesArgs and OpenShiftAPIPropertiesOutput values.
 // You can construct a concrete instance of `OpenShiftAPIPropertiesInput` via:
 //
-//	OpenShiftAPIPropertiesArgs{...}
+//          OpenShiftAPIPropertiesArgs{...}
 type OpenShiftAPIPropertiesInput interface {
 	pulumi.Input
 
@@ -365,11 +365,11 @@ func (i OpenShiftAPIPropertiesArgs) ToOpenShiftAPIPropertiesPtrOutputWithContext
 // OpenShiftAPIPropertiesPtrInput is an input type that accepts OpenShiftAPIPropertiesArgs, OpenShiftAPIPropertiesPtr and OpenShiftAPIPropertiesPtrOutput values.
 // You can construct a concrete instance of `OpenShiftAPIPropertiesPtrInput` via:
 //
-//	        OpenShiftAPIPropertiesArgs{...}
+//          OpenShiftAPIPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OpenShiftAPIPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -537,7 +537,7 @@ type OpenShiftManagedClusterAADIdentityProvider struct {
 // OpenShiftManagedClusterAADIdentityProviderInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderArgs and OpenShiftManagedClusterAADIdentityProviderOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterAADIdentityProviderInput` via:
 //
-//	OpenShiftManagedClusterAADIdentityProviderArgs{...}
+//          OpenShiftManagedClusterAADIdentityProviderArgs{...}
 type OpenShiftManagedClusterAADIdentityProviderInput interface {
 	pulumi.Input
 
@@ -583,11 +583,11 @@ func (i OpenShiftManagedClusterAADIdentityProviderArgs) ToOpenShiftManagedCluste
 // OpenShiftManagedClusterAADIdentityProviderPtrInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderArgs, OpenShiftManagedClusterAADIdentityProviderPtr and OpenShiftManagedClusterAADIdentityProviderPtrOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterAADIdentityProviderPtrInput` via:
 //
-//	        OpenShiftManagedClusterAADIdentityProviderArgs{...}
+//          OpenShiftManagedClusterAADIdentityProviderArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OpenShiftManagedClusterAADIdentityProviderPtrInput interface {
 	pulumi.Input
 
@@ -902,7 +902,7 @@ func (val *OpenShiftManagedClusterAgentPoolProfile) Defaults() *OpenShiftManaged
 // OpenShiftManagedClusterAgentPoolProfileInput is an input type that accepts OpenShiftManagedClusterAgentPoolProfileArgs and OpenShiftManagedClusterAgentPoolProfileOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterAgentPoolProfileInput` via:
 //
-//	OpenShiftManagedClusterAgentPoolProfileArgs{...}
+//          OpenShiftManagedClusterAgentPoolProfileArgs{...}
 type OpenShiftManagedClusterAgentPoolProfileInput interface {
 	pulumi.Input
 
@@ -952,7 +952,7 @@ func (i OpenShiftManagedClusterAgentPoolProfileArgs) ToOpenShiftManagedClusterAg
 // OpenShiftManagedClusterAgentPoolProfileArrayInput is an input type that accepts OpenShiftManagedClusterAgentPoolProfileArray and OpenShiftManagedClusterAgentPoolProfileArrayOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterAgentPoolProfileArrayInput` via:
 //
-//	OpenShiftManagedClusterAgentPoolProfileArray{ OpenShiftManagedClusterAgentPoolProfileArgs{...} }
+//          OpenShiftManagedClusterAgentPoolProfileArray{ OpenShiftManagedClusterAgentPoolProfileArgs{...} }
 type OpenShiftManagedClusterAgentPoolProfileArrayInput interface {
 	pulumi.Input
 
@@ -1142,7 +1142,7 @@ type OpenShiftManagedClusterAuthProfile struct {
 // OpenShiftManagedClusterAuthProfileInput is an input type that accepts OpenShiftManagedClusterAuthProfileArgs and OpenShiftManagedClusterAuthProfileOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterAuthProfileInput` via:
 //
-//	OpenShiftManagedClusterAuthProfileArgs{...}
+//          OpenShiftManagedClusterAuthProfileArgs{...}
 type OpenShiftManagedClusterAuthProfileInput interface {
 	pulumi.Input
 
@@ -1179,11 +1179,11 @@ func (i OpenShiftManagedClusterAuthProfileArgs) ToOpenShiftManagedClusterAuthPro
 // OpenShiftManagedClusterAuthProfilePtrInput is an input type that accepts OpenShiftManagedClusterAuthProfileArgs, OpenShiftManagedClusterAuthProfilePtr and OpenShiftManagedClusterAuthProfilePtrOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterAuthProfilePtrInput` via:
 //
-//	        OpenShiftManagedClusterAuthProfileArgs{...}
+//          OpenShiftManagedClusterAuthProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OpenShiftManagedClusterAuthProfilePtrInput interface {
 	pulumi.Input
 
@@ -1348,7 +1348,7 @@ type OpenShiftManagedClusterIdentityProvider struct {
 // OpenShiftManagedClusterIdentityProviderInput is an input type that accepts OpenShiftManagedClusterIdentityProviderArgs and OpenShiftManagedClusterIdentityProviderOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterIdentityProviderInput` via:
 //
-//	OpenShiftManagedClusterIdentityProviderArgs{...}
+//          OpenShiftManagedClusterIdentityProviderArgs{...}
 type OpenShiftManagedClusterIdentityProviderInput interface {
 	pulumi.Input
 
@@ -1379,7 +1379,7 @@ func (i OpenShiftManagedClusterIdentityProviderArgs) ToOpenShiftManagedClusterId
 // OpenShiftManagedClusterIdentityProviderArrayInput is an input type that accepts OpenShiftManagedClusterIdentityProviderArray and OpenShiftManagedClusterIdentityProviderArrayOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterIdentityProviderArrayInput` via:
 //
-//	OpenShiftManagedClusterIdentityProviderArray{ OpenShiftManagedClusterIdentityProviderArgs{...} }
+//          OpenShiftManagedClusterIdentityProviderArray{ OpenShiftManagedClusterIdentityProviderArgs{...} }
 type OpenShiftManagedClusterIdentityProviderArrayInput interface {
 	pulumi.Input
 
@@ -1518,7 +1518,7 @@ type OpenShiftManagedClusterMasterPoolProfile struct {
 // OpenShiftManagedClusterMasterPoolProfileInput is an input type that accepts OpenShiftManagedClusterMasterPoolProfileArgs and OpenShiftManagedClusterMasterPoolProfileOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterMasterPoolProfileInput` via:
 //
-//	OpenShiftManagedClusterMasterPoolProfileArgs{...}
+//          OpenShiftManagedClusterMasterPoolProfileArgs{...}
 type OpenShiftManagedClusterMasterPoolProfileInput interface {
 	pulumi.Input
 
@@ -1561,11 +1561,11 @@ func (i OpenShiftManagedClusterMasterPoolProfileArgs) ToOpenShiftManagedClusterM
 // OpenShiftManagedClusterMasterPoolProfilePtrInput is an input type that accepts OpenShiftManagedClusterMasterPoolProfileArgs, OpenShiftManagedClusterMasterPoolProfilePtr and OpenShiftManagedClusterMasterPoolProfilePtrOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterMasterPoolProfilePtrInput` via:
 //
-//	        OpenShiftManagedClusterMasterPoolProfileArgs{...}
+//          OpenShiftManagedClusterMasterPoolProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OpenShiftManagedClusterMasterPoolProfilePtrInput interface {
 	pulumi.Input
 
@@ -1824,7 +1824,7 @@ type OpenShiftManagedClusterMonitorProfile struct {
 // OpenShiftManagedClusterMonitorProfileInput is an input type that accepts OpenShiftManagedClusterMonitorProfileArgs and OpenShiftManagedClusterMonitorProfileOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterMonitorProfileInput` via:
 //
-//	OpenShiftManagedClusterMonitorProfileArgs{...}
+//          OpenShiftManagedClusterMonitorProfileArgs{...}
 type OpenShiftManagedClusterMonitorProfileInput interface {
 	pulumi.Input
 
@@ -1863,11 +1863,11 @@ func (i OpenShiftManagedClusterMonitorProfileArgs) ToOpenShiftManagedClusterMoni
 // OpenShiftManagedClusterMonitorProfilePtrInput is an input type that accepts OpenShiftManagedClusterMonitorProfileArgs, OpenShiftManagedClusterMonitorProfilePtr and OpenShiftManagedClusterMonitorProfilePtrOutput values.
 // You can construct a concrete instance of `OpenShiftManagedClusterMonitorProfilePtrInput` via:
 //
-//	        OpenShiftManagedClusterMonitorProfileArgs{...}
+//          OpenShiftManagedClusterMonitorProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OpenShiftManagedClusterMonitorProfilePtrInput interface {
 	pulumi.Input
 
@@ -2058,7 +2058,7 @@ type OpenShiftRouterProfile struct {
 // OpenShiftRouterProfileInput is an input type that accepts OpenShiftRouterProfileArgs and OpenShiftRouterProfileOutput values.
 // You can construct a concrete instance of `OpenShiftRouterProfileInput` via:
 //
-//	OpenShiftRouterProfileArgs{...}
+//          OpenShiftRouterProfileArgs{...}
 type OpenShiftRouterProfileInput interface {
 	pulumi.Input
 
@@ -2087,7 +2087,7 @@ func (i OpenShiftRouterProfileArgs) ToOpenShiftRouterProfileOutputWithContext(ct
 // OpenShiftRouterProfileArrayInput is an input type that accepts OpenShiftRouterProfileArray and OpenShiftRouterProfileArrayOutput values.
 // You can construct a concrete instance of `OpenShiftRouterProfileArrayInput` via:
 //
-//	OpenShiftRouterProfileArray{ OpenShiftRouterProfileArgs{...} }
+//          OpenShiftRouterProfileArray{ OpenShiftRouterProfileArgs{...} }
 type OpenShiftRouterProfileArrayInput interface {
 	pulumi.Input
 
@@ -2224,7 +2224,7 @@ type PurchasePlan struct {
 // PurchasePlanInput is an input type that accepts PurchasePlanArgs and PurchasePlanOutput values.
 // You can construct a concrete instance of `PurchasePlanInput` via:
 //
-//	PurchasePlanArgs{...}
+//          PurchasePlanArgs{...}
 type PurchasePlanInput interface {
 	pulumi.Input
 
@@ -2267,11 +2267,11 @@ func (i PurchasePlanArgs) ToPurchasePlanPtrOutputWithContext(ctx context.Context
 // PurchasePlanPtrInput is an input type that accepts PurchasePlanArgs, PurchasePlanPtr and PurchasePlanPtrOutput values.
 // You can construct a concrete instance of `PurchasePlanPtrInput` via:
 //
-//	        PurchasePlanArgs{...}
+//          PurchasePlanArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PurchasePlanPtrInput interface {
 	pulumi.Input
 

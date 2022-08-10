@@ -116,7 +116,7 @@ type AzureOperationalStoreParameters struct {
 // AzureOperationalStoreParametersInput is an input type that accepts AzureOperationalStoreParametersArgs and AzureOperationalStoreParametersOutput values.
 // You can construct a concrete instance of `AzureOperationalStoreParametersInput` via:
 //
-//	AzureOperationalStoreParametersArgs{...}
+//          AzureOperationalStoreParametersArgs{...}
 type AzureOperationalStoreParametersInput interface {
 	pulumi.Input
 
@@ -150,7 +150,7 @@ func (i AzureOperationalStoreParametersArgs) ToAzureOperationalStoreParametersOu
 // AzureOperationalStoreParametersArrayInput is an input type that accepts AzureOperationalStoreParametersArray and AzureOperationalStoreParametersArrayOutput values.
 // You can construct a concrete instance of `AzureOperationalStoreParametersArrayInput` via:
 //
-//	AzureOperationalStoreParametersArray{ AzureOperationalStoreParametersArgs{...} }
+//          AzureOperationalStoreParametersArray{ AzureOperationalStoreParametersArgs{...} }
 type AzureOperationalStoreParametersArrayInput interface {
 	pulumi.Input
 
@@ -321,7 +321,7 @@ type BackupInstanceType struct {
 // BackupInstanceTypeInput is an input type that accepts BackupInstanceTypeArgs and BackupInstanceTypeOutput values.
 // You can construct a concrete instance of `BackupInstanceTypeInput` via:
 //
-//	BackupInstanceTypeArgs{...}
+//          BackupInstanceTypeArgs{...}
 type BackupInstanceTypeInput interface {
 	pulumi.Input
 
@@ -367,11 +367,11 @@ func (i BackupInstanceTypeArgs) ToBackupInstanceTypePtrOutputWithContext(ctx con
 // BackupInstanceTypePtrInput is an input type that accepts BackupInstanceTypeArgs, BackupInstanceTypePtr and BackupInstanceTypePtrOutput values.
 // You can construct a concrete instance of `BackupInstanceTypePtrInput` via:
 //
-//	        BackupInstanceTypeArgs{...}
+//          BackupInstanceTypeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BackupInstanceTypePtrInput interface {
 	pulumi.Input
 
@@ -636,7 +636,7 @@ type BackupPolicyType struct {
 // BackupPolicyTypeInput is an input type that accepts BackupPolicyTypeArgs and BackupPolicyTypeOutput values.
 // You can construct a concrete instance of `BackupPolicyTypeInput` via:
 //
-//	BackupPolicyTypeArgs{...}
+//          BackupPolicyTypeArgs{...}
 type BackupPolicyTypeInput interface {
 	pulumi.Input
 
@@ -677,11 +677,11 @@ func (i BackupPolicyTypeArgs) ToBackupPolicyTypePtrOutputWithContext(ctx context
 // BackupPolicyTypePtrInput is an input type that accepts BackupPolicyTypeArgs, BackupPolicyTypePtr and BackupPolicyTypePtrOutput values.
 // You can construct a concrete instance of `BackupPolicyTypePtrInput` via:
 //
-//	        BackupPolicyTypeArgs{...}
+//          BackupPolicyTypeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BackupPolicyTypePtrInput interface {
 	pulumi.Input
 
@@ -866,7 +866,7 @@ type BackupVaultType struct {
 // BackupVaultTypeInput is an input type that accepts BackupVaultTypeArgs and BackupVaultTypeOutput values.
 // You can construct a concrete instance of `BackupVaultTypeInput` via:
 //
-//	BackupVaultTypeArgs{...}
+//          BackupVaultTypeArgs{...}
 type BackupVaultTypeInput interface {
 	pulumi.Input
 
@@ -1028,7 +1028,7 @@ type Datasource struct {
 // DatasourceInput is an input type that accepts DatasourceArgs and DatasourceOutput values.
 // You can construct a concrete instance of `DatasourceInput` via:
 //
-//	DatasourceArgs{...}
+//          DatasourceArgs{...}
 type DatasourceInput interface {
 	pulumi.Input
 
@@ -1077,11 +1077,11 @@ func (i DatasourceArgs) ToDatasourcePtrOutputWithContext(ctx context.Context) Da
 // DatasourcePtrInput is an input type that accepts DatasourceArgs, DatasourcePtr and DatasourcePtrOutput values.
 // You can construct a concrete instance of `DatasourcePtrInput` via:
 //
-//	        DatasourceArgs{...}
+//          DatasourceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DatasourcePtrInput interface {
 	pulumi.Input
 
@@ -1350,7 +1350,7 @@ type DatasourceSet struct {
 // DatasourceSetInput is an input type that accepts DatasourceSetArgs and DatasourceSetOutput values.
 // You can construct a concrete instance of `DatasourceSetInput` via:
 //
-//	DatasourceSetArgs{...}
+//          DatasourceSetArgs{...}
 type DatasourceSetInput interface {
 	pulumi.Input
 
@@ -1399,11 +1399,11 @@ func (i DatasourceSetArgs) ToDatasourceSetPtrOutputWithContext(ctx context.Conte
 // DatasourceSetPtrInput is an input type that accepts DatasourceSetArgs, DatasourceSetPtr and DatasourceSetPtrOutput values.
 // You can construct a concrete instance of `DatasourceSetPtrInput` via:
 //
-//	        DatasourceSetArgs{...}
+//          DatasourceSetArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DatasourceSetPtrInput interface {
 	pulumi.Input
 
@@ -1770,7 +1770,7 @@ type DppIdentityDetails struct {
 // DppIdentityDetailsInput is an input type that accepts DppIdentityDetailsArgs and DppIdentityDetailsOutput values.
 // You can construct a concrete instance of `DppIdentityDetailsInput` via:
 //
-//	DppIdentityDetailsArgs{...}
+//          DppIdentityDetailsArgs{...}
 type DppIdentityDetailsInput interface {
 	pulumi.Input
 
@@ -1807,11 +1807,11 @@ func (i DppIdentityDetailsArgs) ToDppIdentityDetailsPtrOutputWithContext(ctx con
 // DppIdentityDetailsPtrInput is an input type that accepts DppIdentityDetailsArgs, DppIdentityDetailsPtr and DppIdentityDetailsPtrOutput values.
 // You can construct a concrete instance of `DppIdentityDetailsPtrInput` via:
 //
-//	        DppIdentityDetailsArgs{...}
+//          DppIdentityDetailsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DppIdentityDetailsPtrInput interface {
 	pulumi.Input
 
@@ -2113,7 +2113,7 @@ type PolicyInfo struct {
 // PolicyInfoInput is an input type that accepts PolicyInfoArgs and PolicyInfoOutput values.
 // You can construct a concrete instance of `PolicyInfoInput` via:
 //
-//	PolicyInfoArgs{...}
+//          PolicyInfoArgs{...}
 type PolicyInfoInput interface {
 	pulumi.Input
 
@@ -2151,11 +2151,11 @@ func (i PolicyInfoArgs) ToPolicyInfoPtrOutputWithContext(ctx context.Context) Po
 // PolicyInfoPtrInput is an input type that accepts PolicyInfoArgs, PolicyInfoPtr and PolicyInfoPtrOutput values.
 // You can construct a concrete instance of `PolicyInfoPtrInput` via:
 //
-//	        PolicyInfoArgs{...}
+//          PolicyInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PolicyInfoPtrInput interface {
 	pulumi.Input
 
@@ -2303,7 +2303,7 @@ type PolicyParameters struct {
 // PolicyParametersInput is an input type that accepts PolicyParametersArgs and PolicyParametersOutput values.
 // You can construct a concrete instance of `PolicyParametersInput` via:
 //
-//	PolicyParametersArgs{...}
+//          PolicyParametersArgs{...}
 type PolicyParametersInput interface {
 	pulumi.Input
 
@@ -2340,11 +2340,11 @@ func (i PolicyParametersArgs) ToPolicyParametersPtrOutputWithContext(ctx context
 // PolicyParametersPtrInput is an input type that accepts PolicyParametersArgs, PolicyParametersPtr and PolicyParametersPtrOutput values.
 // You can construct a concrete instance of `PolicyParametersPtrInput` via:
 //
-//	        PolicyParametersArgs{...}
+//          PolicyParametersArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PolicyParametersPtrInput interface {
 	pulumi.Input
 
@@ -2778,7 +2778,7 @@ type SecretStoreBasedAuthCredentials struct {
 // SecretStoreBasedAuthCredentialsInput is an input type that accepts SecretStoreBasedAuthCredentialsArgs and SecretStoreBasedAuthCredentialsOutput values.
 // You can construct a concrete instance of `SecretStoreBasedAuthCredentialsInput` via:
 //
-//	SecretStoreBasedAuthCredentialsArgs{...}
+//          SecretStoreBasedAuthCredentialsArgs{...}
 type SecretStoreBasedAuthCredentialsInput interface {
 	pulumi.Input
 
@@ -2818,11 +2818,11 @@ func (i SecretStoreBasedAuthCredentialsArgs) ToSecretStoreBasedAuthCredentialsPt
 // SecretStoreBasedAuthCredentialsPtrInput is an input type that accepts SecretStoreBasedAuthCredentialsArgs, SecretStoreBasedAuthCredentialsPtr and SecretStoreBasedAuthCredentialsPtrOutput values.
 // You can construct a concrete instance of `SecretStoreBasedAuthCredentialsPtrInput` via:
 //
-//	        SecretStoreBasedAuthCredentialsArgs{...}
+//          SecretStoreBasedAuthCredentialsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SecretStoreBasedAuthCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -3022,7 +3022,7 @@ type SecretStoreResource struct {
 // SecretStoreResourceInput is an input type that accepts SecretStoreResourceArgs and SecretStoreResourceOutput values.
 // You can construct a concrete instance of `SecretStoreResourceInput` via:
 //
-//	SecretStoreResourceArgs{...}
+//          SecretStoreResourceArgs{...}
 type SecretStoreResourceInput interface {
 	pulumi.Input
 
@@ -3061,11 +3061,11 @@ func (i SecretStoreResourceArgs) ToSecretStoreResourcePtrOutputWithContext(ctx c
 // SecretStoreResourcePtrInput is an input type that accepts SecretStoreResourceArgs, SecretStoreResourcePtr and SecretStoreResourcePtrOutput values.
 // You can construct a concrete instance of `SecretStoreResourcePtrInput` via:
 //
-//	        SecretStoreResourceArgs{...}
+//          SecretStoreResourceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SecretStoreResourcePtrInput interface {
 	pulumi.Input
 
@@ -3276,7 +3276,7 @@ type StorageSetting struct {
 // StorageSettingInput is an input type that accepts StorageSettingArgs and StorageSettingOutput values.
 // You can construct a concrete instance of `StorageSettingInput` via:
 //
-//	StorageSettingArgs{...}
+//          StorageSettingArgs{...}
 type StorageSettingInput interface {
 	pulumi.Input
 
@@ -3307,7 +3307,7 @@ func (i StorageSettingArgs) ToStorageSettingOutputWithContext(ctx context.Contex
 // StorageSettingArrayInput is an input type that accepts StorageSettingArray and StorageSettingArrayOutput values.
 // You can construct a concrete instance of `StorageSettingArrayInput` via:
 //
-//	StorageSettingArray{ StorageSettingArgs{...} }
+//          StorageSettingArray{ StorageSettingArgs{...} }
 type StorageSettingArrayInput interface {
 	pulumi.Input
 

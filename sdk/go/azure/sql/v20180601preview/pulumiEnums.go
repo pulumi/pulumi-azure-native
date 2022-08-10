@@ -214,7 +214,7 @@ func (o SecurityAlertPolicyStatePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // SecurityAlertPolicyStateInput is an input type that accepts SecurityAlertPolicyStateArgs and SecurityAlertPolicyStateOutput values.
 // You can construct a concrete instance of `SecurityAlertPolicyStateInput` via:
 //
-//	SecurityAlertPolicyStateArgs{...}
+//          SecurityAlertPolicyStateArgs{...}
 type SecurityAlertPolicyStateInput interface {
 	pulumi.Input
 
@@ -381,7 +381,7 @@ func (o SensitivityLabelRankPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // SensitivityLabelRankInput is an input type that accepts SensitivityLabelRankArgs and SensitivityLabelRankOutput values.
 // You can construct a concrete instance of `SensitivityLabelRankInput` via:
 //
-//	SensitivityLabelRankArgs{...}
+//          SensitivityLabelRankArgs{...}
 type SensitivityLabelRankInput interface {
 	pulumi.Input
 

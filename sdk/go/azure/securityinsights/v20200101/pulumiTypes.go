@@ -19,7 +19,7 @@ type AlertsDataTypeOfDataConnector struct {
 // AlertsDataTypeOfDataConnectorInput is an input type that accepts AlertsDataTypeOfDataConnectorArgs and AlertsDataTypeOfDataConnectorOutput values.
 // You can construct a concrete instance of `AlertsDataTypeOfDataConnectorInput` via:
 //
-//	AlertsDataTypeOfDataConnectorArgs{...}
+//          AlertsDataTypeOfDataConnectorArgs{...}
 type AlertsDataTypeOfDataConnectorInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AlertsDataTypeOfDataConnectorArgs) ToAlertsDataTypeOfDataConnectorPtrOut
 // AlertsDataTypeOfDataConnectorPtrInput is an input type that accepts AlertsDataTypeOfDataConnectorArgs, AlertsDataTypeOfDataConnectorPtr and AlertsDataTypeOfDataConnectorPtrOutput values.
 // You can construct a concrete instance of `AlertsDataTypeOfDataConnectorPtrInput` via:
 //
-//	        AlertsDataTypeOfDataConnectorArgs{...}
+//          AlertsDataTypeOfDataConnectorArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AlertsDataTypeOfDataConnectorPtrInput interface {
 	pulumi.Input
 
@@ -219,7 +219,7 @@ type AwsCloudTrailDataConnectorDataTypes struct {
 // AwsCloudTrailDataConnectorDataTypesInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesArgs and AwsCloudTrailDataConnectorDataTypesOutput values.
 // You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesInput` via:
 //
-//	AwsCloudTrailDataConnectorDataTypesArgs{...}
+//          AwsCloudTrailDataConnectorDataTypesArgs{...}
 type AwsCloudTrailDataConnectorDataTypesInput interface {
 	pulumi.Input
 
@@ -256,11 +256,11 @@ func (i AwsCloudTrailDataConnectorDataTypesArgs) ToAwsCloudTrailDataConnectorDat
 // AwsCloudTrailDataConnectorDataTypesPtrInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesArgs, AwsCloudTrailDataConnectorDataTypesPtr and AwsCloudTrailDataConnectorDataTypesPtrOutput values.
 // You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesPtrInput` via:
 //
-//	        AwsCloudTrailDataConnectorDataTypesArgs{...}
+//          AwsCloudTrailDataConnectorDataTypesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AwsCloudTrailDataConnectorDataTypesPtrInput interface {
 	pulumi.Input
 
@@ -359,7 +359,7 @@ type AwsCloudTrailDataConnectorDataTypesLogs struct {
 // AwsCloudTrailDataConnectorDataTypesLogsInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesLogsArgs and AwsCloudTrailDataConnectorDataTypesLogsOutput values.
 // You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesLogsInput` via:
 //
-//	AwsCloudTrailDataConnectorDataTypesLogsArgs{...}
+//          AwsCloudTrailDataConnectorDataTypesLogsArgs{...}
 type AwsCloudTrailDataConnectorDataTypesLogsInput interface {
 	pulumi.Input
 
@@ -396,11 +396,11 @@ func (i AwsCloudTrailDataConnectorDataTypesLogsArgs) ToAwsCloudTrailDataConnecto
 // AwsCloudTrailDataConnectorDataTypesLogsPtrInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesLogsArgs, AwsCloudTrailDataConnectorDataTypesLogsPtr and AwsCloudTrailDataConnectorDataTypesLogsPtrOutput values.
 // You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesLogsPtrInput` via:
 //
-//	        AwsCloudTrailDataConnectorDataTypesLogsArgs{...}
+//          AwsCloudTrailDataConnectorDataTypesLogsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AwsCloudTrailDataConnectorDataTypesLogsPtrInput interface {
 	pulumi.Input
 
@@ -621,7 +621,7 @@ type DataConnectorDataTypeCommon struct {
 // DataConnectorDataTypeCommonInput is an input type that accepts DataConnectorDataTypeCommonArgs and DataConnectorDataTypeCommonOutput values.
 // You can construct a concrete instance of `DataConnectorDataTypeCommonInput` via:
 //
-//	DataConnectorDataTypeCommonArgs{...}
+//          DataConnectorDataTypeCommonArgs{...}
 type DataConnectorDataTypeCommonInput interface {
 	pulumi.Input
 
@@ -658,11 +658,11 @@ func (i DataConnectorDataTypeCommonArgs) ToDataConnectorDataTypeCommonPtrOutputW
 // DataConnectorDataTypeCommonPtrInput is an input type that accepts DataConnectorDataTypeCommonArgs, DataConnectorDataTypeCommonPtr and DataConnectorDataTypeCommonPtrOutput values.
 // You can construct a concrete instance of `DataConnectorDataTypeCommonPtrInput` via:
 //
-//	        DataConnectorDataTypeCommonArgs{...}
+//          DataConnectorDataTypeCommonArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DataConnectorDataTypeCommonPtrInput interface {
 	pulumi.Input
 
@@ -881,7 +881,7 @@ type IncidentInfo struct {
 // IncidentInfoInput is an input type that accepts IncidentInfoArgs and IncidentInfoOutput values.
 // You can construct a concrete instance of `IncidentInfoInput` via:
 //
-//	IncidentInfoArgs{...}
+//          IncidentInfoArgs{...}
 type IncidentInfoInput interface {
 	pulumi.Input
 
@@ -924,11 +924,11 @@ func (i IncidentInfoArgs) ToIncidentInfoPtrOutputWithContext(ctx context.Context
 // IncidentInfoPtrInput is an input type that accepts IncidentInfoArgs, IncidentInfoPtr and IncidentInfoPtrOutput values.
 // You can construct a concrete instance of `IncidentInfoPtrInput` via:
 //
-//	        IncidentInfoArgs{...}
+//          IncidentInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IncidentInfoPtrInput interface {
 	pulumi.Input
 
@@ -1183,7 +1183,7 @@ type IncidentLabel struct {
 // IncidentLabelInput is an input type that accepts IncidentLabelArgs and IncidentLabelOutput values.
 // You can construct a concrete instance of `IncidentLabelInput` via:
 //
-//	IncidentLabelArgs{...}
+//          IncidentLabelArgs{...}
 type IncidentLabelInput interface {
 	pulumi.Input
 
@@ -1212,7 +1212,7 @@ func (i IncidentLabelArgs) ToIncidentLabelOutputWithContext(ctx context.Context)
 // IncidentLabelArrayInput is an input type that accepts IncidentLabelArray and IncidentLabelArrayOutput values.
 // You can construct a concrete instance of `IncidentLabelArrayInput` via:
 //
-//	IncidentLabelArray{ IncidentLabelArgs{...} }
+//          IncidentLabelArray{ IncidentLabelArgs{...} }
 type IncidentLabelArrayInput interface {
 	pulumi.Input
 
@@ -1342,7 +1342,7 @@ type IncidentOwnerInfo struct {
 // IncidentOwnerInfoInput is an input type that accepts IncidentOwnerInfoArgs and IncidentOwnerInfoOutput values.
 // You can construct a concrete instance of `IncidentOwnerInfoInput` via:
 //
-//	IncidentOwnerInfoArgs{...}
+//          IncidentOwnerInfoArgs{...}
 type IncidentOwnerInfoInput interface {
 	pulumi.Input
 
@@ -1385,11 +1385,11 @@ func (i IncidentOwnerInfoArgs) ToIncidentOwnerInfoPtrOutputWithContext(ctx conte
 // IncidentOwnerInfoPtrInput is an input type that accepts IncidentOwnerInfoArgs, IncidentOwnerInfoPtr and IncidentOwnerInfoPtrOutput values.
 // You can construct a concrete instance of `IncidentOwnerInfoPtrInput` via:
 //
-//	        IncidentOwnerInfoArgs{...}
+//          IncidentOwnerInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IncidentOwnerInfoPtrInput interface {
 	pulumi.Input
 
@@ -1646,7 +1646,7 @@ type MCASDataConnectorDataTypes struct {
 // MCASDataConnectorDataTypesInput is an input type that accepts MCASDataConnectorDataTypesArgs and MCASDataConnectorDataTypesOutput values.
 // You can construct a concrete instance of `MCASDataConnectorDataTypesInput` via:
 //
-//	MCASDataConnectorDataTypesArgs{...}
+//          MCASDataConnectorDataTypesArgs{...}
 type MCASDataConnectorDataTypesInput interface {
 	pulumi.Input
 
@@ -1685,11 +1685,11 @@ func (i MCASDataConnectorDataTypesArgs) ToMCASDataConnectorDataTypesPtrOutputWit
 // MCASDataConnectorDataTypesPtrInput is an input type that accepts MCASDataConnectorDataTypesArgs, MCASDataConnectorDataTypesPtr and MCASDataConnectorDataTypesPtrOutput values.
 // You can construct a concrete instance of `MCASDataConnectorDataTypesPtrInput` via:
 //
-//	        MCASDataConnectorDataTypesArgs{...}
+//          MCASDataConnectorDataTypesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MCASDataConnectorDataTypesPtrInput interface {
 	pulumi.Input
 
@@ -1886,7 +1886,7 @@ type OfficeDataConnectorDataTypes struct {
 // OfficeDataConnectorDataTypesInput is an input type that accepts OfficeDataConnectorDataTypesArgs and OfficeDataConnectorDataTypesOutput values.
 // You can construct a concrete instance of `OfficeDataConnectorDataTypesInput` via:
 //
-//	OfficeDataConnectorDataTypesArgs{...}
+//          OfficeDataConnectorDataTypesArgs{...}
 type OfficeDataConnectorDataTypesInput interface {
 	pulumi.Input
 
@@ -1927,11 +1927,11 @@ func (i OfficeDataConnectorDataTypesArgs) ToOfficeDataConnectorDataTypesPtrOutpu
 // OfficeDataConnectorDataTypesPtrInput is an input type that accepts OfficeDataConnectorDataTypesArgs, OfficeDataConnectorDataTypesPtr and OfficeDataConnectorDataTypesPtrOutput values.
 // You can construct a concrete instance of `OfficeDataConnectorDataTypesPtrInput` via:
 //
-//	        OfficeDataConnectorDataTypesArgs{...}
+//          OfficeDataConnectorDataTypesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OfficeDataConnectorDataTypesPtrInput interface {
 	pulumi.Input
 
@@ -2060,7 +2060,7 @@ type OfficeDataConnectorDataTypesExchange struct {
 // OfficeDataConnectorDataTypesExchangeInput is an input type that accepts OfficeDataConnectorDataTypesExchangeArgs and OfficeDataConnectorDataTypesExchangeOutput values.
 // You can construct a concrete instance of `OfficeDataConnectorDataTypesExchangeInput` via:
 //
-//	OfficeDataConnectorDataTypesExchangeArgs{...}
+//          OfficeDataConnectorDataTypesExchangeArgs{...}
 type OfficeDataConnectorDataTypesExchangeInput interface {
 	pulumi.Input
 
@@ -2097,11 +2097,11 @@ func (i OfficeDataConnectorDataTypesExchangeArgs) ToOfficeDataConnectorDataTypes
 // OfficeDataConnectorDataTypesExchangePtrInput is an input type that accepts OfficeDataConnectorDataTypesExchangeArgs, OfficeDataConnectorDataTypesExchangePtr and OfficeDataConnectorDataTypesExchangePtrOutput values.
 // You can construct a concrete instance of `OfficeDataConnectorDataTypesExchangePtrInput` via:
 //
-//	        OfficeDataConnectorDataTypesExchangeArgs{...}
+//          OfficeDataConnectorDataTypesExchangeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OfficeDataConnectorDataTypesExchangePtrInput interface {
 	pulumi.Input
 
@@ -2480,7 +2480,7 @@ type OfficeDataConnectorDataTypesSharePoint struct {
 // OfficeDataConnectorDataTypesSharePointInput is an input type that accepts OfficeDataConnectorDataTypesSharePointArgs and OfficeDataConnectorDataTypesSharePointOutput values.
 // You can construct a concrete instance of `OfficeDataConnectorDataTypesSharePointInput` via:
 //
-//	OfficeDataConnectorDataTypesSharePointArgs{...}
+//          OfficeDataConnectorDataTypesSharePointArgs{...}
 type OfficeDataConnectorDataTypesSharePointInput interface {
 	pulumi.Input
 
@@ -2517,11 +2517,11 @@ func (i OfficeDataConnectorDataTypesSharePointArgs) ToOfficeDataConnectorDataTyp
 // OfficeDataConnectorDataTypesSharePointPtrInput is an input type that accepts OfficeDataConnectorDataTypesSharePointArgs, OfficeDataConnectorDataTypesSharePointPtr and OfficeDataConnectorDataTypesSharePointPtrOutput values.
 // You can construct a concrete instance of `OfficeDataConnectorDataTypesSharePointPtrInput` via:
 //
-//	        OfficeDataConnectorDataTypesSharePointArgs{...}
+//          OfficeDataConnectorDataTypesSharePointArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OfficeDataConnectorDataTypesSharePointPtrInput interface {
 	pulumi.Input
 
@@ -2620,7 +2620,7 @@ type OfficeDataConnectorDataTypesTeams struct {
 // OfficeDataConnectorDataTypesTeamsInput is an input type that accepts OfficeDataConnectorDataTypesTeamsArgs and OfficeDataConnectorDataTypesTeamsOutput values.
 // You can construct a concrete instance of `OfficeDataConnectorDataTypesTeamsInput` via:
 //
-//	OfficeDataConnectorDataTypesTeamsArgs{...}
+//          OfficeDataConnectorDataTypesTeamsArgs{...}
 type OfficeDataConnectorDataTypesTeamsInput interface {
 	pulumi.Input
 
@@ -2657,11 +2657,11 @@ func (i OfficeDataConnectorDataTypesTeamsArgs) ToOfficeDataConnectorDataTypesTea
 // OfficeDataConnectorDataTypesTeamsPtrInput is an input type that accepts OfficeDataConnectorDataTypesTeamsArgs, OfficeDataConnectorDataTypesTeamsPtr and OfficeDataConnectorDataTypesTeamsPtrOutput values.
 // You can construct a concrete instance of `OfficeDataConnectorDataTypesTeamsPtrInput` via:
 //
-//	        OfficeDataConnectorDataTypesTeamsArgs{...}
+//          OfficeDataConnectorDataTypesTeamsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OfficeDataConnectorDataTypesTeamsPtrInput interface {
 	pulumi.Input
 
@@ -2760,7 +2760,7 @@ type TIDataConnectorDataTypes struct {
 // TIDataConnectorDataTypesInput is an input type that accepts TIDataConnectorDataTypesArgs and TIDataConnectorDataTypesOutput values.
 // You can construct a concrete instance of `TIDataConnectorDataTypesInput` via:
 //
-//	TIDataConnectorDataTypesArgs{...}
+//          TIDataConnectorDataTypesArgs{...}
 type TIDataConnectorDataTypesInput interface {
 	pulumi.Input
 
@@ -2797,11 +2797,11 @@ func (i TIDataConnectorDataTypesArgs) ToTIDataConnectorDataTypesPtrOutputWithCon
 // TIDataConnectorDataTypesPtrInput is an input type that accepts TIDataConnectorDataTypesArgs, TIDataConnectorDataTypesPtr and TIDataConnectorDataTypesPtrOutput values.
 // You can construct a concrete instance of `TIDataConnectorDataTypesPtrInput` via:
 //
-//	        TIDataConnectorDataTypesArgs{...}
+//          TIDataConnectorDataTypesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type TIDataConnectorDataTypesPtrInput interface {
 	pulumi.Input
 
@@ -2900,7 +2900,7 @@ type TIDataConnectorDataTypesIndicators struct {
 // TIDataConnectorDataTypesIndicatorsInput is an input type that accepts TIDataConnectorDataTypesIndicatorsArgs and TIDataConnectorDataTypesIndicatorsOutput values.
 // You can construct a concrete instance of `TIDataConnectorDataTypesIndicatorsInput` via:
 //
-//	TIDataConnectorDataTypesIndicatorsArgs{...}
+//          TIDataConnectorDataTypesIndicatorsArgs{...}
 type TIDataConnectorDataTypesIndicatorsInput interface {
 	pulumi.Input
 
@@ -2937,11 +2937,11 @@ func (i TIDataConnectorDataTypesIndicatorsArgs) ToTIDataConnectorDataTypesIndica
 // TIDataConnectorDataTypesIndicatorsPtrInput is an input type that accepts TIDataConnectorDataTypesIndicatorsArgs, TIDataConnectorDataTypesIndicatorsPtr and TIDataConnectorDataTypesIndicatorsPtrOutput values.
 // You can construct a concrete instance of `TIDataConnectorDataTypesIndicatorsPtrInput` via:
 //
-//	        TIDataConnectorDataTypesIndicatorsArgs{...}
+//          TIDataConnectorDataTypesIndicatorsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type TIDataConnectorDataTypesIndicatorsPtrInput interface {
 	pulumi.Input
 
@@ -3162,7 +3162,7 @@ type UserInfo struct {
 // UserInfoInput is an input type that accepts UserInfoArgs and UserInfoOutput values.
 // You can construct a concrete instance of `UserInfoInput` via:
 //
-//	UserInfoArgs{...}
+//          UserInfoArgs{...}
 type UserInfoInput interface {
 	pulumi.Input
 
@@ -3199,11 +3199,11 @@ func (i UserInfoArgs) ToUserInfoPtrOutputWithContext(ctx context.Context) UserIn
 // UserInfoPtrInput is an input type that accepts UserInfoArgs, UserInfoPtr and UserInfoPtrOutput values.
 // You can construct a concrete instance of `UserInfoPtrInput` via:
 //
-//	        UserInfoArgs{...}
+//          UserInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type UserInfoPtrInput interface {
 	pulumi.Input
 

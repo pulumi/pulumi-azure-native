@@ -142,7 +142,7 @@ func (o AutoUserScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // AutoUserScopeInput is an input type that accepts AutoUserScopeArgs and AutoUserScopeOutput values.
 // You can construct a concrete instance of `AutoUserScopeInput` via:
 //
-//	AutoUserScopeArgs{...}
+//          AutoUserScopeArgs{...}
 type AutoUserScopeInput interface {
 	pulumi.Input
 
@@ -179,11 +179,11 @@ func (in *autoUserScopePtr) ToAutoUserScopePtrOutputWithContext(ctx context.Cont
 
 // Values are:
 //
-//	none - The caching mode for the disk is not enabled.
-//	readOnly - The caching mode for the disk is read only.
-//	readWrite - The caching mode for the disk is read and write.
+//  none - The caching mode for the disk is not enabled.
+//  readOnly - The caching mode for the disk is read only.
+//  readWrite - The caching mode for the disk is read and write.
 //
-//	The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
 type CachingType string
 
 const (
@@ -317,7 +317,7 @@ func (o CachingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // CachingTypeInput is an input type that accepts CachingTypeArgs and CachingTypeOutput values.
 // You can construct a concrete instance of `CachingTypeInput` via:
 //
-//	CachingTypeArgs{...}
+//          CachingTypeArgs{...}
 type CachingTypeInput interface {
 	pulumi.Input
 
@@ -484,7 +484,7 @@ func (o CertificateFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // CertificateFormatInput is an input type that accepts CertificateFormatArgs and CertificateFormatOutput values.
 // You can construct a concrete instance of `CertificateFormatInput` via:
 //
-//	CertificateFormatArgs{...}
+//          CertificateFormatArgs{...}
 type CertificateFormatInput interface {
 	pulumi.Input
 
@@ -651,7 +651,7 @@ func (o CertificateStoreLocationPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // CertificateStoreLocationInput is an input type that accepts CertificateStoreLocationArgs and CertificateStoreLocationOutput values.
 // You can construct a concrete instance of `CertificateStoreLocationInput` via:
 //
-//	CertificateStoreLocationArgs{...}
+//          CertificateStoreLocationArgs{...}
 type CertificateStoreLocationInput interface {
 	pulumi.Input
 
@@ -819,7 +819,7 @@ func (o CertificateVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context
 // CertificateVisibilityInput is an input type that accepts CertificateVisibilityArgs and CertificateVisibilityOutput values.
 // You can construct a concrete instance of `CertificateVisibilityInput` via:
 //
-//	CertificateVisibilityArgs{...}
+//          CertificateVisibilityArgs{...}
 type CertificateVisibilityInput interface {
 	pulumi.Input
 
@@ -857,7 +857,7 @@ func (in *certificateVisibilityPtr) ToCertificateVisibilityPtrOutputWithContext(
 // CertificateVisibilityArrayInput is an input type that accepts CertificateVisibilityArray and CertificateVisibilityArrayOutput values.
 // You can construct a concrete instance of `CertificateVisibilityArrayInput` via:
 //
-//	CertificateVisibilityArray{ CertificateVisibilityArgs{...} }
+//          CertificateVisibilityArray{ CertificateVisibilityArgs{...} }
 type CertificateVisibilityArrayInput interface {
 	pulumi.Input
 
@@ -1035,7 +1035,7 @@ func (o ComputeNodeDeallocationOptionPtrOutput) ToStringPtrOutputWithContext(ctx
 // ComputeNodeDeallocationOptionInput is an input type that accepts ComputeNodeDeallocationOptionArgs and ComputeNodeDeallocationOptionOutput values.
 // You can construct a concrete instance of `ComputeNodeDeallocationOptionInput` via:
 //
-//	ComputeNodeDeallocationOptionArgs{...}
+//          ComputeNodeDeallocationOptionArgs{...}
 type ComputeNodeDeallocationOptionInput interface {
 	pulumi.Input
 
@@ -1201,7 +1201,7 @@ func (o ComputeNodeFillTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // ComputeNodeFillTypeInput is an input type that accepts ComputeNodeFillTypeArgs and ComputeNodeFillTypeOutput values.
 // You can construct a concrete instance of `ComputeNodeFillTypeInput` via:
 //
-//	ComputeNodeFillTypeArgs{...}
+//          ComputeNodeFillTypeArgs{...}
 type ComputeNodeFillTypeInput interface {
 	pulumi.Input
 
@@ -1365,7 +1365,7 @@ func (o ContainerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // ContainerTypeInput is an input type that accepts ContainerTypeArgs and ContainerTypeOutput values.
 // You can construct a concrete instance of `ContainerTypeInput` via:
 //
-//	ContainerTypeArgs{...}
+//          ContainerTypeArgs{...}
 type ContainerTypeInput interface {
 	pulumi.Input
 
@@ -1531,7 +1531,7 @@ func (o ContainerWorkingDirectoryPtrOutput) ToStringPtrOutputWithContext(ctx con
 // ContainerWorkingDirectoryInput is an input type that accepts ContainerWorkingDirectoryArgs and ContainerWorkingDirectoryOutput values.
 // You can construct a concrete instance of `ContainerWorkingDirectoryInput` via:
 //
-//	ContainerWorkingDirectoryArgs{...}
+//          ContainerWorkingDirectoryArgs{...}
 type ContainerWorkingDirectoryInput interface {
 	pulumi.Input
 
@@ -1698,7 +1698,7 @@ func (o ElevationLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // ElevationLevelInput is an input type that accepts ElevationLevelArgs and ElevationLevelOutput values.
 // You can construct a concrete instance of `ElevationLevelInput` via:
 //
-//	ElevationLevelArgs{...}
+//          ElevationLevelArgs{...}
 type ElevationLevelInput interface {
 	pulumi.Input
 
@@ -1864,7 +1864,7 @@ func (o InboundEndpointProtocolPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // InboundEndpointProtocolInput is an input type that accepts InboundEndpointProtocolArgs and InboundEndpointProtocolOutput values.
 // You can construct a concrete instance of `InboundEndpointProtocolInput` via:
 //
-//	InboundEndpointProtocolArgs{...}
+//          InboundEndpointProtocolArgs{...}
 type InboundEndpointProtocolInput interface {
 	pulumi.Input
 
@@ -2031,7 +2031,7 @@ func (o InterNodeCommunicationStatePtrOutput) ToStringPtrOutputWithContext(ctx c
 // InterNodeCommunicationStateInput is an input type that accepts InterNodeCommunicationStateArgs and InterNodeCommunicationStateOutput values.
 // You can construct a concrete instance of `InterNodeCommunicationStateInput` via:
 //
-//	InterNodeCommunicationStateArgs{...}
+//          InterNodeCommunicationStateArgs{...}
 type InterNodeCommunicationStateInput interface {
 	pulumi.Input
 
@@ -2198,7 +2198,7 @@ func (o LoginModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // LoginModeInput is an input type that accepts LoginModeArgs and LoginModeOutput values.
 // You can construct a concrete instance of `LoginModeInput` via:
 //
-//	LoginModeArgs{...}
+//          LoginModeArgs{...}
 type LoginModeInput interface {
 	pulumi.Input
 
@@ -2364,7 +2364,7 @@ func (o NetworkSecurityGroupRuleAccessPtrOutput) ToStringPtrOutputWithContext(ct
 // NetworkSecurityGroupRuleAccessInput is an input type that accepts NetworkSecurityGroupRuleAccessArgs and NetworkSecurityGroupRuleAccessOutput values.
 // You can construct a concrete instance of `NetworkSecurityGroupRuleAccessInput` via:
 //
-//	NetworkSecurityGroupRuleAccessArgs{...}
+//          NetworkSecurityGroupRuleAccessArgs{...}
 type NetworkSecurityGroupRuleAccessInput interface {
 	pulumi.Input
 
@@ -2531,7 +2531,7 @@ func (o PoolAllocationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // PoolAllocationModeInput is an input type that accepts PoolAllocationModeArgs and PoolAllocationModeOutput values.
 // You can construct a concrete instance of `PoolAllocationModeInput` via:
 //
-//	PoolAllocationModeArgs{...}
+//          PoolAllocationModeArgs{...}
 type PoolAllocationModeInput interface {
 	pulumi.Input
 
@@ -2568,8 +2568,8 @@ func (in *poolAllocationModePtr) ToPoolAllocationModePtrOutputWithContext(ctx co
 
 // If omitted, the default is "Standard_LRS". Values are:
 //
-//	Standard_LRS - The data disk should use standard locally redundant storage.
-//	Premium_LRS - The data disk should use premium locally redundant storage.
+//  Standard_LRS - The data disk should use standard locally redundant storage.
+//  Premium_LRS - The data disk should use premium locally redundant storage.
 type StorageAccountType string
 
 const (
@@ -2701,7 +2701,7 @@ func (o StorageAccountTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // StorageAccountTypeInput is an input type that accepts StorageAccountTypeArgs and StorageAccountTypeOutput values.
 // You can construct a concrete instance of `StorageAccountTypeInput` via:
 //
-//	StorageAccountTypeArgs{...}
+//          StorageAccountTypeArgs{...}
 type StorageAccountTypeInput interface {
 	pulumi.Input
 

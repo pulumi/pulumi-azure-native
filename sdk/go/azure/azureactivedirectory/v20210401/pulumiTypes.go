@@ -21,7 +21,7 @@ type B2CResourceSKU struct {
 // B2CResourceSKUInput is an input type that accepts B2CResourceSKUArgs and B2CResourceSKUOutput values.
 // You can construct a concrete instance of `B2CResourceSKUInput` via:
 //
-//	B2CResourceSKUArgs{...}
+//          B2CResourceSKUArgs{...}
 type B2CResourceSKUInput interface {
 	pulumi.Input
 

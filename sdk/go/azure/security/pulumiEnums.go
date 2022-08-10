@@ -34,6 +34,16 @@ const (
 	AdditionalWorkspaceTypeSentinel = AdditionalWorkspaceType("Sentinel")
 )
 
+// The application Condition's Operator, for example Contains for id or In for list of possible IDs, see examples
+type ApplicationConditionOperator string
+
+const (
+	// Checks that the string value of the data defined in Property contains the given value
+	ApplicationConditionOperatorContains = ApplicationConditionOperator("Contains")
+	// Checks that the string value of the data defined in Property equals any of the given values (exact fit)
+	ApplicationConditionOperatorIn = ApplicationConditionOperator("In")
+)
+
 // The application source, what it affects, e.g. Assessments
 type ApplicationSourceResourceType string
 
@@ -459,7 +469,7 @@ func (o StandardSupportedCloudsPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // StandardSupportedCloudsInput is an input type that accepts StandardSupportedCloudsArgs and StandardSupportedCloudsOutput values.
 // You can construct a concrete instance of `StandardSupportedCloudsInput` via:
 //
-//	StandardSupportedCloudsArgs{...}
+//          StandardSupportedCloudsArgs{...}
 type StandardSupportedCloudsInput interface {
 	pulumi.Input
 
@@ -497,7 +507,7 @@ func (in *standardSupportedCloudsPtr) ToStandardSupportedCloudsPtrOutputWithCont
 // StandardSupportedCloudsArrayInput is an input type that accepts StandardSupportedCloudsArray and StandardSupportedCloudsArrayOutput values.
 // You can construct a concrete instance of `StandardSupportedCloudsArrayInput` via:
 //
-//	StandardSupportedCloudsArray{ StandardSupportedCloudsArgs{...} }
+//          StandardSupportedCloudsArray{ StandardSupportedCloudsArgs{...} }
 type StandardSupportedCloudsArrayInput interface {
 	pulumi.Input
 

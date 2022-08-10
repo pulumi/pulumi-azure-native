@@ -36,7 +36,7 @@ func (val *AdditionalWorkspacesProperties) Defaults() *AdditionalWorkspacesPrope
 // AdditionalWorkspacesPropertiesInput is an input type that accepts AdditionalWorkspacesPropertiesArgs and AdditionalWorkspacesPropertiesOutput values.
 // You can construct a concrete instance of `AdditionalWorkspacesPropertiesInput` via:
 //
-//	AdditionalWorkspacesPropertiesArgs{...}
+//          AdditionalWorkspacesPropertiesArgs{...}
 type AdditionalWorkspacesPropertiesInput interface {
 	pulumi.Input
 
@@ -80,7 +80,7 @@ func (i AdditionalWorkspacesPropertiesArgs) ToAdditionalWorkspacesPropertiesOutp
 // AdditionalWorkspacesPropertiesArrayInput is an input type that accepts AdditionalWorkspacesPropertiesArray and AdditionalWorkspacesPropertiesArrayOutput values.
 // You can construct a concrete instance of `AdditionalWorkspacesPropertiesArrayInput` via:
 //
-//	AdditionalWorkspacesPropertiesArray{ AdditionalWorkspacesPropertiesArgs{...} }
+//          AdditionalWorkspacesPropertiesArray{ AdditionalWorkspacesPropertiesArgs{...} }
 type AdditionalWorkspacesPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +239,7 @@ type AllowlistCustomAlertRule struct {
 // AllowlistCustomAlertRuleInput is an input type that accepts AllowlistCustomAlertRuleArgs and AllowlistCustomAlertRuleOutput values.
 // You can construct a concrete instance of `AllowlistCustomAlertRuleInput` via:
 //
-//	AllowlistCustomAlertRuleArgs{...}
+//          AllowlistCustomAlertRuleArgs{...}
 type AllowlistCustomAlertRuleInput interface {
 	pulumi.Input
 
@@ -273,7 +273,7 @@ func (i AllowlistCustomAlertRuleArgs) ToAllowlistCustomAlertRuleOutputWithContex
 // AllowlistCustomAlertRuleArrayInput is an input type that accepts AllowlistCustomAlertRuleArray and AllowlistCustomAlertRuleArrayOutput values.
 // You can construct a concrete instance of `AllowlistCustomAlertRuleArrayInput` via:
 //
-//	AllowlistCustomAlertRuleArray{ AllowlistCustomAlertRuleArgs{...} }
+//          AllowlistCustomAlertRuleArray{ AllowlistCustomAlertRuleArgs{...} }
 type AllowlistCustomAlertRuleArrayInput interface {
 	pulumi.Input
 
@@ -443,7 +443,7 @@ type DenylistCustomAlertRule struct {
 // DenylistCustomAlertRuleInput is an input type that accepts DenylistCustomAlertRuleArgs and DenylistCustomAlertRuleOutput values.
 // You can construct a concrete instance of `DenylistCustomAlertRuleInput` via:
 //
-//	DenylistCustomAlertRuleArgs{...}
+//          DenylistCustomAlertRuleArgs{...}
 type DenylistCustomAlertRuleInput interface {
 	pulumi.Input
 
@@ -477,7 +477,7 @@ func (i DenylistCustomAlertRuleArgs) ToDenylistCustomAlertRuleOutputWithContext(
 // DenylistCustomAlertRuleArrayInput is an input type that accepts DenylistCustomAlertRuleArray and DenylistCustomAlertRuleArrayOutput values.
 // You can construct a concrete instance of `DenylistCustomAlertRuleArrayInput` via:
 //
-//	DenylistCustomAlertRuleArray{ DenylistCustomAlertRuleArgs{...} }
+//          DenylistCustomAlertRuleArray{ DenylistCustomAlertRuleArgs{...} }
 type DenylistCustomAlertRuleArrayInput interface {
 	pulumi.Input
 
@@ -656,7 +656,7 @@ func (val *RecommendationConfigurationProperties) Defaults() *RecommendationConf
 // RecommendationConfigurationPropertiesInput is an input type that accepts RecommendationConfigurationPropertiesArgs and RecommendationConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `RecommendationConfigurationPropertiesInput` via:
 //
-//	RecommendationConfigurationPropertiesArgs{...}
+//          RecommendationConfigurationPropertiesArgs{...}
 type RecommendationConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -698,7 +698,7 @@ func (i RecommendationConfigurationPropertiesArgs) ToRecommendationConfiguration
 // RecommendationConfigurationPropertiesArrayInput is an input type that accepts RecommendationConfigurationPropertiesArray and RecommendationConfigurationPropertiesArrayOutput values.
 // You can construct a concrete instance of `RecommendationConfigurationPropertiesArrayInput` via:
 //
-//	RecommendationConfigurationPropertiesArray{ RecommendationConfigurationPropertiesArgs{...} }
+//          RecommendationConfigurationPropertiesArray{ RecommendationConfigurationPropertiesArgs{...} }
 type RecommendationConfigurationPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -912,7 +912,7 @@ type ThresholdCustomAlertRule struct {
 // ThresholdCustomAlertRuleInput is an input type that accepts ThresholdCustomAlertRuleArgs and ThresholdCustomAlertRuleOutput values.
 // You can construct a concrete instance of `ThresholdCustomAlertRuleInput` via:
 //
-//	ThresholdCustomAlertRuleArgs{...}
+//          ThresholdCustomAlertRuleArgs{...}
 type ThresholdCustomAlertRuleInput interface {
 	pulumi.Input
 
@@ -948,7 +948,7 @@ func (i ThresholdCustomAlertRuleArgs) ToThresholdCustomAlertRuleOutputWithContex
 // ThresholdCustomAlertRuleArrayInput is an input type that accepts ThresholdCustomAlertRuleArray and ThresholdCustomAlertRuleArrayOutput values.
 // You can construct a concrete instance of `ThresholdCustomAlertRuleArrayInput` via:
 //
-//	ThresholdCustomAlertRuleArray{ ThresholdCustomAlertRuleArgs{...} }
+//          ThresholdCustomAlertRuleArray{ ThresholdCustomAlertRuleArgs{...} }
 type ThresholdCustomAlertRuleArrayInput interface {
 	pulumi.Input
 
@@ -1127,7 +1127,7 @@ type TimeWindowCustomAlertRule struct {
 // TimeWindowCustomAlertRuleInput is an input type that accepts TimeWindowCustomAlertRuleArgs and TimeWindowCustomAlertRuleOutput values.
 // You can construct a concrete instance of `TimeWindowCustomAlertRuleInput` via:
 //
-//	TimeWindowCustomAlertRuleArgs{...}
+//          TimeWindowCustomAlertRuleArgs{...}
 type TimeWindowCustomAlertRuleInput interface {
 	pulumi.Input
 
@@ -1165,7 +1165,7 @@ func (i TimeWindowCustomAlertRuleArgs) ToTimeWindowCustomAlertRuleOutputWithCont
 // TimeWindowCustomAlertRuleArrayInput is an input type that accepts TimeWindowCustomAlertRuleArray and TimeWindowCustomAlertRuleArrayOutput values.
 // You can construct a concrete instance of `TimeWindowCustomAlertRuleArrayInput` via:
 //
-//	TimeWindowCustomAlertRuleArray{ TimeWindowCustomAlertRuleArgs{...} }
+//          TimeWindowCustomAlertRuleArray{ TimeWindowCustomAlertRuleArgs{...} }
 type TimeWindowCustomAlertRuleArrayInput interface {
 	pulumi.Input
 
@@ -1349,7 +1349,7 @@ type UserDefinedResourcesProperties struct {
 // UserDefinedResourcesPropertiesInput is an input type that accepts UserDefinedResourcesPropertiesArgs and UserDefinedResourcesPropertiesOutput values.
 // You can construct a concrete instance of `UserDefinedResourcesPropertiesInput` via:
 //
-//	UserDefinedResourcesPropertiesArgs{...}
+//          UserDefinedResourcesPropertiesArgs{...}
 type UserDefinedResourcesPropertiesInput interface {
 	pulumi.Input
 
@@ -1388,11 +1388,11 @@ func (i UserDefinedResourcesPropertiesArgs) ToUserDefinedResourcesPropertiesPtrO
 // UserDefinedResourcesPropertiesPtrInput is an input type that accepts UserDefinedResourcesPropertiesArgs, UserDefinedResourcesPropertiesPtr and UserDefinedResourcesPropertiesPtrOutput values.
 // You can construct a concrete instance of `UserDefinedResourcesPropertiesPtrInput` via:
 //
-//	        UserDefinedResourcesPropertiesArgs{...}
+//          UserDefinedResourcesPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type UserDefinedResourcesPropertiesPtrInput interface {
 	pulumi.Input
 

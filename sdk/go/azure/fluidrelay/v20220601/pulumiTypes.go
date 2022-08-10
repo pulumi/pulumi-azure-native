@@ -21,7 +21,7 @@ type CustomerManagedKeyEncryptionProperties struct {
 // CustomerManagedKeyEncryptionPropertiesInput is an input type that accepts CustomerManagedKeyEncryptionPropertiesArgs and CustomerManagedKeyEncryptionPropertiesOutput values.
 // You can construct a concrete instance of `CustomerManagedKeyEncryptionPropertiesInput` via:
 //
-//	CustomerManagedKeyEncryptionPropertiesArgs{...}
+//          CustomerManagedKeyEncryptionPropertiesArgs{...}
 type CustomerManagedKeyEncryptionPropertiesInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i CustomerManagedKeyEncryptionPropertiesArgs) ToCustomerManagedKeyEncrypti
 // CustomerManagedKeyEncryptionPropertiesPtrInput is an input type that accepts CustomerManagedKeyEncryptionPropertiesArgs, CustomerManagedKeyEncryptionPropertiesPtr and CustomerManagedKeyEncryptionPropertiesPtrOutput values.
 // You can construct a concrete instance of `CustomerManagedKeyEncryptionPropertiesPtrInput` via:
 //
-//	        CustomerManagedKeyEncryptionPropertiesArgs{...}
+//          CustomerManagedKeyEncryptionPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CustomerManagedKeyEncryptionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -182,7 +182,7 @@ type CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentity struct {
 // CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityInput is an input type that accepts CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs and CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityOutput values.
 // You can construct a concrete instance of `CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityInput` via:
 //
-//	CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs{...}
+//          CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs{...}
 type CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityInput interface {
 	pulumi.Input
 
@@ -221,11 +221,11 @@ func (i CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs) ToCu
 // CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityPtrInput is an input type that accepts CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs, CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityPtr and CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityPtrOutput values.
 // You can construct a concrete instance of `CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityPtrInput` via:
 //
-//	        CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs{...}
+//          CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityPtrInput interface {
 	pulumi.Input
 
@@ -503,7 +503,7 @@ type EncryptionProperties struct {
 // EncryptionPropertiesInput is an input type that accepts EncryptionPropertiesArgs and EncryptionPropertiesOutput values.
 // You can construct a concrete instance of `EncryptionPropertiesInput` via:
 //
-//	EncryptionPropertiesArgs{...}
+//          EncryptionPropertiesArgs{...}
 type EncryptionPropertiesInput interface {
 	pulumi.Input
 
@@ -540,11 +540,11 @@ func (i EncryptionPropertiesArgs) ToEncryptionPropertiesPtrOutputWithContext(ctx
 // EncryptionPropertiesPtrInput is an input type that accepts EncryptionPropertiesArgs, EncryptionPropertiesPtr and EncryptionPropertiesPtrOutput values.
 // You can construct a concrete instance of `EncryptionPropertiesPtrInput` via:
 //
-//	        EncryptionPropertiesArgs{...}
+//          EncryptionPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EncryptionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -749,7 +749,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//	IdentityArgs{...}
+//          IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -788,11 +788,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//	        IdentityArgs{...}
+//          IdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IdentityPtrInput interface {
 	pulumi.Input
 

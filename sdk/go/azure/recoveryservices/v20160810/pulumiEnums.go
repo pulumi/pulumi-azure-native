@@ -141,7 +141,7 @@ func (o FailoverDeploymentModelPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // FailoverDeploymentModelInput is an input type that accepts FailoverDeploymentModelArgs and FailoverDeploymentModelOutput values.
 // You can construct a concrete instance of `FailoverDeploymentModelInput` via:
 //
-//	FailoverDeploymentModelArgs{...}
+//          FailoverDeploymentModelArgs{...}
 type FailoverDeploymentModelInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o PossibleOperationsDirectionsPtrOutput) ToStringPtrOutputWithContext(ctx 
 // PossibleOperationsDirectionsInput is an input type that accepts PossibleOperationsDirectionsArgs and PossibleOperationsDirectionsOutput values.
 // You can construct a concrete instance of `PossibleOperationsDirectionsInput` via:
 //
-//	PossibleOperationsDirectionsArgs{...}
+//          PossibleOperationsDirectionsArgs{...}
 type PossibleOperationsDirectionsInput interface {
 	pulumi.Input
 
@@ -343,7 +343,7 @@ func (in *possibleOperationsDirectionsPtr) ToPossibleOperationsDirectionsPtrOutp
 // PossibleOperationsDirectionsArrayInput is an input type that accepts PossibleOperationsDirectionsArray and PossibleOperationsDirectionsArrayOutput values.
 // You can construct a concrete instance of `PossibleOperationsDirectionsArrayInput` via:
 //
-//	PossibleOperationsDirectionsArray{ PossibleOperationsDirectionsArgs{...} }
+//          PossibleOperationsDirectionsArray{ PossibleOperationsDirectionsArgs{...} }
 type PossibleOperationsDirectionsArrayInput interface {
 	pulumi.Input
 
@@ -516,7 +516,7 @@ func (o RecoveryPlanGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // RecoveryPlanGroupTypeInput is an input type that accepts RecoveryPlanGroupTypeArgs and RecoveryPlanGroupTypeOutput values.
 // You can construct a concrete instance of `RecoveryPlanGroupTypeInput` via:
 //
-//	RecoveryPlanGroupTypeArgs{...}
+//          RecoveryPlanGroupTypeArgs{...}
 type RecoveryPlanGroupTypeInput interface {
 	pulumi.Input
 
@@ -691,7 +691,7 @@ func (o ReplicationProtectedItemOperationPtrOutput) ToStringPtrOutputWithContext
 // ReplicationProtectedItemOperationInput is an input type that accepts ReplicationProtectedItemOperationArgs and ReplicationProtectedItemOperationOutput values.
 // You can construct a concrete instance of `ReplicationProtectedItemOperationInput` via:
 //
-//	ReplicationProtectedItemOperationArgs{...}
+//          ReplicationProtectedItemOperationArgs{...}
 type ReplicationProtectedItemOperationInput interface {
 	pulumi.Input
 
@@ -729,7 +729,7 @@ func (in *replicationProtectedItemOperationPtr) ToReplicationProtectedItemOperat
 // ReplicationProtectedItemOperationArrayInput is an input type that accepts ReplicationProtectedItemOperationArray and ReplicationProtectedItemOperationArrayOutput values.
 // You can construct a concrete instance of `ReplicationProtectedItemOperationArrayInput` via:
 //
-//	ReplicationProtectedItemOperationArray{ ReplicationProtectedItemOperationArgs{...} }
+//          ReplicationProtectedItemOperationArray{ ReplicationProtectedItemOperationArgs{...} }
 type ReplicationProtectedItemOperationArrayInput interface {
 	pulumi.Input
 

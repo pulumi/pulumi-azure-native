@@ -21,7 +21,7 @@ type ManagedGrafanaProperties struct {
 // ManagedGrafanaPropertiesInput is an input type that accepts ManagedGrafanaPropertiesArgs and ManagedGrafanaPropertiesOutput values.
 // You can construct a concrete instance of `ManagedGrafanaPropertiesInput` via:
 //
-//	ManagedGrafanaPropertiesArgs{...}
+//          ManagedGrafanaPropertiesArgs{...}
 type ManagedGrafanaPropertiesInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ManagedGrafanaPropertiesArgs) ToManagedGrafanaPropertiesPtrOutputWithCon
 // ManagedGrafanaPropertiesPtrInput is an input type that accepts ManagedGrafanaPropertiesArgs, ManagedGrafanaPropertiesPtr and ManagedGrafanaPropertiesPtrOutput values.
 // You can construct a concrete instance of `ManagedGrafanaPropertiesPtrInput` via:
 //
-//	        ManagedGrafanaPropertiesArgs{...}
+//          ManagedGrafanaPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedGrafanaPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -241,7 +241,7 @@ type ManagedIdentity struct {
 // ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
 // You can construct a concrete instance of `ManagedIdentityInput` via:
 //
-//	ManagedIdentityArgs{...}
+//          ManagedIdentityArgs{...}
 type ManagedIdentityInput interface {
 	pulumi.Input
 
@@ -280,11 +280,11 @@ func (i ManagedIdentityArgs) ToManagedIdentityPtrOutputWithContext(ctx context.C
 // ManagedIdentityPtrInput is an input type that accepts ManagedIdentityArgs, ManagedIdentityPtr and ManagedIdentityPtrOutput values.
 // You can construct a concrete instance of `ManagedIdentityPtrInput` via:
 //
-//	        ManagedIdentityArgs{...}
+//          ManagedIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedIdentityPtrInput interface {
 	pulumi.Input
 
@@ -509,7 +509,7 @@ type ResourceSku struct {
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
 // You can construct a concrete instance of `ResourceSkuInput` via:
 //
-//	ResourceSkuArgs{...}
+//          ResourceSkuArgs{...}
 type ResourceSkuInput interface {
 	pulumi.Input
 
@@ -544,11 +544,11 @@ func (i ResourceSkuArgs) ToResourceSkuPtrOutputWithContext(ctx context.Context) 
 // ResourceSkuPtrInput is an input type that accepts ResourceSkuArgs, ResourceSkuPtr and ResourceSkuPtrOutput values.
 // You can construct a concrete instance of `ResourceSkuPtrInput` via:
 //
-//	        ResourceSkuArgs{...}
+//          ResourceSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceSkuPtrInput interface {
 	pulumi.Input
 

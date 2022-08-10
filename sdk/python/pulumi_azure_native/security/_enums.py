@@ -8,6 +8,7 @@ __all__ = [
     'ActionType',
     'AdditionalWorkspaceDataType',
     'AdditionalWorkspaceType',
+    'ApplicationConditionOperator',
     'ApplicationSourceResourceType',
     'AssessmentStatusCode',
     'AssessmentType',
@@ -66,6 +67,20 @@ class AdditionalWorkspaceType(str, Enum):
     Workspace type.
     """
     SENTINEL = "Sentinel"
+
+
+class ApplicationConditionOperator(str, Enum):
+    """
+    The application Condition's Operator, for example Contains for id or In for list of possible IDs, see examples
+    """
+    CONTAINS = "Contains"
+    """
+    Checks that the string value of the data defined in Property contains the given value
+    """
+    IN_ = "In"
+    """
+    Checks that the string value of the data defined in Property equals any of the given values (exact fit)
+    """
 
 
 class ApplicationSourceResourceType(str, Enum):

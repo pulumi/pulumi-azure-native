@@ -23,7 +23,7 @@ type InputLinuxParameters struct {
 // InputLinuxParametersInput is an input type that accepts InputLinuxParametersArgs and InputLinuxParametersOutput values.
 // You can construct a concrete instance of `InputLinuxParametersInput` via:
 //
-//	InputLinuxParametersArgs{...}
+//          InputLinuxParametersArgs{...}
 type InputLinuxParametersInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i InputLinuxParametersArgs) ToInputLinuxParametersPtrOutputWithContext(ctx
 // InputLinuxParametersPtrInput is an input type that accepts InputLinuxParametersArgs, InputLinuxParametersPtr and InputLinuxParametersPtrOutput values.
 // You can construct a concrete instance of `InputLinuxParametersPtrInput` via:
 //
-//	        InputLinuxParametersArgs{...}
+//          InputLinuxParametersArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type InputLinuxParametersPtrInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ func (val *InputPatchConfiguration) Defaults() *InputPatchConfiguration {
 // InputPatchConfigurationInput is an input type that accepts InputPatchConfigurationArgs and InputPatchConfigurationOutput values.
 // You can construct a concrete instance of `InputPatchConfigurationInput` via:
 //
-//	InputPatchConfigurationArgs{...}
+//          InputPatchConfigurationArgs{...}
 type InputPatchConfigurationInput interface {
 	pulumi.Input
 
@@ -368,11 +368,11 @@ func (i InputPatchConfigurationArgs) ToInputPatchConfigurationPtrOutputWithConte
 // InputPatchConfigurationPtrInput is an input type that accepts InputPatchConfigurationArgs, InputPatchConfigurationPtr and InputPatchConfigurationPtrOutput values.
 // You can construct a concrete instance of `InputPatchConfigurationPtrInput` via:
 //
-//	        InputPatchConfigurationArgs{...}
+//          InputPatchConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type InputPatchConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -678,7 +678,7 @@ type InputWindowsParameters struct {
 // InputWindowsParametersInput is an input type that accepts InputWindowsParametersArgs and InputWindowsParametersOutput values.
 // You can construct a concrete instance of `InputWindowsParametersInput` via:
 //
-//	InputWindowsParametersArgs{...}
+//          InputWindowsParametersArgs{...}
 type InputWindowsParametersInput interface {
 	pulumi.Input
 
@@ -721,11 +721,11 @@ func (i InputWindowsParametersArgs) ToInputWindowsParametersPtrOutputWithContext
 // InputWindowsParametersPtrInput is an input type that accepts InputWindowsParametersArgs, InputWindowsParametersPtr and InputWindowsParametersPtrOutput values.
 // You can construct a concrete instance of `InputWindowsParametersPtrInput` via:
 //
-//	        InputWindowsParametersArgs{...}
+//          InputWindowsParametersArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type InputWindowsParametersPtrInput interface {
 	pulumi.Input
 
@@ -1058,7 +1058,7 @@ func (val *TaskProperties) Defaults() *TaskProperties {
 // TaskPropertiesInput is an input type that accepts TaskPropertiesArgs and TaskPropertiesOutput values.
 // You can construct a concrete instance of `TaskPropertiesInput` via:
 //
-//	TaskPropertiesArgs{...}
+//          TaskPropertiesArgs{...}
 type TaskPropertiesInput interface {
 	pulumi.Input
 
@@ -1102,7 +1102,7 @@ func (i TaskPropertiesArgs) ToTaskPropertiesOutputWithContext(ctx context.Contex
 // TaskPropertiesArrayInput is an input type that accepts TaskPropertiesArray and TaskPropertiesArrayOutput values.
 // You can construct a concrete instance of `TaskPropertiesArrayInput` via:
 //
-//	TaskPropertiesArray{ TaskPropertiesArgs{...} }
+//          TaskPropertiesArray{ TaskPropertiesArgs{...} }
 type TaskPropertiesArrayInput interface {
 	pulumi.Input
 

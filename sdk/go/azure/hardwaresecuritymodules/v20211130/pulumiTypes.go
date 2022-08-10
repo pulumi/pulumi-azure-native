@@ -19,7 +19,7 @@ type ApiEntityReference struct {
 // ApiEntityReferenceInput is an input type that accepts ApiEntityReferenceArgs and ApiEntityReferenceOutput values.
 // You can construct a concrete instance of `ApiEntityReferenceInput` via:
 //
-//	ApiEntityReferenceArgs{...}
+//          ApiEntityReferenceArgs{...}
 type ApiEntityReferenceInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ApiEntityReferenceArgs) ToApiEntityReferencePtrOutputWithContext(ctx con
 // ApiEntityReferencePtrInput is an input type that accepts ApiEntityReferenceArgs, ApiEntityReferencePtr and ApiEntityReferencePtrOutput values.
 // You can construct a concrete instance of `ApiEntityReferencePtrInput` via:
 //
-//	        ApiEntityReferenceArgs{...}
+//          ApiEntityReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApiEntityReferencePtrInput interface {
 	pulumi.Input
 
@@ -219,7 +219,7 @@ type NetworkInterface struct {
 // NetworkInterfaceInput is an input type that accepts NetworkInterfaceArgs and NetworkInterfaceOutput values.
 // You can construct a concrete instance of `NetworkInterfaceInput` via:
 //
-//	NetworkInterfaceArgs{...}
+//          NetworkInterfaceArgs{...}
 type NetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -248,7 +248,7 @@ func (i NetworkInterfaceArgs) ToNetworkInterfaceOutputWithContext(ctx context.Co
 // NetworkInterfaceArrayInput is an input type that accepts NetworkInterfaceArray and NetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceArrayInput` via:
 //
-//	NetworkInterfaceArray{ NetworkInterfaceArgs{...} }
+//          NetworkInterfaceArray{ NetworkInterfaceArgs{...} }
 type NetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -374,7 +374,7 @@ type NetworkProfile struct {
 // NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
 // You can construct a concrete instance of `NetworkProfileInput` via:
 //
-//	NetworkProfileArgs{...}
+//          NetworkProfileArgs{...}
 type NetworkProfileInput interface {
 	pulumi.Input
 
@@ -413,11 +413,11 @@ func (i NetworkProfileArgs) ToNetworkProfilePtrOutputWithContext(ctx context.Con
 // NetworkProfilePtrInput is an input type that accepts NetworkProfileArgs, NetworkProfilePtr and NetworkProfilePtrOutput values.
 // You can construct a concrete instance of `NetworkProfilePtrInput` via:
 //
-//	        NetworkProfileArgs{...}
+//          NetworkProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -608,7 +608,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

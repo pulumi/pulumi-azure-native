@@ -140,7 +140,7 @@ func (o StandardSupportedCloudsPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // StandardSupportedCloudsInput is an input type that accepts StandardSupportedCloudsArgs and StandardSupportedCloudsOutput values.
 // You can construct a concrete instance of `StandardSupportedCloudsInput` via:
 //
-//	StandardSupportedCloudsArgs{...}
+//          StandardSupportedCloudsArgs{...}
 type StandardSupportedCloudsInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (in *standardSupportedCloudsPtr) ToStandardSupportedCloudsPtrOutputWithCont
 // StandardSupportedCloudsArrayInput is an input type that accepts StandardSupportedCloudsArray and StandardSupportedCloudsArrayOutput values.
 // You can construct a concrete instance of `StandardSupportedCloudsArrayInput` via:
 //
-//	StandardSupportedCloudsArray{ StandardSupportedCloudsArgs{...} }
+//          StandardSupportedCloudsArray{ StandardSupportedCloudsArgs{...} }
 type StandardSupportedCloudsArrayInput interface {
 	pulumi.Input
 

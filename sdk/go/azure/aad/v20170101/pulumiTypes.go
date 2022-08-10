@@ -23,7 +23,7 @@ type DomainSecuritySettings struct {
 // DomainSecuritySettingsInput is an input type that accepts DomainSecuritySettingsArgs and DomainSecuritySettingsOutput values.
 // You can construct a concrete instance of `DomainSecuritySettingsInput` via:
 //
-//	DomainSecuritySettingsArgs{...}
+//          DomainSecuritySettingsArgs{...}
 type DomainSecuritySettingsInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i DomainSecuritySettingsArgs) ToDomainSecuritySettingsPtrOutputWithContext
 // DomainSecuritySettingsPtrInput is an input type that accepts DomainSecuritySettingsArgs, DomainSecuritySettingsPtr and DomainSecuritySettingsPtrOutput values.
 // You can construct a concrete instance of `DomainSecuritySettingsPtrInput` via:
 //
-//	        DomainSecuritySettingsArgs{...}
+//          DomainSecuritySettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DomainSecuritySettingsPtrInput interface {
 	pulumi.Input
 
@@ -445,7 +445,7 @@ type LdapsSettings struct {
 // LdapsSettingsInput is an input type that accepts LdapsSettingsArgs and LdapsSettingsOutput values.
 // You can construct a concrete instance of `LdapsSettingsInput` via:
 //
-//	LdapsSettingsArgs{...}
+//          LdapsSettingsArgs{...}
 type LdapsSettingsInput interface {
 	pulumi.Input
 
@@ -488,11 +488,11 @@ func (i LdapsSettingsArgs) ToLdapsSettingsPtrOutputWithContext(ctx context.Conte
 // LdapsSettingsPtrInput is an input type that accepts LdapsSettingsArgs, LdapsSettingsPtr and LdapsSettingsPtrOutput values.
 // You can construct a concrete instance of `LdapsSettingsPtrInput` via:
 //
-//	        LdapsSettingsArgs{...}
+//          LdapsSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LdapsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -819,7 +819,7 @@ type NotificationSettings struct {
 // NotificationSettingsInput is an input type that accepts NotificationSettingsArgs and NotificationSettingsOutput values.
 // You can construct a concrete instance of `NotificationSettingsInput` via:
 //
-//	NotificationSettingsArgs{...}
+//          NotificationSettingsArgs{...}
 type NotificationSettingsInput interface {
 	pulumi.Input
 
@@ -860,11 +860,11 @@ func (i NotificationSettingsArgs) ToNotificationSettingsPtrOutputWithContext(ctx
 // NotificationSettingsPtrInput is an input type that accepts NotificationSettingsArgs, NotificationSettingsPtr and NotificationSettingsPtrOutput values.
 // You can construct a concrete instance of `NotificationSettingsPtrInput` via:
 //
-//	        NotificationSettingsArgs{...}
+//          NotificationSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NotificationSettingsPtrInput interface {
 	pulumi.Input
 

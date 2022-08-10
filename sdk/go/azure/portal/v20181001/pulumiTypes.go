@@ -23,7 +23,7 @@ type ConsoleCreateProperties struct {
 // ConsoleCreatePropertiesInput is an input type that accepts ConsoleCreatePropertiesArgs and ConsoleCreatePropertiesOutput values.
 // You can construct a concrete instance of `ConsoleCreatePropertiesInput` via:
 //
-//	ConsoleCreatePropertiesArgs{...}
+//          ConsoleCreatePropertiesArgs{...}
 type ConsoleCreatePropertiesInput interface {
 	pulumi.Input
 
@@ -136,7 +136,7 @@ type StorageProfile struct {
 // StorageProfileInput is an input type that accepts StorageProfileArgs and StorageProfileOutput values.
 // You can construct a concrete instance of `StorageProfileInput` via:
 //
-//	StorageProfileArgs{...}
+//          StorageProfileArgs{...}
 type StorageProfileInput interface {
 	pulumi.Input
 
@@ -247,7 +247,7 @@ type TerminalSettings struct {
 // TerminalSettingsInput is an input type that accepts TerminalSettingsArgs and TerminalSettingsOutput values.
 // You can construct a concrete instance of `TerminalSettingsInput` via:
 //
-//	TerminalSettingsArgs{...}
+//          TerminalSettingsArgs{...}
 type TerminalSettingsInput interface {
 	pulumi.Input
 
@@ -350,7 +350,7 @@ type UserProperties struct {
 // UserPropertiesInput is an input type that accepts UserPropertiesArgs and UserPropertiesOutput values.
 // You can construct a concrete instance of `UserPropertiesInput` via:
 //
-//	UserPropertiesArgs{...}
+//          UserPropertiesArgs{...}
 type UserPropertiesInput interface {
 	pulumi.Input
 

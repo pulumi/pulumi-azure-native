@@ -140,7 +140,7 @@ func (o AKSIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // AKSIdentityTypeInput is an input type that accepts AKSIdentityTypeArgs and AKSIdentityTypeOutput values.
 // You can construct a concrete instance of `AKSIdentityTypeInput` via:
 //
-//	AKSIdentityTypeArgs{...}
+//          AKSIdentityTypeArgs{...}
 type AKSIdentityTypeInput interface {
 	pulumi.Input
 
@@ -332,7 +332,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//	ResourceIdentityTypeArgs{...}
+//          ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 

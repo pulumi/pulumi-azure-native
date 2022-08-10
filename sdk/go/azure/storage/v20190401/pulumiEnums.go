@@ -140,7 +140,7 @@ func (o AccessTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // AccessTierInput is an input type that accepts AccessTierArgs and AccessTierOutput values.
 // You can construct a concrete instance of `AccessTierInput` via:
 //
-//	AccessTierArgs{...}
+//          AccessTierArgs{...}
 type AccessTierInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o ActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 // ActionInput is an input type that accepts ActionArgs and ActionOutput values.
 // You can construct a concrete instance of `ActionInput` via:
 //
-//	ActionArgs{...}
+//          ActionArgs{...}
 type ActionInput interface {
 	pulumi.Input
 
@@ -479,7 +479,7 @@ func (o DefaultActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // DefaultActionInput is an input type that accepts DefaultActionArgs and DefaultActionOutput values.
 // You can construct a concrete instance of `DefaultActionInput` via:
 //
-//	DefaultActionArgs{...}
+//          DefaultActionArgs{...}
 type DefaultActionInput interface {
 	pulumi.Input
 
@@ -653,7 +653,7 @@ func (o HttpProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // HttpProtocolInput is an input type that accepts HttpProtocolArgs and HttpProtocolOutput values.
 // You can construct a concrete instance of `HttpProtocolInput` via:
 //
-//	HttpProtocolArgs{...}
+//          HttpProtocolArgs{...}
 type HttpProtocolInput interface {
 	pulumi.Input
 
@@ -817,7 +817,7 @@ func (o IdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // IdentityTypeInput is an input type that accepts IdentityTypeArgs and IdentityTypeOutput values.
 // You can construct a concrete instance of `IdentityTypeInput` via:
 //
-//	IdentityTypeArgs{...}
+//          IdentityTypeArgs{...}
 type IdentityTypeInput interface {
 	pulumi.Input
 
@@ -1033,7 +1033,7 @@ func (o PublicAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // PublicAccessInput is an input type that accepts PublicAccessArgs and PublicAccessOutput values.
 // You can construct a concrete instance of `PublicAccessInput` via:
 //
-//	PublicAccessArgs{...}
+//          PublicAccessArgs{...}
 type PublicAccessInput interface {
 	pulumi.Input
 
@@ -1259,7 +1259,7 @@ func (o StatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 // StateInput is an input type that accepts StateArgs and StateOutput values.
 // You can construct a concrete instance of `StateInput` via:
 //
-//	StateArgs{...}
+//          StateArgs{...}
 type StateInput interface {
 	pulumi.Input
 

@@ -140,7 +140,7 @@ func (o AccessTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // AccessTierInput is an input type that accepts AccessTierArgs and AccessTierOutput values.
 // You can construct a concrete instance of `AccessTierInput` via:
 //
-//	AccessTierArgs{...}
+//          AccessTierArgs{...}
 type AccessTierInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o ActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 // ActionInput is an input type that accepts ActionArgs and ActionOutput values.
 // You can construct a concrete instance of `ActionInput` via:
 //
-//	ActionArgs{...}
+//          ActionArgs{...}
 type ActionInput interface {
 	pulumi.Input
 
@@ -473,7 +473,7 @@ func (o BlobAccessTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // BlobAccessTierInput is an input type that accepts BlobAccessTierArgs and BlobAccessTierOutput values.
 // You can construct a concrete instance of `BlobAccessTierInput` via:
 //
-//	BlobAccessTierArgs{...}
+//          BlobAccessTierArgs{...}
 type BlobAccessTierInput interface {
 	pulumi.Input
 
@@ -640,7 +640,7 @@ func (o BlobTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 // BlobTypeInput is an input type that accepts BlobTypeArgs and BlobTypeOutput values.
 // You can construct a concrete instance of `BlobTypeInput` via:
 //
-//	BlobTypeArgs{...}
+//          BlobTypeArgs{...}
 type BlobTypeInput interface {
 	pulumi.Input
 
@@ -815,7 +815,7 @@ func (o DefaultActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // DefaultActionInput is an input type that accepts DefaultActionArgs and DefaultActionOutput values.
 // You can construct a concrete instance of `DefaultActionInput` via:
 //
-//	DefaultActionArgs{...}
+//          DefaultActionArgs{...}
 type DefaultActionInput interface {
 	pulumi.Input
 
@@ -1027,7 +1027,7 @@ func (o HttpProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // HttpProtocolInput is an input type that accepts HttpProtocolArgs and HttpProtocolOutput values.
 // You can construct a concrete instance of `HttpProtocolInput` via:
 //
-//	HttpProtocolArgs{...}
+//          HttpProtocolArgs{...}
 type HttpProtocolInput interface {
 	pulumi.Input
 
@@ -1284,7 +1284,7 @@ func (o PublicAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // PublicAccessInput is an input type that accepts PublicAccessArgs and PublicAccessOutput values.
 // You can construct a concrete instance of `PublicAccessInput` via:
 //
-//	PublicAccessArgs{...}
+//          PublicAccessArgs{...}
 type PublicAccessInput interface {
 	pulumi.Input
 

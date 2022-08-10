@@ -140,7 +140,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//	ResourceIdentityTypeArgs{...}
+//          ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 
@@ -307,7 +307,7 @@ func (o SelectorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // SelectorTypeInput is an input type that accepts SelectorTypeArgs and SelectorTypeOutput values.
 // You can construct a concrete instance of `SelectorTypeInput` via:
 //
-//	SelectorTypeArgs{...}
+//          SelectorTypeArgs{...}
 type SelectorTypeInput interface {
 	pulumi.Input
 
@@ -471,7 +471,7 @@ func (o TargetReferenceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // TargetReferenceTypeInput is an input type that accepts TargetReferenceTypeArgs and TargetReferenceTypeOutput values.
 // You can construct a concrete instance of `TargetReferenceTypeInput` via:
 //
-//	TargetReferenceTypeArgs{...}
+//          TargetReferenceTypeArgs{...}
 type TargetReferenceTypeInput interface {
 	pulumi.Input
 

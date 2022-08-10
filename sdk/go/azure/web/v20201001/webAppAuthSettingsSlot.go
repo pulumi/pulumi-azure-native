@@ -770,8 +770,7 @@ func (o WebAppAuthSettingsSlotOutput) TokenRefreshExtensionHours() pulumi.Float6
 }
 
 // <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-//
-//	The default is <code>false</code>.
+//  The default is <code>false</code>.
 func (o WebAppAuthSettingsSlotOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebAppAuthSettingsSlot) pulumi.BoolPtrOutput { return v.TokenStoreEnabled }).(pulumi.BoolPtrOutput)
 }

@@ -43,7 +43,7 @@ type AddressSpace struct {
 // AddressSpaceInput is an input type that accepts AddressSpaceArgs and AddressSpaceOutput values.
 // You can construct a concrete instance of `AddressSpaceInput` via:
 //
-//	AddressSpaceArgs{...}
+//          AddressSpaceArgs{...}
 type AddressSpaceInput interface {
 	pulumi.Input
 
@@ -80,11 +80,11 @@ func (i AddressSpaceArgs) ToAddressSpacePtrOutputWithContext(ctx context.Context
 // AddressSpacePtrInput is an input type that accepts AddressSpaceArgs, AddressSpacePtr and AddressSpacePtrOutput values.
 // You can construct a concrete instance of `AddressSpacePtrInput` via:
 //
-//	        AddressSpaceArgs{...}
+//          AddressSpaceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AddressSpacePtrInput interface {
 	pulumi.Input
 
@@ -356,7 +356,7 @@ func (val *Encryption) Defaults() *Encryption {
 // EncryptionInput is an input type that accepts EncryptionArgs and EncryptionOutput values.
 // You can construct a concrete instance of `EncryptionInput` via:
 //
-//	EncryptionArgs{...}
+//          EncryptionArgs{...}
 type EncryptionInput interface {
 	pulumi.Input
 
@@ -410,11 +410,11 @@ func (i EncryptionArgs) ToEncryptionPtrOutputWithContext(ctx context.Context) En
 // EncryptionPtrInput is an input type that accepts EncryptionArgs, EncryptionPtr and EncryptionPtrOutput values.
 // You can construct a concrete instance of `EncryptionPtrInput` via:
 //
-//	        EncryptionArgs{...}
+//          EncryptionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EncryptionPtrInput interface {
 	pulumi.Input
 
@@ -682,7 +682,7 @@ type IdentityData struct {
 // IdentityDataInput is an input type that accepts IdentityDataArgs and IdentityDataOutput values.
 // You can construct a concrete instance of `IdentityDataInput` via:
 //
-//	IdentityDataArgs{...}
+//          IdentityDataArgs{...}
 type IdentityDataInput interface {
 	pulumi.Input
 
@@ -719,11 +719,11 @@ func (i IdentityDataArgs) ToIdentityDataPtrOutputWithContext(ctx context.Context
 // IdentityDataPtrInput is an input type that accepts IdentityDataArgs, IdentityDataPtr and IdentityDataPtrOutput values.
 // You can construct a concrete instance of `IdentityDataPtrInput` via:
 //
-//	        IdentityDataArgs{...}
+//          IdentityDataArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IdentityDataPtrInput interface {
 	pulumi.Input
 
@@ -1010,7 +1010,7 @@ type PrivateEndpointConnectionProperties struct {
 // PrivateEndpointConnectionPropertiesInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs and PrivateEndpointConnectionPropertiesOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInput` via:
 //
-//	PrivateEndpointConnectionPropertiesArgs{...}
+//          PrivateEndpointConnectionPropertiesArgs{...}
 type PrivateEndpointConnectionPropertiesInput interface {
 	pulumi.Input
 
@@ -1173,7 +1173,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -1284,7 +1284,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1323,11 +1323,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -1509,7 +1509,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork struct {
 	// The Id of the databricks virtual network.
 	Id *string `pulumi:"id"`
@@ -1518,7 +1518,7 @@ type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork struct {
 // VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs and VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput values.
 // You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkInput` via:
 //
-//	VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs{...}
+//          VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs{...}
 type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkInput interface {
 	pulumi.Input
 
@@ -1526,7 +1526,7 @@ type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkInput interfac
 	ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs struct {
 	// The Id of the databricks virtual network.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1555,11 +1555,11 @@ func (i VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs) ToVir
 // VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs, VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtr and VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrInput` via:
 //
-//	        VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs{...}
+//          VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrInput interface {
 	pulumi.Input
 
@@ -1585,7 +1585,7 @@ func (i *virtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput)
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput) ElementType() reflect.Type {
@@ -1649,7 +1649,7 @@ func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork struct {
 	// The Id of the remote virtual network.
 	Id *string `pulumi:"id"`
@@ -1658,7 +1658,7 @@ type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork struct {
 // VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs and VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput values.
 // You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkInput` via:
 //
-//	VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs{...}
+//          VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs{...}
 type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkInput interface {
 	pulumi.Input
 
@@ -1666,7 +1666,7 @@ type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkInput interface {
 	ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs struct {
 	// The Id of the remote virtual network.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1684,7 +1684,7 @@ func (i VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs) ToVirtual
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput)
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput) ElementType() reflect.Type {
@@ -1704,13 +1704,13 @@ func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput) Id() pu
 	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 type VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork struct {
 	// The Id of the databricks virtual network.
 	Id *string `pulumi:"id"`
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 type VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput) ElementType() reflect.Type {
@@ -1764,13 +1764,13 @@ func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 type VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork struct {
 	// The Id of the remote virtual network.
 	Id *string `pulumi:"id"`
 }
 
-// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 type VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput) ElementType() reflect.Type {
@@ -1799,7 +1799,7 @@ type WorkspaceCustomBooleanParameter struct {
 // WorkspaceCustomBooleanParameterInput is an input type that accepts WorkspaceCustomBooleanParameterArgs and WorkspaceCustomBooleanParameterOutput values.
 // You can construct a concrete instance of `WorkspaceCustomBooleanParameterInput` via:
 //
-//	WorkspaceCustomBooleanParameterArgs{...}
+//          WorkspaceCustomBooleanParameterArgs{...}
 type WorkspaceCustomBooleanParameterInput interface {
 	pulumi.Input
 
@@ -1836,11 +1836,11 @@ func (i WorkspaceCustomBooleanParameterArgs) ToWorkspaceCustomBooleanParameterPt
 // WorkspaceCustomBooleanParameterPtrInput is an input type that accepts WorkspaceCustomBooleanParameterArgs, WorkspaceCustomBooleanParameterPtr and WorkspaceCustomBooleanParameterPtrOutput values.
 // You can construct a concrete instance of `WorkspaceCustomBooleanParameterPtrInput` via:
 //
-//	        WorkspaceCustomBooleanParameterArgs{...}
+//          WorkspaceCustomBooleanParameterArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WorkspaceCustomBooleanParameterPtrInput interface {
 	pulumi.Input
 
@@ -2132,7 +2132,7 @@ func (val *WorkspaceCustomParameters) Defaults() *WorkspaceCustomParameters {
 // WorkspaceCustomParametersInput is an input type that accepts WorkspaceCustomParametersArgs and WorkspaceCustomParametersOutput values.
 // You can construct a concrete instance of `WorkspaceCustomParametersInput` via:
 //
-//	WorkspaceCustomParametersArgs{...}
+//          WorkspaceCustomParametersArgs{...}
 type WorkspaceCustomParametersInput interface {
 	pulumi.Input
 
@@ -2206,11 +2206,11 @@ func (i WorkspaceCustomParametersArgs) ToWorkspaceCustomParametersPtrOutputWithC
 // WorkspaceCustomParametersPtrInput is an input type that accepts WorkspaceCustomParametersArgs, WorkspaceCustomParametersPtr and WorkspaceCustomParametersPtrOutput values.
 // You can construct a concrete instance of `WorkspaceCustomParametersPtrInput` via:
 //
-//	        WorkspaceCustomParametersArgs{...}
+//          WorkspaceCustomParametersArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WorkspaceCustomParametersPtrInput interface {
 	pulumi.Input
 
@@ -2879,7 +2879,7 @@ type WorkspaceCustomStringParameter struct {
 // WorkspaceCustomStringParameterInput is an input type that accepts WorkspaceCustomStringParameterArgs and WorkspaceCustomStringParameterOutput values.
 // You can construct a concrete instance of `WorkspaceCustomStringParameterInput` via:
 //
-//	WorkspaceCustomStringParameterArgs{...}
+//          WorkspaceCustomStringParameterArgs{...}
 type WorkspaceCustomStringParameterInput interface {
 	pulumi.Input
 
@@ -2916,11 +2916,11 @@ func (i WorkspaceCustomStringParameterArgs) ToWorkspaceCustomStringParameterPtrO
 // WorkspaceCustomStringParameterPtrInput is an input type that accepts WorkspaceCustomStringParameterArgs, WorkspaceCustomStringParameterPtr and WorkspaceCustomStringParameterPtrOutput values.
 // You can construct a concrete instance of `WorkspaceCustomStringParameterPtrInput` via:
 //
-//	        WorkspaceCustomStringParameterArgs{...}
+//          WorkspaceCustomStringParameterArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WorkspaceCustomStringParameterPtrInput interface {
 	pulumi.Input
 
@@ -3107,7 +3107,7 @@ func (val *WorkspaceEncryptionParameter) Defaults() *WorkspaceEncryptionParamete
 // WorkspaceEncryptionParameterInput is an input type that accepts WorkspaceEncryptionParameterArgs and WorkspaceEncryptionParameterOutput values.
 // You can construct a concrete instance of `WorkspaceEncryptionParameterInput` via:
 //
-//	WorkspaceEncryptionParameterArgs{...}
+//          WorkspaceEncryptionParameterArgs{...}
 type WorkspaceEncryptionParameterInput interface {
 	pulumi.Input
 
@@ -3153,11 +3153,11 @@ func (i WorkspaceEncryptionParameterArgs) ToWorkspaceEncryptionParameterPtrOutpu
 // WorkspaceEncryptionParameterPtrInput is an input type that accepts WorkspaceEncryptionParameterArgs, WorkspaceEncryptionParameterPtr and WorkspaceEncryptionParameterPtrOutput values.
 // You can construct a concrete instance of `WorkspaceEncryptionParameterPtrInput` via:
 //
-//	        WorkspaceEncryptionParameterArgs{...}
+//          WorkspaceEncryptionParameterArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WorkspaceEncryptionParameterPtrInput interface {
 	pulumi.Input
 
@@ -3346,7 +3346,7 @@ type WorkspaceProviderAuthorization struct {
 // WorkspaceProviderAuthorizationInput is an input type that accepts WorkspaceProviderAuthorizationArgs and WorkspaceProviderAuthorizationOutput values.
 // You can construct a concrete instance of `WorkspaceProviderAuthorizationInput` via:
 //
-//	WorkspaceProviderAuthorizationArgs{...}
+//          WorkspaceProviderAuthorizationArgs{...}
 type WorkspaceProviderAuthorizationInput interface {
 	pulumi.Input
 
@@ -3377,7 +3377,7 @@ func (i WorkspaceProviderAuthorizationArgs) ToWorkspaceProviderAuthorizationOutp
 // WorkspaceProviderAuthorizationArrayInput is an input type that accepts WorkspaceProviderAuthorizationArray and WorkspaceProviderAuthorizationArrayOutput values.
 // You can construct a concrete instance of `WorkspaceProviderAuthorizationArrayInput` via:
 //
-//	WorkspaceProviderAuthorizationArray{ WorkspaceProviderAuthorizationArgs{...} }
+//          WorkspaceProviderAuthorizationArray{ WorkspaceProviderAuthorizationArgs{...} }
 type WorkspaceProviderAuthorizationArrayInput interface {
 	pulumi.Input
 

@@ -25,7 +25,7 @@ type AS2AcknowledgementConnectionSettings struct {
 // AS2AcknowledgementConnectionSettingsInput is an input type that accepts AS2AcknowledgementConnectionSettingsArgs and AS2AcknowledgementConnectionSettingsOutput values.
 // You can construct a concrete instance of `AS2AcknowledgementConnectionSettingsInput` via:
 //
-//	AS2AcknowledgementConnectionSettingsArgs{...}
+//          AS2AcknowledgementConnectionSettingsArgs{...}
 type AS2AcknowledgementConnectionSettingsInput interface {
 	pulumi.Input
 
@@ -68,11 +68,11 @@ func (i AS2AcknowledgementConnectionSettingsArgs) ToAS2AcknowledgementConnection
 // AS2AcknowledgementConnectionSettingsPtrInput is an input type that accepts AS2AcknowledgementConnectionSettingsArgs, AS2AcknowledgementConnectionSettingsPtr and AS2AcknowledgementConnectionSettingsPtrOutput values.
 // You can construct a concrete instance of `AS2AcknowledgementConnectionSettingsPtrInput` via:
 //
-//	        AS2AcknowledgementConnectionSettingsArgs{...}
+//          AS2AcknowledgementConnectionSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AS2AcknowledgementConnectionSettingsPtrInput interface {
 	pulumi.Input
 
@@ -329,7 +329,7 @@ type AS2AgreementContent struct {
 // AS2AgreementContentInput is an input type that accepts AS2AgreementContentArgs and AS2AgreementContentOutput values.
 // You can construct a concrete instance of `AS2AgreementContentInput` via:
 //
-//	AS2AgreementContentArgs{...}
+//          AS2AgreementContentArgs{...}
 type AS2AgreementContentInput interface {
 	pulumi.Input
 
@@ -368,11 +368,11 @@ func (i AS2AgreementContentArgs) ToAS2AgreementContentPtrOutputWithContext(ctx c
 // AS2AgreementContentPtrInput is an input type that accepts AS2AgreementContentArgs, AS2AgreementContentPtr and AS2AgreementContentPtrOutput values.
 // You can construct a concrete instance of `AS2AgreementContentPtrInput` via:
 //
-//	        AS2AgreementContentArgs{...}
+//          AS2AgreementContentArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AS2AgreementContentPtrInput interface {
 	pulumi.Input
 
@@ -571,7 +571,7 @@ type AS2EnvelopeSettings struct {
 // AS2EnvelopeSettingsInput is an input type that accepts AS2EnvelopeSettingsArgs and AS2EnvelopeSettingsOutput values.
 // You can construct a concrete instance of `AS2EnvelopeSettingsInput` via:
 //
-//	AS2EnvelopeSettingsArgs{...}
+//          AS2EnvelopeSettingsArgs{...}
 type AS2EnvelopeSettingsInput interface {
 	pulumi.Input
 
@@ -616,11 +616,11 @@ func (i AS2EnvelopeSettingsArgs) ToAS2EnvelopeSettingsPtrOutputWithContext(ctx c
 // AS2EnvelopeSettingsPtrInput is an input type that accepts AS2EnvelopeSettingsArgs, AS2EnvelopeSettingsPtr and AS2EnvelopeSettingsPtrOutput values.
 // You can construct a concrete instance of `AS2EnvelopeSettingsPtrInput` via:
 //
-//	        AS2EnvelopeSettingsArgs{...}
+//          AS2EnvelopeSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AS2EnvelopeSettingsPtrInput interface {
 	pulumi.Input
 
@@ -909,7 +909,7 @@ type AS2ErrorSettings struct {
 // AS2ErrorSettingsInput is an input type that accepts AS2ErrorSettingsArgs and AS2ErrorSettingsOutput values.
 // You can construct a concrete instance of `AS2ErrorSettingsInput` via:
 //
-//	AS2ErrorSettingsArgs{...}
+//          AS2ErrorSettingsArgs{...}
 type AS2ErrorSettingsInput interface {
 	pulumi.Input
 
@@ -948,11 +948,11 @@ func (i AS2ErrorSettingsArgs) ToAS2ErrorSettingsPtrOutputWithContext(ctx context
 // AS2ErrorSettingsPtrInput is an input type that accepts AS2ErrorSettingsArgs, AS2ErrorSettingsPtr and AS2ErrorSettingsPtrOutput values.
 // You can construct a concrete instance of `AS2ErrorSettingsPtrInput` via:
 //
-//	        AS2ErrorSettingsArgs{...}
+//          AS2ErrorSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AS2ErrorSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1159,7 +1159,7 @@ type AS2MdnSettings struct {
 // AS2MdnSettingsInput is an input type that accepts AS2MdnSettingsArgs and AS2MdnSettingsOutput values.
 // You can construct a concrete instance of `AS2MdnSettingsInput` via:
 //
-//	AS2MdnSettingsArgs{...}
+//          AS2MdnSettingsArgs{...}
 type AS2MdnSettingsInput interface {
 	pulumi.Input
 
@@ -1212,11 +1212,11 @@ func (i AS2MdnSettingsArgs) ToAS2MdnSettingsPtrOutputWithContext(ctx context.Con
 // AS2MdnSettingsPtrInput is an input type that accepts AS2MdnSettingsArgs, AS2MdnSettingsPtr and AS2MdnSettingsPtrOutput values.
 // You can construct a concrete instance of `AS2MdnSettingsPtrInput` via:
 //
-//	        AS2MdnSettingsArgs{...}
+//          AS2MdnSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AS2MdnSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1637,7 +1637,7 @@ type AS2MessageConnectionSettings struct {
 // AS2MessageConnectionSettingsInput is an input type that accepts AS2MessageConnectionSettingsArgs and AS2MessageConnectionSettingsOutput values.
 // You can construct a concrete instance of `AS2MessageConnectionSettingsInput` via:
 //
-//	AS2MessageConnectionSettingsArgs{...}
+//          AS2MessageConnectionSettingsArgs{...}
 type AS2MessageConnectionSettingsInput interface {
 	pulumi.Input
 
@@ -1680,11 +1680,11 @@ func (i AS2MessageConnectionSettingsArgs) ToAS2MessageConnectionSettingsPtrOutpu
 // AS2MessageConnectionSettingsPtrInput is an input type that accepts AS2MessageConnectionSettingsArgs, AS2MessageConnectionSettingsPtr and AS2MessageConnectionSettingsPtrOutput values.
 // You can construct a concrete instance of `AS2MessageConnectionSettingsPtrInput` via:
 //
-//	        AS2MessageConnectionSettingsArgs{...}
+//          AS2MessageConnectionSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AS2MessageConnectionSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1943,7 +1943,7 @@ type AS2OneWayAgreement struct {
 // AS2OneWayAgreementInput is an input type that accepts AS2OneWayAgreementArgs and AS2OneWayAgreementOutput values.
 // You can construct a concrete instance of `AS2OneWayAgreementInput` via:
 //
-//	AS2OneWayAgreementArgs{...}
+//          AS2OneWayAgreementArgs{...}
 type AS2OneWayAgreementInput interface {
 	pulumi.Input
 
@@ -1984,11 +1984,11 @@ func (i AS2OneWayAgreementArgs) ToAS2OneWayAgreementPtrOutputWithContext(ctx con
 // AS2OneWayAgreementPtrInput is an input type that accepts AS2OneWayAgreementArgs, AS2OneWayAgreementPtr and AS2OneWayAgreementPtrOutput values.
 // You can construct a concrete instance of `AS2OneWayAgreementPtrInput` via:
 //
-//	        AS2OneWayAgreementArgs{...}
+//          AS2OneWayAgreementArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AS2OneWayAgreementPtrInput interface {
 	pulumi.Input
 
@@ -2223,7 +2223,7 @@ type AS2ProtocolSettings struct {
 // AS2ProtocolSettingsInput is an input type that accepts AS2ProtocolSettingsArgs and AS2ProtocolSettingsOutput values.
 // You can construct a concrete instance of `AS2ProtocolSettingsInput` via:
 //
-//	AS2ProtocolSettingsArgs{...}
+//          AS2ProtocolSettingsArgs{...}
 type AS2ProtocolSettingsInput interface {
 	pulumi.Input
 
@@ -2272,11 +2272,11 @@ func (i AS2ProtocolSettingsArgs) ToAS2ProtocolSettingsPtrOutputWithContext(ctx c
 // AS2ProtocolSettingsPtrInput is an input type that accepts AS2ProtocolSettingsArgs, AS2ProtocolSettingsPtr and AS2ProtocolSettingsPtrOutput values.
 // You can construct a concrete instance of `AS2ProtocolSettingsPtrInput` via:
 //
-//	        AS2ProtocolSettingsArgs{...}
+//          AS2ProtocolSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AS2ProtocolSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2651,7 +2651,7 @@ type AS2SecuritySettings struct {
 // AS2SecuritySettingsInput is an input type that accepts AS2SecuritySettingsArgs and AS2SecuritySettingsOutput values.
 // You can construct a concrete instance of `AS2SecuritySettingsInput` via:
 //
-//	AS2SecuritySettingsArgs{...}
+//          AS2SecuritySettingsArgs{...}
 type AS2SecuritySettingsInput interface {
 	pulumi.Input
 
@@ -2706,11 +2706,11 @@ func (i AS2SecuritySettingsArgs) ToAS2SecuritySettingsPtrOutputWithContext(ctx c
 // AS2SecuritySettingsPtrInput is an input type that accepts AS2SecuritySettingsArgs, AS2SecuritySettingsPtr and AS2SecuritySettingsPtrOutput values.
 // You can construct a concrete instance of `AS2SecuritySettingsPtrInput` via:
 //
-//	        AS2SecuritySettingsArgs{...}
+//          AS2SecuritySettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AS2SecuritySettingsPtrInput interface {
 	pulumi.Input
 
@@ -3175,7 +3175,7 @@ type AS2ValidationSettings struct {
 // AS2ValidationSettingsInput is an input type that accepts AS2ValidationSettingsArgs and AS2ValidationSettingsOutput values.
 // You can construct a concrete instance of `AS2ValidationSettingsInput` via:
 //
-//	AS2ValidationSettingsArgs{...}
+//          AS2ValidationSettingsArgs{...}
 type AS2ValidationSettingsInput interface {
 	pulumi.Input
 
@@ -3230,11 +3230,11 @@ func (i AS2ValidationSettingsArgs) ToAS2ValidationSettingsPtrOutputWithContext(c
 // AS2ValidationSettingsPtrInput is an input type that accepts AS2ValidationSettingsArgs, AS2ValidationSettingsPtr and AS2ValidationSettingsPtrOutput values.
 // You can construct a concrete instance of `AS2ValidationSettingsPtrInput` via:
 //
-//	        AS2ValidationSettingsArgs{...}
+//          AS2ValidationSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AS2ValidationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3685,7 +3685,7 @@ type AgreementContent struct {
 // AgreementContentInput is an input type that accepts AgreementContentArgs and AgreementContentOutput values.
 // You can construct a concrete instance of `AgreementContentInput` via:
 //
-//	AgreementContentArgs{...}
+//          AgreementContentArgs{...}
 type AgreementContentInput interface {
 	pulumi.Input
 
@@ -3810,7 +3810,7 @@ type AssemblyProperties struct {
 // AssemblyPropertiesInput is an input type that accepts AssemblyPropertiesArgs and AssemblyPropertiesOutput values.
 // You can construct a concrete instance of `AssemblyPropertiesInput` via:
 //
-//	AssemblyPropertiesArgs{...}
+//          AssemblyPropertiesArgs{...}
 type AssemblyPropertiesInput interface {
 	pulumi.Input
 
@@ -4123,7 +4123,7 @@ type B2BPartnerContent struct {
 // B2BPartnerContentInput is an input type that accepts B2BPartnerContentArgs and B2BPartnerContentOutput values.
 // You can construct a concrete instance of `B2BPartnerContentInput` via:
 //
-//	B2BPartnerContentArgs{...}
+//          B2BPartnerContentArgs{...}
 type B2BPartnerContentInput interface {
 	pulumi.Input
 
@@ -4160,11 +4160,11 @@ func (i B2BPartnerContentArgs) ToB2BPartnerContentPtrOutputWithContext(ctx conte
 // B2BPartnerContentPtrInput is an input type that accepts B2BPartnerContentArgs, B2BPartnerContentPtr and B2BPartnerContentPtrOutput values.
 // You can construct a concrete instance of `B2BPartnerContentPtrInput` via:
 //
-//	        B2BPartnerContentArgs{...}
+//          B2BPartnerContentArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type B2BPartnerContentPtrInput interface {
 	pulumi.Input
 
@@ -4330,7 +4330,7 @@ type BatchConfigurationProperties struct {
 // BatchConfigurationPropertiesInput is an input type that accepts BatchConfigurationPropertiesArgs and BatchConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `BatchConfigurationPropertiesInput` via:
 //
-//	BatchConfigurationPropertiesArgs{...}
+//          BatchConfigurationPropertiesArgs{...}
 type BatchConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -4467,7 +4467,7 @@ type BatchReleaseCriteria struct {
 // BatchReleaseCriteriaInput is an input type that accepts BatchReleaseCriteriaArgs and BatchReleaseCriteriaOutput values.
 // You can construct a concrete instance of `BatchReleaseCriteriaInput` via:
 //
-//	BatchReleaseCriteriaArgs{...}
+//          BatchReleaseCriteriaArgs{...}
 type BatchReleaseCriteriaInput interface {
 	pulumi.Input
 
@@ -4578,7 +4578,7 @@ type BusinessIdentity struct {
 // BusinessIdentityInput is an input type that accepts BusinessIdentityArgs and BusinessIdentityOutput values.
 // You can construct a concrete instance of `BusinessIdentityInput` via:
 //
-//	BusinessIdentityArgs{...}
+//          BusinessIdentityArgs{...}
 type BusinessIdentityInput interface {
 	pulumi.Input
 
@@ -4617,11 +4617,11 @@ func (i BusinessIdentityArgs) ToBusinessIdentityPtrOutputWithContext(ctx context
 // BusinessIdentityPtrInput is an input type that accepts BusinessIdentityArgs, BusinessIdentityPtr and BusinessIdentityPtrOutput values.
 // You can construct a concrete instance of `BusinessIdentityPtrInput` via:
 //
-//	        BusinessIdentityArgs{...}
+//          BusinessIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BusinessIdentityPtrInput interface {
 	pulumi.Input
 
@@ -4650,7 +4650,7 @@ func (i *businessIdentityPtrType) ToBusinessIdentityPtrOutputWithContext(ctx con
 // BusinessIdentityArrayInput is an input type that accepts BusinessIdentityArray and BusinessIdentityArrayOutput values.
 // You can construct a concrete instance of `BusinessIdentityArrayInput` via:
 //
-//	BusinessIdentityArray{ BusinessIdentityArgs{...} }
+//          BusinessIdentityArray{ BusinessIdentityArgs{...} }
 type BusinessIdentityArrayInput interface {
 	pulumi.Input
 
@@ -4879,7 +4879,7 @@ type ContentHash struct {
 // ContentHashInput is an input type that accepts ContentHashArgs and ContentHashOutput values.
 // You can construct a concrete instance of `ContentHashInput` via:
 //
-//	ContentHashArgs{...}
+//          ContentHashArgs{...}
 type ContentHashInput interface {
 	pulumi.Input
 
@@ -4918,11 +4918,11 @@ func (i ContentHashArgs) ToContentHashPtrOutputWithContext(ctx context.Context) 
 // ContentHashPtrInput is an input type that accepts ContentHashArgs, ContentHashPtr and ContentHashPtrOutput values.
 // You can construct a concrete instance of `ContentHashPtrInput` via:
 //
-//	        ContentHashArgs{...}
+//          ContentHashArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContentHashPtrInput interface {
 	pulumi.Input
 
@@ -5121,7 +5121,7 @@ type ContentLink struct {
 // ContentLinkInput is an input type that accepts ContentLinkArgs and ContentLinkOutput values.
 // You can construct a concrete instance of `ContentLinkInput` via:
 //
-//	ContentLinkArgs{...}
+//          ContentLinkArgs{...}
 type ContentLinkInput interface {
 	pulumi.Input
 
@@ -5166,11 +5166,11 @@ func (i ContentLinkArgs) ToContentLinkPtrOutputWithContext(ctx context.Context) 
 // ContentLinkPtrInput is an input type that accepts ContentLinkArgs, ContentLinkPtr and ContentLinkPtrOutput values.
 // You can construct a concrete instance of `ContentLinkPtrInput` via:
 //
-//	        ContentLinkArgs{...}
+//          ContentLinkArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContentLinkPtrInput interface {
 	pulumi.Input
 
@@ -5477,7 +5477,7 @@ type EdifactAcknowledgementSettings struct {
 // EdifactAcknowledgementSettingsInput is an input type that accepts EdifactAcknowledgementSettingsArgs and EdifactAcknowledgementSettingsOutput values.
 // You can construct a concrete instance of `EdifactAcknowledgementSettingsInput` via:
 //
-//	EdifactAcknowledgementSettingsArgs{...}
+//          EdifactAcknowledgementSettingsArgs{...}
 type EdifactAcknowledgementSettingsInput interface {
 	pulumi.Input
 
@@ -5534,11 +5534,11 @@ func (i EdifactAcknowledgementSettingsArgs) ToEdifactAcknowledgementSettingsPtrO
 // EdifactAcknowledgementSettingsPtrInput is an input type that accepts EdifactAcknowledgementSettingsArgs, EdifactAcknowledgementSettingsPtr and EdifactAcknowledgementSettingsPtrOutput values.
 // You can construct a concrete instance of `EdifactAcknowledgementSettingsPtrInput` via:
 //
-//	        EdifactAcknowledgementSettingsArgs{...}
+//          EdifactAcknowledgementSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EdifactAcknowledgementSettingsPtrInput interface {
 	pulumi.Input
 
@@ -6019,7 +6019,7 @@ type EdifactAgreementContent struct {
 // EdifactAgreementContentInput is an input type that accepts EdifactAgreementContentArgs and EdifactAgreementContentOutput values.
 // You can construct a concrete instance of `EdifactAgreementContentInput` via:
 //
-//	EdifactAgreementContentArgs{...}
+//          EdifactAgreementContentArgs{...}
 type EdifactAgreementContentInput interface {
 	pulumi.Input
 
@@ -6058,11 +6058,11 @@ func (i EdifactAgreementContentArgs) ToEdifactAgreementContentPtrOutputWithConte
 // EdifactAgreementContentPtrInput is an input type that accepts EdifactAgreementContentArgs, EdifactAgreementContentPtr and EdifactAgreementContentPtrOutput values.
 // You can construct a concrete instance of `EdifactAgreementContentPtrInput` via:
 //
-//	        EdifactAgreementContentArgs{...}
+//          EdifactAgreementContentArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EdifactAgreementContentPtrInput interface {
 	pulumi.Input
 
@@ -6275,7 +6275,7 @@ type EdifactDelimiterOverride struct {
 // EdifactDelimiterOverrideInput is an input type that accepts EdifactDelimiterOverrideArgs and EdifactDelimiterOverrideOutput values.
 // You can construct a concrete instance of `EdifactDelimiterOverrideInput` via:
 //
-//	EdifactDelimiterOverrideArgs{...}
+//          EdifactDelimiterOverrideArgs{...}
 type EdifactDelimiterOverrideInput interface {
 	pulumi.Input
 
@@ -6326,7 +6326,7 @@ func (i EdifactDelimiterOverrideArgs) ToEdifactDelimiterOverrideOutputWithContex
 // EdifactDelimiterOverrideArrayInput is an input type that accepts EdifactDelimiterOverrideArray and EdifactDelimiterOverrideArrayOutput values.
 // You can construct a concrete instance of `EdifactDelimiterOverrideArrayInput` via:
 //
-//	EdifactDelimiterOverrideArray{ EdifactDelimiterOverrideArgs{...} }
+//          EdifactDelimiterOverrideArray{ EdifactDelimiterOverrideArgs{...} }
 type EdifactDelimiterOverrideArrayInput interface {
 	pulumi.Input
 
@@ -6603,7 +6603,7 @@ type EdifactEnvelopeOverride struct {
 // EdifactEnvelopeOverrideInput is an input type that accepts EdifactEnvelopeOverrideArgs and EdifactEnvelopeOverrideOutput values.
 // You can construct a concrete instance of `EdifactEnvelopeOverrideInput` via:
 //
-//	EdifactEnvelopeOverrideArgs{...}
+//          EdifactEnvelopeOverrideArgs{...}
 type EdifactEnvelopeOverrideInput interface {
 	pulumi.Input
 
@@ -6660,7 +6660,7 @@ func (i EdifactEnvelopeOverrideArgs) ToEdifactEnvelopeOverrideOutputWithContext(
 // EdifactEnvelopeOverrideArrayInput is an input type that accepts EdifactEnvelopeOverrideArray and EdifactEnvelopeOverrideArrayOutput values.
 // You can construct a concrete instance of `EdifactEnvelopeOverrideArrayInput` via:
 //
-//	EdifactEnvelopeOverrideArray{ EdifactEnvelopeOverrideArgs{...} }
+//          EdifactEnvelopeOverrideArray{ EdifactEnvelopeOverrideArgs{...} }
 type EdifactEnvelopeOverrideArrayInput interface {
 	pulumi.Input
 
@@ -7025,7 +7025,7 @@ type EdifactEnvelopeSettings struct {
 // EdifactEnvelopeSettingsInput is an input type that accepts EdifactEnvelopeSettingsArgs and EdifactEnvelopeSettingsOutput values.
 // You can construct a concrete instance of `EdifactEnvelopeSettingsInput` via:
 //
-//	EdifactEnvelopeSettingsArgs{...}
+//          EdifactEnvelopeSettingsArgs{...}
 type EdifactEnvelopeSettingsInput interface {
 	pulumi.Input
 
@@ -7142,11 +7142,11 @@ func (i EdifactEnvelopeSettingsArgs) ToEdifactEnvelopeSettingsPtrOutputWithConte
 // EdifactEnvelopeSettingsPtrInput is an input type that accepts EdifactEnvelopeSettingsArgs, EdifactEnvelopeSettingsPtr and EdifactEnvelopeSettingsPtrOutput values.
 // You can construct a concrete instance of `EdifactEnvelopeSettingsPtrInput` via:
 //
-//	        EdifactEnvelopeSettingsArgs{...}
+//          EdifactEnvelopeSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EdifactEnvelopeSettingsPtrInput interface {
 	pulumi.Input
 
@@ -8605,7 +8605,7 @@ type EdifactFramingSettings struct {
 // EdifactFramingSettingsInput is an input type that accepts EdifactFramingSettingsArgs and EdifactFramingSettingsOutput values.
 // You can construct a concrete instance of `EdifactFramingSettingsInput` via:
 //
-//	EdifactFramingSettingsArgs{...}
+//          EdifactFramingSettingsArgs{...}
 type EdifactFramingSettingsInput interface {
 	pulumi.Input
 
@@ -8662,11 +8662,11 @@ func (i EdifactFramingSettingsArgs) ToEdifactFramingSettingsPtrOutputWithContext
 // EdifactFramingSettingsPtrInput is an input type that accepts EdifactFramingSettingsArgs, EdifactFramingSettingsPtr and EdifactFramingSettingsPtrOutput values.
 // You can construct a concrete instance of `EdifactFramingSettingsPtrInput` via:
 //
-//	        EdifactFramingSettingsArgs{...}
+//          EdifactFramingSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EdifactFramingSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9145,7 +9145,7 @@ type EdifactMessageFilter struct {
 // EdifactMessageFilterInput is an input type that accepts EdifactMessageFilterArgs and EdifactMessageFilterOutput values.
 // You can construct a concrete instance of `EdifactMessageFilterInput` via:
 //
-//	EdifactMessageFilterArgs{...}
+//          EdifactMessageFilterArgs{...}
 type EdifactMessageFilterInput interface {
 	pulumi.Input
 
@@ -9182,11 +9182,11 @@ func (i EdifactMessageFilterArgs) ToEdifactMessageFilterPtrOutputWithContext(ctx
 // EdifactMessageFilterPtrInput is an input type that accepts EdifactMessageFilterArgs, EdifactMessageFilterPtr and EdifactMessageFilterPtrOutput values.
 // You can construct a concrete instance of `EdifactMessageFilterPtrInput` via:
 //
-//	        EdifactMessageFilterArgs{...}
+//          EdifactMessageFilterArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EdifactMessageFilterPtrInput interface {
 	pulumi.Input
 
@@ -9345,7 +9345,7 @@ type EdifactMessageIdentifier struct {
 // EdifactMessageIdentifierInput is an input type that accepts EdifactMessageIdentifierArgs and EdifactMessageIdentifierOutput values.
 // You can construct a concrete instance of `EdifactMessageIdentifierInput` via:
 //
-//	EdifactMessageIdentifierArgs{...}
+//          EdifactMessageIdentifierArgs{...}
 type EdifactMessageIdentifierInput interface {
 	pulumi.Input
 
@@ -9374,7 +9374,7 @@ func (i EdifactMessageIdentifierArgs) ToEdifactMessageIdentifierOutputWithContex
 // EdifactMessageIdentifierArrayInput is an input type that accepts EdifactMessageIdentifierArray and EdifactMessageIdentifierArrayOutput values.
 // You can construct a concrete instance of `EdifactMessageIdentifierArrayInput` via:
 //
-//	EdifactMessageIdentifierArray{ EdifactMessageIdentifierArgs{...} }
+//          EdifactMessageIdentifierArray{ EdifactMessageIdentifierArgs{...} }
 type EdifactMessageIdentifierArrayInput interface {
 	pulumi.Input
 
@@ -9495,7 +9495,7 @@ type EdifactOneWayAgreement struct {
 // EdifactOneWayAgreementInput is an input type that accepts EdifactOneWayAgreementArgs and EdifactOneWayAgreementOutput values.
 // You can construct a concrete instance of `EdifactOneWayAgreementInput` via:
 //
-//	EdifactOneWayAgreementArgs{...}
+//          EdifactOneWayAgreementArgs{...}
 type EdifactOneWayAgreementInput interface {
 	pulumi.Input
 
@@ -9536,11 +9536,11 @@ func (i EdifactOneWayAgreementArgs) ToEdifactOneWayAgreementPtrOutputWithContext
 // EdifactOneWayAgreementPtrInput is an input type that accepts EdifactOneWayAgreementArgs, EdifactOneWayAgreementPtr and EdifactOneWayAgreementPtrOutput values.
 // You can construct a concrete instance of `EdifactOneWayAgreementPtrInput` via:
 //
-//	        EdifactOneWayAgreementArgs{...}
+//          EdifactOneWayAgreementArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EdifactOneWayAgreementPtrInput interface {
 	pulumi.Input
 
@@ -9771,7 +9771,7 @@ type EdifactProcessingSettings struct {
 // EdifactProcessingSettingsInput is an input type that accepts EdifactProcessingSettingsArgs and EdifactProcessingSettingsOutput values.
 // You can construct a concrete instance of `EdifactProcessingSettingsInput` via:
 //
-//	EdifactProcessingSettingsArgs{...}
+//          EdifactProcessingSettingsArgs{...}
 type EdifactProcessingSettingsInput interface {
 	pulumi.Input
 
@@ -9816,11 +9816,11 @@ func (i EdifactProcessingSettingsArgs) ToEdifactProcessingSettingsPtrOutputWithC
 // EdifactProcessingSettingsPtrInput is an input type that accepts EdifactProcessingSettingsArgs, EdifactProcessingSettingsPtr and EdifactProcessingSettingsPtrOutput values.
 // You can construct a concrete instance of `EdifactProcessingSettingsPtrInput` via:
 //
-//	        EdifactProcessingSettingsArgs{...}
+//          EdifactProcessingSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EdifactProcessingSettingsPtrInput interface {
 	pulumi.Input
 
@@ -10127,7 +10127,7 @@ type EdifactProtocolSettings struct {
 // EdifactProtocolSettingsInput is an input type that accepts EdifactProtocolSettingsArgs and EdifactProtocolSettingsOutput values.
 // You can construct a concrete instance of `EdifactProtocolSettingsInput` via:
 //
-//	EdifactProtocolSettingsArgs{...}
+//          EdifactProtocolSettingsArgs{...}
 type EdifactProtocolSettingsInput interface {
 	pulumi.Input
 
@@ -10184,11 +10184,11 @@ func (i EdifactProtocolSettingsArgs) ToEdifactProtocolSettingsPtrOutputWithConte
 // EdifactProtocolSettingsPtrInput is an input type that accepts EdifactProtocolSettingsArgs, EdifactProtocolSettingsPtr and EdifactProtocolSettingsPtrOutput values.
 // You can construct a concrete instance of `EdifactProtocolSettingsPtrInput` via:
 //
-//	        EdifactProtocolSettingsArgs{...}
+//          EdifactProtocolSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EdifactProtocolSettingsPtrInput interface {
 	pulumi.Input
 
@@ -10685,7 +10685,7 @@ type EdifactSchemaReference struct {
 // EdifactSchemaReferenceInput is an input type that accepts EdifactSchemaReferenceArgs and EdifactSchemaReferenceOutput values.
 // You can construct a concrete instance of `EdifactSchemaReferenceInput` via:
 //
-//	EdifactSchemaReferenceArgs{...}
+//          EdifactSchemaReferenceArgs{...}
 type EdifactSchemaReferenceInput interface {
 	pulumi.Input
 
@@ -10726,7 +10726,7 @@ func (i EdifactSchemaReferenceArgs) ToEdifactSchemaReferenceOutputWithContext(ct
 // EdifactSchemaReferenceArrayInput is an input type that accepts EdifactSchemaReferenceArray and EdifactSchemaReferenceArrayOutput values.
 // You can construct a concrete instance of `EdifactSchemaReferenceArrayInput` via:
 //
-//	EdifactSchemaReferenceArray{ EdifactSchemaReferenceArgs{...} }
+//          EdifactSchemaReferenceArray{ EdifactSchemaReferenceArgs{...} }
 type EdifactSchemaReferenceArrayInput interface {
 	pulumi.Input
 
@@ -10927,7 +10927,7 @@ type EdifactValidationOverride struct {
 // EdifactValidationOverrideInput is an input type that accepts EdifactValidationOverrideArgs and EdifactValidationOverrideOutput values.
 // You can construct a concrete instance of `EdifactValidationOverrideInput` via:
 //
-//	EdifactValidationOverrideArgs{...}
+//          EdifactValidationOverrideArgs{...}
 type EdifactValidationOverrideInput interface {
 	pulumi.Input
 
@@ -10968,7 +10968,7 @@ func (i EdifactValidationOverrideArgs) ToEdifactValidationOverrideOutputWithCont
 // EdifactValidationOverrideArrayInput is an input type that accepts EdifactValidationOverrideArray and EdifactValidationOverrideArrayOutput values.
 // You can construct a concrete instance of `EdifactValidationOverrideArrayInput` via:
 //
-//	EdifactValidationOverrideArray{ EdifactValidationOverrideArgs{...} }
+//          EdifactValidationOverrideArray{ EdifactValidationOverrideArgs{...} }
 type EdifactValidationOverrideArrayInput interface {
 	pulumi.Input
 
@@ -11175,7 +11175,7 @@ type EdifactValidationSettings struct {
 // EdifactValidationSettingsInput is an input type that accepts EdifactValidationSettingsArgs and EdifactValidationSettingsOutput values.
 // You can construct a concrete instance of `EdifactValidationSettingsInput` via:
 //
-//	EdifactValidationSettingsArgs{...}
+//          EdifactValidationSettingsArgs{...}
 type EdifactValidationSettingsInput interface {
 	pulumi.Input
 
@@ -11230,11 +11230,11 @@ func (i EdifactValidationSettingsArgs) ToEdifactValidationSettingsPtrOutputWithC
 // EdifactValidationSettingsPtrInput is an input type that accepts EdifactValidationSettingsArgs, EdifactValidationSettingsPtr and EdifactValidationSettingsPtrOutput values.
 // You can construct a concrete instance of `EdifactValidationSettingsPtrInput` via:
 //
-//	        EdifactValidationSettingsArgs{...}
+//          EdifactValidationSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EdifactValidationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -11806,7 +11806,7 @@ type IntegrationAccountMapPropertiesParametersSchema struct {
 // IntegrationAccountMapPropertiesParametersSchemaInput is an input type that accepts IntegrationAccountMapPropertiesParametersSchemaArgs and IntegrationAccountMapPropertiesParametersSchemaOutput values.
 // You can construct a concrete instance of `IntegrationAccountMapPropertiesParametersSchemaInput` via:
 //
-//	IntegrationAccountMapPropertiesParametersSchemaArgs{...}
+//          IntegrationAccountMapPropertiesParametersSchemaArgs{...}
 type IntegrationAccountMapPropertiesParametersSchemaInput interface {
 	pulumi.Input
 
@@ -11843,11 +11843,11 @@ func (i IntegrationAccountMapPropertiesParametersSchemaArgs) ToIntegrationAccoun
 // IntegrationAccountMapPropertiesParametersSchemaPtrInput is an input type that accepts IntegrationAccountMapPropertiesParametersSchemaArgs, IntegrationAccountMapPropertiesParametersSchemaPtr and IntegrationAccountMapPropertiesParametersSchemaPtrOutput values.
 // You can construct a concrete instance of `IntegrationAccountMapPropertiesParametersSchemaPtrInput` via:
 //
-//	        IntegrationAccountMapPropertiesParametersSchemaArgs{...}
+//          IntegrationAccountMapPropertiesParametersSchemaArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IntegrationAccountMapPropertiesParametersSchemaPtrInput interface {
 	pulumi.Input
 
@@ -12006,7 +12006,7 @@ type IntegrationAccountSku struct {
 // IntegrationAccountSkuInput is an input type that accepts IntegrationAccountSkuArgs and IntegrationAccountSkuOutput values.
 // You can construct a concrete instance of `IntegrationAccountSkuInput` via:
 //
-//	IntegrationAccountSkuArgs{...}
+//          IntegrationAccountSkuArgs{...}
 type IntegrationAccountSkuInput interface {
 	pulumi.Input
 
@@ -12043,11 +12043,11 @@ func (i IntegrationAccountSkuArgs) ToIntegrationAccountSkuPtrOutputWithContext(c
 // IntegrationAccountSkuPtrInput is an input type that accepts IntegrationAccountSkuArgs, IntegrationAccountSkuPtr and IntegrationAccountSkuPtrOutput values.
 // You can construct a concrete instance of `IntegrationAccountSkuPtrInput` via:
 //
-//	        IntegrationAccountSkuArgs{...}
+//          IntegrationAccountSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IntegrationAccountSkuPtrInput interface {
 	pulumi.Input
 
@@ -12210,7 +12210,7 @@ type KeyVaultKeyReference struct {
 // KeyVaultKeyReferenceInput is an input type that accepts KeyVaultKeyReferenceArgs and KeyVaultKeyReferenceOutput values.
 // You can construct a concrete instance of `KeyVaultKeyReferenceInput` via:
 //
-//	KeyVaultKeyReferenceArgs{...}
+//          KeyVaultKeyReferenceArgs{...}
 type KeyVaultKeyReferenceInput interface {
 	pulumi.Input
 
@@ -12251,11 +12251,11 @@ func (i KeyVaultKeyReferenceArgs) ToKeyVaultKeyReferencePtrOutputWithContext(ctx
 // KeyVaultKeyReferencePtrInput is an input type that accepts KeyVaultKeyReferenceArgs, KeyVaultKeyReferencePtr and KeyVaultKeyReferencePtrOutput values.
 // You can construct a concrete instance of `KeyVaultKeyReferencePtrInput` via:
 //
-//	        KeyVaultKeyReferenceArgs{...}
+//          KeyVaultKeyReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyVaultKeyReferencePtrInput interface {
 	pulumi.Input
 
@@ -12384,7 +12384,7 @@ type KeyVaultKeyReferenceKeyVault struct {
 // KeyVaultKeyReferenceKeyVaultInput is an input type that accepts KeyVaultKeyReferenceKeyVaultArgs and KeyVaultKeyReferenceKeyVaultOutput values.
 // You can construct a concrete instance of `KeyVaultKeyReferenceKeyVaultInput` via:
 //
-//	KeyVaultKeyReferenceKeyVaultArgs{...}
+//          KeyVaultKeyReferenceKeyVaultArgs{...}
 type KeyVaultKeyReferenceKeyVaultInput interface {
 	pulumi.Input
 
@@ -12421,11 +12421,11 @@ func (i KeyVaultKeyReferenceKeyVaultArgs) ToKeyVaultKeyReferenceKeyVaultPtrOutpu
 // KeyVaultKeyReferenceKeyVaultPtrInput is an input type that accepts KeyVaultKeyReferenceKeyVaultArgs, KeyVaultKeyReferenceKeyVaultPtr and KeyVaultKeyReferenceKeyVaultPtrOutput values.
 // You can construct a concrete instance of `KeyVaultKeyReferenceKeyVaultPtrInput` via:
 //
-//	        KeyVaultKeyReferenceKeyVaultArgs{...}
+//          KeyVaultKeyReferenceKeyVaultArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyVaultKeyReferenceKeyVaultPtrInput interface {
 	pulumi.Input
 
@@ -12861,7 +12861,7 @@ type KeyVaultReference struct {
 // KeyVaultReferenceInput is an input type that accepts KeyVaultReferenceArgs and KeyVaultReferenceOutput values.
 // You can construct a concrete instance of `KeyVaultReferenceInput` via:
 //
-//	KeyVaultReferenceArgs{...}
+//          KeyVaultReferenceArgs{...}
 type KeyVaultReferenceInput interface {
 	pulumi.Input
 
@@ -12923,7 +12923,7 @@ type PartnerContent struct {
 // PartnerContentInput is an input type that accepts PartnerContentArgs and PartnerContentOutput values.
 // You can construct a concrete instance of `PartnerContentInput` via:
 //
-//	PartnerContentArgs{...}
+//          PartnerContentArgs{...}
 type PartnerContentInput interface {
 	pulumi.Input
 
@@ -13012,7 +13012,7 @@ type RecurrenceSchedule struct {
 // RecurrenceScheduleInput is an input type that accepts RecurrenceScheduleArgs and RecurrenceScheduleOutput values.
 // You can construct a concrete instance of `RecurrenceScheduleInput` via:
 //
-//	RecurrenceScheduleArgs{...}
+//          RecurrenceScheduleArgs{...}
 type RecurrenceScheduleInput interface {
 	pulumi.Input
 
@@ -13057,11 +13057,11 @@ func (i RecurrenceScheduleArgs) ToRecurrenceSchedulePtrOutputWithContext(ctx con
 // RecurrenceSchedulePtrInput is an input type that accepts RecurrenceScheduleArgs, RecurrenceSchedulePtr and RecurrenceSchedulePtrOutput values.
 // You can construct a concrete instance of `RecurrenceSchedulePtrInput` via:
 //
-//	        RecurrenceScheduleArgs{...}
+//          RecurrenceScheduleArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RecurrenceSchedulePtrInput interface {
 	pulumi.Input
 
@@ -13222,7 +13222,7 @@ type RecurrenceScheduleOccurrence struct {
 // RecurrenceScheduleOccurrenceInput is an input type that accepts RecurrenceScheduleOccurrenceArgs and RecurrenceScheduleOccurrenceOutput values.
 // You can construct a concrete instance of `RecurrenceScheduleOccurrenceInput` via:
 //
-//	RecurrenceScheduleOccurrenceArgs{...}
+//          RecurrenceScheduleOccurrenceArgs{...}
 type RecurrenceScheduleOccurrenceInput interface {
 	pulumi.Input
 
@@ -13253,7 +13253,7 @@ func (i RecurrenceScheduleOccurrenceArgs) ToRecurrenceScheduleOccurrenceOutputWi
 // RecurrenceScheduleOccurrenceArrayInput is an input type that accepts RecurrenceScheduleOccurrenceArray and RecurrenceScheduleOccurrenceArrayOutput values.
 // You can construct a concrete instance of `RecurrenceScheduleOccurrenceArrayInput` via:
 //
-//	RecurrenceScheduleOccurrenceArray{ RecurrenceScheduleOccurrenceArgs{...} }
+//          RecurrenceScheduleOccurrenceArray{ RecurrenceScheduleOccurrenceArgs{...} }
 type RecurrenceScheduleOccurrenceArrayInput interface {
 	pulumi.Input
 
@@ -13510,7 +13510,7 @@ type ResourceReference struct {
 // ResourceReferenceInput is an input type that accepts ResourceReferenceArgs and ResourceReferenceOutput values.
 // You can construct a concrete instance of `ResourceReferenceInput` via:
 //
-//	ResourceReferenceArgs{...}
+//          ResourceReferenceArgs{...}
 type ResourceReferenceInput interface {
 	pulumi.Input
 
@@ -13547,11 +13547,11 @@ func (i ResourceReferenceArgs) ToResourceReferencePtrOutputWithContext(ctx conte
 // ResourceReferencePtrInput is an input type that accepts ResourceReferenceArgs, ResourceReferencePtr and ResourceReferencePtrOutput values.
 // You can construct a concrete instance of `ResourceReferencePtrInput` via:
 //
-//	        ResourceReferenceArgs{...}
+//          ResourceReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceReferencePtrInput interface {
 	pulumi.Input
 
@@ -13746,7 +13746,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -13785,11 +13785,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -13986,7 +13986,7 @@ type WorkflowParameter struct {
 // WorkflowParameterInput is an input type that accepts WorkflowParameterArgs and WorkflowParameterOutput values.
 // You can construct a concrete instance of `WorkflowParameterInput` via:
 //
-//	WorkflowParameterArgs{...}
+//          WorkflowParameterArgs{...}
 type WorkflowParameterInput interface {
 	pulumi.Input
 
@@ -14021,7 +14021,7 @@ func (i WorkflowParameterArgs) ToWorkflowParameterOutputWithContext(ctx context.
 // WorkflowParameterMapInput is an input type that accepts WorkflowParameterMap and WorkflowParameterMapOutput values.
 // You can construct a concrete instance of `WorkflowParameterMapInput` via:
 //
-//	WorkflowParameterMap{ "key": WorkflowParameterArgs{...} }
+//          WorkflowParameterMap{ "key": WorkflowParameterArgs{...} }
 type WorkflowParameterMapInput interface {
 	pulumi.Input
 
@@ -14312,7 +14312,7 @@ type WorkflowTriggerRecurrence struct {
 // WorkflowTriggerRecurrenceInput is an input type that accepts WorkflowTriggerRecurrenceArgs and WorkflowTriggerRecurrenceOutput values.
 // You can construct a concrete instance of `WorkflowTriggerRecurrenceInput` via:
 //
-//	WorkflowTriggerRecurrenceArgs{...}
+//          WorkflowTriggerRecurrenceArgs{...}
 type WorkflowTriggerRecurrenceInput interface {
 	pulumi.Input
 
@@ -14359,11 +14359,11 @@ func (i WorkflowTriggerRecurrenceArgs) ToWorkflowTriggerRecurrencePtrOutputWithC
 // WorkflowTriggerRecurrencePtrInput is an input type that accepts WorkflowTriggerRecurrenceArgs, WorkflowTriggerRecurrencePtr and WorkflowTriggerRecurrencePtrOutput values.
 // You can construct a concrete instance of `WorkflowTriggerRecurrencePtrInput` via:
 //
-//	        WorkflowTriggerRecurrenceArgs{...}
+//          WorkflowTriggerRecurrenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WorkflowTriggerRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -14710,7 +14710,7 @@ type X12AcknowledgementSettings struct {
 // X12AcknowledgementSettingsInput is an input type that accepts X12AcknowledgementSettingsArgs and X12AcknowledgementSettingsOutput values.
 // You can construct a concrete instance of `X12AcknowledgementSettingsInput` via:
 //
-//	X12AcknowledgementSettingsArgs{...}
+//          X12AcknowledgementSettingsArgs{...}
 type X12AcknowledgementSettingsInput interface {
 	pulumi.Input
 
@@ -14775,11 +14775,11 @@ func (i X12AcknowledgementSettingsArgs) ToX12AcknowledgementSettingsPtrOutputWit
 // X12AcknowledgementSettingsPtrInput is an input type that accepts X12AcknowledgementSettingsArgs, X12AcknowledgementSettingsPtr and X12AcknowledgementSettingsPtrOutput values.
 // You can construct a concrete instance of `X12AcknowledgementSettingsPtrInput` via:
 //
-//	        X12AcknowledgementSettingsArgs{...}
+//          X12AcknowledgementSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type X12AcknowledgementSettingsPtrInput interface {
 	pulumi.Input
 
@@ -15388,7 +15388,7 @@ type X12AgreementContent struct {
 // X12AgreementContentInput is an input type that accepts X12AgreementContentArgs and X12AgreementContentOutput values.
 // You can construct a concrete instance of `X12AgreementContentInput` via:
 //
-//	X12AgreementContentArgs{...}
+//          X12AgreementContentArgs{...}
 type X12AgreementContentInput interface {
 	pulumi.Input
 
@@ -15427,11 +15427,11 @@ func (i X12AgreementContentArgs) ToX12AgreementContentPtrOutputWithContext(ctx c
 // X12AgreementContentPtrInput is an input type that accepts X12AgreementContentArgs, X12AgreementContentPtr and X12AgreementContentPtrOutput values.
 // You can construct a concrete instance of `X12AgreementContentPtrInput` via:
 //
-//	        X12AgreementContentArgs{...}
+//          X12AgreementContentArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type X12AgreementContentPtrInput interface {
 	pulumi.Input
 
@@ -15638,7 +15638,7 @@ type X12DelimiterOverrides struct {
 // X12DelimiterOverridesInput is an input type that accepts X12DelimiterOverridesArgs and X12DelimiterOverridesOutput values.
 // You can construct a concrete instance of `X12DelimiterOverridesInput` via:
 //
-//	X12DelimiterOverridesArgs{...}
+//          X12DelimiterOverridesArgs{...}
 type X12DelimiterOverridesInput interface {
 	pulumi.Input
 
@@ -15683,7 +15683,7 @@ func (i X12DelimiterOverridesArgs) ToX12DelimiterOverridesOutputWithContext(ctx 
 // X12DelimiterOverridesArrayInput is an input type that accepts X12DelimiterOverridesArray and X12DelimiterOverridesArrayOutput values.
 // You can construct a concrete instance of `X12DelimiterOverridesArrayInput` via:
 //
-//	X12DelimiterOverridesArray{ X12DelimiterOverridesArgs{...} }
+//          X12DelimiterOverridesArray{ X12DelimiterOverridesArgs{...} }
 type X12DelimiterOverridesArrayInput interface {
 	pulumi.Input
 
@@ -15914,7 +15914,7 @@ type X12EnvelopeOverride struct {
 // X12EnvelopeOverrideInput is an input type that accepts X12EnvelopeOverrideArgs and X12EnvelopeOverrideOutput values.
 // You can construct a concrete instance of `X12EnvelopeOverrideInput` via:
 //
-//	X12EnvelopeOverrideArgs{...}
+//          X12EnvelopeOverrideArgs{...}
 type X12EnvelopeOverrideInput interface {
 	pulumi.Input
 
@@ -15961,7 +15961,7 @@ func (i X12EnvelopeOverrideArgs) ToX12EnvelopeOverrideOutputWithContext(ctx cont
 // X12EnvelopeOverrideArrayInput is an input type that accepts X12EnvelopeOverrideArray and X12EnvelopeOverrideArrayOutput values.
 // You can construct a concrete instance of `X12EnvelopeOverrideArrayInput` via:
 //
-//	X12EnvelopeOverrideArray{ X12EnvelopeOverrideArgs{...} }
+//          X12EnvelopeOverrideArray{ X12EnvelopeOverrideArgs{...} }
 type X12EnvelopeOverrideArrayInput interface {
 	pulumi.Input
 
@@ -16232,7 +16232,7 @@ type X12EnvelopeSettings struct {
 // X12EnvelopeSettingsInput is an input type that accepts X12EnvelopeSettingsArgs and X12EnvelopeSettingsOutput values.
 // You can construct a concrete instance of `X12EnvelopeSettingsInput` via:
 //
-//	X12EnvelopeSettingsArgs{...}
+//          X12EnvelopeSettingsArgs{...}
 type X12EnvelopeSettingsInput interface {
 	pulumi.Input
 
@@ -16315,11 +16315,11 @@ func (i X12EnvelopeSettingsArgs) ToX12EnvelopeSettingsPtrOutputWithContext(ctx c
 // X12EnvelopeSettingsPtrInput is an input type that accepts X12EnvelopeSettingsArgs, X12EnvelopeSettingsPtr and X12EnvelopeSettingsPtrOutput values.
 // You can construct a concrete instance of `X12EnvelopeSettingsPtrInput` via:
 //
-//	        X12EnvelopeSettingsArgs{...}
+//          X12EnvelopeSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type X12EnvelopeSettingsPtrInput interface {
 	pulumi.Input
 
@@ -17226,7 +17226,7 @@ type X12FramingSettings struct {
 // X12FramingSettingsInput is an input type that accepts X12FramingSettingsArgs and X12FramingSettingsOutput values.
 // You can construct a concrete instance of `X12FramingSettingsInput` via:
 //
-//	X12FramingSettingsArgs{...}
+//          X12FramingSettingsArgs{...}
 type X12FramingSettingsInput interface {
 	pulumi.Input
 
@@ -17275,11 +17275,11 @@ func (i X12FramingSettingsArgs) ToX12FramingSettingsPtrOutputWithContext(ctx con
 // X12FramingSettingsPtrInput is an input type that accepts X12FramingSettingsArgs, X12FramingSettingsPtr and X12FramingSettingsPtrOutput values.
 // You can construct a concrete instance of `X12FramingSettingsPtrInput` via:
 //
-//	        X12FramingSettingsArgs{...}
+//          X12FramingSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type X12FramingSettingsPtrInput interface {
 	pulumi.Input
 
@@ -17630,7 +17630,7 @@ type X12MessageFilter struct {
 // X12MessageFilterInput is an input type that accepts X12MessageFilterArgs and X12MessageFilterOutput values.
 // You can construct a concrete instance of `X12MessageFilterInput` via:
 //
-//	X12MessageFilterArgs{...}
+//          X12MessageFilterArgs{...}
 type X12MessageFilterInput interface {
 	pulumi.Input
 
@@ -17667,11 +17667,11 @@ func (i X12MessageFilterArgs) ToX12MessageFilterPtrOutputWithContext(ctx context
 // X12MessageFilterPtrInput is an input type that accepts X12MessageFilterArgs, X12MessageFilterPtr and X12MessageFilterPtrOutput values.
 // You can construct a concrete instance of `X12MessageFilterPtrInput` via:
 //
-//	        X12MessageFilterArgs{...}
+//          X12MessageFilterArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type X12MessageFilterPtrInput interface {
 	pulumi.Input
 
@@ -17830,7 +17830,7 @@ type X12MessageIdentifier struct {
 // X12MessageIdentifierInput is an input type that accepts X12MessageIdentifierArgs and X12MessageIdentifierOutput values.
 // You can construct a concrete instance of `X12MessageIdentifierInput` via:
 //
-//	X12MessageIdentifierArgs{...}
+//          X12MessageIdentifierArgs{...}
 type X12MessageIdentifierInput interface {
 	pulumi.Input
 
@@ -17859,7 +17859,7 @@ func (i X12MessageIdentifierArgs) ToX12MessageIdentifierOutputWithContext(ctx co
 // X12MessageIdentifierArrayInput is an input type that accepts X12MessageIdentifierArray and X12MessageIdentifierArrayOutput values.
 // You can construct a concrete instance of `X12MessageIdentifierArrayInput` via:
 //
-//	X12MessageIdentifierArray{ X12MessageIdentifierArgs{...} }
+//          X12MessageIdentifierArray{ X12MessageIdentifierArgs{...} }
 type X12MessageIdentifierArrayInput interface {
 	pulumi.Input
 
@@ -17980,7 +17980,7 @@ type X12OneWayAgreement struct {
 // X12OneWayAgreementInput is an input type that accepts X12OneWayAgreementArgs and X12OneWayAgreementOutput values.
 // You can construct a concrete instance of `X12OneWayAgreementInput` via:
 //
-//	X12OneWayAgreementArgs{...}
+//          X12OneWayAgreementArgs{...}
 type X12OneWayAgreementInput interface {
 	pulumi.Input
 
@@ -18021,11 +18021,11 @@ func (i X12OneWayAgreementArgs) ToX12OneWayAgreementPtrOutputWithContext(ctx con
 // X12OneWayAgreementPtrInput is an input type that accepts X12OneWayAgreementArgs, X12OneWayAgreementPtr and X12OneWayAgreementPtrOutput values.
 // You can construct a concrete instance of `X12OneWayAgreementPtrInput` via:
 //
-//	        X12OneWayAgreementArgs{...}
+//          X12OneWayAgreementArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type X12OneWayAgreementPtrInput interface {
 	pulumi.Input
 
@@ -18258,7 +18258,7 @@ type X12ProcessingSettings struct {
 // X12ProcessingSettingsInput is an input type that accepts X12ProcessingSettingsArgs and X12ProcessingSettingsOutput values.
 // You can construct a concrete instance of `X12ProcessingSettingsInput` via:
 //
-//	X12ProcessingSettingsArgs{...}
+//          X12ProcessingSettingsArgs{...}
 type X12ProcessingSettingsInput interface {
 	pulumi.Input
 
@@ -18305,11 +18305,11 @@ func (i X12ProcessingSettingsArgs) ToX12ProcessingSettingsPtrOutputWithContext(c
 // X12ProcessingSettingsPtrInput is an input type that accepts X12ProcessingSettingsArgs, X12ProcessingSettingsPtr and X12ProcessingSettingsPtrOutput values.
 // You can construct a concrete instance of `X12ProcessingSettingsPtrInput` via:
 //
-//	        X12ProcessingSettingsArgs{...}
+//          X12ProcessingSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type X12ProcessingSettingsPtrInput interface {
 	pulumi.Input
 
@@ -18650,7 +18650,7 @@ type X12ProtocolSettings struct {
 // X12ProtocolSettingsInput is an input type that accepts X12ProtocolSettingsArgs and X12ProtocolSettingsOutput values.
 // You can construct a concrete instance of `X12ProtocolSettingsInput` via:
 //
-//	X12ProtocolSettingsArgs{...}
+//          X12ProtocolSettingsArgs{...}
 type X12ProtocolSettingsInput interface {
 	pulumi.Input
 
@@ -18709,11 +18709,11 @@ func (i X12ProtocolSettingsArgs) ToX12ProtocolSettingsPtrOutputWithContext(ctx c
 // X12ProtocolSettingsPtrInput is an input type that accepts X12ProtocolSettingsArgs, X12ProtocolSettingsPtr and X12ProtocolSettingsPtrOutput values.
 // You can construct a concrete instance of `X12ProtocolSettingsPtrInput` via:
 //
-//	        X12ProtocolSettingsArgs{...}
+//          X12ProtocolSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type X12ProtocolSettingsPtrInput interface {
 	pulumi.Input
 
@@ -19232,7 +19232,7 @@ type X12SchemaReference struct {
 // X12SchemaReferenceInput is an input type that accepts X12SchemaReferenceArgs and X12SchemaReferenceOutput values.
 // You can construct a concrete instance of `X12SchemaReferenceInput` via:
 //
-//	X12SchemaReferenceArgs{...}
+//          X12SchemaReferenceArgs{...}
 type X12SchemaReferenceInput interface {
 	pulumi.Input
 
@@ -19267,7 +19267,7 @@ func (i X12SchemaReferenceArgs) ToX12SchemaReferenceOutputWithContext(ctx contex
 // X12SchemaReferenceArrayInput is an input type that accepts X12SchemaReferenceArray and X12SchemaReferenceArrayOutput values.
 // You can construct a concrete instance of `X12SchemaReferenceArrayInput` via:
 //
-//	X12SchemaReferenceArray{ X12SchemaReferenceArgs{...} }
+//          X12SchemaReferenceArray{ X12SchemaReferenceArgs{...} }
 type X12SchemaReferenceArrayInput interface {
 	pulumi.Input
 
@@ -19426,7 +19426,7 @@ type X12SecuritySettings struct {
 // X12SecuritySettingsInput is an input type that accepts X12SecuritySettingsArgs and X12SecuritySettingsOutput values.
 // You can construct a concrete instance of `X12SecuritySettingsInput` via:
 //
-//	X12SecuritySettingsArgs{...}
+//          X12SecuritySettingsArgs{...}
 type X12SecuritySettingsInput interface {
 	pulumi.Input
 
@@ -19469,11 +19469,11 @@ func (i X12SecuritySettingsArgs) ToX12SecuritySettingsPtrOutputWithContext(ctx c
 // X12SecuritySettingsPtrInput is an input type that accepts X12SecuritySettingsArgs, X12SecuritySettingsPtr and X12SecuritySettingsPtrOutput values.
 // You can construct a concrete instance of `X12SecuritySettingsPtrInput` via:
 //
-//	        X12SecuritySettingsArgs{...}
+//          X12SecuritySettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type X12SecuritySettingsPtrInput interface {
 	pulumi.Input
 
@@ -19740,7 +19740,7 @@ type X12ValidationOverride struct {
 // X12ValidationOverrideInput is an input type that accepts X12ValidationOverrideArgs and X12ValidationOverrideOutput values.
 // You can construct a concrete instance of `X12ValidationOverrideInput` via:
 //
-//	X12ValidationOverrideArgs{...}
+//          X12ValidationOverrideArgs{...}
 type X12ValidationOverrideInput interface {
 	pulumi.Input
 
@@ -19781,7 +19781,7 @@ func (i X12ValidationOverrideArgs) ToX12ValidationOverrideOutputWithContext(ctx 
 // X12ValidationOverrideArrayInput is an input type that accepts X12ValidationOverrideArray and X12ValidationOverrideArrayOutput values.
 // You can construct a concrete instance of `X12ValidationOverrideArrayInput` via:
 //
-//	X12ValidationOverrideArray{ X12ValidationOverrideArgs{...} }
+//          X12ValidationOverrideArray{ X12ValidationOverrideArgs{...} }
 type X12ValidationOverrideArrayInput interface {
 	pulumi.Input
 
@@ -19988,7 +19988,7 @@ type X12ValidationSettings struct {
 // X12ValidationSettingsInput is an input type that accepts X12ValidationSettingsArgs and X12ValidationSettingsOutput values.
 // You can construct a concrete instance of `X12ValidationSettingsInput` via:
 //
-//	X12ValidationSettingsArgs{...}
+//          X12ValidationSettingsArgs{...}
 type X12ValidationSettingsInput interface {
 	pulumi.Input
 
@@ -20043,11 +20043,11 @@ func (i X12ValidationSettingsArgs) ToX12ValidationSettingsPtrOutputWithContext(c
 // X12ValidationSettingsPtrInput is an input type that accepts X12ValidationSettingsArgs, X12ValidationSettingsPtr and X12ValidationSettingsPtrOutput values.
 // You can construct a concrete instance of `X12ValidationSettingsPtrInput` via:
 //
-//	        X12ValidationSettingsArgs{...}
+//          X12ValidationSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type X12ValidationSettingsPtrInput interface {
 	pulumi.Input
 

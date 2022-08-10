@@ -39,7 +39,7 @@ type BackupProfile struct {
 // BackupProfileInput is an input type that accepts BackupProfileArgs and BackupProfileOutput values.
 // You can construct a concrete instance of `BackupProfileInput` via:
 //
-//	BackupProfileArgs{...}
+//          BackupProfileArgs{...}
 type BackupProfileInput interface {
 	pulumi.Input
 
@@ -76,11 +76,11 @@ func (i BackupProfileArgs) ToBackupProfilePtrOutputWithContext(ctx context.Conte
 // BackupProfilePtrInput is an input type that accepts BackupProfileArgs, BackupProfilePtr and BackupProfilePtrOutput values.
 // You can construct a concrete instance of `BackupProfilePtrInput` via:
 //
-//	        BackupProfileArgs{...}
+//          BackupProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BackupProfilePtrInput interface {
 	pulumi.Input
 
@@ -262,7 +262,7 @@ type CacheProfile struct {
 // CacheProfileInput is an input type that accepts CacheProfileArgs and CacheProfileOutput values.
 // You can construct a concrete instance of `CacheProfileInput` via:
 //
-//	CacheProfileArgs{...}
+//          CacheProfileArgs{...}
 type CacheProfileInput interface {
 	pulumi.Input
 
@@ -305,11 +305,11 @@ func (i CacheProfileArgs) ToCacheProfilePtrOutputWithContext(ctx context.Context
 // CacheProfilePtrInput is an input type that accepts CacheProfileArgs, CacheProfilePtr and CacheProfilePtrOutput values.
 // You can construct a concrete instance of `CacheProfilePtrInput` via:
 //
-//	        CacheProfileArgs{...}
+//          CacheProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CacheProfilePtrInput interface {
 	pulumi.Input
 
@@ -738,7 +738,7 @@ type DatabaseProfile struct {
 // DatabaseProfileInput is an input type that accepts DatabaseProfileArgs and DatabaseProfileOutput values.
 // You can construct a concrete instance of `DatabaseProfileInput` via:
 //
-//	DatabaseProfileArgs{...}
+//          DatabaseProfileArgs{...}
 type DatabaseProfileInput interface {
 	pulumi.Input
 
@@ -1111,7 +1111,7 @@ type DiskInfo struct {
 // DiskInfoInput is an input type that accepts DiskInfoArgs and DiskInfoOutput values.
 // You can construct a concrete instance of `DiskInfoInput` via:
 //
-//	DiskInfoArgs{...}
+//          DiskInfoArgs{...}
 type DiskInfoInput interface {
 	pulumi.Input
 
@@ -1150,11 +1150,11 @@ func (i DiskInfoArgs) ToDiskInfoPtrOutputWithContext(ctx context.Context) DiskIn
 // DiskInfoPtrInput is an input type that accepts DiskInfoArgs, DiskInfoPtr and DiskInfoPtrOutput values.
 // You can construct a concrete instance of `DiskInfoPtrInput` via:
 //
-//	        DiskInfoArgs{...}
+//          DiskInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DiskInfoPtrInput interface {
 	pulumi.Input
 
@@ -1183,7 +1183,7 @@ func (i *diskInfoPtrType) ToDiskInfoPtrOutputWithContext(ctx context.Context) Di
 // DiskInfoArrayInput is an input type that accepts DiskInfoArray and DiskInfoArrayOutput values.
 // You can construct a concrete instance of `DiskInfoArrayInput` via:
 //
-//	DiskInfoArray{ DiskInfoArgs{...} }
+//          DiskInfoArray{ DiskInfoArgs{...} }
 type DiskInfoArrayInput interface {
 	pulumi.Input
 
@@ -2009,7 +2009,7 @@ type FileshareProfile struct {
 // FileshareProfileInput is an input type that accepts FileshareProfileArgs and FileshareProfileOutput values.
 // You can construct a concrete instance of `FileshareProfileInput` via:
 //
-//	FileshareProfileArgs{...}
+//          FileshareProfileArgs{...}
 type FileshareProfileInput interface {
 	pulumi.Input
 
@@ -2050,11 +2050,11 @@ func (i FileshareProfileArgs) ToFileshareProfilePtrOutputWithContext(ctx context
 // FileshareProfilePtrInput is an input type that accepts FileshareProfileArgs, FileshareProfilePtr and FileshareProfilePtrOutput values.
 // You can construct a concrete instance of `FileshareProfilePtrInput` via:
 //
-//	        FileshareProfileArgs{...}
+//          FileshareProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type FileshareProfilePtrInput interface {
 	pulumi.Input
 
@@ -2522,7 +2522,7 @@ type ManagedRGConfiguration struct {
 // ManagedRGConfigurationInput is an input type that accepts ManagedRGConfigurationArgs and ManagedRGConfigurationOutput values.
 // You can construct a concrete instance of `ManagedRGConfigurationInput` via:
 //
-//	ManagedRGConfigurationArgs{...}
+//          ManagedRGConfigurationArgs{...}
 type ManagedRGConfigurationInput interface {
 	pulumi.Input
 
@@ -2559,11 +2559,11 @@ func (i ManagedRGConfigurationArgs) ToManagedRGConfigurationPtrOutputWithContext
 // ManagedRGConfigurationPtrInput is an input type that accepts ManagedRGConfigurationArgs, ManagedRGConfigurationPtr and ManagedRGConfigurationPtrOutput values.
 // You can construct a concrete instance of `ManagedRGConfigurationPtrInput` via:
 //
-//	        ManagedRGConfigurationArgs{...}
+//          ManagedRGConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedRGConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3022,7 +3022,7 @@ type NetworkProfile struct {
 // NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
 // You can construct a concrete instance of `NetworkProfileInput` via:
 //
-//	NetworkProfileArgs{...}
+//          NetworkProfileArgs{...}
 type NetworkProfileInput interface {
 	pulumi.Input
 
@@ -3067,11 +3067,11 @@ func (i NetworkProfileArgs) ToNetworkProfilePtrOutputWithContext(ctx context.Con
 // NetworkProfilePtrInput is an input type that accepts NetworkProfileArgs, NetworkProfilePtr and NetworkProfilePtrOutput values.
 // You can construct a concrete instance of `NetworkProfilePtrInput` via:
 //
-//	        NetworkProfileArgs{...}
+//          NetworkProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -3451,7 +3451,7 @@ type NodeProfile struct {
 // NodeProfileInput is an input type that accepts NodeProfileArgs and NodeProfileOutput values.
 // You can construct a concrete instance of `NodeProfileInput` via:
 //
-//	NodeProfileArgs{...}
+//          NodeProfileArgs{...}
 type NodeProfileInput interface {
 	pulumi.Input
 
@@ -3621,7 +3621,7 @@ type OsImageProfile struct {
 // OsImageProfileInput is an input type that accepts OsImageProfileArgs and OsImageProfileOutput values.
 // You can construct a concrete instance of `OsImageProfileInput` via:
 //
-//	OsImageProfileArgs{...}
+//          OsImageProfileArgs{...}
 type OsImageProfileInput interface {
 	pulumi.Input
 
@@ -3664,11 +3664,11 @@ func (i OsImageProfileArgs) ToOsImageProfilePtrOutputWithContext(ctx context.Con
 // OsImageProfilePtrInput is an input type that accepts OsImageProfileArgs, OsImageProfilePtr and OsImageProfilePtrOutput values.
 // You can construct a concrete instance of `OsImageProfilePtrInput` via:
 //
-//	        OsImageProfileArgs{...}
+//          OsImageProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OsImageProfilePtrInput interface {
 	pulumi.Input
 
@@ -3939,7 +3939,7 @@ type PhpProfile struct {
 // PhpProfileInput is an input type that accepts PhpProfileArgs and PhpProfileOutput values.
 // You can construct a concrete instance of `PhpProfileInput` via:
 //
-//	PhpProfileArgs{...}
+//          PhpProfileArgs{...}
 type PhpProfileInput interface {
 	pulumi.Input
 
@@ -3976,11 +3976,11 @@ func (i PhpProfileArgs) ToPhpProfilePtrOutputWithContext(ctx context.Context) Ph
 // PhpProfilePtrInput is an input type that accepts PhpProfileArgs, PhpProfilePtr and PhpProfilePtrOutput values.
 // You can construct a concrete instance of `PhpProfilePtrInput` via:
 //
-//	        PhpProfileArgs{...}
+//          PhpProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PhpProfilePtrInput interface {
 	pulumi.Input
 
@@ -4141,7 +4141,7 @@ type PhpWorkloadResourceIdentity struct {
 // PhpWorkloadResourceIdentityInput is an input type that accepts PhpWorkloadResourceIdentityArgs and PhpWorkloadResourceIdentityOutput values.
 // You can construct a concrete instance of `PhpWorkloadResourceIdentityInput` via:
 //
-//	PhpWorkloadResourceIdentityArgs{...}
+//          PhpWorkloadResourceIdentityArgs{...}
 type PhpWorkloadResourceIdentityInput interface {
 	pulumi.Input
 
@@ -4180,11 +4180,11 @@ func (i PhpWorkloadResourceIdentityArgs) ToPhpWorkloadResourceIdentityPtrOutputW
 // PhpWorkloadResourceIdentityPtrInput is an input type that accepts PhpWorkloadResourceIdentityArgs, PhpWorkloadResourceIdentityPtr and PhpWorkloadResourceIdentityPtrOutput values.
 // You can construct a concrete instance of `PhpWorkloadResourceIdentityPtrInput` via:
 //
-//	        PhpWorkloadResourceIdentityArgs{...}
+//          PhpWorkloadResourceIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PhpWorkloadResourceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -4800,7 +4800,7 @@ type SearchProfile struct {
 // SearchProfileInput is an input type that accepts SearchProfileArgs and SearchProfileOutput values.
 // You can construct a concrete instance of `SearchProfileInput` via:
 //
-//	SearchProfileArgs{...}
+//          SearchProfileArgs{...}
 type SearchProfileInput interface {
 	pulumi.Input
 
@@ -4847,11 +4847,11 @@ func (i SearchProfileArgs) ToSearchProfilePtrOutputWithContext(ctx context.Conte
 // SearchProfilePtrInput is an input type that accepts SearchProfileArgs, SearchProfilePtr and SearchProfilePtrOutput values.
 // You can construct a concrete instance of `SearchProfilePtrInput` via:
 //
-//	        SearchProfileArgs{...}
+//          SearchProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SearchProfilePtrInput interface {
 	pulumi.Input
 
@@ -5281,7 +5281,7 @@ type SiteProfile struct {
 // SiteProfileInput is an input type that accepts SiteProfileArgs and SiteProfileOutput values.
 // You can construct a concrete instance of `SiteProfileInput` via:
 //
-//	SiteProfileArgs{...}
+//          SiteProfileArgs{...}
 type SiteProfileInput interface {
 	pulumi.Input
 
@@ -5318,11 +5318,11 @@ func (i SiteProfileArgs) ToSiteProfilePtrOutputWithContext(ctx context.Context) 
 // SiteProfilePtrInput is an input type that accepts SiteProfileArgs, SiteProfilePtr and SiteProfilePtrOutput values.
 // You can construct a concrete instance of `SiteProfilePtrInput` via:
 //
-//	        SiteProfileArgs{...}
+//          SiteProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SiteProfilePtrInput interface {
 	pulumi.Input
 
@@ -5489,7 +5489,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -5534,11 +5534,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -6041,7 +6041,7 @@ type UserAssignedServiceIdentity struct {
 // UserAssignedServiceIdentityInput is an input type that accepts UserAssignedServiceIdentityArgs and UserAssignedServiceIdentityOutput values.
 // You can construct a concrete instance of `UserAssignedServiceIdentityInput` via:
 //
-//	UserAssignedServiceIdentityArgs{...}
+//          UserAssignedServiceIdentityArgs{...}
 type UserAssignedServiceIdentityInput interface {
 	pulumi.Input
 
@@ -6080,11 +6080,11 @@ func (i UserAssignedServiceIdentityArgs) ToUserAssignedServiceIdentityPtrOutputW
 // UserAssignedServiceIdentityPtrInput is an input type that accepts UserAssignedServiceIdentityArgs, UserAssignedServiceIdentityPtr and UserAssignedServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `UserAssignedServiceIdentityPtrInput` via:
 //
-//	        UserAssignedServiceIdentityArgs{...}
+//          UserAssignedServiceIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type UserAssignedServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -6279,7 +6279,7 @@ type UserProfile struct {
 // UserProfileInput is an input type that accepts UserProfileArgs and UserProfileOutput values.
 // You can construct a concrete instance of `UserProfileInput` via:
 //
-//	UserProfileArgs{...}
+//          UserProfileArgs{...}
 type UserProfileInput interface {
 	pulumi.Input
 
@@ -6406,7 +6406,7 @@ type VmssNodesProfile struct {
 // VmssNodesProfileInput is an input type that accepts VmssNodesProfileArgs and VmssNodesProfileOutput values.
 // You can construct a concrete instance of `VmssNodesProfileInput` via:
 //
-//	VmssNodesProfileArgs{...}
+//          VmssNodesProfileArgs{...}
 type VmssNodesProfileInput interface {
 	pulumi.Input
 

@@ -89,7 +89,7 @@ type RetentionPolicy struct {
 // RetentionPolicyInput is an input type that accepts RetentionPolicyArgs and RetentionPolicyOutput values.
 // You can construct a concrete instance of `RetentionPolicyInput` via:
 //
-//	RetentionPolicyArgs{...}
+//          RetentionPolicyArgs{...}
 type RetentionPolicyInput interface {
 	pulumi.Input
 

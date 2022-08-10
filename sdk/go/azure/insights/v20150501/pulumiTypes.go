@@ -19,7 +19,7 @@ type ApplicationInsightsComponentAnalyticsItemProperties struct {
 // ApplicationInsightsComponentAnalyticsItemPropertiesInput is an input type that accepts ApplicationInsightsComponentAnalyticsItemPropertiesArgs and ApplicationInsightsComponentAnalyticsItemPropertiesOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentAnalyticsItemPropertiesInput` via:
 //
-//	ApplicationInsightsComponentAnalyticsItemPropertiesArgs{...}
+//          ApplicationInsightsComponentAnalyticsItemPropertiesArgs{...}
 type ApplicationInsightsComponentAnalyticsItemPropertiesInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ApplicationInsightsComponentAnalyticsItemPropertiesArgs) ToApplicationIn
 // ApplicationInsightsComponentAnalyticsItemPropertiesPtrInput is an input type that accepts ApplicationInsightsComponentAnalyticsItemPropertiesArgs, ApplicationInsightsComponentAnalyticsItemPropertiesPtr and ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentAnalyticsItemPropertiesPtrInput` via:
 //
-//	        ApplicationInsightsComponentAnalyticsItemPropertiesArgs{...}
+//          ApplicationInsightsComponentAnalyticsItemPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApplicationInsightsComponentAnalyticsItemPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -191,7 +191,7 @@ type ApplicationInsightsComponentDataVolumeCap struct {
 // ApplicationInsightsComponentDataVolumeCapInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapArgs and ApplicationInsightsComponentDataVolumeCapOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentDataVolumeCapInput` via:
 //
-//	ApplicationInsightsComponentDataVolumeCapArgs{...}
+//          ApplicationInsightsComponentDataVolumeCapArgs{...}
 type ApplicationInsightsComponentDataVolumeCapInput interface {
 	pulumi.Input
 
@@ -234,11 +234,11 @@ func (i ApplicationInsightsComponentDataVolumeCapArgs) ToApplicationInsightsComp
 // ApplicationInsightsComponentDataVolumeCapPtrInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapArgs, ApplicationInsightsComponentDataVolumeCapPtr and ApplicationInsightsComponentDataVolumeCapPtrOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentDataVolumeCapPtrInput` via:
 //
-//	        ApplicationInsightsComponentDataVolumeCapArgs{...}
+//          ApplicationInsightsComponentDataVolumeCapArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApplicationInsightsComponentDataVolumeCapPtrInput interface {
 	pulumi.Input
 
@@ -740,7 +740,7 @@ type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions 
 // ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs and ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput` via:
 //
-//	ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs{...}
+//          ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs{...}
 type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput interface {
 	pulumi.Input
 
@@ -791,11 +791,11 @@ func (i ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 // ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs, ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtr and ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput` via:
 //
-//	        ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs{...}
+//          ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput interface {
 	pulumi.Input
 
@@ -1068,7 +1068,7 @@ type WebTestGeolocation struct {
 // WebTestGeolocationInput is an input type that accepts WebTestGeolocationArgs and WebTestGeolocationOutput values.
 // You can construct a concrete instance of `WebTestGeolocationInput` via:
 //
-//	WebTestGeolocationArgs{...}
+//          WebTestGeolocationArgs{...}
 type WebTestGeolocationInput interface {
 	pulumi.Input
 
@@ -1097,7 +1097,7 @@ func (i WebTestGeolocationArgs) ToWebTestGeolocationOutputWithContext(ctx contex
 // WebTestGeolocationArrayInput is an input type that accepts WebTestGeolocationArray and WebTestGeolocationArrayOutput values.
 // You can construct a concrete instance of `WebTestGeolocationArrayInput` via:
 //
-//	WebTestGeolocationArray{ WebTestGeolocationArgs{...} }
+//          WebTestGeolocationArray{ WebTestGeolocationArgs{...} }
 type WebTestGeolocationArrayInput interface {
 	pulumi.Input
 
@@ -1214,7 +1214,7 @@ type WebTestPropertiesConfiguration struct {
 // WebTestPropertiesConfigurationInput is an input type that accepts WebTestPropertiesConfigurationArgs and WebTestPropertiesConfigurationOutput values.
 // You can construct a concrete instance of `WebTestPropertiesConfigurationInput` via:
 //
-//	WebTestPropertiesConfigurationArgs{...}
+//          WebTestPropertiesConfigurationArgs{...}
 type WebTestPropertiesConfigurationInput interface {
 	pulumi.Input
 
@@ -1251,11 +1251,11 @@ func (i WebTestPropertiesConfigurationArgs) ToWebTestPropertiesConfigurationPtrO
 // WebTestPropertiesConfigurationPtrInput is an input type that accepts WebTestPropertiesConfigurationArgs, WebTestPropertiesConfigurationPtr and WebTestPropertiesConfigurationPtrOutput values.
 // You can construct a concrete instance of `WebTestPropertiesConfigurationPtrInput` via:
 //
-//	        WebTestPropertiesConfigurationArgs{...}
+//          WebTestPropertiesConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WebTestPropertiesConfigurationPtrInput interface {
 	pulumi.Input
 

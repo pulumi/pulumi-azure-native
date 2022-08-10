@@ -150,7 +150,7 @@ func (o OperatingSystemTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // OperatingSystemTypeInput is an input type that accepts OperatingSystemTypeArgs and OperatingSystemTypeOutput values.
 // You can construct a concrete instance of `OperatingSystemTypeInput` via:
 //
-//	OperatingSystemTypeArgs{...}
+//          OperatingSystemTypeArgs{...}
 type OperatingSystemTypeInput interface {
 	pulumi.Input
 
@@ -350,7 +350,7 @@ func (o TagOperatorsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // TagOperatorsInput is an input type that accepts TagOperatorsArgs and TagOperatorsOutput values.
 // You can construct a concrete instance of `TagOperatorsInput` via:
 //
-//	TagOperatorsArgs{...}
+//          TagOperatorsArgs{...}
 type TagOperatorsInput interface {
 	pulumi.Input
 

@@ -416,7 +416,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//	ResourceIdentityTypeArgs{...}
+//          ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 
@@ -583,7 +583,7 @@ func (o SensitivityLabelRankPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // SensitivityLabelRankInput is an input type that accepts SensitivityLabelRankArgs and SensitivityLabelRankOutput values.
 // You can construct a concrete instance of `SensitivityLabelRankInput` via:
 //
-//	SensitivityLabelRankArgs{...}
+//          SensitivityLabelRankArgs{...}
 type SensitivityLabelRankInput interface {
 	pulumi.Input
 

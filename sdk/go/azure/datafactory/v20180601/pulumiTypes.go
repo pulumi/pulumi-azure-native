@@ -5426,7 +5426,7 @@ type CMKIdentityDefinition struct {
 // CMKIdentityDefinitionInput is an input type that accepts CMKIdentityDefinitionArgs and CMKIdentityDefinitionOutput values.
 // You can construct a concrete instance of `CMKIdentityDefinitionInput` via:
 //
-//	CMKIdentityDefinitionArgs{...}
+//          CMKIdentityDefinitionArgs{...}
 type CMKIdentityDefinitionInput interface {
 	pulumi.Input
 
@@ -5463,11 +5463,11 @@ func (i CMKIdentityDefinitionArgs) ToCMKIdentityDefinitionPtrOutputWithContext(c
 // CMKIdentityDefinitionPtrInput is an input type that accepts CMKIdentityDefinitionArgs, CMKIdentityDefinitionPtr and CMKIdentityDefinitionPtrOutput values.
 // You can construct a concrete instance of `CMKIdentityDefinitionPtrInput` via:
 //
-//	        CMKIdentityDefinitionArgs{...}
+//          CMKIdentityDefinitionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CMKIdentityDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -9122,7 +9122,7 @@ type EncryptionConfiguration struct {
 // EncryptionConfigurationInput is an input type that accepts EncryptionConfigurationArgs and EncryptionConfigurationOutput values.
 // You can construct a concrete instance of `EncryptionConfigurationInput` via:
 //
-//	EncryptionConfigurationArgs{...}
+//          EncryptionConfigurationArgs{...}
 type EncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -9165,11 +9165,11 @@ func (i EncryptionConfigurationArgs) ToEncryptionConfigurationPtrOutputWithConte
 // EncryptionConfigurationPtrInput is an input type that accepts EncryptionConfigurationArgs, EncryptionConfigurationPtr and EncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `EncryptionConfigurationPtrInput` via:
 //
-//	        EncryptionConfigurationArgs{...}
+//          EncryptionConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -9976,7 +9976,7 @@ type FactoryIdentity struct {
 // FactoryIdentityInput is an input type that accepts FactoryIdentityArgs and FactoryIdentityOutput values.
 // You can construct a concrete instance of `FactoryIdentityInput` via:
 //
-//	FactoryIdentityArgs{...}
+//          FactoryIdentityArgs{...}
 type FactoryIdentityInput interface {
 	pulumi.Input
 
@@ -10015,11 +10015,11 @@ func (i FactoryIdentityArgs) ToFactoryIdentityPtrOutputWithContext(ctx context.C
 // FactoryIdentityPtrInput is an input type that accepts FactoryIdentityArgs, FactoryIdentityPtr and FactoryIdentityPtrOutput values.
 // You can construct a concrete instance of `FactoryIdentityPtrInput` via:
 //
-//	        FactoryIdentityArgs{...}
+//          FactoryIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type FactoryIdentityPtrInput interface {
 	pulumi.Input
 
@@ -10958,7 +10958,7 @@ type GitHubClientSecret struct {
 // GitHubClientSecretInput is an input type that accepts GitHubClientSecretArgs and GitHubClientSecretOutput values.
 // You can construct a concrete instance of `GitHubClientSecretInput` via:
 //
-//	GitHubClientSecretArgs{...}
+//          GitHubClientSecretArgs{...}
 type GitHubClientSecretInput interface {
 	pulumi.Input
 
@@ -10997,11 +10997,11 @@ func (i GitHubClientSecretArgs) ToGitHubClientSecretPtrOutputWithContext(ctx con
 // GitHubClientSecretPtrInput is an input type that accepts GitHubClientSecretArgs, GitHubClientSecretPtr and GitHubClientSecretPtrOutput values.
 // You can construct a concrete instance of `GitHubClientSecretPtrInput` via:
 //
-//	        GitHubClientSecretArgs{...}
+//          GitHubClientSecretArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GitHubClientSecretPtrInput interface {
 	pulumi.Input
 
@@ -11125,7 +11125,7 @@ type GlobalParameterSpecification struct {
 // GlobalParameterSpecificationInput is an input type that accepts GlobalParameterSpecificationArgs and GlobalParameterSpecificationOutput values.
 // You can construct a concrete instance of `GlobalParameterSpecificationInput` via:
 //
-//	GlobalParameterSpecificationArgs{...}
+//          GlobalParameterSpecificationArgs{...}
 type GlobalParameterSpecificationInput interface {
 	pulumi.Input
 
@@ -11156,7 +11156,7 @@ func (i GlobalParameterSpecificationArgs) ToGlobalParameterSpecificationOutputWi
 // GlobalParameterSpecificationMapInput is an input type that accepts GlobalParameterSpecificationMap and GlobalParameterSpecificationMapOutput values.
 // You can construct a concrete instance of `GlobalParameterSpecificationMapInput` via:
 //
-//	GlobalParameterSpecificationMap{ "key": GlobalParameterSpecificationArgs{...} }
+//          GlobalParameterSpecificationMap{ "key": GlobalParameterSpecificationArgs{...} }
 type GlobalParameterSpecificationMapInput interface {
 	pulumi.Input
 
@@ -14800,7 +14800,7 @@ type ManagedPrivateEndpointType struct {
 // ManagedPrivateEndpointTypeInput is an input type that accepts ManagedPrivateEndpointTypeArgs and ManagedPrivateEndpointTypeOutput values.
 // You can construct a concrete instance of `ManagedPrivateEndpointTypeInput` via:
 //
-//	ManagedPrivateEndpointTypeArgs{...}
+//          ManagedPrivateEndpointTypeArgs{...}
 type ManagedPrivateEndpointTypeInput interface {
 	pulumi.Input
 
@@ -17514,7 +17514,7 @@ type ParameterSpecification struct {
 // ParameterSpecificationInput is an input type that accepts ParameterSpecificationArgs and ParameterSpecificationOutput values.
 // You can construct a concrete instance of `ParameterSpecificationInput` via:
 //
-//	ParameterSpecificationArgs{...}
+//          ParameterSpecificationArgs{...}
 type ParameterSpecificationInput interface {
 	pulumi.Input
 
@@ -17545,7 +17545,7 @@ func (i ParameterSpecificationArgs) ToParameterSpecificationOutputWithContext(ct
 // ParameterSpecificationMapInput is an input type that accepts ParameterSpecificationMap and ParameterSpecificationMapOutput values.
 // You can construct a concrete instance of `ParameterSpecificationMapInput` via:
 //
-//	ParameterSpecificationMap{ "key": ParameterSpecificationArgs{...} }
+//          ParameterSpecificationMap{ "key": ParameterSpecificationArgs{...} }
 type ParameterSpecificationMapInput interface {
 	pulumi.Input
 
@@ -18168,7 +18168,7 @@ type PipelineElapsedTimeMetricPolicy struct {
 // PipelineElapsedTimeMetricPolicyInput is an input type that accepts PipelineElapsedTimeMetricPolicyArgs and PipelineElapsedTimeMetricPolicyOutput values.
 // You can construct a concrete instance of `PipelineElapsedTimeMetricPolicyInput` via:
 //
-//	PipelineElapsedTimeMetricPolicyArgs{...}
+//          PipelineElapsedTimeMetricPolicyArgs{...}
 type PipelineElapsedTimeMetricPolicyInput interface {
 	pulumi.Input
 
@@ -18205,11 +18205,11 @@ func (i PipelineElapsedTimeMetricPolicyArgs) ToPipelineElapsedTimeMetricPolicyPt
 // PipelineElapsedTimeMetricPolicyPtrInput is an input type that accepts PipelineElapsedTimeMetricPolicyArgs, PipelineElapsedTimeMetricPolicyPtr and PipelineElapsedTimeMetricPolicyPtrOutput values.
 // You can construct a concrete instance of `PipelineElapsedTimeMetricPolicyPtrInput` via:
 //
-//	        PipelineElapsedTimeMetricPolicyArgs{...}
+//          PipelineElapsedTimeMetricPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PipelineElapsedTimeMetricPolicyPtrInput interface {
 	pulumi.Input
 
@@ -18368,7 +18368,7 @@ type PipelineFolder struct {
 // PipelineFolderInput is an input type that accepts PipelineFolderArgs and PipelineFolderOutput values.
 // You can construct a concrete instance of `PipelineFolderInput` via:
 //
-//	PipelineFolderArgs{...}
+//          PipelineFolderArgs{...}
 type PipelineFolderInput interface {
 	pulumi.Input
 
@@ -18405,11 +18405,11 @@ func (i PipelineFolderArgs) ToPipelineFolderPtrOutputWithContext(ctx context.Con
 // PipelineFolderPtrInput is an input type that accepts PipelineFolderArgs, PipelineFolderPtr and PipelineFolderPtrOutput values.
 // You can construct a concrete instance of `PipelineFolderPtrInput` via:
 //
-//	        PipelineFolderArgs{...}
+//          PipelineFolderArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PipelineFolderPtrInput interface {
 	pulumi.Input
 
@@ -18508,7 +18508,7 @@ type PipelinePolicy struct {
 // PipelinePolicyInput is an input type that accepts PipelinePolicyArgs and PipelinePolicyOutput values.
 // You can construct a concrete instance of `PipelinePolicyInput` via:
 //
-//	PipelinePolicyArgs{...}
+//          PipelinePolicyArgs{...}
 type PipelinePolicyInput interface {
 	pulumi.Input
 
@@ -18545,11 +18545,11 @@ func (i PipelinePolicyArgs) ToPipelinePolicyPtrOutputWithContext(ctx context.Con
 // PipelinePolicyPtrInput is an input type that accepts PipelinePolicyArgs, PipelinePolicyPtr and PipelinePolicyPtrOutput values.
 // You can construct a concrete instance of `PipelinePolicyPtrInput` via:
 //
-//	        PipelinePolicyArgs{...}
+//          PipelinePolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PipelinePolicyPtrInput interface {
 	pulumi.Input
 
@@ -19216,7 +19216,7 @@ type PrivateEndpoint struct {
 // PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
 // You can construct a concrete instance of `PrivateEndpointInput` via:
 //
-//	PrivateEndpointArgs{...}
+//          PrivateEndpointArgs{...}
 type PrivateEndpointInput interface {
 	pulumi.Input
 
@@ -19253,11 +19253,11 @@ func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.C
 // PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPtrInput` via:
 //
-//	        PrivateEndpointArgs{...}
+//          PrivateEndpointArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointPtrInput interface {
 	pulumi.Input
 
@@ -19358,7 +19358,7 @@ type PrivateLinkConnectionApprovalRequest struct {
 // PrivateLinkConnectionApprovalRequestInput is an input type that accepts PrivateLinkConnectionApprovalRequestArgs and PrivateLinkConnectionApprovalRequestOutput values.
 // You can construct a concrete instance of `PrivateLinkConnectionApprovalRequestInput` via:
 //
-//	PrivateLinkConnectionApprovalRequestArgs{...}
+//          PrivateLinkConnectionApprovalRequestArgs{...}
 type PrivateLinkConnectionApprovalRequestInput interface {
 	pulumi.Input
 
@@ -19397,11 +19397,11 @@ func (i PrivateLinkConnectionApprovalRequestArgs) ToPrivateLinkConnectionApprova
 // PrivateLinkConnectionApprovalRequestPtrInput is an input type that accepts PrivateLinkConnectionApprovalRequestArgs, PrivateLinkConnectionApprovalRequestPtr and PrivateLinkConnectionApprovalRequestPtrOutput values.
 // You can construct a concrete instance of `PrivateLinkConnectionApprovalRequestPtrInput` via:
 //
-//	        PrivateLinkConnectionApprovalRequestArgs{...}
+//          PrivateLinkConnectionApprovalRequestArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkConnectionApprovalRequestPtrInput interface {
 	pulumi.Input
 
@@ -19521,7 +19521,7 @@ type PrivateLinkConnectionState struct {
 // PrivateLinkConnectionStateInput is an input type that accepts PrivateLinkConnectionStateArgs and PrivateLinkConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkConnectionStateInput` via:
 //
-//	PrivateLinkConnectionStateArgs{...}
+//          PrivateLinkConnectionStateArgs{...}
 type PrivateLinkConnectionStateInput interface {
 	pulumi.Input
 
@@ -19562,11 +19562,11 @@ func (i PrivateLinkConnectionStateArgs) ToPrivateLinkConnectionStatePtrOutputWit
 // PrivateLinkConnectionStatePtrInput is an input type that accepts PrivateLinkConnectionStateArgs, PrivateLinkConnectionStatePtr and PrivateLinkConnectionStatePtrOutput values.
 // You can construct a concrete instance of `PrivateLinkConnectionStatePtrInput` via:
 //
-//	        PrivateLinkConnectionStateArgs{...}
+//          PrivateLinkConnectionStateArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -19789,7 +19789,7 @@ type PurviewConfiguration struct {
 // PurviewConfigurationInput is an input type that accepts PurviewConfigurationArgs and PurviewConfigurationOutput values.
 // You can construct a concrete instance of `PurviewConfigurationInput` via:
 //
-//	PurviewConfigurationArgs{...}
+//          PurviewConfigurationArgs{...}
 type PurviewConfigurationInput interface {
 	pulumi.Input
 
@@ -19826,11 +19826,11 @@ func (i PurviewConfigurationArgs) ToPurviewConfigurationPtrOutputWithContext(ctx
 // PurviewConfigurationPtrInput is an input type that accepts PurviewConfigurationArgs, PurviewConfigurationPtr and PurviewConfigurationPtrOutput values.
 // You can construct a concrete instance of `PurviewConfigurationPtrInput` via:
 //
-//	        PurviewConfigurationArgs{...}
+//          PurviewConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PurviewConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -26366,7 +26366,7 @@ type VariableSpecification struct {
 // VariableSpecificationInput is an input type that accepts VariableSpecificationArgs and VariableSpecificationOutput values.
 // You can construct a concrete instance of `VariableSpecificationInput` via:
 //
-//	VariableSpecificationArgs{...}
+//          VariableSpecificationArgs{...}
 type VariableSpecificationInput interface {
 	pulumi.Input
 
@@ -26397,7 +26397,7 @@ func (i VariableSpecificationArgs) ToVariableSpecificationOutputWithContext(ctx 
 // VariableSpecificationMapInput is an input type that accepts VariableSpecificationMap and VariableSpecificationMapOutput values.
 // You can construct a concrete instance of `VariableSpecificationMapInput` via:
 //
-//	VariableSpecificationMap{ "key": VariableSpecificationArgs{...} }
+//          VariableSpecificationMap{ "key": VariableSpecificationArgs{...} }
 type VariableSpecificationMapInput interface {
 	pulumi.Input
 

@@ -19,7 +19,7 @@ type CorsRule struct {
 // CorsRuleInput is an input type that accepts CorsRuleArgs and CorsRuleOutput values.
 // You can construct a concrete instance of `CorsRuleInput` via:
 //
-//	CorsRuleArgs{...}
+//          CorsRuleArgs{...}
 type CorsRuleInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i CorsRuleArgs) ToCorsRuleOutputWithContext(ctx context.Context) CorsRuleO
 // CorsRuleArrayInput is an input type that accepts CorsRuleArray and CorsRuleArrayOutput values.
 // You can construct a concrete instance of `CorsRuleArrayInput` via:
 //
-//	CorsRuleArray{ CorsRuleArgs{...} }
+//          CorsRuleArray{ CorsRuleArgs{...} }
 type CorsRuleArrayInput interface {
 	pulumi.Input
 
@@ -165,7 +165,7 @@ type CorsRules struct {
 // CorsRulesInput is an input type that accepts CorsRulesArgs and CorsRulesOutput values.
 // You can construct a concrete instance of `CorsRulesInput` via:
 //
-//	CorsRulesArgs{...}
+//          CorsRulesArgs{...}
 type CorsRulesInput interface {
 	pulumi.Input
 
@@ -202,11 +202,11 @@ func (i CorsRulesArgs) ToCorsRulesPtrOutputWithContext(ctx context.Context) Cors
 // CorsRulesPtrInput is an input type that accepts CorsRulesArgs, CorsRulesPtr and CorsRulesPtrOutput values.
 // You can construct a concrete instance of `CorsRulesPtrInput` via:
 //
-//	        CorsRulesArgs{...}
+//          CorsRulesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CorsRulesPtrInput interface {
 	pulumi.Input
 
@@ -365,7 +365,7 @@ type CreatorProperties struct {
 // CreatorPropertiesInput is an input type that accepts CreatorPropertiesArgs and CreatorPropertiesOutput values.
 // You can construct a concrete instance of `CreatorPropertiesInput` via:
 //
-//	CreatorPropertiesArgs{...}
+//          CreatorPropertiesArgs{...}
 type CreatorPropertiesInput interface {
 	pulumi.Input
 
@@ -455,7 +455,7 @@ type LinkedResource struct {
 // LinkedResourceInput is an input type that accepts LinkedResourceArgs and LinkedResourceOutput values.
 // You can construct a concrete instance of `LinkedResourceInput` via:
 //
-//	LinkedResourceArgs{...}
+//          LinkedResourceArgs{...}
 type LinkedResourceInput interface {
 	pulumi.Input
 
@@ -486,7 +486,7 @@ func (i LinkedResourceArgs) ToLinkedResourceOutputWithContext(ctx context.Contex
 // LinkedResourceArrayInput is an input type that accepts LinkedResourceArray and LinkedResourceArrayOutput values.
 // You can construct a concrete instance of `LinkedResourceArrayInput` via:
 //
-//	LinkedResourceArray{ LinkedResourceArgs{...} }
+//          LinkedResourceArray{ LinkedResourceArgs{...} }
 type LinkedResourceArrayInput interface {
 	pulumi.Input
 
@@ -617,7 +617,7 @@ type ManagedServiceIdentity struct {
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityInput` via:
 //
-//	ManagedServiceIdentityArgs{...}
+//          ManagedServiceIdentityArgs{...}
 type ManagedServiceIdentityInput interface {
 	pulumi.Input
 
@@ -656,11 +656,11 @@ func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext
 // ManagedServiceIdentityPtrInput is an input type that accepts ManagedServiceIdentityArgs, ManagedServiceIdentityPtr and ManagedServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityPtrInput` via:
 //
-//	        ManagedServiceIdentityArgs{...}
+//          ManagedServiceIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -955,7 +955,7 @@ func (val *MapsAccountProperties) Defaults() *MapsAccountProperties {
 // MapsAccountPropertiesInput is an input type that accepts MapsAccountPropertiesArgs and MapsAccountPropertiesOutput values.
 // You can construct a concrete instance of `MapsAccountPropertiesInput` via:
 //
-//	MapsAccountPropertiesArgs{...}
+//          MapsAccountPropertiesArgs{...}
 type MapsAccountPropertiesInput interface {
 	pulumi.Input
 
@@ -1007,11 +1007,11 @@ func (i MapsAccountPropertiesArgs) ToMapsAccountPropertiesPtrOutputWithContext(c
 // MapsAccountPropertiesPtrInput is an input type that accepts MapsAccountPropertiesArgs, MapsAccountPropertiesPtr and MapsAccountPropertiesPtrOutput values.
 // You can construct a concrete instance of `MapsAccountPropertiesPtrInput` via:
 //
-//	        MapsAccountPropertiesArgs{...}
+//          MapsAccountPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MapsAccountPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1207,7 +1207,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

@@ -27,7 +27,7 @@ type CompanyInfo struct {
 // CompanyInfoInput is an input type that accepts CompanyInfoArgs and CompanyInfoOutput values.
 // You can construct a concrete instance of `CompanyInfoInput` via:
 //
-//	CompanyInfoArgs{...}
+//          CompanyInfoArgs{...}
 type CompanyInfoInput interface {
 	pulumi.Input
 
@@ -72,11 +72,11 @@ func (i CompanyInfoArgs) ToCompanyInfoPtrOutputWithContext(ctx context.Context) 
 // CompanyInfoPtrInput is an input type that accepts CompanyInfoArgs, CompanyInfoPtr and CompanyInfoPtrOutput values.
 // You can construct a concrete instance of `CompanyInfoPtrInput` via:
 //
-//	        CompanyInfoArgs{...}
+//          CompanyInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CompanyInfoPtrInput interface {
 	pulumi.Input
 
@@ -572,7 +572,7 @@ type FilteringTag struct {
 // FilteringTagInput is an input type that accepts FilteringTagArgs and FilteringTagOutput values.
 // You can construct a concrete instance of `FilteringTagInput` via:
 //
-//	FilteringTagArgs{...}
+//          FilteringTagArgs{...}
 type FilteringTagInput interface {
 	pulumi.Input
 
@@ -605,7 +605,7 @@ func (i FilteringTagArgs) ToFilteringTagOutputWithContext(ctx context.Context) F
 // FilteringTagArrayInput is an input type that accepts FilteringTagArray and FilteringTagArrayOutput values.
 // You can construct a concrete instance of `FilteringTagArrayInput` via:
 //
-//	FilteringTagArray{ FilteringTagArgs{...} }
+//          FilteringTagArray{ FilteringTagArgs{...} }
 type FilteringTagArrayInput interface {
 	pulumi.Input
 
@@ -746,7 +746,7 @@ type IdentityProperties struct {
 // IdentityPropertiesInput is an input type that accepts IdentityPropertiesArgs and IdentityPropertiesOutput values.
 // You can construct a concrete instance of `IdentityPropertiesInput` via:
 //
-//	IdentityPropertiesArgs{...}
+//          IdentityPropertiesArgs{...}
 type IdentityPropertiesInput interface {
 	pulumi.Input
 
@@ -783,11 +783,11 @@ func (i IdentityPropertiesArgs) ToIdentityPropertiesPtrOutputWithContext(ctx con
 // IdentityPropertiesPtrInput is an input type that accepts IdentityPropertiesArgs, IdentityPropertiesPtr and IdentityPropertiesPtrOutput values.
 // You can construct a concrete instance of `IdentityPropertiesPtrInput` via:
 //
-//	        IdentityPropertiesArgs{...}
+//          IdentityPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IdentityPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -986,7 +986,7 @@ type LogRules struct {
 // LogRulesInput is an input type that accepts LogRulesArgs and LogRulesOutput values.
 // You can construct a concrete instance of `LogRulesInput` via:
 //
-//	LogRulesArgs{...}
+//          LogRulesArgs{...}
 type LogRulesInput interface {
 	pulumi.Input
 
@@ -1029,11 +1029,11 @@ func (i LogRulesArgs) ToLogRulesPtrOutputWithContext(ctx context.Context) LogRul
 // LogRulesPtrInput is an input type that accepts LogRulesArgs, LogRulesPtr and LogRulesPtrOutput values.
 // You can construct a concrete instance of `LogRulesPtrInput` via:
 //
-//	        LogRulesArgs{...}
+//          LogRulesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LogRulesPtrInput interface {
 	pulumi.Input
 
@@ -1294,7 +1294,7 @@ type MonitorProperties struct {
 // MonitorPropertiesInput is an input type that accepts MonitorPropertiesArgs and MonitorPropertiesOutput values.
 // You can construct a concrete instance of `MonitorPropertiesInput` via:
 //
-//	MonitorPropertiesArgs{...}
+//          MonitorPropertiesArgs{...}
 type MonitorPropertiesInput interface {
 	pulumi.Input
 
@@ -1337,11 +1337,11 @@ func (i MonitorPropertiesArgs) ToMonitorPropertiesPtrOutputWithContext(ctx conte
 // MonitorPropertiesPtrInput is an input type that accepts MonitorPropertiesArgs, MonitorPropertiesPtr and MonitorPropertiesPtrOutput values.
 // You can construct a concrete instance of `MonitorPropertiesPtrInput` via:
 //
-//	        MonitorPropertiesArgs{...}
+//          MonitorPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MonitorPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1606,7 +1606,7 @@ type MonitoringTagRulesProperties struct {
 // MonitoringTagRulesPropertiesInput is an input type that accepts MonitoringTagRulesPropertiesArgs and MonitoringTagRulesPropertiesOutput values.
 // You can construct a concrete instance of `MonitoringTagRulesPropertiesInput` via:
 //
-//	MonitoringTagRulesPropertiesArgs{...}
+//          MonitoringTagRulesPropertiesArgs{...}
 type MonitoringTagRulesPropertiesInput interface {
 	pulumi.Input
 
@@ -1645,11 +1645,11 @@ func (i MonitoringTagRulesPropertiesArgs) ToMonitoringTagRulesPropertiesPtrOutpu
 // MonitoringTagRulesPropertiesPtrInput is an input type that accepts MonitoringTagRulesPropertiesArgs, MonitoringTagRulesPropertiesPtr and MonitoringTagRulesPropertiesPtrOutput values.
 // You can construct a concrete instance of `MonitoringTagRulesPropertiesPtrInput` via:
 //
-//	        MonitoringTagRulesPropertiesArgs{...}
+//          MonitoringTagRulesPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MonitoringTagRulesPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1796,7 +1796,7 @@ type ResourceSku struct {
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
 // You can construct a concrete instance of `ResourceSkuInput` via:
 //
-//	ResourceSkuArgs{...}
+//          ResourceSkuArgs{...}
 type ResourceSkuInput interface {
 	pulumi.Input
 
@@ -1833,11 +1833,11 @@ func (i ResourceSkuArgs) ToResourceSkuPtrOutputWithContext(ctx context.Context) 
 // ResourceSkuPtrInput is an input type that accepts ResourceSkuArgs, ResourceSkuPtr and ResourceSkuPtrOutput values.
 // You can construct a concrete instance of `ResourceSkuPtrInput` via:
 //
-//	        ResourceSkuArgs{...}
+//          ResourceSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceSkuPtrInput interface {
 	pulumi.Input
 
@@ -2065,7 +2065,7 @@ type UserInfo struct {
 // UserInfoInput is an input type that accepts UserInfoArgs and UserInfoOutput values.
 // You can construct a concrete instance of `UserInfoInput` via:
 //
-//	UserInfoArgs{...}
+//          UserInfoArgs{...}
 type UserInfoInput interface {
 	pulumi.Input
 
@@ -2110,11 +2110,11 @@ func (i UserInfoArgs) ToUserInfoPtrOutputWithContext(ctx context.Context) UserIn
 // UserInfoPtrInput is an input type that accepts UserInfoArgs, UserInfoPtr and UserInfoPtrOutput values.
 // You can construct a concrete instance of `UserInfoPtrInput` via:
 //
-//	        UserInfoArgs{...}
+//          UserInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type UserInfoPtrInput interface {
 	pulumi.Input
 

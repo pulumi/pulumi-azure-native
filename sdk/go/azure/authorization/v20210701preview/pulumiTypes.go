@@ -25,7 +25,7 @@ type AccessReviewInstance struct {
 // AccessReviewInstanceInput is an input type that accepts AccessReviewInstanceArgs and AccessReviewInstanceOutput values.
 // You can construct a concrete instance of `AccessReviewInstanceInput` via:
 //
-//	AccessReviewInstanceArgs{...}
+//          AccessReviewInstanceArgs{...}
 type AccessReviewInstanceInput interface {
 	pulumi.Input
 
@@ -60,7 +60,7 @@ func (i AccessReviewInstanceArgs) ToAccessReviewInstanceOutputWithContext(ctx co
 // AccessReviewInstanceArrayInput is an input type that accepts AccessReviewInstanceArray and AccessReviewInstanceArrayOutput values.
 // You can construct a concrete instance of `AccessReviewInstanceArrayInput` via:
 //
-//	AccessReviewInstanceArray{ AccessReviewInstanceArgs{...} }
+//          AccessReviewInstanceArray{ AccessReviewInstanceArgs{...} }
 type AccessReviewInstanceArrayInput interface {
 	pulumi.Input
 
@@ -248,7 +248,7 @@ type AccessReviewReviewer struct {
 // AccessReviewReviewerInput is an input type that accepts AccessReviewReviewerArgs and AccessReviewReviewerOutput values.
 // You can construct a concrete instance of `AccessReviewReviewerInput` via:
 //
-//	AccessReviewReviewerArgs{...}
+//          AccessReviewReviewerArgs{...}
 type AccessReviewReviewerInput interface {
 	pulumi.Input
 
@@ -277,7 +277,7 @@ func (i AccessReviewReviewerArgs) ToAccessReviewReviewerOutputWithContext(ctx co
 // AccessReviewReviewerArrayInput is an input type that accepts AccessReviewReviewerArray and AccessReviewReviewerArrayOutput values.
 // You can construct a concrete instance of `AccessReviewReviewerArrayInput` via:
 //
-//	AccessReviewReviewerArray{ AccessReviewReviewerArgs{...} }
+//          AccessReviewReviewerArray{ AccessReviewReviewerArgs{...} }
 type AccessReviewReviewerArrayInput interface {
 	pulumi.Input
 

@@ -19,7 +19,7 @@ type ControllerDetailsType struct {
 // ControllerDetailsTypeInput is an input type that accepts ControllerDetailsTypeArgs and ControllerDetailsTypeOutput values.
 // You can construct a concrete instance of `ControllerDetailsTypeInput` via:
 //
-//	ControllerDetailsTypeArgs{...}
+//          ControllerDetailsTypeArgs{...}
 type ControllerDetailsTypeInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ControllerDetailsTypeArgs) ToControllerDetailsTypePtrOutputWithContext(c
 // ControllerDetailsTypePtrInput is an input type that accepts ControllerDetailsTypeArgs, ControllerDetailsTypePtr and ControllerDetailsTypePtrOutput values.
 // You can construct a concrete instance of `ControllerDetailsTypePtrInput` via:
 //
-//	        ControllerDetailsTypeArgs{...}
+//          ControllerDetailsTypeArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ControllerDetailsTypePtrInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ type OrchestratorIdentity struct {
 // OrchestratorIdentityInput is an input type that accepts OrchestratorIdentityArgs and OrchestratorIdentityOutput values.
 // You can construct a concrete instance of `OrchestratorIdentityInput` via:
 //
-//	OrchestratorIdentityArgs{...}
+//          OrchestratorIdentityArgs{...}
 type OrchestratorIdentityInput interface {
 	pulumi.Input
 
@@ -254,11 +254,11 @@ func (i OrchestratorIdentityArgs) ToOrchestratorIdentityPtrOutputWithContext(ctx
 // OrchestratorIdentityPtrInput is an input type that accepts OrchestratorIdentityArgs, OrchestratorIdentityPtr and OrchestratorIdentityPtrOutput values.
 // You can construct a concrete instance of `OrchestratorIdentityPtrInput` via:
 //
-//	        OrchestratorIdentityArgs{...}
+//          OrchestratorIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OrchestratorIdentityPtrInput interface {
 	pulumi.Input
 
@@ -448,7 +448,7 @@ type SubnetDetails struct {
 // SubnetDetailsInput is an input type that accepts SubnetDetailsArgs and SubnetDetailsOutput values.
 // You can construct a concrete instance of `SubnetDetailsInput` via:
 //
-//	SubnetDetailsArgs{...}
+//          SubnetDetailsArgs{...}
 type SubnetDetailsInput interface {
 	pulumi.Input
 
@@ -485,11 +485,11 @@ func (i SubnetDetailsArgs) ToSubnetDetailsPtrOutputWithContext(ctx context.Conte
 // SubnetDetailsPtrInput is an input type that accepts SubnetDetailsArgs, SubnetDetailsPtr and SubnetDetailsPtrOutput values.
 // You can construct a concrete instance of `SubnetDetailsPtrInput` via:
 //
-//	        SubnetDetailsArgs{...}
+//          SubnetDetailsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SubnetDetailsPtrInput interface {
 	pulumi.Input
 

@@ -21,7 +21,7 @@ type NetworkACL struct {
 // NetworkACLInput is an input type that accepts NetworkACLArgs and NetworkACLOutput values.
 // You can construct a concrete instance of `NetworkACLInput` via:
 //
-//	NetworkACLArgs{...}
+//          NetworkACLArgs{...}
 type NetworkACLInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i NetworkACLArgs) ToNetworkACLPtrOutputWithContext(ctx context.Context) Ne
 // NetworkACLPtrInput is an input type that accepts NetworkACLArgs, NetworkACLPtr and NetworkACLPtrOutput values.
 // You can construct a concrete instance of `NetworkACLPtrInput` via:
 //
-//	        NetworkACLArgs{...}
+//          NetworkACLArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NetworkACLPtrInput interface {
 	pulumi.Input
 
@@ -255,7 +255,7 @@ type PrivateEndpoint struct {
 // PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
 // You can construct a concrete instance of `PrivateEndpointInput` via:
 //
-//	PrivateEndpointArgs{...}
+//          PrivateEndpointArgs{...}
 type PrivateEndpointInput interface {
 	pulumi.Input
 
@@ -292,11 +292,11 @@ func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.C
 // PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPtrInput` via:
 //
-//	        PrivateEndpointArgs{...}
+//          PrivateEndpointArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateEndpointPtrInput interface {
 	pulumi.Input
 
@@ -399,7 +399,7 @@ type PrivateEndpointACL struct {
 // PrivateEndpointACLInput is an input type that accepts PrivateEndpointACLArgs and PrivateEndpointACLOutput values.
 // You can construct a concrete instance of `PrivateEndpointACLInput` via:
 //
-//	PrivateEndpointACLArgs{...}
+//          PrivateEndpointACLArgs{...}
 type PrivateEndpointACLInput interface {
 	pulumi.Input
 
@@ -432,7 +432,7 @@ func (i PrivateEndpointACLArgs) ToPrivateEndpointACLOutputWithContext(ctx contex
 // PrivateEndpointACLArrayInput is an input type that accepts PrivateEndpointACLArray and PrivateEndpointACLArrayOutput values.
 // You can construct a concrete instance of `PrivateEndpointACLArrayInput` via:
 //
-//	PrivateEndpointACLArray{ PrivateEndpointACLArgs{...} }
+//          PrivateEndpointACLArray{ PrivateEndpointACLArgs{...} }
 type PrivateEndpointACLArrayInput interface {
 	pulumi.Input
 
@@ -720,7 +720,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//	PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -761,11 +761,11 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 // PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
 //
-//	        PrivateLinkServiceConnectionStateArgs{...}
+//          PrivateLinkServiceConnectionStateArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkServiceConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -988,7 +988,7 @@ type ResourceReference struct {
 // ResourceReferenceInput is an input type that accepts ResourceReferenceArgs and ResourceReferenceOutput values.
 // You can construct a concrete instance of `ResourceReferenceInput` via:
 //
-//	ResourceReferenceArgs{...}
+//          ResourceReferenceArgs{...}
 type ResourceReferenceInput interface {
 	pulumi.Input
 
@@ -1081,7 +1081,7 @@ type ResourceSku struct {
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
 // You can construct a concrete instance of `ResourceSkuInput` via:
 //
-//	ResourceSkuArgs{...}
+//          ResourceSkuArgs{...}
 type ResourceSkuInput interface {
 	pulumi.Input
 
@@ -1130,11 +1130,11 @@ func (i ResourceSkuArgs) ToResourceSkuPtrOutputWithContext(ctx context.Context) 
 // ResourceSkuPtrInput is an input type that accepts ResourceSkuArgs, ResourceSkuPtr and ResourceSkuPtrOutput values.
 // You can construct a concrete instance of `ResourceSkuPtrInput` via:
 //
-//	        ResourceSkuArgs{...}
+//          ResourceSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceSkuPtrInput interface {
 	pulumi.Input
 
@@ -1188,9 +1188,8 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context
 // Optional, integer. The unit count of SignalR resource. 1 by default.
 //
 // If present, following values are allowed:
-//
-//	Free: 1
-//	Standard: 1,2,5,10,20,50,100
+//     Free: 1
+//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -1236,9 +1235,8 @@ func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
 // Optional, integer. The unit count of SignalR resource. 1 by default.
 //
 // If present, following values are allowed:
-//
-//	Free: 1
-//	Standard: 1,2,5,10,20,50,100
+//     Free: 1
+//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *int {
 		if v == nil {
@@ -1312,9 +1310,8 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponseOutputWithContext(ctx co
 // Optional, integer. The unit count of SignalR resource. 1 by default.
 //
 // If present, following values are allowed:
-//
-//	Free: 1
-//	Standard: 1,2,5,10,20,50,100
+//     Free: 1
+//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -1370,9 +1367,8 @@ func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
 // Optional, integer. The unit count of SignalR resource. 1 by default.
 //
 // If present, following values are allowed:
-//
-//	Free: 1
-//	Standard: 1,2,5,10,20,50,100
+//     Free: 1
+//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *int {
 		if v == nil {
@@ -1435,7 +1431,7 @@ type ServerlessUpstreamSettings struct {
 // ServerlessUpstreamSettingsInput is an input type that accepts ServerlessUpstreamSettingsArgs and ServerlessUpstreamSettingsOutput values.
 // You can construct a concrete instance of `ServerlessUpstreamSettingsInput` via:
 //
-//	ServerlessUpstreamSettingsArgs{...}
+//          ServerlessUpstreamSettingsArgs{...}
 type ServerlessUpstreamSettingsInput interface {
 	pulumi.Input
 
@@ -1472,11 +1468,11 @@ func (i ServerlessUpstreamSettingsArgs) ToServerlessUpstreamSettingsPtrOutputWit
 // ServerlessUpstreamSettingsPtrInput is an input type that accepts ServerlessUpstreamSettingsArgs, ServerlessUpstreamSettingsPtr and ServerlessUpstreamSettingsPtrOutput values.
 // You can construct a concrete instance of `ServerlessUpstreamSettingsPtrInput` via:
 //
-//	        ServerlessUpstreamSettingsArgs{...}
+//          ServerlessUpstreamSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServerlessUpstreamSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1635,7 +1631,7 @@ type SignalRCorsSettings struct {
 // SignalRCorsSettingsInput is an input type that accepts SignalRCorsSettingsArgs and SignalRCorsSettingsOutput values.
 // You can construct a concrete instance of `SignalRCorsSettingsInput` via:
 //
-//	SignalRCorsSettingsArgs{...}
+//          SignalRCorsSettingsArgs{...}
 type SignalRCorsSettingsInput interface {
 	pulumi.Input
 
@@ -1672,11 +1668,11 @@ func (i SignalRCorsSettingsArgs) ToSignalRCorsSettingsPtrOutputWithContext(ctx c
 // SignalRCorsSettingsPtrInput is an input type that accepts SignalRCorsSettingsArgs, SignalRCorsSettingsPtr and SignalRCorsSettingsPtrOutput values.
 // You can construct a concrete instance of `SignalRCorsSettingsPtrInput` via:
 //
-//	        SignalRCorsSettingsArgs{...}
+//          SignalRCorsSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SignalRCorsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1841,7 +1837,7 @@ type SignalRFeature struct {
 // SignalRFeatureInput is an input type that accepts SignalRFeatureArgs and SignalRFeatureOutput values.
 // You can construct a concrete instance of `SignalRFeatureInput` via:
 //
-//	SignalRFeatureArgs{...}
+//          SignalRFeatureArgs{...}
 type SignalRFeatureInput interface {
 	pulumi.Input
 
@@ -1876,7 +1872,7 @@ func (i SignalRFeatureArgs) ToSignalRFeatureOutputWithContext(ctx context.Contex
 // SignalRFeatureArrayInput is an input type that accepts SignalRFeatureArray and SignalRFeatureArrayOutput values.
 // You can construct a concrete instance of `SignalRFeatureArrayInput` via:
 //
-//	SignalRFeatureArray{ SignalRFeatureArgs{...} }
+//          SignalRFeatureArray{ SignalRFeatureArgs{...} }
 type SignalRFeatureArrayInput interface {
 	pulumi.Input
 
@@ -2040,7 +2036,7 @@ func (val *SignalRNetworkACLs) Defaults() *SignalRNetworkACLs {
 // SignalRNetworkACLsInput is an input type that accepts SignalRNetworkACLsArgs and SignalRNetworkACLsOutput values.
 // You can construct a concrete instance of `SignalRNetworkACLsInput` via:
 //
-//	SignalRNetworkACLsArgs{...}
+//          SignalRNetworkACLsArgs{...}
 type SignalRNetworkACLsInput interface {
 	pulumi.Input
 
@@ -2092,11 +2088,11 @@ func (i SignalRNetworkACLsArgs) ToSignalRNetworkACLsPtrOutputWithContext(ctx con
 // SignalRNetworkACLsPtrInput is an input type that accepts SignalRNetworkACLsArgs, SignalRNetworkACLsPtr and SignalRNetworkACLsPtrOutput values.
 // You can construct a concrete instance of `SignalRNetworkACLsPtrInput` via:
 //
-//	        SignalRNetworkACLsArgs{...}
+//          SignalRNetworkACLsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SignalRNetworkACLsPtrInput interface {
 	pulumi.Input
 
@@ -2413,7 +2409,7 @@ type UpstreamTemplate struct {
 // UpstreamTemplateInput is an input type that accepts UpstreamTemplateArgs and UpstreamTemplateOutput values.
 // You can construct a concrete instance of `UpstreamTemplateInput` via:
 //
-//	UpstreamTemplateArgs{...}
+//          UpstreamTemplateArgs{...}
 type UpstreamTemplateInput interface {
 	pulumi.Input
 
@@ -2462,7 +2458,7 @@ func (i UpstreamTemplateArgs) ToUpstreamTemplateOutputWithContext(ctx context.Co
 // UpstreamTemplateArrayInput is an input type that accepts UpstreamTemplateArray and UpstreamTemplateArrayOutput values.
 // You can construct a concrete instance of `UpstreamTemplateArrayInput` via:
 //
-//	UpstreamTemplateArray{ UpstreamTemplateArgs{...} }
+//          UpstreamTemplateArray{ UpstreamTemplateArgs{...} }
 type UpstreamTemplateArrayInput interface {
 	pulumi.Input
 
@@ -2502,27 +2498,27 @@ func (o UpstreamTemplateOutput) ToUpstreamTemplateOutputWithContext(ctx context.
 
 // Gets or sets the matching pattern for category names. If not set, it matches any category.
 // There are 3 kind of patterns supported:
-//  1. "*", it to matches any category name
-//  2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-//  3. The single category name, for example, "connections", it matches the category "connections"
+//     1. "*", it to matches any category name
+//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
+//     3. The single category name, for example, "connections", it matches the category "connections"
 func (o UpstreamTemplateOutput) CategoryPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplate) *string { return v.CategoryPattern }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the matching pattern for event names. If not set, it matches any event.
 // There are 3 kind of patterns supported:
-//  1. "*", it to matches any event name
-//  2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-//  3. The single event name, for example, "connect", it matches "connect"
+//     1. "*", it to matches any event name
+//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
+//     3. The single event name, for example, "connect", it matches "connect"
 func (o UpstreamTemplateOutput) EventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplate) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the matching pattern for hub names. If not set, it matches any hub.
 // There are 3 kind of patterns supported:
-//  1. "*", it to matches any hub name
-//  2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-//  3. The single hub name, for example, "hub1", it matches "hub1"
+//     1. "*", it to matches any hub name
+//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
+//     3. The single hub name, for example, "hub1", it matches "hub1"
 func (o UpstreamTemplateOutput) HubPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplate) *string { return v.HubPattern }).(pulumi.StringPtrOutput)
 }
@@ -2597,27 +2593,27 @@ func (o UpstreamTemplateResponseOutput) ToUpstreamTemplateResponseOutputWithCont
 
 // Gets or sets the matching pattern for category names. If not set, it matches any category.
 // There are 3 kind of patterns supported:
-//  1. "*", it to matches any category name
-//  2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-//  3. The single category name, for example, "connections", it matches the category "connections"
+//     1. "*", it to matches any category name
+//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
+//     3. The single category name, for example, "connections", it matches the category "connections"
 func (o UpstreamTemplateResponseOutput) CategoryPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplateResponse) *string { return v.CategoryPattern }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the matching pattern for event names. If not set, it matches any event.
 // There are 3 kind of patterns supported:
-//  1. "*", it to matches any event name
-//  2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-//  3. The single event name, for example, "connect", it matches "connect"
+//     1. "*", it to matches any event name
+//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
+//     3. The single event name, for example, "connect", it matches "connect"
 func (o UpstreamTemplateResponseOutput) EventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplateResponse) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the matching pattern for hub names. If not set, it matches any hub.
 // There are 3 kind of patterns supported:
-//  1. "*", it to matches any hub name
-//  2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-//  3. The single hub name, for example, "hub1", it matches "hub1"
+//     1. "*", it to matches any hub name
+//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
+//     3. The single hub name, for example, "hub1", it matches "hub1"
 func (o UpstreamTemplateResponseOutput) HubPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UpstreamTemplateResponse) *string { return v.HubPattern }).(pulumi.StringPtrOutput)
 }

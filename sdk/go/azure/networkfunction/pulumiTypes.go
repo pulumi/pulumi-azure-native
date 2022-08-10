@@ -21,7 +21,7 @@ type CollectorPolicyType struct {
 // CollectorPolicyTypeInput is an input type that accepts CollectorPolicyTypeArgs and CollectorPolicyTypeOutput values.
 // You can construct a concrete instance of `CollectorPolicyTypeInput` via:
 //
-//	CollectorPolicyTypeArgs{...}
+//          CollectorPolicyTypeArgs{...}
 type CollectorPolicyTypeInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i CollectorPolicyTypeArgs) ToCollectorPolicyTypeOutputWithContext(ctx cont
 // CollectorPolicyTypeArrayInput is an input type that accepts CollectorPolicyTypeArray and CollectorPolicyTypeArrayOutput values.
 // You can construct a concrete instance of `CollectorPolicyTypeArrayInput` via:
 //
-//	CollectorPolicyTypeArray{ CollectorPolicyTypeArgs{...} }
+//          CollectorPolicyTypeArray{ CollectorPolicyTypeArgs{...} }
 type CollectorPolicyTypeArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +279,7 @@ type EmissionPoliciesPropertiesFormat struct {
 // EmissionPoliciesPropertiesFormatInput is an input type that accepts EmissionPoliciesPropertiesFormatArgs and EmissionPoliciesPropertiesFormatOutput values.
 // You can construct a concrete instance of `EmissionPoliciesPropertiesFormatInput` via:
 //
-//	EmissionPoliciesPropertiesFormatArgs{...}
+//          EmissionPoliciesPropertiesFormatArgs{...}
 type EmissionPoliciesPropertiesFormatInput interface {
 	pulumi.Input
 
@@ -310,7 +310,7 @@ func (i EmissionPoliciesPropertiesFormatArgs) ToEmissionPoliciesPropertiesFormat
 // EmissionPoliciesPropertiesFormatArrayInput is an input type that accepts EmissionPoliciesPropertiesFormatArray and EmissionPoliciesPropertiesFormatArrayOutput values.
 // You can construct a concrete instance of `EmissionPoliciesPropertiesFormatArrayInput` via:
 //
-//	EmissionPoliciesPropertiesFormatArray{ EmissionPoliciesPropertiesFormatArgs{...} }
+//          EmissionPoliciesPropertiesFormatArray{ EmissionPoliciesPropertiesFormatArgs{...} }
 type EmissionPoliciesPropertiesFormatArrayInput interface {
 	pulumi.Input
 
@@ -441,7 +441,7 @@ type EmissionPolicyDestination struct {
 // EmissionPolicyDestinationInput is an input type that accepts EmissionPolicyDestinationArgs and EmissionPolicyDestinationOutput values.
 // You can construct a concrete instance of `EmissionPolicyDestinationInput` via:
 //
-//	EmissionPolicyDestinationArgs{...}
+//          EmissionPolicyDestinationArgs{...}
 type EmissionPolicyDestinationInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (i EmissionPolicyDestinationArgs) ToEmissionPolicyDestinationOutputWithCont
 // EmissionPolicyDestinationArrayInput is an input type that accepts EmissionPolicyDestinationArray and EmissionPolicyDestinationArrayOutput values.
 // You can construct a concrete instance of `EmissionPolicyDestinationArrayInput` via:
 //
-//	EmissionPolicyDestinationArray{ EmissionPolicyDestinationArgs{...} }
+//          EmissionPolicyDestinationArray{ EmissionPolicyDestinationArgs{...} }
 type EmissionPolicyDestinationArrayInput interface {
 	pulumi.Input
 
@@ -589,7 +589,7 @@ type IngestionPolicyPropertiesFormat struct {
 // IngestionPolicyPropertiesFormatInput is an input type that accepts IngestionPolicyPropertiesFormatArgs and IngestionPolicyPropertiesFormatOutput values.
 // You can construct a concrete instance of `IngestionPolicyPropertiesFormatInput` via:
 //
-//	IngestionPolicyPropertiesFormatArgs{...}
+//          IngestionPolicyPropertiesFormatArgs{...}
 type IngestionPolicyPropertiesFormatInput interface {
 	pulumi.Input
 
@@ -628,11 +628,11 @@ func (i IngestionPolicyPropertiesFormatArgs) ToIngestionPolicyPropertiesFormatPt
 // IngestionPolicyPropertiesFormatPtrInput is an input type that accepts IngestionPolicyPropertiesFormatArgs, IngestionPolicyPropertiesFormatPtr and IngestionPolicyPropertiesFormatPtrOutput values.
 // You can construct a concrete instance of `IngestionPolicyPropertiesFormatPtrInput` via:
 //
-//	        IngestionPolicyPropertiesFormatArgs{...}
+//          IngestionPolicyPropertiesFormatArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IngestionPolicyPropertiesFormatPtrInput interface {
 	pulumi.Input
 
@@ -827,7 +827,7 @@ type IngestionSourcesPropertiesFormat struct {
 // IngestionSourcesPropertiesFormatInput is an input type that accepts IngestionSourcesPropertiesFormatArgs and IngestionSourcesPropertiesFormatOutput values.
 // You can construct a concrete instance of `IngestionSourcesPropertiesFormatInput` via:
 //
-//	IngestionSourcesPropertiesFormatArgs{...}
+//          IngestionSourcesPropertiesFormatArgs{...}
 type IngestionSourcesPropertiesFormatInput interface {
 	pulumi.Input
 
@@ -858,7 +858,7 @@ func (i IngestionSourcesPropertiesFormatArgs) ToIngestionSourcesPropertiesFormat
 // IngestionSourcesPropertiesFormatArrayInput is an input type that accepts IngestionSourcesPropertiesFormatArray and IngestionSourcesPropertiesFormatArrayOutput values.
 // You can construct a concrete instance of `IngestionSourcesPropertiesFormatArrayInput` via:
 //
-//	IngestionSourcesPropertiesFormatArray{ IngestionSourcesPropertiesFormatArgs{...} }
+//          IngestionSourcesPropertiesFormatArray{ IngestionSourcesPropertiesFormatArgs{...} }
 type IngestionSourcesPropertiesFormatArrayInput interface {
 	pulumi.Input
 

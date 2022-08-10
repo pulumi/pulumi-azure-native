@@ -32,7 +32,7 @@ func (val *ApplicationDeltaHealthPolicy) Defaults() *ApplicationDeltaHealthPolic
 // ApplicationDeltaHealthPolicyInput is an input type that accepts ApplicationDeltaHealthPolicyArgs and ApplicationDeltaHealthPolicyOutput values.
 // You can construct a concrete instance of `ApplicationDeltaHealthPolicyInput` via:
 //
-//	ApplicationDeltaHealthPolicyArgs{...}
+//          ApplicationDeltaHealthPolicyArgs{...}
 type ApplicationDeltaHealthPolicyInput interface {
 	pulumi.Input
 
@@ -72,7 +72,7 @@ func (i ApplicationDeltaHealthPolicyArgs) ToApplicationDeltaHealthPolicyOutputWi
 // ApplicationDeltaHealthPolicyMapInput is an input type that accepts ApplicationDeltaHealthPolicyMap and ApplicationDeltaHealthPolicyMapOutput values.
 // You can construct a concrete instance of `ApplicationDeltaHealthPolicyMapInput` via:
 //
-//	ApplicationDeltaHealthPolicyMap{ "key": ApplicationDeltaHealthPolicyArgs{...} }
+//          ApplicationDeltaHealthPolicyMap{ "key": ApplicationDeltaHealthPolicyArgs{...} }
 type ApplicationDeltaHealthPolicyMapInput interface {
 	pulumi.Input
 
@@ -233,7 +233,7 @@ func (val *ApplicationHealthPolicy) Defaults() *ApplicationHealthPolicy {
 // ApplicationHealthPolicyInput is an input type that accepts ApplicationHealthPolicyArgs and ApplicationHealthPolicyOutput values.
 // You can construct a concrete instance of `ApplicationHealthPolicyInput` via:
 //
-//	ApplicationHealthPolicyArgs{...}
+//          ApplicationHealthPolicyArgs{...}
 type ApplicationHealthPolicyInput interface {
 	pulumi.Input
 
@@ -273,7 +273,7 @@ func (i ApplicationHealthPolicyArgs) ToApplicationHealthPolicyOutputWithContext(
 // ApplicationHealthPolicyMapInput is an input type that accepts ApplicationHealthPolicyMap and ApplicationHealthPolicyMapOutput values.
 // You can construct a concrete instance of `ApplicationHealthPolicyMapInput` via:
 //
-//	ApplicationHealthPolicyMap{ "key": ApplicationHealthPolicyArgs{...} }
+//          ApplicationHealthPolicyMap{ "key": ApplicationHealthPolicyArgs{...} }
 type ApplicationHealthPolicyMapInput interface {
 	pulumi.Input
 
@@ -433,7 +433,7 @@ type ApplicationMetricDescription struct {
 // ApplicationMetricDescriptionInput is an input type that accepts ApplicationMetricDescriptionArgs and ApplicationMetricDescriptionOutput values.
 // You can construct a concrete instance of `ApplicationMetricDescriptionInput` via:
 //
-//	ApplicationMetricDescriptionArgs{...}
+//          ApplicationMetricDescriptionArgs{...}
 type ApplicationMetricDescriptionInput interface {
 	pulumi.Input
 
@@ -478,7 +478,7 @@ func (i ApplicationMetricDescriptionArgs) ToApplicationMetricDescriptionOutputWi
 // ApplicationMetricDescriptionArrayInput is an input type that accepts ApplicationMetricDescriptionArray and ApplicationMetricDescriptionArrayOutput values.
 // You can construct a concrete instance of `ApplicationMetricDescriptionArrayInput` via:
 //
-//	ApplicationMetricDescriptionArray{ ApplicationMetricDescriptionArgs{...} }
+//          ApplicationMetricDescriptionArray{ ApplicationMetricDescriptionArgs{...} }
 type ApplicationMetricDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -660,7 +660,7 @@ type ApplicationTypeVersionsCleanupPolicy struct {
 // ApplicationTypeVersionsCleanupPolicyInput is an input type that accepts ApplicationTypeVersionsCleanupPolicyArgs and ApplicationTypeVersionsCleanupPolicyOutput values.
 // You can construct a concrete instance of `ApplicationTypeVersionsCleanupPolicyInput` via:
 //
-//	ApplicationTypeVersionsCleanupPolicyArgs{...}
+//          ApplicationTypeVersionsCleanupPolicyArgs{...}
 type ApplicationTypeVersionsCleanupPolicyInput interface {
 	pulumi.Input
 
@@ -696,11 +696,11 @@ func (i ApplicationTypeVersionsCleanupPolicyArgs) ToApplicationTypeVersionsClean
 // ApplicationTypeVersionsCleanupPolicyPtrInput is an input type that accepts ApplicationTypeVersionsCleanupPolicyArgs, ApplicationTypeVersionsCleanupPolicyPtr and ApplicationTypeVersionsCleanupPolicyPtrOutput values.
 // You can construct a concrete instance of `ApplicationTypeVersionsCleanupPolicyPtrInput` via:
 //
-//	        ApplicationTypeVersionsCleanupPolicyArgs{...}
+//          ApplicationTypeVersionsCleanupPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApplicationTypeVersionsCleanupPolicyPtrInput interface {
 	pulumi.Input
 
@@ -877,7 +877,7 @@ func (val *ApplicationUpgradePolicy) Defaults() *ApplicationUpgradePolicy {
 // ApplicationUpgradePolicyInput is an input type that accepts ApplicationUpgradePolicyArgs and ApplicationUpgradePolicyOutput values.
 // You can construct a concrete instance of `ApplicationUpgradePolicyInput` via:
 //
-//	ApplicationUpgradePolicyArgs{...}
+//          ApplicationUpgradePolicyArgs{...}
 type ApplicationUpgradePolicyInput interface {
 	pulumi.Input
 
@@ -933,11 +933,11 @@ func (i ApplicationUpgradePolicyArgs) ToApplicationUpgradePolicyPtrOutputWithCon
 // ApplicationUpgradePolicyPtrInput is an input type that accepts ApplicationUpgradePolicyArgs, ApplicationUpgradePolicyPtr and ApplicationUpgradePolicyPtrOutput values.
 // You can construct a concrete instance of `ApplicationUpgradePolicyPtrInput` via:
 //
-//	        ApplicationUpgradePolicyArgs{...}
+//          ApplicationUpgradePolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ApplicationUpgradePolicyPtrInput interface {
 	pulumi.Input
 
@@ -1274,7 +1274,7 @@ type ApplicationUserAssignedIdentity struct {
 // ApplicationUserAssignedIdentityInput is an input type that accepts ApplicationUserAssignedIdentityArgs and ApplicationUserAssignedIdentityOutput values.
 // You can construct a concrete instance of `ApplicationUserAssignedIdentityInput` via:
 //
-//	ApplicationUserAssignedIdentityArgs{...}
+//          ApplicationUserAssignedIdentityArgs{...}
 type ApplicationUserAssignedIdentityInput interface {
 	pulumi.Input
 
@@ -1304,7 +1304,7 @@ func (i ApplicationUserAssignedIdentityArgs) ToApplicationUserAssignedIdentityOu
 // ApplicationUserAssignedIdentityArrayInput is an input type that accepts ApplicationUserAssignedIdentityArray and ApplicationUserAssignedIdentityArrayOutput values.
 // You can construct a concrete instance of `ApplicationUserAssignedIdentityArrayInput` via:
 //
-//	ApplicationUserAssignedIdentityArray{ ApplicationUserAssignedIdentityArgs{...} }
+//          ApplicationUserAssignedIdentityArray{ ApplicationUserAssignedIdentityArgs{...} }
 type ApplicationUserAssignedIdentityArrayInput interface {
 	pulumi.Input
 
@@ -1458,7 +1458,7 @@ func (val *ArmApplicationHealthPolicy) Defaults() *ArmApplicationHealthPolicy {
 // ArmApplicationHealthPolicyInput is an input type that accepts ArmApplicationHealthPolicyArgs and ArmApplicationHealthPolicyOutput values.
 // You can construct a concrete instance of `ArmApplicationHealthPolicyInput` via:
 //
-//	ArmApplicationHealthPolicyArgs{...}
+//          ArmApplicationHealthPolicyArgs{...}
 type ArmApplicationHealthPolicyInput interface {
 	pulumi.Input
 
@@ -1519,11 +1519,11 @@ func (i ArmApplicationHealthPolicyArgs) ToArmApplicationHealthPolicyPtrOutputWit
 // ArmApplicationHealthPolicyPtrInput is an input type that accepts ArmApplicationHealthPolicyArgs, ArmApplicationHealthPolicyPtr and ArmApplicationHealthPolicyPtrOutput values.
 // You can construct a concrete instance of `ArmApplicationHealthPolicyPtrInput` via:
 //
-//	        ArmApplicationHealthPolicyArgs{...}
+//          ArmApplicationHealthPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ArmApplicationHealthPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1830,7 +1830,7 @@ type ArmRollingUpgradeMonitoringPolicy struct {
 // ArmRollingUpgradeMonitoringPolicyInput is an input type that accepts ArmRollingUpgradeMonitoringPolicyArgs and ArmRollingUpgradeMonitoringPolicyOutput values.
 // You can construct a concrete instance of `ArmRollingUpgradeMonitoringPolicyInput` via:
 //
-//	ArmRollingUpgradeMonitoringPolicyArgs{...}
+//          ArmRollingUpgradeMonitoringPolicyArgs{...}
 type ArmRollingUpgradeMonitoringPolicyInput interface {
 	pulumi.Input
 
@@ -1877,11 +1877,11 @@ func (i ArmRollingUpgradeMonitoringPolicyArgs) ToArmRollingUpgradeMonitoringPoli
 // ArmRollingUpgradeMonitoringPolicyPtrInput is an input type that accepts ArmRollingUpgradeMonitoringPolicyArgs, ArmRollingUpgradeMonitoringPolicyPtr and ArmRollingUpgradeMonitoringPolicyPtrOutput values.
 // You can construct a concrete instance of `ArmRollingUpgradeMonitoringPolicyPtrInput` via:
 //
-//	        ArmRollingUpgradeMonitoringPolicyArgs{...}
+//          ArmRollingUpgradeMonitoringPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ArmRollingUpgradeMonitoringPolicyPtrInput interface {
 	pulumi.Input
 
@@ -2225,7 +2225,7 @@ func (val *ArmServiceTypeHealthPolicy) Defaults() *ArmServiceTypeHealthPolicy {
 // ArmServiceTypeHealthPolicyInput is an input type that accepts ArmServiceTypeHealthPolicyArgs and ArmServiceTypeHealthPolicyOutput values.
 // You can construct a concrete instance of `ArmServiceTypeHealthPolicyInput` via:
 //
-//	ArmServiceTypeHealthPolicyArgs{...}
+//          ArmServiceTypeHealthPolicyArgs{...}
 type ArmServiceTypeHealthPolicyInput interface {
 	pulumi.Input
 
@@ -2283,11 +2283,11 @@ func (i ArmServiceTypeHealthPolicyArgs) ToArmServiceTypeHealthPolicyPtrOutputWit
 // ArmServiceTypeHealthPolicyPtrInput is an input type that accepts ArmServiceTypeHealthPolicyArgs, ArmServiceTypeHealthPolicyPtr and ArmServiceTypeHealthPolicyPtrOutput values.
 // You can construct a concrete instance of `ArmServiceTypeHealthPolicyPtrInput` via:
 //
-//	        ArmServiceTypeHealthPolicyArgs{...}
+//          ArmServiceTypeHealthPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ArmServiceTypeHealthPolicyPtrInput interface {
 	pulumi.Input
 
@@ -2316,7 +2316,7 @@ func (i *armServiceTypeHealthPolicyPtrType) ToArmServiceTypeHealthPolicyPtrOutpu
 // ArmServiceTypeHealthPolicyMapInput is an input type that accepts ArmServiceTypeHealthPolicyMap and ArmServiceTypeHealthPolicyMapOutput values.
 // You can construct a concrete instance of `ArmServiceTypeHealthPolicyMapInput` via:
 //
-//	ArmServiceTypeHealthPolicyMap{ "key": ArmServiceTypeHealthPolicyArgs{...} }
+//          ArmServiceTypeHealthPolicyMap{ "key": ArmServiceTypeHealthPolicyArgs{...} }
 type ArmServiceTypeHealthPolicyMapInput interface {
 	pulumi.Input
 
@@ -2600,7 +2600,7 @@ type AzureActiveDirectory struct {
 // AzureActiveDirectoryInput is an input type that accepts AzureActiveDirectoryArgs and AzureActiveDirectoryOutput values.
 // You can construct a concrete instance of `AzureActiveDirectoryInput` via:
 //
-//	AzureActiveDirectoryArgs{...}
+//          AzureActiveDirectoryArgs{...}
 type AzureActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -2641,11 +2641,11 @@ func (i AzureActiveDirectoryArgs) ToAzureActiveDirectoryPtrOutputWithContext(ctx
 // AzureActiveDirectoryPtrInput is an input type that accepts AzureActiveDirectoryArgs, AzureActiveDirectoryPtr and AzureActiveDirectoryPtrOutput values.
 // You can construct a concrete instance of `AzureActiveDirectoryPtrInput` via:
 //
-//	        AzureActiveDirectoryArgs{...}
+//          AzureActiveDirectoryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AzureActiveDirectoryPtrInput interface {
 	pulumi.Input
 
@@ -2872,7 +2872,7 @@ type CertificateDescription struct {
 // CertificateDescriptionInput is an input type that accepts CertificateDescriptionArgs and CertificateDescriptionOutput values.
 // You can construct a concrete instance of `CertificateDescriptionInput` via:
 //
-//	CertificateDescriptionArgs{...}
+//          CertificateDescriptionArgs{...}
 type CertificateDescriptionInput interface {
 	pulumi.Input
 
@@ -2913,11 +2913,11 @@ func (i CertificateDescriptionArgs) ToCertificateDescriptionPtrOutputWithContext
 // CertificateDescriptionPtrInput is an input type that accepts CertificateDescriptionArgs, CertificateDescriptionPtr and CertificateDescriptionPtrOutput values.
 // You can construct a concrete instance of `CertificateDescriptionPtrInput` via:
 //
-//	        CertificateDescriptionArgs{...}
+//          CertificateDescriptionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CertificateDescriptionPtrInput interface {
 	pulumi.Input
 
@@ -3146,7 +3146,7 @@ type ClientCertificate struct {
 // ClientCertificateInput is an input type that accepts ClientCertificateArgs and ClientCertificateOutput values.
 // You can construct a concrete instance of `ClientCertificateInput` via:
 //
-//	ClientCertificateArgs{...}
+//          ClientCertificateArgs{...}
 type ClientCertificateInput interface {
 	pulumi.Input
 
@@ -3181,7 +3181,7 @@ func (i ClientCertificateArgs) ToClientCertificateOutputWithContext(ctx context.
 // ClientCertificateArrayInput is an input type that accepts ClientCertificateArray and ClientCertificateArrayOutput values.
 // You can construct a concrete instance of `ClientCertificateArrayInput` via:
 //
-//	ClientCertificateArray{ ClientCertificateArgs{...} }
+//          ClientCertificateArray{ ClientCertificateArgs{...} }
 type ClientCertificateArrayInput interface {
 	pulumi.Input
 
@@ -3271,7 +3271,7 @@ type ClientCertificateCommonName struct {
 // ClientCertificateCommonNameInput is an input type that accepts ClientCertificateCommonNameArgs and ClientCertificateCommonNameOutput values.
 // You can construct a concrete instance of `ClientCertificateCommonNameInput` via:
 //
-//	ClientCertificateCommonNameArgs{...}
+//          ClientCertificateCommonNameArgs{...}
 type ClientCertificateCommonNameInput interface {
 	pulumi.Input
 
@@ -3304,7 +3304,7 @@ func (i ClientCertificateCommonNameArgs) ToClientCertificateCommonNameOutputWith
 // ClientCertificateCommonNameArrayInput is an input type that accepts ClientCertificateCommonNameArray and ClientCertificateCommonNameArrayOutput values.
 // You can construct a concrete instance of `ClientCertificateCommonNameArrayInput` via:
 //
-//	ClientCertificateCommonNameArray{ ClientCertificateCommonNameArgs{...} }
+//          ClientCertificateCommonNameArray{ ClientCertificateCommonNameArgs{...} }
 type ClientCertificateCommonNameArrayInput interface {
 	pulumi.Input
 
@@ -3514,7 +3514,7 @@ type ClientCertificateThumbprint struct {
 // ClientCertificateThumbprintInput is an input type that accepts ClientCertificateThumbprintArgs and ClientCertificateThumbprintOutput values.
 // You can construct a concrete instance of `ClientCertificateThumbprintInput` via:
 //
-//	ClientCertificateThumbprintArgs{...}
+//          ClientCertificateThumbprintArgs{...}
 type ClientCertificateThumbprintInput interface {
 	pulumi.Input
 
@@ -3545,7 +3545,7 @@ func (i ClientCertificateThumbprintArgs) ToClientCertificateThumbprintOutputWith
 // ClientCertificateThumbprintArrayInput is an input type that accepts ClientCertificateThumbprintArray and ClientCertificateThumbprintArrayOutput values.
 // You can construct a concrete instance of `ClientCertificateThumbprintArrayInput` via:
 //
-//	ClientCertificateThumbprintArray{ ClientCertificateThumbprintArgs{...} }
+//          ClientCertificateThumbprintArray{ ClientCertificateThumbprintArgs{...} }
 type ClientCertificateThumbprintArrayInput interface {
 	pulumi.Input
 
@@ -3707,7 +3707,7 @@ func (val *ClusterHealthPolicy) Defaults() *ClusterHealthPolicy {
 // ClusterHealthPolicyInput is an input type that accepts ClusterHealthPolicyArgs and ClusterHealthPolicyOutput values.
 // You can construct a concrete instance of `ClusterHealthPolicyInput` via:
 //
-//	ClusterHealthPolicyArgs{...}
+//          ClusterHealthPolicyArgs{...}
 type ClusterHealthPolicyInput interface {
 	pulumi.Input
 
@@ -3774,11 +3774,11 @@ func (i ClusterHealthPolicyArgs) ToClusterHealthPolicyPtrOutputWithContext(ctx c
 // ClusterHealthPolicyPtrInput is an input type that accepts ClusterHealthPolicyArgs, ClusterHealthPolicyPtr and ClusterHealthPolicyPtrOutput values.
 // You can construct a concrete instance of `ClusterHealthPolicyPtrInput` via:
 //
-//	        ClusterHealthPolicyArgs{...}
+//          ClusterHealthPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ClusterHealthPolicyPtrInput interface {
 	pulumi.Input
 
@@ -4092,7 +4092,7 @@ type ClusterUpgradeDeltaHealthPolicy struct {
 // ClusterUpgradeDeltaHealthPolicyInput is an input type that accepts ClusterUpgradeDeltaHealthPolicyArgs and ClusterUpgradeDeltaHealthPolicyOutput values.
 // You can construct a concrete instance of `ClusterUpgradeDeltaHealthPolicyInput` via:
 //
-//	ClusterUpgradeDeltaHealthPolicyArgs{...}
+//          ClusterUpgradeDeltaHealthPolicyArgs{...}
 type ClusterUpgradeDeltaHealthPolicyInput interface {
 	pulumi.Input
 
@@ -4141,11 +4141,11 @@ func (i ClusterUpgradeDeltaHealthPolicyArgs) ToClusterUpgradeDeltaHealthPolicyPt
 // ClusterUpgradeDeltaHealthPolicyPtrInput is an input type that accepts ClusterUpgradeDeltaHealthPolicyArgs, ClusterUpgradeDeltaHealthPolicyPtr and ClusterUpgradeDeltaHealthPolicyPtrOutput values.
 // You can construct a concrete instance of `ClusterUpgradeDeltaHealthPolicyPtrInput` via:
 //
-//	        ClusterUpgradeDeltaHealthPolicyArgs{...}
+//          ClusterUpgradeDeltaHealthPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ClusterUpgradeDeltaHealthPolicyPtrInput interface {
 	pulumi.Input
 
@@ -4463,7 +4463,7 @@ func (val *ClusterUpgradePolicy) Defaults() *ClusterUpgradePolicy {
 // ClusterUpgradePolicyInput is an input type that accepts ClusterUpgradePolicyArgs and ClusterUpgradePolicyOutput values.
 // You can construct a concrete instance of `ClusterUpgradePolicyInput` via:
 //
-//	ClusterUpgradePolicyArgs{...}
+//          ClusterUpgradePolicyArgs{...}
 type ClusterUpgradePolicyInput interface {
 	pulumi.Input
 
@@ -4525,11 +4525,11 @@ func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyPtrOutputWithContext(ctx
 // ClusterUpgradePolicyPtrInput is an input type that accepts ClusterUpgradePolicyArgs, ClusterUpgradePolicyPtr and ClusterUpgradePolicyPtrOutput values.
 // You can construct a concrete instance of `ClusterUpgradePolicyPtrInput` via:
 //
-//	        ClusterUpgradePolicyArgs{...}
+//          ClusterUpgradePolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ClusterUpgradePolicyPtrInput interface {
 	pulumi.Input
 
@@ -5027,7 +5027,7 @@ type DiagnosticsStorageAccountConfig struct {
 // DiagnosticsStorageAccountConfigInput is an input type that accepts DiagnosticsStorageAccountConfigArgs and DiagnosticsStorageAccountConfigOutput values.
 // You can construct a concrete instance of `DiagnosticsStorageAccountConfigInput` via:
 //
-//	DiagnosticsStorageAccountConfigArgs{...}
+//          DiagnosticsStorageAccountConfigArgs{...}
 type DiagnosticsStorageAccountConfigInput interface {
 	pulumi.Input
 
@@ -5074,11 +5074,11 @@ func (i DiagnosticsStorageAccountConfigArgs) ToDiagnosticsStorageAccountConfigPt
 // DiagnosticsStorageAccountConfigPtrInput is an input type that accepts DiagnosticsStorageAccountConfigArgs, DiagnosticsStorageAccountConfigPtr and DiagnosticsStorageAccountConfigPtrOutput values.
 // You can construct a concrete instance of `DiagnosticsStorageAccountConfigPtrInput` via:
 //
-//	        DiagnosticsStorageAccountConfigArgs{...}
+//          DiagnosticsStorageAccountConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DiagnosticsStorageAccountConfigPtrInput interface {
 	pulumi.Input
 
@@ -5399,7 +5399,7 @@ type EndpointRangeDescription struct {
 // EndpointRangeDescriptionInput is an input type that accepts EndpointRangeDescriptionArgs and EndpointRangeDescriptionOutput values.
 // You can construct a concrete instance of `EndpointRangeDescriptionInput` via:
 //
-//	EndpointRangeDescriptionArgs{...}
+//          EndpointRangeDescriptionArgs{...}
 type EndpointRangeDescriptionInput interface {
 	pulumi.Input
 
@@ -5438,11 +5438,11 @@ func (i EndpointRangeDescriptionArgs) ToEndpointRangeDescriptionPtrOutputWithCon
 // EndpointRangeDescriptionPtrInput is an input type that accepts EndpointRangeDescriptionArgs, EndpointRangeDescriptionPtr and EndpointRangeDescriptionPtrOutput values.
 // You can construct a concrete instance of `EndpointRangeDescriptionPtrInput` via:
 //
-//	        EndpointRangeDescriptionArgs{...}
+//          EndpointRangeDescriptionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EndpointRangeDescriptionPtrInput interface {
 	pulumi.Input
 
@@ -5641,7 +5641,7 @@ type LoadBalancingRule struct {
 // LoadBalancingRuleInput is an input type that accepts LoadBalancingRuleArgs and LoadBalancingRuleOutput values.
 // You can construct a concrete instance of `LoadBalancingRuleInput` via:
 //
-//	LoadBalancingRuleArgs{...}
+//          LoadBalancingRuleArgs{...}
 type LoadBalancingRuleInput interface {
 	pulumi.Input
 
@@ -5678,7 +5678,7 @@ func (i LoadBalancingRuleArgs) ToLoadBalancingRuleOutputWithContext(ctx context.
 // LoadBalancingRuleArrayInput is an input type that accepts LoadBalancingRuleArray and LoadBalancingRuleArrayOutput values.
 // You can construct a concrete instance of `LoadBalancingRuleArrayInput` via:
 //
-//	LoadBalancingRuleArray{ LoadBalancingRuleArgs{...} }
+//          LoadBalancingRuleArray{ LoadBalancingRuleArgs{...} }
 type LoadBalancingRuleArrayInput interface {
 	pulumi.Input
 
@@ -5846,7 +5846,7 @@ type ManagedIdentity struct {
 // ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
 // You can construct a concrete instance of `ManagedIdentityInput` via:
 //
-//	ManagedIdentityArgs{...}
+//          ManagedIdentityArgs{...}
 type ManagedIdentityInput interface {
 	pulumi.Input
 
@@ -5886,11 +5886,11 @@ func (i ManagedIdentityArgs) ToManagedIdentityPtrOutputWithContext(ctx context.C
 // ManagedIdentityPtrInput is an input type that accepts ManagedIdentityArgs, ManagedIdentityPtr and ManagedIdentityPtrOutput values.
 // You can construct a concrete instance of `ManagedIdentityPtrInput` via:
 //
-//	        ManagedIdentityArgs{...}
+//          ManagedIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedIdentityPtrInput interface {
 	pulumi.Input
 
@@ -6168,7 +6168,7 @@ type NodeTypeDescription struct {
 // NodeTypeDescriptionInput is an input type that accepts NodeTypeDescriptionArgs and NodeTypeDescriptionOutput values.
 // You can construct a concrete instance of `NodeTypeDescriptionInput` via:
 //
-//	NodeTypeDescriptionArgs{...}
+//          NodeTypeDescriptionArgs{...}
 type NodeTypeDescriptionInput interface {
 	pulumi.Input
 
@@ -6221,7 +6221,7 @@ func (i NodeTypeDescriptionArgs) ToNodeTypeDescriptionOutputWithContext(ctx cont
 // NodeTypeDescriptionArrayInput is an input type that accepts NodeTypeDescriptionArray and NodeTypeDescriptionArrayOutput values.
 // You can construct a concrete instance of `NodeTypeDescriptionArrayInput` via:
 //
-//	NodeTypeDescriptionArray{ NodeTypeDescriptionArgs{...} }
+//          NodeTypeDescriptionArray{ NodeTypeDescriptionArgs{...} }
 type NodeTypeDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -6532,7 +6532,7 @@ type ServerCertificateCommonName struct {
 // ServerCertificateCommonNameInput is an input type that accepts ServerCertificateCommonNameArgs and ServerCertificateCommonNameOutput values.
 // You can construct a concrete instance of `ServerCertificateCommonNameInput` via:
 //
-//	ServerCertificateCommonNameArgs{...}
+//          ServerCertificateCommonNameArgs{...}
 type ServerCertificateCommonNameInput interface {
 	pulumi.Input
 
@@ -6563,7 +6563,7 @@ func (i ServerCertificateCommonNameArgs) ToServerCertificateCommonNameOutputWith
 // ServerCertificateCommonNameArrayInput is an input type that accepts ServerCertificateCommonNameArray and ServerCertificateCommonNameArrayOutput values.
 // You can construct a concrete instance of `ServerCertificateCommonNameArrayInput` via:
 //
-//	ServerCertificateCommonNameArray{ ServerCertificateCommonNameArgs{...} }
+//          ServerCertificateCommonNameArray{ ServerCertificateCommonNameArgs{...} }
 type ServerCertificateCommonNameArrayInput interface {
 	pulumi.Input
 
@@ -6694,7 +6694,7 @@ type ServerCertificateCommonNames struct {
 // ServerCertificateCommonNamesInput is an input type that accepts ServerCertificateCommonNamesArgs and ServerCertificateCommonNamesOutput values.
 // You can construct a concrete instance of `ServerCertificateCommonNamesInput` via:
 //
-//	ServerCertificateCommonNamesArgs{...}
+//          ServerCertificateCommonNamesArgs{...}
 type ServerCertificateCommonNamesInput interface {
 	pulumi.Input
 
@@ -6733,11 +6733,11 @@ func (i ServerCertificateCommonNamesArgs) ToServerCertificateCommonNamesPtrOutpu
 // ServerCertificateCommonNamesPtrInput is an input type that accepts ServerCertificateCommonNamesArgs, ServerCertificateCommonNamesPtr and ServerCertificateCommonNamesPtrOutput values.
 // You can construct a concrete instance of `ServerCertificateCommonNamesPtrInput` via:
 //
-//	        ServerCertificateCommonNamesArgs{...}
+//          ServerCertificateCommonNamesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServerCertificateCommonNamesPtrInput interface {
 	pulumi.Input
 
@@ -6932,7 +6932,7 @@ type ServiceCorrelationDescription struct {
 // ServiceCorrelationDescriptionInput is an input type that accepts ServiceCorrelationDescriptionArgs and ServiceCorrelationDescriptionOutput values.
 // You can construct a concrete instance of `ServiceCorrelationDescriptionInput` via:
 //
-//	ServiceCorrelationDescriptionArgs{...}
+//          ServiceCorrelationDescriptionArgs{...}
 type ServiceCorrelationDescriptionInput interface {
 	pulumi.Input
 
@@ -6963,7 +6963,7 @@ func (i ServiceCorrelationDescriptionArgs) ToServiceCorrelationDescriptionOutput
 // ServiceCorrelationDescriptionArrayInput is an input type that accepts ServiceCorrelationDescriptionArray and ServiceCorrelationDescriptionArrayOutput values.
 // You can construct a concrete instance of `ServiceCorrelationDescriptionArrayInput` via:
 //
-//	ServiceCorrelationDescriptionArray{ ServiceCorrelationDescriptionArgs{...} }
+//          ServiceCorrelationDescriptionArray{ ServiceCorrelationDescriptionArgs{...} }
 type ServiceCorrelationDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -7100,7 +7100,7 @@ type ServiceLoadMetricDescription struct {
 // ServiceLoadMetricDescriptionInput is an input type that accepts ServiceLoadMetricDescriptionArgs and ServiceLoadMetricDescriptionOutput values.
 // You can construct a concrete instance of `ServiceLoadMetricDescriptionInput` via:
 //
-//	ServiceLoadMetricDescriptionArgs{...}
+//          ServiceLoadMetricDescriptionArgs{...}
 type ServiceLoadMetricDescriptionInput interface {
 	pulumi.Input
 
@@ -7137,7 +7137,7 @@ func (i ServiceLoadMetricDescriptionArgs) ToServiceLoadMetricDescriptionOutputWi
 // ServiceLoadMetricDescriptionArrayInput is an input type that accepts ServiceLoadMetricDescriptionArray and ServiceLoadMetricDescriptionArrayOutput values.
 // You can construct a concrete instance of `ServiceLoadMetricDescriptionArrayInput` via:
 //
-//	ServiceLoadMetricDescriptionArray{ ServiceLoadMetricDescriptionArgs{...} }
+//          ServiceLoadMetricDescriptionArray{ ServiceLoadMetricDescriptionArgs{...} }
 type ServiceLoadMetricDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -7302,7 +7302,7 @@ type ServicePlacementPolicyDescription struct {
 // ServicePlacementPolicyDescriptionInput is an input type that accepts ServicePlacementPolicyDescriptionArgs and ServicePlacementPolicyDescriptionOutput values.
 // You can construct a concrete instance of `ServicePlacementPolicyDescriptionInput` via:
 //
-//	ServicePlacementPolicyDescriptionArgs{...}
+//          ServicePlacementPolicyDescriptionArgs{...}
 type ServicePlacementPolicyDescriptionInput interface {
 	pulumi.Input
 
@@ -7331,7 +7331,7 @@ func (i ServicePlacementPolicyDescriptionArgs) ToServicePlacementPolicyDescripti
 // ServicePlacementPolicyDescriptionArrayInput is an input type that accepts ServicePlacementPolicyDescriptionArray and ServicePlacementPolicyDescriptionArrayOutput values.
 // You can construct a concrete instance of `ServicePlacementPolicyDescriptionArrayInput` via:
 //
-//	ServicePlacementPolicyDescriptionArray{ ServicePlacementPolicyDescriptionArgs{...} }
+//          ServicePlacementPolicyDescriptionArray{ ServicePlacementPolicyDescriptionArgs{...} }
 type ServicePlacementPolicyDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -7463,7 +7463,7 @@ func (val *ServiceTypeDeltaHealthPolicy) Defaults() *ServiceTypeDeltaHealthPolic
 // ServiceTypeDeltaHealthPolicyInput is an input type that accepts ServiceTypeDeltaHealthPolicyArgs and ServiceTypeDeltaHealthPolicyOutput values.
 // You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyInput` via:
 //
-//	ServiceTypeDeltaHealthPolicyArgs{...}
+//          ServiceTypeDeltaHealthPolicyArgs{...}
 type ServiceTypeDeltaHealthPolicyInput interface {
 	pulumi.Input
 
@@ -7513,11 +7513,11 @@ func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyPtrOutpu
 // ServiceTypeDeltaHealthPolicyPtrInput is an input type that accepts ServiceTypeDeltaHealthPolicyArgs, ServiceTypeDeltaHealthPolicyPtr and ServiceTypeDeltaHealthPolicyPtrOutput values.
 // You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyPtrInput` via:
 //
-//	        ServiceTypeDeltaHealthPolicyArgs{...}
+//          ServiceTypeDeltaHealthPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServiceTypeDeltaHealthPolicyPtrInput interface {
 	pulumi.Input
 
@@ -7546,7 +7546,7 @@ func (i *serviceTypeDeltaHealthPolicyPtrType) ToServiceTypeDeltaHealthPolicyPtrO
 // ServiceTypeDeltaHealthPolicyMapInput is an input type that accepts ServiceTypeDeltaHealthPolicyMap and ServiceTypeDeltaHealthPolicyMapOutput values.
 // You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyMapInput` via:
 //
-//	ServiceTypeDeltaHealthPolicyMap{ "key": ServiceTypeDeltaHealthPolicyArgs{...} }
+//          ServiceTypeDeltaHealthPolicyMap{ "key": ServiceTypeDeltaHealthPolicyArgs{...} }
 type ServiceTypeDeltaHealthPolicyMapInput interface {
 	pulumi.Input
 
@@ -7777,7 +7777,7 @@ func (val *ServiceTypeHealthPolicy) Defaults() *ServiceTypeHealthPolicy {
 // ServiceTypeHealthPolicyInput is an input type that accepts ServiceTypeHealthPolicyArgs and ServiceTypeHealthPolicyOutput values.
 // You can construct a concrete instance of `ServiceTypeHealthPolicyInput` via:
 //
-//	ServiceTypeHealthPolicyArgs{...}
+//          ServiceTypeHealthPolicyArgs{...}
 type ServiceTypeHealthPolicyInput interface {
 	pulumi.Input
 
@@ -7825,11 +7825,11 @@ func (i ServiceTypeHealthPolicyArgs) ToServiceTypeHealthPolicyPtrOutputWithConte
 // ServiceTypeHealthPolicyPtrInput is an input type that accepts ServiceTypeHealthPolicyArgs, ServiceTypeHealthPolicyPtr and ServiceTypeHealthPolicyPtrOutput values.
 // You can construct a concrete instance of `ServiceTypeHealthPolicyPtrInput` via:
 //
-//	        ServiceTypeHealthPolicyArgs{...}
+//          ServiceTypeHealthPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServiceTypeHealthPolicyPtrInput interface {
 	pulumi.Input
 
@@ -7858,7 +7858,7 @@ func (i *serviceTypeHealthPolicyPtrType) ToServiceTypeHealthPolicyPtrOutputWithC
 // ServiceTypeHealthPolicyMapInput is an input type that accepts ServiceTypeHealthPolicyMap and ServiceTypeHealthPolicyMapOutput values.
 // You can construct a concrete instance of `ServiceTypeHealthPolicyMapInput` via:
 //
-//	ServiceTypeHealthPolicyMap{ "key": ServiceTypeHealthPolicyArgs{...} }
+//          ServiceTypeHealthPolicyMap{ "key": ServiceTypeHealthPolicyArgs{...} }
 type ServiceTypeHealthPolicyMapInput interface {
 	pulumi.Input
 
@@ -8068,7 +8068,7 @@ type SettingsParameterDescription struct {
 // SettingsParameterDescriptionInput is an input type that accepts SettingsParameterDescriptionArgs and SettingsParameterDescriptionOutput values.
 // You can construct a concrete instance of `SettingsParameterDescriptionInput` via:
 //
-//	SettingsParameterDescriptionArgs{...}
+//          SettingsParameterDescriptionArgs{...}
 type SettingsParameterDescriptionInput interface {
 	pulumi.Input
 
@@ -8099,7 +8099,7 @@ func (i SettingsParameterDescriptionArgs) ToSettingsParameterDescriptionOutputWi
 // SettingsParameterDescriptionArrayInput is an input type that accepts SettingsParameterDescriptionArray and SettingsParameterDescriptionArrayOutput values.
 // You can construct a concrete instance of `SettingsParameterDescriptionArrayInput` via:
 //
-//	SettingsParameterDescriptionArray{ SettingsParameterDescriptionArgs{...} }
+//          SettingsParameterDescriptionArray{ SettingsParameterDescriptionArgs{...} }
 type SettingsParameterDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -8230,7 +8230,7 @@ type SettingsSectionDescription struct {
 // SettingsSectionDescriptionInput is an input type that accepts SettingsSectionDescriptionArgs and SettingsSectionDescriptionOutput values.
 // You can construct a concrete instance of `SettingsSectionDescriptionInput` via:
 //
-//	SettingsSectionDescriptionArgs{...}
+//          SettingsSectionDescriptionArgs{...}
 type SettingsSectionDescriptionInput interface {
 	pulumi.Input
 
@@ -8261,7 +8261,7 @@ func (i SettingsSectionDescriptionArgs) ToSettingsSectionDescriptionOutputWithCo
 // SettingsSectionDescriptionArrayInput is an input type that accepts SettingsSectionDescriptionArray and SettingsSectionDescriptionArrayOutput values.
 // You can construct a concrete instance of `SettingsSectionDescriptionArrayInput` via:
 //
-//	SettingsSectionDescriptionArray{ SettingsSectionDescriptionArgs{...} }
+//          SettingsSectionDescriptionArray{ SettingsSectionDescriptionArgs{...} }
 type SettingsSectionDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -8404,7 +8404,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -8441,11 +8441,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -8604,7 +8604,7 @@ type SubResource struct {
 // SubResourceInput is an input type that accepts SubResourceArgs and SubResourceOutput values.
 // You can construct a concrete instance of `SubResourceInput` via:
 //
-//	SubResourceArgs{...}
+//          SubResourceArgs{...}
 type SubResourceInput interface {
 	pulumi.Input
 
@@ -8782,7 +8782,7 @@ type VMSSExtension struct {
 // VMSSExtensionInput is an input type that accepts VMSSExtensionArgs and VMSSExtensionOutput values.
 // You can construct a concrete instance of `VMSSExtensionInput` via:
 //
-//	VMSSExtensionArgs{...}
+//          VMSSExtensionArgs{...}
 type VMSSExtensionInput interface {
 	pulumi.Input
 
@@ -8827,7 +8827,7 @@ func (i VMSSExtensionArgs) ToVMSSExtensionOutputWithContext(ctx context.Context)
 // VMSSExtensionArrayInput is an input type that accepts VMSSExtensionArray and VMSSExtensionArrayOutput values.
 // You can construct a concrete instance of `VMSSExtensionArrayInput` via:
 //
-//	VMSSExtensionArray{ VMSSExtensionArgs{...} }
+//          VMSSExtensionArray{ VMSSExtensionArgs{...} }
 type VMSSExtensionArrayInput interface {
 	pulumi.Input
 
@@ -9049,7 +9049,7 @@ type VaultCertificate struct {
 // VaultCertificateInput is an input type that accepts VaultCertificateArgs and VaultCertificateOutput values.
 // You can construct a concrete instance of `VaultCertificateInput` via:
 //
-//	VaultCertificateArgs{...}
+//          VaultCertificateArgs{...}
 type VaultCertificateInput interface {
 	pulumi.Input
 
@@ -9080,7 +9080,7 @@ func (i VaultCertificateArgs) ToVaultCertificateOutputWithContext(ctx context.Co
 // VaultCertificateArrayInput is an input type that accepts VaultCertificateArray and VaultCertificateArrayOutput values.
 // You can construct a concrete instance of `VaultCertificateArrayInput` via:
 //
-//	VaultCertificateArray{ VaultCertificateArgs{...} }
+//          VaultCertificateArray{ VaultCertificateArgs{...} }
 type VaultCertificateArrayInput interface {
 	pulumi.Input
 
@@ -9211,7 +9211,7 @@ type VaultSecretGroup struct {
 // VaultSecretGroupInput is an input type that accepts VaultSecretGroupArgs and VaultSecretGroupOutput values.
 // You can construct a concrete instance of `VaultSecretGroupInput` via:
 //
-//	VaultSecretGroupArgs{...}
+//          VaultSecretGroupArgs{...}
 type VaultSecretGroupInput interface {
 	pulumi.Input
 
@@ -9242,7 +9242,7 @@ func (i VaultSecretGroupArgs) ToVaultSecretGroupOutputWithContext(ctx context.Co
 // VaultSecretGroupArrayInput is an input type that accepts VaultSecretGroupArray and VaultSecretGroupArrayOutput values.
 // You can construct a concrete instance of `VaultSecretGroupArrayInput` via:
 //
-//	VaultSecretGroupArray{ VaultSecretGroupArgs{...} }
+//          VaultSecretGroupArray{ VaultSecretGroupArgs{...} }
 type VaultSecretGroupArrayInput interface {
 	pulumi.Input
 

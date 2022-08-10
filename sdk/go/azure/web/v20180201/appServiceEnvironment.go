@@ -499,8 +499,7 @@ func (o AppServiceEnvironmentOutput) SubscriptionId() pulumi.StringOutput {
 }
 
 // <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-//
-//	(most likely because NSG blocked the incoming traffic).
+//  (most likely because NSG blocked the incoming traffic).
 func (o AppServiceEnvironmentOutput) Suspended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.BoolPtrOutput { return v.Suspended }).(pulumi.BoolPtrOutput)
 }

@@ -186,7 +186,7 @@ type ImageTemplateShellCustomizer struct {
 // ImageTemplateShellCustomizerInput is an input type that accepts ImageTemplateShellCustomizerArgs and ImageTemplateShellCustomizerOutput values.
 // You can construct a concrete instance of `ImageTemplateShellCustomizerInput` via:
 //
-//	ImageTemplateShellCustomizerArgs{...}
+//          ImageTemplateShellCustomizerArgs{...}
 type ImageTemplateShellCustomizerInput interface {
 	pulumi.Input
 
@@ -220,7 +220,7 @@ func (i ImageTemplateShellCustomizerArgs) ToImageTemplateShellCustomizerOutputWi
 // ImageTemplateShellCustomizerArrayInput is an input type that accepts ImageTemplateShellCustomizerArray and ImageTemplateShellCustomizerArrayOutput values.
 // You can construct a concrete instance of `ImageTemplateShellCustomizerArrayInput` via:
 //
-//	ImageTemplateShellCustomizerArray{ ImageTemplateShellCustomizerArgs{...} }
+//          ImageTemplateShellCustomizerArray{ ImageTemplateShellCustomizerArgs{...} }
 type ImageTemplateShellCustomizerArrayInput interface {
 	pulumi.Input
 

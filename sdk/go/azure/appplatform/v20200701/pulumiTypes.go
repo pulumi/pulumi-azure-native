@@ -44,7 +44,7 @@ func (val *AppResourceProperties) Defaults() *AppResourceProperties {
 // AppResourcePropertiesInput is an input type that accepts AppResourcePropertiesArgs and AppResourcePropertiesOutput values.
 // You can construct a concrete instance of `AppResourcePropertiesInput` via:
 //
-//	AppResourcePropertiesArgs{...}
+//          AppResourcePropertiesArgs{...}
 type AppResourcePropertiesInput interface {
 	pulumi.Input
 
@@ -103,11 +103,11 @@ func (i AppResourcePropertiesArgs) ToAppResourcePropertiesPtrOutputWithContext(c
 // AppResourcePropertiesPtrInput is an input type that accepts AppResourcePropertiesArgs, AppResourcePropertiesPtr and AppResourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `AppResourcePropertiesPtrInput` via:
 //
-//	        AppResourcePropertiesArgs{...}
+//          AppResourcePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AppResourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -382,7 +382,7 @@ type BindingResourceProperties struct {
 // BindingResourcePropertiesInput is an input type that accepts BindingResourcePropertiesArgs and BindingResourcePropertiesOutput values.
 // You can construct a concrete instance of `BindingResourcePropertiesInput` via:
 //
-//	BindingResourcePropertiesArgs{...}
+//          BindingResourcePropertiesArgs{...}
 type BindingResourcePropertiesInput interface {
 	pulumi.Input
 
@@ -423,11 +423,11 @@ func (i BindingResourcePropertiesArgs) ToBindingResourcePropertiesPtrOutputWithC
 // BindingResourcePropertiesPtrInput is an input type that accepts BindingResourcePropertiesArgs, BindingResourcePropertiesPtr and BindingResourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `BindingResourcePropertiesPtrInput` via:
 //
-//	        BindingResourcePropertiesArgs{...}
+//          BindingResourcePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BindingResourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -635,7 +635,7 @@ type CertificateProperties struct {
 // CertificatePropertiesInput is an input type that accepts CertificatePropertiesArgs and CertificatePropertiesOutput values.
 // You can construct a concrete instance of `CertificatePropertiesInput` via:
 //
-//	CertificatePropertiesArgs{...}
+//          CertificatePropertiesArgs{...}
 type CertificatePropertiesInput interface {
 	pulumi.Input
 
@@ -676,11 +676,11 @@ func (i CertificatePropertiesArgs) ToCertificatePropertiesPtrOutputWithContext(c
 // CertificatePropertiesPtrInput is an input type that accepts CertificatePropertiesArgs, CertificatePropertiesPtr and CertificatePropertiesPtrOutput values.
 // You can construct a concrete instance of `CertificatePropertiesPtrInput` via:
 //
-//	        CertificatePropertiesArgs{...}
+//          CertificatePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CertificatePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -898,7 +898,7 @@ type ClusterResourceProperties struct {
 // ClusterResourcePropertiesInput is an input type that accepts ClusterResourcePropertiesArgs and ClusterResourcePropertiesOutput values.
 // You can construct a concrete instance of `ClusterResourcePropertiesInput` via:
 //
-//	ClusterResourcePropertiesArgs{...}
+//          ClusterResourcePropertiesArgs{...}
 type ClusterResourcePropertiesInput interface {
 	pulumi.Input
 
@@ -935,11 +935,11 @@ func (i ClusterResourcePropertiesArgs) ToClusterResourcePropertiesPtrOutputWithC
 // ClusterResourcePropertiesPtrInput is an input type that accepts ClusterResourcePropertiesArgs, ClusterResourcePropertiesPtr and ClusterResourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `ClusterResourcePropertiesPtrInput` via:
 //
-//	        ClusterResourcePropertiesArgs{...}
+//          ClusterResourcePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ClusterResourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1087,7 +1087,7 @@ type CustomDomainProperties struct {
 // CustomDomainPropertiesInput is an input type that accepts CustomDomainPropertiesArgs and CustomDomainPropertiesOutput values.
 // You can construct a concrete instance of `CustomDomainPropertiesInput` via:
 //
-//	CustomDomainPropertiesArgs{...}
+//          CustomDomainPropertiesArgs{...}
 type CustomDomainPropertiesInput interface {
 	pulumi.Input
 
@@ -1126,11 +1126,11 @@ func (i CustomDomainPropertiesArgs) ToCustomDomainPropertiesPtrOutputWithContext
 // CustomDomainPropertiesPtrInput is an input type that accepts CustomDomainPropertiesArgs, CustomDomainPropertiesPtr and CustomDomainPropertiesPtrOutput values.
 // You can construct a concrete instance of `CustomDomainPropertiesPtrInput` via:
 //
-//	        CustomDomainPropertiesArgs{...}
+//          CustomDomainPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CustomDomainPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1371,7 +1371,7 @@ func (val *DeploymentResourceProperties) Defaults() *DeploymentResourcePropertie
 // DeploymentResourcePropertiesInput is an input type that accepts DeploymentResourcePropertiesArgs and DeploymentResourcePropertiesOutput values.
 // You can construct a concrete instance of `DeploymentResourcePropertiesInput` via:
 //
-//	DeploymentResourcePropertiesArgs{...}
+//          DeploymentResourcePropertiesArgs{...}
 type DeploymentResourcePropertiesInput interface {
 	pulumi.Input
 
@@ -1419,11 +1419,11 @@ func (i DeploymentResourcePropertiesArgs) ToDeploymentResourcePropertiesPtrOutpu
 // DeploymentResourcePropertiesPtrInput is an input type that accepts DeploymentResourcePropertiesArgs, DeploymentResourcePropertiesPtr and DeploymentResourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `DeploymentResourcePropertiesPtrInput` via:
 //
-//	        DeploymentResourcePropertiesArgs{...}
+//          DeploymentResourcePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DeploymentResourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1654,7 +1654,7 @@ func (val *DeploymentSettings) Defaults() *DeploymentSettings {
 // DeploymentSettingsInput is an input type that accepts DeploymentSettingsArgs and DeploymentSettingsOutput values.
 // You can construct a concrete instance of `DeploymentSettingsInput` via:
 //
-//	DeploymentSettingsArgs{...}
+//          DeploymentSettingsArgs{...}
 type DeploymentSettingsInput interface {
 	pulumi.Input
 
@@ -1718,11 +1718,11 @@ func (i DeploymentSettingsArgs) ToDeploymentSettingsPtrOutputWithContext(ctx con
 // DeploymentSettingsPtrInput is an input type that accepts DeploymentSettingsArgs, DeploymentSettingsPtr and DeploymentSettingsPtrOutput values.
 // You can construct a concrete instance of `DeploymentSettingsPtrInput` via:
 //
-//	        DeploymentSettingsArgs{...}
+//          DeploymentSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DeploymentSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2066,7 +2066,7 @@ type ManagedIdentityProperties struct {
 // ManagedIdentityPropertiesInput is an input type that accepts ManagedIdentityPropertiesArgs and ManagedIdentityPropertiesOutput values.
 // You can construct a concrete instance of `ManagedIdentityPropertiesInput` via:
 //
-//	ManagedIdentityPropertiesArgs{...}
+//          ManagedIdentityPropertiesArgs{...}
 type ManagedIdentityPropertiesInput interface {
 	pulumi.Input
 
@@ -2107,11 +2107,11 @@ func (i ManagedIdentityPropertiesArgs) ToManagedIdentityPropertiesPtrOutputWithC
 // ManagedIdentityPropertiesPtrInput is an input type that accepts ManagedIdentityPropertiesArgs, ManagedIdentityPropertiesPtr and ManagedIdentityPropertiesPtrOutput values.
 // You can construct a concrete instance of `ManagedIdentityPropertiesPtrInput` via:
 //
-//	        ManagedIdentityPropertiesArgs{...}
+//          ManagedIdentityPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedIdentityPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2342,7 +2342,7 @@ type NetworkProfile struct {
 // NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
 // You can construct a concrete instance of `NetworkProfileInput` via:
 //
-//	NetworkProfileArgs{...}
+//          NetworkProfileArgs{...}
 type NetworkProfileInput interface {
 	pulumi.Input
 
@@ -2387,11 +2387,11 @@ func (i NetworkProfileArgs) ToNetworkProfilePtrOutputWithContext(ctx context.Con
 // NetworkProfilePtrInput is an input type that accepts NetworkProfileArgs, NetworkProfilePtr and NetworkProfilePtrOutput values.
 // You can construct a concrete instance of `NetworkProfilePtrInput` via:
 //
-//	        NetworkProfileArgs{...}
+//          NetworkProfileArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -2774,7 +2774,7 @@ type PersistentDisk struct {
 // PersistentDiskInput is an input type that accepts PersistentDiskArgs and PersistentDiskOutput values.
 // You can construct a concrete instance of `PersistentDiskInput` via:
 //
-//	PersistentDiskArgs{...}
+//          PersistentDiskArgs{...}
 type PersistentDiskInput interface {
 	pulumi.Input
 
@@ -2813,11 +2813,11 @@ func (i PersistentDiskArgs) ToPersistentDiskPtrOutputWithContext(ctx context.Con
 // PersistentDiskPtrInput is an input type that accepts PersistentDiskArgs, PersistentDiskPtr and PersistentDiskPtrOutput values.
 // You can construct a concrete instance of `PersistentDiskPtrInput` via:
 //
-//	        PersistentDiskArgs{...}
+//          PersistentDiskArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PersistentDiskPtrInput interface {
 	pulumi.Input
 
@@ -3103,7 +3103,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -3144,11 +3144,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -3386,7 +3386,7 @@ func (val *TemporaryDisk) Defaults() *TemporaryDisk {
 // TemporaryDiskInput is an input type that accepts TemporaryDiskArgs and TemporaryDiskOutput values.
 // You can construct a concrete instance of `TemporaryDiskInput` via:
 //
-//	TemporaryDiskArgs{...}
+//          TemporaryDiskArgs{...}
 type TemporaryDiskInput interface {
 	pulumi.Input
 
@@ -3436,11 +3436,11 @@ func (i TemporaryDiskArgs) ToTemporaryDiskPtrOutputWithContext(ctx context.Conte
 // TemporaryDiskPtrInput is an input type that accepts TemporaryDiskArgs, TemporaryDiskPtr and TemporaryDiskPtrOutput values.
 // You can construct a concrete instance of `TemporaryDiskPtrInput` via:
 //
-//	        TemporaryDiskArgs{...}
+//          TemporaryDiskArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type TemporaryDiskPtrInput interface {
 	pulumi.Input
 
@@ -3651,7 +3651,7 @@ type UserSourceInfo struct {
 // UserSourceInfoInput is an input type that accepts UserSourceInfoArgs and UserSourceInfoOutput values.
 // You can construct a concrete instance of `UserSourceInfoInput` via:
 //
-//	UserSourceInfoArgs{...}
+//          UserSourceInfoArgs{...}
 type UserSourceInfoInput interface {
 	pulumi.Input
 
@@ -3695,11 +3695,11 @@ func (i UserSourceInfoArgs) ToUserSourceInfoPtrOutputWithContext(ctx context.Con
 // UserSourceInfoPtrInput is an input type that accepts UserSourceInfoArgs, UserSourceInfoPtr and UserSourceInfoPtrOutput values.
 // You can construct a concrete instance of `UserSourceInfoPtrInput` via:
 //
-//	        UserSourceInfoArgs{...}
+//          UserSourceInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type UserSourceInfoPtrInput interface {
 	pulumi.Input
 

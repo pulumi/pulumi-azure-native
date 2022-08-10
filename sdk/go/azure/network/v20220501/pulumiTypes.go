@@ -33,7 +33,7 @@ type CustomRule struct {
 // CustomRuleInput is an input type that accepts CustomRuleArgs and CustomRuleOutput values.
 // You can construct a concrete instance of `CustomRuleInput` via:
 //
-//	CustomRuleArgs{...}
+//          CustomRuleArgs{...}
 type CustomRuleInput interface {
 	pulumi.Input
 
@@ -76,7 +76,7 @@ func (i CustomRuleArgs) ToCustomRuleOutputWithContext(ctx context.Context) Custo
 // CustomRuleArrayInput is an input type that accepts CustomRuleArray and CustomRuleArrayOutput values.
 // You can construct a concrete instance of `CustomRuleArrayInput` via:
 //
-//	CustomRuleArray{ CustomRuleArgs{...} }
+//          CustomRuleArray{ CustomRuleArgs{...} }
 type CustomRuleArrayInput interface {
 	pulumi.Input
 
@@ -182,7 +182,7 @@ type CustomRuleList struct {
 // CustomRuleListInput is an input type that accepts CustomRuleListArgs and CustomRuleListOutput values.
 // You can construct a concrete instance of `CustomRuleListInput` via:
 //
-//	CustomRuleListArgs{...}
+//          CustomRuleListArgs{...}
 type CustomRuleListInput interface {
 	pulumi.Input
 
@@ -219,11 +219,11 @@ func (i CustomRuleListArgs) ToCustomRuleListPtrOutputWithContext(ctx context.Con
 // CustomRuleListPtrInput is an input type that accepts CustomRuleListArgs, CustomRuleListPtr and CustomRuleListPtrOutput values.
 // You can construct a concrete instance of `CustomRuleListPtrInput` via:
 //
-//	        CustomRuleListArgs{...}
+//          CustomRuleListArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CustomRuleListPtrInput interface {
 	pulumi.Input
 
@@ -481,7 +481,7 @@ type FrontDoorManagedRuleGroupOverride struct {
 // FrontDoorManagedRuleGroupOverrideInput is an input type that accepts FrontDoorManagedRuleGroupOverrideArgs and FrontDoorManagedRuleGroupOverrideOutput values.
 // You can construct a concrete instance of `FrontDoorManagedRuleGroupOverrideInput` via:
 //
-//	FrontDoorManagedRuleGroupOverrideArgs{...}
+//          FrontDoorManagedRuleGroupOverrideArgs{...}
 type FrontDoorManagedRuleGroupOverrideInput interface {
 	pulumi.Input
 
@@ -514,7 +514,7 @@ func (i FrontDoorManagedRuleGroupOverrideArgs) ToFrontDoorManagedRuleGroupOverri
 // FrontDoorManagedRuleGroupOverrideArrayInput is an input type that accepts FrontDoorManagedRuleGroupOverrideArray and FrontDoorManagedRuleGroupOverrideArrayOutput values.
 // You can construct a concrete instance of `FrontDoorManagedRuleGroupOverrideArrayInput` via:
 //
-//	FrontDoorManagedRuleGroupOverrideArray{ FrontDoorManagedRuleGroupOverrideArgs{...} }
+//          FrontDoorManagedRuleGroupOverrideArray{ FrontDoorManagedRuleGroupOverrideArgs{...} }
 type FrontDoorManagedRuleGroupOverrideArrayInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ type FrontDoorManagedRuleOverride struct {
 // FrontDoorManagedRuleOverrideInput is an input type that accepts FrontDoorManagedRuleOverrideArgs and FrontDoorManagedRuleOverrideOutput values.
 // You can construct a concrete instance of `FrontDoorManagedRuleOverrideInput` via:
 //
-//	FrontDoorManagedRuleOverrideArgs{...}
+//          FrontDoorManagedRuleOverrideArgs{...}
 type FrontDoorManagedRuleOverrideInput interface {
 	pulumi.Input
 
@@ -698,7 +698,7 @@ func (i FrontDoorManagedRuleOverrideArgs) ToFrontDoorManagedRuleOverrideOutputWi
 // FrontDoorManagedRuleOverrideArrayInput is an input type that accepts FrontDoorManagedRuleOverrideArray and FrontDoorManagedRuleOverrideArrayOutput values.
 // You can construct a concrete instance of `FrontDoorManagedRuleOverrideArrayInput` via:
 //
-//	FrontDoorManagedRuleOverrideArray{ FrontDoorManagedRuleOverrideArgs{...} }
+//          FrontDoorManagedRuleOverrideArray{ FrontDoorManagedRuleOverrideArgs{...} }
 type FrontDoorManagedRuleOverrideArrayInput interface {
 	pulumi.Input
 
@@ -859,7 +859,7 @@ type FrontDoorManagedRuleSet struct {
 // FrontDoorManagedRuleSetInput is an input type that accepts FrontDoorManagedRuleSetArgs and FrontDoorManagedRuleSetOutput values.
 // You can construct a concrete instance of `FrontDoorManagedRuleSetInput` via:
 //
-//	FrontDoorManagedRuleSetArgs{...}
+//          FrontDoorManagedRuleSetArgs{...}
 type FrontDoorManagedRuleSetInput interface {
 	pulumi.Input
 
@@ -896,7 +896,7 @@ func (i FrontDoorManagedRuleSetArgs) ToFrontDoorManagedRuleSetOutputWithContext(
 // FrontDoorManagedRuleSetArrayInput is an input type that accepts FrontDoorManagedRuleSetArray and FrontDoorManagedRuleSetArrayOutput values.
 // You can construct a concrete instance of `FrontDoorManagedRuleSetArrayInput` via:
 //
-//	FrontDoorManagedRuleSetArray{ FrontDoorManagedRuleSetArgs{...} }
+//          FrontDoorManagedRuleSetArray{ FrontDoorManagedRuleSetArgs{...} }
 type FrontDoorManagedRuleSetArrayInput interface {
 	pulumi.Input
 
@@ -1073,7 +1073,7 @@ type FrontDoorMatchCondition struct {
 // FrontDoorMatchConditionInput is an input type that accepts FrontDoorMatchConditionArgs and FrontDoorMatchConditionOutput values.
 // You can construct a concrete instance of `FrontDoorMatchConditionInput` via:
 //
-//	FrontDoorMatchConditionArgs{...}
+//          FrontDoorMatchConditionArgs{...}
 type FrontDoorMatchConditionInput interface {
 	pulumi.Input
 
@@ -1112,7 +1112,7 @@ func (i FrontDoorMatchConditionArgs) ToFrontDoorMatchConditionOutputWithContext(
 // FrontDoorMatchConditionArrayInput is an input type that accepts FrontDoorMatchConditionArray and FrontDoorMatchConditionArrayOutput values.
 // You can construct a concrete instance of `FrontDoorMatchConditionArrayInput` via:
 //
-//	FrontDoorMatchConditionArray{ FrontDoorMatchConditionArgs{...} }
+//          FrontDoorMatchConditionArray{ FrontDoorMatchConditionArgs{...} }
 type FrontDoorMatchConditionArrayInput interface {
 	pulumi.Input
 
@@ -1299,7 +1299,7 @@ type FrontDoorPolicySettings struct {
 // FrontDoorPolicySettingsInput is an input type that accepts FrontDoorPolicySettingsArgs and FrontDoorPolicySettingsOutput values.
 // You can construct a concrete instance of `FrontDoorPolicySettingsInput` via:
 //
-//	FrontDoorPolicySettingsArgs{...}
+//          FrontDoorPolicySettingsArgs{...}
 type FrontDoorPolicySettingsInput interface {
 	pulumi.Input
 
@@ -1346,11 +1346,11 @@ func (i FrontDoorPolicySettingsArgs) ToFrontDoorPolicySettingsPtrOutputWithConte
 // FrontDoorPolicySettingsPtrInput is an input type that accepts FrontDoorPolicySettingsArgs, FrontDoorPolicySettingsPtr and FrontDoorPolicySettingsPtrOutput values.
 // You can construct a concrete instance of `FrontDoorPolicySettingsPtrInput` via:
 //
-//	        FrontDoorPolicySettingsArgs{...}
+//          FrontDoorPolicySettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type FrontDoorPolicySettingsPtrInput interface {
 	pulumi.Input
 
@@ -1719,7 +1719,7 @@ type ManagedRuleExclusion struct {
 // ManagedRuleExclusionInput is an input type that accepts ManagedRuleExclusionArgs and ManagedRuleExclusionOutput values.
 // You can construct a concrete instance of `ManagedRuleExclusionInput` via:
 //
-//	ManagedRuleExclusionArgs{...}
+//          ManagedRuleExclusionArgs{...}
 type ManagedRuleExclusionInput interface {
 	pulumi.Input
 
@@ -1752,7 +1752,7 @@ func (i ManagedRuleExclusionArgs) ToManagedRuleExclusionOutputWithContext(ctx co
 // ManagedRuleExclusionArrayInput is an input type that accepts ManagedRuleExclusionArray and ManagedRuleExclusionArrayOutput values.
 // You can construct a concrete instance of `ManagedRuleExclusionArrayInput` via:
 //
-//	ManagedRuleExclusionArray{ ManagedRuleExclusionArgs{...} }
+//          ManagedRuleExclusionArray{ ManagedRuleExclusionArgs{...} }
 type ManagedRuleExclusionArrayInput interface {
 	pulumi.Input
 
@@ -1893,7 +1893,7 @@ type ManagedRuleSetList struct {
 // ManagedRuleSetListInput is an input type that accepts ManagedRuleSetListArgs and ManagedRuleSetListOutput values.
 // You can construct a concrete instance of `ManagedRuleSetListInput` via:
 //
-//	ManagedRuleSetListArgs{...}
+//          ManagedRuleSetListArgs{...}
 type ManagedRuleSetListInput interface {
 	pulumi.Input
 
@@ -1930,11 +1930,11 @@ func (i ManagedRuleSetListArgs) ToManagedRuleSetListPtrOutputWithContext(ctx con
 // ManagedRuleSetListPtrInput is an input type that accepts ManagedRuleSetListArgs, ManagedRuleSetListPtr and ManagedRuleSetListPtrOutput values.
 // You can construct a concrete instance of `ManagedRuleSetListPtrInput` via:
 //
-//	        ManagedRuleSetListArgs{...}
+//          ManagedRuleSetListArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ManagedRuleSetListPtrInput interface {
 	pulumi.Input
 
@@ -2185,7 +2185,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -2222,11 +2222,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//	        SkuArgs{...}
+//          SkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SkuPtrInput interface {
 	pulumi.Input
 

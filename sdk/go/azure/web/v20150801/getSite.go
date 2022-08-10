@@ -149,9 +149,8 @@ func (o LookupSiteResultOutput) ToLookupSiteResultOutputWithContext(ctx context.
 }
 
 // Management information availability state for the web app. Possible values are Normal or Limited.
-//
-//	Normal means that the site is running correctly and that management information for the site is available.
-//	Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+//             Normal means that the site is running correctly and that management information for the site is available.
+//             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
 func (o LookupSiteResultOutput) AvailabilityState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSiteResult) string { return v.AvailabilityState }).(pulumi.StringOutput)
 }
@@ -167,8 +166,7 @@ func (o LookupSiteResultOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
 }
 
 // This is only valid for web app creation. If specified, web app is cloned from
-//
-//	a source web app
+//             a source web app
 func (o LookupSiteResultOutput) CloningInfo() CloningInfoResponsePtrOutput {
 	return o.ApplyT(func(v LookupSiteResult) *CloningInfoResponse { return v.CloningInfo }).(CloningInfoResponsePtrOutput)
 }
@@ -189,8 +187,7 @@ func (o LookupSiteResultOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
-//
-//	the app is not served on those hostnames
+//             the app is not served on those hostnames
 func (o LookupSiteResultOutput) EnabledHostNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSiteResult) []string { return v.EnabledHostNames }).(pulumi.StringArrayOutput)
 }
@@ -211,8 +208,7 @@ func (o LookupSiteResultOutput) HostNames() pulumi.StringArrayOutput {
 }
 
 // Specifies if the public hostnames are disabled the web app.
-//
-//	If set to true the app is only accessible via API Management process
+//             If set to true the app is only accessible via API Management process
 func (o LookupSiteResultOutput) HostNamesDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSiteResult) *bool { return v.HostNamesDisabled }).(pulumi.BoolPtrOutput)
 }
@@ -248,8 +244,7 @@ func (o LookupSiteResultOutput) Location() pulumi.StringOutput {
 }
 
 // Maximum number of workers
-//
-//	This only applies to function container
+//             This only applies to function container
 func (o LookupSiteResultOutput) MaxNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupSiteResult) *int { return v.MaxNumberOfWorkers }).(pulumi.IntPtrOutput)
 }

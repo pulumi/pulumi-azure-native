@@ -10,6 +10,184 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Governance rule's condition
+type Condition struct {
+	// The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
+	Operator *string `pulumi:"operator"`
+	// The governance rule Condition's Property, e.g. Severity or AssessmentKey, see examples
+	Property *string `pulumi:"property"`
+	// The governance rule Condition's Value like severity Low, High or assessments keys, see examples
+	Value *string `pulumi:"value"`
+}
+
+// ConditionInput is an input type that accepts ConditionArgs and ConditionOutput values.
+// You can construct a concrete instance of `ConditionInput` via:
+//
+//          ConditionArgs{...}
+type ConditionInput interface {
+	pulumi.Input
+
+	ToConditionOutput() ConditionOutput
+	ToConditionOutputWithContext(context.Context) ConditionOutput
+}
+
+// Governance rule's condition
+type ConditionArgs struct {
+	// The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The governance rule Condition's Property, e.g. Severity or AssessmentKey, see examples
+	Property pulumi.StringPtrInput `pulumi:"property"`
+	// The governance rule Condition's Value like severity Low, High or assessments keys, see examples
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Condition)(nil)).Elem()
+}
+
+func (i ConditionArgs) ToConditionOutput() ConditionOutput {
+	return i.ToConditionOutputWithContext(context.Background())
+}
+
+func (i ConditionArgs) ToConditionOutputWithContext(ctx context.Context) ConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionOutput)
+}
+
+// ConditionArrayInput is an input type that accepts ConditionArray and ConditionArrayOutput values.
+// You can construct a concrete instance of `ConditionArrayInput` via:
+//
+//          ConditionArray{ ConditionArgs{...} }
+type ConditionArrayInput interface {
+	pulumi.Input
+
+	ToConditionArrayOutput() ConditionArrayOutput
+	ToConditionArrayOutputWithContext(context.Context) ConditionArrayOutput
+}
+
+type ConditionArray []ConditionInput
+
+func (ConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Condition)(nil)).Elem()
+}
+
+func (i ConditionArray) ToConditionArrayOutput() ConditionArrayOutput {
+	return i.ToConditionArrayOutputWithContext(context.Background())
+}
+
+func (i ConditionArray) ToConditionArrayOutputWithContext(ctx context.Context) ConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionArrayOutput)
+}
+
+// Governance rule's condition
+type ConditionOutput struct{ *pulumi.OutputState }
+
+func (ConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Condition)(nil)).Elem()
+}
+
+func (o ConditionOutput) ToConditionOutput() ConditionOutput {
+	return o
+}
+
+func (o ConditionOutput) ToConditionOutputWithContext(ctx context.Context) ConditionOutput {
+	return o
+}
+
+// The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
+func (o ConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Condition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The governance rule Condition's Property, e.g. Severity or AssessmentKey, see examples
+func (o ConditionOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Condition) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+// The governance rule Condition's Value like severity Low, High or assessments keys, see examples
+func (o ConditionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Condition) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (ConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Condition)(nil)).Elem()
+}
+
+func (o ConditionArrayOutput) ToConditionArrayOutput() ConditionArrayOutput {
+	return o
+}
+
+func (o ConditionArrayOutput) ToConditionArrayOutputWithContext(ctx context.Context) ConditionArrayOutput {
+	return o
+}
+
+func (o ConditionArrayOutput) Index(i pulumi.IntInput) ConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Condition {
+		return vs[0].([]Condition)[vs[1].(int)]
+	}).(ConditionOutput)
+}
+
+// Governance rule's condition
+type ConditionResponse struct {
+	// The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
+	Operator *string `pulumi:"operator"`
+	// The governance rule Condition's Property, e.g. Severity or AssessmentKey, see examples
+	Property *string `pulumi:"property"`
+	// The governance rule Condition's Value like severity Low, High or assessments keys, see examples
+	Value *string `pulumi:"value"`
+}
+
+// Governance rule's condition
+type ConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (ConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionResponse)(nil)).Elem()
+}
+
+func (o ConditionResponseOutput) ToConditionResponseOutput() ConditionResponseOutput {
+	return o
+}
+
+func (o ConditionResponseOutput) ToConditionResponseOutputWithContext(ctx context.Context) ConditionResponseOutput {
+	return o
+}
+
+// The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
+func (o ConditionResponseOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConditionResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The governance rule Condition's Property, e.g. Severity or AssessmentKey, see examples
+func (o ConditionResponseOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConditionResponse) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+// The governance rule Condition's Value like severity Low, High or assessments keys, see examples
+func (o ConditionResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConditionResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ConditionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConditionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConditionResponse)(nil)).Elem()
+}
+
+func (o ConditionResponseArrayOutput) ToConditionResponseArrayOutput() ConditionResponseArrayOutput {
+	return o
+}
+
+func (o ConditionResponseArrayOutput) ToConditionResponseArrayOutputWithContext(ctx context.Context) ConditionResponseArrayOutput {
+	return o
+}
+
+func (o ConditionResponseArrayOutput) Index(i pulumi.IntInput) ConditionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConditionResponse {
+		return vs[0].([]ConditionResponse)[vs[1].(int)]
+	}).(ConditionResponseOutput)
+}
+
 // Describe the additional data of GovernanceAssignment - optional
 type GovernanceAssignmentAdditionalData struct {
 	// Ticket link associated with this GovernanceAssignment - for example: https://snow.com
@@ -23,7 +201,7 @@ type GovernanceAssignmentAdditionalData struct {
 // GovernanceAssignmentAdditionalDataInput is an input type that accepts GovernanceAssignmentAdditionalDataArgs and GovernanceAssignmentAdditionalDataOutput values.
 // You can construct a concrete instance of `GovernanceAssignmentAdditionalDataInput` via:
 //
-//	GovernanceAssignmentAdditionalDataArgs{...}
+//          GovernanceAssignmentAdditionalDataArgs{...}
 type GovernanceAssignmentAdditionalDataInput interface {
 	pulumi.Input
 
@@ -64,11 +242,11 @@ func (i GovernanceAssignmentAdditionalDataArgs) ToGovernanceAssignmentAdditional
 // GovernanceAssignmentAdditionalDataPtrInput is an input type that accepts GovernanceAssignmentAdditionalDataArgs, GovernanceAssignmentAdditionalDataPtr and GovernanceAssignmentAdditionalDataPtrOutput values.
 // You can construct a concrete instance of `GovernanceAssignmentAdditionalDataPtrInput` via:
 //
-//	        GovernanceAssignmentAdditionalDataArgs{...}
+//          GovernanceAssignmentAdditionalDataArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GovernanceAssignmentAdditionalDataPtrInput interface {
 	pulumi.Input
 
@@ -293,7 +471,7 @@ type GovernanceEmailNotification struct {
 // GovernanceEmailNotificationInput is an input type that accepts GovernanceEmailNotificationArgs and GovernanceEmailNotificationOutput values.
 // You can construct a concrete instance of `GovernanceEmailNotificationInput` via:
 //
-//	GovernanceEmailNotificationArgs{...}
+//          GovernanceEmailNotificationArgs{...}
 type GovernanceEmailNotificationInput interface {
 	pulumi.Input
 
@@ -332,11 +510,11 @@ func (i GovernanceEmailNotificationArgs) ToGovernanceEmailNotificationPtrOutputW
 // GovernanceEmailNotificationPtrInput is an input type that accepts GovernanceEmailNotificationArgs, GovernanceEmailNotificationPtr and GovernanceEmailNotificationPtrOutput values.
 // You can construct a concrete instance of `GovernanceEmailNotificationPtrInput` via:
 //
-//	        GovernanceEmailNotificationArgs{...}
+//          GovernanceEmailNotificationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GovernanceEmailNotificationPtrInput interface {
 	pulumi.Input
 
@@ -529,7 +707,7 @@ type GovernanceRuleEmailNotification struct {
 // GovernanceRuleEmailNotificationInput is an input type that accepts GovernanceRuleEmailNotificationArgs and GovernanceRuleEmailNotificationOutput values.
 // You can construct a concrete instance of `GovernanceRuleEmailNotificationInput` via:
 //
-//	GovernanceRuleEmailNotificationArgs{...}
+//          GovernanceRuleEmailNotificationArgs{...}
 type GovernanceRuleEmailNotificationInput interface {
 	pulumi.Input
 
@@ -568,11 +746,11 @@ func (i GovernanceRuleEmailNotificationArgs) ToGovernanceRuleEmailNotificationPt
 // GovernanceRuleEmailNotificationPtrInput is an input type that accepts GovernanceRuleEmailNotificationArgs, GovernanceRuleEmailNotificationPtr and GovernanceRuleEmailNotificationPtrOutput values.
 // You can construct a concrete instance of `GovernanceRuleEmailNotificationPtrInput` via:
 //
-//	        GovernanceRuleEmailNotificationArgs{...}
+//          GovernanceRuleEmailNotificationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GovernanceRuleEmailNotificationPtrInput interface {
 	pulumi.Input
 
@@ -765,7 +943,7 @@ type GovernanceRuleOwnerSource struct {
 // GovernanceRuleOwnerSourceInput is an input type that accepts GovernanceRuleOwnerSourceArgs and GovernanceRuleOwnerSourceOutput values.
 // You can construct a concrete instance of `GovernanceRuleOwnerSourceInput` via:
 //
-//	GovernanceRuleOwnerSourceArgs{...}
+//          GovernanceRuleOwnerSourceArgs{...}
 type GovernanceRuleOwnerSourceInput interface {
 	pulumi.Input
 
@@ -862,7 +1040,7 @@ type RemediationEta struct {
 // RemediationEtaInput is an input type that accepts RemediationEtaArgs and RemediationEtaOutput values.
 // You can construct a concrete instance of `RemediationEtaInput` via:
 //
-//	RemediationEtaArgs{...}
+//          RemediationEtaArgs{...}
 type RemediationEtaInput interface {
 	pulumi.Input
 
@@ -901,11 +1079,11 @@ func (i RemediationEtaArgs) ToRemediationEtaPtrOutputWithContext(ctx context.Con
 // RemediationEtaPtrInput is an input type that accepts RemediationEtaArgs, RemediationEtaPtr and RemediationEtaPtrOutput values.
 // You can construct a concrete instance of `RemediationEtaPtrInput` via:
 //
-//	        RemediationEtaArgs{...}
+//          RemediationEtaArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type RemediationEtaPtrInput interface {
 	pulumi.Input
 
@@ -1087,7 +1265,141 @@ func (o RemediationEtaResponsePtrOutput) Justification() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConditionArgsArrayArrayArray []ConditionArgsArrayArrayInput
+
+func (ConditionArgsArrayArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][][]Condition)(nil)).Elem()
+}
+
+func (i ConditionArgsArrayArrayArray) ToConditionArgsArrayArrayArrayOutput() ConditionArgsArrayArrayArrayOutput {
+	return i.ToConditionArgsArrayArrayArrayOutputWithContext(context.Background())
+}
+
+func (i ConditionArgsArrayArrayArray) ToConditionArgsArrayArrayArrayOutputWithContext(ctx context.Context) ConditionArgsArrayArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionArgsArrayArrayArrayOutput)
+}
+
+// ConditionArgsArrayArrayArrayInput is an input type that accepts ConditionArgsArrayArrayArray and ConditionArgsArrayArrayArrayOutput values.
+// You can construct a concrete instance of `ConditionArgsArrayArrayArrayInput` via:
+//
+//          ConditionArgsArrayArrayArray{ ConditionArgsArrayArray{ ConditionArgsArray{ ConditionArgsArgs{...} } } }
+type ConditionArgsArrayArrayArrayInput interface {
+	pulumi.Input
+
+	ToConditionArgsArrayArrayArrayOutput() ConditionArgsArrayArrayArrayOutput
+	ToConditionArgsArrayArrayArrayOutputWithContext(context.Context) ConditionArgsArrayArrayArrayOutput
+}
+
+type ConditionArgsArrayArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (ConditionArgsArrayArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][][]Condition)(nil)).Elem()
+}
+
+func (o ConditionArgsArrayArrayArrayOutput) ToConditionArgsArrayArrayArrayOutput() ConditionArgsArrayArrayArrayOutput {
+	return o
+}
+
+func (o ConditionArgsArrayArrayArrayOutput) ToConditionArgsArrayArrayArrayOutputWithContext(ctx context.Context) ConditionArgsArrayArrayArrayOutput {
+	return o
+}
+
+func (o ConditionArgsArrayArrayArrayOutput) Index(i pulumi.IntInput) ConditionArgsArrayArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) [][]Condition {
+		return vs[0].([][][]Condition)[vs[1].(int)]
+	}).(ConditionArgsArrayArrayOutput)
+}
+
+type ConditionArrayArray []ConditionArrayInput
+
+func (ConditionArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]Condition)(nil)).Elem()
+}
+
+func (i ConditionArrayArray) ToConditionArrayArrayOutput() ConditionArrayArrayOutput {
+	return i.ToConditionArrayArrayOutputWithContext(context.Background())
+}
+
+func (i ConditionArrayArray) ToConditionArrayArrayOutputWithContext(ctx context.Context) ConditionArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionArrayArrayOutput)
+}
+
+// ConditionArrayArrayInput is an input type that accepts ConditionArrayArray and ConditionArrayArrayOutput values.
+// You can construct a concrete instance of `ConditionArrayArrayInput` via:
+//
+//          ConditionArrayArray{ ConditionArray{ ConditionArgs{...} } }
+type ConditionArrayArrayInput interface {
+	pulumi.Input
+
+	ToConditionArrayArrayOutput() ConditionArrayArrayOutput
+	ToConditionArrayArrayOutputWithContext(context.Context) ConditionArrayArrayOutput
+}
+
+type ConditionArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (ConditionArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]Condition)(nil)).Elem()
+}
+
+func (o ConditionArrayArrayOutput) ToConditionArrayArrayOutput() ConditionArrayArrayOutput {
+	return o
+}
+
+func (o ConditionArrayArrayOutput) ToConditionArrayArrayOutputWithContext(ctx context.Context) ConditionArrayArrayOutput {
+	return o
+}
+
+func (o ConditionArrayArrayOutput) Index(i pulumi.IntInput) ConditionArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) []Condition {
+		return vs[0].([][]Condition)[vs[1].(int)]
+	}).(ConditionArrayOutput)
+}
+
+type ConditionResponseArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (ConditionResponseArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]ConditionResponse)(nil)).Elem()
+}
+
+func (o ConditionResponseArrayArrayOutput) ToConditionResponseArrayArrayOutput() ConditionResponseArrayArrayOutput {
+	return o
+}
+
+func (o ConditionResponseArrayArrayOutput) ToConditionResponseArrayArrayOutputWithContext(ctx context.Context) ConditionResponseArrayArrayOutput {
+	return o
+}
+
+func (o ConditionResponseArrayArrayOutput) Index(i pulumi.IntInput) ConditionResponseArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) []ConditionResponse {
+		return vs[0].([][]ConditionResponse)[vs[1].(int)]
+	}).(ConditionResponseArrayOutput)
+}
+
+type ConditionResponseArrayArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (ConditionResponseArrayArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][][]ConditionResponse)(nil)).Elem()
+}
+
+func (o ConditionResponseArrayArrayArrayOutput) ToConditionResponseArrayArrayArrayOutput() ConditionResponseArrayArrayArrayOutput {
+	return o
+}
+
+func (o ConditionResponseArrayArrayArrayOutput) ToConditionResponseArrayArrayArrayOutputWithContext(ctx context.Context) ConditionResponseArrayArrayArrayOutput {
+	return o
+}
+
+func (o ConditionResponseArrayArrayArrayOutput) Index(i pulumi.IntInput) ConditionResponseArrayArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) [][]ConditionResponse {
+		return vs[0].([][][]ConditionResponse)[vs[1].(int)]
+	}).(ConditionResponseArrayArrayOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(ConditionOutput{})
+	pulumi.RegisterOutputType(ConditionArrayOutput{})
+	pulumi.RegisterOutputType(ConditionResponseOutput{})
+	pulumi.RegisterOutputType(ConditionResponseArrayOutput{})
 	pulumi.RegisterOutputType(GovernanceAssignmentAdditionalDataOutput{})
 	pulumi.RegisterOutputType(GovernanceAssignmentAdditionalDataPtrOutput{})
 	pulumi.RegisterOutputType(GovernanceAssignmentAdditionalDataResponseOutput{})
@@ -1106,4 +1418,8 @@ func init() {
 	pulumi.RegisterOutputType(RemediationEtaPtrOutput{})
 	pulumi.RegisterOutputType(RemediationEtaResponseOutput{})
 	pulumi.RegisterOutputType(RemediationEtaResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConditionArgsArrayArrayArrayOutput{})
+	pulumi.RegisterOutputType(ConditionArrayArrayOutput{})
+	pulumi.RegisterOutputType(ConditionResponseArrayArrayOutput{})
+	pulumi.RegisterOutputType(ConditionResponseArrayArrayArrayOutput{})
 }

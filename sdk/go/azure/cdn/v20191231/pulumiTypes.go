@@ -123,7 +123,7 @@ type DeepCreatedOrigin struct {
 // DeepCreatedOriginInput is an input type that accepts DeepCreatedOriginArgs and DeepCreatedOriginOutput values.
 // You can construct a concrete instance of `DeepCreatedOriginInput` via:
 //
-//	DeepCreatedOriginArgs{...}
+//          DeepCreatedOriginArgs{...}
 type DeepCreatedOriginInput interface {
 	pulumi.Input
 
@@ -166,7 +166,7 @@ func (i DeepCreatedOriginArgs) ToDeepCreatedOriginOutputWithContext(ctx context.
 // DeepCreatedOriginArrayInput is an input type that accepts DeepCreatedOriginArray and DeepCreatedOriginArrayOutput values.
 // You can construct a concrete instance of `DeepCreatedOriginArrayInput` via:
 //
-//	DeepCreatedOriginArray{ DeepCreatedOriginArgs{...} }
+//          DeepCreatedOriginArray{ DeepCreatedOriginArgs{...} }
 type DeepCreatedOriginArrayInput interface {
 	pulumi.Input
 
@@ -280,7 +280,7 @@ type DeepCreatedOriginGroup struct {
 // DeepCreatedOriginGroupInput is an input type that accepts DeepCreatedOriginGroupArgs and DeepCreatedOriginGroupOutput values.
 // You can construct a concrete instance of `DeepCreatedOriginGroupInput` via:
 //
-//	DeepCreatedOriginGroupArgs{...}
+//          DeepCreatedOriginGroupArgs{...}
 type DeepCreatedOriginGroupInput interface {
 	pulumi.Input
 
@@ -317,7 +317,7 @@ func (i DeepCreatedOriginGroupArgs) ToDeepCreatedOriginGroupOutputWithContext(ct
 // DeepCreatedOriginGroupArrayInput is an input type that accepts DeepCreatedOriginGroupArray and DeepCreatedOriginGroupArrayOutput values.
 // You can construct a concrete instance of `DeepCreatedOriginGroupArrayInput` via:
 //
-//	DeepCreatedOriginGroupArray{ DeepCreatedOriginGroupArgs{...} }
+//          DeepCreatedOriginGroupArray{ DeepCreatedOriginGroupArgs{...} }
 type DeepCreatedOriginGroupArrayInput interface {
 	pulumi.Input
 
@@ -589,7 +589,7 @@ type DeliveryRule struct {
 // DeliveryRuleInput is an input type that accepts DeliveryRuleArgs and DeliveryRuleOutput values.
 // You can construct a concrete instance of `DeliveryRuleInput` via:
 //
-//	DeliveryRuleArgs{...}
+//          DeliveryRuleArgs{...}
 type DeliveryRuleInput interface {
 	pulumi.Input
 
@@ -624,7 +624,7 @@ func (i DeliveryRuleArgs) ToDeliveryRuleOutputWithContext(ctx context.Context) D
 // DeliveryRuleArrayInput is an input type that accepts DeliveryRuleArray and DeliveryRuleArrayOutput values.
 // You can construct a concrete instance of `DeliveryRuleArrayInput` via:
 //
-//	DeliveryRuleArray{ DeliveryRuleArgs{...} }
+//          DeliveryRuleArray{ DeliveryRuleArgs{...} }
 type DeliveryRuleArrayInput interface {
 	pulumi.Input
 
@@ -1103,7 +1103,7 @@ type EndpointPropertiesUpdateParametersDeliveryPolicy struct {
 // EndpointPropertiesUpdateParametersDeliveryPolicyInput is an input type that accepts EndpointPropertiesUpdateParametersDeliveryPolicyArgs and EndpointPropertiesUpdateParametersDeliveryPolicyOutput values.
 // You can construct a concrete instance of `EndpointPropertiesUpdateParametersDeliveryPolicyInput` via:
 //
-//	EndpointPropertiesUpdateParametersDeliveryPolicyArgs{...}
+//          EndpointPropertiesUpdateParametersDeliveryPolicyArgs{...}
 type EndpointPropertiesUpdateParametersDeliveryPolicyInput interface {
 	pulumi.Input
 
@@ -1142,11 +1142,11 @@ func (i EndpointPropertiesUpdateParametersDeliveryPolicyArgs) ToEndpointProperti
 // EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput is an input type that accepts EndpointPropertiesUpdateParametersDeliveryPolicyArgs, EndpointPropertiesUpdateParametersDeliveryPolicyPtr and EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput values.
 // You can construct a concrete instance of `EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput` via:
 //
-//	        EndpointPropertiesUpdateParametersDeliveryPolicyArgs{...}
+//          EndpointPropertiesUpdateParametersDeliveryPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1343,7 +1343,7 @@ type GeoFilter struct {
 // GeoFilterInput is an input type that accepts GeoFilterArgs and GeoFilterOutput values.
 // You can construct a concrete instance of `GeoFilterInput` via:
 //
-//	GeoFilterArgs{...}
+//          GeoFilterArgs{...}
 type GeoFilterInput interface {
 	pulumi.Input
 
@@ -1376,7 +1376,7 @@ func (i GeoFilterArgs) ToGeoFilterOutputWithContext(ctx context.Context) GeoFilt
 // GeoFilterArrayInput is an input type that accepts GeoFilterArray and GeoFilterArrayOutput values.
 // You can construct a concrete instance of `GeoFilterArrayInput` via:
 //
-//	GeoFilterArray{ GeoFilterArgs{...} }
+//          GeoFilterArray{ GeoFilterArgs{...} }
 type GeoFilterArrayInput interface {
 	pulumi.Input
 
@@ -1545,7 +1545,7 @@ type HealthProbeParameters struct {
 // HealthProbeParametersInput is an input type that accepts HealthProbeParametersArgs and HealthProbeParametersOutput values.
 // You can construct a concrete instance of `HealthProbeParametersInput` via:
 //
-//	HealthProbeParametersArgs{...}
+//          HealthProbeParametersArgs{...}
 type HealthProbeParametersInput interface {
 	pulumi.Input
 
@@ -1588,11 +1588,11 @@ func (i HealthProbeParametersArgs) ToHealthProbeParametersPtrOutputWithContext(c
 // HealthProbeParametersPtrInput is an input type that accepts HealthProbeParametersArgs, HealthProbeParametersPtr and HealthProbeParametersPtrOutput values.
 // You can construct a concrete instance of `HealthProbeParametersPtrInput` via:
 //
-//	        HealthProbeParametersArgs{...}
+//          HealthProbeParametersArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type HealthProbeParametersPtrInput interface {
 	pulumi.Input
 
@@ -1849,7 +1849,7 @@ type HttpErrorRangeParameters struct {
 // HttpErrorRangeParametersInput is an input type that accepts HttpErrorRangeParametersArgs and HttpErrorRangeParametersOutput values.
 // You can construct a concrete instance of `HttpErrorRangeParametersInput` via:
 //
-//	HttpErrorRangeParametersArgs{...}
+//          HttpErrorRangeParametersArgs{...}
 type HttpErrorRangeParametersInput interface {
 	pulumi.Input
 
@@ -1880,7 +1880,7 @@ func (i HttpErrorRangeParametersArgs) ToHttpErrorRangeParametersOutputWithContex
 // HttpErrorRangeParametersArrayInput is an input type that accepts HttpErrorRangeParametersArray and HttpErrorRangeParametersArrayOutput values.
 // You can construct a concrete instance of `HttpErrorRangeParametersArrayInput` via:
 //
-//	HttpErrorRangeParametersArray{ HttpErrorRangeParametersArgs{...} }
+//          HttpErrorRangeParametersArray{ HttpErrorRangeParametersArgs{...} }
 type HttpErrorRangeParametersArrayInput interface {
 	pulumi.Input
 
@@ -2316,7 +2316,7 @@ type ResourceReference struct {
 // ResourceReferenceInput is an input type that accepts ResourceReferenceArgs and ResourceReferenceOutput values.
 // You can construct a concrete instance of `ResourceReferenceInput` via:
 //
-//	ResourceReferenceArgs{...}
+//          ResourceReferenceArgs{...}
 type ResourceReferenceInput interface {
 	pulumi.Input
 
@@ -2353,11 +2353,11 @@ func (i ResourceReferenceArgs) ToResourceReferencePtrOutputWithContext(ctx conte
 // ResourceReferencePtrInput is an input type that accepts ResourceReferenceArgs, ResourceReferencePtr and ResourceReferencePtrOutput values.
 // You can construct a concrete instance of `ResourceReferencePtrInput` via:
 //
-//	        ResourceReferenceArgs{...}
+//          ResourceReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceReferencePtrInput interface {
 	pulumi.Input
 
@@ -2386,7 +2386,7 @@ func (i *resourceReferencePtrType) ToResourceReferencePtrOutputWithContext(ctx c
 // ResourceReferenceArrayInput is an input type that accepts ResourceReferenceArray and ResourceReferenceArrayOutput values.
 // You can construct a concrete instance of `ResourceReferenceArrayInput` via:
 //
-//	ResourceReferenceArray{ ResourceReferenceArgs{...} }
+//          ResourceReferenceArray{ ResourceReferenceArgs{...} }
 type ResourceReferenceArrayInput interface {
 	pulumi.Input
 
@@ -2585,7 +2585,7 @@ type ResponseBasedOriginErrorDetectionParameters struct {
 // ResponseBasedOriginErrorDetectionParametersInput is an input type that accepts ResponseBasedOriginErrorDetectionParametersArgs and ResponseBasedOriginErrorDetectionParametersOutput values.
 // You can construct a concrete instance of `ResponseBasedOriginErrorDetectionParametersInput` via:
 //
-//	ResponseBasedOriginErrorDetectionParametersArgs{...}
+//          ResponseBasedOriginErrorDetectionParametersArgs{...}
 type ResponseBasedOriginErrorDetectionParametersInput interface {
 	pulumi.Input
 
@@ -2626,11 +2626,11 @@ func (i ResponseBasedOriginErrorDetectionParametersArgs) ToResponseBasedOriginEr
 // ResponseBasedOriginErrorDetectionParametersPtrInput is an input type that accepts ResponseBasedOriginErrorDetectionParametersArgs, ResponseBasedOriginErrorDetectionParametersPtr and ResponseBasedOriginErrorDetectionParametersPtrOutput values.
 // You can construct a concrete instance of `ResponseBasedOriginErrorDetectionParametersPtrInput` via:
 //
-//	        ResponseBasedOriginErrorDetectionParametersArgs{...}
+//          ResponseBasedOriginErrorDetectionParametersArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResponseBasedOriginErrorDetectionParametersPtrInput interface {
 	pulumi.Input
 
@@ -2865,7 +2865,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

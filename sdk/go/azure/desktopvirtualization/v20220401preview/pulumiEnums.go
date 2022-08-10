@@ -161,7 +161,7 @@ func (o DayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // DayOfWeekInput is an input type that accepts DayOfWeekArgs and DayOfWeekOutput values.
 // You can construct a concrete instance of `DayOfWeekInput` via:
 //
-//	DayOfWeekArgs{...}
+//          DayOfWeekArgs{...}
 type DayOfWeekInput interface {
 	pulumi.Input
 
@@ -423,7 +423,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//	ResourceIdentityTypeArgs{...}
+//          ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 
@@ -626,7 +626,7 @@ func (o SkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuTierInput is an input type that accepts SkuTierArgs and SkuTierOutput values.
 // You can construct a concrete instance of `SkuTierInput` via:
 //
-//	SkuTierArgs{...}
+//          SkuTierArgs{...}
 type SkuTierInput interface {
 	pulumi.Input
 

@@ -23,7 +23,7 @@ type AssignmentLockSettings struct {
 // AssignmentLockSettingsInput is an input type that accepts AssignmentLockSettingsArgs and AssignmentLockSettingsOutput values.
 // You can construct a concrete instance of `AssignmentLockSettingsInput` via:
 //
-//	AssignmentLockSettingsArgs{...}
+//          AssignmentLockSettingsArgs{...}
 type AssignmentLockSettingsInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i AssignmentLockSettingsArgs) ToAssignmentLockSettingsPtrOutputWithContext
 // AssignmentLockSettingsPtrInput is an input type that accepts AssignmentLockSettingsArgs, AssignmentLockSettingsPtr and AssignmentLockSettingsPtrOutput values.
 // You can construct a concrete instance of `AssignmentLockSettingsPtrInput` via:
 //
-//	        AssignmentLockSettingsArgs{...}
+//          AssignmentLockSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AssignmentLockSettingsPtrInput interface {
 	pulumi.Input
 
@@ -364,7 +364,7 @@ type KeyVaultReference struct {
 // KeyVaultReferenceInput is an input type that accepts KeyVaultReferenceArgs and KeyVaultReferenceOutput values.
 // You can construct a concrete instance of `KeyVaultReferenceInput` via:
 //
-//	KeyVaultReferenceArgs{...}
+//          KeyVaultReferenceArgs{...}
 type KeyVaultReferenceInput interface {
 	pulumi.Input
 
@@ -401,11 +401,11 @@ func (i KeyVaultReferenceArgs) ToKeyVaultReferencePtrOutputWithContext(ctx conte
 // KeyVaultReferencePtrInput is an input type that accepts KeyVaultReferenceArgs, KeyVaultReferencePtr and KeyVaultReferencePtrOutput values.
 // You can construct a concrete instance of `KeyVaultReferencePtrInput` via:
 //
-//	        KeyVaultReferenceArgs{...}
+//          KeyVaultReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyVaultReferencePtrInput interface {
 	pulumi.Input
 
@@ -570,7 +570,7 @@ type ManagedServiceIdentity struct {
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityInput` via:
 //
-//	ManagedServiceIdentityArgs{...}
+//          ManagedServiceIdentityArgs{...}
 type ManagedServiceIdentityInput interface {
 	pulumi.Input
 
@@ -705,7 +705,7 @@ type ParameterDefinition struct {
 // ParameterDefinitionInput is an input type that accepts ParameterDefinitionArgs and ParameterDefinitionOutput values.
 // You can construct a concrete instance of `ParameterDefinitionInput` via:
 //
-//	ParameterDefinitionArgs{...}
+//          ParameterDefinitionArgs{...}
 type ParameterDefinitionInput interface {
 	pulumi.Input
 
@@ -744,7 +744,7 @@ func (i ParameterDefinitionArgs) ToParameterDefinitionOutputWithContext(ctx cont
 // ParameterDefinitionMapInput is an input type that accepts ParameterDefinitionMap and ParameterDefinitionMapOutput values.
 // You can construct a concrete instance of `ParameterDefinitionMapInput` via:
 //
-//	ParameterDefinitionMap{ "key": ParameterDefinitionArgs{...} }
+//          ParameterDefinitionMap{ "key": ParameterDefinitionArgs{...} }
 type ParameterDefinitionMapInput interface {
 	pulumi.Input
 
@@ -923,7 +923,7 @@ type ParameterValue struct {
 // ParameterValueInput is an input type that accepts ParameterValueArgs and ParameterValueOutput values.
 // You can construct a concrete instance of `ParameterValueInput` via:
 //
-//	ParameterValueArgs{...}
+//          ParameterValueArgs{...}
 type ParameterValueInput interface {
 	pulumi.Input
 
@@ -954,7 +954,7 @@ func (i ParameterValueArgs) ToParameterValueOutputWithContext(ctx context.Contex
 // ParameterValueMapInput is an input type that accepts ParameterValueMap and ParameterValueMapOutput values.
 // You can construct a concrete instance of `ParameterValueMapInput` via:
 //
-//	ParameterValueMap{ "key": ParameterValueArgs{...} }
+//          ParameterValueMap{ "key": ParameterValueArgs{...} }
 type ParameterValueMapInput interface {
 	pulumi.Input
 
@@ -1095,7 +1095,7 @@ type ResourceGroupDefinition struct {
 // ResourceGroupDefinitionInput is an input type that accepts ResourceGroupDefinitionArgs and ResourceGroupDefinitionOutput values.
 // You can construct a concrete instance of `ResourceGroupDefinitionInput` via:
 //
-//	ResourceGroupDefinitionArgs{...}
+//          ResourceGroupDefinitionArgs{...}
 type ResourceGroupDefinitionInput interface {
 	pulumi.Input
 
@@ -1136,7 +1136,7 @@ func (i ResourceGroupDefinitionArgs) ToResourceGroupDefinitionOutputWithContext(
 // ResourceGroupDefinitionMapInput is an input type that accepts ResourceGroupDefinitionMap and ResourceGroupDefinitionMapOutput values.
 // You can construct a concrete instance of `ResourceGroupDefinitionMapInput` via:
 //
-//	ResourceGroupDefinitionMap{ "key": ResourceGroupDefinitionArgs{...} }
+//          ResourceGroupDefinitionMap{ "key": ResourceGroupDefinitionArgs{...} }
 type ResourceGroupDefinitionMapInput interface {
 	pulumi.Input
 
@@ -1327,7 +1327,7 @@ type ResourceGroupValue struct {
 // ResourceGroupValueInput is an input type that accepts ResourceGroupValueArgs and ResourceGroupValueOutput values.
 // You can construct a concrete instance of `ResourceGroupValueInput` via:
 //
-//	ResourceGroupValueArgs{...}
+//          ResourceGroupValueArgs{...}
 type ResourceGroupValueInput interface {
 	pulumi.Input
 
@@ -1358,7 +1358,7 @@ func (i ResourceGroupValueArgs) ToResourceGroupValueOutputWithContext(ctx contex
 // ResourceGroupValueMapInput is an input type that accepts ResourceGroupValueMap and ResourceGroupValueMapOutput values.
 // You can construct a concrete instance of `ResourceGroupValueMapInput` via:
 //
-//	ResourceGroupValueMap{ "key": ResourceGroupValueArgs{...} }
+//          ResourceGroupValueMap{ "key": ResourceGroupValueArgs{...} }
 type ResourceGroupValueMapInput interface {
 	pulumi.Input
 
@@ -1491,7 +1491,7 @@ type SecretValueReference struct {
 // SecretValueReferenceInput is an input type that accepts SecretValueReferenceArgs and SecretValueReferenceOutput values.
 // You can construct a concrete instance of `SecretValueReferenceInput` via:
 //
-//	SecretValueReferenceArgs{...}
+//          SecretValueReferenceArgs{...}
 type SecretValueReferenceInput interface {
 	pulumi.Input
 
@@ -1532,11 +1532,11 @@ func (i SecretValueReferenceArgs) ToSecretValueReferencePtrOutputWithContext(ctx
 // SecretValueReferencePtrInput is an input type that accepts SecretValueReferenceArgs, SecretValueReferencePtr and SecretValueReferencePtrOutput values.
 // You can construct a concrete instance of `SecretValueReferencePtrInput` via:
 //
-//	        SecretValueReferenceArgs{...}
+//          SecretValueReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SecretValueReferencePtrInput interface {
 	pulumi.Input
 
@@ -1761,7 +1761,7 @@ type UserAssignedIdentity struct {
 // UserAssignedIdentityInput is an input type that accepts UserAssignedIdentityArgs and UserAssignedIdentityOutput values.
 // You can construct a concrete instance of `UserAssignedIdentityInput` via:
 //
-//	UserAssignedIdentityArgs{...}
+//          UserAssignedIdentityArgs{...}
 type UserAssignedIdentityInput interface {
 	pulumi.Input
 
@@ -1792,7 +1792,7 @@ func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutputWithContext(ctx co
 // UserAssignedIdentityMapInput is an input type that accepts UserAssignedIdentityMap and UserAssignedIdentityMapOutput values.
 // You can construct a concrete instance of `UserAssignedIdentityMapInput` via:
 //
-//	UserAssignedIdentityMap{ "key": UserAssignedIdentityArgs{...} }
+//          UserAssignedIdentityMap{ "key": UserAssignedIdentityArgs{...} }
 type UserAssignedIdentityMapInput interface {
 	pulumi.Input
 

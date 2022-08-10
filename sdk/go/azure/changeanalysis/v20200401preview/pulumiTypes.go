@@ -23,7 +23,7 @@ type AzureMonitorWorkspaceProperties struct {
 // AzureMonitorWorkspacePropertiesInput is an input type that accepts AzureMonitorWorkspacePropertiesArgs and AzureMonitorWorkspacePropertiesOutput values.
 // You can construct a concrete instance of `AzureMonitorWorkspacePropertiesInput` via:
 //
-//	AzureMonitorWorkspacePropertiesArgs{...}
+//          AzureMonitorWorkspacePropertiesArgs{...}
 type AzureMonitorWorkspacePropertiesInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i AzureMonitorWorkspacePropertiesArgs) ToAzureMonitorWorkspacePropertiesPt
 // AzureMonitorWorkspacePropertiesPtrInput is an input type that accepts AzureMonitorWorkspacePropertiesArgs, AzureMonitorWorkspacePropertiesPtr and AzureMonitorWorkspacePropertiesPtrOutput values.
 // You can construct a concrete instance of `AzureMonitorWorkspacePropertiesPtrInput` via:
 //
-//	        AzureMonitorWorkspacePropertiesArgs{...}
+//          AzureMonitorWorkspacePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AzureMonitorWorkspacePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -291,7 +291,7 @@ type ConfigurationProfileResourceProperties struct {
 // ConfigurationProfileResourcePropertiesInput is an input type that accepts ConfigurationProfileResourcePropertiesArgs and ConfigurationProfileResourcePropertiesOutput values.
 // You can construct a concrete instance of `ConfigurationProfileResourcePropertiesInput` via:
 //
-//	ConfigurationProfileResourcePropertiesArgs{...}
+//          ConfigurationProfileResourcePropertiesArgs{...}
 type ConfigurationProfileResourcePropertiesInput interface {
 	pulumi.Input
 
@@ -328,11 +328,11 @@ func (i ConfigurationProfileResourcePropertiesArgs) ToConfigurationProfileResour
 // ConfigurationProfileResourcePropertiesPtrInput is an input type that accepts ConfigurationProfileResourcePropertiesArgs, ConfigurationProfileResourcePropertiesPtr and ConfigurationProfileResourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `ConfigurationProfileResourcePropertiesPtrInput` via:
 //
-//	        ConfigurationProfileResourcePropertiesArgs{...}
+//          ConfigurationProfileResourcePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ConfigurationProfileResourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -461,7 +461,7 @@ type NotificationSettings struct {
 // NotificationSettingsInput is an input type that accepts NotificationSettingsArgs and NotificationSettingsOutput values.
 // You can construct a concrete instance of `NotificationSettingsInput` via:
 //
-//	NotificationSettingsArgs{...}
+//          NotificationSettingsArgs{...}
 type NotificationSettingsInput interface {
 	pulumi.Input
 
@@ -500,11 +500,11 @@ func (i NotificationSettingsArgs) ToNotificationSettingsPtrOutputWithContext(ctx
 // NotificationSettingsPtrInput is an input type that accepts NotificationSettingsArgs, NotificationSettingsPtr and NotificationSettingsPtrOutput values.
 // You can construct a concrete instance of `NotificationSettingsPtrInput` via:
 //
-//	        NotificationSettingsArgs{...}
+//          NotificationSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NotificationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -699,7 +699,7 @@ type ResourceIdentity struct {
 // ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
 // You can construct a concrete instance of `ResourceIdentityInput` via:
 //
-//	ResourceIdentityArgs{...}
+//          ResourceIdentityArgs{...}
 type ResourceIdentityInput interface {
 	pulumi.Input
 
@@ -736,11 +736,11 @@ func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context
 // ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
 // You can construct a concrete instance of `ResourceIdentityPtrInput` via:
 //
-//	        ResourceIdentityArgs{...}
+//          ResourceIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ResourceIdentityPtrInput interface {
 	pulumi.Input
 

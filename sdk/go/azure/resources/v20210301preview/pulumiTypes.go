@@ -21,7 +21,7 @@ type LinkedTemplateArtifact struct {
 // LinkedTemplateArtifactInput is an input type that accepts LinkedTemplateArtifactArgs and LinkedTemplateArtifactOutput values.
 // You can construct a concrete instance of `LinkedTemplateArtifactInput` via:
 //
-//	LinkedTemplateArtifactArgs{...}
+//          LinkedTemplateArtifactArgs{...}
 type LinkedTemplateArtifactInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i LinkedTemplateArtifactArgs) ToLinkedTemplateArtifactOutputWithContext(ct
 // LinkedTemplateArtifactArrayInput is an input type that accepts LinkedTemplateArtifactArray and LinkedTemplateArtifactArrayOutput values.
 // You can construct a concrete instance of `LinkedTemplateArtifactArrayInput` via:
 //
-//	LinkedTemplateArtifactArray{ LinkedTemplateArtifactArgs{...} }
+//          LinkedTemplateArtifactArray{ LinkedTemplateArtifactArgs{...} }
 type LinkedTemplateArtifactArrayInput interface {
 	pulumi.Input
 

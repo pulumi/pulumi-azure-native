@@ -140,7 +140,7 @@ func (o CacheIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // CacheIdentityTypeInput is an input type that accepts CacheIdentityTypeArgs and CacheIdentityTypeOutput values.
 // You can construct a concrete instance of `CacheIdentityTypeInput` via:
 //
-//	CacheIdentityTypeArgs{...}
+//          CacheIdentityTypeArgs{...}
 type CacheIdentityTypeInput interface {
 	pulumi.Input
 

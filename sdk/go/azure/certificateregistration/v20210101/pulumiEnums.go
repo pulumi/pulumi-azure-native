@@ -140,7 +140,7 @@ func (o CertificateProductTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // CertificateProductTypeInput is an input type that accepts CertificateProductTypeArgs and CertificateProductTypeOutput values.
 // You can construct a concrete instance of `CertificateProductTypeInput` via:
 //
-//	CertificateProductTypeArgs{...}
+//          CertificateProductTypeArgs{...}
 type CertificateProductTypeInput interface {
 	pulumi.Input
 

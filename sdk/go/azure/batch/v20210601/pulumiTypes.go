@@ -19,7 +19,7 @@ type ApplicationPackageReference struct {
 // ApplicationPackageReferenceInput is an input type that accepts ApplicationPackageReferenceArgs and ApplicationPackageReferenceOutput values.
 // You can construct a concrete instance of `ApplicationPackageReferenceInput` via:
 //
-//	ApplicationPackageReferenceArgs{...}
+//          ApplicationPackageReferenceArgs{...}
 type ApplicationPackageReferenceInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i ApplicationPackageReferenceArgs) ToApplicationPackageReferenceOutputWith
 // ApplicationPackageReferenceArrayInput is an input type that accepts ApplicationPackageReferenceArray and ApplicationPackageReferenceArrayOutput values.
 // You can construct a concrete instance of `ApplicationPackageReferenceArrayInput` via:
 //
-//	ApplicationPackageReferenceArray{ ApplicationPackageReferenceArgs{...} }
+//          ApplicationPackageReferenceArray{ ApplicationPackageReferenceArgs{...} }
 type ApplicationPackageReferenceArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +314,7 @@ type AutoScaleSettings struct {
 // AutoScaleSettingsInput is an input type that accepts AutoScaleSettingsArgs and AutoScaleSettingsOutput values.
 // You can construct a concrete instance of `AutoScaleSettingsInput` via:
 //
-//	AutoScaleSettingsArgs{...}
+//          AutoScaleSettingsArgs{...}
 type AutoScaleSettingsInput interface {
 	pulumi.Input
 
@@ -351,11 +351,11 @@ func (i AutoScaleSettingsArgs) ToAutoScaleSettingsPtrOutputWithContext(ctx conte
 // AutoScaleSettingsPtrInput is an input type that accepts AutoScaleSettingsArgs, AutoScaleSettingsPtr and AutoScaleSettingsPtrOutput values.
 // You can construct a concrete instance of `AutoScaleSettingsPtrInput` via:
 //
-//	        AutoScaleSettingsArgs{...}
+//          AutoScaleSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AutoScaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -555,7 +555,7 @@ func (val *AutoStorageBaseProperties) Defaults() *AutoStorageBaseProperties {
 // AutoStorageBasePropertiesInput is an input type that accepts AutoStorageBasePropertiesArgs and AutoStorageBasePropertiesOutput values.
 // You can construct a concrete instance of `AutoStorageBasePropertiesInput` via:
 //
-//	AutoStorageBasePropertiesArgs{...}
+//          AutoStorageBasePropertiesArgs{...}
 type AutoStorageBasePropertiesInput interface {
 	pulumi.Input
 
@@ -607,11 +607,11 @@ func (i AutoStorageBasePropertiesArgs) ToAutoStorageBasePropertiesPtrOutputWithC
 // AutoStorageBasePropertiesPtrInput is an input type that accepts AutoStorageBasePropertiesArgs, AutoStorageBasePropertiesPtr and AutoStorageBasePropertiesPtrOutput values.
 // You can construct a concrete instance of `AutoStorageBasePropertiesPtrInput` via:
 //
-//	        AutoStorageBasePropertiesArgs{...}
+//          AutoStorageBasePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AutoStorageBasePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -803,7 +803,7 @@ type AutoUserSpecification struct {
 // AutoUserSpecificationInput is an input type that accepts AutoUserSpecificationArgs and AutoUserSpecificationOutput values.
 // You can construct a concrete instance of `AutoUserSpecificationInput` via:
 //
-//	AutoUserSpecificationArgs{...}
+//          AutoUserSpecificationArgs{...}
 type AutoUserSpecificationInput interface {
 	pulumi.Input
 
@@ -841,11 +841,11 @@ func (i AutoUserSpecificationArgs) ToAutoUserSpecificationPtrOutputWithContext(c
 // AutoUserSpecificationPtrInput is an input type that accepts AutoUserSpecificationArgs, AutoUserSpecificationPtr and AutoUserSpecificationPtrOutput values.
 // You can construct a concrete instance of `AutoUserSpecificationPtrInput` via:
 //
-//	        AutoUserSpecificationArgs{...}
+//          AutoUserSpecificationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AutoUserSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -1042,7 +1042,7 @@ type AzureBlobFileSystemConfiguration struct {
 // AzureBlobFileSystemConfigurationInput is an input type that accepts AzureBlobFileSystemConfigurationArgs and AzureBlobFileSystemConfigurationOutput values.
 // You can construct a concrete instance of `AzureBlobFileSystemConfigurationInput` via:
 //
-//	AzureBlobFileSystemConfigurationArgs{...}
+//          AzureBlobFileSystemConfigurationArgs{...}
 type AzureBlobFileSystemConfigurationInput interface {
 	pulumi.Input
 
@@ -1088,11 +1088,11 @@ func (i AzureBlobFileSystemConfigurationArgs) ToAzureBlobFileSystemConfiguration
 // AzureBlobFileSystemConfigurationPtrInput is an input type that accepts AzureBlobFileSystemConfigurationArgs, AzureBlobFileSystemConfigurationPtr and AzureBlobFileSystemConfigurationPtrOutput values.
 // You can construct a concrete instance of `AzureBlobFileSystemConfigurationPtrInput` via:
 //
-//	        AzureBlobFileSystemConfigurationArgs{...}
+//          AzureBlobFileSystemConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AzureBlobFileSystemConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1437,7 +1437,7 @@ type AzureFileShareConfiguration struct {
 // AzureFileShareConfigurationInput is an input type that accepts AzureFileShareConfigurationArgs and AzureFileShareConfigurationOutput values.
 // You can construct a concrete instance of `AzureFileShareConfigurationInput` via:
 //
-//	AzureFileShareConfigurationArgs{...}
+//          AzureFileShareConfigurationArgs{...}
 type AzureFileShareConfigurationInput interface {
 	pulumi.Input
 
@@ -1479,11 +1479,11 @@ func (i AzureFileShareConfigurationArgs) ToAzureFileShareConfigurationPtrOutputW
 // AzureFileShareConfigurationPtrInput is an input type that accepts AzureFileShareConfigurationArgs, AzureFileShareConfigurationPtr and AzureFileShareConfigurationPtrOutput values.
 // You can construct a concrete instance of `AzureFileShareConfigurationPtrInput` via:
 //
-//	        AzureFileShareConfigurationArgs{...}
+//          AzureFileShareConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AzureFileShareConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1759,7 +1759,7 @@ type BatchAccountIdentity struct {
 // BatchAccountIdentityInput is an input type that accepts BatchAccountIdentityArgs and BatchAccountIdentityOutput values.
 // You can construct a concrete instance of `BatchAccountIdentityInput` via:
 //
-//	BatchAccountIdentityArgs{...}
+//          BatchAccountIdentityArgs{...}
 type BatchAccountIdentityInput interface {
 	pulumi.Input
 
@@ -1798,11 +1798,11 @@ func (i BatchAccountIdentityArgs) ToBatchAccountIdentityPtrOutputWithContext(ctx
 // BatchAccountIdentityPtrInput is an input type that accepts BatchAccountIdentityArgs, BatchAccountIdentityPtr and BatchAccountIdentityPtrOutput values.
 // You can construct a concrete instance of `BatchAccountIdentityPtrInput` via:
 //
-//	        BatchAccountIdentityArgs{...}
+//          BatchAccountIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BatchAccountIdentityPtrInput interface {
 	pulumi.Input
 
@@ -2031,7 +2031,7 @@ type BatchPoolIdentity struct {
 // BatchPoolIdentityInput is an input type that accepts BatchPoolIdentityArgs and BatchPoolIdentityOutput values.
 // You can construct a concrete instance of `BatchPoolIdentityInput` via:
 //
-//	BatchPoolIdentityArgs{...}
+//          BatchPoolIdentityArgs{...}
 type BatchPoolIdentityInput interface {
 	pulumi.Input
 
@@ -2070,11 +2070,11 @@ func (i BatchPoolIdentityArgs) ToBatchPoolIdentityPtrOutputWithContext(ctx conte
 // BatchPoolIdentityPtrInput is an input type that accepts BatchPoolIdentityArgs, BatchPoolIdentityPtr and BatchPoolIdentityPtrOutput values.
 // You can construct a concrete instance of `BatchPoolIdentityPtrInput` via:
 //
-//	        BatchPoolIdentityArgs{...}
+//          BatchPoolIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type BatchPoolIdentityPtrInput interface {
 	pulumi.Input
 
@@ -2271,7 +2271,7 @@ type CIFSMountConfiguration struct {
 // CIFSMountConfigurationInput is an input type that accepts CIFSMountConfigurationArgs and CIFSMountConfigurationOutput values.
 // You can construct a concrete instance of `CIFSMountConfigurationInput` via:
 //
-//	CIFSMountConfigurationArgs{...}
+//          CIFSMountConfigurationArgs{...}
 type CIFSMountConfigurationInput interface {
 	pulumi.Input
 
@@ -2312,11 +2312,11 @@ func (i CIFSMountConfigurationArgs) ToCIFSMountConfigurationPtrOutputWithContext
 // CIFSMountConfigurationPtrInput is an input type that accepts CIFSMountConfigurationArgs, CIFSMountConfigurationPtr and CIFSMountConfigurationPtrOutput values.
 // You can construct a concrete instance of `CIFSMountConfigurationPtrInput` via:
 //
-//	        CIFSMountConfigurationArgs{...}
+//          CIFSMountConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CIFSMountConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2588,7 +2588,7 @@ type CertificateReference struct {
 // CertificateReferenceInput is an input type that accepts CertificateReferenceArgs and CertificateReferenceOutput values.
 // You can construct a concrete instance of `CertificateReferenceInput` via:
 //
-//	CertificateReferenceArgs{...}
+//          CertificateReferenceArgs{...}
 type CertificateReferenceInput interface {
 	pulumi.Input
 
@@ -2620,7 +2620,7 @@ func (i CertificateReferenceArgs) ToCertificateReferenceOutputWithContext(ctx co
 // CertificateReferenceArrayInput is an input type that accepts CertificateReferenceArray and CertificateReferenceArrayOutput values.
 // You can construct a concrete instance of `CertificateReferenceArrayInput` via:
 //
-//	CertificateReferenceArray{ CertificateReferenceArgs{...} }
+//          CertificateReferenceArray{ CertificateReferenceArgs{...} }
 type CertificateReferenceArrayInput interface {
 	pulumi.Input
 
@@ -2765,7 +2765,7 @@ type CloudServiceConfiguration struct {
 // CloudServiceConfigurationInput is an input type that accepts CloudServiceConfigurationArgs and CloudServiceConfigurationOutput values.
 // You can construct a concrete instance of `CloudServiceConfigurationInput` via:
 //
-//	CloudServiceConfigurationArgs{...}
+//          CloudServiceConfigurationArgs{...}
 type CloudServiceConfigurationInput interface {
 	pulumi.Input
 
@@ -2803,11 +2803,11 @@ func (i CloudServiceConfigurationArgs) ToCloudServiceConfigurationPtrOutputWithC
 // CloudServiceConfigurationPtrInput is an input type that accepts CloudServiceConfigurationArgs, CloudServiceConfigurationPtr and CloudServiceConfigurationPtrOutput values.
 // You can construct a concrete instance of `CloudServiceConfigurationPtrInput` via:
 //
-//	        CloudServiceConfigurationArgs{...}
+//          CloudServiceConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CloudServiceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2995,7 +2995,7 @@ type ComputeNodeIdentityReference struct {
 // ComputeNodeIdentityReferenceInput is an input type that accepts ComputeNodeIdentityReferenceArgs and ComputeNodeIdentityReferenceOutput values.
 // You can construct a concrete instance of `ComputeNodeIdentityReferenceInput` via:
 //
-//	ComputeNodeIdentityReferenceArgs{...}
+//          ComputeNodeIdentityReferenceArgs{...}
 type ComputeNodeIdentityReferenceInput interface {
 	pulumi.Input
 
@@ -3032,11 +3032,11 @@ func (i ComputeNodeIdentityReferenceArgs) ToComputeNodeIdentityReferencePtrOutpu
 // ComputeNodeIdentityReferencePtrInput is an input type that accepts ComputeNodeIdentityReferenceArgs, ComputeNodeIdentityReferencePtr and ComputeNodeIdentityReferencePtrOutput values.
 // You can construct a concrete instance of `ComputeNodeIdentityReferencePtrInput` via:
 //
-//	        ComputeNodeIdentityReferenceArgs{...}
+//          ComputeNodeIdentityReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ComputeNodeIdentityReferencePtrInput interface {
 	pulumi.Input
 
@@ -3197,7 +3197,7 @@ type ContainerConfiguration struct {
 // ContainerConfigurationInput is an input type that accepts ContainerConfigurationArgs and ContainerConfigurationOutput values.
 // You can construct a concrete instance of `ContainerConfigurationInput` via:
 //
-//	ContainerConfigurationArgs{...}
+//          ContainerConfigurationArgs{...}
 type ContainerConfigurationInput interface {
 	pulumi.Input
 
@@ -3236,11 +3236,11 @@ func (i ContainerConfigurationArgs) ToContainerConfigurationPtrOutputWithContext
 // ContainerConfigurationPtrInput is an input type that accepts ContainerConfigurationArgs, ContainerConfigurationPtr and ContainerConfigurationPtrOutput values.
 // You can construct a concrete instance of `ContainerConfigurationPtrInput` via:
 //
-//	        ContainerConfigurationArgs{...}
+//          ContainerConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContainerConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3458,7 +3458,7 @@ type ContainerRegistry struct {
 // ContainerRegistryInput is an input type that accepts ContainerRegistryArgs and ContainerRegistryOutput values.
 // You can construct a concrete instance of `ContainerRegistryInput` via:
 //
-//	ContainerRegistryArgs{...}
+//          ContainerRegistryArgs{...}
 type ContainerRegistryInput interface {
 	pulumi.Input
 
@@ -3498,11 +3498,11 @@ func (i ContainerRegistryArgs) ToContainerRegistryPtrOutputWithContext(ctx conte
 // ContainerRegistryPtrInput is an input type that accepts ContainerRegistryArgs, ContainerRegistryPtr and ContainerRegistryPtrOutput values.
 // You can construct a concrete instance of `ContainerRegistryPtrInput` via:
 //
-//	        ContainerRegistryArgs{...}
+//          ContainerRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ContainerRegistryPtrInput interface {
 	pulumi.Input
 
@@ -3531,7 +3531,7 @@ func (i *containerRegistryPtrType) ToContainerRegistryPtrOutputWithContext(ctx c
 // ContainerRegistryArrayInput is an input type that accepts ContainerRegistryArray and ContainerRegistryArrayOutput values.
 // You can construct a concrete instance of `ContainerRegistryArrayInput` via:
 //
-//	ContainerRegistryArray{ ContainerRegistryArgs{...} }
+//          ContainerRegistryArray{ ContainerRegistryArgs{...} }
 type ContainerRegistryArrayInput interface {
 	pulumi.Input
 
@@ -3823,7 +3823,7 @@ type DataDisk struct {
 // DataDiskInput is an input type that accepts DataDiskArgs and DataDiskOutput values.
 // You can construct a concrete instance of `DataDiskInput` via:
 //
-//	DataDiskArgs{...}
+//          DataDiskArgs{...}
 type DataDiskInput interface {
 	pulumi.Input
 
@@ -3866,7 +3866,7 @@ func (i DataDiskArgs) ToDataDiskOutputWithContext(ctx context.Context) DataDiskO
 // DataDiskArrayInput is an input type that accepts DataDiskArray and DataDiskArrayOutput values.
 // You can construct a concrete instance of `DataDiskArrayInput` via:
 //
-//	DataDiskArray{ DataDiskArgs{...} }
+//          DataDiskArray{ DataDiskArgs{...} }
 type DataDiskArrayInput interface {
 	pulumi.Input
 
@@ -3905,11 +3905,11 @@ func (o DataDiskOutput) ToDataDiskOutputWithContext(ctx context.Context) DataDis
 
 // Values are:
 //
-//	none - The caching mode for the disk is not enabled.
-//	readOnly - The caching mode for the disk is read only.
-//	readWrite - The caching mode for the disk is read and write.
+//  none - The caching mode for the disk is not enabled.
+//  readOnly - The caching mode for the disk is read only.
+//  readWrite - The caching mode for the disk is read and write.
 //
-//	The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
 func (o DataDiskOutput) Caching() CachingTypePtrOutput {
 	return o.ApplyT(func(v DataDisk) *CachingType { return v.Caching }).(CachingTypePtrOutput)
 }
@@ -3925,8 +3925,8 @@ func (o DataDiskOutput) Lun() pulumi.IntOutput {
 
 // If omitted, the default is "Standard_LRS". Values are:
 //
-//	Standard_LRS - The data disk should use standard locally redundant storage.
-//	Premium_LRS - The data disk should use premium locally redundant storage.
+//  Standard_LRS - The data disk should use standard locally redundant storage.
+//  Premium_LRS - The data disk should use premium locally redundant storage.
 func (o DataDiskOutput) StorageAccountType() StorageAccountTypePtrOutput {
 	return o.ApplyT(func(v DataDisk) *StorageAccountType { return v.StorageAccountType }).(StorageAccountTypePtrOutput)
 }
@@ -3988,11 +3988,11 @@ func (o DataDiskResponseOutput) ToDataDiskResponseOutputWithContext(ctx context.
 
 // Values are:
 //
-//	none - The caching mode for the disk is not enabled.
-//	readOnly - The caching mode for the disk is read only.
-//	readWrite - The caching mode for the disk is read and write.
+//  none - The caching mode for the disk is not enabled.
+//  readOnly - The caching mode for the disk is read only.
+//  readWrite - The caching mode for the disk is read and write.
 //
-//	The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
 func (o DataDiskResponseOutput) Caching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataDiskResponse) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
@@ -4008,8 +4008,8 @@ func (o DataDiskResponseOutput) Lun() pulumi.IntOutput {
 
 // If omitted, the default is "Standard_LRS". Values are:
 //
-//	Standard_LRS - The data disk should use standard locally redundant storage.
-//	Premium_LRS - The data disk should use premium locally redundant storage.
+//  Standard_LRS - The data disk should use standard locally redundant storage.
+//  Premium_LRS - The data disk should use premium locally redundant storage.
 func (o DataDiskResponseOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataDiskResponse) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
@@ -4111,7 +4111,7 @@ type DeploymentConfiguration struct {
 // DeploymentConfigurationInput is an input type that accepts DeploymentConfigurationArgs and DeploymentConfigurationOutput values.
 // You can construct a concrete instance of `DeploymentConfigurationInput` via:
 //
-//	DeploymentConfigurationArgs{...}
+//          DeploymentConfigurationArgs{...}
 type DeploymentConfigurationInput interface {
 	pulumi.Input
 
@@ -4149,11 +4149,11 @@ func (i DeploymentConfigurationArgs) ToDeploymentConfigurationPtrOutputWithConte
 // DeploymentConfigurationPtrInput is an input type that accepts DeploymentConfigurationArgs, DeploymentConfigurationPtr and DeploymentConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeploymentConfigurationPtrInput` via:
 //
-//	        DeploymentConfigurationArgs{...}
+//          DeploymentConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DeploymentConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4344,7 +4344,7 @@ type DiffDiskSettings struct {
 // DiffDiskSettingsInput is an input type that accepts DiffDiskSettingsArgs and DiffDiskSettingsOutput values.
 // You can construct a concrete instance of `DiffDiskSettingsInput` via:
 //
-//	DiffDiskSettingsArgs{...}
+//          DiffDiskSettingsArgs{...}
 type DiffDiskSettingsInput interface {
 	pulumi.Input
 
@@ -4380,11 +4380,11 @@ func (i DiffDiskSettingsArgs) ToDiffDiskSettingsPtrOutputWithContext(ctx context
 // DiffDiskSettingsPtrInput is an input type that accepts DiffDiskSettingsArgs, DiffDiskSettingsPtr and DiffDiskSettingsPtrOutput values.
 // You can construct a concrete instance of `DiffDiskSettingsPtrInput` via:
 //
-//	        DiffDiskSettingsArgs{...}
+//          DiffDiskSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DiffDiskSettingsPtrInput interface {
 	pulumi.Input
 
@@ -4540,7 +4540,7 @@ type DiskEncryptionConfiguration struct {
 // DiskEncryptionConfigurationInput is an input type that accepts DiskEncryptionConfigurationArgs and DiskEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `DiskEncryptionConfigurationInput` via:
 //
-//	DiskEncryptionConfigurationArgs{...}
+//          DiskEncryptionConfigurationArgs{...}
 type DiskEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -4577,11 +4577,11 @@ func (i DiskEncryptionConfigurationArgs) ToDiskEncryptionConfigurationPtrOutputW
 // DiskEncryptionConfigurationPtrInput is an input type that accepts DiskEncryptionConfigurationArgs, DiskEncryptionConfigurationPtr and DiskEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `DiskEncryptionConfigurationPtrInput` via:
 //
-//	        DiskEncryptionConfigurationArgs{...}
+//          DiskEncryptionConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DiskEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4742,7 +4742,7 @@ type EncryptionProperties struct {
 // EncryptionPropertiesInput is an input type that accepts EncryptionPropertiesArgs and EncryptionPropertiesOutput values.
 // You can construct a concrete instance of `EncryptionPropertiesInput` via:
 //
-//	EncryptionPropertiesArgs{...}
+//          EncryptionPropertiesArgs{...}
 type EncryptionPropertiesInput interface {
 	pulumi.Input
 
@@ -4781,11 +4781,11 @@ func (i EncryptionPropertiesArgs) ToEncryptionPropertiesPtrOutputWithContext(ctx
 // EncryptionPropertiesPtrInput is an input type that accepts EncryptionPropertiesArgs, EncryptionPropertiesPtr and EncryptionPropertiesPtrOutput values.
 // You can construct a concrete instance of `EncryptionPropertiesPtrInput` via:
 //
-//	        EncryptionPropertiesArgs{...}
+//          EncryptionPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EncryptionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -4931,7 +4931,7 @@ type EnvironmentSetting struct {
 // EnvironmentSettingInput is an input type that accepts EnvironmentSettingArgs and EnvironmentSettingOutput values.
 // You can construct a concrete instance of `EnvironmentSettingInput` via:
 //
-//	EnvironmentSettingArgs{...}
+//          EnvironmentSettingArgs{...}
 type EnvironmentSettingInput interface {
 	pulumi.Input
 
@@ -4959,7 +4959,7 @@ func (i EnvironmentSettingArgs) ToEnvironmentSettingOutputWithContext(ctx contex
 // EnvironmentSettingArrayInput is an input type that accepts EnvironmentSettingArray and EnvironmentSettingArrayOutput values.
 // You can construct a concrete instance of `EnvironmentSettingArrayInput` via:
 //
-//	EnvironmentSettingArray{ EnvironmentSettingArgs{...} }
+//          EnvironmentSettingArray{ EnvironmentSettingArgs{...} }
 type EnvironmentSettingArrayInput interface {
 	pulumi.Input
 
@@ -5084,7 +5084,7 @@ type FixedScaleSettings struct {
 // FixedScaleSettingsInput is an input type that accepts FixedScaleSettingsArgs and FixedScaleSettingsOutput values.
 // You can construct a concrete instance of `FixedScaleSettingsInput` via:
 //
-//	FixedScaleSettingsArgs{...}
+//          FixedScaleSettingsArgs{...}
 type FixedScaleSettingsInput interface {
 	pulumi.Input
 
@@ -5126,11 +5126,11 @@ func (i FixedScaleSettingsArgs) ToFixedScaleSettingsPtrOutputWithContext(ctx con
 // FixedScaleSettingsPtrInput is an input type that accepts FixedScaleSettingsArgs, FixedScaleSettingsPtr and FixedScaleSettingsPtrOutput values.
 // You can construct a concrete instance of `FixedScaleSettingsPtrInput` via:
 //
-//	        FixedScaleSettingsArgs{...}
+//          FixedScaleSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type FixedScaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -5389,7 +5389,7 @@ type ImageReference struct {
 // ImageReferenceInput is an input type that accepts ImageReferenceArgs and ImageReferenceOutput values.
 // You can construct a concrete instance of `ImageReferenceInput` via:
 //
-//	ImageReferenceArgs{...}
+//          ImageReferenceArgs{...}
 type ImageReferenceInput interface {
 	pulumi.Input
 
@@ -5433,11 +5433,11 @@ func (i ImageReferenceArgs) ToImageReferencePtrOutputWithContext(ctx context.Con
 // ImageReferencePtrInput is an input type that accepts ImageReferenceArgs, ImageReferencePtr and ImageReferencePtrOutput values.
 // You can construct a concrete instance of `ImageReferencePtrInput` via:
 //
-//	        ImageReferenceArgs{...}
+//          ImageReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -5729,7 +5729,7 @@ type InboundNatPool struct {
 // InboundNatPoolInput is an input type that accepts InboundNatPoolArgs and InboundNatPoolOutput values.
 // You can construct a concrete instance of `InboundNatPoolInput` via:
 //
-//	InboundNatPoolArgs{...}
+//          InboundNatPoolArgs{...}
 type InboundNatPoolInput interface {
 	pulumi.Input
 
@@ -5766,7 +5766,7 @@ func (i InboundNatPoolArgs) ToInboundNatPoolOutputWithContext(ctx context.Contex
 // InboundNatPoolArrayInput is an input type that accepts InboundNatPoolArray and InboundNatPoolArrayOutput values.
 // You can construct a concrete instance of `InboundNatPoolArrayInput` via:
 //
-//	InboundNatPoolArray{ InboundNatPoolArgs{...} }
+//          InboundNatPoolArray{ InboundNatPoolArgs{...} }
 type InboundNatPoolArrayInput interface {
 	pulumi.Input
 
@@ -5941,7 +5941,7 @@ type KeyVaultProperties struct {
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesInput` via:
 //
-//	KeyVaultPropertiesArgs{...}
+//          KeyVaultPropertiesArgs{...}
 type KeyVaultPropertiesInput interface {
 	pulumi.Input
 
@@ -5982,11 +5982,11 @@ func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx con
 // KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
 //
-//	        KeyVaultPropertiesArgs{...}
+//          KeyVaultPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyVaultPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -6039,9 +6039,9 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx c
 
 // Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
 //
-//	The Batch Account has a System Assigned identity
-//	The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-//	The KeyVault has soft-delete and purge protection enabled
+//  The Batch Account has a System Assigned identity
+//  The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+//  The KeyVault has soft-delete and purge protection enabled
 func (o KeyVaultPropertiesOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -6072,9 +6072,9 @@ func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
 
 // Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
 //
-//	The Batch Account has a System Assigned identity
-//	The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-//	The KeyVault has soft-delete and purge protection enabled
+//  The Batch Account has a System Assigned identity
+//  The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+//  The KeyVault has soft-delete and purge protection enabled
 func (o KeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -6111,9 +6111,9 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWith
 
 // Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
 //
-//	The Batch Account has a System Assigned identity
-//	The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-//	The KeyVault has soft-delete and purge protection enabled
+//  The Batch Account has a System Assigned identity
+//  The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+//  The KeyVault has soft-delete and purge protection enabled
 func (o KeyVaultPropertiesResponseOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -6144,9 +6144,9 @@ func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOu
 
 // Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
 //
-//	The Batch Account has a System Assigned identity
-//	The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-//	The KeyVault has soft-delete and purge protection enabled
+//  The Batch Account has a System Assigned identity
+//  The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+//  The KeyVault has soft-delete and purge protection enabled
 func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -6167,7 +6167,7 @@ type KeyVaultReference struct {
 // KeyVaultReferenceInput is an input type that accepts KeyVaultReferenceArgs and KeyVaultReferenceOutput values.
 // You can construct a concrete instance of `KeyVaultReferenceInput` via:
 //
-//	KeyVaultReferenceArgs{...}
+//          KeyVaultReferenceArgs{...}
 type KeyVaultReferenceInput interface {
 	pulumi.Input
 
@@ -6206,11 +6206,11 @@ func (i KeyVaultReferenceArgs) ToKeyVaultReferencePtrOutputWithContext(ctx conte
 // KeyVaultReferencePtrInput is an input type that accepts KeyVaultReferenceArgs, KeyVaultReferencePtr and KeyVaultReferencePtrOutput values.
 // You can construct a concrete instance of `KeyVaultReferencePtrInput` via:
 //
-//	        KeyVaultReferenceArgs{...}
+//          KeyVaultReferenceArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KeyVaultReferencePtrInput interface {
 	pulumi.Input
 
@@ -6360,7 +6360,7 @@ type LinuxUserConfiguration struct {
 // LinuxUserConfigurationInput is an input type that accepts LinuxUserConfigurationArgs and LinuxUserConfigurationOutput values.
 // You can construct a concrete instance of `LinuxUserConfigurationInput` via:
 //
-//	LinuxUserConfigurationArgs{...}
+//          LinuxUserConfigurationArgs{...}
 type LinuxUserConfigurationInput interface {
 	pulumi.Input
 
@@ -6400,11 +6400,11 @@ func (i LinuxUserConfigurationArgs) ToLinuxUserConfigurationPtrOutputWithContext
 // LinuxUserConfigurationPtrInput is an input type that accepts LinuxUserConfigurationArgs, LinuxUserConfigurationPtr and LinuxUserConfigurationPtrOutput values.
 // You can construct a concrete instance of `LinuxUserConfigurationPtrInput` via:
 //
-//	        LinuxUserConfigurationArgs{...}
+//          LinuxUserConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type LinuxUserConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -6624,7 +6624,7 @@ type MetadataItem struct {
 // MetadataItemInput is an input type that accepts MetadataItemArgs and MetadataItemOutput values.
 // You can construct a concrete instance of `MetadataItemInput` via:
 //
-//	MetadataItemArgs{...}
+//          MetadataItemArgs{...}
 type MetadataItemInput interface {
 	pulumi.Input
 
@@ -6653,7 +6653,7 @@ func (i MetadataItemArgs) ToMetadataItemOutputWithContext(ctx context.Context) M
 // MetadataItemArrayInput is an input type that accepts MetadataItemArray and MetadataItemArrayOutput values.
 // You can construct a concrete instance of `MetadataItemArrayInput` via:
 //
-//	MetadataItemArray{ MetadataItemArgs{...} }
+//          MetadataItemArray{ MetadataItemArgs{...} }
 type MetadataItemArrayInput interface {
 	pulumi.Input
 
@@ -6781,7 +6781,7 @@ type MountConfiguration struct {
 // MountConfigurationInput is an input type that accepts MountConfigurationArgs and MountConfigurationOutput values.
 // You can construct a concrete instance of `MountConfigurationInput` via:
 //
-//	MountConfigurationArgs{...}
+//          MountConfigurationArgs{...}
 type MountConfigurationInput interface {
 	pulumi.Input
 
@@ -6815,7 +6815,7 @@ func (i MountConfigurationArgs) ToMountConfigurationOutputWithContext(ctx contex
 // MountConfigurationArrayInput is an input type that accepts MountConfigurationArray and MountConfigurationArrayOutput values.
 // You can construct a concrete instance of `MountConfigurationArrayInput` via:
 //
-//	MountConfigurationArray{ MountConfigurationArgs{...} }
+//          MountConfigurationArray{ MountConfigurationArgs{...} }
 type MountConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -6973,7 +6973,7 @@ type NFSMountConfiguration struct {
 // NFSMountConfigurationInput is an input type that accepts NFSMountConfigurationArgs and NFSMountConfigurationOutput values.
 // You can construct a concrete instance of `NFSMountConfigurationInput` via:
 //
-//	NFSMountConfigurationArgs{...}
+//          NFSMountConfigurationArgs{...}
 type NFSMountConfigurationInput interface {
 	pulumi.Input
 
@@ -7012,11 +7012,11 @@ func (i NFSMountConfigurationArgs) ToNFSMountConfigurationPtrOutputWithContext(c
 // NFSMountConfigurationPtrInput is an input type that accepts NFSMountConfigurationArgs, NFSMountConfigurationPtr and NFSMountConfigurationPtrOutput values.
 // You can construct a concrete instance of `NFSMountConfigurationPtrInput` via:
 //
-//	        NFSMountConfigurationArgs{...}
+//          NFSMountConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NFSMountConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -7235,7 +7235,7 @@ type NetworkConfiguration struct {
 // NetworkConfigurationInput is an input type that accepts NetworkConfigurationArgs and NetworkConfigurationOutput values.
 // You can construct a concrete instance of `NetworkConfigurationInput` via:
 //
-//	NetworkConfigurationArgs{...}
+//          NetworkConfigurationArgs{...}
 type NetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -7276,11 +7276,11 @@ func (i NetworkConfigurationArgs) ToNetworkConfigurationPtrOutputWithContext(ctx
 // NetworkConfigurationPtrInput is an input type that accepts NetworkConfigurationArgs, NetworkConfigurationPtr and NetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `NetworkConfigurationPtrInput` via:
 //
-//	        NetworkConfigurationArgs{...}
+//          NetworkConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -7511,7 +7511,7 @@ type NetworkSecurityGroupRule struct {
 // NetworkSecurityGroupRuleInput is an input type that accepts NetworkSecurityGroupRuleArgs and NetworkSecurityGroupRuleOutput values.
 // You can construct a concrete instance of `NetworkSecurityGroupRuleInput` via:
 //
-//	NetworkSecurityGroupRuleArgs{...}
+//          NetworkSecurityGroupRuleArgs{...}
 type NetworkSecurityGroupRuleInput interface {
 	pulumi.Input
 
@@ -7544,7 +7544,7 @@ func (i NetworkSecurityGroupRuleArgs) ToNetworkSecurityGroupRuleOutputWithContex
 // NetworkSecurityGroupRuleArrayInput is an input type that accepts NetworkSecurityGroupRuleArray and NetworkSecurityGroupRuleArrayOutput values.
 // You can construct a concrete instance of `NetworkSecurityGroupRuleArrayInput` via:
 //
-//	NetworkSecurityGroupRuleArray{ NetworkSecurityGroupRuleArgs{...} }
+//          NetworkSecurityGroupRuleArray{ NetworkSecurityGroupRuleArgs{...} }
 type NetworkSecurityGroupRuleArrayInput interface {
 	pulumi.Input
 
@@ -7691,7 +7691,7 @@ type NodePlacementConfiguration struct {
 // NodePlacementConfigurationInput is an input type that accepts NodePlacementConfigurationArgs and NodePlacementConfigurationOutput values.
 // You can construct a concrete instance of `NodePlacementConfigurationInput` via:
 //
-//	NodePlacementConfigurationArgs{...}
+//          NodePlacementConfigurationArgs{...}
 type NodePlacementConfigurationInput interface {
 	pulumi.Input
 
@@ -7728,11 +7728,11 @@ func (i NodePlacementConfigurationArgs) ToNodePlacementConfigurationPtrOutputWit
 // NodePlacementConfigurationPtrInput is an input type that accepts NodePlacementConfigurationArgs, NodePlacementConfigurationPtr and NodePlacementConfigurationPtrOutput values.
 // You can construct a concrete instance of `NodePlacementConfigurationPtrInput` via:
 //
-//	        NodePlacementConfigurationArgs{...}
+//          NodePlacementConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type NodePlacementConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -7889,7 +7889,7 @@ type OSDisk struct {
 // OSDiskInput is an input type that accepts OSDiskArgs and OSDiskOutput values.
 // You can construct a concrete instance of `OSDiskInput` via:
 //
-//	OSDiskArgs{...}
+//          OSDiskArgs{...}
 type OSDiskInput interface {
 	pulumi.Input
 
@@ -7924,11 +7924,11 @@ func (i OSDiskArgs) ToOSDiskPtrOutputWithContext(ctx context.Context) OSDiskPtrO
 // OSDiskPtrInput is an input type that accepts OSDiskArgs, OSDiskPtr and OSDiskPtrOutput values.
 // You can construct a concrete instance of `OSDiskPtrInput` via:
 //
-//	        OSDiskArgs{...}
+//          OSDiskArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type OSDiskPtrInput interface {
 	pulumi.Input
 
@@ -8078,7 +8078,7 @@ type PoolEndpointConfiguration struct {
 // PoolEndpointConfigurationInput is an input type that accepts PoolEndpointConfigurationArgs and PoolEndpointConfigurationOutput values.
 // You can construct a concrete instance of `PoolEndpointConfigurationInput` via:
 //
-//	PoolEndpointConfigurationArgs{...}
+//          PoolEndpointConfigurationArgs{...}
 type PoolEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -8114,11 +8114,11 @@ func (i PoolEndpointConfigurationArgs) ToPoolEndpointConfigurationPtrOutputWithC
 // PoolEndpointConfigurationPtrInput is an input type that accepts PoolEndpointConfigurationArgs, PoolEndpointConfigurationPtr and PoolEndpointConfigurationPtrOutput values.
 // You can construct a concrete instance of `PoolEndpointConfigurationPtrInput` via:
 //
-//	        PoolEndpointConfigurationArgs{...}
+//          PoolEndpointConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PoolEndpointConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -8506,7 +8506,7 @@ type PublicIPAddressConfiguration struct {
 // PublicIPAddressConfigurationInput is an input type that accepts PublicIPAddressConfigurationArgs and PublicIPAddressConfigurationOutput values.
 // You can construct a concrete instance of `PublicIPAddressConfigurationInput` via:
 //
-//	PublicIPAddressConfigurationArgs{...}
+//          PublicIPAddressConfigurationArgs{...}
 type PublicIPAddressConfigurationInput interface {
 	pulumi.Input
 
@@ -8545,11 +8545,11 @@ func (i PublicIPAddressConfigurationArgs) ToPublicIPAddressConfigurationPtrOutpu
 // PublicIPAddressConfigurationPtrInput is an input type that accepts PublicIPAddressConfigurationArgs, PublicIPAddressConfigurationPtr and PublicIPAddressConfigurationPtrOutput values.
 // You can construct a concrete instance of `PublicIPAddressConfigurationPtrInput` via:
 //
-//	        PublicIPAddressConfigurationArgs{...}
+//          PublicIPAddressConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PublicIPAddressConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -8862,7 +8862,7 @@ type ResourceFile struct {
 // ResourceFileInput is an input type that accepts ResourceFileArgs and ResourceFileOutput values.
 // You can construct a concrete instance of `ResourceFileInput` via:
 //
-//	ResourceFileArgs{...}
+//          ResourceFileArgs{...}
 type ResourceFileInput interface {
 	pulumi.Input
 
@@ -8902,7 +8902,7 @@ func (i ResourceFileArgs) ToResourceFileOutputWithContext(ctx context.Context) R
 // ResourceFileArrayInput is an input type that accepts ResourceFileArray and ResourceFileArrayOutput values.
 // You can construct a concrete instance of `ResourceFileArrayInput` via:
 //
-//	ResourceFileArray{ ResourceFileArgs{...} }
+//          ResourceFileArray{ ResourceFileArgs{...} }
 type ResourceFileArrayInput interface {
 	pulumi.Input
 
@@ -9090,7 +9090,7 @@ type ScaleSettings struct {
 // ScaleSettingsInput is an input type that accepts ScaleSettingsArgs and ScaleSettingsOutput values.
 // You can construct a concrete instance of `ScaleSettingsInput` via:
 //
-//	ScaleSettingsArgs{...}
+//          ScaleSettingsArgs{...}
 type ScaleSettingsInput interface {
 	pulumi.Input
 
@@ -9129,11 +9129,11 @@ func (i ScaleSettingsArgs) ToScaleSettingsPtrOutputWithContext(ctx context.Conte
 // ScaleSettingsPtrInput is an input type that accepts ScaleSettingsArgs, ScaleSettingsPtr and ScaleSettingsPtrOutput values.
 // You can construct a concrete instance of `ScaleSettingsPtrInput` via:
 //
-//	        ScaleSettingsArgs{...}
+//          ScaleSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ScaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9334,7 +9334,7 @@ type StartTask struct {
 // StartTaskInput is an input type that accepts StartTaskArgs and StartTaskOutput values.
 // You can construct a concrete instance of `StartTaskInput` via:
 //
-//	StartTaskArgs{...}
+//          StartTaskArgs{...}
 type StartTaskInput interface {
 	pulumi.Input
 
@@ -9381,11 +9381,11 @@ func (i StartTaskArgs) ToStartTaskPtrOutputWithContext(ctx context.Context) Star
 // StartTaskPtrInput is an input type that accepts StartTaskArgs, StartTaskPtr and StartTaskPtrOutput values.
 // You can construct a concrete instance of `StartTaskPtrInput` via:
 //
-//	        StartTaskArgs{...}
+//          StartTaskArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type StartTaskPtrInput interface {
 	pulumi.Input
 
@@ -9730,7 +9730,7 @@ type TaskContainerSettings struct {
 // TaskContainerSettingsInput is an input type that accepts TaskContainerSettingsArgs and TaskContainerSettingsOutput values.
 // You can construct a concrete instance of `TaskContainerSettingsInput` via:
 //
-//	TaskContainerSettingsArgs{...}
+//          TaskContainerSettingsArgs{...}
 type TaskContainerSettingsInput interface {
 	pulumi.Input
 
@@ -9771,11 +9771,11 @@ func (i TaskContainerSettingsArgs) ToTaskContainerSettingsPtrOutputWithContext(c
 // TaskContainerSettingsPtrInput is an input type that accepts TaskContainerSettingsArgs, TaskContainerSettingsPtr and TaskContainerSettingsPtrOutput values.
 // You can construct a concrete instance of `TaskContainerSettingsPtrInput` via:
 //
-//	        TaskContainerSettingsArgs{...}
+//          TaskContainerSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type TaskContainerSettingsPtrInput interface {
 	pulumi.Input
 
@@ -10020,7 +10020,7 @@ type TaskSchedulingPolicy struct {
 // TaskSchedulingPolicyInput is an input type that accepts TaskSchedulingPolicyArgs and TaskSchedulingPolicyOutput values.
 // You can construct a concrete instance of `TaskSchedulingPolicyInput` via:
 //
-//	TaskSchedulingPolicyArgs{...}
+//          TaskSchedulingPolicyArgs{...}
 type TaskSchedulingPolicyInput interface {
 	pulumi.Input
 
@@ -10055,11 +10055,11 @@ func (i TaskSchedulingPolicyArgs) ToTaskSchedulingPolicyPtrOutputWithContext(ctx
 // TaskSchedulingPolicyPtrInput is an input type that accepts TaskSchedulingPolicyArgs, TaskSchedulingPolicyPtr and TaskSchedulingPolicyPtrOutput values.
 // You can construct a concrete instance of `TaskSchedulingPolicyPtrInput` via:
 //
-//	        TaskSchedulingPolicyArgs{...}
+//          TaskSchedulingPolicyArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type TaskSchedulingPolicyPtrInput interface {
 	pulumi.Input
 
@@ -10215,7 +10215,7 @@ type UserAccount struct {
 // UserAccountInput is an input type that accepts UserAccountArgs and UserAccountOutput values.
 // You can construct a concrete instance of `UserAccountInput` via:
 //
-//	UserAccountArgs{...}
+//          UserAccountArgs{...}
 type UserAccountInput interface {
 	pulumi.Input
 
@@ -10249,7 +10249,7 @@ func (i UserAccountArgs) ToUserAccountOutputWithContext(ctx context.Context) Use
 // UserAccountArrayInput is an input type that accepts UserAccountArray and UserAccountArrayOutput values.
 // You can construct a concrete instance of `UserAccountArrayInput` via:
 //
-//	UserAccountArray{ UserAccountArgs{...} }
+//          UserAccountArray{ UserAccountArgs{...} }
 type UserAccountArrayInput interface {
 	pulumi.Input
 
@@ -10460,7 +10460,7 @@ type UserIdentity struct {
 // UserIdentityInput is an input type that accepts UserIdentityArgs and UserIdentityOutput values.
 // You can construct a concrete instance of `UserIdentityInput` via:
 //
-//	UserIdentityArgs{...}
+//          UserIdentityArgs{...}
 type UserIdentityInput interface {
 	pulumi.Input
 
@@ -10499,11 +10499,11 @@ func (i UserIdentityArgs) ToUserIdentityPtrOutputWithContext(ctx context.Context
 // UserIdentityPtrInput is an input type that accepts UserIdentityArgs, UserIdentityPtr and UserIdentityPtrOutput values.
 // You can construct a concrete instance of `UserIdentityPtrInput` via:
 //
-//	        UserIdentityArgs{...}
+//          UserIdentityArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type UserIdentityPtrInput interface {
 	pulumi.Input
 
@@ -10702,7 +10702,7 @@ type VMExtension struct {
 // VMExtensionInput is an input type that accepts VMExtensionArgs and VMExtensionOutput values.
 // You can construct a concrete instance of `VMExtensionInput` via:
 //
-//	VMExtensionArgs{...}
+//          VMExtensionArgs{...}
 type VMExtensionInput interface {
 	pulumi.Input
 
@@ -10739,7 +10739,7 @@ func (i VMExtensionArgs) ToVMExtensionOutputWithContext(ctx context.Context) VME
 // VMExtensionArrayInput is an input type that accepts VMExtensionArray and VMExtensionArrayOutput values.
 // You can construct a concrete instance of `VMExtensionArrayInput` via:
 //
-//	VMExtensionArray{ VMExtensionArgs{...} }
+//          VMExtensionArray{ VMExtensionArgs{...} }
 type VMExtensionArrayInput interface {
 	pulumi.Input
 
@@ -10941,7 +10941,7 @@ type VirtualMachineConfiguration struct {
 // VirtualMachineConfigurationInput is an input type that accepts VirtualMachineConfigurationArgs and VirtualMachineConfigurationOutput values.
 // You can construct a concrete instance of `VirtualMachineConfigurationInput` via:
 //
-//	VirtualMachineConfigurationArgs{...}
+//          VirtualMachineConfigurationArgs{...}
 type VirtualMachineConfigurationInput interface {
 	pulumi.Input
 
@@ -10997,11 +10997,11 @@ func (i VirtualMachineConfigurationArgs) ToVirtualMachineConfigurationPtrOutputW
 // VirtualMachineConfigurationPtrInput is an input type that accepts VirtualMachineConfigurationArgs, VirtualMachineConfigurationPtr and VirtualMachineConfigurationPtrOutput values.
 // You can construct a concrete instance of `VirtualMachineConfigurationPtrInput` via:
 //
-//	        VirtualMachineConfigurationArgs{...}
+//          VirtualMachineConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type VirtualMachineConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -11077,8 +11077,8 @@ func (o VirtualMachineConfigurationOutput) ImageReference() ImageReferenceOutput
 
 // This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 //
-//	Windows_Server - The on-premises license is for Windows Server.
-//	Windows_Client - The on-premises license is for Windows Client.
+//  Windows_Server - The on-premises license is for Windows Server.
+//  Windows_Client - The on-premises license is for Windows Client.
 func (o VirtualMachineConfigurationOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineConfiguration) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
@@ -11178,8 +11178,8 @@ func (o VirtualMachineConfigurationPtrOutput) ImageReference() ImageReferencePtr
 
 // This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 //
-//	Windows_Server - The on-premises license is for Windows Server.
-//	Windows_Client - The on-premises license is for Windows Client.
+//  Windows_Server - The on-premises license is for Windows Server.
+//  Windows_Client - The on-premises license is for Windows Client.
 func (o VirtualMachineConfigurationPtrOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineConfiguration) *string {
 		if v == nil {
@@ -11298,8 +11298,8 @@ func (o VirtualMachineConfigurationResponseOutput) ImageReference() ImageReferen
 
 // This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 //
-//	Windows_Server - The on-premises license is for Windows Server.
-//	Windows_Client - The on-premises license is for Windows Client.
+//  Windows_Server - The on-premises license is for Windows Server.
+//  Windows_Client - The on-premises license is for Windows Client.
 func (o VirtualMachineConfigurationResponseOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineConfigurationResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
@@ -11403,8 +11403,8 @@ func (o VirtualMachineConfigurationResponsePtrOutput) ImageReference() ImageRefe
 
 // This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
 //
-//	Windows_Server - The on-premises license is for Windows Server.
-//	Windows_Client - The on-premises license is for Windows Client.
+//  Windows_Server - The on-premises license is for Windows Server.
+//  Windows_Client - The on-premises license is for Windows Client.
 func (o VirtualMachineConfigurationResponsePtrOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineConfigurationResponse) *string {
 		if v == nil {
@@ -11515,7 +11515,7 @@ type WindowsConfiguration struct {
 // WindowsConfigurationInput is an input type that accepts WindowsConfigurationArgs and WindowsConfigurationOutput values.
 // You can construct a concrete instance of `WindowsConfigurationInput` via:
 //
-//	WindowsConfigurationArgs{...}
+//          WindowsConfigurationArgs{...}
 type WindowsConfigurationInput interface {
 	pulumi.Input
 
@@ -11551,11 +11551,11 @@ func (i WindowsConfigurationArgs) ToWindowsConfigurationPtrOutputWithContext(ctx
 // WindowsConfigurationPtrInput is an input type that accepts WindowsConfigurationArgs, WindowsConfigurationPtr and WindowsConfigurationPtrOutput values.
 // You can construct a concrete instance of `WindowsConfigurationPtrInput` via:
 //
-//	        WindowsConfigurationArgs{...}
+//          WindowsConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WindowsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -11710,7 +11710,7 @@ type WindowsUserConfiguration struct {
 // WindowsUserConfigurationInput is an input type that accepts WindowsUserConfigurationArgs and WindowsUserConfigurationOutput values.
 // You can construct a concrete instance of `WindowsUserConfigurationInput` via:
 //
-//	WindowsUserConfigurationArgs{...}
+//          WindowsUserConfigurationArgs{...}
 type WindowsUserConfigurationInput interface {
 	pulumi.Input
 
@@ -11746,11 +11746,11 @@ func (i WindowsUserConfigurationArgs) ToWindowsUserConfigurationPtrOutputWithCon
 // WindowsUserConfigurationPtrInput is an input type that accepts WindowsUserConfigurationArgs, WindowsUserConfigurationPtr and WindowsUserConfigurationPtrOutput values.
 // You can construct a concrete instance of `WindowsUserConfigurationPtrInput` via:
 //
-//	        WindowsUserConfigurationArgs{...}
+//          WindowsUserConfigurationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type WindowsUserConfigurationPtrInput interface {
 	pulumi.Input
 

@@ -290,7 +290,7 @@ type PlatformProperties struct {
 // PlatformPropertiesInput is an input type that accepts PlatformPropertiesArgs and PlatformPropertiesOutput values.
 // You can construct a concrete instance of `PlatformPropertiesInput` via:
 //
-//	PlatformPropertiesArgs{...}
+//          PlatformPropertiesArgs{...}
 type PlatformPropertiesInput interface {
 	pulumi.Input
 
@@ -393,7 +393,7 @@ type SourceControlAuthInfo struct {
 // SourceControlAuthInfoInput is an input type that accepts SourceControlAuthInfoArgs and SourceControlAuthInfoOutput values.
 // You can construct a concrete instance of `SourceControlAuthInfoInput` via:
 //
-//	SourceControlAuthInfoArgs{...}
+//          SourceControlAuthInfoArgs{...}
 type SourceControlAuthInfoInput interface {
 	pulumi.Input
 
@@ -438,11 +438,11 @@ func (i SourceControlAuthInfoArgs) ToSourceControlAuthInfoPtrOutputWithContext(c
 // SourceControlAuthInfoPtrInput is an input type that accepts SourceControlAuthInfoArgs, SourceControlAuthInfoPtr and SourceControlAuthInfoPtrOutput values.
 // You can construct a concrete instance of `SourceControlAuthInfoPtrInput` via:
 //
-//	        SourceControlAuthInfoArgs{...}
+//          SourceControlAuthInfoArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SourceControlAuthInfoPtrInput interface {
 	pulumi.Input
 
@@ -748,7 +748,7 @@ func (val *SourceRepositoryProperties) Defaults() *SourceRepositoryProperties {
 // SourceRepositoryPropertiesInput is an input type that accepts SourceRepositoryPropertiesArgs and SourceRepositoryPropertiesOutput values.
 // You can construct a concrete instance of `SourceRepositoryPropertiesInput` via:
 //
-//	SourceRepositoryPropertiesArgs{...}
+//          SourceRepositoryPropertiesArgs{...}
 type SourceRepositoryPropertiesInput interface {
 	pulumi.Input
 

@@ -142,7 +142,7 @@ func (o AgreementTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // AgreementTypeInput is an input type that accepts AgreementTypeArgs and AgreementTypeOutput values.
 // You can construct a concrete instance of `AgreementTypeInput` via:
 //
-//	AgreementTypeArgs{...}
+//          AgreementTypeArgs{...}
 type AgreementTypeInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ func (o DayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // DayOfWeekInput is an input type that accepts DayOfWeekArgs and DayOfWeekOutput values.
 // You can construct a concrete instance of `DayOfWeekInput` via:
 //
-//	DayOfWeekArgs{...}
+//          DayOfWeekArgs{...}
 type DayOfWeekInput interface {
 	pulumi.Input
 
@@ -481,7 +481,7 @@ func (o DaysOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // DaysOfWeekInput is an input type that accepts DaysOfWeekArgs and DaysOfWeekOutput values.
 // You can construct a concrete instance of `DaysOfWeekInput` via:
 //
-//	DaysOfWeekArgs{...}
+//          DaysOfWeekArgs{...}
 type DaysOfWeekInput interface {
 	pulumi.Input
 
@@ -519,7 +519,7 @@ func (in *daysOfWeekPtr) ToDaysOfWeekPtrOutputWithContext(ctx context.Context) D
 // DaysOfWeekArrayInput is an input type that accepts DaysOfWeekArray and DaysOfWeekArrayOutput values.
 // You can construct a concrete instance of `DaysOfWeekArrayInput` via:
 //
-//	DaysOfWeekArray{ DaysOfWeekArgs{...} }
+//          DaysOfWeekArray{ DaysOfWeekArgs{...} }
 type DaysOfWeekArrayInput interface {
 	pulumi.Input
 
@@ -704,7 +704,7 @@ func (o EdifactCharacterSetPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // EdifactCharacterSetInput is an input type that accepts EdifactCharacterSetArgs and EdifactCharacterSetOutput values.
 // You can construct a concrete instance of `EdifactCharacterSetInput` via:
 //
-//	EdifactCharacterSetArgs{...}
+//          EdifactCharacterSetArgs{...}
 type EdifactCharacterSetInput interface {
 	pulumi.Input
 
@@ -870,7 +870,7 @@ func (o EdifactDecimalIndicatorPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // EdifactDecimalIndicatorInput is an input type that accepts EdifactDecimalIndicatorArgs and EdifactDecimalIndicatorOutput values.
 // You can construct a concrete instance of `EdifactDecimalIndicatorInput` via:
 //
-//	EdifactDecimalIndicatorArgs{...}
+//          EdifactDecimalIndicatorArgs{...}
 type EdifactDecimalIndicatorInput interface {
 	pulumi.Input
 
@@ -1040,7 +1040,7 @@ func (o EncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // EncryptionAlgorithmInput is an input type that accepts EncryptionAlgorithmArgs and EncryptionAlgorithmOutput values.
 // You can construct a concrete instance of `EncryptionAlgorithmInput` via:
 //
-//	EncryptionAlgorithmArgs{...}
+//          EncryptionAlgorithmArgs{...}
 type EncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -1210,7 +1210,7 @@ func (o HashingAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // HashingAlgorithmInput is an input type that accepts HashingAlgorithmArgs and HashingAlgorithmOutput values.
 // You can construct a concrete instance of `HashingAlgorithmInput` via:
 //
-//	HashingAlgorithmArgs{...}
+//          HashingAlgorithmArgs{...}
 type HashingAlgorithmInput interface {
 	pulumi.Input
 
@@ -1376,7 +1376,7 @@ func (o IntegrationAccountSkuNamePtrOutput) ToStringPtrOutputWithContext(ctx con
 // IntegrationAccountSkuNameInput is an input type that accepts IntegrationAccountSkuNameArgs and IntegrationAccountSkuNameOutput values.
 // You can construct a concrete instance of `IntegrationAccountSkuNameInput` via:
 //
-//	IntegrationAccountSkuNameArgs{...}
+//          IntegrationAccountSkuNameArgs{...}
 type IntegrationAccountSkuNameInput interface {
 	pulumi.Input
 
@@ -1542,7 +1542,7 @@ func (o KeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // KeyTypeInput is an input type that accepts KeyTypeArgs and KeyTypeOutput values.
 // You can construct a concrete instance of `KeyTypeInput` via:
 //
-//	KeyTypeArgs{...}
+//          KeyTypeArgs{...}
 type KeyTypeInput interface {
 	pulumi.Input
 
@@ -1707,7 +1707,7 @@ func (o MapTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // MapTypeInput is an input type that accepts MapTypeArgs and MapTypeOutput values.
 // You can construct a concrete instance of `MapTypeInput` via:
 //
-//	MapTypeArgs{...}
+//          MapTypeArgs{...}
 type MapTypeInput interface {
 	pulumi.Input
 
@@ -1873,7 +1873,7 @@ func (o MessageFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // MessageFilterTypeInput is an input type that accepts MessageFilterTypeArgs and MessageFilterTypeOutput values.
 // You can construct a concrete instance of `MessageFilterTypeInput` via:
 //
-//	MessageFilterTypeArgs{...}
+//          MessageFilterTypeArgs{...}
 type MessageFilterTypeInput interface {
 	pulumi.Input
 
@@ -2045,7 +2045,7 @@ func (o ParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // ParameterTypeInput is an input type that accepts ParameterTypeArgs and ParameterTypeOutput values.
 // You can construct a concrete instance of `ParameterTypeInput` via:
 //
-//	ParameterTypeArgs{...}
+//          ParameterTypeArgs{...}
 type ParameterTypeInput interface {
 	pulumi.Input
 
@@ -2210,7 +2210,7 @@ func (o PartnerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // PartnerTypeInput is an input type that accepts PartnerTypeArgs and PartnerTypeOutput values.
 // You can construct a concrete instance of `PartnerTypeInput` via:
 //
-//	PartnerTypeArgs{...}
+//          PartnerTypeArgs{...}
 type PartnerTypeInput interface {
 	pulumi.Input
 
@@ -2381,7 +2381,7 @@ func (o RecurrenceFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // RecurrenceFrequencyInput is an input type that accepts RecurrenceFrequencyArgs and RecurrenceFrequencyOutput values.
 // You can construct a concrete instance of `RecurrenceFrequencyInput` via:
 //
-//	RecurrenceFrequencyArgs{...}
+//          RecurrenceFrequencyArgs{...}
 type RecurrenceFrequencyInput interface {
 	pulumi.Input
 
@@ -2547,7 +2547,7 @@ func (o RosettaNetActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // RosettaNetActionTypeInput is an input type that accepts RosettaNetActionTypeArgs and RosettaNetActionTypeOutput values.
 // You can construct a concrete instance of `RosettaNetActionTypeInput` via:
 //
-//	RosettaNetActionTypeArgs{...}
+//          RosettaNetActionTypeArgs{...}
 type RosettaNetActionTypeInput interface {
 	pulumi.Input
 
@@ -2717,7 +2717,7 @@ func (o RosettaNetPipActivityTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 // RosettaNetPipActivityTypeInput is an input type that accepts RosettaNetPipActivityTypeArgs and RosettaNetPipActivityTypeOutput values.
 // You can construct a concrete instance of `RosettaNetPipActivityTypeInput` via:
 //
-//	RosettaNetPipActivityTypeArgs{...}
+//          RosettaNetPipActivityTypeArgs{...}
 type RosettaNetPipActivityTypeInput interface {
 	pulumi.Input
 
@@ -2884,7 +2884,7 @@ func (o RosettaNetPipConfidentialityScopePtrOutput) ToStringPtrOutputWithContext
 // RosettaNetPipConfidentialityScopeInput is an input type that accepts RosettaNetPipConfidentialityScopeArgs and RosettaNetPipConfidentialityScopeOutput values.
 // You can construct a concrete instance of `RosettaNetPipConfidentialityScopeInput` via:
 //
-//	RosettaNetPipConfidentialityScopeArgs{...}
+//          RosettaNetPipConfidentialityScopeArgs{...}
 type RosettaNetPipConfidentialityScopeInput interface {
 	pulumi.Input
 
@@ -3051,7 +3051,7 @@ func (o RosettaNetPipRoleTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // RosettaNetPipRoleTypeInput is an input type that accepts RosettaNetPipRoleTypeArgs and RosettaNetPipRoleTypeOutput values.
 // You can construct a concrete instance of `RosettaNetPipRoleTypeInput` via:
 //
-//	RosettaNetPipRoleTypeArgs{...}
+//          RosettaNetPipRoleTypeArgs{...}
 type RosettaNetPipRoleTypeInput interface {
 	pulumi.Input
 
@@ -3217,7 +3217,7 @@ func (o RosettaNetResponseTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // RosettaNetResponseTypeInput is an input type that accepts RosettaNetResponseTypeArgs and RosettaNetResponseTypeOutput values.
 // You can construct a concrete instance of `RosettaNetResponseTypeInput` via:
 //
-//	RosettaNetResponseTypeArgs{...}
+//          RosettaNetResponseTypeArgs{...}
 type RosettaNetResponseTypeInput interface {
 	pulumi.Input
 
@@ -3382,7 +3382,7 @@ func (o SchemaTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // SchemaTypeInput is an input type that accepts SchemaTypeArgs and SchemaTypeOutput values.
 // You can construct a concrete instance of `SchemaTypeInput` via:
 //
-//	SchemaTypeArgs{...}
+//          SchemaTypeArgs{...}
 type SchemaTypeInput interface {
 	pulumi.Input
 
@@ -3550,7 +3550,7 @@ func (o SegmentTerminatorSuffixPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // SegmentTerminatorSuffixInput is an input type that accepts SegmentTerminatorSuffixArgs and SegmentTerminatorSuffixOutput values.
 // You can construct a concrete instance of `SegmentTerminatorSuffixInput` via:
 //
-//	SegmentTerminatorSuffixArgs{...}
+//          SegmentTerminatorSuffixArgs{...}
 type SegmentTerminatorSuffixInput interface {
 	pulumi.Input
 
@@ -3731,7 +3731,7 @@ func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
 // You can construct a concrete instance of `SkuNameInput` via:
 //
-//	SkuNameArgs{...}
+//          SkuNameArgs{...}
 type SkuNameInput interface {
 	pulumi.Input
 
@@ -3898,7 +3898,7 @@ func (o TrailingSeparatorPolicyPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // TrailingSeparatorPolicyInput is an input type that accepts TrailingSeparatorPolicyArgs and TrailingSeparatorPolicyOutput values.
 // You can construct a concrete instance of `TrailingSeparatorPolicyInput` via:
 //
-//	TrailingSeparatorPolicyArgs{...}
+//          TrailingSeparatorPolicyArgs{...}
 type TrailingSeparatorPolicyInput interface {
 	pulumi.Input
 
@@ -4065,7 +4065,7 @@ func (o UsageIndicatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // UsageIndicatorInput is an input type that accepts UsageIndicatorArgs and UsageIndicatorOutput values.
 // You can construct a concrete instance of `UsageIndicatorInput` via:
 //
-//	UsageIndicatorArgs{...}
+//          UsageIndicatorArgs{...}
 type UsageIndicatorInput interface {
 	pulumi.Input
 
@@ -4234,7 +4234,7 @@ func (o WorkflowStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // WorkflowStateEnumInput is an input type that accepts WorkflowStateEnumArgs and WorkflowStateEnumOutput values.
 // You can construct a concrete instance of `WorkflowStateEnumInput` via:
 //
-//	WorkflowStateEnumArgs{...}
+//          WorkflowStateEnumArgs{...}
 type WorkflowStateEnumInput interface {
 	pulumi.Input
 
@@ -4401,7 +4401,7 @@ func (o X12CharacterSetPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // X12CharacterSetInput is an input type that accepts X12CharacterSetArgs and X12CharacterSetOutput values.
 // You can construct a concrete instance of `X12CharacterSetInput` via:
 //
-//	X12CharacterSetArgs{...}
+//          X12CharacterSetArgs{...}
 type X12CharacterSetInput interface {
 	pulumi.Input
 
@@ -4567,7 +4567,7 @@ func (o X12DateFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // X12DateFormatInput is an input type that accepts X12DateFormatArgs and X12DateFormatOutput values.
 // You can construct a concrete instance of `X12DateFormatInput` via:
 //
-//	X12DateFormatArgs{...}
+//          X12DateFormatArgs{...}
 type X12DateFormatInput interface {
 	pulumi.Input
 
@@ -4735,7 +4735,7 @@ func (o X12TimeFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // X12TimeFormatInput is an input type that accepts X12TimeFormatArgs and X12TimeFormatOutput values.
 // You can construct a concrete instance of `X12TimeFormatInput` via:
 //
-//	X12TimeFormatArgs{...}
+//          X12TimeFormatArgs{...}
 type X12TimeFormatInput interface {
 	pulumi.Input
 

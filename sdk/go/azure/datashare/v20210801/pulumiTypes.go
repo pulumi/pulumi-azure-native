@@ -19,7 +19,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//	IdentityArgs{...}
+//          IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -588,7 +588,7 @@ type TableLevelSharingProperties struct {
 // TableLevelSharingPropertiesInput is an input type that accepts TableLevelSharingPropertiesArgs and TableLevelSharingPropertiesOutput values.
 // You can construct a concrete instance of `TableLevelSharingPropertiesInput` via:
 //
-//	TableLevelSharingPropertiesArgs{...}
+//          TableLevelSharingPropertiesArgs{...}
 type TableLevelSharingPropertiesInput interface {
 	pulumi.Input
 

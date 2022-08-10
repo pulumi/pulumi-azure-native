@@ -21,7 +21,7 @@ type DnsConfig struct {
 // DnsConfigInput is an input type that accepts DnsConfigArgs and DnsConfigOutput values.
 // You can construct a concrete instance of `DnsConfigInput` via:
 //
-//	DnsConfigArgs{...}
+//          DnsConfigArgs{...}
 type DnsConfigInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i DnsConfigArgs) ToDnsConfigPtrOutputWithContext(ctx context.Context) DnsC
 // DnsConfigPtrInput is an input type that accepts DnsConfigArgs, DnsConfigPtr and DnsConfigPtrOutput values.
 // You can construct a concrete instance of `DnsConfigPtrInput` via:
 //
-//	        DnsConfigArgs{...}
+//          DnsConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DnsConfigPtrInput interface {
 	pulumi.Input
 
@@ -296,7 +296,7 @@ type EndpointType struct {
 // EndpointTypeInput is an input type that accepts EndpointTypeArgs and EndpointTypeOutput values.
 // You can construct a concrete instance of `EndpointTypeInput` via:
 //
-//	EndpointTypeArgs{...}
+//          EndpointTypeArgs{...}
 type EndpointTypeInput interface {
 	pulumi.Input
 
@@ -349,7 +349,7 @@ func (i EndpointTypeArgs) ToEndpointTypeOutputWithContext(ctx context.Context) E
 // EndpointTypeArrayInput is an input type that accepts EndpointTypeArray and EndpointTypeArrayOutput values.
 // You can construct a concrete instance of `EndpointTypeArrayInput` via:
 //
-//	EndpointTypeArray{ EndpointTypeArgs{...} }
+//          EndpointTypeArray{ EndpointTypeArgs{...} }
 type EndpointTypeArrayInput interface {
 	pulumi.Input
 
@@ -482,7 +482,7 @@ type EndpointPropertiesCustomHeaders struct {
 // EndpointPropertiesCustomHeadersInput is an input type that accepts EndpointPropertiesCustomHeadersArgs and EndpointPropertiesCustomHeadersOutput values.
 // You can construct a concrete instance of `EndpointPropertiesCustomHeadersInput` via:
 //
-//	EndpointPropertiesCustomHeadersArgs{...}
+//          EndpointPropertiesCustomHeadersArgs{...}
 type EndpointPropertiesCustomHeadersInput interface {
 	pulumi.Input
 
@@ -513,7 +513,7 @@ func (i EndpointPropertiesCustomHeadersArgs) ToEndpointPropertiesCustomHeadersOu
 // EndpointPropertiesCustomHeadersArrayInput is an input type that accepts EndpointPropertiesCustomHeadersArray and EndpointPropertiesCustomHeadersArrayOutput values.
 // You can construct a concrete instance of `EndpointPropertiesCustomHeadersArrayInput` via:
 //
-//	EndpointPropertiesCustomHeadersArray{ EndpointPropertiesCustomHeadersArgs{...} }
+//          EndpointPropertiesCustomHeadersArray{ EndpointPropertiesCustomHeadersArgs{...} }
 type EndpointPropertiesCustomHeadersArrayInput interface {
 	pulumi.Input
 
@@ -788,7 +788,7 @@ type MonitorConfig struct {
 // MonitorConfigInput is an input type that accepts MonitorConfigArgs and MonitorConfigOutput values.
 // You can construct a concrete instance of `MonitorConfigInput` via:
 //
-//	MonitorConfigArgs{...}
+//          MonitorConfigArgs{...}
 type MonitorConfigInput interface {
 	pulumi.Input
 
@@ -841,11 +841,11 @@ func (i MonitorConfigArgs) ToMonitorConfigPtrOutputWithContext(ctx context.Conte
 // MonitorConfigPtrInput is an input type that accepts MonitorConfigArgs, MonitorConfigPtr and MonitorConfigPtrOutput values.
 // You can construct a concrete instance of `MonitorConfigPtrInput` via:
 //
-//	        MonitorConfigArgs{...}
+//          MonitorConfigArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type MonitorConfigPtrInput interface {
 	pulumi.Input
 
@@ -1066,7 +1066,7 @@ type MonitorConfigCustomHeaders struct {
 // MonitorConfigCustomHeadersInput is an input type that accepts MonitorConfigCustomHeadersArgs and MonitorConfigCustomHeadersOutput values.
 // You can construct a concrete instance of `MonitorConfigCustomHeadersInput` via:
 //
-//	MonitorConfigCustomHeadersArgs{...}
+//          MonitorConfigCustomHeadersArgs{...}
 type MonitorConfigCustomHeadersInput interface {
 	pulumi.Input
 
@@ -1097,7 +1097,7 @@ func (i MonitorConfigCustomHeadersArgs) ToMonitorConfigCustomHeadersOutputWithCo
 // MonitorConfigCustomHeadersArrayInput is an input type that accepts MonitorConfigCustomHeadersArray and MonitorConfigCustomHeadersArrayOutput values.
 // You can construct a concrete instance of `MonitorConfigCustomHeadersArrayInput` via:
 //
-//	MonitorConfigCustomHeadersArray{ MonitorConfigCustomHeadersArgs{...} }
+//          MonitorConfigCustomHeadersArray{ MonitorConfigCustomHeadersArgs{...} }
 type MonitorConfigCustomHeadersArrayInput interface {
 	pulumi.Input
 
@@ -1175,7 +1175,7 @@ type MonitorConfigExpectedStatusCodeRanges struct {
 // MonitorConfigExpectedStatusCodeRangesInput is an input type that accepts MonitorConfigExpectedStatusCodeRangesArgs and MonitorConfigExpectedStatusCodeRangesOutput values.
 // You can construct a concrete instance of `MonitorConfigExpectedStatusCodeRangesInput` via:
 //
-//	MonitorConfigExpectedStatusCodeRangesArgs{...}
+//          MonitorConfigExpectedStatusCodeRangesArgs{...}
 type MonitorConfigExpectedStatusCodeRangesInput interface {
 	pulumi.Input
 
@@ -1206,7 +1206,7 @@ func (i MonitorConfigExpectedStatusCodeRangesArgs) ToMonitorConfigExpectedStatus
 // MonitorConfigExpectedStatusCodeRangesArrayInput is an input type that accepts MonitorConfigExpectedStatusCodeRangesArray and MonitorConfigExpectedStatusCodeRangesArrayOutput values.
 // You can construct a concrete instance of `MonitorConfigExpectedStatusCodeRangesArrayInput` via:
 //
-//	MonitorConfigExpectedStatusCodeRangesArray{ MonitorConfigExpectedStatusCodeRangesArgs{...} }
+//          MonitorConfigExpectedStatusCodeRangesArray{ MonitorConfigExpectedStatusCodeRangesArgs{...} }
 type MonitorConfigExpectedStatusCodeRangesArrayInput interface {
 	pulumi.Input
 

@@ -241,7 +241,7 @@ type SecurityConnectorPropertiesOrganizationalData struct {
 // SecurityConnectorPropertiesOrganizationalDataInput is an input type that accepts SecurityConnectorPropertiesOrganizationalDataArgs and SecurityConnectorPropertiesOrganizationalDataOutput values.
 // You can construct a concrete instance of `SecurityConnectorPropertiesOrganizationalDataInput` via:
 //
-//	SecurityConnectorPropertiesOrganizationalDataArgs{...}
+//          SecurityConnectorPropertiesOrganizationalDataArgs{...}
 type SecurityConnectorPropertiesOrganizationalDataInput interface {
 	pulumi.Input
 
@@ -284,11 +284,11 @@ func (i SecurityConnectorPropertiesOrganizationalDataArgs) ToSecurityConnectorPr
 // SecurityConnectorPropertiesOrganizationalDataPtrInput is an input type that accepts SecurityConnectorPropertiesOrganizationalDataArgs, SecurityConnectorPropertiesOrganizationalDataPtr and SecurityConnectorPropertiesOrganizationalDataPtrOutput values.
 // You can construct a concrete instance of `SecurityConnectorPropertiesOrganizationalDataPtrInput` via:
 //
-//	        SecurityConnectorPropertiesOrganizationalDataArgs{...}
+//          SecurityConnectorPropertiesOrganizationalDataArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type SecurityConnectorPropertiesOrganizationalDataPtrInput interface {
 	pulumi.Input
 

@@ -19,7 +19,7 @@ type GatewayDetails struct {
 // GatewayDetailsInput is an input type that accepts GatewayDetailsArgs and GatewayDetailsOutput values.
 // You can construct a concrete instance of `GatewayDetailsInput` via:
 //
-//	GatewayDetailsArgs{...}
+//          GatewayDetailsArgs{...}
 type GatewayDetailsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i GatewayDetailsArgs) ToGatewayDetailsPtrOutputWithContext(ctx context.Con
 // GatewayDetailsPtrInput is an input type that accepts GatewayDetailsArgs, GatewayDetailsPtr and GatewayDetailsPtrOutput values.
 // You can construct a concrete instance of `GatewayDetailsPtrInput` via:
 //
-//	        GatewayDetailsArgs{...}
+//          GatewayDetailsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GatewayDetailsPtrInput interface {
 	pulumi.Input
 
@@ -257,7 +257,7 @@ type IPv4FirewallRule struct {
 // IPv4FirewallRuleInput is an input type that accepts IPv4FirewallRuleArgs and IPv4FirewallRuleOutput values.
 // You can construct a concrete instance of `IPv4FirewallRuleInput` via:
 //
-//	IPv4FirewallRuleArgs{...}
+//          IPv4FirewallRuleArgs{...}
 type IPv4FirewallRuleInput interface {
 	pulumi.Input
 
@@ -290,7 +290,7 @@ func (i IPv4FirewallRuleArgs) ToIPv4FirewallRuleOutputWithContext(ctx context.Co
 // IPv4FirewallRuleArrayInput is an input type that accepts IPv4FirewallRuleArray and IPv4FirewallRuleArrayOutput values.
 // You can construct a concrete instance of `IPv4FirewallRuleArrayInput` via:
 //
-//	IPv4FirewallRuleArray{ IPv4FirewallRuleArgs{...} }
+//          IPv4FirewallRuleArray{ IPv4FirewallRuleArgs{...} }
 type IPv4FirewallRuleArrayInput interface {
 	pulumi.Input
 
@@ -433,7 +433,7 @@ type IPv4FirewallSettings struct {
 // IPv4FirewallSettingsInput is an input type that accepts IPv4FirewallSettingsArgs and IPv4FirewallSettingsOutput values.
 // You can construct a concrete instance of `IPv4FirewallSettingsInput` via:
 //
-//	IPv4FirewallSettingsArgs{...}
+//          IPv4FirewallSettingsArgs{...}
 type IPv4FirewallSettingsInput interface {
 	pulumi.Input
 
@@ -472,11 +472,11 @@ func (i IPv4FirewallSettingsArgs) ToIPv4FirewallSettingsPtrOutputWithContext(ctx
 // IPv4FirewallSettingsPtrInput is an input type that accepts IPv4FirewallSettingsArgs, IPv4FirewallSettingsPtr and IPv4FirewallSettingsPtrOutput values.
 // You can construct a concrete instance of `IPv4FirewallSettingsPtrInput` via:
 //
-//	        IPv4FirewallSettingsArgs{...}
+//          IPv4FirewallSettingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type IPv4FirewallSettingsPtrInput interface {
 	pulumi.Input
 
@@ -684,7 +684,7 @@ func (val *ResourceSku) Defaults() *ResourceSku {
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
 // You can construct a concrete instance of `ResourceSkuInput` via:
 //
-//	ResourceSkuArgs{...}
+//          ResourceSkuArgs{...}
 type ResourceSkuInput interface {
 	pulumi.Input
 
@@ -817,7 +817,7 @@ type ServerAdministrators struct {
 // ServerAdministratorsInput is an input type that accepts ServerAdministratorsArgs and ServerAdministratorsOutput values.
 // You can construct a concrete instance of `ServerAdministratorsInput` via:
 //
-//	ServerAdministratorsArgs{...}
+//          ServerAdministratorsArgs{...}
 type ServerAdministratorsInput interface {
 	pulumi.Input
 
@@ -854,11 +854,11 @@ func (i ServerAdministratorsArgs) ToServerAdministratorsPtrOutputWithContext(ctx
 // ServerAdministratorsPtrInput is an input type that accepts ServerAdministratorsArgs, ServerAdministratorsPtr and ServerAdministratorsPtrOutput values.
 // You can construct a concrete instance of `ServerAdministratorsPtrInput` via:
 //
-//	        ServerAdministratorsArgs{...}
+//          ServerAdministratorsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServerAdministratorsPtrInput interface {
 	pulumi.Input
 

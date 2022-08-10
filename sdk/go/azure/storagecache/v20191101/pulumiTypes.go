@@ -112,7 +112,7 @@ type CacheSku struct {
 // CacheSkuInput is an input type that accepts CacheSkuArgs and CacheSkuOutput values.
 // You can construct a concrete instance of `CacheSkuInput` via:
 //
-//	CacheSkuArgs{...}
+//          CacheSkuArgs{...}
 type CacheSkuInput interface {
 	pulumi.Input
 
@@ -149,11 +149,11 @@ func (i CacheSkuArgs) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheS
 // CacheSkuPtrInput is an input type that accepts CacheSkuArgs, CacheSkuPtr and CacheSkuPtrOutput values.
 // You can construct a concrete instance of `CacheSkuPtrInput` via:
 //
-//	        CacheSkuArgs{...}
+//          CacheSkuArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type CacheSkuPtrInput interface {
 	pulumi.Input
 
@@ -380,7 +380,7 @@ type ClfsTarget struct {
 // ClfsTargetInput is an input type that accepts ClfsTargetArgs and ClfsTargetOutput values.
 // You can construct a concrete instance of `ClfsTargetInput` via:
 //
-//	ClfsTargetArgs{...}
+//          ClfsTargetArgs{...}
 type ClfsTargetInput interface {
 	pulumi.Input
 
@@ -417,11 +417,11 @@ func (i ClfsTargetArgs) ToClfsTargetPtrOutputWithContext(ctx context.Context) Cl
 // ClfsTargetPtrInput is an input type that accepts ClfsTargetArgs, ClfsTargetPtr and ClfsTargetPtrOutput values.
 // You can construct a concrete instance of `ClfsTargetPtrInput` via:
 //
-//	        ClfsTargetArgs{...}
+//          ClfsTargetArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ClfsTargetPtrInput interface {
 	pulumi.Input
 
@@ -584,7 +584,7 @@ type NamespaceJunction struct {
 // NamespaceJunctionInput is an input type that accepts NamespaceJunctionArgs and NamespaceJunctionOutput values.
 // You can construct a concrete instance of `NamespaceJunctionInput` via:
 //
-//	NamespaceJunctionArgs{...}
+//          NamespaceJunctionArgs{...}
 type NamespaceJunctionInput interface {
 	pulumi.Input
 
@@ -617,7 +617,7 @@ func (i NamespaceJunctionArgs) ToNamespaceJunctionOutputWithContext(ctx context.
 // NamespaceJunctionArrayInput is an input type that accepts NamespaceJunctionArray and NamespaceJunctionArrayOutput values.
 // You can construct a concrete instance of `NamespaceJunctionArrayInput` via:
 //
-//	NamespaceJunctionArray{ NamespaceJunctionArgs{...} }
+//          NamespaceJunctionArray{ NamespaceJunctionArgs{...} }
 type NamespaceJunctionArrayInput interface {
 	pulumi.Input
 
@@ -760,7 +760,7 @@ type Nfs3Target struct {
 // Nfs3TargetInput is an input type that accepts Nfs3TargetArgs and Nfs3TargetOutput values.
 // You can construct a concrete instance of `Nfs3TargetInput` via:
 //
-//	Nfs3TargetArgs{...}
+//          Nfs3TargetArgs{...}
 type Nfs3TargetInput interface {
 	pulumi.Input
 
@@ -799,11 +799,11 @@ func (i Nfs3TargetArgs) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nf
 // Nfs3TargetPtrInput is an input type that accepts Nfs3TargetArgs, Nfs3TargetPtr and Nfs3TargetPtrOutput values.
 // You can construct a concrete instance of `Nfs3TargetPtrInput` via:
 //
-//	        Nfs3TargetArgs{...}
+//          Nfs3TargetArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type Nfs3TargetPtrInput interface {
 	pulumi.Input
 
@@ -994,7 +994,7 @@ type UnknownTarget struct {
 // UnknownTargetInput is an input type that accepts UnknownTargetArgs and UnknownTargetOutput values.
 // You can construct a concrete instance of `UnknownTargetInput` via:
 //
-//	UnknownTargetArgs{...}
+//          UnknownTargetArgs{...}
 type UnknownTargetInput interface {
 	pulumi.Input
 
@@ -1031,11 +1031,11 @@ func (i UnknownTargetArgs) ToUnknownTargetPtrOutputWithContext(ctx context.Conte
 // UnknownTargetPtrInput is an input type that accepts UnknownTargetArgs, UnknownTargetPtr and UnknownTargetPtrOutput values.
 // You can construct a concrete instance of `UnknownTargetPtrInput` via:
 //
-//	        UnknownTargetArgs{...}
+//          UnknownTargetArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type UnknownTargetPtrInput interface {
 	pulumi.Input
 

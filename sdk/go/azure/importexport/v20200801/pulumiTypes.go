@@ -25,7 +25,7 @@ type DeliveryPackageInformation struct {
 // DeliveryPackageInformationInput is an input type that accepts DeliveryPackageInformationArgs and DeliveryPackageInformationOutput values.
 // You can construct a concrete instance of `DeliveryPackageInformationInput` via:
 //
-//	DeliveryPackageInformationArgs{...}
+//          DeliveryPackageInformationArgs{...}
 type DeliveryPackageInformationInput interface {
 	pulumi.Input
 
@@ -68,11 +68,11 @@ func (i DeliveryPackageInformationArgs) ToDeliveryPackageInformationPtrOutputWit
 // DeliveryPackageInformationPtrInput is an input type that accepts DeliveryPackageInformationArgs, DeliveryPackageInformationPtr and DeliveryPackageInformationPtrOutput values.
 // You can construct a concrete instance of `DeliveryPackageInformationPtrInput` via:
 //
-//	        DeliveryPackageInformationArgs{...}
+//          DeliveryPackageInformationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type DeliveryPackageInformationPtrInput interface {
 	pulumi.Input
 
@@ -415,7 +415,7 @@ func (val *DriveStatus) Defaults() *DriveStatus {
 // DriveStatusInput is an input type that accepts DriveStatusArgs and DriveStatusOutput values.
 // You can construct a concrete instance of `DriveStatusInput` via:
 //
-//	DriveStatusArgs{...}
+//          DriveStatusArgs{...}
 type DriveStatusInput interface {
 	pulumi.Input
 
@@ -477,7 +477,7 @@ func (i DriveStatusArgs) ToDriveStatusOutputWithContext(ctx context.Context) Dri
 // DriveStatusArrayInput is an input type that accepts DriveStatusArray and DriveStatusArrayOutput values.
 // You can construct a concrete instance of `DriveStatusArrayInput` via:
 //
-//	DriveStatusArray{ DriveStatusArgs{...} }
+//          DriveStatusArray{ DriveStatusArgs{...} }
 type DriveStatusArrayInput interface {
 	pulumi.Input
 
@@ -756,7 +756,7 @@ func (val *EncryptionKeyDetails) Defaults() *EncryptionKeyDetails {
 // EncryptionKeyDetailsInput is an input type that accepts EncryptionKeyDetailsArgs and EncryptionKeyDetailsOutput values.
 // You can construct a concrete instance of `EncryptionKeyDetailsInput` via:
 //
-//	EncryptionKeyDetailsArgs{...}
+//          EncryptionKeyDetailsArgs{...}
 type EncryptionKeyDetailsInput interface {
 	pulumi.Input
 
@@ -808,11 +808,11 @@ func (i EncryptionKeyDetailsArgs) ToEncryptionKeyDetailsPtrOutputWithContext(ctx
 // EncryptionKeyDetailsPtrInput is an input type that accepts EncryptionKeyDetailsArgs, EncryptionKeyDetailsPtr and EncryptionKeyDetailsPtrOutput values.
 // You can construct a concrete instance of `EncryptionKeyDetailsPtrInput` via:
 //
-//	        EncryptionKeyDetailsArgs{...}
+//          EncryptionKeyDetailsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type EncryptionKeyDetailsPtrInput interface {
 	pulumi.Input
 
@@ -1052,7 +1052,7 @@ type Export struct {
 // ExportInput is an input type that accepts ExportArgs and ExportOutput values.
 // You can construct a concrete instance of `ExportInput` via:
 //
-//	ExportArgs{...}
+//          ExportArgs{...}
 type ExportInput interface {
 	pulumi.Input
 
@@ -1093,11 +1093,11 @@ func (i ExportArgs) ToExportPtrOutputWithContext(ctx context.Context) ExportPtrO
 // ExportPtrInput is an input type that accepts ExportArgs, ExportPtr and ExportPtrOutput values.
 // You can construct a concrete instance of `ExportPtrInput` via:
 //
-//	        ExportArgs{...}
+//          ExportArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ExportPtrInput interface {
 	pulumi.Input
 
@@ -1484,7 +1484,7 @@ func (val *JobDetails) Defaults() *JobDetails {
 // JobDetailsInput is an input type that accepts JobDetailsArgs and JobDetailsOutput values.
 // You can construct a concrete instance of `JobDetailsInput` via:
 //
-//	JobDetailsArgs{...}
+//          JobDetailsArgs{...}
 type JobDetailsInput interface {
 	pulumi.Input
 
@@ -1573,11 +1573,11 @@ func (i JobDetailsArgs) ToJobDetailsPtrOutputWithContext(ctx context.Context) Jo
 // JobDetailsPtrInput is an input type that accepts JobDetailsArgs, JobDetailsPtr and JobDetailsPtrOutput values.
 // You can construct a concrete instance of `JobDetailsPtrInput` via:
 //
-//	        JobDetailsArgs{...}
+//          JobDetailsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type JobDetailsPtrInput interface {
 	pulumi.Input
 
@@ -2105,7 +2105,7 @@ type PackageInformation struct {
 // PackageInformationInput is an input type that accepts PackageInformationArgs and PackageInformationOutput values.
 // You can construct a concrete instance of `PackageInformationInput` via:
 //
-//	PackageInformationArgs{...}
+//          PackageInformationArgs{...}
 type PackageInformationInput interface {
 	pulumi.Input
 
@@ -2148,11 +2148,11 @@ func (i PackageInformationArgs) ToPackageInformationPtrOutputWithContext(ctx con
 // PackageInformationPtrInput is an input type that accepts PackageInformationArgs, PackageInformationPtr and PackageInformationPtrOutput values.
 // You can construct a concrete instance of `PackageInformationPtrInput` via:
 //
-//	        PackageInformationArgs{...}
+//          PackageInformationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PackageInformationPtrInput interface {
 	pulumi.Input
 
@@ -2423,7 +2423,7 @@ type ReturnAddress struct {
 // ReturnAddressInput is an input type that accepts ReturnAddressArgs and ReturnAddressOutput values.
 // You can construct a concrete instance of `ReturnAddressInput` via:
 //
-//	ReturnAddressArgs{...}
+//          ReturnAddressArgs{...}
 type ReturnAddressInput interface {
 	pulumi.Input
 
@@ -2476,11 +2476,11 @@ func (i ReturnAddressArgs) ToReturnAddressPtrOutputWithContext(ctx context.Conte
 // ReturnAddressPtrInput is an input type that accepts ReturnAddressArgs, ReturnAddressPtr and ReturnAddressPtrOutput values.
 // You can construct a concrete instance of `ReturnAddressPtrInput` via:
 //
-//	        ReturnAddressArgs{...}
+//          ReturnAddressArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ReturnAddressPtrInput interface {
 	pulumi.Input
 
@@ -2897,7 +2897,7 @@ type ReturnShipping struct {
 // ReturnShippingInput is an input type that accepts ReturnShippingArgs and ReturnShippingOutput values.
 // You can construct a concrete instance of `ReturnShippingInput` via:
 //
-//	ReturnShippingArgs{...}
+//          ReturnShippingArgs{...}
 type ReturnShippingInput interface {
 	pulumi.Input
 
@@ -2936,11 +2936,11 @@ func (i ReturnShippingArgs) ToReturnShippingPtrOutputWithContext(ctx context.Con
 // ReturnShippingPtrInput is an input type that accepts ReturnShippingArgs, ReturnShippingPtr and ReturnShippingPtrOutput values.
 // You can construct a concrete instance of `ReturnShippingPtrInput` via:
 //
-//	        ReturnShippingArgs{...}
+//          ReturnShippingArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ReturnShippingPtrInput interface {
 	pulumi.Input
 
@@ -3145,7 +3145,7 @@ type ShippingInformation struct {
 // ShippingInformationInput is an input type that accepts ShippingInformationArgs and ShippingInformationOutput values.
 // You can construct a concrete instance of `ShippingInformationInput` via:
 //
-//	ShippingInformationArgs{...}
+//          ShippingInformationArgs{...}
 type ShippingInformationInput interface {
 	pulumi.Input
 
@@ -3196,11 +3196,11 @@ func (i ShippingInformationArgs) ToShippingInformationPtrOutputWithContext(ctx c
 // ShippingInformationPtrInput is an input type that accepts ShippingInformationArgs, ShippingInformationPtr and ShippingInformationPtrOutput values.
 // You can construct a concrete instance of `ShippingInformationPtrInput` via:
 //
-//	        ShippingInformationArgs{...}
+//          ShippingInformationArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ShippingInformationPtrInput interface {
 	pulumi.Input
 

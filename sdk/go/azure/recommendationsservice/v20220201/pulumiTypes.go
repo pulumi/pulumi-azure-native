@@ -25,7 +25,7 @@ type AccountResourceProperties struct {
 // AccountResourcePropertiesInput is an input type that accepts AccountResourcePropertiesArgs and AccountResourcePropertiesOutput values.
 // You can construct a concrete instance of `AccountResourcePropertiesInput` via:
 //
-//	AccountResourcePropertiesArgs{...}
+//          AccountResourcePropertiesArgs{...}
 type AccountResourcePropertiesInput interface {
 	pulumi.Input
 
@@ -68,11 +68,11 @@ func (i AccountResourcePropertiesArgs) ToAccountResourcePropertiesPtrOutputWithC
 // AccountResourcePropertiesPtrInput is an input type that accepts AccountResourcePropertiesArgs, AccountResourcePropertiesPtr and AccountResourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `AccountResourcePropertiesPtrInput` via:
 //
-//	        AccountResourcePropertiesArgs{...}
+//          AccountResourcePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type AccountResourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -280,7 +280,7 @@ type CorsRule struct {
 // CorsRuleInput is an input type that accepts CorsRuleArgs and CorsRuleOutput values.
 // You can construct a concrete instance of `CorsRuleInput` via:
 //
-//	CorsRuleArgs{...}
+//          CorsRuleArgs{...}
 type CorsRuleInput interface {
 	pulumi.Input
 
@@ -317,7 +317,7 @@ func (i CorsRuleArgs) ToCorsRuleOutputWithContext(ctx context.Context) CorsRuleO
 // CorsRuleArrayInput is an input type that accepts CorsRuleArray and CorsRuleArrayOutput values.
 // You can construct a concrete instance of `CorsRuleArrayInput` via:
 //
-//	CorsRuleArray{ CorsRuleArgs{...} }
+//          CorsRuleArray{ CorsRuleArgs{...} }
 type CorsRuleArrayInput interface {
 	pulumi.Input
 
@@ -486,7 +486,7 @@ type EndpointAuthentication struct {
 // EndpointAuthenticationInput is an input type that accepts EndpointAuthenticationArgs and EndpointAuthenticationOutput values.
 // You can construct a concrete instance of `EndpointAuthenticationInput` via:
 //
-//	EndpointAuthenticationArgs{...}
+//          EndpointAuthenticationArgs{...}
 type EndpointAuthenticationInput interface {
 	pulumi.Input
 
@@ -519,7 +519,7 @@ func (i EndpointAuthenticationArgs) ToEndpointAuthenticationOutputWithContext(ct
 // EndpointAuthenticationArrayInput is an input type that accepts EndpointAuthenticationArray and EndpointAuthenticationArrayOutput values.
 // You can construct a concrete instance of `EndpointAuthenticationArrayInput` via:
 //
-//	EndpointAuthenticationArray{ EndpointAuthenticationArgs{...} }
+//          EndpointAuthenticationArray{ EndpointAuthenticationArgs{...} }
 type EndpointAuthenticationArrayInput interface {
 	pulumi.Input
 
@@ -660,7 +660,7 @@ type ModelingInputData struct {
 // ModelingInputDataInput is an input type that accepts ModelingInputDataArgs and ModelingInputDataOutput values.
 // You can construct a concrete instance of `ModelingInputDataInput` via:
 //
-//	ModelingInputDataArgs{...}
+//          ModelingInputDataArgs{...}
 type ModelingInputDataInput interface {
 	pulumi.Input
 
@@ -697,11 +697,11 @@ func (i ModelingInputDataArgs) ToModelingInputDataPtrOutputWithContext(ctx conte
 // ModelingInputDataPtrInput is an input type that accepts ModelingInputDataArgs, ModelingInputDataPtr and ModelingInputDataPtrOutput values.
 // You can construct a concrete instance of `ModelingInputDataPtrInput` via:
 //
-//	        ModelingInputDataArgs{...}
+//          ModelingInputDataArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ModelingInputDataPtrInput interface {
 	pulumi.Input
 
@@ -866,7 +866,7 @@ type ModelingResourceProperties struct {
 // ModelingResourcePropertiesInput is an input type that accepts ModelingResourcePropertiesArgs and ModelingResourcePropertiesOutput values.
 // You can construct a concrete instance of `ModelingResourcePropertiesInput` via:
 //
-//	ModelingResourcePropertiesArgs{...}
+//          ModelingResourcePropertiesArgs{...}
 type ModelingResourcePropertiesInput interface {
 	pulumi.Input
 
@@ -909,11 +909,11 @@ func (i ModelingResourcePropertiesArgs) ToModelingResourcePropertiesPtrOutputWit
 // ModelingResourcePropertiesPtrInput is an input type that accepts ModelingResourcePropertiesArgs, ModelingResourcePropertiesPtr and ModelingResourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `ModelingResourcePropertiesPtrInput` via:
 //
-//	        ModelingResourcePropertiesArgs{...}
+//          ModelingResourcePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ModelingResourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1111,7 +1111,7 @@ type ServiceEndpointResourceProperties struct {
 // ServiceEndpointResourcePropertiesInput is an input type that accepts ServiceEndpointResourcePropertiesArgs and ServiceEndpointResourcePropertiesOutput values.
 // You can construct a concrete instance of `ServiceEndpointResourcePropertiesInput` via:
 //
-//	ServiceEndpointResourcePropertiesArgs{...}
+//          ServiceEndpointResourcePropertiesArgs{...}
 type ServiceEndpointResourcePropertiesInput interface {
 	pulumi.Input
 
@@ -1148,11 +1148,11 @@ func (i ServiceEndpointResourcePropertiesArgs) ToServiceEndpointResourceProperti
 // ServiceEndpointResourcePropertiesPtrInput is an input type that accepts ServiceEndpointResourcePropertiesArgs, ServiceEndpointResourcePropertiesPtr and ServiceEndpointResourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `ServiceEndpointResourcePropertiesPtrInput` via:
 //
-//	        ServiceEndpointResourcePropertiesArgs{...}
+//          ServiceEndpointResourcePropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type ServiceEndpointResourcePropertiesPtrInput interface {
 	pulumi.Input
 

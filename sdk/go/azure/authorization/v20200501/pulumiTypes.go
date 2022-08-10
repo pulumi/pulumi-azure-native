@@ -19,7 +19,7 @@ type ManagementLockOwner struct {
 // ManagementLockOwnerInput is an input type that accepts ManagementLockOwnerArgs and ManagementLockOwnerOutput values.
 // You can construct a concrete instance of `ManagementLockOwnerInput` via:
 //
-//	ManagementLockOwnerArgs{...}
+//          ManagementLockOwnerArgs{...}
 type ManagementLockOwnerInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i ManagementLockOwnerArgs) ToManagementLockOwnerOutputWithContext(ctx cont
 // ManagementLockOwnerArrayInput is an input type that accepts ManagementLockOwnerArray and ManagementLockOwnerArrayOutput values.
 // You can construct a concrete instance of `ManagementLockOwnerArrayInput` via:
 //
-//	ManagementLockOwnerArray{ ManagementLockOwnerArgs{...} }
+//          ManagementLockOwnerArray{ ManagementLockOwnerArgs{...} }
 type ManagementLockOwnerArrayInput interface {
 	pulumi.Input
 
@@ -165,7 +165,7 @@ type PrivateLinkAssociationProperties struct {
 // PrivateLinkAssociationPropertiesInput is an input type that accepts PrivateLinkAssociationPropertiesArgs and PrivateLinkAssociationPropertiesOutput values.
 // You can construct a concrete instance of `PrivateLinkAssociationPropertiesInput` via:
 //
-//	PrivateLinkAssociationPropertiesArgs{...}
+//          PrivateLinkAssociationPropertiesArgs{...}
 type PrivateLinkAssociationPropertiesInput interface {
 	pulumi.Input
 
@@ -202,11 +202,11 @@ func (i PrivateLinkAssociationPropertiesArgs) ToPrivateLinkAssociationProperties
 // PrivateLinkAssociationPropertiesPtrInput is an input type that accepts PrivateLinkAssociationPropertiesArgs, PrivateLinkAssociationPropertiesPtr and PrivateLinkAssociationPropertiesPtrOutput values.
 // You can construct a concrete instance of `PrivateLinkAssociationPropertiesPtrInput` via:
 //
-//	        PrivateLinkAssociationPropertiesArgs{...}
+//          PrivateLinkAssociationPropertiesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type PrivateLinkAssociationPropertiesPtrInput interface {
 	pulumi.Input
 

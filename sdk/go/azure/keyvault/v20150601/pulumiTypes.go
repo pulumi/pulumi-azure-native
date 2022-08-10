@@ -25,7 +25,7 @@ type AccessPolicyEntry struct {
 // AccessPolicyEntryInput is an input type that accepts AccessPolicyEntryArgs and AccessPolicyEntryOutput values.
 // You can construct a concrete instance of `AccessPolicyEntryInput` via:
 //
-//	AccessPolicyEntryArgs{...}
+//          AccessPolicyEntryArgs{...}
 type AccessPolicyEntryInput interface {
 	pulumi.Input
 
@@ -60,7 +60,7 @@ func (i AccessPolicyEntryArgs) ToAccessPolicyEntryOutputWithContext(ctx context.
 // AccessPolicyEntryArrayInput is an input type that accepts AccessPolicyEntryArray and AccessPolicyEntryArrayOutput values.
 // You can construct a concrete instance of `AccessPolicyEntryArrayInput` via:
 //
-//	AccessPolicyEntryArray{ AccessPolicyEntryArgs{...} }
+//          AccessPolicyEntryArray{ AccessPolicyEntryArgs{...} }
 type AccessPolicyEntryArrayInput interface {
 	pulumi.Input
 
@@ -97,7 +97,7 @@ func (o AccessPolicyEntryOutput) ToAccessPolicyEntryOutputWithContext(ctx contex
 	return o
 }
 
-// Application ID of the client making request on behalf of a principal
+//  Application ID of the client making request on behalf of a principal
 func (o AccessPolicyEntryOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyEntry) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -164,7 +164,7 @@ func (o AccessPolicyEntryResponseOutput) ToAccessPolicyEntryResponseOutputWithCo
 	return o
 }
 
-// Application ID of the client making request on behalf of a principal
+//  Application ID of the client making request on behalf of a principal
 func (o AccessPolicyEntryResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyEntryResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -217,7 +217,7 @@ type Permissions struct {
 // PermissionsInput is an input type that accepts PermissionsArgs and PermissionsOutput values.
 // You can construct a concrete instance of `PermissionsInput` via:
 //
-//	PermissionsArgs{...}
+//          PermissionsArgs{...}
 type PermissionsInput interface {
 	pulumi.Input
 
@@ -328,7 +328,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//	SkuArgs{...}
+//          SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -437,7 +437,7 @@ type VaultProperties struct {
 // VaultPropertiesInput is an input type that accepts VaultPropertiesArgs and VaultPropertiesOutput values.
 // You can construct a concrete instance of `VaultPropertiesInput` via:
 //
-//	VaultPropertiesArgs{...}
+//          VaultPropertiesArgs{...}
 type VaultPropertiesInput interface {
 	pulumi.Input
 

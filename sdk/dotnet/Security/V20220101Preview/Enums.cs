@@ -8,6 +8,43 @@ using Pulumi;
 namespace Pulumi.AzureNative.Security.V20220101Preview
 {
     /// <summary>
+    /// The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
+    /// </summary>
+    [EnumType]
+    public readonly struct GovernanceRuleConditionOperator : IEquatable<GovernanceRuleConditionOperator>
+    {
+        private readonly string _value;
+
+        private GovernanceRuleConditionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Checks that the string value of the data defined in Property equals the given value - exact fit
+        /// </summary>
+        public static GovernanceRuleConditionOperator EqualsValue { get; } = new GovernanceRuleConditionOperator("Equals");
+        /// <summary>
+        /// Checks that the string value of the data defined in Property equals any of the given values (exact fit)
+        /// </summary>
+        public static GovernanceRuleConditionOperator In { get; } = new GovernanceRuleConditionOperator("In");
+
+        public static bool operator ==(GovernanceRuleConditionOperator left, GovernanceRuleConditionOperator right) => left.Equals(right);
+        public static bool operator !=(GovernanceRuleConditionOperator left, GovernanceRuleConditionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(GovernanceRuleConditionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GovernanceRuleConditionOperator other && Equals(other);
+        public bool Equals(GovernanceRuleConditionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The owner type for the governance rule owner source
     /// </summary>
     [EnumType]

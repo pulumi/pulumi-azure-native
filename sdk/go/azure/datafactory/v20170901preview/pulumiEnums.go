@@ -242,7 +242,7 @@ func (o FactoryIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // FactoryIdentityTypeInput is an input type that accepts FactoryIdentityTypeArgs and FactoryIdentityTypeOutput values.
 // You can construct a concrete instance of `FactoryIdentityTypeInput` via:
 //
-//	FactoryIdentityTypeArgs{...}
+//          FactoryIdentityTypeArgs{...}
 type FactoryIdentityTypeInput interface {
 	pulumi.Input
 

@@ -16,6 +16,8 @@ import (
 type SecurityConnectorApplication struct {
 	pulumi.CustomResourceState
 
+	// The application conditionSets - see examples
+	ConditionSets ApplicationConditionResponseArrayArrayArrayOutput `pulumi:"conditionSets"`
 	// description of the application
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// display name of the application
@@ -35,6 +37,9 @@ func NewSecurityConnectorApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ConditionSets == nil {
+		return nil, errors.New("invalid value for required argument 'ConditionSets'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -84,6 +89,8 @@ func (SecurityConnectorApplicationState) ElementType() reflect.Type {
 type securityConnectorApplicationArgs struct {
 	// The security Application key - unique key for the standard application
 	ApplicationId *string `pulumi:"applicationId"`
+	// The application conditionSets - see examples
+	ConditionSets [][][]ApplicationCondition `pulumi:"conditionSets"`
 	// description of the application
 	Description *string `pulumi:"description"`
 	// display name of the application
@@ -100,6 +107,8 @@ type securityConnectorApplicationArgs struct {
 type SecurityConnectorApplicationArgs struct {
 	// The security Application key - unique key for the standard application
 	ApplicationId pulumi.StringPtrInput
+	// The application conditionSets - see examples
+	ConditionSets ApplicationConditionArrayArrayArrayInput
 	// description of the application
 	Description pulumi.StringPtrInput
 	// display name of the application
@@ -147,6 +156,13 @@ func (o SecurityConnectorApplicationOutput) ToSecurityConnectorApplicationOutput
 
 func (o SecurityConnectorApplicationOutput) ToSecurityConnectorApplicationOutputWithContext(ctx context.Context) SecurityConnectorApplicationOutput {
 	return o
+}
+
+// The application conditionSets - see examples
+func (o SecurityConnectorApplicationOutput) ConditionSets() ApplicationConditionResponseArrayArrayArrayOutput {
+	return o.ApplyT(func(v *SecurityConnectorApplication) ApplicationConditionResponseArrayArrayArrayOutput {
+		return v.ConditionSets
+	}).(ApplicationConditionResponseArrayArrayArrayOutput)
 }
 
 // description of the application
