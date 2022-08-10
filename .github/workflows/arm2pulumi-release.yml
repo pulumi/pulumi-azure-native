@@ -48,7 +48,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.18.x
+        go-version: 1.19.x
     - name: Set Version if Parameter available
       if: github.event.inputs.version != ''
       run: echo "GORELEASER_CURRENT_TAG=v${{ github.event.inputs.message }}" >>
