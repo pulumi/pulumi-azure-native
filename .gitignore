@@ -23,3 +23,4 @@ provider/cmd/**/*.gz
 **/*.tar.gz
 
 ci-scripts/
+.version
