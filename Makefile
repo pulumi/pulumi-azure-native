@@ -100,8 +100,7 @@ versions/v2.json: bin/pulumi-versioner-azure-native versions/spec.json versions/
 
 versioner: bin/pulumi-versioner-azure-native
 
-versions: bin/pulumi-versioner-azure-native
-	bin/pulumi-versioner-azure-native all
+versions: versions/spec.json versions/v1.json versions/v2.json versions/deprecated.json versions/pending.json versions/active.json
 
 install_provider::
 	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
