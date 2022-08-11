@@ -86,8 +86,7 @@ versions/spec-resources.json: bin/pulumi-versioner-azure-native .git/modules/azu
 versions/active.json: bin/pulumi-versioner-azure-native azure-provider-versions/provider_list.json
 	bin/pulumi-versioner-azure-native active
 
-V1CONFIG := $(wildcard versions/v1-config.yaml)
-versions/v1.json: bin/pulumi-versioner-azure-native versions/spec.json $(V1CONFIG)
+versions/v1.json: bin/pulumi-versioner-azure-native versions/spec.json versions/v1-config.yaml
 	bin/pulumi-versioner-azure-native v1
 
 versions/deprecated.json: bin/pulumi-versioner-azure-native versions/spec.json versions/v1.json
@@ -96,8 +95,7 @@ versions/deprecated.json: bin/pulumi-versioner-azure-native versions/spec.json v
 versions/pending.json: bin/pulumi-versioner-azure-native versions/spec.json versions/v1.json
 	bin/pulumi-versioner-azure-native pending -version=v1.json
 
-V2CONFIG := $(wildcard versions/v2-config.yaml)
-versions/v2.json: bin/pulumi-versioner-azure-native versions/spec.json versions/deprecated.json $(V2CONFIG)
+versions/v2.json: bin/pulumi-versioner-azure-native versions/spec.json versions/deprecated.json versions/v2-config.yaml
 	bin/pulumi-versioner-azure-native v2
 
 versioner: bin/pulumi-versioner-azure-native
