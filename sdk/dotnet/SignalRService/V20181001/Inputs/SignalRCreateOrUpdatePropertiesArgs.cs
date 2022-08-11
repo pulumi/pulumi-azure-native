@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20181001.Inputs
     /// <summary>
     /// Settings used to provision or configure the resource.
     /// </summary>
-    public sealed class SignalRCreateOrUpdatePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SignalRCreateOrUpdatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cross-Origin Resource Sharing (CORS) settings.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.SignalRService.V20181001.Inputs
         public SignalRCreateOrUpdatePropertiesArgs()
         {
         }
+        public static new SignalRCreateOrUpdatePropertiesArgs Empty => new SignalRCreateOrUpdatePropertiesArgs();
     }
 }

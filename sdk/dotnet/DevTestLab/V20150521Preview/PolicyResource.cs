@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     /// </summary>
     [Obsolete(@"Version 2015-05-21-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:PolicyResource")]
-    public partial class PolicyResource : Pulumi.CustomResource
+    public partial class PolicyResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the policy.
@@ -107,9 +107,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab:PolicyResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:PolicyResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:PolicyResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:PolicyResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:PolicyResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:PolicyResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         }
     }
 
-    public sealed class PolicyResourceArgs : Pulumi.ResourceArgs
+    public sealed class PolicyResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the policy.
@@ -232,5 +232,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public PolicyResourceArgs()
         {
         }
+        public static new PolicyResourceArgs Empty => new PolicyResourceArgs();
     }
 }

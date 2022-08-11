@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.Inputs
     /// <summary>
     /// Specifies the IP address of the network interface.
     /// </summary>
-    public sealed class IpAddressArgs : Pulumi.ResourceArgs
+    public sealed class IpAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the IP address of the network interface.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.HanaOnAzure.Inputs
         public IpAddressArgs()
         {
         }
+        public static new IpAddressArgs Empty => new IpAddressArgs();
     }
 }

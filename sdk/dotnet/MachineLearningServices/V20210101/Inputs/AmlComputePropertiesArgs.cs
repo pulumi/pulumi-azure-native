@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Inputs
     /// <summary>
     /// AML Compute properties
     /// </summary>
-    public sealed class AmlComputePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AmlComputePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
@@ -81,5 +81,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Inputs
             OsType = "Linux";
             RemoteLoginPortPublicAccess = "NotSpecified";
         }
+        public static new AmlComputePropertiesArgs Empty => new AmlComputePropertiesArgs();
     }
 }

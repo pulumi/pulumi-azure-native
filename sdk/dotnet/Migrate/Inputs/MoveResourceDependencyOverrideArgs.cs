@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     /// <summary>
     /// Defines the dependency override of the move resource.
     /// </summary>
-    public sealed class MoveResourceDependencyOverrideArgs : Pulumi.ResourceArgs
+    public sealed class MoveResourceDependencyOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the ARM ID of the dependent resource.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public MoveResourceDependencyOverrideArgs()
         {
         }
+        public static new MoveResourceDependencyOverrideArgs Empty => new MoveResourceDependencyOverrideArgs();
     }
 }

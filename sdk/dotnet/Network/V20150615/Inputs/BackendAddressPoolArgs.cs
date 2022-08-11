@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
     /// <summary>
     /// Pool of backend IP addresses.
     /// </summary>
-    public sealed class BackendAddressPoolArgs : Pulumi.ResourceArgs
+    public sealed class BackendAddressPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("backendIPConfigurations")]
         private InputList<Inputs.NetworkInterfaceIPConfigurationArgs>? _backendIPConfigurations;
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
         public BackendAddressPoolArgs()
         {
         }
+        public static new BackendAddressPoolArgs Empty => new BackendAddressPoolArgs();
     }
 }

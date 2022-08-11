@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
     }
 
 
-    public sealed class GetManagedNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Managed Network.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public GetManagedNetworkArgs()
         {
         }
+        public static new GetManagedNetworkArgs Empty => new GetManagedNetworkArgs();
     }
 
-    public sealed class GetManagedNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Managed Network.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public GetManagedNetworkInvokeArgs()
         {
         }
+        public static new GetManagedNetworkInvokeArgs Empty => new GetManagedNetworkInvokeArgs();
     }
 
 

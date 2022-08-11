@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601.Inputs
     /// <summary>
     /// Kubernetes role storage resource
     /// </summary>
-    public sealed class KubernetesRoleStorageArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesRoleStorageArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpoints")]
         private InputList<Inputs.MountPointMapArgs>? _endpoints;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601.Inputs
         public KubernetesRoleStorageArgs()
         {
         }
+        public static new KubernetesRoleStorageArgs Empty => new KubernetesRoleStorageArgs();
     }
 }

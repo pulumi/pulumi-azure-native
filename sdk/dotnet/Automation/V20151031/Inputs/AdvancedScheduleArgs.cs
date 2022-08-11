@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20151031.Inputs
     /// <summary>
     /// The properties of the create Advanced Schedule.
     /// </summary>
-    public sealed class AdvancedScheduleArgs : Pulumi.ResourceArgs
+    public sealed class AdvancedScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("monthDays")]
         private InputList<int>? _monthDays;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Automation.V20151031.Inputs
         public AdvancedScheduleArgs()
         {
         }
+        public static new AdvancedScheduleArgs Empty => new AdvancedScheduleArgs();
     }
 }

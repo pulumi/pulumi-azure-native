@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
     /// Represents a server firewall rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20171201preview:FirewallRule")]
-    public partial class FirewallRule : Pulumi.CustomResource
+    public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
@@ -64,8 +64,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
         }
     }
 
-    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
         public FirewallRuleArgs()
         {
         }
+        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 }

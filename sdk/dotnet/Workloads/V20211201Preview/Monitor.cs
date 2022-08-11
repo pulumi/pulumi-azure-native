@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads/v20211201preview:monitor")]
-    public partial class Monitor : Pulumi.CustomResource
+    public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:workloads:monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:monitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         }
     }
 
-    public sealed class MonitorArgs : Pulumi.ResourceArgs
+    public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
@@ -217,5 +217,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public MonitorArgs()
         {
         }
+        public static new MonitorArgs Empty => new MonitorArgs();
     }
 }

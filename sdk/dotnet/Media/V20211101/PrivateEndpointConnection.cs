@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20211101:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.Media.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:media:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20200501:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20210501:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20210601:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:media:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20210501:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Media.V20211101
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.Media.V20211101
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

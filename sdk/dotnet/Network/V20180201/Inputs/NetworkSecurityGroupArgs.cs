@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180201.Inputs
     /// <summary>
     /// NetworkSecurityGroup resource.
     /// </summary>
-    public sealed class NetworkSecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class NetworkSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultSecurityRules")]
         private InputList<Inputs.SecurityRuleArgs>? _defaultSecurityRules;
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.Network.V20180201.Inputs
         public NetworkSecurityGroupArgs()
         {
         }
+        public static new NetworkSecurityGroupArgs Empty => new NetworkSecurityGroupArgs();
     }
 }

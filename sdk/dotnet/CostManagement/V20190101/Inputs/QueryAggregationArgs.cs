@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190101.Inputs
     /// <summary>
     /// The aggregation expression to be used in the query.
     /// </summary>
-    public sealed class QueryAggregationArgs : Pulumi.ResourceArgs
+    public sealed class QueryAggregationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the aggregation function to use.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.V20190101.Inputs
         public QueryAggregationArgs()
         {
         }
+        public static new QueryAggregationArgs Empty => new QueryAggregationArgs();
     }
 }

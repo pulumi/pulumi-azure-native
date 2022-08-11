@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20200901.Inputs
 {
 
-    public sealed class MountConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MountConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property is mutually exclusive with all other properties.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.Batch.V20200901.Inputs
         public MountConfigurationArgs()
         {
         }
+        public static new MountConfigurationArgs Empty => new MountConfigurationArgs();
     }
 }

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     }
 
 
-    public sealed class GetOnlineDeploymentLogsArgs : Pulumi.InvokeArgs
+    public sealed class GetOnlineDeploymentLogsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of container to retrieve logs from.
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public GetOnlineDeploymentLogsArgs()
         {
         }
+        public static new GetOnlineDeploymentLogsArgs Empty => new GetOnlineDeploymentLogsArgs();
     }
 
-    public sealed class GetOnlineDeploymentLogsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOnlineDeploymentLogsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of container to retrieve logs from.
@@ -103,6 +104,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public GetOnlineDeploymentLogsInvokeArgs()
         {
         }
+        public static new GetOnlineDeploymentLogsInvokeArgs Empty => new GetOnlineDeploymentLogsInvokeArgs();
     }
 
 

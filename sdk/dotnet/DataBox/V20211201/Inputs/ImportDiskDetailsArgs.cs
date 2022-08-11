@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
     /// <summary>
     /// Import disk details
     /// </summary>
-    public sealed class ImportDiskDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ImportDiskDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// BitLocker key used to encrypt the disk.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
         public ImportDiskDetailsArgs()
         {
         }
+        public static new ImportDiskDetailsArgs Empty => new ImportDiskDetailsArgs();
     }
 }

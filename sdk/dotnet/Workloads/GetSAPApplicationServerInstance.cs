@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
 
-    public sealed class GetSAPApplicationServerInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPApplicationServerInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of SAP Application Server instance.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPApplicationServerInstanceArgs()
         {
         }
+        public static new GetSAPApplicationServerInstanceArgs Empty => new GetSAPApplicationServerInstanceArgs();
     }
 
-    public sealed class GetSAPApplicationServerInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPApplicationServerInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of SAP Application Server instance.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPApplicationServerInstanceInvokeArgs()
         {
         }
+        public static new GetSAPApplicationServerInstanceInvokeArgs Empty => new GetSAPApplicationServerInstanceInvokeArgs();
     }
 
 

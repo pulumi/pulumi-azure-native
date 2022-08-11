@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     }
 
 
-    public sealed class GetDelegatedSubnetServiceDetailsArgs : Pulumi.InvokeArgs
+    public sealed class GetDelegatedSubnetServiceDetailsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         public GetDelegatedSubnetServiceDetailsArgs()
         {
         }
+        public static new GetDelegatedSubnetServiceDetailsArgs Empty => new GetDelegatedSubnetServiceDetailsArgs();
     }
 
-    public sealed class GetDelegatedSubnetServiceDetailsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDelegatedSubnetServiceDetailsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         public GetDelegatedSubnetServiceDetailsInvokeArgs()
         {
         }
+        public static new GetDelegatedSubnetServiceDetailsInvokeArgs Empty => new GetDelegatedSubnetServiceDetailsInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     /// Blueprint artifact deploys Azure resource manager template.
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:TemplateArtifact")]
-    public partial class TemplateArtifact : Pulumi.CustomResource
+    public partial class TemplateArtifact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Artifacts which need to be deployed before the specified artifact.
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         }
     }
 
-    public sealed class TemplateArtifactArgs : Pulumi.ResourceArgs
+    public sealed class TemplateArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// name of the artifact.
@@ -198,5 +198,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public TemplateArtifactArgs()
         {
         }
+        public static new TemplateArtifactArgs Empty => new TemplateArtifactArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationsManagement.Inputs
     /// <summary>
     /// Parameter to pass to ARM template
     /// </summary>
-    public sealed class ArmTemplateParameterArgs : Pulumi.ResourceArgs
+    public sealed class ArmTemplateParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// name of the parameter.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.OperationsManagement.Inputs
         public ArmTemplateParameterArgs()
         {
         }
+        public static new ArmTemplateParameterArgs Empty => new ArmTemplateParameterArgs();
     }
 }

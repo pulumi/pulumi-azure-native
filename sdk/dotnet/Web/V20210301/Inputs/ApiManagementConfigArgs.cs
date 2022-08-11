@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
     /// <summary>
     /// Azure API management (APIM) configuration linked to the app.
     /// </summary>
-    public sealed class ApiManagementConfigArgs : Pulumi.ResourceArgs
+    public sealed class ApiManagementConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// APIM-Api Identifier.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
         public ApiManagementConfigArgs()
         {
         }
+        public static new ApiManagementConfigArgs Empty => new ApiManagementConfigArgs();
     }
 }

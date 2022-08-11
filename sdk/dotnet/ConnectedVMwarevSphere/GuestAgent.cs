@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// API Version: 2020-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:GuestAgent")]
-    public partial class GuestAgent : Pulumi.CustomResource
+    public partial class GuestAgent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Username / Password Credentials to provision guest agent.
@@ -107,8 +107,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:GuestAgent"},
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:GuestAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         }
     }
 
-    public sealed class GuestAgentArgs : Pulumi.ResourceArgs
+    public sealed class GuestAgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Username / Password Credentials to provision guest agent.
@@ -171,5 +171,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public GuestAgentArgs()
         {
         }
+        public static new GuestAgentArgs Empty => new GuestAgentArgs();
     }
 }

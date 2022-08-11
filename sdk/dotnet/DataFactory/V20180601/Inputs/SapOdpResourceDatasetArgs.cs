@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// SAP ODP Resource properties.
     /// </summary>
-    public sealed class SapOdpResourceDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SapOdpResourceDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SapOdpResourceDatasetArgs()
         {
         }
+        public static new SapOdpResourceDatasetArgs Empty => new SapOdpResourceDatasetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
     /// <summary>
     /// Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
     /// </summary>
-    public sealed class MigrateSqlServerSqlDbSyncTaskPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlDbSyncTaskPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Task input
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
         public MigrateSqlServerSqlDbSyncTaskPropertiesArgs()
         {
         }
+        public static new MigrateSqlServerSqlDbSyncTaskPropertiesArgs Empty => new MigrateSqlServerSqlDbSyncTaskPropertiesArgs();
     }
 }

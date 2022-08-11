@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetManagedInstanceKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed instance key to be retrieved.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Sql
         public GetManagedInstanceKeyArgs()
         {
         }
+        public static new GetManagedInstanceKeyArgs Empty => new GetManagedInstanceKeyArgs();
     }
 
-    public sealed class GetManagedInstanceKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed instance key to be retrieved.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Sql
         public GetManagedInstanceKeyInvokeArgs()
         {
         }
+        public static new GetManagedInstanceKeyInvokeArgs Empty => new GetManagedInstanceKeyInvokeArgs();
     }
 
 

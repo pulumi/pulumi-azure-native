@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
     /// <summary>
     /// Azure query for the update configuration.
     /// </summary>
-    public sealed class AzureQueryPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AzureQueryPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("locations")]
         private InputList<string>? _locations;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
         public AzureQueryPropertiesArgs()
         {
         }
+        public static new AzureQueryPropertiesArgs Empty => new AzureQueryPropertiesArgs();
     }
 }

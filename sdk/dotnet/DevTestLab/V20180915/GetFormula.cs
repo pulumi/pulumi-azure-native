@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     }
 
 
-    public sealed class GetFormulaArgs : Pulumi.InvokeArgs
+    public sealed class GetFormulaArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=description)'
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetFormulaArgs()
         {
         }
+        public static new GetFormulaArgs Empty => new GetFormulaArgs();
     }
 
-    public sealed class GetFormulaInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFormulaInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($select=description)'
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetFormulaInvokeArgs()
         {
         }
+        public static new GetFormulaInvokeArgs Empty => new GetFormulaInvokeArgs();
     }
 
 

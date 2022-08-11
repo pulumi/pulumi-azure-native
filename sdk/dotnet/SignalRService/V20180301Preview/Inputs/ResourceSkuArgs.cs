@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20180301Preview.Inputs
     /// <summary>
     /// The billing information of the resource.(e.g. basic vs. standard)
     /// </summary>
-    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not 
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.SignalRService.V20180301Preview.Inputs
         public ResourceSkuArgs()
         {
         }
+        public static new ResourceSkuArgs Empty => new ResourceSkuArgs();
     }
 }

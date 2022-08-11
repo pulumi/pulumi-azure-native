@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
     /// Represents Dynamics365 data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220701preview:Dynamics365DataConnector")]
-    public partial class Dynamics365DataConnector : Pulumi.CustomResource
+    public partial class Dynamics365DataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -90,17 +90,17 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:Dynamics365DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Dynamics365DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Dynamics365DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Dynamics365DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Dynamics365DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Dynamics365DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Dynamics365DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Dynamics365DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Dynamics365DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Dynamics365DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Dynamics365DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Dynamics365DataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         }
     }
 
-    public sealed class Dynamics365DataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class Dynamics365DataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -164,5 +164,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         public Dynamics365DataConnectorArgs()
         {
         }
+        public static new Dynamics365DataConnectorArgs Empty => new Dynamics365DataConnectorArgs();
     }
 }

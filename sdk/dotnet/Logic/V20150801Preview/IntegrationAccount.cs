@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview
 {
     [AzureNativeResourceType("azure-native:logic/v20150801preview:IntegrationAccount")]
-    public partial class IntegrationAccount : Pulumi.CustomResource
+    public partial class IntegrationAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource location.
@@ -67,10 +67,10 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
         }
     }
 
-    public sealed class IntegrationAccountArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id.
@@ -151,5 +151,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
         public IntegrationAccountArgs()
         {
         }
+        public static new IntegrationAccountArgs Empty => new IntegrationAccountArgs();
     }
 }

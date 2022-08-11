@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// Represents a token claim.
     /// </summary>
-    public sealed class ContentKeyPolicyTokenClaimArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyTokenClaimArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Token claim type.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public ContentKeyPolicyTokenClaimArgs()
         {
         }
+        public static new ContentKeyPolicyTokenClaimArgs Empty => new ContentKeyPolicyTokenClaimArgs();
     }
 }

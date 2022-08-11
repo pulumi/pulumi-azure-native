@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     /// <summary>
     /// The filter expression to be used in the report.
     /// </summary>
-    public sealed class ReportFilterArgs : Pulumi.ResourceArgs
+    public sealed class ReportFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("and")]
         private InputList<Inputs.ReportFilterArgs>? _and;
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public ReportFilterArgs()
         {
         }
+        public static new ReportFilterArgs Empty => new ReportFilterArgs();
     }
 }

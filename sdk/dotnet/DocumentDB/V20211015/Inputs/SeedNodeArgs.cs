@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20211015.Inputs
 {
 
-    public sealed class SeedNodeArgs : Pulumi.ResourceArgs
+    public sealed class SeedNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP address of this seed node.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015.Inputs
         public SeedNodeArgs()
         {
         }
+        public static new SeedNodeArgs Empty => new SeedNodeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure File Storage read settings.
     /// </summary>
-    public sealed class AzureFileStorageReadSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AzureFileStorageReadSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureFileStorageReadSettingsArgs()
         {
         }
+        public static new AzureFileStorageReadSettingsArgs Empty => new AzureFileStorageReadSettingsArgs();
     }
 }

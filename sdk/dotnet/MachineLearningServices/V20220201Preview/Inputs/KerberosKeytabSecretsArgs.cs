@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class KerberosKeytabSecretsArgs : Pulumi.ResourceArgs
+    public sealed class KerberosKeytabSecretsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kerberos keytab secret.
@@ -28,5 +28,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public KerberosKeytabSecretsArgs()
         {
         }
+        public static new KerberosKeytabSecretsArgs Empty => new KerberosKeytabSecretsArgs();
     }
 }

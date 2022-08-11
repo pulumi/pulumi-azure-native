@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
     /// <summary>
     /// Settings concerning network injection.
     /// </summary>
-    public sealed class PropertiesNetworkInjectionArgs : Pulumi.ResourceArgs
+    public sealed class PropertiesNetworkInjectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Network injection configuration
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.PowerPlatform.Inputs
         public PropertiesNetworkInjectionArgs()
         {
         }
+        public static new PropertiesNetworkInjectionArgs Empty => new PropertiesNetworkInjectionArgs();
     }
 }

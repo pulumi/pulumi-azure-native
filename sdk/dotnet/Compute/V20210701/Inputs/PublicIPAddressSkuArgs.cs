@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Describes the public IP Sku
     /// </summary>
-    public sealed class PublicIPAddressSkuArgs : Pulumi.ResourceArgs
+    public sealed class PublicIPAddressSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify public IP sku name
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public PublicIPAddressSkuArgs()
         {
         }
+        public static new PublicIPAddressSkuArgs Empty => new PublicIPAddressSkuArgs();
     }
 }

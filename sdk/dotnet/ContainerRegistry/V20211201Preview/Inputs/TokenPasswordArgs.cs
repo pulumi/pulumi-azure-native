@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview.Inputs
     /// <summary>
     /// The password that will be used for authenticating the token of a container registry.
     /// </summary>
-    public sealed class TokenPasswordArgs : Pulumi.ResourceArgs
+    public sealed class TokenPasswordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The creation datetime of the password.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview.Inputs
         public TokenPasswordArgs()
         {
         }
+        public static new TokenPasswordArgs Empty => new TokenPasswordArgs();
     }
 }

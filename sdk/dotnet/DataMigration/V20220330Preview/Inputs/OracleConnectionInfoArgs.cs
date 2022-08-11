@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Information for connecting to Oracle server
     /// </summary>
-    public sealed class OracleConnectionInfoArgs : Pulumi.ResourceArgs
+    public sealed class OracleConnectionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication type to use for connection
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public OracleConnectionInfoArgs()
         {
         }
+        public static new OracleConnectionInfoArgs Empty => new OracleConnectionInfoArgs();
     }
 }

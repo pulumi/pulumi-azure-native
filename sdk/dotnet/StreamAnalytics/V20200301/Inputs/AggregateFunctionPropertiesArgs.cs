@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// The properties that are associated with an aggregate function.
     /// </summary>
-    public sealed class AggregateFunctionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AggregateFunctionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
@@ -45,5 +45,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public AggregateFunctionPropertiesArgs()
         {
         }
+        public static new AggregateFunctionPropertiesArgs Empty => new AggregateFunctionPropertiesArgs();
     }
 }

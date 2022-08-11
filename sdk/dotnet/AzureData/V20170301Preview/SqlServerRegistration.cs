@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
     /// </summary>
     [Obsolete(@"Version 2017-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:azuredata/v20170301preview:SqlServerRegistration")]
-    public partial class SqlServerRegistration : Pulumi.CustomResource
+    public partial class SqlServerRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location.
@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:azuredata:SqlServerRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:azuredata/v20190724preview:SqlServerRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:azuredata:SqlServerRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:azuredata/v20190724preview:SqlServerRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
         }
     }
 
-    public sealed class SqlServerRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class SqlServerRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location.
@@ -159,5 +159,6 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
         public SqlServerRegistrationArgs()
         {
         }
+        public static new SqlServerRegistrationArgs Empty => new SqlServerRegistrationArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
     }
 
 
-    public sealed class GetServiceTopologyArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceTopologyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         public GetServiceTopologyArgs()
         {
         }
+        public static new GetServiceTopologyArgs Empty => new GetServiceTopologyArgs();
     }
 
-    public sealed class GetServiceTopologyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceTopologyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         public GetServiceTopologyInvokeArgs()
         {
         }
+        public static new GetServiceTopologyInvokeArgs Empty => new GetServiceTopologyInvokeArgs();
     }
 
 

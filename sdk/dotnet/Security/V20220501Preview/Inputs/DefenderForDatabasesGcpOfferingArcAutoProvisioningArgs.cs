@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The ARC autoprovisioning configuration
     /// </summary>
-    public sealed class DefenderForDatabasesGcpOfferingArcAutoProvisioningArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForDatabasesGcpOfferingArcAutoProvisioningArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration for ARC autoprovisioning
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForDatabasesGcpOfferingArcAutoProvisioningArgs()
         {
         }
+        public static new DefenderForDatabasesGcpOfferingArcAutoProvisioningArgs Empty => new DefenderForDatabasesGcpOfferingArcAutoProvisioningArgs();
     }
 }

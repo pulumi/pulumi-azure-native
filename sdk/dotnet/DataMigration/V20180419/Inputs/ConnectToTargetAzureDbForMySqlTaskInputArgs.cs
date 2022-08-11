@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
     /// <summary>
     /// Input for the task that validates connection to Azure Database for MySQL and target server requirements
     /// </summary>
-    public sealed class ConnectToTargetAzureDbForMySqlTaskInputArgs : Pulumi.ResourceArgs
+    public sealed class ConnectToTargetAzureDbForMySqlTaskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connection information for source MySQL server
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
         public ConnectToTargetAzureDbForMySqlTaskInputArgs()
         {
         }
+        public static new ConnectToTargetAzureDbForMySqlTaskInputArgs Empty => new ConnectToTargetAzureDbForMySqlTaskInputArgs();
     }
 }

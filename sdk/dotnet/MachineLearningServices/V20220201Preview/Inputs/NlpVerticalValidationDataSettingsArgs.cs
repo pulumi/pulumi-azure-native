@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class NlpVerticalValidationDataSettingsArgs : Pulumi.ResourceArgs
+    public sealed class NlpVerticalValidationDataSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Validation data MLTable.
@@ -29,5 +29,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public NlpVerticalValidationDataSettingsArgs()
         {
         }
+        public static new NlpVerticalValidationDataSettingsArgs Empty => new NlpVerticalValidationDataSettingsArgs();
     }
 }

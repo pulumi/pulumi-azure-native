@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("optInHeaders")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.OptInHeaderType>? OptInHeaders { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public ResourceProviderManifestPropertiesRequestHeaderOptionsArgs()
         {
         }
+        public static new ResourceProviderManifestPropertiesRequestHeaderOptionsArgs Empty => new ResourceProviderManifestPropertiesRequestHeaderOptionsArgs();
     }
 }

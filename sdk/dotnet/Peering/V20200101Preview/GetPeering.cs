@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
     }
 
 
-    public sealed class GetPeeringArgs : Pulumi.InvokeArgs
+    public sealed class GetPeeringArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the peering.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
         public GetPeeringArgs()
         {
         }
+        public static new GetPeeringArgs Empty => new GetPeeringArgs();
     }
 
-    public sealed class GetPeeringInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPeeringInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the peering.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
         public GetPeeringInvokeArgs()
         {
         }
+        public static new GetPeeringInvokeArgs Empty => new GetPeeringInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// The aws connector environment data
     /// </summary>
-    public sealed class AWSEnvironmentDataArgs : Pulumi.ResourceArgs
+    public sealed class AWSEnvironmentDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the environment data.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public AWSEnvironmentDataArgs()
         {
         }
+        public static new AWSEnvironmentDataArgs Empty => new AWSEnvironmentDataArgs();
     }
 }

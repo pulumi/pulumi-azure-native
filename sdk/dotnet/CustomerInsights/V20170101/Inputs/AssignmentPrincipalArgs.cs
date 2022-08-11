@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
     /// <summary>
     /// The AssignmentPrincipal
     /// </summary>
-    public sealed class AssignmentPrincipalArgs : Pulumi.ResourceArgs
+    public sealed class AssignmentPrincipalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The principal id being assigned to.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
         public AssignmentPrincipalArgs()
         {
         }
+        public static new AssignmentPrincipalArgs Empty => new AssignmentPrincipalArgs();
     }
 }

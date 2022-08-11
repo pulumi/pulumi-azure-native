@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
     /// SpatialAnchorsAccount Response.
     /// </summary>
     [AzureNativeResourceType("azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount")]
-    public partial class SpatialAnchorsAccount : Pulumi.CustomResource
+    public partial class SpatialAnchorsAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Correspond domain name of certain Spatial Anchors Account
@@ -112,11 +112,11 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:mixedreality:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20200501:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:SpatialAnchorsAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality:SpatialAnchorsAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20200501:SpatialAnchorsAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:SpatialAnchorsAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
         }
     }
 
-    public sealed class SpatialAnchorsAccountArgs : Pulumi.ResourceArgs
+    public sealed class SpatialAnchorsAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of an Mixed Reality Account.
@@ -203,5 +203,6 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
         public SpatialAnchorsAccountArgs()
         {
         }
+        public static new SpatialAnchorsAccountArgs Empty => new SpatialAnchorsAccountArgs();
     }
 }

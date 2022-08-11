@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20180401
     /// Peerings in a VirtualNetwork resource
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks/v20180401:vNetPeering")]
-    public partial class VNetPeering : Pulumi.CustomResource
+    public partial class VNetPeering : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.Databricks.V20180401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:databricks:vNetPeering"},
-                    new Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:vNetPeering"},
-                    new Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:vNetPeering"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks:vNetPeering"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:vNetPeering"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:vNetPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Databricks.V20180401
         }
     }
 
-    public sealed class VNetPeeringArgs : Pulumi.ResourceArgs
+    public sealed class VNetPeeringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
@@ -207,5 +207,6 @@ namespace Pulumi.AzureNative.Databricks.V20180401
         public VNetPeeringArgs()
         {
         }
+        public static new VNetPeeringArgs Empty => new VNetPeeringArgs();
     }
 }

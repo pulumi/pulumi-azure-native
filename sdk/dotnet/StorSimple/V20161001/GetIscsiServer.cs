@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     }
 
 
-    public sealed class GetIscsiServerArgs : Pulumi.InvokeArgs
+    public sealed class GetIscsiServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -55,9 +55,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetIscsiServerArgs()
         {
         }
+        public static new GetIscsiServerArgs Empty => new GetIscsiServerArgs();
     }
 
-    public sealed class GetIscsiServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIscsiServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -86,6 +87,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetIscsiServerInvokeArgs()
         {
         }
+        public static new GetIscsiServerInvokeArgs Empty => new GetIscsiServerInvokeArgs();
     }
 
 

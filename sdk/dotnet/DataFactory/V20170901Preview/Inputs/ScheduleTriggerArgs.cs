@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Trigger that creates pipeline runs periodically, on schedule.
     /// </summary>
-    public sealed class ScheduleTriggerArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Trigger description.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ScheduleTriggerArgs()
         {
         }
+        public static new ScheduleTriggerArgs Empty => new ScheduleTriggerArgs();
     }
 }

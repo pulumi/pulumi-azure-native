@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20200701.Inputs
 {
 
-    public sealed class ManagedClusterSKUArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterSKUArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a managed cluster SKU.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.ContainerService.V20200701.Inputs
         public ManagedClusterSKUArgs()
         {
         }
+        public static new ManagedClusterSKUArgs Empty => new ManagedClusterSKUArgs();
     }
 }

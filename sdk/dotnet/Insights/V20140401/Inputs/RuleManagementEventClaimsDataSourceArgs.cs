@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20140401.Inputs
     /// <summary>
     /// The claims for a rule management event data source.
     /// </summary>
-    public sealed class RuleManagementEventClaimsDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class RuleManagementEventClaimsDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the email address.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Insights.V20140401.Inputs
         public RuleManagementEventClaimsDataSourceArgs()
         {
         }
+        public static new RuleManagementEventClaimsDataSourceArgs Empty => new RuleManagementEventClaimsDataSourceArgs();
     }
 }

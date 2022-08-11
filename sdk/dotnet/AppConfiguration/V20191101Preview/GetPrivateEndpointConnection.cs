@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview
     }
 
 
-    public sealed class GetPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview
         public GetPrivateEndpointConnectionArgs()
         {
         }
+        public static new GetPrivateEndpointConnectionArgs Empty => new GetPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview
         public GetPrivateEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetPrivateEndpointConnectionInvokeArgs Empty => new GetPrivateEndpointConnectionInvokeArgs();
     }
 
 

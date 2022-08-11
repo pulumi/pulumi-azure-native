@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// API definitions with backend urls
     /// </summary>
-    public sealed class BackendServiceDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class BackendServiceDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("hostingEnvironmentServiceUrls")]
         private InputList<Inputs.HostingEnvironmentServiceDescriptionsArgs>? _hostingEnvironmentServiceUrls;
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public BackendServiceDefinitionArgs()
         {
         }
+        public static new BackendServiceDefinitionArgs Empty => new BackendServiceDefinitionArgs();
     }
 }

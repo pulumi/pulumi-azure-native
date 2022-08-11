@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HybridData
     }
 
 
-    public sealed class GetJobDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetJobDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.HybridData
         public GetJobDefinitionArgs()
         {
         }
+        public static new GetJobDefinitionArgs Empty => new GetJobDefinitionArgs();
     }
 
-    public sealed class GetJobDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetJobDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.HybridData
         public GetJobDefinitionInvokeArgs()
         {
         }
+        public static new GetJobDefinitionInvokeArgs Empty => new GetJobDefinitionInvokeArgs();
     }
 
 

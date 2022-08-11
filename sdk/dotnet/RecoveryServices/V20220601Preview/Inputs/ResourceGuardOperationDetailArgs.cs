@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
 {
 
-    public sealed class ResourceGuardOperationDetailArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGuardOperationDetailArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultResourceRequest")]
         public Input<string>? DefaultResourceRequest { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
         public ResourceGuardOperationDetailArgs()
         {
         }
+        public static new ResourceGuardOperationDetailArgs Empty => new ResourceGuardOperationDetailArgs();
     }
 }

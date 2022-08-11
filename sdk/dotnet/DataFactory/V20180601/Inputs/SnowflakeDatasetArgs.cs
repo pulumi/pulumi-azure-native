@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The snowflake dataset.
     /// </summary>
-    public sealed class SnowflakeDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SnowflakeDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SnowflakeDatasetArgs()
         {
         }
+        public static new SnowflakeDatasetArgs Empty => new SnowflakeDatasetArgs();
     }
 }

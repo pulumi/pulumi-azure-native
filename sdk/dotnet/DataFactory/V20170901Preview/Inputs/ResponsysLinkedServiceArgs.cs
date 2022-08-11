@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Responsys linked service.
     /// </summary>
-    public sealed class ResponsysLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class ResponsysLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ResponsysLinkedServiceArgs()
         {
         }
+        public static new ResponsysLinkedServiceArgs Empty => new ResponsysLinkedServiceArgs();
     }
 }

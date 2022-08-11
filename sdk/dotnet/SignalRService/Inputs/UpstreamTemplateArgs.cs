@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
     /// Upstream template item settings. It defines the Upstream URL of the incoming requests.
     /// The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
     /// </summary>
-    public sealed class UpstreamTemplateArgs : Pulumi.ResourceArgs
+    public sealed class UpstreamTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the matching pattern for category names. If not set, it matches any category.
@@ -56,5 +56,6 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
         public UpstreamTemplateArgs()
         {
         }
+        public static new UpstreamTemplateArgs Empty => new UpstreamTemplateArgs();
     }
 }

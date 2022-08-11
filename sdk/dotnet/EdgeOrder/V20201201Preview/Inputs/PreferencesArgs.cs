@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
     /// <summary>
     /// Preferences related to the order
     /// </summary>
-    public sealed class PreferencesArgs : Pulumi.ResourceArgs
+    public sealed class PreferencesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Preferences related to the Encryption.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
         public PreferencesArgs()
         {
         }
+        public static new PreferencesArgs Empty => new PreferencesArgs();
     }
 }

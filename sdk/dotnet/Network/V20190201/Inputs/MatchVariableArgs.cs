@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
     /// <summary>
     /// Define match variables
     /// </summary>
-    public sealed class MatchVariableArgs : Pulumi.ResourceArgs
+    public sealed class MatchVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes field of the matchVariable collection
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
         public MatchVariableArgs()
         {
         }
+        public static new MatchVariableArgs Empty => new MatchVariableArgs();
     }
 }

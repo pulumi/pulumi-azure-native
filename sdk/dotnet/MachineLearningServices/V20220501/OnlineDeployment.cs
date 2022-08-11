@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220501
 {
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220501:OnlineDeployment")]
-    public partial class OnlineDeployment : Pulumi.CustomResource
+    public partial class OnlineDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
@@ -91,9 +91,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:OnlineDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:OnlineDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:OnlineDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:OnlineDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         }
     }
 
-    public sealed class OnlineDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class OnlineDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Inference Endpoint Deployment name.
@@ -186,5 +186,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public OnlineDeploymentArgs()
         {
         }
+        public static new OnlineDeploymentArgs Empty => new OnlineDeploymentArgs();
     }
 }

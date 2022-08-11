@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Consumption
     /// API Version: 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:consumption:Budget")]
-    public partial class Budget : Pulumi.CustomResource
+    public partial class Budget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The total amount of cost to track with the budget
@@ -107,15 +107,15 @@ namespace Pulumi.AzureNative.Consumption
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20190101:Budget"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20190401preview:Budget"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20190501:Budget"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20190501preview:Budget"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20190601:Budget"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20191001:Budget"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20191101:Budget"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20210501:Budget"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/v20211001:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20190101:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20190401preview:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20190501:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20190501preview:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20190601:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20191001:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20191101:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20210501:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20211001:Budget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.Consumption
         }
     }
 
-    public sealed class BudgetArgs : Pulumi.ResourceArgs
+    public sealed class BudgetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total amount of cost to track with the budget
@@ -202,5 +202,6 @@ namespace Pulumi.AzureNative.Consumption
         public BudgetArgs()
         {
         }
+        public static new BudgetArgs Empty => new BudgetArgs();
     }
 }

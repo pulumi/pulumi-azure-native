@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The on-premises Oracle database dataset.
     /// </summary>
-    public sealed class OracleTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class OracleTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public OracleTableDatasetArgs()
         {
         }
+        public static new OracleTableDatasetArgs Empty => new OracleTableDatasetArgs();
     }
 }

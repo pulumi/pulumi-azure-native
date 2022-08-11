@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
     /// <summary>
     /// Additional information of DPM Protected item.
     /// </summary>
-    public sealed class DPMProtectedItemExtendedInfoArgs : Pulumi.ResourceArgs
+    public sealed class DPMProtectedItemExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Used Disk storage in bytes.
@@ -108,5 +108,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
         public DPMProtectedItemExtendedInfoArgs()
         {
         }
+        public static new DPMProtectedItemExtendedInfoArgs Empty => new DPMProtectedItemExtendedInfoArgs();
     }
 }

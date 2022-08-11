@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160601.Inputs
 {
 
-    public sealed class ConnectionGatewayDefinitionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionGatewayDefinitionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URI of the backend
@@ -63,5 +63,6 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
         public ConnectionGatewayDefinitionPropertiesArgs()
         {
         }
+        public static new ConnectionGatewayDefinitionPropertiesArgs Empty => new ConnectionGatewayDefinitionPropertiesArgs();
     }
 }

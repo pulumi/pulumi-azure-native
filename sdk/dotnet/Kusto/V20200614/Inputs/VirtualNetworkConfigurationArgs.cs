@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20200614.Inputs
     /// <summary>
     /// A class that contains virtual network definition.
     /// </summary>
-    public sealed class VirtualNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data management's service public IP address resource id.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Kusto.V20200614.Inputs
         public VirtualNetworkConfigurationArgs()
         {
         }
+        public static new VirtualNetworkConfigurationArgs Empty => new VirtualNetworkConfigurationArgs();
     }
 }

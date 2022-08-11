@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
     }
 
 
-    public sealed class GetSaasSubscriptionLevelArgs : Pulumi.InvokeArgs
+    public sealed class GetSaasSubscriptionLevelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
         public GetSaasSubscriptionLevelArgs()
         {
         }
+        public static new GetSaasSubscriptionLevelArgs Empty => new GetSaasSubscriptionLevelArgs();
     }
 
-    public sealed class GetSaasSubscriptionLevelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSaasSubscriptionLevelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
         public GetSaasSubscriptionLevelInvokeArgs()
         {
         }
+        public static new GetSaasSubscriptionLevelInvokeArgs Empty => new GetSaasSubscriptionLevelInvokeArgs();
     }
 
 

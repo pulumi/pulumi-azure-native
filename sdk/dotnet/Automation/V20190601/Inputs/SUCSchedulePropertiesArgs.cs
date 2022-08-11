@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
     /// <summary>
     /// Definition of schedule parameters.
     /// </summary>
-    public sealed class SUCSchedulePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SUCSchedulePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the advanced schedule.
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
         {
             IsEnabled = false;
         }
+        public static new SUCSchedulePropertiesArgs Empty => new SUCSchedulePropertiesArgs();
     }
 }

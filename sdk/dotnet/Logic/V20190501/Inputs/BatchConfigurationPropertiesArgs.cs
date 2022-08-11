@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The batch configuration properties definition.
     /// </summary>
-    public sealed class BatchConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class BatchConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the batch group.
@@ -45,5 +45,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public BatchConfigurationPropertiesArgs()
         {
         }
+        public static new BatchConfigurationPropertiesArgs Empty => new BatchConfigurationPropertiesArgs();
     }
 }

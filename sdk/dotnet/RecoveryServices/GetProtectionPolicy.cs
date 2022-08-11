@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
 
-    public sealed class GetProtectionPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetProtectionPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Backup policy information to be fetched.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetProtectionPolicyArgs()
         {
         }
+        public static new GetProtectionPolicyArgs Empty => new GetProtectionPolicyArgs();
     }
 
-    public sealed class GetProtectionPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProtectionPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Backup policy information to be fetched.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetProtectionPolicyInvokeArgs()
         {
         }
+        public static new GetProtectionPolicyInvokeArgs Empty => new GetProtectionPolicyInvokeArgs();
     }
 
 

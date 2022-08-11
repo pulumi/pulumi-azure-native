@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EventHub
     }
 
 
-    public sealed class GetNamespaceArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Namespace name
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.EventHub
         public GetNamespaceArgs()
         {
         }
+        public static new GetNamespaceArgs Empty => new GetNamespaceArgs();
     }
 
-    public sealed class GetNamespaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Namespace name
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.EventHub
         public GetNamespaceInvokeArgs()
         {
         }
+        public static new GetNamespaceInvokeArgs Empty => new GetNamespaceInvokeArgs();
     }
 
 

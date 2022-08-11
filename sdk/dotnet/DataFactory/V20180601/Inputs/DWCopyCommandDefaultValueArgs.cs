@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Default value.
     /// </summary>
-    public sealed class DWCopyCommandDefaultValueArgs : Pulumi.ResourceArgs
+    public sealed class DWCopyCommandDefaultValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Column name. Type: object (or Expression with resultType string).
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DWCopyCommandDefaultValueArgs()
         {
         }
+        public static new DWCopyCommandDefaultValueArgs Empty => new DWCopyCommandDefaultValueArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// Open authentication access policy defined by user.
     /// </summary>
-    public sealed class OpenAuthenticationAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class OpenAuthenticationAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("claims")]
         private InputList<Inputs.OpenAuthenticationPolicyClaimArgs>? _claims;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public OpenAuthenticationAccessPolicyArgs()
         {
         }
+        public static new OpenAuthenticationAccessPolicyArgs Empty => new OpenAuthenticationAccessPolicyArgs();
     }
 }

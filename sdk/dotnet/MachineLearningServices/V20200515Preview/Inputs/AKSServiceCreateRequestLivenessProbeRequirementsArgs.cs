@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
     /// <summary>
     /// The liveness probe requirements.
     /// </summary>
-    public sealed class AKSServiceCreateRequestLivenessProbeRequirementsArgs : Pulumi.ResourceArgs
+    public sealed class AKSServiceCreateRequestLivenessProbeRequirementsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of failures to allow before returning an unhealthy status.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
         public AKSServiceCreateRequestLivenessProbeRequirementsArgs()
         {
         }
+        public static new AKSServiceCreateRequestLivenessProbeRequirementsArgs Empty => new AKSServiceCreateRequestLivenessProbeRequirementsArgs();
     }
 }

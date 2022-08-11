@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Subscription.V20200901.Inputs
     /// <summary>
     /// Put subscription properties.
     /// </summary>
-    public sealed class PutAliasRequestPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PutAliasRequestPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether subscription is fieldLed, partnerLed or LegacyEA
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Subscription.V20200901.Inputs
         public PutAliasRequestPropertiesArgs()
         {
         }
+        public static new PutAliasRequestPropertiesArgs Empty => new PutAliasRequestPropertiesArgs();
     }
 }

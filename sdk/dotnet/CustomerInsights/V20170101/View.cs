@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     /// </summary>
     [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:customerinsights/v20170101:View")]
-    public partial class View : Pulumi.CustomResource
+    public partial class View : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date time when view was last modified.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:customerinsights:View"},
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:View"},
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:View"},
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:View"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         }
     }
 
-    public sealed class ViewArgs : Pulumi.ResourceArgs
+    public sealed class ViewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// View definition.
@@ -165,5 +165,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         public ViewArgs()
         {
         }
+        public static new ViewArgs Empty => new ViewArgs();
     }
 }

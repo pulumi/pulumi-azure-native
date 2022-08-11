@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RoutingIntent")]
-    public partial class RoutingIntent : Pulumi.CustomResource
+    public partial class RoutingIntent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -71,9 +71,9 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:RoutingIntent"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:RoutingIntent"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:RoutingIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:RoutingIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:RoutingIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:RoutingIntent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class RoutingIntentArgs : Pulumi.ResourceArgs
+    public sealed class RoutingIntentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -142,5 +142,6 @@ namespace Pulumi.AzureNative.Network
         public RoutingIntentArgs()
         {
         }
+        public static new RoutingIntentArgs Empty => new RoutingIntentArgs();
     }
 }

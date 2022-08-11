@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
     /// </summary>
-    public sealed class ParquetSerializationArgs : Pulumi.ResourceArgs
+    public sealed class ParquetSerializationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public ParquetSerializationArgs()
         {
         }
+        public static new ParquetSerializationArgs Empty => new ParquetSerializationArgs();
     }
 }

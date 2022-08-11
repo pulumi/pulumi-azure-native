@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Inputs
     /// <summary>
     /// Definition of the content link.
     /// </summary>
-    public sealed class ContentLinkArgs : Pulumi.ResourceArgs
+    public sealed class ContentLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the hash.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Inputs
         public ContentLinkArgs()
         {
         }
+        public static new ContentLinkArgs Empty => new ContentLinkArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Training related configuration.
     /// </summary>
-    public sealed class TrainingSettingsArgs : Pulumi.ResourceArgs
+    public sealed class TrainingSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable recommendation of DNN models.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             EnableVoteEnsemble = true;
             EnsembleModelDownloadTimeout = "PT5M";
         }
+        public static new TrainingSettingsArgs Empty => new TrainingSettingsArgs();
     }
 }

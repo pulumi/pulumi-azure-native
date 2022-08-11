@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20180214Preview.Inputs
     /// <summary>
     /// A rule governing the accessibility of a vault from a specific ip address or ip range.
     /// </summary>
-    public sealed class IPRuleArgs : Pulumi.ResourceArgs
+    public sealed class IPRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.KeyVault.V20180214Preview.Inputs
         public IPRuleArgs()
         {
         }
+        public static new IPRuleArgs Empty => new IPRuleArgs();
     }
 }

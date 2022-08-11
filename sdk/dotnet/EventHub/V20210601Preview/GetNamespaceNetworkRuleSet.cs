@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
     }
 
 
-    public sealed class GetNamespaceNetworkRuleSetArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceNetworkRuleSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Namespace name
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         public GetNamespaceNetworkRuleSetArgs()
         {
         }
+        public static new GetNamespaceNetworkRuleSetArgs Empty => new GetNamespaceNetworkRuleSetArgs();
     }
 
-    public sealed class GetNamespaceNetworkRuleSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceNetworkRuleSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Namespace name
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         public GetNamespaceNetworkRuleSetInvokeArgs()
         {
         }
+        public static new GetNamespaceNetworkRuleSetInvokeArgs Empty => new GetNamespaceNetworkRuleSetInvokeArgs();
     }
 
 

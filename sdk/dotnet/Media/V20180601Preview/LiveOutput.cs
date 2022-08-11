@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
     /// The Live Output.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20180601preview:LiveOutput")]
-    public partial class LiveOutput : Pulumi.CustomResource
+    public partial class LiveOutput : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
@@ -112,13 +112,13 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:media:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180701:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20190501preview:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20200501:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20210601:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20211101:LiveOutput"},
+                    new global::Pulumi.Alias { Type = "azure-native:media:LiveOutput"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveOutput"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:LiveOutput"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20190501preview:LiveOutput"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:LiveOutput"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:LiveOutput"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:LiveOutput"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         }
     }
 
-    public sealed class LiveOutputArgs : Pulumi.ResourceArgs
+    public sealed class LiveOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -205,5 +205,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public LiveOutputArgs()
         {
         }
+        public static new LiveOutputArgs Empty => new LiveOutputArgs();
     }
 }

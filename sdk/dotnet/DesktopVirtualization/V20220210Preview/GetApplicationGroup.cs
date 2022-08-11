@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
     }
 
 
-    public sealed class GetApplicationGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application group
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
         public GetApplicationGroupArgs()
         {
         }
+        public static new GetApplicationGroupArgs Empty => new GetApplicationGroupArgs();
     }
 
-    public sealed class GetApplicationGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application group
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
         public GetApplicationGroupInvokeArgs()
         {
         }
+        public static new GetApplicationGroupInvokeArgs Empty => new GetApplicationGroupInvokeArgs();
     }
 
 

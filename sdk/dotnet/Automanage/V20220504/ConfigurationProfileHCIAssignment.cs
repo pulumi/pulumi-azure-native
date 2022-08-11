@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment")]
-    public partial class ConfigurationProfileHCIAssignment : Pulumi.CustomResource
+    public partial class ConfigurationProfileHCIAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Azure resource id. Indicates if this resource is managed by another Azure resource.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         }
     }
 
-    public sealed class ConfigurationProfileHCIAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileHCIAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Arc machine.
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         public ConfigurationProfileHCIAssignmentArgs()
         {
         }
+        public static new ConfigurationProfileHCIAssignmentArgs Empty => new ConfigurationProfileHCIAssignmentArgs();
     }
 }

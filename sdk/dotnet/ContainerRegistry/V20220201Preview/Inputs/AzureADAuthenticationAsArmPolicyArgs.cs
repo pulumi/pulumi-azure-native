@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
     /// <summary>
     /// The policy for using ARM audience token for a container registry.
     /// </summary>
-    public sealed class AzureADAuthenticationAsArmPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AzureADAuthenticationAsArmPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value that indicates whether the policy is enabled or not.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
         {
             Status = "enabled";
         }
+        public static new AzureADAuthenticationAsArmPolicyArgs Empty => new AzureADAuthenticationAsArmPolicyArgs();
     }
 }

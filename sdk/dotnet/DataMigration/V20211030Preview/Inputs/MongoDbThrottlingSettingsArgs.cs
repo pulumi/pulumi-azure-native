@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Specifies resource limits for the migration
     /// </summary>
-    public sealed class MongoDbThrottlingSettingsArgs : Pulumi.ResourceArgs
+    public sealed class MongoDbThrottlingSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of work items (e.g. collection copies) that will be processed in parallel
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public MongoDbThrottlingSettingsArgs()
         {
         }
+        public static new MongoDbThrottlingSettingsArgs Empty => new MongoDbThrottlingSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// Specifies a configuration for Widevine licenses.
     /// </summary>
-    public sealed class ContentKeyPolicyWidevineConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyWidevineConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public ContentKeyPolicyWidevineConfigurationArgs()
         {
         }
+        public static new ContentKeyPolicyWidevineConfigurationArgs Empty => new ContentKeyPolicyWidevineConfigurationArgs();
     }
 }

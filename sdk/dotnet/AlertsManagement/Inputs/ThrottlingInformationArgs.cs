@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
     /// <summary>
     /// Optional throttling information for the alert rule.
     /// </summary>
-    public sealed class ThrottlingInformationArgs : Pulumi.ResourceArgs
+    public sealed class ThrottlingInformationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         public ThrottlingInformationArgs()
         {
         }
+        public static new ThrottlingInformationArgs Empty => new ThrottlingInformationArgs();
     }
 }

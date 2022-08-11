@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview.Inputs
     /// <summary>
     /// The user object receiver value.
     /// </summary>
-    public sealed class DistributionGroupListReceiverValueArgs : Pulumi.ResourceArgs
+    public sealed class DistributionGroupListReceiverValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("distributionGroups")]
         private InputList<string>? _distributionGroups;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview.Inputs
         public DistributionGroupListReceiverValueArgs()
         {
         }
+        public static new DistributionGroupListReceiverValueArgs Empty => new DistributionGroupListReceiverValueArgs();
     }
 }

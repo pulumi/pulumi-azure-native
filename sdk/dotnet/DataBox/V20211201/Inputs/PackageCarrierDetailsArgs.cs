@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
     /// <summary>
     /// Package carrier details.
     /// </summary>
-    public sealed class PackageCarrierDetailsArgs : Pulumi.ResourceArgs
+    public sealed class PackageCarrierDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Carrier Account Number of customer for customer disk.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Inputs
         public PackageCarrierDetailsArgs()
         {
         }
+        public static new PackageCarrierDetailsArgs Empty => new PackageCarrierDetailsArgs();
     }
 }

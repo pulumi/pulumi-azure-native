@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
     /// The Network Manager Connection resource
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection")]
-    public partial class SubscriptionNetworkManagerConnection : Pulumi.CustomResource
+    public partial class SubscriptionNetworkManagerConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the scope connection.
@@ -76,10 +76,10 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:SubscriptionNetworkManagerConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:SubscriptionNetworkManagerConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:SubscriptionNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:SubscriptionNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
         }
     }
 
-    public sealed class SubscriptionNetworkManagerConnectionArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionNetworkManagerConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the scope connection.
@@ -124,5 +124,6 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
         public SubscriptionNetworkManagerConnectionArgs()
         {
         }
+        public static new SubscriptionNetworkManagerConnectionArgs Empty => new SubscriptionNetworkManagerConnectionArgs();
     }
 }

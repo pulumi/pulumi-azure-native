@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     }
 
 
-    public sealed class GetOutboundFirewallRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetOutboundFirewallRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("outboundRuleFqdn", required: true)]
         public string OutboundRuleFqdn { get; set; } = null!;
@@ -45,9 +45,10 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public GetOutboundFirewallRuleArgs()
         {
         }
+        public static new GetOutboundFirewallRuleArgs Empty => new GetOutboundFirewallRuleArgs();
     }
 
-    public sealed class GetOutboundFirewallRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOutboundFirewallRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("outboundRuleFqdn", required: true)]
         public Input<string> OutboundRuleFqdn { get; set; } = null!;
@@ -67,6 +68,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public GetOutboundFirewallRuleInvokeArgs()
         {
         }
+        public static new GetOutboundFirewallRuleInvokeArgs Empty => new GetOutboundFirewallRuleInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Portal.V20150801Preview
     /// </summary>
     [Obsolete(@"Version 2015-08-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:portal/v20150801preview:Dashboard")]
-    public partial class Dashboard : Pulumi.CustomResource
+    public partial class Dashboard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The dashboard lenses.
@@ -77,10 +77,10 @@ namespace Pulumi.AzureNative.Portal.V20150801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:portal:Dashboard"},
-                    new Pulumi.Alias { Type = "azure-native:portal/v20181001preview:Dashboard"},
-                    new Pulumi.Alias { Type = "azure-native:portal/v20190101preview:Dashboard"},
-                    new Pulumi.Alias { Type = "azure-native:portal/v20200901preview:Dashboard"},
+                    new global::Pulumi.Alias { Type = "azure-native:portal:Dashboard"},
+                    new global::Pulumi.Alias { Type = "azure-native:portal/v20181001preview:Dashboard"},
+                    new global::Pulumi.Alias { Type = "azure-native:portal/v20190101preview:Dashboard"},
+                    new global::Pulumi.Alias { Type = "azure-native:portal/v20200901preview:Dashboard"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Portal.V20150801Preview
         }
     }
 
-    public sealed class DashboardArgs : Pulumi.ResourceArgs
+    public sealed class DashboardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the dashboard.
@@ -161,5 +161,6 @@ namespace Pulumi.AzureNative.Portal.V20150801Preview
         public DashboardArgs()
         {
         }
+        public static new DashboardArgs Empty => new DashboardArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// API Version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:AttachedDataNetwork")]
-    public partial class AttachedDataNetwork : Pulumi.CustomResource
+    public partial class AttachedDataNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.MobileNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:AttachedDataNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:AttachedDataNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         }
     }
 
-    public sealed class AttachedDataNetworkArgs : Pulumi.ResourceArgs
+    public sealed class AttachedDataNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the attached data network.
@@ -281,5 +281,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public AttachedDataNetworkArgs()
         {
         }
+        public static new AttachedDataNetworkArgs Empty => new AttachedDataNetworkArgs();
     }
 }

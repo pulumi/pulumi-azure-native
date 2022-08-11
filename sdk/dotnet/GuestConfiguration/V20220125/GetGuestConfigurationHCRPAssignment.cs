@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20220125
     }
 
 
-    public sealed class GetGuestConfigurationHCRPAssignmentArgs : Pulumi.InvokeArgs
+    public sealed class GetGuestConfigurationHCRPAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The guest configuration assignment name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20220125
         public GetGuestConfigurationHCRPAssignmentArgs()
         {
         }
+        public static new GetGuestConfigurationHCRPAssignmentArgs Empty => new GetGuestConfigurationHCRPAssignmentArgs();
     }
 
-    public sealed class GetGuestConfigurationHCRPAssignmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGuestConfigurationHCRPAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The guest configuration assignment name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20220125
         public GetGuestConfigurationHCRPAssignmentInvokeArgs()
         {
         }
+        public static new GetGuestConfigurationHCRPAssignmentInvokeArgs Empty => new GetGuestConfigurationHCRPAssignmentInvokeArgs();
     }
 
 

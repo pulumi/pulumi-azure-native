@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     /// API Version: 2020-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:Gen2Environment")]
-    public partial class Gen2Environment : Pulumi.CustomResource
+    public partial class Gen2Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the resource was created.
@@ -133,12 +133,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:Gen2Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Gen2Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Gen2Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:Gen2Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Gen2Environment"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Gen2Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:Gen2Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Gen2Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Gen2Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:Gen2Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Gen2Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Gen2Environment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         }
     }
 
-    public sealed class Gen2EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class Gen2EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the environment
@@ -232,5 +232,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         public Gen2EnvironmentArgs()
         {
         }
+        public static new Gen2EnvironmentArgs Empty => new Gen2EnvironmentArgs();
     }
 }

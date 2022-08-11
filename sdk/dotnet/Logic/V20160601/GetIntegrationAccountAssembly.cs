@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     }
 
 
-    public sealed class GetIntegrationAccountAssemblyArgs : Pulumi.InvokeArgs
+    public sealed class GetIntegrationAccountAssemblyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The assembly artifact name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public GetIntegrationAccountAssemblyArgs()
         {
         }
+        public static new GetIntegrationAccountAssemblyArgs Empty => new GetIntegrationAccountAssemblyArgs();
     }
 
-    public sealed class GetIntegrationAccountAssemblyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIntegrationAccountAssemblyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The assembly artifact name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public GetIntegrationAccountAssemblyInvokeArgs()
         {
         }
+        public static new GetIntegrationAccountAssemblyInvokeArgs Empty => new GetIntegrationAccountAssemblyInvokeArgs();
     }
 
 

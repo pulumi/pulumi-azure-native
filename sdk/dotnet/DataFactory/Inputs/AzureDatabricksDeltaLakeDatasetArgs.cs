@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure Databricks Delta Lake dataset.
     /// </summary>
-    public sealed class AzureDatabricksDeltaLakeDatasetArgs : Pulumi.ResourceArgs
+    public sealed class AzureDatabricksDeltaLakeDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureDatabricksDeltaLakeDatasetArgs()
         {
         }
+        public static new AzureDatabricksDeltaLakeDatasetArgs Empty => new AzureDatabricksDeltaLakeDatasetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     /// Logger details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:DiagnosticLogger")]
-    public partial class DiagnosticLogger : Pulumi.CustomResource
+    public partial class DiagnosticLogger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name and SendRule connection string of the event hub for azureEventHub logger.
@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:DiagnosticLogger"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:DiagnosticLogger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:DiagnosticLogger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:DiagnosticLogger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         }
     }
 
-    public sealed class DiagnosticLoggerArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticLoggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Diagnostic identifier. Must be unique in the current API Management service instance.
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public DiagnosticLoggerArgs()
         {
         }
+        public static new DiagnosticLoggerArgs Empty => new DiagnosticLoggerArgs();
     }
 }

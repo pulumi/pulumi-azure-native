@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview.Inputs
     /// <summary>
     /// The appliance provider authorization.
     /// </summary>
-    public sealed class ApplianceProviderAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class ApplianceProviderAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview.Inputs
         public ApplianceProviderAuthorizationArgs()
         {
         }
+        public static new ApplianceProviderAuthorizationArgs Empty => new ApplianceProviderAuthorizationArgs();
     }
 }

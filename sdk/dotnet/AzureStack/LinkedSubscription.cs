@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureStack
     /// API Version: 2020-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack:LinkedSubscription")]
-    public partial class LinkedSubscription : Pulumi.CustomResource
+    public partial class LinkedSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The status of the remote management connection of the Azure Stack device.
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.AzureStack
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:LinkedSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:LinkedSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.AzureStack
         }
     }
 
-    public sealed class LinkedSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class LinkedSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier associated with the device subscription.
@@ -182,5 +182,6 @@ namespace Pulumi.AzureNative.AzureStack
         public LinkedSubscriptionArgs()
         {
         }
+        public static new LinkedSubscriptionArgs Empty => new LinkedSubscriptionArgs();
     }
 }

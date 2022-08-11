@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// <summary>
     /// Describes a virtual machines scale sets network configuration's DNS settings.
     /// </summary>
-    public sealed class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs()
         {
         }
+        public static new VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs Empty => new VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs();
     }
 }

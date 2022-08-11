@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210111.Inputs
     /// <summary>
     /// The properties of a service instance.
     /// </summary>
-    public sealed class ServicesPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ServicesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
         private InputList<Inputs.ServiceAccessPolicyEntryArgs>? _accessPolicies;
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210111.Inputs
         public ServicesPropertiesArgs()
         {
         }
+        public static new ServicesPropertiesArgs Empty => new ServicesPropertiesArgs();
     }
 }

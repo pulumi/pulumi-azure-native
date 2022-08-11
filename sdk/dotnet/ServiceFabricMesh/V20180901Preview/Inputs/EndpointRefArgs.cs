@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes a reference to a service endpoint.
     /// </summary>
-    public sealed class EndpointRefArgs : Pulumi.ResourceArgs
+    public sealed class EndpointRefArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the endpoint.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public EndpointRefArgs()
         {
         }
+        public static new EndpointRefArgs Empty => new EndpointRefArgs();
     }
 }

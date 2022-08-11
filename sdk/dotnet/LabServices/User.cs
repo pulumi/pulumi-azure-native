@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.LabServices
     /// API Version: 2018-10-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The user email address, as it was specified during registration.
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20181015:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20181015:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.LabServices
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the lab Account.
@@ -194,5 +194,6 @@ namespace Pulumi.AzureNative.LabServices
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200101.Inputs
     /// <summary>
     /// Class for site properties.
     /// </summary>
-    public sealed class SitePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SitePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// On-premises agent details.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.OffAzure.V20200101.Inputs
         public SitePropertiesArgs()
         {
         }
+        public static new SitePropertiesArgs Empty => new SitePropertiesArgs();
     }
 }

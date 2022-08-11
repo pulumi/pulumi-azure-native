@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20180501Preview.Inputs
     /// <summary>
     /// Information about the webhook destination for an event subscription
     /// </summary>
-    public sealed class WebHookEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
+    public sealed class WebHookEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the endpoint for the event subscription destination
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.EventGrid.V20180501Preview.Inputs
         public WebHookEventSubscriptionDestinationArgs()
         {
         }
+        public static new WebHookEventSubscriptionDestinationArgs Empty => new WebHookEventSubscriptionDestinationArgs();
     }
 }

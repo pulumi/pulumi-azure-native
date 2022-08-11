@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20190401Preview.Inputs
     /// <summary>
     /// Plan details for the managed services.
     /// </summary>
-    public sealed class PlanArgs : Pulumi.ResourceArgs
+    public sealed class PlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The plan name.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ManagedServices.V20190401Preview.Inputs
         public PlanArgs()
         {
         }
+        public static new PlanArgs Empty => new PlanArgs();
     }
 }

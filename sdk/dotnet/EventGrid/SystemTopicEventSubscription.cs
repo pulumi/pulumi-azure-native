@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// API Version: 2020-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:SystemTopicEventSubscription")]
-    public partial class SystemTopicEventSubscription : Pulumi.CustomResource
+    public partial class SystemTopicEventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
@@ -129,12 +129,12 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:SystemTopicEventSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:SystemTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:SystemTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:SystemTopicEventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
     }
 
-    public sealed class SystemTopicEventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicEventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
@@ -244,5 +244,6 @@ namespace Pulumi.AzureNative.EventGrid
         {
             EventDeliverySchema = "EventGridSchema";
         }
+        public static new SystemTopicEventSubscriptionArgs Empty => new SystemTopicEventSubscriptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20210601
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20210601:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.Cache.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cache/v20200601:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20201201:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20200601:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Cache.V20210601
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Redis cache.
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.Cache.V20210601
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

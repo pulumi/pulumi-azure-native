@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Inputs
     /// <summary>
     /// The user assigned managed identity to use when accessing a resource.
     /// </summary>
-    public sealed class ResourceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ResourceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The user assigned managed identity's resource identifier to use when accessing a resource.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Inputs
         public ResourceIdentityArgs()
         {
         }
+        public static new ResourceIdentityArgs Empty => new ResourceIdentityArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Defines a managed rule set for Exclusions.
     /// </summary>
-    public sealed class ExclusionManagedRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class ExclusionManagedRuleSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ruleGroups")]
         private InputList<Inputs.ExclusionManagedRuleGroupArgs>? _ruleGroups;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public ExclusionManagedRuleSetArgs()
         {
         }
+        public static new ExclusionManagedRuleSetArgs Empty => new ExclusionManagedRuleSetArgs();
     }
 }

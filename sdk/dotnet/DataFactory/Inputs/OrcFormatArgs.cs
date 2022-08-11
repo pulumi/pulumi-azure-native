@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The data stored in Optimized Row Columnar (ORC) format.
     /// </summary>
-    public sealed class OrcFormatArgs : Pulumi.ResourceArgs
+    public sealed class OrcFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Deserializer. Type: string (or Expression with resultType string).
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public OrcFormatArgs()
         {
         }
+        public static new OrcFormatArgs Empty => new OrcFormatArgs();
     }
 }

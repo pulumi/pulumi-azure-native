@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for PostgreSQL data source.
     /// </summary>
-    public sealed class PostgreSqlLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class PostgreSqlLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PostgreSqlLinkedServiceArgs()
         {
         }
+        public static new PostgreSqlLinkedServiceArgs Empty => new PostgreSqlLinkedServiceArgs();
     }
 }

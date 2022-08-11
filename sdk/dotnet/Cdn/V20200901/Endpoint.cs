@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of content types on which compression applies. The value should be a valid MIME type.
@@ -184,19 +184,19 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cdn:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20150601:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20160402:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20161002:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20170402:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20171012:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20190415:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20161002:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20170402:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20171012:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190415:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -218,7 +218,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("contentTypesToCompress")]
         private InputList<string>? _contentTypesToCompress;
@@ -385,5 +385,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

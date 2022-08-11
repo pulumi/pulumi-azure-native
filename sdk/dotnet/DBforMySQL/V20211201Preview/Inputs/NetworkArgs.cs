@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
     /// <summary>
     /// Network related properties of a server
     /// </summary>
-    public sealed class NetworkArgs : Pulumi.ResourceArgs
+    public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Delegated subnet resource id used to setup vnet for a server.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
         public NetworkArgs()
         {
         }
+        public static new NetworkArgs Empty => new NetworkArgs();
     }
 }

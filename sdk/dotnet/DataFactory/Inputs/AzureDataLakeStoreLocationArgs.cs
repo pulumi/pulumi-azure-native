@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The location of azure data lake store dataset.
     /// </summary>
-    public sealed class AzureDataLakeStoreLocationArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataLakeStoreLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureDataLakeStoreLocationArgs()
         {
         }
+        public static new AzureDataLakeStoreLocationArgs Empty => new AzureDataLakeStoreLocationArgs();
     }
 }

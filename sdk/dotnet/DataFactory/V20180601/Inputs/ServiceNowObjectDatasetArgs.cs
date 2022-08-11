@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// ServiceNow server dataset.
     /// </summary>
-    public sealed class ServiceNowObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceNowObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ServiceNowObjectDatasetArgs()
         {
         }
+        public static new ServiceNowObjectDatasetArgs Empty => new ServiceNowObjectDatasetArgs();
     }
 }

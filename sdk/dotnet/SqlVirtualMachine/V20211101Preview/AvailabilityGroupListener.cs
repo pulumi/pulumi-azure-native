@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
     /// A SQL Server availability group listener.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener")]
-    public partial class AvailabilityGroupListener : Pulumi.CustomResource
+    public partial class AvailabilityGroupListener : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Availability Group configuration.
@@ -94,10 +94,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:AvailabilityGroupListener"},
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener"},
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener"},
-                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:AvailabilityGroupListener"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
         }
     }
 
-    public sealed class AvailabilityGroupListenerArgs : Pulumi.ResourceArgs
+    public sealed class AvailabilityGroupListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the availability group listener.
@@ -172,5 +172,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
         public AvailabilityGroupListenerArgs()
         {
         }
+        public static new AvailabilityGroupListenerArgs Empty => new AvailabilityGroupListenerArgs();
     }
 }

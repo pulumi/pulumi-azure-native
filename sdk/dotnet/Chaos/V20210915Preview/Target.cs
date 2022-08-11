@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
     /// Model that represents a Target resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos/v20210915preview:Target")]
-    public partial class Target : Pulumi.CustomResource
+    public partial class Target : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Location of the target resource.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:chaos:Target"},
+                    new global::Pulumi.Alias { Type = "azure-native:chaos:Target"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
         }
     }
 
-    public sealed class TargetArgs : Pulumi.ResourceArgs
+    public sealed class TargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the target resource.
@@ -139,5 +139,6 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
         public TargetArgs()
         {
         }
+        public static new TargetArgs Empty => new TargetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Search profile
     /// </summary>
-    public sealed class SearchProfileArgs : Pulumi.ResourceArgs
+    public sealed class SearchProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
         private InputList<Inputs.DiskInfoArgs>? _dataDisks;
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public SearchProfileArgs()
         {
         }
+        public static new SearchProfileArgs Empty => new SearchProfileArgs();
     }
 }

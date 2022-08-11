@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// <summary>
     /// Information about the deadletter destination with resource identity.
     /// </summary>
-    public sealed class DeadLetterWithResourceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class DeadLetterWithResourceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public DeadLetterWithResourceIdentityArgs()
         {
         }
+        public static new DeadLetterWithResourceIdentityArgs Empty => new DeadLetterWithResourceIdentityArgs();
     }
 }

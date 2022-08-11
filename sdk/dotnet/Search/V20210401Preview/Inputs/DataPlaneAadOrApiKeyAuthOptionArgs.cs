@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
     /// <summary>
     /// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
     /// </summary>
-    public sealed class DataPlaneAadOrApiKeyAuthOptionArgs : Pulumi.ResourceArgs
+    public sealed class DataPlaneAadOrApiKeyAuthOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes what response the data plane API of a Search service would send for requests that failed authentication.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
         public DataPlaneAadOrApiKeyAuthOptionArgs()
         {
         }
+        public static new DataPlaneAadOrApiKeyAuthOptionArgs Empty => new DataPlaneAadOrApiKeyAuthOptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
     /// <summary>
     /// The ETA (estimated time of arrival) for remediation
     /// </summary>
-    public sealed class RemediationEtaArgs : Pulumi.ResourceArgs
+    public sealed class RemediationEtaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ETA for remediation.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
         public RemediationEtaArgs()
         {
         }
+        public static new RemediationEtaArgs Empty => new RemediationEtaArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Specify action need to be taken when rule type is converting log to metric
     /// </summary>
-    public sealed class LogToMetricActionArgs : Pulumi.ResourceArgs
+    public sealed class LogToMetricActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("criteria", required: true)]
         private InputList<Inputs.CriteriaArgs>? _criteria;
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public LogToMetricActionArgs()
         {
         }
+        public static new LogToMetricActionArgs Empty => new LogToMetricActionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
     /// Describes the cloud service.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20210301:CloudService")]
-    public partial class CloudService : Pulumi.CustomResource
+    public partial class CloudService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.Compute.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:CloudService"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201001preview:CloudService"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:CloudService"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201001preview:CloudService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
         }
     }
 
-    public sealed class CloudServiceArgs : Pulumi.ResourceArgs
+    public sealed class CloudServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the cloud service.
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.Compute.V20210301
         public CloudServiceArgs()
         {
         }
+        public static new CloudServiceArgs Empty => new CloudServiceArgs();
     }
 }

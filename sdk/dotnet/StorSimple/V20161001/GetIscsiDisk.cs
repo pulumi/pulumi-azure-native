@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     }
 
 
-    public sealed class GetIscsiDiskArgs : Pulumi.InvokeArgs
+    public sealed class GetIscsiDiskArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -61,9 +61,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetIscsiDiskArgs()
         {
         }
+        public static new GetIscsiDiskArgs Empty => new GetIscsiDiskArgs();
     }
 
-    public sealed class GetIscsiDiskInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIscsiDiskInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -98,6 +99,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetIscsiDiskInvokeArgs()
         {
         }
+        public static new GetIscsiDiskInvokeArgs Empty => new GetIscsiDiskInvokeArgs();
     }
 
 

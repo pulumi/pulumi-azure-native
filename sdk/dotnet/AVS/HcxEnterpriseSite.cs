@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AVS
     /// API Version: 2020-03-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:HcxEnterpriseSite")]
-    public partial class HcxEnterpriseSite : Pulumi.CustomResource
+    public partial class HcxEnterpriseSite : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The activation key
@@ -65,11 +65,11 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200320:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:HcxEnterpriseSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:HcxEnterpriseSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:HcxEnterpriseSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:HcxEnterpriseSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:HcxEnterpriseSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:HcxEnterpriseSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.AVS
         }
     }
 
-    public sealed class HcxEnterpriseSiteArgs : Pulumi.ResourceArgs
+    public sealed class HcxEnterpriseSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the HCX Enterprise Site in the private cloud
@@ -114,5 +114,6 @@ namespace Pulumi.AzureNative.AVS
         public HcxEnterpriseSiteArgs()
         {
         }
+        public static new HcxEnterpriseSiteArgs Empty => new HcxEnterpriseSiteArgs();
     }
 }

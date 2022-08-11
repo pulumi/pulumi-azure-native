@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20180201.Inputs
     /// <summary>
     /// Azure Files or Blob Storage access information value for dictionary storage.
     /// </summary>
-    public sealed class AzureStorageInfoValueArgs : Pulumi.ResourceArgs
+    public sealed class AzureStorageInfoValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access key for the storage account.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Web.V20180201.Inputs
         public AzureStorageInfoValueArgs()
         {
         }
+        public static new AzureStorageInfoValueArgs Empty => new AzureStorageInfoValueArgs();
     }
 }

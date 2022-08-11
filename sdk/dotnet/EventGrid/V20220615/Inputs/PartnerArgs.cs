@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615.Inputs
     /// <summary>
     /// Information about the partner.
     /// </summary>
-    public sealed class PartnerArgs : Pulumi.ResourceArgs
+    public sealed class PartnerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expiration time of the partner authorization. If this timer expires, any request from this partner to create, update or delete resources in subscriber's
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.EventGrid.V20220615.Inputs
         public PartnerArgs()
         {
         }
+        public static new PartnerArgs Empty => new PartnerArgs();
     }
 }

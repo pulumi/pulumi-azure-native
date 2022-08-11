@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview.Inputs
 {
 
-    public sealed class CreateTenantRequestBodyPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CreateTenantRequestBodyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview.Inputs
         public CreateTenantRequestBodyPropertiesArgs()
         {
         }
+        public static new CreateTenantRequestBodyPropertiesArgs Empty => new CreateTenantRequestBodyPropertiesArgs();
     }
 }

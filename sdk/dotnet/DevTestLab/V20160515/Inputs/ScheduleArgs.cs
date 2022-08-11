@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// A schedule.
     /// </summary>
-    public sealed class ScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the schedule will occur once each day of the week, specify the daily recurrence.
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public ScheduleArgs()
         {
         }
+        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 }

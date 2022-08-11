@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
     /// <summary>
     /// The parameters to provide for the Kik channel.
     /// </summary>
-    public sealed class KikChannelPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KikChannelPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public KikChannelPropertiesArgs()
         {
         }
+        public static new KikChannelPropertiesArgs Empty => new KikChannelPropertiesArgs();
     }
 }

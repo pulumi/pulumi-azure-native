@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// One or more actions that will execute, modifying the request and/or response.
     /// </summary>
-    public sealed class RulesEngineActionArgs : Pulumi.ResourceArgs
+    public sealed class RulesEngineActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("requestHeaderActions")]
         private InputList<Inputs.HeaderActionArgs>? _requestHeaderActions;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public RulesEngineActionArgs()
         {
         }
+        public static new RulesEngineActionArgs Empty => new RulesEngineActionArgs();
     }
 }

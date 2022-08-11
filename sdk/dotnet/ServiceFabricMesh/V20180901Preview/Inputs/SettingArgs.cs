@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
     /// </summary>
-    public sealed class SettingArgs : Pulumi.ResourceArgs
+    public sealed class SettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the setting.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public SettingArgs()
         {
         }
+        public static new SettingArgs Empty => new SettingArgs();
     }
 }

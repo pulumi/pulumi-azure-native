@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// The private IP addresses/IP ranges to which traffic will not be SNAT.
     /// </summary>
-    public sealed class FirewallPolicySNATArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicySNATArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operation mode for automatically learning private ranges to not be SNAT
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public FirewallPolicySNATArgs()
         {
         }
+        public static new FirewallPolicySNATArgs Empty => new FirewallPolicySNATArgs();
     }
 }

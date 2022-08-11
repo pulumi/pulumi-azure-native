@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20210422Preview
     /// Describes a Machine Extension.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute/v20210422preview:MachineExtension")]
-    public partial class MachineExtension : Pulumi.CustomResource
+    public partial class MachineExtension : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -76,20 +76,20 @@ namespace Pulumi.AzureNative.HybridCompute.V20210422Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20190802preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20191212:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200730preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200802:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20211210preview:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:MachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20220510preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20190802preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20191212:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200730preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200802:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20211210preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220510preview:MachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20210422Preview
         }
     }
 
-    public sealed class MachineExtensionArgs : Pulumi.ResourceArgs
+    public sealed class MachineExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the machine extension.
@@ -158,5 +158,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20210422Preview
         public MachineExtensionArgs()
         {
         }
+        public static new MachineExtensionArgs Empty => new MachineExtensionArgs();
     }
 }

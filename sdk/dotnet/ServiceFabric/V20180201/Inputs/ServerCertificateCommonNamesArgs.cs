@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20180201.Inputs
     /// <summary>
     /// Describes a list of server certificates referenced by common name that are used to secure the cluster.
     /// </summary>
-    public sealed class ServerCertificateCommonNamesArgs : Pulumi.ResourceArgs
+    public sealed class ServerCertificateCommonNamesArgs : global::Pulumi.ResourceArgs
     {
         [Input("commonNames")]
         private InputList<Inputs.ServerCertificateCommonNameArgs>? _commonNames;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20180201.Inputs
         public ServerCertificateCommonNamesArgs()
         {
         }
+        public static new ServerCertificateCommonNamesArgs Empty => new ServerCertificateCommonNamesArgs();
     }
 }

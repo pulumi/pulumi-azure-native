@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20170501Preview.Inputs
     /// <summary>
     /// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
     /// </summary>
-    public sealed class MetricSettingsArgs : Pulumi.ResourceArgs
+    public sealed class MetricSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Insights.V20170501Preview.Inputs
         public MetricSettingsArgs()
         {
         }
+        public static new MetricSettingsArgs Empty => new MetricSettingsArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
     /// </summary>
     [Obsolete(@"Version 2019-06-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:synapse/v20190601preview:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ADLA resource ID.
@@ -167,13 +167,13 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -195,7 +195,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectivityEndpoints")]
         private InputMap<string>? _connectivityEndpoints;
@@ -320,5 +320,6 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview.Inputs
     /// <summary>
     /// The information of the target OS to be tested.
     /// </summary>
-    public sealed class TargetOSInfoArgs : Pulumi.ResourceArgs
+    public sealed class TargetOSInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview.Inputs
         public TargetOSInfoArgs()
         {
         }
+        public static new TargetOSInfoArgs Empty => new TargetOSInfoArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515.Inputs
     /// <summary>
     /// Cosmos DB MongoDB collection index key
     /// </summary>
-    public sealed class MongoIndexArgs : Pulumi.ResourceArgs
+    public sealed class MongoIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB MongoDB collection index keys
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515.Inputs
         public MongoIndexArgs()
         {
         }
+        public static new MongoIndexArgs Empty => new MongoIndexArgs();
     }
 }

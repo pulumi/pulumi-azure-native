@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20180201.Inputs
     /// <summary>
     /// The restriction because of which SKU cannot be used.
     /// </summary>
-    public sealed class RestrictionArgs : Pulumi.ResourceArgs
+    public sealed class RestrictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Storage.V20180201.Inputs
         public RestrictionArgs()
         {
         }
+        public static new RestrictionArgs Empty => new RestrictionArgs();
     }
 }

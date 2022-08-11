@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
     }
 
 
-    public sealed class GetWatchlistItemArgs : Pulumi.InvokeArgs
+    public sealed class GetWatchlistItemArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
         public GetWatchlistItemArgs()
         {
         }
+        public static new GetWatchlistItemArgs Empty => new GetWatchlistItemArgs();
     }
 
-    public sealed class GetWatchlistItemInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWatchlistItemInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
         public GetWatchlistItemInvokeArgs()
         {
         }
+        public static new GetWatchlistItemInvokeArgs Empty => new GetWatchlistItemInvokeArgs();
     }
 
 

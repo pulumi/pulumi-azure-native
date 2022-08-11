@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logz.Inputs
     /// <summary>
     /// Properties specific to the monitor resource.
     /// </summary>
-    public sealed class MonitorPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MonitorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("logzOrganizationProperties")]
         public Input<Inputs.LogzOrganizationPropertiesArgs>? LogzOrganizationProperties { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.Logz.Inputs
         public MonitorPropertiesArgs()
         {
         }
+        public static new MonitorPropertiesArgs Empty => new MonitorPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200101.Inputs
     /// <summary>
     /// Description of the shared access key.
     /// </summary>
-    public sealed class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the key.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Devices.V20200101.Inputs
         public SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs()
         {
         }
+        public static new SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs Empty => new SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs();
     }
 }

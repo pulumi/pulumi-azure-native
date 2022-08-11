@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Inputs
 {
 
-    public sealed class AuthPlatformArgs : Pulumi.ResourceArgs
+    public sealed class AuthPlatformArgs : global::Pulumi.ResourceArgs
     {
         [Input("configFilePath")]
         public Input<string>? ConfigFilePath { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public AuthPlatformArgs()
         {
         }
+        public static new AuthPlatformArgs Empty => new AuthPlatformArgs();
     }
 }

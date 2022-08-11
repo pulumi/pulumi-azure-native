@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     }
 
 
-    public sealed class GetSiteVNETConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteVNETConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the web app
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetSiteVNETConnectionArgs()
         {
         }
+        public static new GetSiteVNETConnectionArgs Empty => new GetSiteVNETConnectionArgs();
     }
 
-    public sealed class GetSiteVNETConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteVNETConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the web app
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetSiteVNETConnectionInvokeArgs()
         {
         }
+        public static new GetSiteVNETConnectionInvokeArgs Empty => new GetSiteVNETConnectionInvokeArgs();
     }
 
 

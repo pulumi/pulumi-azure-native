@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031.Inputs
     /// <summary>
     /// Properties related to ServiceBus.
     /// </summary>
-    public sealed class ServiceBusArgs : Pulumi.ResourceArgs
+    public sealed class ServiceBusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Dead letter storage secret. Will be obfuscated during read.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031.Inputs
         public ServiceBusArgs()
         {
         }
+        public static new ServiceBusArgs Empty => new ServiceBusArgs();
     }
 }

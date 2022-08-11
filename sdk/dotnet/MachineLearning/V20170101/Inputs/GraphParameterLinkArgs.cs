@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
     /// <summary>
     /// Association link for a graph global parameter to a node in the graph.
     /// </summary>
-    public sealed class GraphParameterLinkArgs : Pulumi.ResourceArgs
+    public sealed class GraphParameterLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The graph node's identifier
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
         public GraphParameterLinkArgs()
         {
         }
+        public static new GraphParameterLinkArgs Empty => new GraphParameterLinkArgs();
     }
 }

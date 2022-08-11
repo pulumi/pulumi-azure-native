@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Inputs
 {
 
-    public sealed class ClusterIdentityUserAssignedIdentitiesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterIdentityUserAssignedIdentitiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tenant id of user assigned identity.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         public ClusterIdentityUserAssignedIdentitiesArgs()
         {
         }
+        public static new ClusterIdentityUserAssignedIdentitiesArgs Empty => new ClusterIdentityUserAssignedIdentitiesArgs();
     }
 }

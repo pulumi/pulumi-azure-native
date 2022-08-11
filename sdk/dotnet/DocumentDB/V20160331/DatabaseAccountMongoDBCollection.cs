@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
     /// </summary>
     [Obsolete(@"Version 2016-03-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection")]
-    public partial class DatabaseAccountMongoDBCollection : Pulumi.CustomResource
+    public partial class DatabaseAccountMongoDBCollection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of index keys
@@ -77,31 +77,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515:DatabaseAccountMongoDBCollection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:DatabaseAccountMongoDBCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
         }
     }
 
-    public sealed class DatabaseAccountMongoDBCollectionArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseAccountMongoDBCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -170,5 +170,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
         public DatabaseAccountMongoDBCollectionArgs()
         {
         }
+        public static new DatabaseAccountMongoDBCollectionArgs Empty => new DatabaseAccountMongoDBCollectionArgs();
     }
 }

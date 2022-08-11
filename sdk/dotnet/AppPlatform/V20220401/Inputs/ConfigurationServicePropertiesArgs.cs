@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
     /// <summary>
     /// Application Configuration Service properties payload
     /// </summary>
-    public sealed class ConfigurationServicePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationServicePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The settings of Application Configuration Service.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401.Inputs
         public ConfigurationServicePropertiesArgs()
         {
         }
+        public static new ConfigurationServicePropertiesArgs Empty => new ConfigurationServicePropertiesArgs();
     }
 }

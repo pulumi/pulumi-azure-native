@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview.Inputs
     /// <summary>
     /// Configuration properties of an Azure Monitor workspace that receives change notifications.
     /// </summary>
-    public sealed class AzureMonitorWorkspacePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AzureMonitorWorkspacePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview.Inputs
         public AzureMonitorWorkspacePropertiesArgs()
         {
         }
+        public static new AzureMonitorWorkspacePropertiesArgs Empty => new AzureMonitorWorkspacePropertiesArgs();
     }
 }

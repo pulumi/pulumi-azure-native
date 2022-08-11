@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorSimple
     /// API Version: 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:ManagerExtendedInfo")]
-    public partial class ManagerExtendedInfo : Pulumi.CustomResource
+    public partial class ManagerExtendedInfo : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
@@ -101,8 +101,8 @@ namespace Pulumi.AzureNative.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:ManagerExtendedInfo"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:ManagerExtendedInfo"},
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple/v20161001:ManagerExtendedInfo"},
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple/v20170601:ManagerExtendedInfo"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.StorSimple
         }
     }
 
-    public sealed class ManagerExtendedInfoArgs : Pulumi.ResourceArgs
+    public sealed class ManagerExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
@@ -183,5 +183,6 @@ namespace Pulumi.AzureNative.StorSimple
         public ManagerExtendedInfoArgs()
         {
         }
+        public static new ManagerExtendedInfoArgs Empty => new ManagerExtendedInfoArgs();
     }
 }

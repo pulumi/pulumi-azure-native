@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Service Principal datastore credentials configuration.
     /// </summary>
-    public sealed class ServicePrincipalDatastoreCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class ServicePrincipalDatastoreCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authority URL used for authentication.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public ServicePrincipalDatastoreCredentialsArgs()
         {
         }
+        public static new ServicePrincipalDatastoreCredentialsArgs Empty => new ServicePrincipalDatastoreCredentialsArgs();
     }
 }

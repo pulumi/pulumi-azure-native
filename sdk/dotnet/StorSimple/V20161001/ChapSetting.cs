@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:ChapSetting")]
-    public partial class ChapSetting : Pulumi.CustomResource
+    public partial class ChapSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name.
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         }
     }
 
-    public sealed class ChapSettingArgs : Pulumi.ResourceArgs
+    public sealed class ChapSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The chap user name.
@@ -112,5 +112,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public ChapSettingArgs()
         {
         }
+        public static new ChapSettingArgs Empty => new ChapSettingArgs();
     }
 }

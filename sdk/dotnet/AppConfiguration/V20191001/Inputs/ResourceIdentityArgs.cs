@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppConfiguration.V20191001.Inputs
 {
 
-    public sealed class ResourceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ResourceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191001.Inputs
         public ResourceIdentityArgs()
         {
         }
+        public static new ResourceIdentityArgs Empty => new ResourceIdentityArgs();
     }
 }

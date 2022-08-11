@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     /// <summary>
     /// The routes that specify the endpoints used for login and logout requests.
     /// </summary>
-    public sealed class LoginRoutesArgs : Pulumi.ResourceArgs
+    public sealed class LoginRoutesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint at which a logout request should be made.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         public LoginRoutesArgs()
         {
         }
+        public static new LoginRoutesArgs Empty => new LoginRoutesArgs();
     }
 }

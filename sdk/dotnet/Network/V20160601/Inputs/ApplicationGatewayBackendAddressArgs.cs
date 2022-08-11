@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
     /// <summary>
     /// Backend Address of application gateway
     /// </summary>
-    public sealed class ApplicationGatewayBackendAddressArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayBackendAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Dns name
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
         public ApplicationGatewayBackendAddressArgs()
         {
         }
+        public static new ApplicationGatewayBackendAddressArgs Empty => new ApplicationGatewayBackendAddressArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// HDInsight Spark activity.
     /// </summary>
-    public sealed class HDInsightSparkActivityArgs : Pulumi.ResourceArgs
+    public sealed class HDInsightSparkActivityArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<object>? _arguments;
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HDInsightSparkActivityArgs()
         {
         }
+        public static new HDInsightSparkActivityArgs Empty => new HDInsightSparkActivityArgs();
     }
 }

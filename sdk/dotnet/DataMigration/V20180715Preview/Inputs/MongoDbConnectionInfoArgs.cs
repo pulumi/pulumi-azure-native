@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
     /// <summary>
     /// Describes a connection to a MongoDB data source
     /// </summary>
-    public sealed class MongoDbConnectionInfoArgs : Pulumi.ResourceArgs
+    public sealed class MongoDbConnectionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A MongoDB connection string or blob container URL. The user name and password can be specified here or in the userName and password properties
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
         public MongoDbConnectionInfoArgs()
         {
         }
+        public static new MongoDbConnectionInfoArgs Empty => new MongoDbConnectionInfoArgs();
     }
 }

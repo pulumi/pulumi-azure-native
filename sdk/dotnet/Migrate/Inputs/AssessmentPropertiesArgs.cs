@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     /// <summary>
     /// Properties of an assessment.
     /// </summary>
-    public sealed class AssessmentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Storage type selected for this disk.
@@ -120,5 +120,6 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public AssessmentPropertiesArgs()
         {
         }
+        public static new AssessmentPropertiesArgs Empty => new AssessmentPropertiesArgs();
     }
 }

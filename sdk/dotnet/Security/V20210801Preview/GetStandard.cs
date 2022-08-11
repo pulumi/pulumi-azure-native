@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
     }
 
 
-    public sealed class GetStandardArgs : Pulumi.InvokeArgs
+    public sealed class GetStandardArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         public GetStandardArgs()
         {
         }
+        public static new GetStandardArgs Empty => new GetStandardArgs();
     }
 
-    public sealed class GetStandardInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStandardInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         public GetStandardInvokeArgs()
         {
         }
+        public static new GetStandardInvokeArgs Empty => new GetStandardInvokeArgs();
     }
 
 

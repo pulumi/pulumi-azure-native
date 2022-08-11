@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320.Inputs
     /// <summary>
     /// Describes a storage account connection.
     /// </summary>
-    public sealed class StorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Resource Manager ID of the storage account resource.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320.Inputs
         public StorageAccountArgs()
         {
         }
+        public static new StorageAccountArgs Empty => new StorageAccountArgs();
     }
 }

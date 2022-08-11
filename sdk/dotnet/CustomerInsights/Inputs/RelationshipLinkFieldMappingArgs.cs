@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
     /// <summary>
     /// The fields mapping for Relationships.
     /// </summary>
-    public sealed class RelationshipLinkFieldMappingArgs : Pulumi.ResourceArgs
+    public sealed class RelationshipLinkFieldMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The field name on the Interaction Type.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
         public RelationshipLinkFieldMappingArgs()
         {
         }
+        public static new RelationshipLinkFieldMappingArgs Empty => new RelationshipLinkFieldMappingArgs();
     }
 }

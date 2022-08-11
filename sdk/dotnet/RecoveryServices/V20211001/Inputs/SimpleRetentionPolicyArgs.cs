@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
     /// <summary>
     /// Simple policy retention.
     /// </summary>
-    public sealed class SimpleRetentionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SimpleRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Retention duration of the protection policy.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         public SimpleRetentionPolicyArgs()
         {
         }
+        public static new SimpleRetentionPolicyArgs Empty => new SimpleRetentionPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201019Preview.Inputs
     /// <summary>
     /// Schema for MSIX Package Dependencies properties.
     /// </summary>
-    public sealed class MsixPackageDependenciesArgs : Pulumi.ResourceArgs
+    public sealed class MsixPackageDependenciesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of package dependency.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201019Preview.Inputs
         public MsixPackageDependenciesArgs()
         {
         }
+        public static new MsixPackageDependenciesArgs Empty => new MsixPackageDependenciesArgs();
     }
 }

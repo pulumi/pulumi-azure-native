@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707
     }
 
 
-    public sealed class GetApiManagementServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetApiManagementServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707
         public GetApiManagementServiceArgs()
         {
         }
+        public static new GetApiManagementServiceArgs Empty => new GetApiManagementServiceArgs();
     }
 
-    public sealed class GetApiManagementServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApiManagementServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707
         public GetApiManagementServiceInvokeArgs()
         {
         }
+        public static new GetApiManagementServiceInvokeArgs Empty => new GetApiManagementServiceInvokeArgs();
     }
 
 

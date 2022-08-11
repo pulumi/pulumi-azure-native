@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Purview configuration.
     /// </summary>
-    public sealed class PurviewConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PurviewConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Purview resource id.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PurviewConfigurationArgs()
         {
         }
+        public static new PurviewConfigurationArgs Empty => new PurviewConfigurationArgs();
     }
 }

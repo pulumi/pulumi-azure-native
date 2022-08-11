@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
     /// <summary>
     /// storage resource of type Azure Storage Account.
     /// </summary>
-    public sealed class StorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account key of the Azure Storage Account.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
         public StorageAccountArgs()
         {
         }
+        public static new StorageAccountArgs Empty => new StorageAccountArgs();
     }
 }

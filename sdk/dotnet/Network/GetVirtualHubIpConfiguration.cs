@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetVirtualHubIpConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualHubIpConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ipconfig.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Network
         public GetVirtualHubIpConfigurationArgs()
         {
         }
+        public static new GetVirtualHubIpConfigurationArgs Empty => new GetVirtualHubIpConfigurationArgs();
     }
 
-    public sealed class GetVirtualHubIpConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualHubIpConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ipconfig.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Network
         public GetVirtualHubIpConfigurationInvokeArgs()
         {
         }
+        public static new GetVirtualHubIpConfigurationInvokeArgs Empty => new GetVirtualHubIpConfigurationInvokeArgs();
     }
 
 

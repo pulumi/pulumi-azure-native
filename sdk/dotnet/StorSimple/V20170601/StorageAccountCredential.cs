@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     /// The storage account credential.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple/v20170601:StorageAccountCredential")]
-    public partial class StorageAccountCredential : Pulumi.CustomResource
+    public partial class StorageAccountCredential : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The details of the storage account password.
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storsimple:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple/v20161001:StorageAccountCredential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         }
     }
 
-    public sealed class StorageAccountCredentialArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The details of the storage account password.
@@ -152,5 +152,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public StorageAccountCredentialArgs()
         {
         }
+        public static new StorageAccountCredentialArgs Empty => new StorageAccountCredentialArgs();
     }
 }

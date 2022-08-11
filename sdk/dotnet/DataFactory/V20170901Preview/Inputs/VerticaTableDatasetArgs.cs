@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Vertica dataset.
     /// </summary>
-    public sealed class VerticaTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class VerticaTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public VerticaTableDatasetArgs()
         {
         }
+        public static new VerticaTableDatasetArgs Empty => new VerticaTableDatasetArgs();
     }
 }

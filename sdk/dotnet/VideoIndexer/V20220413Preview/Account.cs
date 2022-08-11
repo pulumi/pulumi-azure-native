@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoIndexer.V20220413Preview
     /// An Azure Video Indexer account.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoindexer/v20220413preview:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account's data-plane ID. This can be set only when connecting an existing classic account
@@ -112,10 +112,10 @@ namespace Pulumi.AzureNative.VideoIndexer.V20220413Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:videoindexer:Account"},
-                    new Pulumi.Alias { Type = "azure-native:videoindexer/v20211018preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:videoindexer/v20211027preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:videoindexer/v20211110preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211018preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211027preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211110preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.VideoIndexer.V20220413Preview
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account's data-plane ID. This can be set only when connecting an existing classic account
@@ -191,5 +191,6 @@ namespace Pulumi.AzureNative.VideoIndexer.V20220413Preview
         {
             AccountId = "00000000-0000-0000-0000-000000000000";
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

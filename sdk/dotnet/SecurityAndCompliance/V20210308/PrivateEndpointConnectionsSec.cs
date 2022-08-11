@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec")]
-    public partial class PrivateEndpointConnectionsSec : Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionsSec : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance:PrivateEndpointConnectionsSec"},
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:PrivateEndpointConnectionsSec"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         }
     }
 
-    public sealed class PrivateEndpointConnectionsSecArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionsSecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         public PrivateEndpointConnectionsSecArgs()
         {
         }
+        public static new PrivateEndpointConnectionsSecArgs Empty => new PrivateEndpointConnectionsSecArgs();
     }
 }

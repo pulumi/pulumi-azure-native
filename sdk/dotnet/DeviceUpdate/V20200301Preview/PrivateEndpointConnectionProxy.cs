@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
     /// Private endpoint connection proxy details.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy")]
-    public partial class PrivateEndpointConnectionProxy : Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionProxy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ETag from NRP.
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:deviceupdate:PrivateEndpointConnectionProxy"},
-                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate:PrivateEndpointConnectionProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionProxyArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionProxyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account name.
@@ -140,5 +140,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         public PrivateEndpointConnectionProxyArgs()
         {
         }
+        public static new PrivateEndpointConnectionProxyArgs Empty => new PrivateEndpointConnectionProxyArgs();
     }
 }

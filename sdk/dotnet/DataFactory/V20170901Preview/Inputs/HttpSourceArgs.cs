@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity source for an HTTP file.
     /// </summary>
-    public sealed class HttpSourceArgs : Pulumi.ResourceArgs
+    public sealed class HttpSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the timeout for a HTTP client to get HTTP response from HTTP server. The default value is equivalent to System.Net.HttpWebRequest.Timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HttpSourceArgs()
         {
         }
+        public static new HttpSourceArgs Empty => new HttpSourceArgs();
     }
 }

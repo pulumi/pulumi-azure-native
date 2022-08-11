@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// The routing policy object used in a RoutingIntent resource.
     /// </summary>
-    public sealed class RoutingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RoutingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinations", required: true)]
         private InputList<string>? _destinations;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public RoutingPolicyArgs()
         {
         }
+        public static new RoutingPolicyArgs Empty => new RoutingPolicyArgs();
     }
 }

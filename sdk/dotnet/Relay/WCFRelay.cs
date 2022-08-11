@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Relay
     /// API Version: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:WCFRelay")]
-    public partial class WCFRelay : Pulumi.CustomResource
+    public partial class WCFRelay : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the WCF relay was created.
@@ -101,9 +101,9 @@ namespace Pulumi.AzureNative.Relay
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:WCFRelay"},
-                    new Pulumi.Alias { Type = "azure-native:relay/v20170401:WCFRelay"},
-                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:WCFRelay"},
+                    new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:WCFRelay"},
+                    new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:WCFRelay"},
+                    new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:WCFRelay"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Relay
         }
     }
 
-    public sealed class WCFRelayArgs : Pulumi.ResourceArgs
+    public sealed class WCFRelayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The namespace name
@@ -172,5 +172,6 @@ namespace Pulumi.AzureNative.Relay
         public WCFRelayArgs()
         {
         }
+        public static new WCFRelayArgs Empty => new WCFRelayArgs();
     }
 }

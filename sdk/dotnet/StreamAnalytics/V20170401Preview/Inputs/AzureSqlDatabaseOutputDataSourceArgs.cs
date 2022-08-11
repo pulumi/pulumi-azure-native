@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes an Azure SQL database output data source.
     /// </summary>
-    public sealed class AzureSqlDatabaseOutputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class AzureSqlDatabaseOutputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Mode.
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public AzureSqlDatabaseOutputDataSourceArgs()
         {
         }
+        public static new AzureSqlDatabaseOutputDataSourceArgs Empty => new AzureSqlDatabaseOutputDataSourceArgs();
     }
 }

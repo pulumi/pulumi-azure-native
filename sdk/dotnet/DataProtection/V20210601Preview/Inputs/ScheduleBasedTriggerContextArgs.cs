@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210601Preview.Inputs
     /// <summary>
     /// Schedule based trigger context
     /// </summary>
-    public sealed class ScheduleBasedTriggerContextArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleBasedTriggerContextArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the specific object - used for deserializing
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataProtection.V20210601Preview.Inputs
         public ScheduleBasedTriggerContextArgs()
         {
         }
+        public static new ScheduleBasedTriggerContextArgs Empty => new ScheduleBasedTriggerContextArgs();
     }
 }

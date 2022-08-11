@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The AS2 agreement mdn settings.
     /// </summary>
-    public sealed class AS2MdnSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AS2MdnSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The disposition notification to header value.
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public AS2MdnSettingsArgs()
         {
         }
+        public static new AS2MdnSettingsArgs Empty => new AS2MdnSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501.Inputs
     /// <summary>
     /// Network interface properties.
     /// </summary>
-    public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipConfigurations")]
         private InputList<Inputs.NetworkInterfaceIPConfigurationArgs>? _ipConfigurations;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501.Inputs
         public NetworkInterfaceArgs()
         {
         }
+        public static new NetworkInterfaceArgs Empty => new NetworkInterfaceArgs();
     }
 }

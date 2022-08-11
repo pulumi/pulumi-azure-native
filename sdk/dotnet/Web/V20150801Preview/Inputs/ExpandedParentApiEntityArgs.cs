@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
     /// <summary>
     /// expanded parent object for expansion
     /// </summary>
-    public sealed class ExpandedParentApiEntityArgs : Pulumi.ResourceArgs
+    public sealed class ExpandedParentApiEntityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of connection provider
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
         public ExpandedParentApiEntityArgs()
         {
         }
+        public static new ExpandedParentApiEntityArgs Empty => new ExpandedParentApiEntityArgs();
     }
 }

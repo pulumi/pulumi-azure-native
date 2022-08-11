@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
     /// <summary>
     /// Video sink in a live topology allows for video and audio to be captured, optionally archived, and published via a video resource. If archiving is enabled, this results in a video of type 'archive'. If used in a batch topology, this allows for video and audio to be stored as a file, and published via a video resource of type 'file'
     /// </summary>
-    public sealed class VideoSinkArgs : Pulumi.ResourceArgs
+    public sealed class VideoSinkArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputs", required: true)]
         private InputList<Inputs.NodeInputArgs>? _inputs;
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         public VideoSinkArgs()
         {
         }
+        public static new VideoSinkArgs Empty => new VideoSinkArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp
     /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:VolumeGroup")]
-    public partial class VolumeGroup : Pulumi.CustomResource
+    public partial class VolumeGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Volume group details
@@ -83,9 +83,9 @@ namespace Pulumi.AzureNative.NetApp
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20210801:VolumeGroup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20211001:VolumeGroup"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20220101:VolumeGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:VolumeGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:VolumeGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:VolumeGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.NetApp
         }
     }
 
-    public sealed class VolumeGroupArgs : Pulumi.ResourceArgs
+    public sealed class VolumeGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -166,5 +166,6 @@ namespace Pulumi.AzureNative.NetApp
         public VolumeGroupArgs()
         {
         }
+        public static new VolumeGroupArgs Empty => new VolumeGroupArgs();
     }
 }

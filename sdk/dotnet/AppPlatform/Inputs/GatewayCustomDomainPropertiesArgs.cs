@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// <summary>
     /// The properties of custom domain for Spring Cloud Gateway
     /// </summary>
-    public sealed class GatewayCustomDomainPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class GatewayCustomDomainPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The thumbprint of bound certificate.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public GatewayCustomDomainPropertiesArgs()
         {
         }
+        public static new GatewayCustomDomainPropertiesArgs Empty => new GatewayCustomDomainPropertiesArgs();
     }
 }

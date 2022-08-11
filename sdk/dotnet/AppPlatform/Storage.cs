@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AppPlatform
     /// API Version: 2021-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Storage")]
-    public partial class Storage : Pulumi.CustomResource
+    public partial class Storage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Storage"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Storage"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Storage"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Storage"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Storage"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Storage"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Storage"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Storage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.AppPlatform
         }
     }
 
-    public sealed class StorageArgs : Pulumi.ResourceArgs
+    public sealed class StorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties of the storage resource payload.
@@ -119,5 +119,6 @@ namespace Pulumi.AzureNative.AppPlatform
         public StorageArgs()
         {
         }
+        public static new StorageArgs Empty => new StorageArgs();
     }
 }

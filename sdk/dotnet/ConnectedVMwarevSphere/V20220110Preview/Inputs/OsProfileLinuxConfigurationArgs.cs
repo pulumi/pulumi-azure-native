@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
     /// <summary>
     /// Specifies the linux configuration for update management.
     /// </summary>
-    public sealed class OsProfileLinuxConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OsProfileLinuxConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the assessment mode.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
         public OsProfileLinuxConfigurationArgs()
         {
         }
+        public static new OsProfileLinuxConfigurationArgs Empty => new OsProfileLinuxConfigurationArgs();
     }
 }

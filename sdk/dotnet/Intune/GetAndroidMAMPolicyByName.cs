@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Intune
     }
 
 
-    public sealed class GetAndroidMAMPolicyByNameArgs : Pulumi.InvokeArgs
+    public sealed class GetAndroidMAMPolicyByNameArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Location hostName for the tenant
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Intune
         public GetAndroidMAMPolicyByNameArgs()
         {
         }
+        public static new GetAndroidMAMPolicyByNameArgs Empty => new GetAndroidMAMPolicyByNameArgs();
     }
 
-    public sealed class GetAndroidMAMPolicyByNameInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAndroidMAMPolicyByNameInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Location hostName for the tenant
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Intune
         public GetAndroidMAMPolicyByNameInvokeArgs()
         {
         }
+        public static new GetAndroidMAMPolicyByNameInvokeArgs Empty => new GetAndroidMAMPolicyByNameInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
     /// <summary>
     /// Describes a virtual machines network configuration's DNS settings.
     /// </summary>
-    public sealed class VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
         public VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs()
         {
         }
+        public static new VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs Empty => new VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs();
     }
 }

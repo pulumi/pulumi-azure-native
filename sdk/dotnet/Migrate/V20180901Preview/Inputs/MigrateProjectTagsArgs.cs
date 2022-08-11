@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview.Inputs
     /// <summary>
     /// Gets or sets the tags.
     /// </summary>
-    public sealed class MigrateProjectTagsArgs : Pulumi.ResourceArgs
+    public sealed class MigrateProjectTagsArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         public Input<string>? AdditionalProperties { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview.Inputs
         public MigrateProjectTagsArgs()
         {
         }
+        public static new MigrateProjectTagsArgs Empty => new MigrateProjectTagsArgs();
     }
 }

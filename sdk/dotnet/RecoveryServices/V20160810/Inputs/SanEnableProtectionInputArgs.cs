@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
     /// <summary>
     /// San enable protection provider specific input.
     /// </summary>
-    public sealed class SanEnableProtectionInputArgs : Pulumi.ResourceArgs
+    public sealed class SanEnableProtectionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The class type.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
         public SanEnableProtectionInputArgs()
         {
         }
+        public static new SanEnableProtectionInputArgs Empty => new SanEnableProtectionInputArgs();
     }
 }

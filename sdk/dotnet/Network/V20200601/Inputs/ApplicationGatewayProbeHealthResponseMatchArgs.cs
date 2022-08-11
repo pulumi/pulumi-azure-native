@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
     /// <summary>
     /// Application gateway probe health response match.
     /// </summary>
-    public sealed class ApplicationGatewayProbeHealthResponseMatchArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayProbeHealthResponseMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Body that must be contained in the health response. Default value is empty.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
         public ApplicationGatewayProbeHealthResponseMatchArgs()
         {
         }
+        public static new ApplicationGatewayProbeHealthResponseMatchArgs Empty => new ApplicationGatewayProbeHealthResponseMatchArgs();
     }
 }

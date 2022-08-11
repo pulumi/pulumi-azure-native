@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20161201.Inputs
     /// <summary>
     /// Container for SQL workloads under SQL Availability Group.
     /// </summary>
-    public sealed class AzureSQLAGWorkloadContainerProtectionContainerArgs : Pulumi.ResourceArgs
+    public sealed class AzureSQLAGWorkloadContainerProtectionContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the container.
@@ -82,5 +82,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20161201.Inputs
         public AzureSQLAGWorkloadContainerProtectionContainerArgs()
         {
         }
+        public static new AzureSQLAGWorkloadContainerProtectionContainerArgs Empty => new AzureSQLAGWorkloadContainerProtectionContainerArgs();
     }
 }

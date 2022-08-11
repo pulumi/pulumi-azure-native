@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview.Inputs
     /// <summary>
     /// A Machine Learning compute based on Kubernetes Compute.
     /// </summary>
-    public sealed class KubernetesArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location for the underlying compute
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview.Inputs
         public KubernetesArgs()
         {
         }
+        public static new KubernetesArgs Empty => new KubernetesArgs();
     }
 }

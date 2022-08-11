@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// The configuration settings of the app registration for providers that have app ids and app secrets
     /// </summary>
-    public sealed class AppRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class AppRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The App ID of the app used for login.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public AppRegistrationArgs()
         {
         }
+        public static new AppRegistrationArgs Empty => new AppRegistrationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200101PrivatePreview
     /// A PostgreSQL Server key.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20200101privatepreview:ServerKey")]
-    public partial class ServerKey : Pulumi.CustomResource
+    public partial class ServerKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The key creation date.
@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200101PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200101:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200101:ServerKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200101PrivatePreview
         }
     }
 
-    public sealed class ServerKeyArgs : Pulumi.ResourceArgs
+    public sealed class ServerKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the PostgreSQL Server key to be operated on (updated or created).
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200101PrivatePreview
         public ServerKeyArgs()
         {
         }
+        public static new ServerKeyArgs Empty => new ServerKeyArgs();
     }
 }

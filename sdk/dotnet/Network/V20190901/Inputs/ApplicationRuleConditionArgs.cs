@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190901.Inputs
     /// <summary>
     /// Rule condition of type application.
     /// </summary>
-    public sealed class ApplicationRuleConditionArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the rule condition.
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.Network.V20190901.Inputs
         public ApplicationRuleConditionArgs()
         {
         }
+        public static new ApplicationRuleConditionArgs Empty => new ApplicationRuleConditionArgs();
     }
 }

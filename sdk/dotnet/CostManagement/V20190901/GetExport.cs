@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190901
     }
 
 
-    public sealed class GetExportArgs : Pulumi.InvokeArgs
+    public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Export Name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.CostManagement.V20190901
         public GetExportArgs()
         {
         }
+        public static new GetExportArgs Empty => new GetExportArgs();
     }
 
-    public sealed class GetExportInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Export Name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190901
         public GetExportInvokeArgs()
         {
         }
+        public static new GetExportInvokeArgs Empty => new GetExportInvokeArgs();
     }
 
 

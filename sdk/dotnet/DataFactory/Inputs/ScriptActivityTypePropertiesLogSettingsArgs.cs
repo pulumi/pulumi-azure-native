@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Log settings of script activity.
     /// </summary>
-    public sealed class ScriptActivityTypePropertiesLogSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ScriptActivityTypePropertiesLogSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination of logs. Type: string.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ScriptActivityTypePropertiesLogSettingsArgs()
         {
         }
+        public static new ScriptActivityTypePropertiesLogSettingsArgs Empty => new ScriptActivityTypePropertiesLogSettingsArgs();
     }
 }

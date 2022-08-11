@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
     /// <summary>
     /// API OAuth2 Authentication settings details.
     /// </summary>
-    public sealed class OpenIdAuthenticationSettingsContractArgs : Pulumi.ResourceArgs
+    public sealed class OpenIdAuthenticationSettingsContractArgs : global::Pulumi.ResourceArgs
     {
         [Input("bearerTokenSendingMethods")]
         private InputList<Union<string, Pulumi.AzureNative.ApiManagement.BearerTokenSendingMethods>>? _bearerTokenSendingMethods;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         public OpenIdAuthenticationSettingsContractArgs()
         {
         }
+        public static new OpenIdAuthenticationSettingsContractArgs Empty => new OpenIdAuthenticationSettingsContractArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
     /// API Version: 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetwork:ManagedNetworkGroup")]
-    public partial class ManagedNetworkGroup : Pulumi.CustomResource
+    public partial class ManagedNetworkGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ManagedNetworkGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ManagedNetworkGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
         }
     }
 
-    public sealed class ManagedNetworkGroupArgs : Pulumi.ResourceArgs
+    public sealed class ManagedNetworkGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Responsibility role under which this Managed Network Group will be created
@@ -206,5 +206,6 @@ namespace Pulumi.AzureNative.ManagedNetwork
         public ManagedNetworkGroupArgs()
         {
         }
+        public static new ManagedNetworkGroupArgs Empty => new ManagedNetworkGroupArgs();
     }
 }

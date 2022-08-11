@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Search
     }
 
 
-    public sealed class GetSharedPrivateLinkResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetSharedPrivateLinkResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Search
         public GetSharedPrivateLinkResourceArgs()
         {
         }
+        public static new GetSharedPrivateLinkResourceArgs Empty => new GetSharedPrivateLinkResourceArgs();
     }
 
-    public sealed class GetSharedPrivateLinkResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSharedPrivateLinkResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Search
         public GetSharedPrivateLinkResourceInvokeArgs()
         {
         }
+        public static new GetSharedPrivateLinkResourceInvokeArgs Empty => new GetSharedPrivateLinkResourceInvokeArgs();
     }
 
 

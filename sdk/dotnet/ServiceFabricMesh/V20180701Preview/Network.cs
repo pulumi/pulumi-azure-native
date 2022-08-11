@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     /// </summary>
     [Obsolete(@"Version 2018-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180701preview:Network")]
-    public partial class Network : Pulumi.CustomResource
+    public partial class Network : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the address prefix for this network.
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh:Network"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Network"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh:Network"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Network"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         }
     }
 
-    public sealed class NetworkArgs : Pulumi.ResourceArgs
+    public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the address prefix for this network.
@@ -165,5 +165,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public NetworkArgs()
         {
         }
+        public static new NetworkArgs Empty => new NetworkArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190901.Inputs
     /// <summary>
     /// The definition of data present in the query.
     /// </summary>
-    public sealed class QueryDatasetArgs : Pulumi.ResourceArgs
+    public sealed class QueryDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregation")]
         private InputMap<Inputs.QueryAggregationArgs>? _aggregation;
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.CostManagement.V20190901.Inputs
         public QueryDatasetArgs()
         {
         }
+        public static new QueryDatasetArgs Empty => new QueryDatasetArgs();
     }
 }

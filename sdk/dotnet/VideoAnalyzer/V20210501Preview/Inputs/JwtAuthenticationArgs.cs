@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Inputs
     /// <summary>
     /// Properties for access validation based on JSON Web Tokens (JWT).
     /// </summary>
-    public sealed class JwtAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class JwtAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         [Input("audiences")]
         private InputList<string>? _audiences;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Inputs
         public JwtAuthenticationArgs()
         {
         }
+        public static new JwtAuthenticationArgs Empty => new JwtAuthenticationArgs();
     }
 }

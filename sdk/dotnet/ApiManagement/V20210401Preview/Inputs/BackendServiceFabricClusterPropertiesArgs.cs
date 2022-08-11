@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview.Inputs
     /// <summary>
     /// Properties of the Service Fabric Type Backend.
     /// </summary>
-    public sealed class BackendServiceFabricClusterPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class BackendServiceFabricClusterPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client certificate id for the management endpoint.
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview.Inputs
         public BackendServiceFabricClusterPropertiesArgs()
         {
         }
+        public static new BackendServiceFabricClusterPropertiesArgs Empty => new BackendServiceFabricClusterPropertiesArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetBastionHostArgs : Pulumi.InvokeArgs
+    public sealed class GetBastionHostArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bastion Host.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Network
         public GetBastionHostArgs()
         {
         }
+        public static new GetBastionHostArgs Empty => new GetBastionHostArgs();
     }
 
-    public sealed class GetBastionHostInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBastionHostInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bastion Host.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Network
         public GetBastionHostInvokeArgs()
         {
         }
+        public static new GetBastionHostInvokeArgs Empty => new GetBastionHostInvokeArgs();
     }
 
 

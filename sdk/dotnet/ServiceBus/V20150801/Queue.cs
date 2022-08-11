@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicebus/v20150801:Queue")]
-    public partial class Queue : Pulumi.CustomResource
+    public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Last time a message was sent, or the last time there was a receive request to this queue.
@@ -191,14 +191,14 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicebus:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -220,7 +220,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
         }
     }
 
-    public sealed class QueueArgs : Pulumi.ResourceArgs
+    public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
@@ -351,5 +351,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
         public QueueArgs()
         {
         }
+        public static new QueueArgs Empty => new QueueArgs();
     }
 }

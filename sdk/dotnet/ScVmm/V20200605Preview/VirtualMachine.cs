@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     /// The VirtualMachines resource definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm/v20200605preview:VirtualMachine")]
-    public partial class VirtualMachine : Pulumi.CustomResource
+    public partial class VirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Availability Sets in vm.
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:scvmm:VirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         }
     }
 
-    public sealed class VirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilitySets")]
         private InputList<Inputs.VirtualMachinePropertiesAvailabilitySetsArgs>? _availabilitySets;
@@ -331,5 +331,6 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         public VirtualMachineArgs()
         {
         }
+        public static new VirtualMachineArgs Empty => new VirtualMachineArgs();
     }
 }

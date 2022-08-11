@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties of an artifact deployment.
     /// </summary>
-    public sealed class ArtifactDeploymentStatusPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ArtifactDeploymentStatusPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total count of the artifacts that were successfully applied.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public ArtifactDeploymentStatusPropertiesArgs()
         {
         }
+        public static new ArtifactDeploymentStatusPropertiesArgs Empty => new ArtifactDeploymentStatusPropertiesArgs();
     }
 }

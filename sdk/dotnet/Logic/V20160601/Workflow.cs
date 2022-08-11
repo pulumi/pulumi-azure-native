@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     /// The workflow type.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20160601:Workflow")]
-    public partial class Workflow : Pulumi.CustomResource
+    public partial class Workflow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the access endpoint.
@@ -124,10 +124,10 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logic:Workflow"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20150201preview:Workflow"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Workflow"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:Workflow"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:Workflow"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150201preview:Workflow"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Workflow"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:Workflow"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
         }
     }
 
-    public sealed class WorkflowArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
@@ -214,5 +214,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public WorkflowArgs()
         {
         }
+        public static new WorkflowArgs Empty => new WorkflowArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SignalRService
     }
 
 
-    public sealed class GetSignalRSharedPrivateLinkResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetSignalRSharedPrivateLinkResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.SignalRService
         public GetSignalRSharedPrivateLinkResourceArgs()
         {
         }
+        public static new GetSignalRSharedPrivateLinkResourceArgs Empty => new GetSignalRSharedPrivateLinkResourceArgs();
     }
 
-    public sealed class GetSignalRSharedPrivateLinkResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSignalRSharedPrivateLinkResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.SignalRService
         public GetSignalRSharedPrivateLinkResourceInvokeArgs()
         {
         }
+        public static new GetSignalRSharedPrivateLinkResourceInvokeArgs Empty => new GetSignalRSharedPrivateLinkResourceInvokeArgs();
     }
 
 

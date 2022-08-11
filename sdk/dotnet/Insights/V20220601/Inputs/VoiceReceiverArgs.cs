@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20220601.Inputs
     /// <summary>
     /// A voice receiver.
     /// </summary>
-    public sealed class VoiceReceiverArgs : Pulumi.ResourceArgs
+    public sealed class VoiceReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The country code of the voice receiver.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Insights.V20220601.Inputs
         public VoiceReceiverArgs()
         {
         }
+        public static new VoiceReceiverArgs Empty => new VoiceReceiverArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20190513.Inputs
     /// <summary>
     /// Azure VM workload-specific protected item.
     /// </summary>
-    public sealed class AzureVmWorkloadProtectedItemArgs : Pulumi.ResourceArgs
+    public sealed class AzureVmWorkloadProtectedItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the backed up item.
@@ -169,5 +169,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20190513.Inputs
         public AzureVmWorkloadProtectedItemArgs()
         {
         }
+        public static new AzureVmWorkloadProtectedItemArgs Empty => new AzureVmWorkloadProtectedItemArgs();
     }
 }

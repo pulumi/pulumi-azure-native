@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     }
 
 
-    public sealed class GetRouteArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public GetRouteArgs()
         {
         }
+        public static new GetRouteArgs Empty => new GetRouteArgs();
     }
 
-    public sealed class GetRouteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public GetRouteInvokeArgs()
         {
         }
+        public static new GetRouteInvokeArgs Empty => new GetRouteInvokeArgs();
     }
 
 

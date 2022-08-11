@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// <summary>
     /// Filter for the Event Channel.
     /// </summary>
-    public sealed class EventChannelFilterArgs : Pulumi.ResourceArgs
+    public sealed class EventChannelFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("advancedFilters")]
         private InputList<object>? _advancedFilters;
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         {
             EnableAdvancedFilteringOnArrays = false;
         }
+        public static new EventChannelFilterArgs Empty => new EventChannelFilterArgs();
     }
 }

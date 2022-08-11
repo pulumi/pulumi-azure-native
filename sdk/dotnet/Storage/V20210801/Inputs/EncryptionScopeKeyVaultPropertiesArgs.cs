@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
     /// <summary>
     /// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
     /// </summary>
-    public sealed class EncryptionScopeKeyVaultPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionScopeKeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Storage.V20210801.Inputs
         public EncryptionScopeKeyVaultPropertiesArgs()
         {
         }
+        public static new EncryptionScopeKeyVaultPropertiesArgs Empty => new EncryptionScopeKeyVaultPropertiesArgs();
     }
 }

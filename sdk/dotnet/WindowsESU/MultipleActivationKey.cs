@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.WindowsESU
     /// API Version: 2019-09-16-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:windowsesu:MultipleActivationKey")]
-    public partial class MultipleActivationKey : Pulumi.CustomResource
+    public partial class MultipleActivationKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Agreement number under which the key is requested.
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.WindowsESU
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:windowsesu/v20190916preview:MultipleActivationKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:windowsesu/v20190916preview:MultipleActivationKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.WindowsESU
         }
     }
 
-    public sealed class MultipleActivationKeyArgs : Pulumi.ResourceArgs
+    public sealed class MultipleActivationKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Agreement number under which the key is requested.
@@ -198,5 +198,6 @@ namespace Pulumi.AzureNative.WindowsESU
         {
             SupportType = "SupplementalServicing";
         }
+        public static new MultipleActivationKeyArgs Empty => new MultipleActivationKeyArgs();
     }
 }

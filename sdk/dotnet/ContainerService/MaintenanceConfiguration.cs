@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:MaintenanceConfiguration")]
-    public partial class MaintenanceConfiguration : Pulumi.CustomResource
+    public partial class MaintenanceConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -71,24 +71,24 @@ namespace Pulumi.AzureNative.ContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210301:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210501:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210701:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210801:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210901:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20211001:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20211101preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220101:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220102preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220201:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220301:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220401:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20201201:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210201:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210301:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210501:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210701:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210801:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210901:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20211001:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20211101preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220101:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220102preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220201:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220301:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220401:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.ContainerService
         }
     }
 
-    public sealed class MaintenanceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the maintenance configuration.
@@ -157,5 +157,6 @@ namespace Pulumi.AzureNative.ContainerService
         public MaintenanceConfigurationArgs()
         {
         }
+        public static new MaintenanceConfigurationArgs Empty => new MaintenanceConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.Inputs
     /// <summary>
     /// Network rule set
     /// </summary>
-    public sealed class NetworkRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
@@ -68,5 +68,6 @@ namespace Pulumi.AzureNative.Storage.Inputs
             Bypass = "AzureServices";
             DefaultAction = Pulumi.AzureNative.Storage.DefaultAction.Allow;
         }
+        public static new NetworkRuleSetArgs Empty => new NetworkRuleSetArgs();
     }
 }

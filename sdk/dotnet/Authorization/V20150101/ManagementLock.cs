@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Authorization.V20150101
     /// </summary>
     [Obsolete(@"Version 2015-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:authorization/v20150101:ManagementLock")]
-    public partial class ManagementLock : Pulumi.CustomResource
+    public partial class ManagementLock : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The lock level of the management lock.
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.Authorization.V20150101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization:ManagementLock"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLock"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLock"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLock"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization:ManagementLock"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLock"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLock"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLock"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Authorization.V20150101
         }
     }
 
-    public sealed class ManagementLockArgs : Pulumi.ResourceArgs
+    public sealed class ManagementLockArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The lock level of the management lock.
@@ -119,5 +119,6 @@ namespace Pulumi.AzureNative.Authorization.V20150101
         public ManagementLockArgs()
         {
         }
+        public static new ManagementLockArgs Empty => new ManagementLockArgs();
     }
 }

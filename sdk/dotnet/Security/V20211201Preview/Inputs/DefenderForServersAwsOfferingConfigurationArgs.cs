@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// configuration for Vulnerability Assessment autoprovisioning
     /// </summary>
-    public sealed class DefenderForServersAwsOfferingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForServersAwsOfferingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public DefenderForServersAwsOfferingConfigurationArgs()
         {
         }
+        public static new DefenderForServersAwsOfferingConfigurationArgs Empty => new DefenderForServersAwsOfferingConfigurationArgs();
     }
 }

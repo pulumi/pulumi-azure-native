@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
     /// An Azure SQL Database server.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20200202preview:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Administrator username for the server. Once created it cannot be changed.
@@ -118,16 +118,16 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:Server"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:Server"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20190601preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Administrator username for the server. Once created it cannot be changed.
@@ -220,5 +220,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 }

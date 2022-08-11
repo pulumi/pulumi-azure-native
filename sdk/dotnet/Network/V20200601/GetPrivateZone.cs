@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     }
 
 
-    public sealed class GetPrivateZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Private DNS zone (without a terminating dot).
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Network.V20200601
         public GetPrivateZoneArgs()
         {
         }
+        public static new GetPrivateZoneArgs Empty => new GetPrivateZoneArgs();
     }
 
-    public sealed class GetPrivateZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Private DNS zone (without a terminating dot).
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Network.V20200601
         public GetPrivateZoneInvokeArgs()
         {
         }
+        public static new GetPrivateZoneInvokeArgs Empty => new GetPrivateZoneInvokeArgs();
     }
 
 

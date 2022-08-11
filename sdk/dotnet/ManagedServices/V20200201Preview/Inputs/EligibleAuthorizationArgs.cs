@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
     /// <summary>
     /// The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
     /// </summary>
-    public sealed class EligibleAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class EligibleAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The just-in-time access policy setting.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
         public EligibleAuthorizationArgs()
         {
         }
+        public static new EligibleAuthorizationArgs Empty => new EligibleAuthorizationArgs();
     }
 }

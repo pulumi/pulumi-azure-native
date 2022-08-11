@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701.Inputs
     /// <summary>
     /// Parameters to reconcile to the AzureBlob source kind type.
     /// </summary>
-    public sealed class AzureBlobDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class AzureBlobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account key (shared key) to access the storage account
@@ -74,5 +74,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701.Inputs
             SyncIntervalInSeconds = 600;
             TimeoutInSeconds = 600;
         }
+        public static new AzureBlobDefinitionArgs Empty => new AzureBlobDefinitionArgs();
     }
 }

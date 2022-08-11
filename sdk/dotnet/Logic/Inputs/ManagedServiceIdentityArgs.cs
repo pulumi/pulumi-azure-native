@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// Managed service identity properties.
     /// </summary>
-    public sealed class ManagedServiceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ManagedServiceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public ManagedServiceIdentityArgs()
         {
         }
+        public static new ManagedServiceIdentityArgs Empty => new ManagedServiceIdentityArgs();
     }
 }

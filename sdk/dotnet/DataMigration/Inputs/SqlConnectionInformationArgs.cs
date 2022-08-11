@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// <summary>
     /// Source SQL Connection
     /// </summary>
-    public sealed class SqlConnectionInformationArgs : Pulumi.ResourceArgs
+    public sealed class SqlConnectionInformationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication type.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public SqlConnectionInformationArgs()
         {
         }
+        public static new SqlConnectionInformationArgs Empty => new SqlConnectionInformationArgs();
     }
 }

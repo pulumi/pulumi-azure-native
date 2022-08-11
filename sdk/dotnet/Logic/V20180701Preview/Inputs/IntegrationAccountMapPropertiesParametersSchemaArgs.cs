@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
     /// <summary>
     /// The parameters schema of integration account map.
     /// </summary>
-    public sealed class IntegrationAccountMapPropertiesParametersSchemaArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountMapPropertiesParametersSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The reference name.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
         public IntegrationAccountMapPropertiesParametersSchemaArgs()
         {
         }
+        public static new IntegrationAccountMapPropertiesParametersSchemaArgs Empty => new IntegrationAccountMapPropertiesParametersSchemaArgs();
     }
 }

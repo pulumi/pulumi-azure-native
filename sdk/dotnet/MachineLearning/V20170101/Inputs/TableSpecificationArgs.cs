@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
     /// <summary>
     /// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
     /// </summary>
-    public sealed class TableSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class TableSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Swagger schema description.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
         {
             Type = "object";
         }
+        public static new TableSpecificationArgs Empty => new TableSpecificationArgs();
     }
 }

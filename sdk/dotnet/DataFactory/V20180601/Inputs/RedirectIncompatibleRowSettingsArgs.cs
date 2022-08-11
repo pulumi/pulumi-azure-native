@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Redirect incompatible row settings
     /// </summary>
-    public sealed class RedirectIncompatibleRowSettingsArgs : Pulumi.ResourceArgs
+    public sealed class RedirectIncompatibleRowSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Azure Storage, Storage SAS, or Azure Data Lake Store linked service used for redirecting incompatible row. Must be specified if redirectIncompatibleRowSettings is specified. Type: string (or Expression with resultType string).
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public RedirectIncompatibleRowSettingsArgs()
         {
         }
+        public static new RedirectIncompatibleRowSettingsArgs Empty => new RedirectIncompatibleRowSettingsArgs();
     }
 }

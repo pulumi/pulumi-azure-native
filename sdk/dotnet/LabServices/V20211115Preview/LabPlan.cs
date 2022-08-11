@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
     /// Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices/v20211115preview:LabPlan")]
-    public partial class LabPlan : Pulumi.CustomResource
+    public partial class LabPlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The allowed regions for the lab creator to use when creating labs using this lab plan.
@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:labservices:LabPlan"},
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:LabPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices:LabPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:LabPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
         }
     }
 
-    public sealed class LabPlanArgs : Pulumi.ResourceArgs
+    public sealed class LabPlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedRegions")]
         private InputList<string>? _allowedRegions;
@@ -224,5 +224,6 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
         public LabPlanArgs()
         {
         }
+        public static new LabPlanArgs Empty => new LabPlanArgs();
     }
 }

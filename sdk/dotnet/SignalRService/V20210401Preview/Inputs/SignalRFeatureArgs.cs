@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20210401Preview.Inputs
     /// <summary>
     /// Feature of a SignalR resource, which controls the SignalR runtime behavior.
     /// </summary>
-    public sealed class SignalRFeatureArgs : Pulumi.ResourceArgs
+    public sealed class SignalRFeatureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// FeatureFlags is the supported features of Azure SignalR service.
@@ -46,5 +46,6 @@ namespace Pulumi.AzureNative.SignalRService.V20210401Preview.Inputs
         public SignalRFeatureArgs()
         {
         }
+        public static new SignalRFeatureArgs Empty => new SignalRFeatureArgs();
     }
 }

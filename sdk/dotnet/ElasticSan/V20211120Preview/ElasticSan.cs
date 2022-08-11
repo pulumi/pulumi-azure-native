@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
     /// Response for ElasticSan request.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan/v20211120preview:ElasticSan")]
-    public partial class ElasticSan : Pulumi.CustomResource
+    public partial class ElasticSan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Logical zone for Elastic San resource; example: ["1"].
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:elasticsan:ElasticSan"},
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan:ElasticSan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         }
     }
 
-    public sealed class ElasticSanArgs : Pulumi.ResourceArgs
+    public sealed class ElasticSanArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZones", required: true)]
         private InputList<string>? _availabilityZones;
@@ -217,5 +217,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public ElasticSanArgs()
         {
         }
+        public static new ElasticSanArgs Empty => new ElasticSanArgs();
     }
 }

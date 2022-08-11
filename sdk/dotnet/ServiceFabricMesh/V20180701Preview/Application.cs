@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     /// </summary>
     [Obsolete(@"Version 2018-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180701preview:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Internal use.
@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh:Application"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity of the application.
@@ -213,5 +213,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

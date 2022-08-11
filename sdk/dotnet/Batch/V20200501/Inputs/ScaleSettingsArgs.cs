@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20200501.Inputs
     /// <summary>
     /// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
     /// </summary>
-    public sealed class ScaleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property and fixedScale are mutually exclusive and one of the properties must be specified.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Batch.V20200501.Inputs
         public ScaleSettingsArgs()
         {
         }
+        public static new ScaleSettingsArgs Empty => new ScaleSettingsArgs();
     }
 }

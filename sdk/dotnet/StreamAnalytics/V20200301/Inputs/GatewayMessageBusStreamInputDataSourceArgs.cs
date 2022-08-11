@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// Describes a blob input data source that contains stream data.
     /// </summary>
-    public sealed class GatewayMessageBusStreamInputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class GatewayMessageBusStreamInputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Service Bus topic.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public GatewayMessageBusStreamInputDataSourceArgs()
         {
         }
+        public static new GatewayMessageBusStreamInputDataSourceArgs Empty => new GatewayMessageBusStreamInputDataSourceArgs();
     }
 }

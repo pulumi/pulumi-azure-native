@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// The inputs for the Azure Machine Learning Studio endpoint.
     /// </summary>
-    public sealed class AzureMachineLearningStudioInputsArgs : Pulumi.ResourceArgs
+    public sealed class AzureMachineLearningStudioInputsArgs : global::Pulumi.ResourceArgs
     {
         [Input("columnNames")]
         private InputList<Inputs.AzureMachineLearningStudioInputColumnArgs>? _columnNames;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public AzureMachineLearningStudioInputsArgs()
         {
         }
+        public static new AzureMachineLearningStudioInputsArgs Empty => new AzureMachineLearningStudioInputsArgs();
     }
 }

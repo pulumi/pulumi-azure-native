@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
     /// <summary>
     /// The configuration settings of the registration for the Azure Static Web Apps provider
     /// </summary>
-    public sealed class AzureStaticWebAppsRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class AzureStaticWebAppsRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Client ID of the app used for login.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
         public AzureStaticWebAppsRegistrationArgs()
         {
         }
+        public static new AzureStaticWebAppsRegistrationArgs Empty => new AzureStaticWebAppsRegistrationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20201201Preview.Inputs
     /// <summary>
     /// Additional Confidential Ledger properties.
     /// </summary>
-    public sealed class LedgerPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class LedgerPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("aadBasedSecurityPrincipals")]
         private InputList<Inputs.AADBasedSecurityPrincipalArgs>? _aadBasedSecurityPrincipals;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20201201Preview.Inputs
         public LedgerPropertiesArgs()
         {
         }
+        public static new LedgerPropertiesArgs Empty => new LedgerPropertiesArgs();
     }
 }

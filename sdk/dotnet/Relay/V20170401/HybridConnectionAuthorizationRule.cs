@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Relay.V20170401
     /// Description of a namespace authorization rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay/v20170401:HybridConnectionAuthorizationRule")]
-    public partial class HybridConnectionAuthorizationRule : Pulumi.CustomResource
+    public partial class HybridConnectionAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -58,9 +58,9 @@ namespace Pulumi.AzureNative.Relay.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:relay:HybridConnectionAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnectionAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnectionAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:relay:HybridConnectionAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnectionAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnectionAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Relay.V20170401
         }
     }
 
-    public sealed class HybridConnectionAuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class HybridConnectionAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization rule name.
@@ -123,5 +123,6 @@ namespace Pulumi.AzureNative.Relay.V20170401
         public HybridConnectionAuthorizationRuleArgs()
         {
         }
+        public static new HybridConnectionAuthorizationRuleArgs Empty => new HybridConnectionAuthorizationRuleArgs();
     }
 }

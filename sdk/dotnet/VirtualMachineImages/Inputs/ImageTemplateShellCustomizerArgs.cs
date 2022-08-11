@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
     /// <summary>
     /// Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
     /// </summary>
-    public sealed class ImageTemplateShellCustomizerArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplateShellCustomizerArgs : global::Pulumi.ResourceArgs
     {
         [Input("inline")]
         private InputList<string>? _inline;
@@ -56,5 +56,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         {
             Sha256Checksum = "";
         }
+        public static new ImageTemplateShellCustomizerArgs Empty => new ImageTemplateShellCustomizerArgs();
     }
 }

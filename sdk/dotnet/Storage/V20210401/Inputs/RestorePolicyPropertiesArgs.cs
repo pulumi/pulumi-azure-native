@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210401.Inputs
     /// <summary>
     /// The blob service properties for blob restore policy
     /// </summary>
-    public sealed class RestorePolicyPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RestorePolicyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Storage.V20210401.Inputs
         public RestorePolicyPropertiesArgs()
         {
         }
+        public static new RestorePolicyPropertiesArgs Empty => new RestorePolicyPropertiesArgs();
     }
 }

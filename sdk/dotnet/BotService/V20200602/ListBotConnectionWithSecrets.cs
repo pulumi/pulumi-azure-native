@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.BotService.V20200602
     }
 
 
-    public sealed class ListBotConnectionWithSecretsArgs : Pulumi.InvokeArgs
+    public sealed class ListBotConnectionWithSecretsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bot Service Connection Setting resource.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.BotService.V20200602
         public ListBotConnectionWithSecretsArgs()
         {
         }
+        public static new ListBotConnectionWithSecretsArgs Empty => new ListBotConnectionWithSecretsArgs();
     }
 
-    public sealed class ListBotConnectionWithSecretsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListBotConnectionWithSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bot Service Connection Setting resource.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.BotService.V20200602
         public ListBotConnectionWithSecretsInvokeArgs()
         {
         }
+        public static new ListBotConnectionWithSecretsInvokeArgs Empty => new ListBotConnectionWithSecretsInvokeArgs();
     }
 
 

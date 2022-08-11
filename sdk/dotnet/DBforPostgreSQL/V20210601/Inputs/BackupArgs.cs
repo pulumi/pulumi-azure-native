@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601.Inputs
     /// <summary>
     /// Backup properties of a server
     /// </summary>
-    public sealed class BackupArgs : Pulumi.ResourceArgs
+    public sealed class BackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backup retention days for the server.
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601.Inputs
             BackupRetentionDays = 7;
             GeoRedundantBackup = "Disabled";
         }
+        public static new BackupArgs Empty => new BackupArgs();
     }
 }

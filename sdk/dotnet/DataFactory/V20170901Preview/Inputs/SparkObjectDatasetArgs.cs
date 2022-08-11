@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Spark Server dataset.
     /// </summary>
-    public sealed class SparkObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SparkObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SparkObjectDatasetArgs()
         {
         }
+        public static new SparkObjectDatasetArgs Empty => new SparkObjectDatasetArgs();
     }
 }

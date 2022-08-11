@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     /// <summary>
     /// Destination of the view data. Currently only csv format is supported.
     /// </summary>
-    public sealed class FileDestinationArgs : Pulumi.ResourceArgs
+    public sealed class FileDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("fileFormats")]
         private InputList<Union<string, Pulumi.AzureNative.CostManagement.FileFormat>>? _fileFormats;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public FileDestinationArgs()
         {
         }
+        public static new FileDestinationArgs Empty => new FileDestinationArgs();
     }
 }

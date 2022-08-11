@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview.Inputs
     /// <summary>
     /// An Azure NetApp Files volume from Microsoft.NetApp provider
     /// </summary>
-    public sealed class NetAppVolumeArgs : Pulumi.ResourceArgs
+    public sealed class NetAppVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// File path through which the NFS volume is exposed by the provider
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview.Inputs
         public NetAppVolumeArgs()
         {
         }
+        public static new NetAppVolumeArgs Empty => new NetAppVolumeArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20181201
     }
 
 
-    public sealed class GetVirtualNetworkTapArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkTapArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Network.V20181201
         public GetVirtualNetworkTapArgs()
         {
         }
+        public static new GetVirtualNetworkTapArgs Empty => new GetVirtualNetworkTapArgs();
     }
 
-    public sealed class GetVirtualNetworkTapInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkTapInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Network.V20181201
         public GetVirtualNetworkTapInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkTapInvokeArgs Empty => new GetVirtualNetworkTapInvokeArgs();
     }
 
 

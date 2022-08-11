@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200801
     }
 
 
-    public sealed class GetSecurityPartnerProviderArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityPartnerProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Network.V20200801
         public GetSecurityPartnerProviderArgs()
         {
         }
+        public static new GetSecurityPartnerProviderArgs Empty => new GetSecurityPartnerProviderArgs();
     }
 
-    public sealed class GetSecurityPartnerProviderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityPartnerProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Network.V20200801
         public GetSecurityPartnerProviderInvokeArgs()
         {
         }
+        public static new GetSecurityPartnerProviderInvokeArgs Empty => new GetSecurityPartnerProviderInvokeArgs();
     }
 
 

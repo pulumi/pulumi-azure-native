@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Options for controlling the validation of TLS endpoints.
     /// </summary>
-    public sealed class TlsValidationOptionsArgs : Pulumi.ResourceArgs
+    public sealed class TlsValidationOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set to 'true' causes the certificate subject name validation to be skipped. Default is 'false'.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public TlsValidationOptionsArgs()
         {
         }
+        public static new TlsValidationOptionsArgs Empty => new TlsValidationOptionsArgs();
     }
 }

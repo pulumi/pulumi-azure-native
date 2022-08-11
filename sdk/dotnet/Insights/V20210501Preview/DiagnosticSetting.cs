@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
     /// The diagnostic setting resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20210501preview:DiagnosticSetting")]
-    public partial class DiagnosticSetting : Pulumi.CustomResource
+    public partial class DiagnosticSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource Id for the event hub authorization rule.
@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights:DiagnosticSetting"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20170501preview:DiagnosticSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:DiagnosticSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20170501preview:DiagnosticSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         }
     }
 
-    public sealed class DiagnosticSettingArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource Id for the event hub authorization rule.
@@ -218,5 +218,6 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         public DiagnosticSettingArgs()
         {
         }
+        public static new DiagnosticSettingArgs Empty => new DiagnosticSettingArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// Represents an Asset used as a JobOutput.
     /// </summary>
-    public sealed class JobOutputAssetArgs : Pulumi.ResourceArgs
+    public sealed class JobOutputAssetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the output Asset.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public JobOutputAssetArgs()
         {
         }
+        public static new JobOutputAssetArgs Empty => new JobOutputAssetArgs();
     }
 }

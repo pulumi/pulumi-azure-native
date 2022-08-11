@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview.Inputs
     /// <summary>
     /// The properties of a private endpoint connection.
     /// </summary>
-    public sealed class ConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview.Inputs
         public ConnectionPropertiesArgs()
         {
         }
+        public static new ConnectionPropertiesArgs Empty => new ConnectionPropertiesArgs();
     }
 }

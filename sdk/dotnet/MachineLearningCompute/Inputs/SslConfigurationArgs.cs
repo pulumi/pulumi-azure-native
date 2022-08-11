@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.Inputs
     /// <summary>
     /// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
     /// </summary>
-    public sealed class SslConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SslConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SSL cert data in PEM format.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute.Inputs
         {
             Status = "Enabled";
         }
+        public static new SslConfigurationArgs Empty => new SslConfigurationArgs();
     }
 }

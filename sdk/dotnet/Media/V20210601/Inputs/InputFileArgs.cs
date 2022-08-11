@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// An InputDefinition for a single file.  TrackSelections are scoped to the file specified.
     /// </summary>
-    public sealed class InputFileArgs : Pulumi.ResourceArgs
+    public sealed class InputFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the file that this input definition applies to.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public InputFileArgs()
         {
         }
+        public static new InputFileArgs Empty => new InputFileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// Container for data asset versions.
     /// </summary>
-    public sealed class DataContainerArgs : Pulumi.ResourceArgs
+    public sealed class DataContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The asset description text.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public DataContainerArgs()
         {
         }
+        public static new DataContainerArgs Empty => new DataContainerArgs();
     }
 }

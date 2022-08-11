@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Workloads
     /// API Version: 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:PhpWorkload")]
-    public partial class PhpWorkload : Pulumi.CustomResource
+    public partial class PhpWorkload : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Admin user profile used for VM and VMSS
@@ -173,7 +173,7 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:PhpWorkload"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:PhpWorkload"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -195,7 +195,7 @@ namespace Pulumi.AzureNative.Workloads
         }
     }
 
-    public sealed class PhpWorkloadArgs : Pulumi.ResourceArgs
+    public sealed class PhpWorkloadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Admin user profile used for VM and VMSS
@@ -326,5 +326,6 @@ namespace Pulumi.AzureNative.Workloads
         public PhpWorkloadArgs()
         {
         }
+        public static new PhpWorkloadArgs Empty => new PhpWorkloadArgs();
     }
 }

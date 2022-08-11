@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// Container App scaling configurations.
     /// </summary>
-    public sealed class ScaleArgs : Pulumi.ResourceArgs
+    public sealed class ScaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional. Maximum number of container replicas. Defaults to 10 if not set.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public ScaleArgs()
         {
         }
+        public static new ScaleArgs Empty => new ScaleArgs();
     }
 }

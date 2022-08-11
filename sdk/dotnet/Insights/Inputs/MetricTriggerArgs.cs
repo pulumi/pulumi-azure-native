@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// The trigger that results in a scaling action.
     /// </summary>
-    public sealed class MetricTriggerArgs : Pulumi.ResourceArgs
+    public sealed class MetricTriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputList<Inputs.ScaleRuleMetricDimensionArgs>? _dimensions;
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public MetricTriggerArgs()
         {
         }
+        public static new MetricTriggerArgs Empty => new MetricTriggerArgs();
     }
 }

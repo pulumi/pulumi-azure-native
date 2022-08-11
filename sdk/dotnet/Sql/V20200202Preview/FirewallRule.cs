@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
     /// A server firewall rule.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20200202preview:FirewallRule")]
-    public partial class FirewallRule : Pulumi.CustomResource
+    public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
@@ -64,15 +64,15 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         }
     }
 
-    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public FirewallRuleArgs()
         {
         }
+        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 }

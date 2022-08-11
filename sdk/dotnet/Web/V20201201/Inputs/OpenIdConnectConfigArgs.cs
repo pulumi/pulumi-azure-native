@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
     /// <summary>
     /// The configuration settings of the endpoints used for the custom Open ID Connect provider.
     /// </summary>
-    public sealed class OpenIdConnectConfigArgs : Pulumi.ResourceArgs
+    public sealed class OpenIdConnectConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint to be used to make an authorization request.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         public OpenIdConnectConfigArgs()
         {
         }
+        public static new OpenIdConnectConfigArgs Empty => new OpenIdConnectConfigArgs();
     }
 }

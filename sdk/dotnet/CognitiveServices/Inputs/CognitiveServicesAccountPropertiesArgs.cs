@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     /// <summary>
     /// Properties of Cognitive Services account.
     /// </summary>
-    public sealed class CognitiveServicesAccountPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CognitiveServicesAccountPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The api properties for special APIs.
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public CognitiveServicesAccountPropertiesArgs()
         {
         }
+        public static new CognitiveServicesAccountPropertiesArgs Empty => new CognitiveServicesAccountPropertiesArgs();
     }
 }

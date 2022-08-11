@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210301.Inputs
 {
 
-    public sealed class UserAssignedIdentityArgs : Pulumi.ResourceArgs
+    public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client id of the user assigned identity.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.ContainerService.V20210301.Inputs
         public UserAssignedIdentityArgs()
         {
         }
+        public static new UserAssignedIdentityArgs Empty => new UserAssignedIdentityArgs();
     }
 }

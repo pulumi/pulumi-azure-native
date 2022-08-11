@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// The properties that are associated with an input containing stream data.
     /// </summary>
-    public sealed class StreamInputPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class StreamInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes how input data is compressed
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public StreamInputPropertiesArgs()
         {
         }
+        public static new StreamInputPropertiesArgs Empty => new StreamInputPropertiesArgs();
     }
 }

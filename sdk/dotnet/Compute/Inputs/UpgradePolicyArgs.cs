@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// <summary>
     /// Describes an upgrade policy - automatic, manual, or rolling.
     /// </summary>
-    public sealed class UpgradePolicyArgs : Pulumi.ResourceArgs
+    public sealed class UpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration parameters used for performing automatic OS Upgrade.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public UpgradePolicyArgs()
         {
         }
+        public static new UpgradePolicyArgs Empty => new UpgradePolicyArgs();
     }
 }

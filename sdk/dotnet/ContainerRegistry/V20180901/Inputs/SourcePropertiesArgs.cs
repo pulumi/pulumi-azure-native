@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901.Inputs
     /// <summary>
     /// The properties of the source code repository.
     /// </summary>
-    public sealed class SourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The branch name of the source code.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901.Inputs
         public SourcePropertiesArgs()
         {
         }
+        public static new SourcePropertiesArgs Empty => new SourcePropertiesArgs();
     }
 }

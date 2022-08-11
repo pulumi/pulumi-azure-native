@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501
     /// Route Filter Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200501:RouteFilter")]
-    public partial class RouteFilter : Pulumi.CustomResource
+    public partial class RouteFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -94,42 +94,42 @@ namespace Pulumi.AzureNative.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20161201:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170601:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170801:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171101:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180101:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180601:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180701:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:RouteFilter"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:RouteFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:RouteFilter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.Network.V20200501
         }
     }
 
-    public sealed class RouteFilterArgs : Pulumi.ResourceArgs
+    public sealed class RouteFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -204,5 +204,6 @@ namespace Pulumi.AzureNative.Network.V20200501
         public RouteFilterArgs()
         {
         }
+        public static new RouteFilterArgs Empty => new RouteFilterArgs();
     }
 }

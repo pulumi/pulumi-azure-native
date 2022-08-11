@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
     /// Represents the serial port of the parent resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:serialconsole/v20180501:SerialPort")]
-    public partial class SerialPort : Pulumi.CustomResource
+    public partial class SerialPort : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:serialconsole:SerialPort"},
+                    new global::Pulumi.Alias { Type = "azure-native:serialconsole:SerialPort"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
         }
     }
 
-    public sealed class SerialPortArgs : Pulumi.ResourceArgs
+    public sealed class SerialPortArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
         public SerialPortArgs()
         {
         }
+        public static new SerialPortArgs Empty => new SerialPortArgs();
     }
 }

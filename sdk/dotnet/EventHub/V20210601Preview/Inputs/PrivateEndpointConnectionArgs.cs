@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview.Inputs
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
     /// </summary>
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Private Endpoint resource for this Connection.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview.Inputs
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

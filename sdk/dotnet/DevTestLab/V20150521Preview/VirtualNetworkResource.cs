@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     /// </summary>
     [Obsolete(@"Version 2015-05-21-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:VirtualNetworkResource")]
-    public partial class VirtualNetworkResource : Pulumi.CustomResource
+    public partial class VirtualNetworkResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The allowed subnets of the virtual network.
@@ -95,9 +95,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualNetworkResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualNetworkResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualNetworkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:VirtualNetworkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualNetworkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualNetworkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         }
     }
 
-    public sealed class VirtualNetworkResourceArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedSubnets")]
         private InputList<Inputs.SubnetArgs>? _allowedSubnets;
@@ -214,5 +214,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public VirtualNetworkResourceArgs()
         {
         }
+        public static new VirtualNetworkResourceArgs Empty => new VirtualNetworkResourceArgs();
     }
 }

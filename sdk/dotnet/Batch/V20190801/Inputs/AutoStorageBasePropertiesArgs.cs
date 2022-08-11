@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20190801.Inputs
     /// <summary>
     /// The properties related to the auto-storage account.
     /// </summary>
-    public sealed class AutoStorageBasePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AutoStorageBasePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the storage account to be used for auto-storage account.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Batch.V20190801.Inputs
         public AutoStorageBasePropertiesArgs()
         {
         }
+        public static new AutoStorageBasePropertiesArgs Empty => new AutoStorageBasePropertiesArgs();
     }
 }

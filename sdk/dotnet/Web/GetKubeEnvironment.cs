@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetKubeEnvironmentArgs : Pulumi.InvokeArgs
+    public sealed class GetKubeEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Kubernetes Environment.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Web
         public GetKubeEnvironmentArgs()
         {
         }
+        public static new GetKubeEnvironmentArgs Empty => new GetKubeEnvironmentArgs();
     }
 
-    public sealed class GetKubeEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKubeEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Kubernetes Environment.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Web
         public GetKubeEnvironmentInvokeArgs()
         {
         }
+        public static new GetKubeEnvironmentInvokeArgs Empty => new GetKubeEnvironmentInvokeArgs();
     }
 
 

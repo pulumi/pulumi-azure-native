@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180401.Inputs
     /// <summary>
     /// VpnConnection Resource.
     /// </summary>
-    public sealed class VpnConnectionArgs : Pulumi.ResourceArgs
+    public sealed class VpnConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// EnableBgp flag
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Network.V20180401.Inputs
         public VpnConnectionArgs()
         {
         }
+        public static new VpnConnectionArgs Empty => new VpnConnectionArgs();
     }
 }

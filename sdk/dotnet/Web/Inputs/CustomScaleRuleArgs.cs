@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Container App container Custom scaling rule.
     /// </summary>
-    public sealed class CustomScaleRuleArgs : Pulumi.ResourceArgs
+    public sealed class CustomScaleRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("auth")]
         private InputList<Inputs.ScaleRuleAuthArgs>? _auth;
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         public CustomScaleRuleArgs()
         {
         }
+        public static new CustomScaleRuleArgs Empty => new CustomScaleRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
     /// <summary>
     /// Windows specific update configuration.
     /// </summary>
-    public sealed class WindowsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class WindowsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludedKbNumbers")]
         private InputList<string>? _excludedKbNumbers;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
         public WindowsPropertiesArgs()
         {
         }
+        public static new WindowsPropertiesArgs Empty => new WindowsPropertiesArgs();
     }
 }

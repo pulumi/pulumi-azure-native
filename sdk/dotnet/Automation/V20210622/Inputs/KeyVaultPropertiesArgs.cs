@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20210622.Inputs
     /// <summary>
     /// Settings concerning key vault encryption for a configuration store.
     /// </summary>
-    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of key used to encrypt data.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Automation.V20210622.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
+        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

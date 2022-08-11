@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Job execution constraints.
     /// </summary>
-    public sealed class TableVerticalLimitSettingsArgs : Pulumi.ResourceArgs
+    public sealed class TableVerticalLimitSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable early termination, determines whether or not if AutoMLJob will terminate early if there is no score improvement in last 20 iterations.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             Timeout = "PT6H";
             TrialTimeout = "PT30M";
         }
+        public static new TableVerticalLimitSettingsArgs Empty => new TableVerticalLimitSettingsArgs();
     }
 }

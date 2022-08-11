@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
     /// <summary>
     /// IaaS VM workload-specific backup item representing the Classic Compute VM.
     /// </summary>
-    public sealed class AzureIaaSClassicComputeVMProtectedItemArgs : Pulumi.ResourceArgs
+    public sealed class AzureIaaSClassicComputeVMProtectedItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the backup set the backup item belongs to
@@ -157,5 +157,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview.Inputs
         public AzureIaaSClassicComputeVMProtectedItemArgs()
         {
         }
+        public static new AzureIaaSClassicComputeVMProtectedItemArgs Empty => new AzureIaaSClassicComputeVMProtectedItemArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20150615.Inputs
     /// <summary>
     /// Describes a virtual machine scale set storage profile.
     /// </summary>
-    public sealed class VirtualMachineScaleSetStorageProfileArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetStorageProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The image reference.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20150615.Inputs
         public VirtualMachineScaleSetStorageProfileArgs()
         {
         }
+        public static new VirtualMachineScaleSetStorageProfileArgs Empty => new VirtualMachineScaleSetStorageProfileArgs();
     }
 }

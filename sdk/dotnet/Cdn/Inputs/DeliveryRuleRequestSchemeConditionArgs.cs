@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// <summary>
     /// Defines the RequestScheme condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleRequestSchemeConditionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleRequestSchemeConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public DeliveryRuleRequestSchemeConditionArgs()
         {
         }
+        public static new DeliveryRuleRequestSchemeConditionArgs Empty => new DeliveryRuleRequestSchemeConditionArgs();
     }
 }

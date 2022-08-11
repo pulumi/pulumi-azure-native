@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Trigger reference type.
     /// </summary>
-    public sealed class TriggerReferenceArgs : Pulumi.ResourceArgs
+    public sealed class TriggerReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reference trigger name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public TriggerReferenceArgs()
         {
         }
+        public static new TriggerReferenceArgs Empty => new TriggerReferenceArgs();
     }
 }

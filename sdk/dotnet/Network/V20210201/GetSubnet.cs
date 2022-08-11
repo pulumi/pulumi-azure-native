@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210201
     }
 
 
-    public sealed class GetSubnetArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Network.V20210201
         public GetSubnetArgs()
         {
         }
+        public static new GetSubnetArgs Empty => new GetSubnetArgs();
     }
 
-    public sealed class GetSubnetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Network.V20210201
         public GetSubnetInvokeArgs()
         {
         }
+        public static new GetSubnetInvokeArgs Empty => new GetSubnetInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetRouteTableArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Network
         public GetRouteTableArgs()
         {
         }
+        public static new GetRouteTableArgs Empty => new GetRouteTableArgs();
     }
 
-    public sealed class GetRouteTableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Network
         public GetRouteTableInvokeArgs()
         {
         }
+        public static new GetRouteTableInvokeArgs Empty => new GetRouteTableInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515.Inputs
     /// <summary>
     /// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
     /// </summary>
-    public sealed class LocalTimestampArgs : Pulumi.ResourceArgs
+    public sealed class LocalTimestampArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An enum that represents the format of the local timestamp property that needs to be set.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515.Inputs
         public LocalTimestampArgs()
         {
         }
+        public static new LocalTimestampArgs Empty => new LocalTimestampArgs();
     }
 }

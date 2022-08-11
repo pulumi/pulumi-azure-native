@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20210301.Inputs
     /// <summary>
     /// Domain Security Settings
     /// </summary>
-    public sealed class DomainSecuritySettingsArgs : Pulumi.ResourceArgs
+    public sealed class DomainSecuritySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to determine whether or not KerberosArmoring is enabled or disabled.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.Aad.V20210301.Inputs
             SyncOnPremPasswords = "Enabled";
             TlsV1 = "Enabled";
         }
+        public static new DomainSecuritySettingsArgs Empty => new DomainSecuritySettingsArgs();
     }
 }

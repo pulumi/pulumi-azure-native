@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
 {
 
-    public sealed class LoggingRuleHiddenPropertyPathsArgs : Pulumi.ResourceArgs
+    public sealed class LoggingRuleHiddenPropertyPathsArgs : global::Pulumi.ResourceArgs
     {
         [Input("hiddenPathsOnRequest")]
         private InputList<string>? _hiddenPathsOnRequest;
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         public LoggingRuleHiddenPropertyPathsArgs()
         {
         }
+        public static new LoggingRuleHiddenPropertyPathsArgs Empty => new LoggingRuleHiddenPropertyPathsArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     }
 
 
-    public sealed class GetPrivateEndpointConnectionByNameArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionByNameArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the private endpoint connection.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public GetPrivateEndpointConnectionByNameArgs()
         {
         }
+        public static new GetPrivateEndpointConnectionByNameArgs Empty => new GetPrivateEndpointConnectionByNameArgs();
     }
 
-    public sealed class GetPrivateEndpointConnectionByNameInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointConnectionByNameInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the private endpoint connection.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         public GetPrivateEndpointConnectionByNameInvokeArgs()
         {
         }
+        public static new GetPrivateEndpointConnectionByNameInvokeArgs Empty => new GetPrivateEndpointConnectionByNameInvokeArgs();
     }
 
 

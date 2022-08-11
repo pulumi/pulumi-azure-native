@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
     /// <summary>
     /// Describes an automation rule action to modify an object's properties
     /// </summary>
-    public sealed class AutomationRuleModifyPropertiesActionArgs : Pulumi.ResourceArgs
+    public sealed class AutomationRuleModifyPropertiesActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionConfiguration")]
         public Input<Inputs.IncidentPropertiesActionArgs>? ActionConfiguration { get; set; }
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public AutomationRuleModifyPropertiesActionArgs()
         {
         }
+        public static new AutomationRuleModifyPropertiesActionArgs Empty => new AutomationRuleModifyPropertiesActionArgs();
     }
 }

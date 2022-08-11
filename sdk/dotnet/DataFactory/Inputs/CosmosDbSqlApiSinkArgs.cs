@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Azure CosmosDB (SQL API) Collection sink.
     /// </summary>
-    public sealed class CosmosDbSqlApiSinkArgs : Pulumi.ResourceArgs
+    public sealed class CosmosDbSqlApiSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CosmosDbSqlApiSinkArgs()
         {
         }
+        public static new CosmosDbSqlApiSinkArgs Empty => new CosmosDbSqlApiSinkArgs();
     }
 }

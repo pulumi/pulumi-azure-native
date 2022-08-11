@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
     /// <summary>
     /// Defines the resource properties.
     /// </summary>
-    public sealed class HardwareProfileArgs : Pulumi.ResourceArgs
+    public sealed class HardwareProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets memory size in MBs for the vm.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
         public HardwareProfileArgs()
         {
         }
+        public static new HardwareProfileArgs Empty => new HardwareProfileArgs();
     }
 }

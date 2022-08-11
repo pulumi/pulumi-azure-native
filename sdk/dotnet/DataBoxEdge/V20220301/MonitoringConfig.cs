@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
     /// The metric setting details for the role
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20220301:MonitoringConfig")]
-    public partial class MonitoringConfig : Pulumi.CustomResource
+    public partial class MonitoringConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The metrics configuration details
@@ -64,15 +64,15 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:databoxedge:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:MonitoringConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:MonitoringConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:MonitoringConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:MonitoringConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:MonitoringConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:MonitoringConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:MonitoringConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:MonitoringConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:MonitoringConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:MonitoringConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
         }
     }
 
-    public sealed class MonitoringConfigArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device name.
@@ -129,5 +129,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
         public MonitoringConfigArgs()
         {
         }
+        public static new MonitoringConfigArgs Empty => new MonitoringConfigArgs();
     }
 }

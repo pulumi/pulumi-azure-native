@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101.Inputs
     /// <summary>
     /// The parameters used to create a new virtual network rule while creating a new Data Lake Store account.
     /// </summary>
-    public sealed class CreateVirtualNetworkRuleWithAccountParametersArgs : Pulumi.ResourceArgs
+    public sealed class CreateVirtualNetworkRuleWithAccountParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique name of the virtual network rule to create.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101.Inputs
         public CreateVirtualNetworkRuleWithAccountParametersArgs()
         {
         }
+        public static new CreateVirtualNetworkRuleWithAccountParametersArgs Empty => new CreateVirtualNetworkRuleWithAccountParametersArgs();
     }
 }

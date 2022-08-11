@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20200901
     /// </summary>
     [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:domainregistration/v20200901:DomainOwnershipIdentifier")]
-    public partial class DomainOwnershipIdentifier : Pulumi.CustomResource
+    public partial class DomainOwnershipIdentifier : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -71,18 +71,18 @@ namespace Pulumi.AzureNative.DomainRegistration.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:domainregistration:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20200601:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20201201:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210115:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210201:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210301:DomainOwnershipIdentifier"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20220301:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20200601:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20201201:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210115:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210201:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210301:DomainOwnershipIdentifier"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20220301:DomainOwnershipIdentifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20200901
         }
     }
 
-    public sealed class DomainOwnershipIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class DomainOwnershipIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of domain.
@@ -139,5 +139,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20200901
         public DomainOwnershipIdentifierArgs()
         {
         }
+        public static new DomainOwnershipIdentifierArgs Empty => new DomainOwnershipIdentifierArgs();
     }
 }

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20181220
     }
 
 
-    public sealed class GetRecoveryPointAccessTokenArgs : Pulumi.InvokeArgs
+    public sealed class GetRecoveryPointAccessTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the container.
@@ -90,9 +90,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20181220
         public GetRecoveryPointAccessTokenArgs()
         {
         }
+        public static new GetRecoveryPointAccessTokenArgs Empty => new GetRecoveryPointAccessTokenArgs();
     }
 
-    public sealed class GetRecoveryPointAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRecoveryPointAccessTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the container.
@@ -163,6 +164,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20181220
         public GetRecoveryPointAccessTokenInvokeArgs()
         {
         }
+        public static new GetRecoveryPointAccessTokenInvokeArgs Empty => new GetRecoveryPointAccessTokenInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401.Inputs
     /// <summary>
     /// ClusterProfile represents a cluster profile.
     /// </summary>
-    public sealed class ClusterProfileArgs : Pulumi.ResourceArgs
+    public sealed class ClusterProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain for the cluster.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401.Inputs
         public ClusterProfileArgs()
         {
         }
+        public static new ClusterProfileArgs Empty => new ClusterProfileArgs();
     }
 }

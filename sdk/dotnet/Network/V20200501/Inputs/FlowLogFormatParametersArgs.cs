@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
     /// <summary>
     /// Parameters that define the flow log format.
     /// </summary>
-    public sealed class FlowLogFormatParametersArgs : Pulumi.ResourceArgs
+    public sealed class FlowLogFormatParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The file type of flow log.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
         {
             Version = 0;
         }
+        public static new FlowLogFormatParametersArgs Empty => new FlowLogFormatParametersArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Probe of the application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayProbeArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayProbeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Host name to send the probe to.
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public ApplicationGatewayProbeArgs()
         {
         }
+        public static new ApplicationGatewayProbeArgs Empty => new ApplicationGatewayProbeArgs();
     }
 }

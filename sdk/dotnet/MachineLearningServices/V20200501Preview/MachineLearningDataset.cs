@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
     /// Machine Learning dataset object wrapped into ARM resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200501preview:MachineLearningDataset")]
-    public partial class MachineLearningDataset : Pulumi.CustomResource
+    public partial class MachineLearningDataset : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningDataset"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningDataset"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         }
     }
 
-    public sealed class MachineLearningDatasetArgs : Pulumi.ResourceArgs
+    public sealed class MachineLearningDatasetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Dataset name.
@@ -149,5 +149,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         {
             SkipValidation = false;
         }
+        public static new MachineLearningDatasetArgs Empty => new MachineLearningDatasetArgs();
     }
 }

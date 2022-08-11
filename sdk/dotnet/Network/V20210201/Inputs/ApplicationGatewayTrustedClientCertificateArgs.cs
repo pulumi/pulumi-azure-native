@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
     /// <summary>
     /// Trusted client certificates of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayTrustedClientCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayTrustedClientCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate public data.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20210201.Inputs
         public ApplicationGatewayTrustedClientCertificateArgs()
         {
         }
+        public static new ApplicationGatewayTrustedClientCertificateArgs Empty => new ApplicationGatewayTrustedClientCertificateArgs();
     }
 }

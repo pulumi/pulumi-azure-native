@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
     }
 
 
-    public sealed class GetIotConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetIotConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of IoT Connector resource.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
         public GetIotConnectorArgs()
         {
         }
+        public static new GetIotConnectorArgs Empty => new GetIotConnectorArgs();
     }
 
-    public sealed class GetIotConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIotConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of IoT Connector resource.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
         public GetIotConnectorInvokeArgs()
         {
         }
+        public static new GetIotConnectorInvokeArgs Empty => new GetIotConnectorInvokeArgs();
     }
 
 

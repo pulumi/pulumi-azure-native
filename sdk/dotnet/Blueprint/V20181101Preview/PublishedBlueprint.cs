@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
     /// Represents a published blueprint.
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint/v20181101preview:PublishedBlueprint")]
-    public partial class PublishedBlueprint : Pulumi.CustomResource
+    public partial class PublishedBlueprint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the published blueprint definition.
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:blueprint:PublishedBlueprint"},
+                    new global::Pulumi.Alias { Type = "azure-native:blueprint:PublishedBlueprint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         }
     }
 
-    public sealed class PublishedBlueprintArgs : Pulumi.ResourceArgs
+    public sealed class PublishedBlueprintArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the published blueprint definition.
@@ -193,5 +193,6 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public PublishedBlueprintArgs()
         {
         }
+        public static new PublishedBlueprintArgs Empty => new PublishedBlueprintArgs();
     }
 }

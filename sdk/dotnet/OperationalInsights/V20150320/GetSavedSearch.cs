@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
     }
 
 
-    public sealed class GetSavedSearchArgs : Pulumi.InvokeArgs
+    public sealed class GetSavedSearchArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group name.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         public GetSavedSearchArgs()
         {
         }
+        public static new GetSavedSearchArgs Empty => new GetSavedSearchArgs();
     }
 
-    public sealed class GetSavedSearchInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSavedSearchInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Resource Group name.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         public GetSavedSearchInvokeArgs()
         {
         }
+        public static new GetSavedSearchInvokeArgs Empty => new GetSavedSearchInvokeArgs();
     }
 
 

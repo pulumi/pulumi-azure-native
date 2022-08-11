@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Hubspot Service source.
     /// </summary>
-    public sealed class HubspotSourceArgs : Pulumi.ResourceArgs
+    public sealed class HubspotSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public HubspotSourceArgs()
         {
         }
+        public static new HubspotSourceArgs Empty => new HubspotSourceArgs();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Management.V20200201
     }
 
 
-    public sealed class GetHierarchySettingArgs : Pulumi.InvokeArgs
+    public sealed class GetHierarchySettingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Management Group ID.
@@ -37,9 +37,10 @@ namespace Pulumi.AzureNative.Management.V20200201
         public GetHierarchySettingArgs()
         {
         }
+        public static new GetHierarchySettingArgs Empty => new GetHierarchySettingArgs();
     }
 
-    public sealed class GetHierarchySettingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHierarchySettingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Management Group ID.
@@ -50,6 +51,7 @@ namespace Pulumi.AzureNative.Management.V20200201
         public GetHierarchySettingInvokeArgs()
         {
         }
+        public static new GetHierarchySettingInvokeArgs Empty => new GetHierarchySettingInvokeArgs();
     }
 
 

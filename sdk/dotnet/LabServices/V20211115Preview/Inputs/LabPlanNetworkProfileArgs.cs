@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview.Inputs
     /// <summary>
     /// Profile for how to handle networking for Lab Plans.
     /// </summary>
-    public sealed class LabPlanNetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class LabPlanNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The external subnet resource id
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview.Inputs
         public LabPlanNetworkProfileArgs()
         {
         }
+        public static new LabPlanNetworkProfileArgs Empty => new LabPlanNetworkProfileArgs();
     }
 }

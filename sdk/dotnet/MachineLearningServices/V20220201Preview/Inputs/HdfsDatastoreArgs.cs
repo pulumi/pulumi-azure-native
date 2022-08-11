@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
 {
 
-    public sealed class HdfsDatastoreArgs : Pulumi.ResourceArgs
+    public sealed class HdfsDatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Account credentials.
@@ -77,5 +77,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         {
             Protocol = "http";
         }
+        public static new HdfsDatastoreArgs Empty => new HdfsDatastoreArgs();
     }
 }

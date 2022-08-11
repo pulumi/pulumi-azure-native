@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Kusto
     }
 
 
-    public sealed class GetReadWriteDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetReadWriteDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Kusto
         public GetReadWriteDatabaseArgs()
         {
         }
+        public static new GetReadWriteDatabaseArgs Empty => new GetReadWriteDatabaseArgs();
     }
 
-    public sealed class GetReadWriteDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReadWriteDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Kusto
         public GetReadWriteDatabaseInvokeArgs()
         {
         }
+        public static new GetReadWriteDatabaseInvokeArgs Empty => new GetReadWriteDatabaseInvokeArgs();
     }
 
 

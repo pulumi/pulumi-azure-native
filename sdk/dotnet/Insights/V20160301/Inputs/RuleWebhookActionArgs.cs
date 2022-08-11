@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20160301.Inputs
     /// <summary>
     /// Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
     /// </summary>
-    public sealed class RuleWebhookActionArgs : Pulumi.ResourceArgs
+    public sealed class RuleWebhookActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Insights.V20160301.Inputs
         public RuleWebhookActionArgs()
         {
         }
+        public static new RuleWebhookActionArgs Empty => new RuleWebhookActionArgs();
     }
 }

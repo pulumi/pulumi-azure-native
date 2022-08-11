@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearning
     /// API Version: 2016-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation time for this workspace resource.
@@ -113,8 +113,8 @@ namespace Pulumi.AzureNative.MachineLearning
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearning/v20160401:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearning/v20191001:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20160401:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20191001:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.MachineLearning
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key vault identifier used for encrypted workspaces.
@@ -189,5 +189,6 @@ namespace Pulumi.AzureNative.MachineLearning
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

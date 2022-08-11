@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Pipeline Job definition: defines generic to MFE attributes.
     /// </summary>
-    public sealed class PipelineJobArgs : Pulumi.ResourceArgs
+    public sealed class PipelineJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the compute resource.
@@ -143,5 +143,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
             ExperimentName = "Default";
             IsArchived = false;
         }
+        public static new PipelineJobArgs Empty => new PipelineJobArgs();
     }
 }

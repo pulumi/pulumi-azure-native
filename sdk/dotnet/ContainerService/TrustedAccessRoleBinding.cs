@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// API Version: 2022-04-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:TrustedAccessRoleBinding")]
-    public partial class TrustedAccessRoleBinding : Pulumi.CustomResource
+    public partial class TrustedAccessRoleBinding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.ContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ContainerService
         }
     }
 
-    public sealed class TrustedAccessRoleBindingArgs : Pulumi.ResourceArgs
+    public sealed class TrustedAccessRoleBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -141,5 +141,6 @@ namespace Pulumi.AzureNative.ContainerService
         public TrustedAccessRoleBindingArgs()
         {
         }
+        public static new TrustedAccessRoleBindingArgs Empty => new TrustedAccessRoleBindingArgs();
     }
 }

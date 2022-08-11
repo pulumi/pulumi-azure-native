@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
     }
 
 
-    public sealed class GetMachineGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetMachineGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public GetMachineGroupArgs()
         {
         }
+        public static new GetMachineGroupArgs Empty => new GetMachineGroupArgs();
     }
 
-    public sealed class GetMachineGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMachineGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public GetMachineGroupInvokeArgs()
         {
         }
+        public static new GetMachineGroupInvokeArgs Empty => new GetMachineGroupInvokeArgs();
     }
 
 

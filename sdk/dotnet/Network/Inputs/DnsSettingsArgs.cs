@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// DNS Proxy Settings in Firewall Policy.
     /// </summary>
-    public sealed class DnsSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DnsSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable DNS Proxy on Firewalls attached to the Firewall Policy.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public DnsSettingsArgs()
         {
         }
+        public static new DnsSettingsArgs Empty => new DnsSettingsArgs();
     }
 }

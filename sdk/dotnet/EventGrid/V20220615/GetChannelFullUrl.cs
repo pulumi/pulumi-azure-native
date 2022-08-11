@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     }
 
 
-    public sealed class GetChannelFullUrlArgs : Pulumi.InvokeArgs
+    public sealed class GetChannelFullUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Channel.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         public GetChannelFullUrlArgs()
         {
         }
+        public static new GetChannelFullUrlArgs Empty => new GetChannelFullUrlArgs();
     }
 
-    public sealed class GetChannelFullUrlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetChannelFullUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Channel.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         public GetChannelFullUrlInvokeArgs()
         {
         }
+        public static new GetChannelFullUrlInvokeArgs Empty => new GetChannelFullUrlInvokeArgs();
     }
 
 

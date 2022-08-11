@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Search
     /// API Version: 2020-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:search:SharedPrivateLinkResource")]
-    public partial class SharedPrivateLinkResource : Pulumi.CustomResource
+    public partial class SharedPrivateLinkResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -59,9 +59,9 @@ namespace Pulumi.AzureNative.Search
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:search/v20200801:SharedPrivateLinkResource"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20200801preview:SharedPrivateLinkResource"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20210401preview:SharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801:SharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:SharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20210401preview:SharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Search
         }
     }
 
-    public sealed class SharedPrivateLinkResourceArgs : Pulumi.ResourceArgs
+    public sealed class SharedPrivateLinkResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
@@ -112,5 +112,6 @@ namespace Pulumi.AzureNative.Search
         public SharedPrivateLinkResourceArgs()
         {
         }
+        public static new SharedPrivateLinkResourceArgs Empty => new SharedPrivateLinkResourceArgs();
     }
 }

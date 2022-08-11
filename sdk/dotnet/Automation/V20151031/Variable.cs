@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
     /// Definition of the variable.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20151031:Variable")]
-    public partial class Variable : Pulumi.CustomResource
+    public partial class Variable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the creation time.
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation:Variable"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Variable"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Variable"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:Variable"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Variable"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Variable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
         }
     }
 
-    public sealed class VariableArgs : Pulumi.ResourceArgs
+    public sealed class VariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -153,5 +153,6 @@ namespace Pulumi.AzureNative.Automation.V20151031
         public VariableArgs()
         {
         }
+        public static new VariableArgs Empty => new VariableArgs();
     }
 }

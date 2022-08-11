@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615.Inputs
     /// <summary>
     /// Static delivery attribute mapping details.
     /// </summary>
-    public sealed class StaticDeliveryAttributeMappingArgs : Pulumi.ResourceArgs
+    public sealed class StaticDeliveryAttributeMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag to tell if the attribute contains sensitive information .
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.EventGrid.V20220615.Inputs
         {
             IsSecret = false;
         }
+        public static new StaticDeliveryAttributeMappingArgs Empty => new StaticDeliveryAttributeMappingArgs();
     }
 }

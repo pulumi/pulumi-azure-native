@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.Inputs
     /// <summary>
     /// Access Review Instance.
     /// </summary>
-    public sealed class AccessReviewInstanceArgs : Pulumi.ResourceArgs
+    public sealed class AccessReviewInstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("backupReviewers")]
         private InputList<Inputs.AccessReviewReviewerArgs>? _backupReviewers;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Authorization.Inputs
         public AccessReviewInstanceArgs()
         {
         }
+        public static new AccessReviewInstanceArgs Empty => new AccessReviewInstanceArgs();
     }
 }

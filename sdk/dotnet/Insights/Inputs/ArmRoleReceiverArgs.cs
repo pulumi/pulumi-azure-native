@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// An arm role receiver.
     /// </summary>
-    public sealed class ArmRoleReceiverArgs : Pulumi.ResourceArgs
+    public sealed class ArmRoleReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the arm role receiver. Names must be unique across all receivers within an action group.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         {
             UseCommonAlertSchema = false;
         }
+        public static new ArmRoleReceiverArgs Empty => new ArmRoleReceiverArgs();
     }
 }

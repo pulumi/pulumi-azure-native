@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150504Preview.Inputs
     /// <summary>
     /// An NS record.
     /// </summary>
-    public sealed class NsRecordArgs : Pulumi.ResourceArgs
+    public sealed class NsRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the name server name for this record, without a terminating dot.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20150504Preview.Inputs
         public NsRecordArgs()
         {
         }
+        public static new NsRecordArgs Empty => new NsRecordArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// <summary>
     /// The change history of the resource move.
     /// </summary>
-    public sealed class ResourceMoveChangeHistoryArgs : Pulumi.ResourceArgs
+    public sealed class ResourceMoveChangeHistoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure subscription ID of the resource.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public ResourceMoveChangeHistoryArgs()
         {
         }
+        public static new ResourceMoveChangeHistoryArgs Empty => new ResourceMoveChangeHistoryArgs();
     }
 }

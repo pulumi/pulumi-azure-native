@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
     /// <summary>
     /// An object that defines the blob inventory rule filter conditions.
     /// </summary>
-    public sealed class BlobInventoryPolicyFilterArgs : Pulumi.ResourceArgs
+    public sealed class BlobInventoryPolicyFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("blobTypes", required: true)]
         private InputList<string>? _blobTypes;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
         public BlobInventoryPolicyFilterArgs()
         {
         }
+        public static new BlobInventoryPolicyFilterArgs Empty => new BlobInventoryPolicyFilterArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200701
     }
 
 
-    public sealed class GetVpnSiteArgs : Pulumi.InvokeArgs
+    public sealed class GetVpnSiteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VpnSite.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Network.V20200701
         public GetVpnSiteArgs()
         {
         }
+        public static new GetVpnSiteArgs Empty => new GetVpnSiteArgs();
     }
 
-    public sealed class GetVpnSiteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpnSiteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource group name of the VpnSite.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Network.V20200701
         public GetVpnSiteInvokeArgs()
         {
         }
+        public static new GetVpnSiteInvokeArgs Empty => new GetVpnSiteInvokeArgs();
     }
 
 

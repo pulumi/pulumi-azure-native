@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetDnsResourceReferenceByTarResourcesArgs : Pulumi.InvokeArgs
+    public sealed class GetDnsResourceReferenceByTarResourcesArgs : global::Pulumi.InvokeArgs
     {
         [Input("targetResources")]
         private List<Inputs.SubResource>? _targetResources;
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Network
         public GetDnsResourceReferenceByTarResourcesArgs()
         {
         }
+        public static new GetDnsResourceReferenceByTarResourcesArgs Empty => new GetDnsResourceReferenceByTarResourcesArgs();
     }
 
-    public sealed class GetDnsResourceReferenceByTarResourcesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDnsResourceReferenceByTarResourcesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("targetResources")]
         private InputList<Inputs.SubResourceArgs>? _targetResources;
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Network
         public GetDnsResourceReferenceByTarResourcesInvokeArgs()
         {
         }
+        public static new GetDnsResourceReferenceByTarResourcesInvokeArgs Empty => new GetDnsResourceReferenceByTarResourcesInvokeArgs();
     }
 
 

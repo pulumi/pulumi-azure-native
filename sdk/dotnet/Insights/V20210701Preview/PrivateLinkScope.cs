@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
     /// An Azure Monitor PrivateLinkScope definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20210701preview:PrivateLinkScope")]
-    public partial class PrivateLinkScope : Pulumi.CustomResource
+    public partial class PrivateLinkScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Access mode settings
@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20191017preview:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20191017preview:PrivateLinkScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
         }
     }
 
-    public sealed class PrivateLinkScopeArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access mode settings
@@ -152,5 +152,6 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
         public PrivateLinkScopeArgs()
         {
         }
+        public static new PrivateLinkScopeArgs Empty => new PrivateLinkScopeArgs();
     }
 }

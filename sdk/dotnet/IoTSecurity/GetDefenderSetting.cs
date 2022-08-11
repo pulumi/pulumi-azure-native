@@ -20,11 +20,12 @@ namespace Pulumi.AzureNative.IoTSecurity
     }
 
 
-    public sealed class GetDefenderSettingArgs : Pulumi.InvokeArgs
+    public sealed class GetDefenderSettingArgs : global::Pulumi.InvokeArgs
     {
         public GetDefenderSettingArgs()
         {
         }
+        public static new GetDefenderSettingArgs Empty => new GetDefenderSettingArgs();
     }
 
 

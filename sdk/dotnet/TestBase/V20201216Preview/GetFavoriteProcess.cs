@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
     }
 
 
-    public sealed class GetFavoriteProcessArgs : Pulumi.InvokeArgs
+    public sealed class GetFavoriteProcessArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
@@ -55,9 +55,10 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         public GetFavoriteProcessArgs()
         {
         }
+        public static new GetFavoriteProcessArgs Empty => new GetFavoriteProcessArgs();
     }
 
-    public sealed class GetFavoriteProcessInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFavoriteProcessInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
@@ -86,6 +87,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         public GetFavoriteProcessInvokeArgs()
         {
         }
+        public static new GetFavoriteProcessInvokeArgs Empty => new GetFavoriteProcessInvokeArgs();
     }
 
 

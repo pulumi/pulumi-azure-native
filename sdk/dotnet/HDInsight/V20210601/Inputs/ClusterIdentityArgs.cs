@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// Identity for the cluster.
     /// </summary>
-    public sealed class ClusterIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ClusterIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public ClusterIdentityArgs()
         {
         }
+        public static new ClusterIdentityArgs Empty => new ClusterIdentityArgs();
     }
 }

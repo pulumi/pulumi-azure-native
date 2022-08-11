@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview.Inputs
     /// <summary>
     /// Customer End point to store/retrieve data during a contact.
     /// </summary>
-    public sealed class EndPointArgs : Pulumi.ResourceArgs
+    public sealed class EndPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of an end point.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview.Inputs
         public EndPointArgs()
         {
         }
+        public static new EndPointArgs Empty => new EndPointArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
     /// <summary>
     /// The object representing continuous mode backup policy.
     /// </summary>
-    public sealed class ContinuousModeBackupPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ContinuousModeBackupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration values for continuous mode backup
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
         public ContinuousModeBackupPolicyArgs()
         {
         }
+        public static new ContinuousModeBackupPolicyArgs Empty => new ContinuousModeBackupPolicyArgs();
     }
 }

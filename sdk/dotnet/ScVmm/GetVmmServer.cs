@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ScVmm
     }
 
 
-    public sealed class GetVmmServerArgs : Pulumi.InvokeArgs
+    public sealed class GetVmmServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.ScVmm
         public GetVmmServerArgs()
         {
         }
+        public static new GetVmmServerArgs Empty => new GetVmmServerArgs();
     }
 
-    public sealed class GetVmmServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVmmServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.ScVmm
         public GetVmmServerInvokeArgs()
         {
         }
+        public static new GetVmmServerInvokeArgs Empty => new GetVmmServerInvokeArgs();
     }
 
 

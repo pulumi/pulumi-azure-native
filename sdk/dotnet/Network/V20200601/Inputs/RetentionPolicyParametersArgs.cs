@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
     /// <summary>
     /// Parameters that define the retention policy for flow log.
     /// </summary>
-    public sealed class RetentionPolicyParametersArgs : Pulumi.ResourceArgs
+    public sealed class RetentionPolicyParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of days to retain flow log records.
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
             Days = 0;
             Enabled = false;
         }
+        public static new RetentionPolicyParametersArgs Empty => new RetentionPolicyParametersArgs();
     }
 }

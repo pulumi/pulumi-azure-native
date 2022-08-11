@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     /// </summary>
     [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datashare/v20191101:Invitation")]
-    public partial class Invitation : Pulumi.CustomResource
+    public partial class Invitation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// unique invitation id
@@ -109,11 +109,11 @@ namespace Pulumi.AzureNative.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare:Invitation"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Invitation"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Invitation"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Invitation"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:Invitation"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:Invitation"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Invitation"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:Invitation"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Invitation"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:Invitation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         }
     }
 
-    public sealed class InvitationArgs : Pulumi.ResourceArgs
+    public sealed class InvitationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -184,5 +184,6 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         public InvitationArgs()
         {
         }
+        public static new InvitationArgs Empty => new InvitationArgs();
     }
 }

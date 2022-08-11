@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
     /// API Version: 2020-06-25.
     /// </summary>
     [AzureNativeResourceType("azure-native:guestconfiguration:GuestConfigurationHCRPAssignment")]
-    public partial class GuestConfigurationHCRPAssignment : Pulumi.CustomResource
+    public partial class GuestConfigurationHCRPAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Region where the VM is located.
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.GuestConfiguration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
         }
     }
 
-    public sealed class GuestConfigurationHCRPAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class GuestConfigurationHCRPAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the guest configuration assignment.
@@ -131,5 +131,6 @@ namespace Pulumi.AzureNative.GuestConfiguration
         public GuestConfigurationHCRPAssignmentArgs()
         {
         }
+        public static new GuestConfigurationHCRPAssignmentArgs Empty => new GuestConfigurationHCRPAssignmentArgs();
     }
 }

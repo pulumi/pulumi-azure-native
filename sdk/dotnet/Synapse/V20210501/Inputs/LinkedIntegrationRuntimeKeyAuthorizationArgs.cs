@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
     /// <summary>
     /// The key authorization type integration runtime.
     /// </summary>
-    public sealed class LinkedIntegrationRuntimeKeyAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class LinkedIntegrationRuntimeKeyAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization type for integration runtime sharing.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Inputs
         public LinkedIntegrationRuntimeKeyAuthorizationArgs()
         {
         }
+        public static new LinkedIntegrationRuntimeKeyAuthorizationArgs Empty => new LinkedIntegrationRuntimeKeyAuthorizationArgs();
     }
 }

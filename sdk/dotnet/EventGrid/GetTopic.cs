@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
 
-    public sealed class GetTopicArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the user's subscription.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.EventGrid
         public GetTopicArgs()
         {
         }
+        public static new GetTopicArgs Empty => new GetTopicArgs();
     }
 
-    public sealed class GetTopicInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group within the user's subscription.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.EventGrid
         public GetTopicInvokeArgs()
         {
         }
+        public static new GetTopicInvokeArgs Empty => new GetTopicInvokeArgs();
     }
 
 

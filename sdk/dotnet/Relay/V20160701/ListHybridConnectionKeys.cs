@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
     }
 
 
-    public sealed class ListHybridConnectionKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListHybridConnectionKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorizationRule name.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public ListHybridConnectionKeysArgs()
         {
         }
+        public static new ListHybridConnectionKeysArgs Empty => new ListHybridConnectionKeysArgs();
     }
 
-    public sealed class ListHybridConnectionKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListHybridConnectionKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorizationRule name.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public ListHybridConnectionKeysInvokeArgs()
         {
         }
+        public static new ListHybridConnectionKeysInvokeArgs Empty => new ListHybridConnectionKeysInvokeArgs();
     }
 
 

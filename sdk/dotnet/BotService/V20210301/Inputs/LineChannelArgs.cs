@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
     /// <summary>
     /// Line channel definition
     /// </summary>
-    public sealed class LineChannelArgs : Pulumi.ResourceArgs
+    public sealed class LineChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         {
             Location = "global";
         }
+        public static new LineChannelArgs Empty => new LineChannelArgs();
     }
 }

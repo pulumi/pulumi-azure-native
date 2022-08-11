@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview.Inputs
     /// <summary>
     /// Operation request/response representation details.
     /// </summary>
-    public sealed class RepresentationContractArgs : Pulumi.ResourceArgs
+    public sealed class RepresentationContractArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a registered or custom content type for this representation, e.g. application/xml.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview.Inputs
         public RepresentationContractArgs()
         {
         }
+        public static new RepresentationContractArgs Empty => new RepresentationContractArgs();
     }
 }

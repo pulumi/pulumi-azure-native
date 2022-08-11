@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// The configuration settings of the platform of App Service Authentication/Authorization.
     /// </summary>
-    public sealed class AuthPlatformArgs : Pulumi.ResourceArgs
+    public sealed class AuthPlatformArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path of the config file containing auth settings if they come from a file.
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public AuthPlatformArgs()
         {
         }
+        public static new AuthPlatformArgs Empty => new AuthPlatformArgs();
     }
 }

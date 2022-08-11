@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Limit settings for the AutoML job.
     /// </summary>
-    public sealed class ImageLimitSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ImageLimitSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum number of concurrent AutoML iterations.
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             MaxConcurrentTrials = 1;
             MaxTrials = 1;
         }
+        public static new ImageLimitSettingsArgs Empty => new ImageLimitSettingsArgs();
     }
 }

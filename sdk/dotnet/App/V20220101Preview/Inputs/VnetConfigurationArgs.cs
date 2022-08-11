@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     /// <summary>
     /// Configuration properties for apps environment to join a Virtual Network
     /// </summary>
-    public sealed class VnetConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VnetConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// CIDR notation IP range assigned to the Docker bridge, network. Must not overlap with any other provided IP ranges.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public VnetConfigurationArgs()
         {
         }
+        public static new VnetConfigurationArgs Empty => new VnetConfigurationArgs();
     }
 }

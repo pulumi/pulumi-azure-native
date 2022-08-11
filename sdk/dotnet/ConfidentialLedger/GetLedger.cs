@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
     }
 
 
-    public sealed class GetLedgerArgs : Pulumi.InvokeArgs
+    public sealed class GetLedgerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Confidential Ledger
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         public GetLedgerArgs()
         {
         }
+        public static new GetLedgerArgs Empty => new GetLedgerArgs();
     }
 
-    public sealed class GetLedgerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLedgerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Confidential Ledger
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         public GetLedgerInvokeArgs()
         {
         }
+        public static new GetLedgerInvokeArgs Empty => new GetLedgerInvokeArgs();
     }
 
 

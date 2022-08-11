@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Describes the source of connection monitor.
     /// </summary>
-    public sealed class ConnectionMonitorSourceArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The source port used by connection monitor.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public ConnectionMonitorSourceArgs()
         {
         }
+        public static new ConnectionMonitorSourceArgs Empty => new ConnectionMonitorSourceArgs();
     }
 }

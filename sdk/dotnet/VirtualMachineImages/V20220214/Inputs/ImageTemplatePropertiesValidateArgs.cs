@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220214.Inputs
     /// <summary>
     /// Configuration options and list of validations to be performed on the resulting image.
     /// </summary>
-    public sealed class ImageTemplatePropertiesValidateArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplatePropertiesValidateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If validation fails and this field is set to false, output image(s) will not be distributed. This is the default behavior. If validation fails and this field is set to true, output image(s) will still be distributed. Please use this option with caution as it may result in bad images being distributed for use. In either case (true or false), the end to end image run will be reported as having failed in case of a validation failure. [Note: This field has no effect if validation succeeds.]
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220214.Inputs
             ContinueDistributeOnFailure = false;
             SourceValidationOnly = false;
         }
+        public static new ImageTemplatePropertiesValidateArgs Empty => new ImageTemplatePropertiesValidateArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
     /// </summary>
-    public sealed class AutomationRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class AutomationRuleSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules")]
         private InputList<Inputs.AutomationTriggeringRuleArgs>? _rules;
@@ -26,5 +26,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public AutomationRuleSetArgs()
         {
         }
+        public static new AutomationRuleSetArgs Empty => new AutomationRuleSetArgs();
     }
 }

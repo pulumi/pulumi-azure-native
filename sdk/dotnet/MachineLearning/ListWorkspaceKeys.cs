@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearning
     }
 
 
-    public sealed class ListWorkspaceKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListWorkspaceKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group to which the machine learning workspace belongs.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.MachineLearning
         public ListWorkspaceKeysArgs()
         {
         }
+        public static new ListWorkspaceKeysArgs Empty => new ListWorkspaceKeysArgs();
     }
 
-    public sealed class ListWorkspaceKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWorkspaceKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group to which the machine learning workspace belongs.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.MachineLearning
         public ListWorkspaceKeysInvokeArgs()
         {
         }
+        public static new ListWorkspaceKeysInvokeArgs Empty => new ListWorkspaceKeysInvokeArgs();
     }
 
 

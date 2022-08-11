@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Inputs
 {
 
-    public sealed class ConnectivityGroupItemArgs : Pulumi.ResourceArgs
+    public sealed class ConnectivityGroupItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Group connectivity type.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public ConnectivityGroupItemArgs()
         {
         }
+        public static new ConnectivityGroupItemArgs Empty => new ConnectivityGroupItemArgs();
     }
 }

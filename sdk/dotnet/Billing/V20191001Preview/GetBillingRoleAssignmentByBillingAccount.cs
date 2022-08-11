@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
     }
 
 
-    public sealed class GetBillingRoleAssignmentByBillingAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetBillingRoleAssignmentByBillingAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID that uniquely identifies a billing account.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
         public GetBillingRoleAssignmentByBillingAccountArgs()
         {
         }
+        public static new GetBillingRoleAssignmentByBillingAccountArgs Empty => new GetBillingRoleAssignmentByBillingAccountArgs();
     }
 
-    public sealed class GetBillingRoleAssignmentByBillingAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBillingRoleAssignmentByBillingAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID that uniquely identifies a billing account.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
         public GetBillingRoleAssignmentByBillingAccountInvokeArgs()
         {
         }
+        public static new GetBillingRoleAssignmentByBillingAccountInvokeArgs Empty => new GetBillingRoleAssignmentByBillingAccountInvokeArgs();
     }
 
 

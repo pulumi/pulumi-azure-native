@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20191001Preview.Inputs
     /// <summary>
     /// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
     /// </summary>
-    public sealed class PrivateEndpointConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private endpoint resource from Microsoft.Network provider.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Search.V20191001Preview.Inputs
         public PrivateEndpointConnectionPropertiesArgs()
         {
         }
+        public static new PrivateEndpointConnectionPropertiesArgs Empty => new PrivateEndpointConnectionPropertiesArgs();
     }
 }

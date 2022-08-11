@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20180301Preview
     }
 
 
-    public sealed class GetZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Network.V20180301Preview
         public GetZoneArgs()
         {
         }
+        public static new GetZoneArgs Empty => new GetZoneArgs();
     }
 
-    public sealed class GetZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Network.V20180301Preview
         public GetZoneInvokeArgs()
         {
         }
+        public static new GetZoneInvokeArgs Empty => new GetZoneInvokeArgs();
     }
 
 

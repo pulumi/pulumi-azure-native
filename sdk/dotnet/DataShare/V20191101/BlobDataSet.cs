@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     /// An Azure storage blob data set.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20191101:BlobDataSet")]
-    public partial class BlobDataSet : Pulumi.CustomResource
+    public partial class BlobDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Container that has the file path.
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNative.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare:BlobDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         }
     }
 
-    public sealed class BlobDataSetArgs : Pulumi.ResourceArgs
+    public sealed class BlobDataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -194,5 +194,6 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         public BlobDataSetArgs()
         {
         }
+        public static new BlobDataSetArgs Empty => new BlobDataSetArgs();
     }
 }

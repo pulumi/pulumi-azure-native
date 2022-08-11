@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs
     /// <summary>
     /// Network properties of a server
     /// </summary>
-    public sealed class NetworkArgs : Pulumi.ResourceArgs
+    public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// delegated subnet arm resource id.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs
         public NetworkArgs()
         {
         }
+        public static new NetworkArgs Empty => new NetworkArgs();
     }
 }

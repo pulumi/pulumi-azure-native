@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210801
 {
     [AzureNativeResourceType("azure-native:storage/v20210801:Queue")]
-    public partial class Queue : Pulumi.CustomResource
+    public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
@@ -61,14 +61,14 @@ namespace Pulumi.AzureNative.Storage.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storage:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:Queue"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Storage.V20210801
         }
     }
 
-    public sealed class QueueArgs : Pulumi.ResourceArgs
+    public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -125,5 +125,6 @@ namespace Pulumi.AzureNative.Storage.V20210801
         public QueueArgs()
         {
         }
+        public static new QueueArgs Empty => new QueueArgs();
     }
 }

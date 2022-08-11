@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
     /// <summary>
     /// Description of a NotificationHub WnsCredential.
     /// </summary>
-    public sealed class WnsCredentialPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class WnsCredentialPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the package ID for this credential.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
         public WnsCredentialPropertiesArgs()
         {
         }
+        public static new WnsCredentialPropertiesArgs Empty => new WnsCredentialPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
     /// <summary>
     /// Recovery plan A2A input.
     /// </summary>
-    public sealed class RecoveryPlanA2AInputArgs : Pulumi.ResourceArgs
+    public sealed class RecoveryPlanA2AInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the Instance type.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
         public RecoveryPlanA2AInputArgs()
         {
         }
+        public static new RecoveryPlanA2AInputArgs Empty => new RecoveryPlanA2AInputArgs();
     }
 }

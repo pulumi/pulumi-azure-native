@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity source for Informix.
     /// </summary>
-    public sealed class InformixSourceArgs : Pulumi.ResourceArgs
+    public sealed class InformixSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public InformixSourceArgs()
         {
         }
+        public static new InformixSourceArgs Empty => new InformixSourceArgs();
     }
 }

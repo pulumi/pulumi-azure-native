@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
     /// Represents Anomaly Security ML Analytics Settings
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings")]
-    public partial class AnomalySecurityMLAnalyticsSettings : Pulumi.CustomResource
+    public partial class AnomalySecurityMLAnalyticsSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The anomaly settings version of the Anomaly security ml analytics settings that dictates whether job version gets updated or not.
@@ -162,9 +162,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AnomalySecurityMLAnalyticsSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AnomalySecurityMLAnalyticsSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         }
     }
 
-    public sealed class AnomalySecurityMLAnalyticsSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AnomalySecurityMLAnalyticsSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The anomaly settings version of the Anomaly security ml analytics settings that dictates whether job version gets updated or not.
@@ -312,5 +312,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         public AnomalySecurityMLAnalyticsSettingsArgs()
         {
         }
+        public static new AnomalySecurityMLAnalyticsSettingsArgs Empty => new AnomalySecurityMLAnalyticsSettingsArgs();
     }
 }

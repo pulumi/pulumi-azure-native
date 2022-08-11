@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview.Inputs
     /// <summary>
     /// The set of roles permitted through this Role Definition.
     /// </summary>
-    public sealed class RoleArgs : Pulumi.ResourceArgs
+    public sealed class RoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The database name the role is applied.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview.Inputs
         public RoleArgs()
         {
         }
+        public static new RoleArgs Empty => new RoleArgs();
     }
 }

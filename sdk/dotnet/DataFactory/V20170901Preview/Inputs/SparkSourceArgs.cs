@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Spark Server source.
     /// </summary>
-    public sealed class SparkSourceArgs : Pulumi.ResourceArgs
+    public sealed class SparkSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SparkSourceArgs()
         {
         }
+        public static new SparkSourceArgs Empty => new SparkSourceArgs();
     }
 }

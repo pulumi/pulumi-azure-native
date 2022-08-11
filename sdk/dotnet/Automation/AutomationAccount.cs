@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Automation
     /// API Version: 2021-06-22.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:AutomationAccount")]
-    public partial class AutomationAccount : Pulumi.CustomResource
+    public partial class AutomationAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// URL of automation hybrid service which is used for hybrid worker on-boarding.
@@ -149,10 +149,10 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:AutomationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:AutomationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20210622:AutomationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:AutomationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:AutomationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20210622:AutomationAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.Automation
         }
     }
 
-    public sealed class AutomationAccountArgs : Pulumi.ResourceArgs
+    public sealed class AutomationAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -245,5 +245,6 @@ namespace Pulumi.AzureNative.Automation
         public AutomationAccountArgs()
         {
         }
+        public static new AutomationAccountArgs Empty => new AutomationAccountArgs();
     }
 }

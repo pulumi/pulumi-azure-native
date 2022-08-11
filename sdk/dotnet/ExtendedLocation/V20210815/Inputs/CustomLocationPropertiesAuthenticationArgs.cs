@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210815.Inputs
     /// <summary>
     /// This is optional input that contains the authentication that should be used to generate the namespace.
     /// </summary>
-    public sealed class CustomLocationPropertiesAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class CustomLocationPropertiesAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the Custom Locations authentication
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210815.Inputs
         public CustomLocationPropertiesAuthenticationArgs()
         {
         }
+        public static new CustomLocationPropertiesAuthenticationArgs Empty => new CustomLocationPropertiesAuthenticationArgs();
     }
 }

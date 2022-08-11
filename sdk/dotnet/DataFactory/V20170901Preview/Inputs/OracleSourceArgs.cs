@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Oracle source.
     /// </summary>
-    public sealed class OracleSourceArgs : Pulumi.ResourceArgs
+    public sealed class OracleSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Oracle reader query. Type: string (or Expression with resultType string).
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public OracleSourceArgs()
         {
         }
+        public static new OracleSourceArgs Empty => new OracleSourceArgs();
     }
 }

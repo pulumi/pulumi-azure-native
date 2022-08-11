@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview.Inputs
     /// <summary>
     /// Required permissions for the connector
     /// </summary>
-    public sealed class RequiredPermissionsArgs : Pulumi.ResourceArgs
+    public sealed class RequiredPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// action permission
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview.Inputs
         public RequiredPermissionsArgs()
         {
         }
+        public static new RequiredPermissionsArgs Empty => new RequiredPermissionsArgs();
     }
 }

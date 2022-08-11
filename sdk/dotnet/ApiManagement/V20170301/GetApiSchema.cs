@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     }
 
 
-    public sealed class GetApiSchemaArgs : Pulumi.InvokeArgs
+    public sealed class GetApiSchemaArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public GetApiSchemaArgs()
         {
         }
+        public static new GetApiSchemaArgs Empty => new GetApiSchemaArgs();
     }
 
-    public sealed class GetApiSchemaInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApiSchemaInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public GetApiSchemaInvokeArgs()
         {
         }
+        public static new GetApiSchemaInvokeArgs Empty => new GetApiSchemaInvokeArgs();
     }
 
 

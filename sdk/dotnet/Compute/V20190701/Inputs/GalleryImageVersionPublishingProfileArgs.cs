@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
     /// <summary>
     /// The publishing profile of a gallery Image Version.
     /// </summary>
-    public sealed class GalleryImageVersionPublishingProfileArgs : Pulumi.ResourceArgs
+    public sealed class GalleryImageVersionPublishingProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Compute.V20190701.Inputs
         public GalleryImageVersionPublishingProfileArgs()
         {
         }
+        public static new GalleryImageVersionPublishingProfileArgs Empty => new GalleryImageVersionPublishingProfileArgs();
     }
 }

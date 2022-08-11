@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Class containing endpoint monitoring settings in a Traffic Manager profile.
     /// </summary>
-    public sealed class MonitorConfigArgs : Pulumi.ResourceArgs
+    public sealed class MonitorConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
         private InputList<Inputs.MonitorConfigCustomHeadersArgs>? _customHeaders;
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public MonitorConfigArgs()
         {
         }
+        public static new MonitorConfigArgs Empty => new MonitorConfigArgs();
     }
 }

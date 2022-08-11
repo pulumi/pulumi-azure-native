@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The Cassandra database dataset.
     /// </summary>
-    public sealed class CassandraTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class CassandraTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public CassandraTableDatasetArgs()
         {
         }
+        public static new CassandraTableDatasetArgs Empty => new CassandraTableDatasetArgs();
     }
 }

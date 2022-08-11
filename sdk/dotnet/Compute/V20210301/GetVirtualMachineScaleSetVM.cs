@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
     }
 
 
-    public sealed class GetVirtualMachineScaleSetVMArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetVMArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Compute.V20210301
         public GetVirtualMachineScaleSetVMArgs()
         {
         }
+        public static new GetVirtualMachineScaleSetVMArgs Empty => new GetVirtualMachineScaleSetVMArgs();
     }
 
-    public sealed class GetVirtualMachineScaleSetVMInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetVMInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
         public GetVirtualMachineScaleSetVMInvokeArgs()
         {
         }
+        public static new GetVirtualMachineScaleSetVMInvokeArgs Empty => new GetVirtualMachineScaleSetVMInvokeArgs();
     }
 
 

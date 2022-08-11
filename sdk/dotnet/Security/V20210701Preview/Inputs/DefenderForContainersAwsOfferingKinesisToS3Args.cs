@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210701Preview.Inputs
     /// <summary>
     /// The kinesis to s3 connection configuration
     /// </summary>
-    public sealed class DefenderForContainersAwsOfferingKinesisToS3Args : Pulumi.ResourceArgs
+    public sealed class DefenderForContainersAwsOfferingKinesisToS3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cloud role ARN in AWS for this feature
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Security.V20210701Preview.Inputs
         public DefenderForContainersAwsOfferingKinesisToS3Args()
         {
         }
+        public static new DefenderForContainersAwsOfferingKinesisToS3Args Empty => new DefenderForContainersAwsOfferingKinesisToS3Args();
     }
 }

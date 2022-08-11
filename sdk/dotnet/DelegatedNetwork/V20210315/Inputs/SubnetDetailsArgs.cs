@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315.Inputs
     /// <summary>
     /// Properties of orchestrator
     /// </summary>
-    public sealed class SubnetDetailsArgs : Pulumi.ResourceArgs
+    public sealed class SubnetDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// subnet arm resource id
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315.Inputs
         public SubnetDetailsArgs()
         {
         }
+        public static new SubnetDetailsArgs Empty => new SubnetDetailsArgs();
     }
 }

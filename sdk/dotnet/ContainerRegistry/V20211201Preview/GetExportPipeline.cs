@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
     }
 
 
-    public sealed class GetExportPipelineArgs : Pulumi.InvokeArgs
+    public sealed class GetExportPipelineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the export pipeline.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
         public GetExportPipelineArgs()
         {
         }
+        public static new GetExportPipelineArgs Empty => new GetExportPipelineArgs();
     }
 
-    public sealed class GetExportPipelineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExportPipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the export pipeline.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
         public GetExportPipelineInvokeArgs()
         {
         }
+        public static new GetExportPipelineInvokeArgs Empty => new GetExportPipelineInvokeArgs();
     }
 
 

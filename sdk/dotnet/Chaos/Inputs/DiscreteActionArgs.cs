@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.Inputs
     /// <summary>
     /// Model that represents a discrete action.
     /// </summary>
-    public sealed class DiscreteActionArgs : Pulumi.ResourceArgs
+    public sealed class DiscreteActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// String that represents a Capability URN.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Chaos.Inputs
         public DiscreteActionArgs()
         {
         }
+        public static new DiscreteActionArgs Empty => new DiscreteActionArgs();
     }
 }

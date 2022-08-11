@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     /// </summary>
     [Obsolete(@"Version 2015-05-21-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:ScheduleResource")]
-    public partial class ScheduleResource : Pulumi.CustomResource
+    public partial class ScheduleResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The daily recurrence of the schedule.
@@ -107,9 +107,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab:ScheduleResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ScheduleResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ScheduleResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:ScheduleResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ScheduleResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ScheduleResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         }
     }
 
-    public sealed class ScheduleResourceArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The daily recurrence of the schedule.
@@ -226,5 +226,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public ScheduleResourceArgs()
         {
         }
+        public static new ScheduleResourceArgs Empty => new ScheduleResourceArgs();
     }
 }

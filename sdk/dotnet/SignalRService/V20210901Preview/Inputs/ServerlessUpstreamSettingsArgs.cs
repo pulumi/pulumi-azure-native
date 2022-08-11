@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20210901Preview.Inputs
     /// <summary>
     /// The settings for the Upstream when the service is in server-less mode.
     /// </summary>
-    public sealed class ServerlessUpstreamSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ServerlessUpstreamSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("templates")]
         private InputList<Inputs.UpstreamTemplateArgs>? _templates;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.SignalRService.V20210901Preview.Inputs
         public ServerlessUpstreamSettingsArgs()
         {
         }
+        public static new ServerlessUpstreamSettingsArgs Empty => new ServerlessUpstreamSettingsArgs();
     }
 }

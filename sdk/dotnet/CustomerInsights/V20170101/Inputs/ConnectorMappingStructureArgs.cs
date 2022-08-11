@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
     /// <summary>
     /// Connector mapping property structure.
     /// </summary>
-    public sealed class ConnectorMappingStructureArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorMappingStructureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The column name of the import file.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
         public ConnectorMappingStructureArgs()
         {
         }
+        public static new ConnectorMappingStructureArgs Empty => new ConnectorMappingStructureArgs();
     }
 }

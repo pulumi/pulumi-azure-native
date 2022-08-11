@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     }
 
 
-    public sealed class GetJobScheduleArgs : Pulumi.InvokeArgs
+    public sealed class GetJobScheduleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         public GetJobScheduleArgs()
         {
         }
+        public static new GetJobScheduleArgs Empty => new GetJobScheduleArgs();
     }
 
-    public sealed class GetJobScheduleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetJobScheduleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         public GetJobScheduleInvokeArgs()
         {
         }
+        public static new GetJobScheduleInvokeArgs Empty => new GetJobScheduleInvokeArgs();
     }
 
 

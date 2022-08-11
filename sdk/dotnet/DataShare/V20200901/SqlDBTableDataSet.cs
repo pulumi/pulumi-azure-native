@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     /// A SQL DB table data set.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20200901:SqlDBTableDataSet")]
-    public partial class SqlDBTableDataSet : Pulumi.CustomResource
+    public partial class SqlDBTableDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Unique id for identifying a data set resource
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNative.DataShare.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare:SqlDBTableDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SqlDBTableDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:SqlDBTableDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SqlDBTableDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:SqlDBTableDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDBTableDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SqlDBTableDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:SqlDBTableDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SqlDBTableDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:SqlDBTableDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         }
     }
 
-    public sealed class SqlDBTableDataSetArgs : Pulumi.ResourceArgs
+    public sealed class SqlDBTableDataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -188,5 +188,6 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public SqlDBTableDataSetArgs()
         {
         }
+        public static new SqlDBTableDataSetArgs Empty => new SqlDBTableDataSetArgs();
     }
 }

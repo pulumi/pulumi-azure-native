@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20181101
     }
 
 
-    public sealed class ListWebAppApplicationSettingsSlotArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppApplicationSettingsSlotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Web.V20181101
         public ListWebAppApplicationSettingsSlotArgs()
         {
         }
+        public static new ListWebAppApplicationSettingsSlotArgs Empty => new ListWebAppApplicationSettingsSlotArgs();
     }
 
-    public sealed class ListWebAppApplicationSettingsSlotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppApplicationSettingsSlotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Web.V20181101
         public ListWebAppApplicationSettingsSlotInvokeArgs()
         {
         }
+        public static new ListWebAppApplicationSettingsSlotInvokeArgs Empty => new ListWebAppApplicationSettingsSlotInvokeArgs();
     }
 
 

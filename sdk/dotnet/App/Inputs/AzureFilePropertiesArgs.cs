@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// Azure File Properties.
     /// </summary>
-    public sealed class AzureFilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AzureFilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access mode for storage
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.App.Inputs
         public AzureFilePropertiesArgs()
         {
         }
+        public static new AzureFilePropertiesArgs Empty => new AzureFilePropertiesArgs();
     }
 }

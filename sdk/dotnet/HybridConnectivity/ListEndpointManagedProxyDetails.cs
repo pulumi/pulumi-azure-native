@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
     }
 
 
-    public sealed class ListEndpointManagedProxyDetailsArgs : Pulumi.InvokeArgs
+    public sealed class ListEndpointManagedProxyDetailsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The endpoint name.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public ListEndpointManagedProxyDetailsArgs()
         {
         }
+        public static new ListEndpointManagedProxyDetailsArgs Empty => new ListEndpointManagedProxyDetailsArgs();
     }
 
-    public sealed class ListEndpointManagedProxyDetailsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListEndpointManagedProxyDetailsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The endpoint name.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public ListEndpointManagedProxyDetailsInvokeArgs()
         {
         }
+        public static new ListEndpointManagedProxyDetailsInvokeArgs Empty => new ListEndpointManagedProxyDetailsInvokeArgs();
     }
 
 

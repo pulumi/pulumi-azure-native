@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
     /// <summary>
     /// The properties describing private cloud availability zone distribution
     /// </summary>
-    public sealed class AvailabilityPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AvailabilityPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The secondary availability zone for the private cloud
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.AVS.V20211201.Inputs
         public AvailabilityPropertiesArgs()
         {
         }
+        public static new AvailabilityPropertiesArgs Empty => new AvailabilityPropertiesArgs();
     }
 }

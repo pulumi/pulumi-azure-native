@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// ExpressRouteLink child resource definition.
     /// </summary>
-    public sealed class ExpressRouteLinkArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Administrative state of the physical port.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public ExpressRouteLinkArgs()
         {
         }
+        public static new ExpressRouteLinkArgs Empty => new ExpressRouteLinkArgs();
     }
 }

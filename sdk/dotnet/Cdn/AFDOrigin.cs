@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDOrigin")]
-    public partial class AFDOrigin : Pulumi.CustomResource
+    public partial class AFDOrigin : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource reference to the Azure origin resource.
@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOrigin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOrigin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOrigin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOrigin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.Cdn
         }
     }
 
-    public sealed class AFDOriginArgs : Pulumi.ResourceArgs
+    public sealed class AFDOriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource reference to the Azure origin resource.
@@ -228,5 +228,6 @@ namespace Pulumi.AzureNative.Cdn
         public AFDOriginArgs()
         {
         }
+        public static new AFDOriginArgs Empty => new AFDOriginArgs();
     }
 }

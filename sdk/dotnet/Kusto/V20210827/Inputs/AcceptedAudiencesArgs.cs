@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827.Inputs
     /// <summary>
     /// Represents an accepted audience trusted by the cluster.
     /// </summary>
-    public sealed class AcceptedAudiencesArgs : Pulumi.ResourceArgs
+    public sealed class AcceptedAudiencesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// GUID or valid URL representing an accepted audience.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Kusto.V20210827.Inputs
         public AcceptedAudiencesArgs()
         {
         }
+        public static new AcceptedAudiencesArgs Empty => new AcceptedAudiencesArgs();
     }
 }

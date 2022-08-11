@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901
 {
     [AzureNativeResourceType("azure-native:web/v20200901:WebAppAuthSettingsV2Slot")]
-    public partial class WebAppAuthSettingsV2Slot : Pulumi.CustomResource
+    public partial class WebAppAuthSettingsV2Slot : global::Pulumi.CustomResource
     {
         [Output("globalValidation")]
         public Output<Outputs.GlobalValidationResponse?> GlobalValidation { get; private set; } = null!;
@@ -76,13 +76,13 @@ namespace Pulumi.AzureNative.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsV2Slot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsV2Slot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsV2Slot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettingsV2Slot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettingsV2Slot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettingsV2Slot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsV2Slot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsV2Slot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsV2Slot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsV2Slot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettingsV2Slot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettingsV2Slot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettingsV2Slot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsV2Slot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Web.V20200901
         }
     }
 
-    public sealed class WebAppAuthSettingsV2SlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppAuthSettingsV2SlotArgs : global::Pulumi.ResourceArgs
     {
         [Input("globalValidation")]
         public Input<Inputs.GlobalValidationArgs>? GlobalValidation { get; set; }
@@ -148,5 +148,6 @@ namespace Pulumi.AzureNative.Web.V20200901
         public WebAppAuthSettingsV2SlotArgs()
         {
         }
+        public static new WebAppAuthSettingsV2SlotArgs Empty => new WebAppAuthSettingsV2SlotArgs();
     }
 }

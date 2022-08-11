@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
     /// Definition of the configuration profile.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage/v20220504:ConfigurationProfile")]
-    public partial class ConfigurationProfile : Pulumi.CustomResource
+    public partial class ConfigurationProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfile"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         }
     }
 
-    public sealed class ConfigurationProfileArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the configuration profile.
@@ -139,5 +139,6 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         public ConfigurationProfileArgs()
         {
         }
+        public static new ConfigurationProfileArgs Empty => new ConfigurationProfileArgs();
     }
 }

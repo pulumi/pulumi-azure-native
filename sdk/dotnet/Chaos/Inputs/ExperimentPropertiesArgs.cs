@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos.Inputs
     /// <summary>
     /// Model that represents the Experiment properties model.
     /// </summary>
-    public sealed class ExperimentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("selectors", required: true)]
         private InputList<Inputs.SelectorArgs>? _selectors;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Chaos.Inputs
         public ExperimentPropertiesArgs()
         {
         }
+        public static new ExperimentPropertiesArgs Empty => new ExperimentPropertiesArgs();
     }
 }

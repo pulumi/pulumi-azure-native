@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20220101.Inputs
     /// <summary>
     /// Optional set of properties to configure geo replication for this database.
     /// </summary>
-    public sealed class DatabasePropertiesGeoReplicationArgs : Pulumi.ResourceArgs
+    public sealed class DatabasePropertiesGeoReplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for the group of linked database resources
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Cache.V20220101.Inputs
         public DatabasePropertiesGeoReplicationArgs()
         {
         }
+        public static new DatabasePropertiesGeoReplicationArgs Empty => new DatabasePropertiesGeoReplicationArgs();
     }
 }

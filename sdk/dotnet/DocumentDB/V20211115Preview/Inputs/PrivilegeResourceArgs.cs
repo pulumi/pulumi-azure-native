@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
     /// <summary>
     /// An Azure Cosmos DB Mongo DB Resource.
     /// </summary>
-    public sealed class PrivilegeResourceArgs : Pulumi.ResourceArgs
+    public sealed class PrivilegeResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The collection name the role is applied.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
         public PrivilegeResourceArgs()
         {
         }
+        public static new PrivilegeResourceArgs Empty => new PrivilegeResourceArgs();
     }
 }

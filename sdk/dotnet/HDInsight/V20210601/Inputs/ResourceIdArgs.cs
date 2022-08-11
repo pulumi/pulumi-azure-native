@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The azure resource id.
     /// </summary>
-    public sealed class ResourceIdArgs : Pulumi.ResourceArgs
+    public sealed class ResourceIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The azure resource id.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public ResourceIdArgs()
         {
         }
+        public static new ResourceIdArgs Empty => new ResourceIdArgs();
     }
 }

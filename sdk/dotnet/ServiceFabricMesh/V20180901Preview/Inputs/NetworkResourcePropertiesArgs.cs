@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes properties of a network resource.
     /// </summary>
-    public sealed class NetworkResourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class NetworkResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// User readable description of the network.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public NetworkResourcePropertiesArgs()
         {
         }
+        public static new NetworkResourcePropertiesArgs Empty => new NetworkResourcePropertiesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     }
 
 
-    public sealed class GetIpGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetIpGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20200601
         public GetIpGroupArgs()
         {
         }
+        public static new GetIpGroupArgs Empty => new GetIpGroupArgs();
     }
 
-    public sealed class GetIpGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIpGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20200601
         public GetIpGroupInvokeArgs()
         {
         }
+        public static new GetIpGroupInvokeArgs Empty => new GetIpGroupInvokeArgs();
     }
 
 

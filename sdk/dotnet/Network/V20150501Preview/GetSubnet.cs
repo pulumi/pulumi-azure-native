@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
     }
 
 
-    public sealed class GetSubnetArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public GetSubnetArgs()
         {
         }
+        public static new GetSubnetArgs Empty => new GetSubnetArgs();
     }
 
-    public sealed class GetSubnetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public GetSubnetInvokeArgs()
         {
         }
+        public static new GetSubnetInvokeArgs Empty => new GetSubnetInvokeArgs();
     }
 
 

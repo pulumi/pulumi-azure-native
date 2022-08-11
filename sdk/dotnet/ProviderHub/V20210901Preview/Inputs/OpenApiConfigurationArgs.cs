@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
 {
 
-    public sealed class OpenApiConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OpenApiConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("validation")]
         public Input<Inputs.OpenApiValidationArgs>? Validation { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
         public OpenApiConfigurationArgs()
         {
         }
+        public static new OpenApiConfigurationArgs Empty => new OpenApiConfigurationArgs();
     }
 }

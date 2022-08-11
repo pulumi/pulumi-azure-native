@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation.V20170501Preview.Inp
     /// <summary>
     /// The properties of a storage account for a machine learning team account.
     /// </summary>
-    public sealed class StorageAccountPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key to the storage account.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation.V20170501Preview.Inp
         public StorageAccountPropertiesArgs()
         {
         }
+        public static new StorageAccountPropertiesArgs Empty => new StorageAccountPropertiesArgs();
     }
 }

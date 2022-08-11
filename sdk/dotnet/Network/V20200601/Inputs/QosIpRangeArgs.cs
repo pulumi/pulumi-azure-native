@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
     /// <summary>
     /// Qos Traffic Profiler IP Range properties.
     /// </summary>
-    public sealed class QosIpRangeArgs : Pulumi.ResourceArgs
+    public sealed class QosIpRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// End IP Address.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
         public QosIpRangeArgs()
         {
         }
+        public static new QosIpRangeArgs Empty => new QosIpRangeArgs();
     }
 }

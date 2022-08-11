@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StorSimple
     }
 
 
-    public sealed class ListDeviceFailoverTarsArgs : Pulumi.InvokeArgs
+    public sealed class ListDeviceFailoverTarsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -62,9 +62,10 @@ namespace Pulumi.AzureNative.StorSimple
         public ListDeviceFailoverTarsArgs()
         {
         }
+        public static new ListDeviceFailoverTarsArgs Empty => new ListDeviceFailoverTarsArgs();
     }
 
-    public sealed class ListDeviceFailoverTarsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListDeviceFailoverTarsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -99,6 +100,7 @@ namespace Pulumi.AzureNative.StorSimple
         public ListDeviceFailoverTarsInvokeArgs()
         {
         }
+        public static new ListDeviceFailoverTarsInvokeArgs Empty => new ListDeviceFailoverTarsInvokeArgs();
     }
 
 

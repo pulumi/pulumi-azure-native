@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview.Inputs
     /// <summary>
     /// Interface properties
     /// </summary>
-    public sealed class InterfacePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class InterfacePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview.Inputs
         public InterfacePropertiesArgs()
         {
         }
+        public static new InterfacePropertiesArgs Empty => new InterfacePropertiesArgs();
     }
 }

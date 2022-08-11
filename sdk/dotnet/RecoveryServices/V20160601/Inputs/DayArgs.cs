@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601.Inputs
     /// <summary>
     /// Day of the week.
     /// </summary>
-    public sealed class DayArgs : Pulumi.ResourceArgs
+    public sealed class DayArgs : global::Pulumi.ResourceArgs
     {
         [Input("date")]
         public Input<int>? Date { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601.Inputs
         public DayArgs()
         {
         }
+        public static new DayArgs Empty => new DayArgs();
     }
 }

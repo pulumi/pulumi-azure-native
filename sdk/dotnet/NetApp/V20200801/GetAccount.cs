@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.NetApp.V20200801
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.NetApp.V20200801
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.NetApp.V20200801
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

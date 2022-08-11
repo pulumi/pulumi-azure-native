@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     }
 
 
-    public sealed class GetMCASDataConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetMCASDataConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public GetMCASDataConnectorArgs()
         {
         }
+        public static new GetMCASDataConnectorArgs Empty => new GetMCASDataConnectorArgs();
     }
 
-    public sealed class GetMCASDataConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMCASDataConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
         public GetMCASDataConnectorInvokeArgs()
         {
         }
+        public static new GetMCASDataConnectorInvokeArgs Empty => new GetMCASDataConnectorInvokeArgs();
     }
 
 

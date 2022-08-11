@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20200601.Inputs
     /// <summary>
     /// A dictionary of name and value pairs.
     /// </summary>
-    public sealed class TagsArgs : Pulumi.ResourceArgs
+    public sealed class TagsArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -26,5 +26,6 @@ namespace Pulumi.AzureNative.Resources.V20200601.Inputs
         public TagsArgs()
         {
         }
+        public static new TagsArgs Empty => new TagsArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DevSpaces
     }
 
 
-    public sealed class GetControllerArgs : Pulumi.InvokeArgs
+    public sealed class GetControllerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.DevSpaces
         public GetControllerArgs()
         {
         }
+        public static new GetControllerArgs Empty => new GetControllerArgs();
     }
 
-    public sealed class GetControllerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetControllerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.DevSpaces
         public GetControllerInvokeArgs()
         {
         }
+        public static new GetControllerInvokeArgs Empty => new GetControllerInvokeArgs();
     }
 
 

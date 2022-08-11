@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Blueprint
     /// </summary>
     [Obsolete(@"Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.")]
     [AzureNativeResourceType("azure-native:blueprint:Artifact")]
-    public partial class Artifact : Pulumi.CustomResource
+    public partial class Artifact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the kind of blueprint artifact.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.Blueprint
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:Artifact"},
+                    new global::Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:Artifact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Blueprint
         }
     }
 
-    public sealed class ArtifactArgs : Pulumi.ResourceArgs
+    public sealed class ArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the blueprint artifact.
@@ -111,5 +111,6 @@ namespace Pulumi.AzureNative.Blueprint
         public ArtifactArgs()
         {
         }
+        public static new ArtifactArgs Empty => new ArtifactArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Presto server dataset.
     /// </summary>
-    public sealed class PrestoObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class PrestoObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public PrestoObjectDatasetArgs()
         {
         }
+        public static new PrestoObjectDatasetArgs Empty => new PrestoObjectDatasetArgs();
     }
 }

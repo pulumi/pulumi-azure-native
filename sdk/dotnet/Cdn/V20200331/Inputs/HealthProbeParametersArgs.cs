@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
     /// <summary>
     /// The JSON object that contains the properties to send health probes to origin.
     /// </summary>
-    public sealed class HealthProbeParametersArgs : Pulumi.ResourceArgs
+    public sealed class HealthProbeParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of seconds between health probes.Default is 240sec.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
         public HealthProbeParametersArgs()
         {
         }
+        public static new HealthProbeParametersArgs Empty => new HealthProbeParametersArgs();
     }
 }

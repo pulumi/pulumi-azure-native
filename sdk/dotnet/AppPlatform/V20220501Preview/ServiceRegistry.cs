@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
     /// Service Registry resource
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220501preview:ServiceRegistry")]
-    public partial class ServiceRegistry : Pulumi.CustomResource
+    public partial class ServiceRegistry : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform:ServiceRegistry"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ServiceRegistry"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ServiceRegistry"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220401:ServiceRegistry"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ServiceRegistry"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ServiceRegistry"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ServiceRegistry"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:ServiceRegistry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         }
     }
 
-    public sealed class ServiceRegistryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceRegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -112,5 +112,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         public ServiceRegistryArgs()
         {
         }
+        public static new ServiceRegistryArgs Empty => new ServiceRegistryArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Inputs
 {
 
-    public sealed class CollectorBodyAgentSpnPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CollectorBodyAgentSpnPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
@@ -45,5 +45,6 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public CollectorBodyAgentSpnPropertiesArgs()
         {
         }
+        public static new CollectorBodyAgentSpnPropertiesArgs Empty => new CollectorBodyAgentSpnPropertiesArgs();
     }
 }

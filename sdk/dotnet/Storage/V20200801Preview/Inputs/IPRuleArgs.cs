@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
     /// <summary>
     /// IP rule with specific IP or IP range in CIDR format.
     /// </summary>
-    public sealed class IPRuleArgs : Pulumi.ResourceArgs
+    public sealed class IPRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action of IP ACL rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
         {
             Action = Pulumi.AzureNative.Storage.V20200801Preview.Action.Allow;
         }
+        public static new IPRuleArgs Empty => new IPRuleArgs();
     }
 }

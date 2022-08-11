@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
     /// </summary>
-    public sealed class ClusterSkuArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public ClusterSkuArgs()
         {
         }
+        public static new ClusterSkuArgs Empty => new ClusterSkuArgs();
     }
 }

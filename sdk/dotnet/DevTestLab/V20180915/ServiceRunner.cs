@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     /// A container for a managed identity to execute DevTest lab services.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:ServiceRunner")]
-    public partial class ServiceRunner : Pulumi.CustomResource
+    public partial class ServiceRunner : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab:ServiceRunner"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ServiceRunner"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:ServiceRunner"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ServiceRunner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         }
     }
 
-    public sealed class ServiceRunnerArgs : Pulumi.ResourceArgs
+    public sealed class ServiceRunnerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity of the resource.
@@ -140,5 +140,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public ServiceRunnerArgs()
         {
         }
+        public static new ServiceRunnerArgs Empty => new ServiceRunnerArgs();
     }
 }

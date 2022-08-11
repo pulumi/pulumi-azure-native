@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20190501Preview.Inputs
     /// <summary>
     /// The Live Event preview.
     /// </summary>
-    public sealed class LiveEventPreviewArgs : Pulumi.ResourceArgs
+    public sealed class LiveEventPreviewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access control for LiveEvent preview.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Media.V20190501Preview.Inputs
         public LiveEventPreviewArgs()
         {
         }
+        public static new LiveEventPreviewArgs Empty => new LiveEventPreviewArgs();
     }
 }

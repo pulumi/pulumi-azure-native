@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     /// </summary>
     [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:customerinsights/v20170101:Profile")]
-    public partial class Profile : Pulumi.CustomResource
+    public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
@@ -161,8 +161,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:customerinsights:Profile"},
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Profile"},
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:Profile"},
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         }
     }
 
-    public sealed class ProfileArgs : Pulumi.ResourceArgs
+    public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
@@ -333,5 +333,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         public ProfileArgs()
         {
         }
+        public static new ProfileArgs Empty => new ProfileArgs();
     }
 }

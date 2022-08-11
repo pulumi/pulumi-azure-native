@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
 
-    public sealed class GetDeploymentLogFileUrlArgs : Pulumi.InvokeArgs
+    public sealed class GetDeploymentLogFileUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.AppPlatform
         public GetDeploymentLogFileUrlArgs()
         {
         }
+        public static new GetDeploymentLogFileUrlArgs Empty => new GetDeploymentLogFileUrlArgs();
     }
 
-    public sealed class GetDeploymentLogFileUrlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeploymentLogFileUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.AppPlatform
         public GetDeploymentLogFileUrlInvokeArgs()
         {
         }
+        public static new GetDeploymentLogFileUrlInvokeArgs Empty => new GetDeploymentLogFileUrlInvokeArgs();
     }
 
 

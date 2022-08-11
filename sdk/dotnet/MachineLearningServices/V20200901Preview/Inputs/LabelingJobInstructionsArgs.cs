@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
     /// <summary>
     /// Instructions for a labeling job.
     /// </summary>
-    public sealed class LabelingJobInstructionsArgs : Pulumi.ResourceArgs
+    public sealed class LabelingJobInstructionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The link to a page with detailed labeling instructions for labelers.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public LabelingJobInstructionsArgs()
         {
         }
+        public static new LabelingJobInstructionsArgs Empty => new LabelingJobInstructionsArgs();
     }
 }

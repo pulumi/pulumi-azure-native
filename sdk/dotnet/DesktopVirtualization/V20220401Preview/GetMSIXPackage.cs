@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
     }
 
 
-    public sealed class GetMSIXPackageArgs : Pulumi.InvokeArgs
+    public sealed class GetMSIXPackageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the host pool within the specified resource group
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
         public GetMSIXPackageArgs()
         {
         }
+        public static new GetMSIXPackageArgs Empty => new GetMSIXPackageArgs();
     }
 
-    public sealed class GetMSIXPackageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMSIXPackageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the host pool within the specified resource group
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
         public GetMSIXPackageInvokeArgs()
         {
         }
+        public static new GetMSIXPackageInvokeArgs Empty => new GetMSIXPackageInvokeArgs();
     }
 
 

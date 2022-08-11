@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20191212.Inputs
     /// <summary>
     /// The machine extension instance view.
     /// </summary>
-    public sealed class MachineExtensionPropertiesInstanceViewArgs : Pulumi.ResourceArgs
+    public sealed class MachineExtensionPropertiesInstanceViewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The machine extension name.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20191212.Inputs
         public MachineExtensionPropertiesInstanceViewArgs()
         {
         }
+        public static new MachineExtensionPropertiesInstanceViewArgs Empty => new MachineExtensionPropertiesInstanceViewArgs();
     }
 }

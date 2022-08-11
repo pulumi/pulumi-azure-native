@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes how identity is verified
     /// </summary>
-    public sealed class IdentityArgs : Pulumi.ResourceArgs
+    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public IdentityArgs()
         {
         }
+        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

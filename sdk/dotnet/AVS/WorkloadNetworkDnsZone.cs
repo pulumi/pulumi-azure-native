@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AVS
     /// API Version: 2020-07-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkDnsZone")]
-    public partial class WorkloadNetworkDnsZone : Pulumi.CustomResource
+    public partial class WorkloadNetworkDnsZone : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Display name of the DNS Zone.
@@ -95,10 +95,10 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkDnsZone"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDnsZone"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkDnsZone"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDnsZone"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkDnsZone"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDnsZone"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkDnsZone"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDnsZone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.AVS
         }
     }
 
-    public sealed class WorkloadNetworkDnsZoneArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadNetworkDnsZoneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Display name of the DNS Zone.
@@ -191,5 +191,6 @@ namespace Pulumi.AzureNative.AVS
         public WorkloadNetworkDnsZoneArgs()
         {
         }
+        public static new WorkloadNetworkDnsZoneArgs Empty => new WorkloadNetworkDnsZoneArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
     }
 
 
-    public sealed class GetInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Account name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         public GetInstanceArgs()
         {
         }
+        public static new GetInstanceArgs Empty => new GetInstanceArgs();
     }
 
-    public sealed class GetInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Account name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         public GetInstanceInvokeArgs()
         {
         }
+        public static new GetInstanceInvokeArgs Empty => new GetInstanceInvokeArgs();
     }
 
 

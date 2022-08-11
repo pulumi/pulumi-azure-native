@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Snowflake export command settings.
     /// </summary>
-    public sealed class SnowflakeExportCopyCommandArgs : Pulumi.ResourceArgs
+    public sealed class SnowflakeExportCopyCommandArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalCopyOptions")]
         private InputMap<object>? _additionalCopyOptions;
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SnowflakeExportCopyCommandArgs()
         {
         }
+        public static new SnowflakeExportCopyCommandArgs Empty => new SnowflakeExportCopyCommandArgs();
     }
 }

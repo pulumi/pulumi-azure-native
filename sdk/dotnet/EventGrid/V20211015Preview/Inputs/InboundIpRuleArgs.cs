@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20211015Preview.Inputs
 {
 
-    public sealed class InboundIpRuleArgs : Pulumi.ResourceArgs
+    public sealed class InboundIpRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action to perform based on the match or no match of the IpMask.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview.Inputs
         public InboundIpRuleArgs()
         {
         }
+        public static new InboundIpRuleArgs Empty => new InboundIpRuleArgs();
     }
 }

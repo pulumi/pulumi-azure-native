@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     }
 
 
-    public sealed class GetUserSharedAccessTokenArgs : Pulumi.InvokeArgs
+    public sealed class GetUserSharedAccessTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -61,9 +61,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         {
             KeyType = Pulumi.AzureNative.ApiManagement.V20191201.KeyType.Primary;
         }
+        public static new GetUserSharedAccessTokenArgs Empty => new GetUserSharedAccessTokenArgs();
     }
 
-    public sealed class GetUserSharedAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserSharedAccessTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -99,6 +100,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         {
             KeyType = Pulumi.AzureNative.ApiManagement.V20191201.KeyType.Primary;
         }
+        public static new GetUserSharedAccessTokenInvokeArgs Empty => new GetUserSharedAccessTokenInvokeArgs();
     }
 
 

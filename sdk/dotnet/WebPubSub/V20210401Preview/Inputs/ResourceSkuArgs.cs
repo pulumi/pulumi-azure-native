@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview.Inputs
     /// <summary>
     /// The billing information of the resource.
     /// </summary>
-    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional, integer. The unit count of the resource. 1 by default.
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview.Inputs
         public ResourceSkuArgs()
         {
         }
+        public static new ResourceSkuArgs Empty => new ResourceSkuArgs();
     }
 }

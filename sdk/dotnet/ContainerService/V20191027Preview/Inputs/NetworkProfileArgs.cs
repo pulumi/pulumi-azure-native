@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Inputs
     /// <summary>
     /// Represents the OpenShift networking configuration
     /// </summary>
-    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// CIDR of subnet used to create PLS needed for management of the cluster
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Inputs
         {
             VnetCidr = "10.0.0.0/8";
         }
+        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

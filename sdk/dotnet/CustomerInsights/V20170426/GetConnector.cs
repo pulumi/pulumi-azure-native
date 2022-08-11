@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
     }
 
 
-    public sealed class GetConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connector.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public GetConnectorArgs()
         {
         }
+        public static new GetConnectorArgs Empty => new GetConnectorArgs();
     }
 
-    public sealed class GetConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connector.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public GetConnectorInvokeArgs()
         {
         }
+        public static new GetConnectorInvokeArgs Empty => new GetConnectorInvokeArgs();
     }
 
 

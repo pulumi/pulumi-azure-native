@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Database specific information for Oracle to Azure Database for PostgreSQL migration task inputs
     /// </summary>
-    public sealed class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs : Pulumi.ResourceArgs
+    public sealed class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// How to handle object name casing: either Preserve or ToLower
@@ -90,5 +90,6 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         public MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs()
         {
         }
+        public static new MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs Empty => new MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs();
     }
 }

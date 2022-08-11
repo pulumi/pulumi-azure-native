@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20210517Preview.Inputs
     /// <summary>
     /// Describes the properties of a Machine Extension.
     /// </summary>
-    public sealed class MachineExtensionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MachineExtensionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20210517Preview.Inputs
         public MachineExtensionPropertiesArgs()
         {
         }
+        public static new MachineExtensionPropertiesArgs Empty => new MachineExtensionPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220101.Inputs
     /// <summary>
     /// Cluster HTTP proxy configuration.
     /// </summary>
-    public sealed class ManagedClusterHTTPProxyConfigArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterHTTPProxyConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP proxy server endpoint to use.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220101.Inputs
         public ManagedClusterHTTPProxyConfigArgs()
         {
         }
+        public static new ManagedClusterHTTPProxyConfigArgs Empty => new ManagedClusterHTTPProxyConfigArgs();
     }
 }

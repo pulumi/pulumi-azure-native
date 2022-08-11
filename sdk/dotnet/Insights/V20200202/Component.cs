@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20200202
     /// An Application Insights component definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20200202:Component")]
-    public partial class Component : Pulumi.CustomResource
+    public partial class Component : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Application Insights Unique ID for your Application.
@@ -220,10 +220,10 @@ namespace Pulumi.AzureNative.Insights.V20200202
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights:Component"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:Component"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20180501preview:Component"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20200202preview:Component"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:Component"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:Component"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180501preview:Component"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20200202preview:Component"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -245,7 +245,7 @@ namespace Pulumi.AzureNative.Insights.V20200202
         }
     }
 
-    public sealed class ComponentArgs : Pulumi.ResourceArgs
+    public sealed class ComponentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of application being monitored.
@@ -374,5 +374,6 @@ namespace Pulumi.AzureNative.Insights.V20200202
             IngestionMode = "LogAnalytics";
             RequestSource = "rest";
         }
+        public static new ComponentArgs Empty => new ComponentArgs();
     }
 }

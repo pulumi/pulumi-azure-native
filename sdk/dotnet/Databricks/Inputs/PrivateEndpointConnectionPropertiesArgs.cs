@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.Inputs
     /// <summary>
     /// The properties of a private endpoint connection
     /// </summary>
-    public sealed class PrivateEndpointConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private endpoint connection state
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Databricks.Inputs
         public PrivateEndpointConnectionPropertiesArgs()
         {
         }
+        public static new PrivateEndpointConnectionPropertiesArgs Empty => new PrivateEndpointConnectionPropertiesArgs();
     }
 }

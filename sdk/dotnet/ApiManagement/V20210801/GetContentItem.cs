@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
     }
 
 
-    public sealed class GetContentItemArgs : Pulumi.InvokeArgs
+    public sealed class GetContentItemArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Content item identifier.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         public GetContentItemArgs()
         {
         }
+        public static new GetContentItemArgs Empty => new GetContentItemArgs();
     }
 
-    public sealed class GetContentItemInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContentItemInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Content item identifier.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         public GetContentItemInvokeArgs()
         {
         }
+        public static new GetContentItemInvokeArgs Empty => new GetContentItemInvokeArgs();
     }
 
 
