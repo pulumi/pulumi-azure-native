@@ -43,7 +43,7 @@ async function main() {
             id: subnetId,            
             name: "default",
             addressPrefix: `${virtualNetworkRange}/24`,
-            privateEndpointNetworkPolicies: "Enabled",
+            privateEndpointNetworkPolicies: "Disabled",
             privateLinkServiceNetworkPolicies: "Disabled", // It's "Enabled" in the imported resource. We are testing `ignoreChanges` here.
         }],
     }, { import: vnetId, ignoreChanges: ["subnets[0].privateLinkServiceNetworkPolicies", "subnets[0].type", "enableVmProtection"] });
