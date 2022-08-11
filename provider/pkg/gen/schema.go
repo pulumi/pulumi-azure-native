@@ -1427,14 +1427,22 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	}
 
 	// TODO: Remove this switch if https://github.com/Azure/azure-rest-api-specs/issues/13167 is fixed
-	var defaultValue interface{}
-	switch typeSpec.Type {
-	case "object":
-		if schema.Default != nil {
-			fmt.Printf("Default value '%v' can't be specified for an object property %q\n", schema.Default, name)
+	defaultValue := schema.Default
+	if defaultValue != nil && typeSpec.Type == "object" {
+		fmt.Printf("Default value '%v' can't be specified for an object property %q\n", schema.Default, name)
+		defaultValue = nil
+	}
+	// TODO: Find a better way of detecting when we won't support a default value:
+	// E.g. #/types/azure-native:machinelearningservices%2Fv20220601preview:LabelingJobResponse/properties/mlAssistConfiguration/default:
+	// type Union<azure-native:machinelearningservices/v20220601preview:MLAssistConfigurationDisabledResponse, azure-native:machinelearningservices/v20220601preview:MLAssistConfigurationEnabledResponse>
+	// cannot have a constant value; only booleans, integers, numbers and strings may have constant values;
+	// HACK: Check if the default value looks like JSON and remove it.
+	switch schema.Default.(type) {
+	case string:
+		if strings.HasPrefix(schema.Default.(string), "{") {
+			fmt.Printf("Default value '%v' appears to be an object %q\n", schema.Default, name)
+			defaultValue = nil
 		}
-	default:
-		defaultValue = schema.Default
 	}
 
 	propertySpec := pschema.PropertySpec{
