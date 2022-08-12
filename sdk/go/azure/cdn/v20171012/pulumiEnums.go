@@ -140,7 +140,7 @@ func (o GeoFilterActionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // GeoFilterActionsInput is an input type that accepts GeoFilterActionsArgs and GeoFilterActionsOutput values.
 // You can construct a concrete instance of `GeoFilterActionsInput` via:
 //
-//          GeoFilterActionsArgs{...}
+//	GeoFilterActionsArgs{...}
 type GeoFilterActionsInput interface {
 	pulumi.Input
 
@@ -318,7 +318,7 @@ func (o QueryStringCachingBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx co
 // QueryStringCachingBehaviorInput is an input type that accepts QueryStringCachingBehaviorArgs and QueryStringCachingBehaviorOutput values.
 // You can construct a concrete instance of `QueryStringCachingBehaviorInput` via:
 //
-//          QueryStringCachingBehaviorArgs{...}
+//	QueryStringCachingBehaviorArgs{...}
 type QueryStringCachingBehaviorInput interface {
 	pulumi.Input
 

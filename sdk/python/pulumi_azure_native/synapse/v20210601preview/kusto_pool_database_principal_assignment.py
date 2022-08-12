@@ -255,6 +255,7 @@ class KustoPoolDatabasePrincipalAssignment(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["aad_object_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -285,6 +286,7 @@ class KustoPoolDatabasePrincipalAssignment(pulumi.CustomResource):
 
         __props__ = KustoPoolDatabasePrincipalAssignmentArgs.__new__(KustoPoolDatabasePrincipalAssignmentArgs)
 
+        __props__.__dict__["aad_object_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["principal_name"] = None
@@ -296,6 +298,14 @@ class KustoPoolDatabasePrincipalAssignment(pulumi.CustomResource):
         __props__.__dict__["tenant_name"] = None
         __props__.__dict__["type"] = None
         return KustoPoolDatabasePrincipalAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aadObjectId")
+    def aad_object_id(self) -> pulumi.Output[str]:
+        """
+        The service principal object id in AAD (Azure active directory)
+        """
+        return pulumi.get(self, "aad_object_id")
 
     @property
     @pulumi.getter

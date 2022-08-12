@@ -274,7 +274,7 @@ class WorkloadGroup(pulumi.CustomResource):
             __props__.__dict__["workload_group_name"] = workload_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20200202preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20200801preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20201101preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20210201preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20210501preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:WorkloadGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20200202preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20200801preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20201101preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20210201preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20210501preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:WorkloadGroup"), pulumi.Alias(type_="azure-native:sql/v20220201preview:WorkloadGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadGroup, __self__).__init__(
             'azure-native:sql/v20190601preview:WorkloadGroup',

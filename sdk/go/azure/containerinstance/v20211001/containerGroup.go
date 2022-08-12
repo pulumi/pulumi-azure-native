@@ -30,7 +30,7 @@ type ContainerGroup struct {
 	// The init containers for a container group.
 	InitContainers InitContainerDefinitionResponseArrayOutput `pulumi:"initContainers"`
 	// The instance view of the container group. Only valid in response.
-	InstanceView ContainerGroupResponseInstanceViewOutput `pulumi:"instanceView"`
+	InstanceView ContainerGroupPropertiesResponseInstanceViewOutput `pulumi:"instanceView"`
 	// The IP address type of the container group.
 	IpAddress IpAddressResponsePtrOutput `pulumi:"ipAddress"`
 	// The resource location.
@@ -75,6 +75,9 @@ func NewContainerGroup(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.IpAddress != nil {
+		args.IpAddress = args.IpAddress.ToIpAddressPtrOutput().ApplyT(func(v *IpAddress) *IpAddress { return v.Defaults() }).(IpAddressPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -310,8 +313,8 @@ func (o ContainerGroupOutput) InitContainers() InitContainerDefinitionResponseAr
 }
 
 // The instance view of the container group. Only valid in response.
-func (o ContainerGroupOutput) InstanceView() ContainerGroupResponseInstanceViewOutput {
-	return o.ApplyT(func(v *ContainerGroup) ContainerGroupResponseInstanceViewOutput { return v.InstanceView }).(ContainerGroupResponseInstanceViewOutput)
+func (o ContainerGroupOutput) InstanceView() ContainerGroupPropertiesResponseInstanceViewOutput {
+	return o.ApplyT(func(v *ContainerGroup) ContainerGroupPropertiesResponseInstanceViewOutput { return v.InstanceView }).(ContainerGroupPropertiesResponseInstanceViewOutput)
 }
 
 // The IP address type of the container group.

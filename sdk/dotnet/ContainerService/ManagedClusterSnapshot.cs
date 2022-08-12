@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.ContainerService
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:ManagedClusterSnapshot"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:ManagedClusterSnapshot"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:ManagedClusterSnapshot"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:ManagedClusterSnapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

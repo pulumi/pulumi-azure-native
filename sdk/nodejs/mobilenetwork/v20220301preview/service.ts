@@ -155,7 +155,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:Service" }, { type: "azure-native:mobilenetwork/v20220101preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:Service" }, { type: "azure-native:mobilenetwork/v20220101preview:Service" }, { type: "azure-native:mobilenetwork/v20220401preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

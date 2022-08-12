@@ -113,8 +113,12 @@ namespace Pulumi.AzureNative.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180301:JitRequest"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:JitRequest"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:JitRequest"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20190701:JitRequest"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:JitRequest"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:JitRequest"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20210701:JitRequest"},
                 },
             };

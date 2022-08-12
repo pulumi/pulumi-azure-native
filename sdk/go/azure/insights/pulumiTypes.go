@@ -21,7 +21,7 @@ type ActionGroupType struct {
 // ActionGroupTypeInput is an input type that accepts ActionGroupTypeArgs and ActionGroupTypeOutput values.
 // You can construct a concrete instance of `ActionGroupTypeInput` via:
 //
-//          ActionGroupTypeArgs{...}
+//	ActionGroupTypeArgs{...}
 type ActionGroupTypeInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ActionGroupTypeArgs) ToActionGroupTypeOutputWithContext(ctx context.Cont
 // ActionGroupTypeArrayInput is an input type that accepts ActionGroupTypeArray and ActionGroupTypeArrayOutput values.
 // You can construct a concrete instance of `ActionGroupTypeArrayInput` via:
 //
-//          ActionGroupTypeArray{ ActionGroupTypeArgs{...} }
+//	ActionGroupTypeArray{ ActionGroupTypeArgs{...} }
 type ActionGroupTypeArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +181,7 @@ type ActionList struct {
 // ActionListInput is an input type that accepts ActionListArgs and ActionListOutput values.
 // You can construct a concrete instance of `ActionListInput` via:
 //
-//          ActionListArgs{...}
+//	ActionListArgs{...}
 type ActionListInput interface {
 	pulumi.Input
 
@@ -262,7 +262,7 @@ type AlertRuleAllOfCondition struct {
 // AlertRuleAllOfConditionInput is an input type that accepts AlertRuleAllOfConditionArgs and AlertRuleAllOfConditionOutput values.
 // You can construct a concrete instance of `AlertRuleAllOfConditionInput` via:
 //
-//          AlertRuleAllOfConditionArgs{...}
+//	AlertRuleAllOfConditionArgs{...}
 type AlertRuleAllOfConditionInput interface {
 	pulumi.Input
 
@@ -337,10 +337,10 @@ func (o AlertRuleAllOfConditionResponseOutput) AllOf() AlertRuleAnyOfOrLeafCondi
 // An Activity Log Alert rule condition that is met when all its member conditions are met.
 // Each condition can be of one of the following types:
 // __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+//   - __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//     _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   - __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//     _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafCondition struct {
 	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
 	AnyOf []AlertRuleLeafCondition `pulumi:"anyOf"`
@@ -356,7 +356,7 @@ type AlertRuleAnyOfOrLeafCondition struct {
 // AlertRuleAnyOfOrLeafConditionInput is an input type that accepts AlertRuleAnyOfOrLeafConditionArgs and AlertRuleAnyOfOrLeafConditionOutput values.
 // You can construct a concrete instance of `AlertRuleAnyOfOrLeafConditionInput` via:
 //
-//          AlertRuleAnyOfOrLeafConditionArgs{...}
+//	AlertRuleAnyOfOrLeafConditionArgs{...}
 type AlertRuleAnyOfOrLeafConditionInput interface {
 	pulumi.Input
 
@@ -367,10 +367,10 @@ type AlertRuleAnyOfOrLeafConditionInput interface {
 // An Activity Log Alert rule condition that is met when all its member conditions are met.
 // Each condition can be of one of the following types:
 // __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+//   - __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//     _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   - __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//     _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionArgs struct {
 	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
 	AnyOf AlertRuleLeafConditionArrayInput `pulumi:"anyOf"`
@@ -398,7 +398,7 @@ func (i AlertRuleAnyOfOrLeafConditionArgs) ToAlertRuleAnyOfOrLeafConditionOutput
 // AlertRuleAnyOfOrLeafConditionArrayInput is an input type that accepts AlertRuleAnyOfOrLeafConditionArray and AlertRuleAnyOfOrLeafConditionArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnyOfOrLeafConditionArrayInput` via:
 //
-//          AlertRuleAnyOfOrLeafConditionArray{ AlertRuleAnyOfOrLeafConditionArgs{...} }
+//	AlertRuleAnyOfOrLeafConditionArray{ AlertRuleAnyOfOrLeafConditionArgs{...} }
 type AlertRuleAnyOfOrLeafConditionArrayInput interface {
 	pulumi.Input
 
@@ -423,10 +423,10 @@ func (i AlertRuleAnyOfOrLeafConditionArray) ToAlertRuleAnyOfOrLeafConditionArray
 // An Activity Log Alert rule condition that is met when all its member conditions are met.
 // Each condition can be of one of the following types:
 // __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+//   - __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//     _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   - __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//     _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnyOfOrLeafConditionOutput) ElementType() reflect.Type {
@@ -485,10 +485,10 @@ func (o AlertRuleAnyOfOrLeafConditionArrayOutput) Index(i pulumi.IntInput) Alert
 // An Activity Log Alert rule condition that is met when all its member conditions are met.
 // Each condition can be of one of the following types:
 // __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+//   - __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//     _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   - __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//     _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionResponse struct {
 	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
 	AnyOf []AlertRuleLeafConditionResponse `pulumi:"anyOf"`
@@ -504,10 +504,10 @@ type AlertRuleAnyOfOrLeafConditionResponse struct {
 // An Activity Log Alert rule condition that is met when all its member conditions are met.
 // Each condition can be of one of the following types:
 // __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+//   - __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//     _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   - __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//     _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnyOfOrLeafConditionResponseOutput) ElementType() reflect.Type {
@@ -578,7 +578,7 @@ type AlertRuleLeafCondition struct {
 // AlertRuleLeafConditionInput is an input type that accepts AlertRuleLeafConditionArgs and AlertRuleLeafConditionOutput values.
 // You can construct a concrete instance of `AlertRuleLeafConditionInput` via:
 //
-//          AlertRuleLeafConditionArgs{...}
+//	AlertRuleLeafConditionArgs{...}
 type AlertRuleLeafConditionInput interface {
 	pulumi.Input
 
@@ -613,7 +613,7 @@ func (i AlertRuleLeafConditionArgs) ToAlertRuleLeafConditionOutputWithContext(ct
 // AlertRuleLeafConditionArrayInput is an input type that accepts AlertRuleLeafConditionArray and AlertRuleLeafConditionArrayOutput values.
 // You can construct a concrete instance of `AlertRuleLeafConditionArrayInput` via:
 //
-//          AlertRuleLeafConditionArray{ AlertRuleLeafConditionArgs{...} }
+//	AlertRuleLeafConditionArray{ AlertRuleLeafConditionArgs{...} }
 type AlertRuleLeafConditionArrayInput interface {
 	pulumi.Input
 
@@ -790,7 +790,7 @@ type ApplicationInsightsComponentAnalyticsItemProperties struct {
 // ApplicationInsightsComponentAnalyticsItemPropertiesInput is an input type that accepts ApplicationInsightsComponentAnalyticsItemPropertiesArgs and ApplicationInsightsComponentAnalyticsItemPropertiesOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentAnalyticsItemPropertiesInput` via:
 //
-//          ApplicationInsightsComponentAnalyticsItemPropertiesArgs{...}
+//	ApplicationInsightsComponentAnalyticsItemPropertiesArgs{...}
 type ApplicationInsightsComponentAnalyticsItemPropertiesInput interface {
 	pulumi.Input
 
@@ -827,11 +827,11 @@ func (i ApplicationInsightsComponentAnalyticsItemPropertiesArgs) ToApplicationIn
 // ApplicationInsightsComponentAnalyticsItemPropertiesPtrInput is an input type that accepts ApplicationInsightsComponentAnalyticsItemPropertiesArgs, ApplicationInsightsComponentAnalyticsItemPropertiesPtr and ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentAnalyticsItemPropertiesPtrInput` via:
 //
-//          ApplicationInsightsComponentAnalyticsItemPropertiesArgs{...}
+//	        ApplicationInsightsComponentAnalyticsItemPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationInsightsComponentAnalyticsItemPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -962,7 +962,7 @@ type ApplicationInsightsComponentDataVolumeCap struct {
 // ApplicationInsightsComponentDataVolumeCapInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapArgs and ApplicationInsightsComponentDataVolumeCapOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentDataVolumeCapInput` via:
 //
-//          ApplicationInsightsComponentDataVolumeCapArgs{...}
+//	ApplicationInsightsComponentDataVolumeCapArgs{...}
 type ApplicationInsightsComponentDataVolumeCapInput interface {
 	pulumi.Input
 
@@ -1005,11 +1005,11 @@ func (i ApplicationInsightsComponentDataVolumeCapArgs) ToApplicationInsightsComp
 // ApplicationInsightsComponentDataVolumeCapPtrInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapArgs, ApplicationInsightsComponentDataVolumeCapPtr and ApplicationInsightsComponentDataVolumeCapPtrOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentDataVolumeCapPtrInput` via:
 //
-//          ApplicationInsightsComponentDataVolumeCapArgs{...}
+//	        ApplicationInsightsComponentDataVolumeCapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationInsightsComponentDataVolumeCapPtrInput interface {
 	pulumi.Input
 
@@ -1511,7 +1511,7 @@ type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions 
 // ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs and ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput` via:
 //
-//          ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs{...}
+//	ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs{...}
 type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput interface {
 	pulumi.Input
 
@@ -1562,11 +1562,11 @@ func (i ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 // ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs, ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtr and ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput values.
 // You can construct a concrete instance of `ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput` via:
 //
-//          ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs{...}
+//	        ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput interface {
 	pulumi.Input
 
@@ -1803,7 +1803,7 @@ func (val *ArmRoleReceiver) Defaults() *ArmRoleReceiver {
 // ArmRoleReceiverInput is an input type that accepts ArmRoleReceiverArgs and ArmRoleReceiverOutput values.
 // You can construct a concrete instance of `ArmRoleReceiverInput` via:
 //
-//          ArmRoleReceiverArgs{...}
+//	ArmRoleReceiverArgs{...}
 type ArmRoleReceiverInput interface {
 	pulumi.Input
 
@@ -1847,7 +1847,7 @@ func (i ArmRoleReceiverArgs) ToArmRoleReceiverOutputWithContext(ctx context.Cont
 // ArmRoleReceiverArrayInput is an input type that accepts ArmRoleReceiverArray and ArmRoleReceiverArrayOutput values.
 // You can construct a concrete instance of `ArmRoleReceiverArrayInput` via:
 //
-//          ArmRoleReceiverArray{ ArmRoleReceiverArgs{...} }
+//	ArmRoleReceiverArray{ ArmRoleReceiverArgs{...} }
 type ArmRoleReceiverArrayInput interface {
 	pulumi.Input
 
@@ -2026,7 +2026,7 @@ func (val *AutomationRunbookReceiver) Defaults() *AutomationRunbookReceiver {
 // AutomationRunbookReceiverInput is an input type that accepts AutomationRunbookReceiverArgs and AutomationRunbookReceiverOutput values.
 // You can construct a concrete instance of `AutomationRunbookReceiverInput` via:
 //
-//          AutomationRunbookReceiverArgs{...}
+//	AutomationRunbookReceiverArgs{...}
 type AutomationRunbookReceiverInput interface {
 	pulumi.Input
 
@@ -2078,7 +2078,7 @@ func (i AutomationRunbookReceiverArgs) ToAutomationRunbookReceiverOutputWithCont
 // AutomationRunbookReceiverArrayInput is an input type that accepts AutomationRunbookReceiverArray and AutomationRunbookReceiverArrayOutput values.
 // You can construct a concrete instance of `AutomationRunbookReceiverArrayInput` via:
 //
-//          AutomationRunbookReceiverArray{ AutomationRunbookReceiverArgs{...} }
+//	AutomationRunbookReceiverArray{ AutomationRunbookReceiverArgs{...} }
 type AutomationRunbookReceiverArrayInput interface {
 	pulumi.Input
 
@@ -2295,7 +2295,7 @@ func (val *AutoscaleNotification) Defaults() *AutoscaleNotification {
 // AutoscaleNotificationInput is an input type that accepts AutoscaleNotificationArgs and AutoscaleNotificationOutput values.
 // You can construct a concrete instance of `AutoscaleNotificationInput` via:
 //
-//          AutoscaleNotificationArgs{...}
+//	AutoscaleNotificationArgs{...}
 type AutoscaleNotificationInput interface {
 	pulumi.Input
 
@@ -2337,7 +2337,7 @@ func (i AutoscaleNotificationArgs) ToAutoscaleNotificationOutputWithContext(ctx 
 // AutoscaleNotificationArrayInput is an input type that accepts AutoscaleNotificationArray and AutoscaleNotificationArrayOutput values.
 // You can construct a concrete instance of `AutoscaleNotificationArrayInput` via:
 //
-//          AutoscaleNotificationArray{ AutoscaleNotificationArgs{...} }
+//	AutoscaleNotificationArray{ AutoscaleNotificationArgs{...} }
 type AutoscaleNotificationArrayInput interface {
 	pulumi.Input
 
@@ -2497,7 +2497,7 @@ type AutoscaleProfile struct {
 // AutoscaleProfileInput is an input type that accepts AutoscaleProfileArgs and AutoscaleProfileOutput values.
 // You can construct a concrete instance of `AutoscaleProfileInput` via:
 //
-//          AutoscaleProfileArgs{...}
+//	AutoscaleProfileArgs{...}
 type AutoscaleProfileInput interface {
 	pulumi.Input
 
@@ -2534,7 +2534,7 @@ func (i AutoscaleProfileArgs) ToAutoscaleProfileOutputWithContext(ctx context.Co
 // AutoscaleProfileArrayInput is an input type that accepts AutoscaleProfileArray and AutoscaleProfileArrayOutput values.
 // You can construct a concrete instance of `AutoscaleProfileArrayInput` via:
 //
-//          AutoscaleProfileArray{ AutoscaleProfileArgs{...} }
+//	AutoscaleProfileArray{ AutoscaleProfileArgs{...} }
 type AutoscaleProfileArrayInput interface {
 	pulumi.Input
 
@@ -2721,7 +2721,7 @@ type AzureAppPushReceiver struct {
 // AzureAppPushReceiverInput is an input type that accepts AzureAppPushReceiverArgs and AzureAppPushReceiverOutput values.
 // You can construct a concrete instance of `AzureAppPushReceiverInput` via:
 //
-//          AzureAppPushReceiverArgs{...}
+//	AzureAppPushReceiverArgs{...}
 type AzureAppPushReceiverInput interface {
 	pulumi.Input
 
@@ -2752,7 +2752,7 @@ func (i AzureAppPushReceiverArgs) ToAzureAppPushReceiverOutputWithContext(ctx co
 // AzureAppPushReceiverArrayInput is an input type that accepts AzureAppPushReceiverArray and AzureAppPushReceiverArrayOutput values.
 // You can construct a concrete instance of `AzureAppPushReceiverArrayInput` via:
 //
-//          AzureAppPushReceiverArray{ AzureAppPushReceiverArgs{...} }
+//	AzureAppPushReceiverArray{ AzureAppPushReceiverArgs{...} }
 type AzureAppPushReceiverArrayInput interface {
 	pulumi.Input
 
@@ -2902,7 +2902,7 @@ func (val *AzureFunctionReceiver) Defaults() *AzureFunctionReceiver {
 // AzureFunctionReceiverInput is an input type that accepts AzureFunctionReceiverArgs and AzureFunctionReceiverOutput values.
 // You can construct a concrete instance of `AzureFunctionReceiverInput` via:
 //
-//          AzureFunctionReceiverArgs{...}
+//	AzureFunctionReceiverArgs{...}
 type AzureFunctionReceiverInput interface {
 	pulumi.Input
 
@@ -2950,7 +2950,7 @@ func (i AzureFunctionReceiverArgs) ToAzureFunctionReceiverOutputWithContext(ctx 
 // AzureFunctionReceiverArrayInput is an input type that accepts AzureFunctionReceiverArray and AzureFunctionReceiverArrayOutput values.
 // You can construct a concrete instance of `AzureFunctionReceiverArrayInput` via:
 //
-//          AzureFunctionReceiverArray{ AzureFunctionReceiverArgs{...} }
+//	AzureFunctionReceiverArray{ AzureFunctionReceiverArgs{...} }
 type AzureFunctionReceiverArrayInput interface {
 	pulumi.Input
 
@@ -3144,7 +3144,7 @@ type DataCollectionEndpointNetworkAcls struct {
 // DataCollectionEndpointNetworkAclsInput is an input type that accepts DataCollectionEndpointNetworkAclsArgs and DataCollectionEndpointNetworkAclsOutput values.
 // You can construct a concrete instance of `DataCollectionEndpointNetworkAclsInput` via:
 //
-//          DataCollectionEndpointNetworkAclsArgs{...}
+//	DataCollectionEndpointNetworkAclsArgs{...}
 type DataCollectionEndpointNetworkAclsInput interface {
 	pulumi.Input
 
@@ -3181,11 +3181,11 @@ func (i DataCollectionEndpointNetworkAclsArgs) ToDataCollectionEndpointNetworkAc
 // DataCollectionEndpointNetworkAclsPtrInput is an input type that accepts DataCollectionEndpointNetworkAclsArgs, DataCollectionEndpointNetworkAclsPtr and DataCollectionEndpointNetworkAclsPtrOutput values.
 // You can construct a concrete instance of `DataCollectionEndpointNetworkAclsPtrInput` via:
 //
-//          DataCollectionEndpointNetworkAclsArgs{...}
+//	        DataCollectionEndpointNetworkAclsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataCollectionEndpointNetworkAclsPtrInput interface {
 	pulumi.Input
 
@@ -3532,7 +3532,7 @@ type DataCollectionRuleDataSources struct {
 // DataCollectionRuleDataSourcesInput is an input type that accepts DataCollectionRuleDataSourcesArgs and DataCollectionRuleDataSourcesOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesInput` via:
 //
-//          DataCollectionRuleDataSourcesArgs{...}
+//	DataCollectionRuleDataSourcesArgs{...}
 type DataCollectionRuleDataSourcesInput interface {
 	pulumi.Input
 
@@ -3576,11 +3576,11 @@ func (i DataCollectionRuleDataSourcesArgs) ToDataCollectionRuleDataSourcesPtrOut
 // DataCollectionRuleDataSourcesPtrInput is an input type that accepts DataCollectionRuleDataSourcesArgs, DataCollectionRuleDataSourcesPtr and DataCollectionRuleDataSourcesPtrOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesPtrInput` via:
 //
-//          DataCollectionRuleDataSourcesArgs{...}
+//	        DataCollectionRuleDataSourcesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataCollectionRuleDataSourcesPtrInput interface {
 	pulumi.Input
 
@@ -3727,7 +3727,7 @@ type DataCollectionRuleDestinations struct {
 // DataCollectionRuleDestinationsInput is an input type that accepts DataCollectionRuleDestinationsArgs and DataCollectionRuleDestinationsOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDestinationsInput` via:
 //
-//          DataCollectionRuleDestinationsArgs{...}
+//	DataCollectionRuleDestinationsArgs{...}
 type DataCollectionRuleDestinationsInput interface {
 	pulumi.Input
 
@@ -3766,11 +3766,11 @@ func (i DataCollectionRuleDestinationsArgs) ToDataCollectionRuleDestinationsPtrO
 // DataCollectionRuleDestinationsPtrInput is an input type that accepts DataCollectionRuleDestinationsArgs, DataCollectionRuleDestinationsPtr and DataCollectionRuleDestinationsPtrOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDestinationsPtrInput` via:
 //
-//          DataCollectionRuleDestinationsArgs{...}
+//	        DataCollectionRuleDestinationsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataCollectionRuleDestinationsPtrInput interface {
 	pulumi.Input
 
@@ -4086,7 +4086,7 @@ type DataFlow struct {
 // DataFlowInput is an input type that accepts DataFlowArgs and DataFlowOutput values.
 // You can construct a concrete instance of `DataFlowInput` via:
 //
-//          DataFlowArgs{...}
+//	DataFlowArgs{...}
 type DataFlowInput interface {
 	pulumi.Input
 
@@ -4117,7 +4117,7 @@ func (i DataFlowArgs) ToDataFlowOutputWithContext(ctx context.Context) DataFlowO
 // DataFlowArrayInput is an input type that accepts DataFlowArray and DataFlowArrayOutput values.
 // You can construct a concrete instance of `DataFlowArrayInput` via:
 //
-//          DataFlowArray{ DataFlowArgs{...} }
+//	DataFlowArray{ DataFlowArgs{...} }
 type DataFlowArrayInput interface {
 	pulumi.Input
 
@@ -4248,7 +4248,7 @@ type DataSource struct {
 // DataSourceInput is an input type that accepts DataSourceArgs and DataSourceOutput values.
 // You can construct a concrete instance of `DataSourceInput` via:
 //
-//          DataSourceArgs{...}
+//	DataSourceArgs{...}
 type DataSourceInput interface {
 	pulumi.Input
 
@@ -4279,7 +4279,7 @@ func (i DataSourceArgs) ToDataSourceOutputWithContext(ctx context.Context) DataS
 // DataSourceArrayInput is an input type that accepts DataSourceArray and DataSourceArrayOutput values.
 // You can construct a concrete instance of `DataSourceArrayInput` via:
 //
-//          DataSourceArray{ DataSourceArgs{...} }
+//	DataSourceArray{ DataSourceArgs{...} }
 type DataSourceArrayInput interface {
 	pulumi.Input
 
@@ -4361,7 +4361,7 @@ type DataSourceConfiguration struct {
 // DataSourceConfigurationInput is an input type that accepts DataSourceConfigurationArgs and DataSourceConfigurationOutput values.
 // You can construct a concrete instance of `DataSourceConfigurationInput` via:
 //
-//          DataSourceConfigurationArgs{...}
+//	DataSourceConfigurationArgs{...}
 type DataSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -4525,7 +4525,7 @@ type DestinationsSpecAzureMonitorMetrics struct {
 // DestinationsSpecAzureMonitorMetricsInput is an input type that accepts DestinationsSpecAzureMonitorMetricsArgs and DestinationsSpecAzureMonitorMetricsOutput values.
 // You can construct a concrete instance of `DestinationsSpecAzureMonitorMetricsInput` via:
 //
-//          DestinationsSpecAzureMonitorMetricsArgs{...}
+//	DestinationsSpecAzureMonitorMetricsArgs{...}
 type DestinationsSpecAzureMonitorMetricsInput interface {
 	pulumi.Input
 
@@ -4563,11 +4563,11 @@ func (i DestinationsSpecAzureMonitorMetricsArgs) ToDestinationsSpecAzureMonitorM
 // DestinationsSpecAzureMonitorMetricsPtrInput is an input type that accepts DestinationsSpecAzureMonitorMetricsArgs, DestinationsSpecAzureMonitorMetricsPtr and DestinationsSpecAzureMonitorMetricsPtrOutput values.
 // You can construct a concrete instance of `DestinationsSpecAzureMonitorMetricsPtrInput` via:
 //
-//          DestinationsSpecAzureMonitorMetricsArgs{...}
+//	        DestinationsSpecAzureMonitorMetricsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DestinationsSpecAzureMonitorMetricsPtrInput interface {
 	pulumi.Input
 
@@ -4842,7 +4842,7 @@ func (val *EmailNotification) Defaults() *EmailNotification {
 // EmailNotificationInput is an input type that accepts EmailNotificationArgs and EmailNotificationOutput values.
 // You can construct a concrete instance of `EmailNotificationInput` via:
 //
-//          EmailNotificationArgs{...}
+//	EmailNotificationArgs{...}
 type EmailNotificationInput interface {
 	pulumi.Input
 
@@ -4897,11 +4897,11 @@ func (i EmailNotificationArgs) ToEmailNotificationPtrOutputWithContext(ctx conte
 // EmailNotificationPtrInput is an input type that accepts EmailNotificationArgs, EmailNotificationPtr and EmailNotificationPtrOutput values.
 // You can construct a concrete instance of `EmailNotificationPtrInput` via:
 //
-//          EmailNotificationArgs{...}
+//	        EmailNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EmailNotificationPtrInput interface {
 	pulumi.Input
 
@@ -5158,7 +5158,7 @@ func (val *EmailReceiver) Defaults() *EmailReceiver {
 // EmailReceiverInput is an input type that accepts EmailReceiverArgs and EmailReceiverOutput values.
 // You can construct a concrete instance of `EmailReceiverInput` via:
 //
-//          EmailReceiverArgs{...}
+//	EmailReceiverArgs{...}
 type EmailReceiverInput interface {
 	pulumi.Input
 
@@ -5202,7 +5202,7 @@ func (i EmailReceiverArgs) ToEmailReceiverOutputWithContext(ctx context.Context)
 // EmailReceiverArrayInput is an input type that accepts EmailReceiverArray and EmailReceiverArrayOutput values.
 // You can construct a concrete instance of `EmailReceiverArrayInput` via:
 //
-//          EmailReceiverArray{ EmailReceiverArgs{...} }
+//	EmailReceiverArray{ EmailReceiverArgs{...} }
 type EmailReceiverArrayInput interface {
 	pulumi.Input
 
@@ -5363,7 +5363,7 @@ type EtwEventConfiguration struct {
 // EtwEventConfigurationInput is an input type that accepts EtwEventConfigurationArgs and EtwEventConfigurationOutput values.
 // You can construct a concrete instance of `EtwEventConfigurationInput` via:
 //
-//          EtwEventConfigurationArgs{...}
+//	EtwEventConfigurationArgs{...}
 type EtwEventConfigurationInput interface {
 	pulumi.Input
 
@@ -5392,7 +5392,7 @@ func (i EtwEventConfigurationArgs) ToEtwEventConfigurationOutputWithContext(ctx 
 // EtwEventConfigurationArrayInput is an input type that accepts EtwEventConfigurationArray and EtwEventConfigurationArrayOutput values.
 // You can construct a concrete instance of `EtwEventConfigurationArrayInput` via:
 //
-//          EtwEventConfigurationArray{ EtwEventConfigurationArgs{...} }
+//	EtwEventConfigurationArray{ EtwEventConfigurationArgs{...} }
 type EtwEventConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -5520,7 +5520,7 @@ type EtwProviderConfiguration struct {
 // EtwProviderConfigurationInput is an input type that accepts EtwProviderConfigurationArgs and EtwProviderConfigurationOutput values.
 // You can construct a concrete instance of `EtwProviderConfigurationInput` via:
 //
-//          EtwProviderConfigurationArgs{...}
+//	EtwProviderConfigurationArgs{...}
 type EtwProviderConfigurationInput interface {
 	pulumi.Input
 
@@ -5548,7 +5548,7 @@ func (i EtwProviderConfigurationArgs) ToEtwProviderConfigurationOutputWithContex
 // EtwProviderConfigurationArrayInput is an input type that accepts EtwProviderConfigurationArray and EtwProviderConfigurationArrayOutput values.
 // You can construct a concrete instance of `EtwProviderConfigurationArrayInput` via:
 //
-//          EtwProviderConfigurationArray{ EtwProviderConfigurationArgs{...} }
+//	EtwProviderConfigurationArray{ EtwProviderConfigurationArgs{...} }
 type EtwProviderConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -5667,7 +5667,7 @@ type EventLogConfiguration struct {
 // EventLogConfigurationInput is an input type that accepts EventLogConfigurationArgs and EventLogConfigurationOutput values.
 // You can construct a concrete instance of `EventLogConfigurationInput` via:
 //
-//          EventLogConfigurationArgs{...}
+//	EventLogConfigurationArgs{...}
 type EventLogConfigurationInput interface {
 	pulumi.Input
 
@@ -5695,7 +5695,7 @@ func (i EventLogConfigurationArgs) ToEventLogConfigurationOutputWithContext(ctx 
 // EventLogConfigurationArrayInput is an input type that accepts EventLogConfigurationArray and EventLogConfigurationArrayOutput values.
 // You can construct a concrete instance of `EventLogConfigurationArrayInput` via:
 //
-//          EventLogConfigurationArray{ EventLogConfigurationArgs{...} }
+//	EventLogConfigurationArray{ EventLogConfigurationArgs{...} }
 type EventLogConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -5826,7 +5826,7 @@ type ExtensionDataSource struct {
 // ExtensionDataSourceInput is an input type that accepts ExtensionDataSourceArgs and ExtensionDataSourceOutput values.
 // You can construct a concrete instance of `ExtensionDataSourceInput` via:
 //
-//          ExtensionDataSourceArgs{...}
+//	ExtensionDataSourceArgs{...}
 type ExtensionDataSourceInput interface {
 	pulumi.Input
 
@@ -5866,7 +5866,7 @@ func (i ExtensionDataSourceArgs) ToExtensionDataSourceOutputWithContext(ctx cont
 // ExtensionDataSourceArrayInput is an input type that accepts ExtensionDataSourceArray and ExtensionDataSourceArrayOutput values.
 // You can construct a concrete instance of `ExtensionDataSourceArrayInput` via:
 //
-//          ExtensionDataSourceArray{ ExtensionDataSourceArgs{...} }
+//	ExtensionDataSourceArray{ ExtensionDataSourceArgs{...} }
 type ExtensionDataSourceArrayInput interface {
 	pulumi.Input
 
@@ -6048,7 +6048,7 @@ type ItsmReceiver struct {
 // ItsmReceiverInput is an input type that accepts ItsmReceiverArgs and ItsmReceiverOutput values.
 // You can construct a concrete instance of `ItsmReceiverInput` via:
 //
-//          ItsmReceiverArgs{...}
+//	ItsmReceiverArgs{...}
 type ItsmReceiverInput interface {
 	pulumi.Input
 
@@ -6085,7 +6085,7 @@ func (i ItsmReceiverArgs) ToItsmReceiverOutputWithContext(ctx context.Context) I
 // ItsmReceiverArrayInput is an input type that accepts ItsmReceiverArray and ItsmReceiverArrayOutput values.
 // You can construct a concrete instance of `ItsmReceiverArrayInput` via:
 //
-//          ItsmReceiverArray{ ItsmReceiverArgs{...} }
+//	ItsmReceiverArray{ ItsmReceiverArgs{...} }
 type ItsmReceiverArrayInput interface {
 	pulumi.Input
 
@@ -6279,7 +6279,7 @@ type LogAnalyticsDestination struct {
 // LogAnalyticsDestinationInput is an input type that accepts LogAnalyticsDestinationArgs and LogAnalyticsDestinationOutput values.
 // You can construct a concrete instance of `LogAnalyticsDestinationInput` via:
 //
-//          LogAnalyticsDestinationArgs{...}
+//	LogAnalyticsDestinationArgs{...}
 type LogAnalyticsDestinationInput interface {
 	pulumi.Input
 
@@ -6311,7 +6311,7 @@ func (i LogAnalyticsDestinationArgs) ToLogAnalyticsDestinationOutputWithContext(
 // LogAnalyticsDestinationArrayInput is an input type that accepts LogAnalyticsDestinationArray and LogAnalyticsDestinationArrayOutput values.
 // You can construct a concrete instance of `LogAnalyticsDestinationArrayInput` via:
 //
-//          LogAnalyticsDestinationArray{ LogAnalyticsDestinationArgs{...} }
+//	LogAnalyticsDestinationArray{ LogAnalyticsDestinationArgs{...} }
 type LogAnalyticsDestinationArrayInput interface {
 	pulumi.Input
 
@@ -6478,7 +6478,7 @@ type LogSettings struct {
 // LogSettingsInput is an input type that accepts LogSettingsArgs and LogSettingsOutput values.
 // You can construct a concrete instance of `LogSettingsInput` via:
 //
-//          LogSettingsArgs{...}
+//	LogSettingsArgs{...}
 type LogSettingsInput interface {
 	pulumi.Input
 
@@ -6511,7 +6511,7 @@ func (i LogSettingsArgs) ToLogSettingsOutputWithContext(ctx context.Context) Log
 // LogSettingsArrayInput is an input type that accepts LogSettingsArray and LogSettingsArrayOutput values.
 // You can construct a concrete instance of `LogSettingsArrayInput` via:
 //
-//          LogSettingsArray{ LogSettingsArgs{...} }
+//	LogSettingsArray{ LogSettingsArgs{...} }
 type LogSettingsArrayInput interface {
 	pulumi.Input
 
@@ -6689,7 +6689,7 @@ func (val *LogicAppReceiver) Defaults() *LogicAppReceiver {
 // LogicAppReceiverInput is an input type that accepts LogicAppReceiverArgs and LogicAppReceiverOutput values.
 // You can construct a concrete instance of `LogicAppReceiverInput` via:
 //
-//          LogicAppReceiverArgs{...}
+//	LogicAppReceiverArgs{...}
 type LogicAppReceiverInput interface {
 	pulumi.Input
 
@@ -6735,7 +6735,7 @@ func (i LogicAppReceiverArgs) ToLogicAppReceiverOutputWithContext(ctx context.Co
 // LogicAppReceiverArrayInput is an input type that accepts LogicAppReceiverArray and LogicAppReceiverArrayOutput values.
 // You can construct a concrete instance of `LogicAppReceiverArrayInput` via:
 //
-//          LogicAppReceiverArray{ LogicAppReceiverArgs{...} }
+//	LogicAppReceiverArray{ LogicAppReceiverArgs{...} }
 type LogicAppReceiverArrayInput interface {
 	pulumi.Input
 
@@ -6945,7 +6945,7 @@ type ManagementGroupLogSettings struct {
 // ManagementGroupLogSettingsInput is an input type that accepts ManagementGroupLogSettingsArgs and ManagementGroupLogSettingsOutput values.
 // You can construct a concrete instance of `ManagementGroupLogSettingsInput` via:
 //
-//          ManagementGroupLogSettingsArgs{...}
+//	ManagementGroupLogSettingsArgs{...}
 type ManagementGroupLogSettingsInput interface {
 	pulumi.Input
 
@@ -6976,7 +6976,7 @@ func (i ManagementGroupLogSettingsArgs) ToManagementGroupLogSettingsOutputWithCo
 // ManagementGroupLogSettingsArrayInput is an input type that accepts ManagementGroupLogSettingsArray and ManagementGroupLogSettingsArrayOutput values.
 // You can construct a concrete instance of `ManagementGroupLogSettingsArrayInput` via:
 //
-//          ManagementGroupLogSettingsArray{ ManagementGroupLogSettingsArgs{...} }
+//	ManagementGroupLogSettingsArray{ ManagementGroupLogSettingsArgs{...} }
 type ManagementGroupLogSettingsArrayInput interface {
 	pulumi.Input
 
@@ -7107,7 +7107,7 @@ type MetricAlertAction struct {
 // MetricAlertActionInput is an input type that accepts MetricAlertActionArgs and MetricAlertActionOutput values.
 // You can construct a concrete instance of `MetricAlertActionInput` via:
 //
-//          MetricAlertActionArgs{...}
+//	MetricAlertActionArgs{...}
 type MetricAlertActionInput interface {
 	pulumi.Input
 
@@ -7138,7 +7138,7 @@ func (i MetricAlertActionArgs) ToMetricAlertActionOutputWithContext(ctx context.
 // MetricAlertActionArrayInput is an input type that accepts MetricAlertActionArray and MetricAlertActionArrayOutput values.
 // You can construct a concrete instance of `MetricAlertActionArrayInput` via:
 //
-//          MetricAlertActionArray{ MetricAlertActionArgs{...} }
+//	MetricAlertActionArray{ MetricAlertActionArgs{...} }
 type MetricAlertActionArrayInput interface {
 	pulumi.Input
 
@@ -7375,7 +7375,7 @@ type MetricSettings struct {
 // MetricSettingsInput is an input type that accepts MetricSettingsArgs and MetricSettingsOutput values.
 // You can construct a concrete instance of `MetricSettingsInput` via:
 //
-//          MetricSettingsArgs{...}
+//	MetricSettingsArgs{...}
 type MetricSettingsInput interface {
 	pulumi.Input
 
@@ -7410,7 +7410,7 @@ func (i MetricSettingsArgs) ToMetricSettingsOutputWithContext(ctx context.Contex
 // MetricSettingsArrayInput is an input type that accepts MetricSettingsArray and MetricSettingsArrayOutput values.
 // You can construct a concrete instance of `MetricSettingsArrayInput` via:
 //
-//          MetricSettingsArray{ MetricSettingsArgs{...} }
+//	MetricSettingsArray{ MetricSettingsArgs{...} }
 type MetricSettingsArrayInput interface {
 	pulumi.Input
 
@@ -7585,7 +7585,7 @@ type MetricTrigger struct {
 // MetricTriggerInput is an input type that accepts MetricTriggerArgs and MetricTriggerOutput values.
 // You can construct a concrete instance of `MetricTriggerInput` via:
 //
-//          MetricTriggerArgs{...}
+//	MetricTriggerArgs{...}
 type MetricTriggerInput interface {
 	pulumi.Input
 
@@ -7820,7 +7820,7 @@ type MyWorkbookManagedIdentity struct {
 // MyWorkbookManagedIdentityInput is an input type that accepts MyWorkbookManagedIdentityArgs and MyWorkbookManagedIdentityOutput values.
 // You can construct a concrete instance of `MyWorkbookManagedIdentityInput` via:
 //
-//          MyWorkbookManagedIdentityArgs{...}
+//	MyWorkbookManagedIdentityArgs{...}
 type MyWorkbookManagedIdentityInput interface {
 	pulumi.Input
 
@@ -7857,11 +7857,11 @@ func (i MyWorkbookManagedIdentityArgs) ToMyWorkbookManagedIdentityPtrOutputWithC
 // MyWorkbookManagedIdentityPtrInput is an input type that accepts MyWorkbookManagedIdentityArgs, MyWorkbookManagedIdentityPtr and MyWorkbookManagedIdentityPtrOutput values.
 // You can construct a concrete instance of `MyWorkbookManagedIdentityPtrInput` via:
 //
-//          MyWorkbookManagedIdentityArgs{...}
+//	        MyWorkbookManagedIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MyWorkbookManagedIdentityPtrInput interface {
 	pulumi.Input
 
@@ -8127,7 +8127,7 @@ type PerfCounterDataSource struct {
 // PerfCounterDataSourceInput is an input type that accepts PerfCounterDataSourceArgs and PerfCounterDataSourceOutput values.
 // You can construct a concrete instance of `PerfCounterDataSourceInput` via:
 //
-//          PerfCounterDataSourceArgs{...}
+//	PerfCounterDataSourceArgs{...}
 type PerfCounterDataSourceInput interface {
 	pulumi.Input
 
@@ -8167,7 +8167,7 @@ func (i PerfCounterDataSourceArgs) ToPerfCounterDataSourceOutputWithContext(ctx 
 // PerfCounterDataSourceArrayInput is an input type that accepts PerfCounterDataSourceArray and PerfCounterDataSourceArrayOutput values.
 // You can construct a concrete instance of `PerfCounterDataSourceArrayInput` via:
 //
-//          PerfCounterDataSourceArray{ PerfCounterDataSourceArgs{...} }
+//	PerfCounterDataSourceArray{ PerfCounterDataSourceArgs{...} }
 type PerfCounterDataSourceArrayInput interface {
 	pulumi.Input
 
@@ -8335,7 +8335,7 @@ type PerformanceCounterConfiguration struct {
 // PerformanceCounterConfigurationInput is an input type that accepts PerformanceCounterConfigurationArgs and PerformanceCounterConfigurationOutput values.
 // You can construct a concrete instance of `PerformanceCounterConfigurationInput` via:
 //
-//          PerformanceCounterConfigurationArgs{...}
+//	PerformanceCounterConfigurationArgs{...}
 type PerformanceCounterConfigurationInput interface {
 	pulumi.Input
 
@@ -8364,7 +8364,7 @@ func (i PerformanceCounterConfigurationArgs) ToPerformanceCounterConfigurationOu
 // PerformanceCounterConfigurationArrayInput is an input type that accepts PerformanceCounterConfigurationArray and PerformanceCounterConfigurationArrayOutput values.
 // You can construct a concrete instance of `PerformanceCounterConfigurationArrayInput` via:
 //
-//          PerformanceCounterConfigurationArray{ PerformanceCounterConfigurationArgs{...} }
+//	PerformanceCounterConfigurationArray{ PerformanceCounterConfigurationArgs{...} }
 type PerformanceCounterConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -8576,7 +8576,7 @@ type PrivateEndpointProperty struct {
 // PrivateEndpointPropertyInput is an input type that accepts PrivateEndpointPropertyArgs and PrivateEndpointPropertyOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertyInput` via:
 //
-//          PrivateEndpointPropertyArgs{...}
+//	PrivateEndpointPropertyArgs{...}
 type PrivateEndpointPropertyInput interface {
 	pulumi.Input
 
@@ -8613,11 +8613,11 @@ func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyPtrOutputWithConte
 // PrivateEndpointPropertyPtrInput is an input type that accepts PrivateEndpointPropertyArgs, PrivateEndpointPropertyPtr and PrivateEndpointPropertyPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertyPtrInput` via:
 //
-//          PrivateEndpointPropertyArgs{...}
+//	        PrivateEndpointPropertyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateEndpointPropertyPtrInput interface {
 	pulumi.Input
 
@@ -8831,7 +8831,7 @@ type PrivateLinkServiceConnectionStateProperty struct {
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyInput` via:
 //
-//          PrivateLinkServiceConnectionStatePropertyArgs{...}
+//	PrivateLinkServiceConnectionStatePropertyArgs{...}
 type PrivateLinkServiceConnectionStatePropertyInput interface {
 	pulumi.Input
 
@@ -8870,11 +8870,11 @@ func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConne
 // PrivateLinkServiceConnectionStatePropertyPtrInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs, PrivateLinkServiceConnectionStatePropertyPtr and PrivateLinkServiceConnectionStatePropertyPtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyPtrInput` via:
 //
-//          PrivateLinkServiceConnectionStatePropertyArgs{...}
+//	        PrivateLinkServiceConnectionStatePropertyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateLinkServiceConnectionStatePropertyPtrInput interface {
 	pulumi.Input
 
@@ -9084,7 +9084,7 @@ type Recurrence struct {
 // RecurrenceInput is an input type that accepts RecurrenceArgs and RecurrenceOutput values.
 // You can construct a concrete instance of `RecurrenceInput` via:
 //
-//          RecurrenceArgs{...}
+//	RecurrenceArgs{...}
 type RecurrenceInput interface {
 	pulumi.Input
 
@@ -9123,11 +9123,11 @@ func (i RecurrenceArgs) ToRecurrencePtrOutputWithContext(ctx context.Context) Re
 // RecurrencePtrInput is an input type that accepts RecurrenceArgs, RecurrencePtr and RecurrencePtrOutput values.
 // You can construct a concrete instance of `RecurrencePtrInput` via:
 //
-//          RecurrenceArgs{...}
+//	        RecurrenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RecurrencePtrInput interface {
 	pulumi.Input
 
@@ -9324,7 +9324,7 @@ type RecurrentSchedule struct {
 // RecurrentScheduleInput is an input type that accepts RecurrentScheduleArgs and RecurrentScheduleOutput values.
 // You can construct a concrete instance of `RecurrentScheduleInput` via:
 //
-//          RecurrentScheduleArgs{...}
+//	RecurrentScheduleArgs{...}
 type RecurrentScheduleInput interface {
 	pulumi.Input
 
@@ -9367,11 +9367,11 @@ func (i RecurrentScheduleArgs) ToRecurrentSchedulePtrOutputWithContext(ctx conte
 // RecurrentSchedulePtrInput is an input type that accepts RecurrentScheduleArgs, RecurrentSchedulePtr and RecurrentSchedulePtrOutput values.
 // You can construct a concrete instance of `RecurrentSchedulePtrInput` via:
 //
-//          RecurrentScheduleArgs{...}
+//	        RecurrentScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RecurrentSchedulePtrInput interface {
 	pulumi.Input
 
@@ -9628,7 +9628,7 @@ type RetentionPolicy struct {
 // RetentionPolicyInput is an input type that accepts RetentionPolicyArgs and RetentionPolicyOutput values.
 // You can construct a concrete instance of `RetentionPolicyInput` via:
 //
-//          RetentionPolicyArgs{...}
+//	RetentionPolicyArgs{...}
 type RetentionPolicyInput interface {
 	pulumi.Input
 
@@ -9667,11 +9667,11 @@ func (i RetentionPolicyArgs) ToRetentionPolicyPtrOutputWithContext(ctx context.C
 // RetentionPolicyPtrInput is an input type that accepts RetentionPolicyArgs, RetentionPolicyPtr and RetentionPolicyPtrOutput values.
 // You can construct a concrete instance of `RetentionPolicyPtrInput` via:
 //
-//          RetentionPolicyArgs{...}
+//	        RetentionPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RetentionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -10037,7 +10037,7 @@ func (val *ScaleAction) Defaults() *ScaleAction {
 // ScaleActionInput is an input type that accepts ScaleActionArgs and ScaleActionOutput values.
 // You can construct a concrete instance of `ScaleActionInput` via:
 //
-//          ScaleActionArgs{...}
+//	ScaleActionArgs{...}
 type ScaleActionInput interface {
 	pulumi.Input
 
@@ -10188,7 +10188,7 @@ type ScaleCapacity struct {
 // ScaleCapacityInput is an input type that accepts ScaleCapacityArgs and ScaleCapacityOutput values.
 // You can construct a concrete instance of `ScaleCapacityInput` via:
 //
-//          ScaleCapacityArgs{...}
+//	ScaleCapacityArgs{...}
 type ScaleCapacityInput interface {
 	pulumi.Input
 
@@ -10310,7 +10310,7 @@ func (val *ScaleRule) Defaults() *ScaleRule {
 // ScaleRuleInput is an input type that accepts ScaleRuleArgs and ScaleRuleOutput values.
 // You can construct a concrete instance of `ScaleRuleInput` via:
 //
-//          ScaleRuleArgs{...}
+//	ScaleRuleArgs{...}
 type ScaleRuleInput interface {
 	pulumi.Input
 
@@ -10350,7 +10350,7 @@ func (i ScaleRuleArgs) ToScaleRuleOutputWithContext(ctx context.Context) ScaleRu
 // ScaleRuleArrayInput is an input type that accepts ScaleRuleArray and ScaleRuleArrayOutput values.
 // You can construct a concrete instance of `ScaleRuleArrayInput` via:
 //
-//          ScaleRuleArray{ ScaleRuleArgs{...} }
+//	ScaleRuleArray{ ScaleRuleArgs{...} }
 type ScaleRuleArrayInput interface {
 	pulumi.Input
 
@@ -10430,7 +10430,7 @@ type ScaleRuleMetricDimension struct {
 // ScaleRuleMetricDimensionInput is an input type that accepts ScaleRuleMetricDimensionArgs and ScaleRuleMetricDimensionOutput values.
 // You can construct a concrete instance of `ScaleRuleMetricDimensionInput` via:
 //
-//          ScaleRuleMetricDimensionArgs{...}
+//	ScaleRuleMetricDimensionArgs{...}
 type ScaleRuleMetricDimensionInput interface {
 	pulumi.Input
 
@@ -10463,7 +10463,7 @@ func (i ScaleRuleMetricDimensionArgs) ToScaleRuleMetricDimensionOutputWithContex
 // ScaleRuleMetricDimensionArrayInput is an input type that accepts ScaleRuleMetricDimensionArray and ScaleRuleMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `ScaleRuleMetricDimensionArrayInput` via:
 //
-//          ScaleRuleMetricDimensionArray{ ScaleRuleMetricDimensionArgs{...} }
+//	ScaleRuleMetricDimensionArray{ ScaleRuleMetricDimensionArgs{...} }
 type ScaleRuleMetricDimensionArrayInput interface {
 	pulumi.Input
 
@@ -10670,7 +10670,7 @@ type Schedule struct {
 // ScheduleInput is an input type that accepts ScheduleArgs and ScheduleOutput values.
 // You can construct a concrete instance of `ScheduleInput` via:
 //
-//          ScheduleArgs{...}
+//	ScheduleArgs{...}
 type ScheduleInput interface {
 	pulumi.Input
 
@@ -10709,11 +10709,11 @@ func (i ScheduleArgs) ToSchedulePtrOutputWithContext(ctx context.Context) Schedu
 // SchedulePtrInput is an input type that accepts ScheduleArgs, SchedulePtr and SchedulePtrOutput values.
 // You can construct a concrete instance of `SchedulePtrInput` via:
 //
-//          ScheduleArgs{...}
+//	        ScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SchedulePtrInput interface {
 	pulumi.Input
 
@@ -10902,7 +10902,7 @@ type SinkConfiguration struct {
 // SinkConfigurationInput is an input type that accepts SinkConfigurationArgs and SinkConfigurationOutput values.
 // You can construct a concrete instance of `SinkConfigurationInput` via:
 //
-//          SinkConfigurationArgs{...}
+//	SinkConfigurationArgs{...}
 type SinkConfigurationInput interface {
 	pulumi.Input
 
@@ -10929,7 +10929,7 @@ func (i SinkConfigurationArgs) ToSinkConfigurationOutputWithContext(ctx context.
 // SinkConfigurationArrayInput is an input type that accepts SinkConfigurationArray and SinkConfigurationArrayOutput values.
 // You can construct a concrete instance of `SinkConfigurationArrayInput` via:
 //
-//          SinkConfigurationArray{ SinkConfigurationArgs{...} }
+//	SinkConfigurationArray{ SinkConfigurationArgs{...} }
 type SinkConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -11044,7 +11044,7 @@ type SmsReceiver struct {
 // SmsReceiverInput is an input type that accepts SmsReceiverArgs and SmsReceiverOutput values.
 // You can construct a concrete instance of `SmsReceiverInput` via:
 //
-//          SmsReceiverArgs{...}
+//	SmsReceiverArgs{...}
 type SmsReceiverInput interface {
 	pulumi.Input
 
@@ -11077,7 +11077,7 @@ func (i SmsReceiverArgs) ToSmsReceiverOutputWithContext(ctx context.Context) Sms
 // SmsReceiverArrayInput is an input type that accepts SmsReceiverArray and SmsReceiverArrayOutput values.
 // You can construct a concrete instance of `SmsReceiverArrayInput` via:
 //
-//          SmsReceiverArray{ SmsReceiverArgs{...} }
+//	SmsReceiverArray{ SmsReceiverArgs{...} }
 type SmsReceiverArrayInput interface {
 	pulumi.Input
 
@@ -11231,7 +11231,7 @@ type Source struct {
 // SourceInput is an input type that accepts SourceArgs and SourceOutput values.
 // You can construct a concrete instance of `SourceInput` via:
 //
-//          SourceArgs{...}
+//	SourceArgs{...}
 type SourceInput interface {
 	pulumi.Input
 
@@ -11356,7 +11356,7 @@ type SubscriptionLogSettings struct {
 // SubscriptionLogSettingsInput is an input type that accepts SubscriptionLogSettingsArgs and SubscriptionLogSettingsOutput values.
 // You can construct a concrete instance of `SubscriptionLogSettingsInput` via:
 //
-//          SubscriptionLogSettingsArgs{...}
+//	SubscriptionLogSettingsArgs{...}
 type SubscriptionLogSettingsInput interface {
 	pulumi.Input
 
@@ -11387,7 +11387,7 @@ func (i SubscriptionLogSettingsArgs) ToSubscriptionLogSettingsOutputWithContext(
 // SubscriptionLogSettingsArrayInput is an input type that accepts SubscriptionLogSettingsArray and SubscriptionLogSettingsArrayOutput values.
 // You can construct a concrete instance of `SubscriptionLogSettingsArrayInput` via:
 //
-//          SubscriptionLogSettingsArray{ SubscriptionLogSettingsArgs{...} }
+//	SubscriptionLogSettingsArray{ SubscriptionLogSettingsArgs{...} }
 type SubscriptionLogSettingsArrayInput interface {
 	pulumi.Input
 
@@ -11525,7 +11525,7 @@ type SyslogDataSource struct {
 // SyslogDataSourceInput is an input type that accepts SyslogDataSourceArgs and SyslogDataSourceOutput values.
 // You can construct a concrete instance of `SyslogDataSourceInput` via:
 //
-//          SyslogDataSourceArgs{...}
+//	SyslogDataSourceArgs{...}
 type SyslogDataSourceInput interface {
 	pulumi.Input
 
@@ -11563,7 +11563,7 @@ func (i SyslogDataSourceArgs) ToSyslogDataSourceOutputWithContext(ctx context.Co
 // SyslogDataSourceArrayInput is an input type that accepts SyslogDataSourceArray and SyslogDataSourceArrayOutput values.
 // You can construct a concrete instance of `SyslogDataSourceArrayInput` via:
 //
-//          SyslogDataSourceArray{ SyslogDataSourceArgs{...} }
+//	SyslogDataSourceArray{ SyslogDataSourceArgs{...} }
 type SyslogDataSourceArrayInput interface {
 	pulumi.Input
 
@@ -11763,7 +11763,7 @@ type TimeWindow struct {
 // TimeWindowInput is an input type that accepts TimeWindowArgs and TimeWindowOutput values.
 // You can construct a concrete instance of `TimeWindowInput` via:
 //
-//          TimeWindowArgs{...}
+//	TimeWindowArgs{...}
 type TimeWindowInput interface {
 	pulumi.Input
 
@@ -11804,11 +11804,11 @@ func (i TimeWindowArgs) ToTimeWindowPtrOutputWithContext(ctx context.Context) Ti
 // TimeWindowPtrInput is an input type that accepts TimeWindowArgs, TimeWindowPtr and TimeWindowPtrOutput values.
 // You can construct a concrete instance of `TimeWindowPtrInput` via:
 //
-//          TimeWindowArgs{...}
+//	        TimeWindowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TimeWindowPtrInput interface {
 	pulumi.Input
 
@@ -12055,7 +12055,7 @@ type VoiceReceiver struct {
 // VoiceReceiverInput is an input type that accepts VoiceReceiverArgs and VoiceReceiverOutput values.
 // You can construct a concrete instance of `VoiceReceiverInput` via:
 //
-//          VoiceReceiverArgs{...}
+//	VoiceReceiverArgs{...}
 type VoiceReceiverInput interface {
 	pulumi.Input
 
@@ -12088,7 +12088,7 @@ func (i VoiceReceiverArgs) ToVoiceReceiverOutputWithContext(ctx context.Context)
 // VoiceReceiverArrayInput is an input type that accepts VoiceReceiverArray and VoiceReceiverArrayOutput values.
 // You can construct a concrete instance of `VoiceReceiverArrayInput` via:
 //
-//          VoiceReceiverArray{ VoiceReceiverArgs{...} }
+//	VoiceReceiverArray{ VoiceReceiverArgs{...} }
 type VoiceReceiverArrayInput interface {
 	pulumi.Input
 
@@ -12229,7 +12229,7 @@ type WebTestGeolocation struct {
 // WebTestGeolocationInput is an input type that accepts WebTestGeolocationArgs and WebTestGeolocationOutput values.
 // You can construct a concrete instance of `WebTestGeolocationInput` via:
 //
-//          WebTestGeolocationArgs{...}
+//	WebTestGeolocationArgs{...}
 type WebTestGeolocationInput interface {
 	pulumi.Input
 
@@ -12258,7 +12258,7 @@ func (i WebTestGeolocationArgs) ToWebTestGeolocationOutputWithContext(ctx contex
 // WebTestGeolocationArrayInput is an input type that accepts WebTestGeolocationArray and WebTestGeolocationArrayOutput values.
 // You can construct a concrete instance of `WebTestGeolocationArrayInput` via:
 //
-//          WebTestGeolocationArray{ WebTestGeolocationArgs{...} }
+//	WebTestGeolocationArray{ WebTestGeolocationArgs{...} }
 type WebTestGeolocationArrayInput interface {
 	pulumi.Input
 
@@ -12375,7 +12375,7 @@ type WebTestPropertiesConfiguration struct {
 // WebTestPropertiesConfigurationInput is an input type that accepts WebTestPropertiesConfigurationArgs and WebTestPropertiesConfigurationOutput values.
 // You can construct a concrete instance of `WebTestPropertiesConfigurationInput` via:
 //
-//          WebTestPropertiesConfigurationArgs{...}
+//	WebTestPropertiesConfigurationArgs{...}
 type WebTestPropertiesConfigurationInput interface {
 	pulumi.Input
 
@@ -12412,11 +12412,11 @@ func (i WebTestPropertiesConfigurationArgs) ToWebTestPropertiesConfigurationPtrO
 // WebTestPropertiesConfigurationPtrInput is an input type that accepts WebTestPropertiesConfigurationArgs, WebTestPropertiesConfigurationPtr and WebTestPropertiesConfigurationPtrOutput values.
 // You can construct a concrete instance of `WebTestPropertiesConfigurationPtrInput` via:
 //
-//          WebTestPropertiesConfigurationArgs{...}
+//	        WebTestPropertiesConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebTestPropertiesConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -12577,7 +12577,7 @@ type WebhookNotification struct {
 // WebhookNotificationInput is an input type that accepts WebhookNotificationArgs and WebhookNotificationOutput values.
 // You can construct a concrete instance of `WebhookNotificationInput` via:
 //
-//          WebhookNotificationArgs{...}
+//	WebhookNotificationArgs{...}
 type WebhookNotificationInput interface {
 	pulumi.Input
 
@@ -12608,7 +12608,7 @@ func (i WebhookNotificationArgs) ToWebhookNotificationOutputWithContext(ctx cont
 // WebhookNotificationArrayInput is an input type that accepts WebhookNotificationArray and WebhookNotificationArrayOutput values.
 // You can construct a concrete instance of `WebhookNotificationArrayInput` via:
 //
-//          WebhookNotificationArray{ WebhookNotificationArgs{...} }
+//	WebhookNotificationArray{ WebhookNotificationArgs{...} }
 type WebhookNotificationArrayInput interface {
 	pulumi.Input
 
@@ -12766,7 +12766,7 @@ func (val *WebhookReceiver) Defaults() *WebhookReceiver {
 // WebhookReceiverInput is an input type that accepts WebhookReceiverArgs and WebhookReceiverOutput values.
 // You can construct a concrete instance of `WebhookReceiverInput` via:
 //
-//          WebhookReceiverArgs{...}
+//	WebhookReceiverArgs{...}
 type WebhookReceiverInput interface {
 	pulumi.Input
 
@@ -12821,7 +12821,7 @@ func (i WebhookReceiverArgs) ToWebhookReceiverOutputWithContext(ctx context.Cont
 // WebhookReceiverArrayInput is an input type that accepts WebhookReceiverArray and WebhookReceiverArrayOutput values.
 // You can construct a concrete instance of `WebhookReceiverArrayInput` via:
 //
-//          WebhookReceiverArray{ WebhookReceiverArgs{...} }
+//	WebhookReceiverArray{ WebhookReceiverArgs{...} }
 type WebhookReceiverArrayInput interface {
 	pulumi.Input
 
@@ -13060,7 +13060,7 @@ type WindowsEventLogDataSource struct {
 // WindowsEventLogDataSourceInput is an input type that accepts WindowsEventLogDataSourceArgs and WindowsEventLogDataSourceOutput values.
 // You can construct a concrete instance of `WindowsEventLogDataSourceInput` via:
 //
-//          WindowsEventLogDataSourceArgs{...}
+//	WindowsEventLogDataSourceArgs{...}
 type WindowsEventLogDataSourceInput interface {
 	pulumi.Input
 
@@ -13096,7 +13096,7 @@ func (i WindowsEventLogDataSourceArgs) ToWindowsEventLogDataSourceOutputWithCont
 // WindowsEventLogDataSourceArrayInput is an input type that accepts WindowsEventLogDataSourceArray and WindowsEventLogDataSourceArrayOutput values.
 // You can construct a concrete instance of `WindowsEventLogDataSourceArrayInput` via:
 //
-//          WindowsEventLogDataSourceArray{ WindowsEventLogDataSourceArgs{...} }
+//	WindowsEventLogDataSourceArray{ WindowsEventLogDataSourceArgs{...} }
 type WindowsEventLogDataSourceArrayInput interface {
 	pulumi.Input
 
@@ -13246,7 +13246,7 @@ type WorkbookManagedIdentity struct {
 // WorkbookManagedIdentityInput is an input type that accepts WorkbookManagedIdentityArgs and WorkbookManagedIdentityOutput values.
 // You can construct a concrete instance of `WorkbookManagedIdentityInput` via:
 //
-//          WorkbookManagedIdentityArgs{...}
+//	WorkbookManagedIdentityArgs{...}
 type WorkbookManagedIdentityInput interface {
 	pulumi.Input
 
@@ -13283,11 +13283,11 @@ func (i WorkbookManagedIdentityArgs) ToWorkbookManagedIdentityPtrOutputWithConte
 // WorkbookManagedIdentityPtrInput is an input type that accepts WorkbookManagedIdentityArgs, WorkbookManagedIdentityPtr and WorkbookManagedIdentityPtrOutput values.
 // You can construct a concrete instance of `WorkbookManagedIdentityPtrInput` via:
 //
-//          WorkbookManagedIdentityArgs{...}
+//	        WorkbookManagedIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkbookManagedIdentityPtrInput interface {
 	pulumi.Input
 
@@ -13473,7 +13473,7 @@ type WorkbookTemplateGallery struct {
 // WorkbookTemplateGalleryInput is an input type that accepts WorkbookTemplateGalleryArgs and WorkbookTemplateGalleryOutput values.
 // You can construct a concrete instance of `WorkbookTemplateGalleryInput` via:
 //
-//          WorkbookTemplateGalleryArgs{...}
+//	WorkbookTemplateGalleryArgs{...}
 type WorkbookTemplateGalleryInput interface {
 	pulumi.Input
 
@@ -13510,7 +13510,7 @@ func (i WorkbookTemplateGalleryArgs) ToWorkbookTemplateGalleryOutputWithContext(
 // WorkbookTemplateGalleryArrayInput is an input type that accepts WorkbookTemplateGalleryArray and WorkbookTemplateGalleryArrayOutput values.
 // You can construct a concrete instance of `WorkbookTemplateGalleryArrayInput` via:
 //
-//          WorkbookTemplateGalleryArray{ WorkbookTemplateGalleryArgs{...} }
+//	WorkbookTemplateGalleryArray{ WorkbookTemplateGalleryArgs{...} }
 type WorkbookTemplateGalleryArrayInput interface {
 	pulumi.Input
 
@@ -13677,7 +13677,7 @@ type WorkbookTemplateLocalizedGallery struct {
 // WorkbookTemplateLocalizedGalleryInput is an input type that accepts WorkbookTemplateLocalizedGalleryArgs and WorkbookTemplateLocalizedGalleryOutput values.
 // You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryInput` via:
 //
-//          WorkbookTemplateLocalizedGalleryArgs{...}
+//	WorkbookTemplateLocalizedGalleryArgs{...}
 type WorkbookTemplateLocalizedGalleryInput interface {
 	pulumi.Input
 
@@ -13708,7 +13708,7 @@ func (i WorkbookTemplateLocalizedGalleryArgs) ToWorkbookTemplateLocalizedGallery
 // WorkbookTemplateLocalizedGalleryArrayInput is an input type that accepts WorkbookTemplateLocalizedGalleryArray and WorkbookTemplateLocalizedGalleryArrayOutput values.
 // You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryArrayInput` via:
 //
-//          WorkbookTemplateLocalizedGalleryArray{ WorkbookTemplateLocalizedGalleryArgs{...} }
+//	WorkbookTemplateLocalizedGalleryArray{ WorkbookTemplateLocalizedGalleryArgs{...} }
 type WorkbookTemplateLocalizedGalleryArrayInput interface {
 	pulumi.Input
 
@@ -13939,7 +13939,7 @@ func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGal
 // WorkbookTemplateLocalizedGalleryArrayMapInput is an input type that accepts WorkbookTemplateLocalizedGalleryArrayMap and WorkbookTemplateLocalizedGalleryArrayMapOutput values.
 // You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryArrayMapInput` via:
 //
-//          WorkbookTemplateLocalizedGalleryArrayMap{ "key": WorkbookTemplateLocalizedGalleryArray{ WorkbookTemplateLocalizedGalleryArgs{...} } }
+//	WorkbookTemplateLocalizedGalleryArrayMap{ "key": WorkbookTemplateLocalizedGalleryArray{ WorkbookTemplateLocalizedGalleryArgs{...} } }
 type WorkbookTemplateLocalizedGalleryArrayMapInput interface {
 	pulumi.Input
 

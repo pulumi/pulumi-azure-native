@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401Preview
                     new Pulumi.Alias { Type = "azure-native:netapp/v20210801:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20211001:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20220101:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20220301:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20190201Preview
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:ConfigurationStore"},
                 },
             };

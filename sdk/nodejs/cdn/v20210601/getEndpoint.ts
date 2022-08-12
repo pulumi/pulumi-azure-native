@@ -47,7 +47,7 @@ export interface GetEndpointResult {
     /**
      * The custom domains under the endpoint.
      */
-    readonly customDomains: outputs.cdn.v20210601.CustomDomainResponse[];
+    readonly customDomains: outputs.cdn.v20210601.DeepCreatedCustomDomainResponse[];
     /**
      * A reference to the origin group.
      */

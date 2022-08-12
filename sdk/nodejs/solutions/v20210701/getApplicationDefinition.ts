@@ -108,10 +108,6 @@ export interface GetApplicationDefinitionResult {
      */
     readonly policies?: outputs.solutions.v20210701.ApplicationPolicyResponse[];
     /**
-     * Provisioning state.
-     */
-    readonly provisioningState: string;
-    /**
      * The SKU of the resource.
      */
     readonly sku?: outputs.solutions.v20210701.SkuResponse;

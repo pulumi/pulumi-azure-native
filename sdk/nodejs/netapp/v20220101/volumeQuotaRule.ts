@@ -121,7 +121,7 @@ export class VolumeQuotaRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp:VolumeQuotaRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220301:VolumeQuotaRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VolumeQuotaRule.__pulumiType, name, resourceInputs, opts);
     }

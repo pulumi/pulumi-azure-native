@@ -150,7 +150,7 @@ func (o CreateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // CreateModeInput is an input type that accepts CreateModeArgs and CreateModeOutput values.
 // You can construct a concrete instance of `CreateModeInput` via:
 //
-//          CreateModeArgs{...}
+//	CreateModeArgs{...}
 type CreateModeInput interface {
 	pulumi.Input
 

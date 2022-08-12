@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.NetworkFunction.V20220501
                 {
                     new Pulumi.Alias { Type = "azure-native:networkfunction:CollectorPolicy"},
                     new Pulumi.Alias { Type = "azure-native:networkfunction/v20210901preview:CollectorPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:networkfunction/v20220801:CollectorPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

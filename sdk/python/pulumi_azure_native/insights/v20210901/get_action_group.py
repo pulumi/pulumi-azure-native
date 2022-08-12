@@ -21,7 +21,7 @@ class GetActionGroupResult:
     """
     An action group resource.
     """
-    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, event_hub_receivers=None, group_short_name=None, id=None, identity=None, itsm_receivers=None, kind=None, location=None, logic_app_receivers=None, name=None, sms_receivers=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
+    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, event_hub_receivers=None, group_short_name=None, id=None, itsm_receivers=None, location=None, logic_app_receivers=None, name=None, sms_receivers=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
         if arm_role_receivers and not isinstance(arm_role_receivers, list):
             raise TypeError("Expected argument 'arm_role_receivers' to be a list")
         pulumi.set(__self__, "arm_role_receivers", arm_role_receivers)
@@ -49,15 +49,9 @@ class GetActionGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, str):
-            raise TypeError("Expected argument 'identity' to be a str")
-        pulumi.set(__self__, "identity", identity)
         if itsm_receivers and not isinstance(itsm_receivers, list):
             raise TypeError("Expected argument 'itsm_receivers' to be a list")
         pulumi.set(__self__, "itsm_receivers", itsm_receivers)
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -156,28 +150,12 @@ class GetActionGroupResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
-    def identity(self) -> str:
-        """
-        Azure resource identity
-        """
-        return pulumi.get(self, "identity")
-
-    @property
     @pulumi.getter(name="itsmReceivers")
     def itsm_receivers(self) -> Optional[Sequence['outputs.ItsmReceiverResponse']]:
         """
         The list of ITSM receivers that are part of this action group.
         """
         return pulumi.get(self, "itsm_receivers")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        """
-        Azure resource kind
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -259,9 +237,7 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
             event_hub_receivers=self.event_hub_receivers,
             group_short_name=self.group_short_name,
             id=self.id,
-            identity=self.identity,
             itsm_receivers=self.itsm_receivers,
-            kind=self.kind,
             location=self.location,
             logic_app_receivers=self.logic_app_receivers,
             name=self.name,
@@ -301,9 +277,7 @@ def get_action_group(action_group_name: Optional[str] = None,
         event_hub_receivers=__ret__.event_hub_receivers,
         group_short_name=__ret__.group_short_name,
         id=__ret__.id,
-        identity=__ret__.identity,
         itsm_receivers=__ret__.itsm_receivers,
-        kind=__ret__.kind,
         location=__ret__.location,
         logic_app_receivers=__ret__.logic_app_receivers,
         name=__ret__.name,

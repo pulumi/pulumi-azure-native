@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.Sql
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:EncryptionProtector"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:EncryptionProtector"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:EncryptionProtector"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:EncryptionProtector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -21,7 +21,7 @@ type Disk struct {
 // DiskInput is an input type that accepts DiskArgs and DiskOutput values.
 // You can construct a concrete instance of `DiskInput` via:
 //
-//          DiskArgs{...}
+//	DiskArgs{...}
 type DiskInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i DiskArgs) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 // DiskArrayInput is an input type that accepts DiskArray and DiskArrayOutput values.
 // You can construct a concrete instance of `DiskArrayInput` via:
 //
-//          DiskArray{ DiskArgs{...} }
+//	DiskArray{ DiskArgs{...} }
 type DiskArrayInput interface {
 	pulumi.Input
 
@@ -265,7 +265,7 @@ type IpAddress struct {
 // IpAddressInput is an input type that accepts IpAddressArgs and IpAddressOutput values.
 // You can construct a concrete instance of `IpAddressInput` via:
 //
-//          IpAddressArgs{...}
+//	IpAddressArgs{...}
 type IpAddressInput interface {
 	pulumi.Input
 
@@ -294,7 +294,7 @@ func (i IpAddressArgs) ToIpAddressOutputWithContext(ctx context.Context) IpAddre
 // IpAddressArrayInput is an input type that accepts IpAddressArray and IpAddressArrayOutput values.
 // You can construct a concrete instance of `IpAddressArrayInput` via:
 //
-//          IpAddressArray{ IpAddressArgs{...} }
+//	IpAddressArray{ IpAddressArgs{...} }
 type IpAddressArrayInput interface {
 	pulumi.Input
 
@@ -411,7 +411,7 @@ type NetworkProfile struct {
 // NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
 // You can construct a concrete instance of `NetworkProfileInput` via:
 //
-//          NetworkProfileArgs{...}
+//	NetworkProfileArgs{...}
 type NetworkProfileInput interface {
 	pulumi.Input
 
@@ -448,11 +448,11 @@ func (i NetworkProfileArgs) ToNetworkProfilePtrOutputWithContext(ctx context.Con
 // NetworkProfilePtrInput is an input type that accepts NetworkProfileArgs, NetworkProfilePtr and NetworkProfilePtrOutput values.
 // You can construct a concrete instance of `NetworkProfilePtrInput` via:
 //
-//          NetworkProfileArgs{...}
+//	        NetworkProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -630,7 +630,7 @@ type OSProfile struct {
 // OSProfileInput is an input type that accepts OSProfileArgs and OSProfileOutput values.
 // You can construct a concrete instance of `OSProfileInput` via:
 //
-//          OSProfileArgs{...}
+//	OSProfileArgs{...}
 type OSProfileInput interface {
 	pulumi.Input
 
@@ -669,11 +669,11 @@ func (i OSProfileArgs) ToOSProfilePtrOutputWithContext(ctx context.Context) OSPr
 // OSProfilePtrInput is an input type that accepts OSProfileArgs, OSProfilePtr and OSProfilePtrOutput values.
 // You can construct a concrete instance of `OSProfilePtrInput` via:
 //
-//          OSProfileArgs{...}
+//	        OSProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OSProfilePtrInput interface {
 	pulumi.Input
 
@@ -904,7 +904,7 @@ type SAPSystemID struct {
 // SAPSystemIDInput is an input type that accepts SAPSystemIDArgs and SAPSystemIDOutput values.
 // You can construct a concrete instance of `SAPSystemIDInput` via:
 //
-//          SAPSystemIDArgs{...}
+//	SAPSystemIDArgs{...}
 type SAPSystemIDInput interface {
 	pulumi.Input
 
@@ -939,7 +939,7 @@ func (i SAPSystemIDArgs) ToSAPSystemIDOutputWithContext(ctx context.Context) SAP
 // SAPSystemIDArrayInput is an input type that accepts SAPSystemIDArray and SAPSystemIDArrayOutput values.
 // You can construct a concrete instance of `SAPSystemIDArrayInput` via:
 //
-//          SAPSystemIDArray{ SAPSystemIDArgs{...} }
+//	SAPSystemIDArray{ SAPSystemIDArgs{...} }
 type SAPSystemIDArrayInput interface {
 	pulumi.Input
 
@@ -1101,7 +1101,7 @@ type StorageProfile struct {
 // StorageProfileInput is an input type that accepts StorageProfileArgs and StorageProfileOutput values.
 // You can construct a concrete instance of `StorageProfileInput` via:
 //
-//          StorageProfileArgs{...}
+//	StorageProfileArgs{...}
 type StorageProfileInput interface {
 	pulumi.Input
 
@@ -1140,11 +1140,11 @@ func (i StorageProfileArgs) ToStorageProfilePtrOutputWithContext(ctx context.Con
 // StorageProfilePtrInput is an input type that accepts StorageProfileArgs, StorageProfilePtr and StorageProfilePtrOutput values.
 // You can construct a concrete instance of `StorageProfilePtrInput` via:
 //
-//          StorageProfileArgs{...}
+//	        StorageProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageProfilePtrInput interface {
 	pulumi.Input
 

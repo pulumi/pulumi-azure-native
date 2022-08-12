@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerAzureADAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

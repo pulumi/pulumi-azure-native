@@ -69,6 +69,9 @@ func NewPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network/v20201101:Policy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20210601:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/v20220501:Policy"),
 		},
 	})

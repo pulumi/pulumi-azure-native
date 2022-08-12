@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
                 {
                     new Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy"},
                     new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy"},
+                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

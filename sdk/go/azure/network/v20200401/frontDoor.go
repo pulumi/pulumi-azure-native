@@ -80,6 +80,9 @@ func NewFrontDoor(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20200501:FrontDoor"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210601:FrontDoor"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FrontDoor

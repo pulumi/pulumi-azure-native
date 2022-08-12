@@ -18,7 +18,7 @@ type AzureMonitorAlertSettings struct {
 // AzureMonitorAlertSettingsInput is an input type that accepts AzureMonitorAlertSettingsArgs and AzureMonitorAlertSettingsOutput values.
 // You can construct a concrete instance of `AzureMonitorAlertSettingsInput` via:
 //
-//          AzureMonitorAlertSettingsArgs{...}
+//	AzureMonitorAlertSettingsArgs{...}
 type AzureMonitorAlertSettingsInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i AzureMonitorAlertSettingsArgs) ToAzureMonitorAlertSettingsPtrOutputWithC
 // AzureMonitorAlertSettingsPtrInput is an input type that accepts AzureMonitorAlertSettingsArgs, AzureMonitorAlertSettingsPtr and AzureMonitorAlertSettingsPtrOutput values.
 // You can construct a concrete instance of `AzureMonitorAlertSettingsPtrInput` via:
 //
-//          AzureMonitorAlertSettingsArgs{...}
+//	        AzureMonitorAlertSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureMonitorAlertSettingsPtrInput interface {
 	pulumi.Input
 
@@ -211,7 +211,7 @@ type ClassicAlertSettings struct {
 // ClassicAlertSettingsInput is an input type that accepts ClassicAlertSettingsArgs and ClassicAlertSettingsOutput values.
 // You can construct a concrete instance of `ClassicAlertSettingsInput` via:
 //
-//          ClassicAlertSettingsArgs{...}
+//	ClassicAlertSettingsArgs{...}
 type ClassicAlertSettingsInput interface {
 	pulumi.Input
 
@@ -247,11 +247,11 @@ func (i ClassicAlertSettingsArgs) ToClassicAlertSettingsPtrOutputWithContext(ctx
 // ClassicAlertSettingsPtrInput is an input type that accepts ClassicAlertSettingsArgs, ClassicAlertSettingsPtr and ClassicAlertSettingsPtrOutput values.
 // You can construct a concrete instance of `ClassicAlertSettingsPtrInput` via:
 //
-//          ClassicAlertSettingsArgs{...}
+//	        ClassicAlertSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClassicAlertSettingsPtrInput interface {
 	pulumi.Input
 
@@ -407,7 +407,7 @@ type CmkKekIdentity struct {
 // CmkKekIdentityInput is an input type that accepts CmkKekIdentityArgs and CmkKekIdentityOutput values.
 // You can construct a concrete instance of `CmkKekIdentityInput` via:
 //
-//          CmkKekIdentityArgs{...}
+//	CmkKekIdentityArgs{...}
 type CmkKekIdentityInput interface {
 	pulumi.Input
 
@@ -446,11 +446,11 @@ func (i CmkKekIdentityArgs) ToCmkKekIdentityPtrOutputWithContext(ctx context.Con
 // CmkKekIdentityPtrInput is an input type that accepts CmkKekIdentityArgs, CmkKekIdentityPtr and CmkKekIdentityPtrOutput values.
 // You can construct a concrete instance of `CmkKekIdentityPtrInput` via:
 //
-//          CmkKekIdentityArgs{...}
+//	        CmkKekIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CmkKekIdentityPtrInput interface {
 	pulumi.Input
 
@@ -641,7 +641,7 @@ type CmkKeyVaultProperties struct {
 // CmkKeyVaultPropertiesInput is an input type that accepts CmkKeyVaultPropertiesArgs and CmkKeyVaultPropertiesOutput values.
 // You can construct a concrete instance of `CmkKeyVaultPropertiesInput` via:
 //
-//          CmkKeyVaultPropertiesArgs{...}
+//	CmkKeyVaultPropertiesArgs{...}
 type CmkKeyVaultPropertiesInput interface {
 	pulumi.Input
 
@@ -678,11 +678,11 @@ func (i CmkKeyVaultPropertiesArgs) ToCmkKeyVaultPropertiesPtrOutputWithContext(c
 // CmkKeyVaultPropertiesPtrInput is an input type that accepts CmkKeyVaultPropertiesArgs, CmkKeyVaultPropertiesPtr and CmkKeyVaultPropertiesPtrOutput values.
 // You can construct a concrete instance of `CmkKeyVaultPropertiesPtrInput` via:
 //
-//          CmkKeyVaultPropertiesArgs{...}
+//	        CmkKeyVaultPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CmkKeyVaultPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -843,7 +843,7 @@ type IdentityData struct {
 // IdentityDataInput is an input type that accepts IdentityDataArgs and IdentityDataOutput values.
 // You can construct a concrete instance of `IdentityDataInput` via:
 //
-//          IdentityDataArgs{...}
+//	IdentityDataArgs{...}
 type IdentityDataInput interface {
 	pulumi.Input
 
@@ -882,11 +882,11 @@ func (i IdentityDataArgs) ToIdentityDataPtrOutputWithContext(ctx context.Context
 // IdentityDataPtrInput is an input type that accepts IdentityDataArgs, IdentityDataPtr and IdentityDataPtrOutput values.
 // You can construct a concrete instance of `IdentityDataPtrInput` via:
 //
-//          IdentityDataArgs{...}
+//	        IdentityDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityDataPtrInput interface {
 	pulumi.Input
 
@@ -1113,7 +1113,7 @@ type MonitoringSettings struct {
 // MonitoringSettingsInput is an input type that accepts MonitoringSettingsArgs and MonitoringSettingsOutput values.
 // You can construct a concrete instance of `MonitoringSettingsInput` via:
 //
-//          MonitoringSettingsArgs{...}
+//	MonitoringSettingsArgs{...}
 type MonitoringSettingsInput interface {
 	pulumi.Input
 
@@ -1152,11 +1152,11 @@ func (i MonitoringSettingsArgs) ToMonitoringSettingsPtrOutputWithContext(ctx con
 // MonitoringSettingsPtrInput is an input type that accepts MonitoringSettingsArgs, MonitoringSettingsPtr and MonitoringSettingsPtrOutput values.
 // You can construct a concrete instance of `MonitoringSettingsPtrInput` via:
 //
-//          MonitoringSettingsArgs{...}
+//	        MonitoringSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MonitoringSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1459,7 +1459,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1504,11 +1504,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -2189,7 +2189,7 @@ type VaultProperties struct {
 // VaultPropertiesInput is an input type that accepts VaultPropertiesArgs and VaultPropertiesOutput values.
 // You can construct a concrete instance of `VaultPropertiesInput` via:
 //
-//          VaultPropertiesArgs{...}
+//	VaultPropertiesArgs{...}
 type VaultPropertiesInput interface {
 	pulumi.Input
 
@@ -2228,11 +2228,11 @@ func (i VaultPropertiesArgs) ToVaultPropertiesPtrOutputWithContext(ctx context.C
 // VaultPropertiesPtrInput is an input type that accepts VaultPropertiesArgs, VaultPropertiesPtr and VaultPropertiesPtrOutput values.
 // You can construct a concrete instance of `VaultPropertiesPtrInput` via:
 //
-//          VaultPropertiesArgs{...}
+//	        VaultPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VaultPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2350,7 +2350,7 @@ type VaultPropertiesEncryption struct {
 // VaultPropertiesEncryptionInput is an input type that accepts VaultPropertiesEncryptionArgs and VaultPropertiesEncryptionOutput values.
 // You can construct a concrete instance of `VaultPropertiesEncryptionInput` via:
 //
-//          VaultPropertiesEncryptionArgs{...}
+//	VaultPropertiesEncryptionArgs{...}
 type VaultPropertiesEncryptionInput interface {
 	pulumi.Input
 
@@ -2391,11 +2391,11 @@ func (i VaultPropertiesEncryptionArgs) ToVaultPropertiesEncryptionPtrOutputWithC
 // VaultPropertiesEncryptionPtrInput is an input type that accepts VaultPropertiesEncryptionArgs, VaultPropertiesEncryptionPtr and VaultPropertiesEncryptionPtrOutput values.
 // You can construct a concrete instance of `VaultPropertiesEncryptionPtrInput` via:
 //
-//          VaultPropertiesEncryptionArgs{...}
+//	        VaultPropertiesEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VaultPropertiesEncryptionPtrInput interface {
 	pulumi.Input
 

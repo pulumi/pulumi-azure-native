@@ -25,7 +25,7 @@ type Checkpoint struct {
 // CheckpointInput is an input type that accepts CheckpointArgs and CheckpointOutput values.
 // You can construct a concrete instance of `CheckpointInput` via:
 //
-//          CheckpointArgs{...}
+//	CheckpointArgs{...}
 type CheckpointInput interface {
 	pulumi.Input
 
@@ -60,7 +60,7 @@ func (i CheckpointArgs) ToCheckpointOutputWithContext(ctx context.Context) Check
 // CheckpointArrayInput is an input type that accepts CheckpointArray and CheckpointArrayOutput values.
 // You can construct a concrete instance of `CheckpointArrayInput` via:
 //
-//          CheckpointArray{ CheckpointArgs{...} }
+//	CheckpointArray{ CheckpointArgs{...} }
 type CheckpointArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +255,7 @@ type ExtendedLocation struct {
 // ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
 // You can construct a concrete instance of `ExtendedLocationInput` via:
 //
-//          ExtendedLocationArgs{...}
+//	ExtendedLocationArgs{...}
 type ExtendedLocationInput interface {
 	pulumi.Input
 
@@ -294,11 +294,11 @@ func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context
 // ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
 // You can construct a concrete instance of `ExtendedLocationPtrInput` via:
 //
-//          ExtendedLocationArgs{...}
+//	        ExtendedLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExtendedLocationPtrInput interface {
 	pulumi.Input
 
@@ -501,7 +501,7 @@ type HardwareProfile struct {
 // HardwareProfileInput is an input type that accepts HardwareProfileArgs and HardwareProfileOutput values.
 // You can construct a concrete instance of `HardwareProfileInput` via:
 //
-//          HardwareProfileArgs{...}
+//	HardwareProfileArgs{...}
 type HardwareProfileInput interface {
 	pulumi.Input
 
@@ -550,11 +550,11 @@ func (i HardwareProfileArgs) ToHardwareProfilePtrOutputWithContext(ctx context.C
 // HardwareProfilePtrInput is an input type that accepts HardwareProfileArgs, HardwareProfilePtr and HardwareProfilePtrOutput values.
 // You can construct a concrete instance of `HardwareProfilePtrInput` via:
 //
-//          HardwareProfileArgs{...}
+//	        HardwareProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HardwareProfilePtrInput interface {
 	pulumi.Input
 
@@ -917,7 +917,7 @@ type NetworkInterfaces struct {
 // NetworkInterfacesInput is an input type that accepts NetworkInterfacesArgs and NetworkInterfacesOutput values.
 // You can construct a concrete instance of `NetworkInterfacesInput` via:
 //
-//          NetworkInterfacesArgs{...}
+//	NetworkInterfacesArgs{...}
 type NetworkInterfacesInput interface {
 	pulumi.Input
 
@@ -958,7 +958,7 @@ func (i NetworkInterfacesArgs) ToNetworkInterfacesOutputWithContext(ctx context.
 // NetworkInterfacesArrayInput is an input type that accepts NetworkInterfacesArray and NetworkInterfacesArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfacesArrayInput` via:
 //
-//          NetworkInterfacesArray{ NetworkInterfacesArgs{...} }
+//	NetworkInterfacesArray{ NetworkInterfacesArgs{...} }
 type NetworkInterfacesArrayInput interface {
 	pulumi.Input
 
@@ -1175,7 +1175,7 @@ type NetworkProfile struct {
 // NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
 // You can construct a concrete instance of `NetworkProfileInput` via:
 //
-//          NetworkProfileArgs{...}
+//	NetworkProfileArgs{...}
 type NetworkProfileInput interface {
 	pulumi.Input
 
@@ -1212,11 +1212,11 @@ func (i NetworkProfileArgs) ToNetworkProfilePtrOutputWithContext(ctx context.Con
 // NetworkProfilePtrInput is an input type that accepts NetworkProfileArgs, NetworkProfilePtr and NetworkProfilePtrOutput values.
 // You can construct a concrete instance of `NetworkProfilePtrInput` via:
 //
-//          NetworkProfileArgs{...}
+//	        NetworkProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -1377,7 +1377,7 @@ type OsProfile struct {
 // OsProfileInput is an input type that accepts OsProfileArgs and OsProfileOutput values.
 // You can construct a concrete instance of `OsProfileInput` via:
 //
-//          OsProfileArgs{...}
+//	OsProfileArgs{...}
 type OsProfileInput interface {
 	pulumi.Input
 
@@ -1416,11 +1416,11 @@ func (i OsProfileArgs) ToOsProfilePtrOutputWithContext(ctx context.Context) OsPr
 // OsProfilePtrInput is an input type that accepts OsProfileArgs, OsProfilePtr and OsProfilePtrOutput values.
 // You can construct a concrete instance of `OsProfilePtrInput` via:
 //
-//          OsProfileArgs{...}
+//	        OsProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OsProfilePtrInput interface {
 	pulumi.Input
 
@@ -1628,7 +1628,7 @@ type StorageProfile struct {
 // StorageProfileInput is an input type that accepts StorageProfileArgs and StorageProfileOutput values.
 // You can construct a concrete instance of `StorageProfileInput` via:
 //
-//          StorageProfileArgs{...}
+//	StorageProfileArgs{...}
 type StorageProfileInput interface {
 	pulumi.Input
 
@@ -1665,11 +1665,11 @@ func (i StorageProfileArgs) ToStorageProfilePtrOutputWithContext(ctx context.Con
 // StorageProfilePtrInput is an input type that accepts StorageProfileArgs, StorageProfilePtr and StorageProfilePtrOutput values.
 // You can construct a concrete instance of `StorageProfilePtrInput` via:
 //
-//          StorageProfileArgs{...}
+//	        StorageProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageProfilePtrInput interface {
 	pulumi.Input
 
@@ -1830,7 +1830,7 @@ type StorageQoSPolicyDetails struct {
 // StorageQoSPolicyDetailsInput is an input type that accepts StorageQoSPolicyDetailsArgs and StorageQoSPolicyDetailsOutput values.
 // You can construct a concrete instance of `StorageQoSPolicyDetailsInput` via:
 //
-//          StorageQoSPolicyDetailsArgs{...}
+//	StorageQoSPolicyDetailsArgs{...}
 type StorageQoSPolicyDetailsInput interface {
 	pulumi.Input
 
@@ -1869,11 +1869,11 @@ func (i StorageQoSPolicyDetailsArgs) ToStorageQoSPolicyDetailsPtrOutputWithConte
 // StorageQoSPolicyDetailsPtrInput is an input type that accepts StorageQoSPolicyDetailsArgs, StorageQoSPolicyDetailsPtr and StorageQoSPolicyDetailsPtrOutput values.
 // You can construct a concrete instance of `StorageQoSPolicyDetailsPtrInput` via:
 //
-//          StorageQoSPolicyDetailsArgs{...}
+//	        StorageQoSPolicyDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageQoSPolicyDetailsPtrInput interface {
 	pulumi.Input
 
@@ -2208,7 +2208,7 @@ type VMMServerPropertiesCredentials struct {
 // VMMServerPropertiesCredentialsInput is an input type that accepts VMMServerPropertiesCredentialsArgs and VMMServerPropertiesCredentialsOutput values.
 // You can construct a concrete instance of `VMMServerPropertiesCredentialsInput` via:
 //
-//          VMMServerPropertiesCredentialsArgs{...}
+//	VMMServerPropertiesCredentialsArgs{...}
 type VMMServerPropertiesCredentialsInput interface {
 	pulumi.Input
 
@@ -2247,11 +2247,11 @@ func (i VMMServerPropertiesCredentialsArgs) ToVMMServerPropertiesCredentialsPtrO
 // VMMServerPropertiesCredentialsPtrInput is an input type that accepts VMMServerPropertiesCredentialsArgs, VMMServerPropertiesCredentialsPtr and VMMServerPropertiesCredentialsPtrOutput values.
 // You can construct a concrete instance of `VMMServerPropertiesCredentialsPtrInput` via:
 //
-//          VMMServerPropertiesCredentialsArgs{...}
+//	        VMMServerPropertiesCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VMMServerPropertiesCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -2443,7 +2443,7 @@ type VirtualDisk struct {
 // VirtualDiskInput is an input type that accepts VirtualDiskArgs and VirtualDiskOutput values.
 // You can construct a concrete instance of `VirtualDiskInput` via:
 //
-//          VirtualDiskArgs{...}
+//	VirtualDiskArgs{...}
 type VirtualDiskInput interface {
 	pulumi.Input
 
@@ -2490,7 +2490,7 @@ func (i VirtualDiskArgs) ToVirtualDiskOutputWithContext(ctx context.Context) Vir
 // VirtualDiskArrayInput is an input type that accepts VirtualDiskArray and VirtualDiskArrayOutput values.
 // You can construct a concrete instance of `VirtualDiskArrayInput` via:
 //
-//          VirtualDiskArray{ VirtualDiskArgs{...} }
+//	VirtualDiskArray{ VirtualDiskArgs{...} }
 type VirtualDiskArrayInput interface {
 	pulumi.Input
 
@@ -2745,7 +2745,7 @@ type VirtualMachinePropertiesAvailabilitySets struct {
 // VirtualMachinePropertiesAvailabilitySetsInput is an input type that accepts VirtualMachinePropertiesAvailabilitySetsArgs and VirtualMachinePropertiesAvailabilitySetsOutput values.
 // You can construct a concrete instance of `VirtualMachinePropertiesAvailabilitySetsInput` via:
 //
-//          VirtualMachinePropertiesAvailabilitySetsArgs{...}
+//	VirtualMachinePropertiesAvailabilitySetsArgs{...}
 type VirtualMachinePropertiesAvailabilitySetsInput interface {
 	pulumi.Input
 
@@ -2776,7 +2776,7 @@ func (i VirtualMachinePropertiesAvailabilitySetsArgs) ToVirtualMachineProperties
 // VirtualMachinePropertiesAvailabilitySetsArrayInput is an input type that accepts VirtualMachinePropertiesAvailabilitySetsArray and VirtualMachinePropertiesAvailabilitySetsArrayOutput values.
 // You can construct a concrete instance of `VirtualMachinePropertiesAvailabilitySetsArrayInput` via:
 //
-//          VirtualMachinePropertiesAvailabilitySetsArray{ VirtualMachinePropertiesAvailabilitySetsArgs{...} }
+//	VirtualMachinePropertiesAvailabilitySetsArray{ VirtualMachinePropertiesAvailabilitySetsArgs{...} }
 type VirtualMachinePropertiesAvailabilitySetsArrayInput interface {
 	pulumi.Input
 

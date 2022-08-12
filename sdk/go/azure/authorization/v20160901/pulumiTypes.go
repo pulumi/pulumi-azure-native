@@ -19,7 +19,7 @@ type ManagementLockOwner struct {
 // ManagementLockOwnerInput is an input type that accepts ManagementLockOwnerArgs and ManagementLockOwnerOutput values.
 // You can construct a concrete instance of `ManagementLockOwnerInput` via:
 //
-//          ManagementLockOwnerArgs{...}
+//	ManagementLockOwnerArgs{...}
 type ManagementLockOwnerInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i ManagementLockOwnerArgs) ToManagementLockOwnerOutputWithContext(ctx cont
 // ManagementLockOwnerArrayInput is an input type that accepts ManagementLockOwnerArray and ManagementLockOwnerArrayOutput values.
 // You can construct a concrete instance of `ManagementLockOwnerArrayInput` via:
 //
-//          ManagementLockOwnerArray{ ManagementLockOwnerArgs{...} }
+//	ManagementLockOwnerArray{ ManagementLockOwnerArgs{...} }
 type ManagementLockOwnerArrayInput interface {
 	pulumi.Input
 

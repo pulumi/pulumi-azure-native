@@ -187,9 +187,14 @@ namespace Pulumi.AzureNative.Solutions
                 {
                     new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:Application"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20170901:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20171201:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180201:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180301:Application"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20180601:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:Application"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20190701:Application"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:Application"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20210701:Application"},
                 },
             };

@@ -65,8 +65,6 @@ type LookupApplicationDefinitionResult struct {
 	PackageFileUri *string `pulumi:"packageFileUri"`
 	// The managed application provider policies.
 	Policies []ApplicationPolicyResponse `pulumi:"policies"`
-	// Provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
 	// The storage account id for bring your own storage scenario.
@@ -214,11 +212,6 @@ func (o LookupApplicationDefinitionResultOutput) PackageFileUri() pulumi.StringP
 // The managed application provider policies.
 func (o LookupApplicationDefinitionResultOutput) Policies() ApplicationPolicyResponseArrayOutput {
 	return o.ApplyT(func(v LookupApplicationDefinitionResult) []ApplicationPolicyResponse { return v.Policies }).(ApplicationPolicyResponseArrayOutput)
-}
-
-// Provisioning state.
-func (o LookupApplicationDefinitionResultOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApplicationDefinitionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The SKU of the resource.

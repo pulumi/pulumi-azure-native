@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.AzureStack
                     new Pulumi.Alias { Type = "azure-native:azurestack/v20160101:Registration"},
                     new Pulumi.Alias { Type = "azure-native:azurestack/v20170601:Registration"},
                     new Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20220601:Registration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Solutions.V20190701.Inputs
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;
 
+        /// <summary>
+        /// The type of JIT schedule.
+        /// </summary>
+        [Input("type", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.Solutions.V20190701.JitSchedulingType> Type { get; set; } = null!;
+
         public JitSchedulingPolicyArgs()
         {
         }

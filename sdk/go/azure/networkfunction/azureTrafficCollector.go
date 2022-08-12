@@ -53,6 +53,9 @@ func NewAzureTrafficCollector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:networkfunction/v20220501:AzureTrafficCollector"),
 		},
+		{
+			Type: pulumi.String("azure-native:networkfunction/v20220801:AzureTrafficCollector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AzureTrafficCollector

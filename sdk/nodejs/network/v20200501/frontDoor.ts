@@ -157,7 +157,7 @@ export class FrontDoor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:FrontDoor" }, { type: "azure-native:network/v20190401:FrontDoor" }, { type: "azure-native:network/v20190501:FrontDoor" }, { type: "azure-native:network/v20200101:FrontDoor" }, { type: "azure-native:network/v20200401:FrontDoor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:FrontDoor" }, { type: "azure-native:network/v20190401:FrontDoor" }, { type: "azure-native:network/v20190501:FrontDoor" }, { type: "azure-native:network/v20200101:FrontDoor" }, { type: "azure-native:network/v20200401:FrontDoor" }, { type: "azure-native:network/v20210601:FrontDoor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FrontDoor.__pulumiType, name, resourceInputs, opts);
     }

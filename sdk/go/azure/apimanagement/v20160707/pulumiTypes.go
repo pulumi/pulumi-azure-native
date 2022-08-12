@@ -38,7 +38,7 @@ func (val *AdditionalRegion) Defaults() *AdditionalRegion {
 // AdditionalRegionInput is an input type that accepts AdditionalRegionArgs and AdditionalRegionOutput values.
 // You can construct a concrete instance of `AdditionalRegionInput` via:
 //
-//          AdditionalRegionArgs{...}
+//	AdditionalRegionArgs{...}
 type AdditionalRegionInput interface {
 	pulumi.Input
 
@@ -84,7 +84,7 @@ func (i AdditionalRegionArgs) ToAdditionalRegionOutputWithContext(ctx context.Co
 // AdditionalRegionArrayInput is an input type that accepts AdditionalRegionArray and AdditionalRegionArrayOutput values.
 // You can construct a concrete instance of `AdditionalRegionArrayInput` via:
 //
-//          AdditionalRegionArray{ AdditionalRegionArgs{...} }
+//	AdditionalRegionArray{ AdditionalRegionArgs{...} }
 type AdditionalRegionArrayInput interface {
 	pulumi.Input
 
@@ -272,7 +272,7 @@ func (val *ApiManagementServiceSkuProperties) Defaults() *ApiManagementServiceSk
 // ApiManagementServiceSkuPropertiesInput is an input type that accepts ApiManagementServiceSkuPropertiesArgs and ApiManagementServiceSkuPropertiesOutput values.
 // You can construct a concrete instance of `ApiManagementServiceSkuPropertiesInput` via:
 //
-//          ApiManagementServiceSkuPropertiesArgs{...}
+//	ApiManagementServiceSkuPropertiesArgs{...}
 type ApiManagementServiceSkuPropertiesInput interface {
 	pulumi.Input
 
@@ -395,7 +395,7 @@ type CertificateInformation struct {
 // CertificateInformationInput is an input type that accepts CertificateInformationArgs and CertificateInformationOutput values.
 // You can construct a concrete instance of `CertificateInformationInput` via:
 //
-//          CertificateInformationArgs{...}
+//	CertificateInformationArgs{...}
 type CertificateInformationInput interface {
 	pulumi.Input
 
@@ -508,7 +508,7 @@ type HostnameConfiguration struct {
 // HostnameConfigurationInput is an input type that accepts HostnameConfigurationArgs and HostnameConfigurationOutput values.
 // You can construct a concrete instance of `HostnameConfigurationInput` via:
 //
-//          HostnameConfigurationArgs{...}
+//	HostnameConfigurationArgs{...}
 type HostnameConfigurationInput interface {
 	pulumi.Input
 
@@ -541,7 +541,7 @@ func (i HostnameConfigurationArgs) ToHostnameConfigurationOutputWithContext(ctx 
 // HostnameConfigurationArrayInput is an input type that accepts HostnameConfigurationArray and HostnameConfigurationArrayOutput values.
 // You can construct a concrete instance of `HostnameConfigurationArrayInput` via:
 //
-//          HostnameConfigurationArray{ HostnameConfigurationArgs{...} }
+//	HostnameConfigurationArray{ HostnameConfigurationArgs{...} }
 type HostnameConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -684,7 +684,7 @@ type VirtualNetworkConfiguration struct {
 // VirtualNetworkConfigurationInput is an input type that accepts VirtualNetworkConfigurationArgs and VirtualNetworkConfigurationOutput values.
 // You can construct a concrete instance of `VirtualNetworkConfigurationInput` via:
 //
-//          VirtualNetworkConfigurationArgs{...}
+//	VirtualNetworkConfigurationArgs{...}
 type VirtualNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -723,11 +723,11 @@ func (i VirtualNetworkConfigurationArgs) ToVirtualNetworkConfigurationPtrOutputW
 // VirtualNetworkConfigurationPtrInput is an input type that accepts VirtualNetworkConfigurationArgs, VirtualNetworkConfigurationPtr and VirtualNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkConfigurationPtrInput` via:
 //
-//          VirtualNetworkConfigurationArgs{...}
+//	        VirtualNetworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualNetworkConfigurationPtrInput interface {
 	pulumi.Input
 

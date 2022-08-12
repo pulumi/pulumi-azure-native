@@ -21,7 +21,7 @@ type ActiveDirectoryObject struct {
 // ActiveDirectoryObjectInput is an input type that accepts ActiveDirectoryObjectArgs and ActiveDirectoryObjectOutput values.
 // You can construct a concrete instance of `ActiveDirectoryObjectInput` via:
 //
-//          ActiveDirectoryObjectArgs{...}
+//	ActiveDirectoryObjectArgs{...}
 type ActiveDirectoryObjectInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ActiveDirectoryObjectArgs) ToActiveDirectoryObjectPtrOutputWithContext(c
 // ActiveDirectoryObjectPtrInput is an input type that accepts ActiveDirectoryObjectArgs, ActiveDirectoryObjectPtr and ActiveDirectoryObjectPtrOutput values.
 // You can construct a concrete instance of `ActiveDirectoryObjectPtrInput` via:
 //
-//          ActiveDirectoryObjectArgs{...}
+//	        ActiveDirectoryObjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ActiveDirectoryObjectPtrInput interface {
 	pulumi.Input
 
@@ -321,7 +321,7 @@ type TokenCertificate struct {
 // TokenCertificateInput is an input type that accepts TokenCertificateArgs and TokenCertificateOutput values.
 // You can construct a concrete instance of `TokenCertificateInput` via:
 //
-//          TokenCertificateArgs{...}
+//	TokenCertificateArgs{...}
 type TokenCertificateInput interface {
 	pulumi.Input
 
@@ -355,7 +355,7 @@ func (i TokenCertificateArgs) ToTokenCertificateOutputWithContext(ctx context.Co
 // TokenCertificateArrayInput is an input type that accepts TokenCertificateArray and TokenCertificateArrayOutput values.
 // You can construct a concrete instance of `TokenCertificateArrayInput` via:
 //
-//          TokenCertificateArray{ TokenCertificateArgs{...} }
+//	TokenCertificateArray{ TokenCertificateArgs{...} }
 type TokenCertificateArrayInput interface {
 	pulumi.Input
 
@@ -507,7 +507,7 @@ type TokenCredentialsProperties struct {
 // TokenCredentialsPropertiesInput is an input type that accepts TokenCredentialsPropertiesArgs and TokenCredentialsPropertiesOutput values.
 // You can construct a concrete instance of `TokenCredentialsPropertiesInput` via:
 //
-//          TokenCredentialsPropertiesArgs{...}
+//	TokenCredentialsPropertiesArgs{...}
 type TokenCredentialsPropertiesInput interface {
 	pulumi.Input
 
@@ -546,11 +546,11 @@ func (i TokenCredentialsPropertiesArgs) ToTokenCredentialsPropertiesPtrOutputWit
 // TokenCredentialsPropertiesPtrInput is an input type that accepts TokenCredentialsPropertiesArgs, TokenCredentialsPropertiesPtr and TokenCredentialsPropertiesPtrOutput values.
 // You can construct a concrete instance of `TokenCredentialsPropertiesPtrInput` via:
 //
-//          TokenCredentialsPropertiesArgs{...}
+//	        TokenCredentialsPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TokenCredentialsPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -769,7 +769,7 @@ type TokenPassword struct {
 // TokenPasswordInput is an input type that accepts TokenPasswordArgs and TokenPasswordOutput values.
 // You can construct a concrete instance of `TokenPasswordInput` via:
 //
-//          TokenPasswordArgs{...}
+//	TokenPasswordArgs{...}
 type TokenPasswordInput interface {
 	pulumi.Input
 
@@ -802,7 +802,7 @@ func (i TokenPasswordArgs) ToTokenPasswordOutputWithContext(ctx context.Context)
 // TokenPasswordArrayInput is an input type that accepts TokenPasswordArray and TokenPasswordArrayOutput values.
 // You can construct a concrete instance of `TokenPasswordArrayInput` via:
 //
-//          TokenPasswordArray{ TokenPasswordArgs{...} }
+//	TokenPasswordArray{ TokenPasswordArgs{...} }
 type TokenPasswordArrayInput interface {
 	pulumi.Input
 

@@ -143,7 +143,7 @@ func (o AccountTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // AccountTypeInput is an input type that accepts AccountTypeArgs and AccountTypeOutput values.
 // You can construct a concrete instance of `AccountTypeInput` via:
 //
-//          AccountTypeArgs{...}
+//	AccountTypeArgs{...}
 type AccountTypeInput interface {
 	pulumi.Input
 

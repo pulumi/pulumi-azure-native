@@ -21,7 +21,7 @@ type ContentHash struct {
 // ContentHashInput is an input type that accepts ContentHashArgs and ContentHashOutput values.
 // You can construct a concrete instance of `ContentHashInput` via:
 //
-//          ContentHashArgs{...}
+//	ContentHashArgs{...}
 type ContentHashInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ContentHashArgs) ToContentHashPtrOutputWithContext(ctx context.Context) 
 // ContentHashPtrInput is an input type that accepts ContentHashArgs, ContentHashPtr and ContentHashPtrOutput values.
 // You can construct a concrete instance of `ContentHashPtrInput` via:
 //
-//          ContentHashArgs{...}
+//	        ContentHashArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContentHashPtrInput interface {
 	pulumi.Input
 
@@ -184,7 +184,7 @@ type ContentSource struct {
 // ContentSourceInput is an input type that accepts ContentSourceArgs and ContentSourceOutput values.
 // You can construct a concrete instance of `ContentSourceInput` via:
 //
-//          ContentSourceArgs{...}
+//	ContentSourceArgs{...}
 type ContentSourceInput interface {
 	pulumi.Input
 
@@ -260,7 +260,7 @@ type DscConfigurationAssociationProperty struct {
 // DscConfigurationAssociationPropertyInput is an input type that accepts DscConfigurationAssociationPropertyArgs and DscConfigurationAssociationPropertyOutput values.
 // You can construct a concrete instance of `DscConfigurationAssociationPropertyInput` via:
 //
-//          DscConfigurationAssociationPropertyArgs{...}
+//	DscConfigurationAssociationPropertyArgs{...}
 type DscConfigurationAssociationPropertyInput interface {
 	pulumi.Input
 

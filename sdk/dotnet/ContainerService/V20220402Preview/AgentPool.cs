@@ -342,6 +342,8 @@ namespace Pulumi.AzureNative.ContainerService.V20220402Preview
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:AgentPool"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220401:AgentPool"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220601:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

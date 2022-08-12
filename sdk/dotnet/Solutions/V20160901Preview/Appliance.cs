@@ -133,9 +133,14 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:solutions:Appliance"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20170901:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20171201:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180201:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180301:Appliance"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20180601:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:Appliance"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20190701:Appliance"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:Appliance"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20210701:Appliance"},
                 },
             };

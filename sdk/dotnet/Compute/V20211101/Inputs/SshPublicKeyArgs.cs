@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
     public sealed class SshPublicKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. &lt;br&gt;&lt;br&gt; For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        /// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. &lt;br&gt;&lt;br&gt; For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         /// </summary>
         [Input("keyData")]
         public Input<string>? KeyData { get; set; }

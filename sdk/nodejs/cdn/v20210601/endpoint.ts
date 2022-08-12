@@ -42,7 +42,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The custom domains under the endpoint.
      */
-    public /*out*/ readonly customDomains!: pulumi.Output<outputs.cdn.v20210601.CustomDomainResponse[]>;
+    public /*out*/ readonly customDomains!: pulumi.Output<outputs.cdn.v20210601.DeepCreatedCustomDomainResponse[]>;
     /**
      * A reference to the origin group.
      */

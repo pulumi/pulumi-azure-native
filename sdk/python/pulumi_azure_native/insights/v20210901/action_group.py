@@ -415,8 +415,6 @@ class ActionGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["voice_receivers"] = voice_receivers
             __props__.__dict__["webhook_receivers"] = webhook_receivers
-            __props__.__dict__["identity"] = None
-            __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20170401:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20180301:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20180901:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20190301:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20190601:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20220401:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20220601:ActionGroup")])
@@ -451,9 +449,7 @@ class ActionGroup(pulumi.CustomResource):
         __props__.__dict__["enabled"] = None
         __props__.__dict__["event_hub_receivers"] = None
         __props__.__dict__["group_short_name"] = None
-        __props__.__dict__["identity"] = None
         __props__.__dict__["itsm_receivers"] = None
-        __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["logic_app_receivers"] = None
         __props__.__dict__["name"] = None
@@ -529,28 +525,12 @@ class ActionGroup(pulumi.CustomResource):
         return pulumi.get(self, "group_short_name")
 
     @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[str]:
-        """
-        Azure resource identity
-        """
-        return pulumi.get(self, "identity")
-
-    @property
     @pulumi.getter(name="itsmReceivers")
     def itsm_receivers(self) -> pulumi.Output[Optional[Sequence['outputs.ItsmReceiverResponse']]]:
         """
         The list of ITSM receivers that are part of this action group.
         """
         return pulumi.get(self, "itsm_receivers")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Output[str]:
-        """
-        Azure resource kind
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter

@@ -153,7 +153,7 @@ class CustomerSubscription(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestack/v20170601:CustomerSubscription"), pulumi.Alias(type_="azure-native:azurestack/v20200601preview:CustomerSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestack/v20170601:CustomerSubscription"), pulumi.Alias(type_="azure-native:azurestack/v20200601preview:CustomerSubscription"), pulumi.Alias(type_="azure-native:azurestack/v20220601:CustomerSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomerSubscription, __self__).__init__(
             'azure-native:azurestack:CustomerSubscription',

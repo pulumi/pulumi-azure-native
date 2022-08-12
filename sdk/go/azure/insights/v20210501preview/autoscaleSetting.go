@@ -15,7 +15,7 @@ import (
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
 
-	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -53,7 +53,7 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if isZero(args.Enabled) {
-		args.Enabled = pulumi.BoolPtr(true)
+		args.Enabled = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -64,6 +64,9 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:insights/v20150401:AutoscaleSetting"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20221001:AutoscaleSetting"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -101,7 +104,7 @@ func (AutoscaleSettingState) ElementType() reflect.Type {
 type autoscaleSettingArgs struct {
 	// The autoscale setting name.
 	AutoscaleSettingName *string `pulumi:"autoscaleSettingName"`
-	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource location
 	Location *string `pulumi:"location"`
@@ -127,7 +130,7 @@ type autoscaleSettingArgs struct {
 type AutoscaleSettingArgs struct {
 	// The autoscale setting name.
 	AutoscaleSettingName pulumi.StringPtrInput
-	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
 	Enabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
@@ -186,7 +189,7 @@ func (o AutoscaleSettingOutput) ToAutoscaleSettingOutputWithContext(ctx context.
 	return o
 }
 
-// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
 func (o AutoscaleSettingOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoscaleSetting) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

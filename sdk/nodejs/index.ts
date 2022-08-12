@@ -72,6 +72,7 @@ import * as dbforpostgresql from "./dbforpostgresql";
 import * as delegatednetwork from "./delegatednetwork";
 import * as deploymentmanager from "./deploymentmanager";
 import * as desktopvirtualization from "./desktopvirtualization";
+import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
 import * as devices from "./devices";
 import * as deviceupdate from "./deviceupdate";
@@ -177,6 +178,7 @@ import * as sql from "./sql";
 import * as sqlvirtualmachine from "./sqlvirtualmachine";
 import * as storage from "./storage";
 import * as storagecache from "./storagecache";
+import * as storagemover from "./storagemover";
 import * as storagepool from "./storagepool";
 import * as storagesync from "./storagesync";
 import * as storsimple from "./storsimple";
@@ -262,6 +264,7 @@ export {
     delegatednetwork,
     deploymentmanager,
     desktopvirtualization,
+    devcenter,
     devhub,
     devices,
     deviceupdate,
@@ -367,6 +370,7 @@ export {
     sqlvirtualmachine,
     storage,
     storagecache,
+    storagemover,
     storagepool,
     storagesync,
     storsimple,

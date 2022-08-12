@@ -59,7 +59,7 @@ class GetAutoscaleSettingResult:
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         """
         return pulumi.get(self, "enabled")
 

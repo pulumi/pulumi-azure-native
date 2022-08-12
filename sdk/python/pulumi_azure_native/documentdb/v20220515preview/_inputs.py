@@ -1835,6 +1835,7 @@ class GremlinDatabaseRestoreResourceArgs:
 class GremlinGraphResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
+                 analytical_storage_ttl: Optional[pulumi.Input[float]] = None,
                  conflict_resolution_policy: Optional[pulumi.Input['ConflictResolutionPolicyArgs']] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['IndexingPolicyArgs']] = None,
@@ -1843,6 +1844,7 @@ class GremlinGraphResourceArgs:
         """
         Cosmos DB Gremlin graph resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB Gremlin graph
+        :param pulumi.Input[float] analytical_storage_ttl: Analytical TTL.
         :param pulumi.Input['ConflictResolutionPolicyArgs'] conflict_resolution_policy: The conflict resolution policy for the graph.
         :param pulumi.Input[int] default_ttl: Default time to live
         :param pulumi.Input['IndexingPolicyArgs'] indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
@@ -1850,6 +1852,8 @@ class GremlinGraphResourceArgs:
         :param pulumi.Input['UniqueKeyPolicyArgs'] unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
         pulumi.set(__self__, "id", id)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if default_ttl is not None:
@@ -1872,6 +1876,18 @@ class GremlinGraphResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        Analytical TTL.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @analytical_storage_ttl.setter
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
     @pulumi.getter(name="conflictResolutionPolicy")

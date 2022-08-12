@@ -29,7 +29,7 @@ type LookupAutoscaleSettingArgs struct {
 
 // The autoscale setting resource.
 type LookupAutoscaleSettingResult struct {
-	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
@@ -62,7 +62,7 @@ func (val *LookupAutoscaleSettingResult) Defaults() *LookupAutoscaleSettingResul
 	}
 	tmp := *val
 	if isZero(tmp.Enabled) {
-		enabled_ := true
+		enabled_ := false
 		tmp.Enabled = &enabled_
 	}
 	return &tmp
@@ -107,7 +107,7 @@ func (o LookupAutoscaleSettingResultOutput) ToLookupAutoscaleSettingResultOutput
 	return o
 }
 
-// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
 func (o LookupAutoscaleSettingResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAutoscaleSettingResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

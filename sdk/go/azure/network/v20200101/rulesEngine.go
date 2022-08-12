@@ -48,6 +48,9 @@ func NewRulesEngine(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20200501:RulesEngine"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210601:RulesEngine"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RulesEngine

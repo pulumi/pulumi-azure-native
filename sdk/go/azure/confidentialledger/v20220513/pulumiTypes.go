@@ -23,7 +23,7 @@ type AADBasedSecurityPrincipal struct {
 // AADBasedSecurityPrincipalInput is an input type that accepts AADBasedSecurityPrincipalArgs and AADBasedSecurityPrincipalOutput values.
 // You can construct a concrete instance of `AADBasedSecurityPrincipalInput` via:
 //
-//          AADBasedSecurityPrincipalArgs{...}
+//	AADBasedSecurityPrincipalArgs{...}
 type AADBasedSecurityPrincipalInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i AADBasedSecurityPrincipalArgs) ToAADBasedSecurityPrincipalOutputWithCont
 // AADBasedSecurityPrincipalArrayInput is an input type that accepts AADBasedSecurityPrincipalArray and AADBasedSecurityPrincipalArrayOutput values.
 // You can construct a concrete instance of `AADBasedSecurityPrincipalArrayInput` via:
 //
-//          AADBasedSecurityPrincipalArray{ AADBasedSecurityPrincipalArgs{...} }
+//	AADBasedSecurityPrincipalArray{ AADBasedSecurityPrincipalArgs{...} }
 type AADBasedSecurityPrincipalArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type CertBasedSecurityPrincipal struct {
 // CertBasedSecurityPrincipalInput is an input type that accepts CertBasedSecurityPrincipalArgs and CertBasedSecurityPrincipalOutput values.
 // You can construct a concrete instance of `CertBasedSecurityPrincipalInput` via:
 //
-//          CertBasedSecurityPrincipalArgs{...}
+//	CertBasedSecurityPrincipalArgs{...}
 type CertBasedSecurityPrincipalInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ func (i CertBasedSecurityPrincipalArgs) ToCertBasedSecurityPrincipalOutputWithCo
 // CertBasedSecurityPrincipalArrayInput is an input type that accepts CertBasedSecurityPrincipalArray and CertBasedSecurityPrincipalArrayOutput values.
 // You can construct a concrete instance of `CertBasedSecurityPrincipalArrayInput` via:
 //
-//          CertBasedSecurityPrincipalArray{ CertBasedSecurityPrincipalArgs{...} }
+//	CertBasedSecurityPrincipalArray{ CertBasedSecurityPrincipalArgs{...} }
 type CertBasedSecurityPrincipalArrayInput interface {
 	pulumi.Input
 
@@ -363,7 +363,7 @@ type LedgerProperties struct {
 // LedgerPropertiesInput is an input type that accepts LedgerPropertiesArgs and LedgerPropertiesOutput values.
 // You can construct a concrete instance of `LedgerPropertiesInput` via:
 //
-//          LedgerPropertiesArgs{...}
+//	LedgerPropertiesArgs{...}
 type LedgerPropertiesInput interface {
 	pulumi.Input
 
@@ -404,11 +404,11 @@ func (i LedgerPropertiesArgs) ToLedgerPropertiesPtrOutputWithContext(ctx context
 // LedgerPropertiesPtrInput is an input type that accepts LedgerPropertiesArgs, LedgerPropertiesPtr and LedgerPropertiesPtrOutput values.
 // You can construct a concrete instance of `LedgerPropertiesPtrInput` via:
 //
-//          LedgerPropertiesArgs{...}
+//	        LedgerPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LedgerPropertiesPtrInput interface {
 	pulumi.Input
 

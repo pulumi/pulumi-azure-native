@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> LoggerId { get; private set; } = null!;
 
         /// <summary>
+        /// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+        /// </summary>
+        [Output("metrics")]
+        public Output<bool?> Metrics { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
@@ -189,6 +195,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("loggerId", required: true)]
         public Input<string> LoggerId { get; set; } = null!;
+
+        /// <summary>
+        /// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+        /// </summary>
+        [Input("metrics")]
+        public Input<bool>? Metrics { get; set; }
 
         /// <summary>
         /// The format of the Operation Name for Application Insights telemetries. Default is Name.

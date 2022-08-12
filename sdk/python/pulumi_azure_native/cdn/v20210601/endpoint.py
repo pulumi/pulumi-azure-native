@@ -560,7 +560,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> pulumi.Output[Sequence['outputs.CustomDomainResponse']]:
+    def custom_domains(self) -> pulumi.Output[Sequence['outputs.DeepCreatedCustomDomainResponse']]:
         """
         The custom domains under the endpoint.
         """

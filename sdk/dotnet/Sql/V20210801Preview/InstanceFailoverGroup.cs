@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:InstanceFailoverGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:InstanceFailoverGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:InstanceFailoverGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:InstanceFailoverGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

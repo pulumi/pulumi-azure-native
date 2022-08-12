@@ -47,12 +47,8 @@ type LookupActionGroupResult struct {
 	GroupShortName string `pulumi:"groupShortName"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
-	// Azure resource identity
-	Identity string `pulumi:"identity"`
 	// The list of ITSM receivers that are part of this action group.
 	ItsmReceivers []ItsmReceiverResponse `pulumi:"itsmReceivers"`
-	// Azure resource kind
-	Kind string `pulumi:"kind"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The list of logic app receivers that are part of this action group.
@@ -169,19 +165,9 @@ func (o LookupActionGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActionGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Azure resource identity
-func (o LookupActionGroupResultOutput) Identity() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupActionGroupResult) string { return v.Identity }).(pulumi.StringOutput)
-}
-
 // The list of ITSM receivers that are part of this action group.
 func (o LookupActionGroupResultOutput) ItsmReceivers() ItsmReceiverResponseArrayOutput {
 	return o.ApplyT(func(v LookupActionGroupResult) []ItsmReceiverResponse { return v.ItsmReceivers }).(ItsmReceiverResponseArrayOutput)
-}
-
-// Azure resource kind
-func (o LookupActionGroupResultOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupActionGroupResult) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // Resource location

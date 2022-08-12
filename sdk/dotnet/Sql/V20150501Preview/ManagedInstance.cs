@@ -180,6 +180,7 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

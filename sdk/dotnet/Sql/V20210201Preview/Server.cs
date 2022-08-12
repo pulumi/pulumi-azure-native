@@ -164,6 +164,7 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Server"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Server"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

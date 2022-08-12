@@ -36,7 +36,7 @@ export interface GetAutoscaleSettingArgs {
  */
 export interface GetAutoscaleSettingResult {
     /**
-     * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+     * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
      */
     readonly enabled?: boolean;
     /**

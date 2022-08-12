@@ -39,7 +39,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     }
 
     /**
-     * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+     * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -95,7 +95,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["autoscaleSettingName"] = args ? args.autoscaleSettingName : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
+            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? false;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notifications"] = args ? args.notifications : undefined;
@@ -117,7 +117,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:AutoscaleSetting" }, { type: "azure-native:insights/v20150401:AutoscaleSetting" }, { type: "azure-native:insights/v20210501preview:AutoscaleSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:AutoscaleSetting" }, { type: "azure-native:insights/v20150401:AutoscaleSetting" }, { type: "azure-native:insights/v20210501preview:AutoscaleSetting" }, { type: "azure-native:insights/v20221001:AutoscaleSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutoscaleSetting.__pulumiType, name, resourceInputs, opts);
     }
@@ -132,7 +132,7 @@ export interface AutoscaleSettingArgs {
      */
     autoscaleSettingName?: pulumi.Input<string>;
     /**
-     * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+     * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
      */
     enabled?: pulumi.Input<boolean>;
     /**

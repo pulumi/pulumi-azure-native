@@ -139,6 +139,7 @@ namespace Pulumi.AzureNative.MobileNetwork
                 {
                     new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:SimPolicy"},
                     new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:SimPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:SimPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

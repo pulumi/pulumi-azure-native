@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:sql:ManagedServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedServerDnsAlias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

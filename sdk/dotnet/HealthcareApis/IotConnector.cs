@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnector"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:IotConnector"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnector"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:IotConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

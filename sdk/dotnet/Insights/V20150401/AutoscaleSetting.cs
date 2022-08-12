@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Insights.V20150401
     public partial class AutoscaleSetting : Pulumi.CustomResource
     {
         /// <summary>
-        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.Insights.V20150401
                     new Pulumi.Alias { Type = "azure-native:insights:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20140401:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20210501preview:AutoscaleSetting"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20221001:AutoscaleSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +128,7 @@ namespace Pulumi.AzureNative.Insights.V20150401
         public Input<string>? AutoscaleSettingName { get; set; }
 
         /// <summary>
-        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -200,7 +201,7 @@ namespace Pulumi.AzureNative.Insights.V20150401
 
         public AutoscaleSettingArgs()
         {
-            Enabled = true;
+            Enabled = false;
         }
     }
 }

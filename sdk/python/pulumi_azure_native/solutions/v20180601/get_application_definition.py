@@ -23,7 +23,7 @@ class GetApplicationDefinitionResult:
     """
     Information about managed application definition.
     """
-    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, description=None, display_name=None, id=None, identity=None, is_enabled=None, location=None, lock_level=None, main_template=None, managed_by=None, name=None, package_file_uri=None, sku=None, tags=None, type=None):
+    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, description=None, display_name=None, id=None, is_enabled=None, location=None, lock_level=None, main_template=None, managed_by=None, name=None, package_file_uri=None, policies=None, sku=None, tags=None, type=None):
         if artifacts and not isinstance(artifacts, list):
             raise TypeError("Expected argument 'artifacts' to be a list")
         pulumi.set(__self__, "artifacts", artifacts)
@@ -42,11 +42,8 @@ class GetApplicationDefinitionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
-        if is_enabled and not isinstance(is_enabled, str):
-            raise TypeError("Expected argument 'is_enabled' to be a str")
+        if is_enabled and not isinstance(is_enabled, bool):
+            raise TypeError("Expected argument 'is_enabled' to be a bool")
         pulumi.set(__self__, "is_enabled", is_enabled)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -66,6 +63,9 @@ class GetApplicationDefinitionResult:
         if package_file_uri and not isinstance(package_file_uri, str):
             raise TypeError("Expected argument 'package_file_uri' to be a str")
         pulumi.set(__self__, "package_file_uri", package_file_uri)
+        if policies and not isinstance(policies, list):
+            raise TypeError("Expected argument 'policies' to be a list")
+        pulumi.set(__self__, "policies", policies)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -78,7 +78,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[Sequence['outputs.ApplicationArtifactResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ApplicationDefinitionArtifactResponse']]:
         """
         The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         """
@@ -86,7 +86,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Sequence['outputs.ApplicationProviderAuthorizationResponse']:
+    def authorizations(self) -> Optional[Sequence['outputs.ApplicationAuthorizationResponse']]:
         """
         The managed application provider authorizations.
         """
@@ -125,16 +125,8 @@ class GetApplicationDefinitionResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
-        """
-        The identity of the resource.
-        """
-        return pulumi.get(self, "identity")
-
-    @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[str]:
+    def is_enabled(self) -> Optional[bool]:
         """
         A value indicating whether the package is enabled or not.
         """
@@ -190,6 +182,14 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
+    def policies(self) -> Optional[Sequence['outputs.ApplicationPolicyResponse']]:
+        """
+        The managed application provider policies.
+        """
+        return pulumi.get(self, "policies")
+
+    @property
+    @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
         The SKU of the resource.
@@ -225,7 +225,6 @@ class AwaitableGetApplicationDefinitionResult(GetApplicationDefinitionResult):
             description=self.description,
             display_name=self.display_name,
             id=self.id,
-            identity=self.identity,
             is_enabled=self.is_enabled,
             location=self.location,
             lock_level=self.lock_level,
@@ -233,6 +232,7 @@ class AwaitableGetApplicationDefinitionResult(GetApplicationDefinitionResult):
             managed_by=self.managed_by,
             name=self.name,
             package_file_uri=self.package_file_uri,
+            policies=self.policies,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -265,7 +265,6 @@ def get_application_definition(application_definition_name: Optional[str] = None
         description=__ret__.description,
         display_name=__ret__.display_name,
         id=__ret__.id,
-        identity=__ret__.identity,
         is_enabled=__ret__.is_enabled,
         location=__ret__.location,
         lock_level=__ret__.lock_level,
@@ -273,6 +272,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
         managed_by=__ret__.managed_by,
         name=__ret__.name,
         package_file_uri=__ret__.package_file_uri,
+        policies=__ret__.policies,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)

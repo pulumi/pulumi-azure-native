@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:mobilenetwork:DataNetwork"},
                     new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:DataNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:DataNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

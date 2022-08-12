@@ -120,6 +120,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         /// </summary>
         public readonly string LoggerId;
         /// <summary>
+        /// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+        /// </summary>
+        public readonly bool? Metrics;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
 
             string loggerId,
 
+            bool? metrics,
+
             string name,
 
             string? operationNameFormat,
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
             Id = id;
             LogClientIp = logClientIp;
             LoggerId = loggerId;
+            Metrics = metrics;
             Name = name;
             OperationNameFormat = operationNameFormat;
             Sampling = sampling;

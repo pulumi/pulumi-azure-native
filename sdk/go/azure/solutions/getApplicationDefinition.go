@@ -68,6 +68,8 @@ type LookupApplicationDefinitionResult struct {
 	Policies []ApplicationPolicyResponse `pulumi:"policies"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -214,6 +216,11 @@ func (o LookupApplicationDefinitionResultOutput) Policies() ApplicationPolicyRes
 // The SKU of the resource.
 func (o LookupApplicationDefinitionResultOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v LookupApplicationDefinitionResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The storage account id for bring your own storage scenario.
+func (o LookupApplicationDefinitionResultOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
 
 // Resource tags

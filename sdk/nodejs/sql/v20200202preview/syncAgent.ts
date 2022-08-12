@@ -106,7 +106,7 @@ export class SyncAgent extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncAgent" }, { type: "azure-native:sql/v20150501preview:SyncAgent" }, { type: "azure-native:sql/v20200801preview:SyncAgent" }, { type: "azure-native:sql/v20201101preview:SyncAgent" }, { type: "azure-native:sql/v20210201preview:SyncAgent" }, { type: "azure-native:sql/v20210501preview:SyncAgent" }, { type: "azure-native:sql/v20210801preview:SyncAgent" }, { type: "azure-native:sql/v20211101preview:SyncAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncAgent" }, { type: "azure-native:sql/v20150501preview:SyncAgent" }, { type: "azure-native:sql/v20200801preview:SyncAgent" }, { type: "azure-native:sql/v20201101preview:SyncAgent" }, { type: "azure-native:sql/v20210201preview:SyncAgent" }, { type: "azure-native:sql/v20210501preview:SyncAgent" }, { type: "azure-native:sql/v20210801preview:SyncAgent" }, { type: "azure-native:sql/v20211101preview:SyncAgent" }, { type: "azure-native:sql/v20220201preview:SyncAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncAgent.__pulumiType, name, resourceInputs, opts);
     }

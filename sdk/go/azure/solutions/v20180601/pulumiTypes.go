@@ -11,131 +11,13 @@ import (
 )
 
 // Managed application artifact.
-type ApplicationArtifact struct {
-	// The managed application artifact name.
-	Name *string `pulumi:"name"`
-	// The managed application artifact type.
-	Type *ApplicationArtifactType `pulumi:"type"`
-	// The managed application artifact blob uri.
-	Uri *string `pulumi:"uri"`
-}
-
-// ApplicationArtifactInput is an input type that accepts ApplicationArtifactArgs and ApplicationArtifactOutput values.
-// You can construct a concrete instance of `ApplicationArtifactInput` via:
-//
-//          ApplicationArtifactArgs{...}
-type ApplicationArtifactInput interface {
-	pulumi.Input
-
-	ToApplicationArtifactOutput() ApplicationArtifactOutput
-	ToApplicationArtifactOutputWithContext(context.Context) ApplicationArtifactOutput
-}
-
-// Managed application artifact.
-type ApplicationArtifactArgs struct {
-	// The managed application artifact name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The managed application artifact type.
-	Type ApplicationArtifactTypePtrInput `pulumi:"type"`
-	// The managed application artifact blob uri.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-}
-
-func (ApplicationArtifactArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationArtifact)(nil)).Elem()
-}
-
-func (i ApplicationArtifactArgs) ToApplicationArtifactOutput() ApplicationArtifactOutput {
-	return i.ToApplicationArtifactOutputWithContext(context.Background())
-}
-
-func (i ApplicationArtifactArgs) ToApplicationArtifactOutputWithContext(ctx context.Context) ApplicationArtifactOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArtifactOutput)
-}
-
-// ApplicationArtifactArrayInput is an input type that accepts ApplicationArtifactArray and ApplicationArtifactArrayOutput values.
-// You can construct a concrete instance of `ApplicationArtifactArrayInput` via:
-//
-//          ApplicationArtifactArray{ ApplicationArtifactArgs{...} }
-type ApplicationArtifactArrayInput interface {
-	pulumi.Input
-
-	ToApplicationArtifactArrayOutput() ApplicationArtifactArrayOutput
-	ToApplicationArtifactArrayOutputWithContext(context.Context) ApplicationArtifactArrayOutput
-}
-
-type ApplicationArtifactArray []ApplicationArtifactInput
-
-func (ApplicationArtifactArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationArtifact)(nil)).Elem()
-}
-
-func (i ApplicationArtifactArray) ToApplicationArtifactArrayOutput() ApplicationArtifactArrayOutput {
-	return i.ToApplicationArtifactArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationArtifactArray) ToApplicationArtifactArrayOutputWithContext(ctx context.Context) ApplicationArtifactArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArtifactArrayOutput)
-}
-
-// Managed application artifact.
-type ApplicationArtifactOutput struct{ *pulumi.OutputState }
-
-func (ApplicationArtifactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationArtifact)(nil)).Elem()
-}
-
-func (o ApplicationArtifactOutput) ToApplicationArtifactOutput() ApplicationArtifactOutput {
-	return o
-}
-
-func (o ApplicationArtifactOutput) ToApplicationArtifactOutputWithContext(ctx context.Context) ApplicationArtifactOutput {
-	return o
-}
-
-// The managed application artifact name.
-func (o ApplicationArtifactOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationArtifact) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The managed application artifact type.
-func (o ApplicationArtifactOutput) Type() ApplicationArtifactTypePtrOutput {
-	return o.ApplyT(func(v ApplicationArtifact) *ApplicationArtifactType { return v.Type }).(ApplicationArtifactTypePtrOutput)
-}
-
-// The managed application artifact blob uri.
-func (o ApplicationArtifactOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationArtifact) *string { return v.Uri }).(pulumi.StringPtrOutput)
-}
-
-type ApplicationArtifactArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationArtifactArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationArtifact)(nil)).Elem()
-}
-
-func (o ApplicationArtifactArrayOutput) ToApplicationArtifactArrayOutput() ApplicationArtifactArrayOutput {
-	return o
-}
-
-func (o ApplicationArtifactArrayOutput) ToApplicationArtifactArrayOutputWithContext(ctx context.Context) ApplicationArtifactArrayOutput {
-	return o
-}
-
-func (o ApplicationArtifactArrayOutput) Index(i pulumi.IntInput) ApplicationArtifactOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationArtifact {
-		return vs[0].([]ApplicationArtifact)[vs[1].(int)]
-	}).(ApplicationArtifactOutput)
-}
-
-// Managed application artifact.
 type ApplicationArtifactResponse struct {
 	// The managed application artifact name.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The managed application artifact type.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// The managed application artifact blob uri.
-	Uri *string `pulumi:"uri"`
+	Uri string `pulumi:"uri"`
 }
 
 // Managed application artifact.
@@ -154,18 +36,18 @@ func (o ApplicationArtifactResponseOutput) ToApplicationArtifactResponseOutputWi
 }
 
 // The managed application artifact name.
-func (o ApplicationArtifactResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationArtifactResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ApplicationArtifactResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationArtifactResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The managed application artifact type.
-func (o ApplicationArtifactResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationArtifactResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ApplicationArtifactResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationArtifactResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The managed application artifact blob uri.
-func (o ApplicationArtifactResponseOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationArtifactResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+func (o ApplicationArtifactResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationArtifactResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
 
 type ApplicationArtifactResponseArrayOutput struct{ *pulumi.OutputState }
@@ -189,116 +71,116 @@ func (o ApplicationArtifactResponseArrayOutput) Index(i pulumi.IntInput) Applica
 }
 
 // The managed application provider authorization.
-type ApplicationProviderAuthorization struct {
+type ApplicationAuthorization struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
 	PrincipalId string `pulumi:"principalId"`
 	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
 
-// ApplicationProviderAuthorizationInput is an input type that accepts ApplicationProviderAuthorizationArgs and ApplicationProviderAuthorizationOutput values.
-// You can construct a concrete instance of `ApplicationProviderAuthorizationInput` via:
+// ApplicationAuthorizationInput is an input type that accepts ApplicationAuthorizationArgs and ApplicationAuthorizationOutput values.
+// You can construct a concrete instance of `ApplicationAuthorizationInput` via:
 //
-//          ApplicationProviderAuthorizationArgs{...}
-type ApplicationProviderAuthorizationInput interface {
+//	ApplicationAuthorizationArgs{...}
+type ApplicationAuthorizationInput interface {
 	pulumi.Input
 
-	ToApplicationProviderAuthorizationOutput() ApplicationProviderAuthorizationOutput
-	ToApplicationProviderAuthorizationOutputWithContext(context.Context) ApplicationProviderAuthorizationOutput
+	ToApplicationAuthorizationOutput() ApplicationAuthorizationOutput
+	ToApplicationAuthorizationOutputWithContext(context.Context) ApplicationAuthorizationOutput
 }
 
 // The managed application provider authorization.
-type ApplicationProviderAuthorizationArgs struct {
+type ApplicationAuthorizationArgs struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
 
-func (ApplicationProviderAuthorizationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationProviderAuthorization)(nil)).Elem()
+func (ApplicationAuthorizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAuthorization)(nil)).Elem()
 }
 
-func (i ApplicationProviderAuthorizationArgs) ToApplicationProviderAuthorizationOutput() ApplicationProviderAuthorizationOutput {
-	return i.ToApplicationProviderAuthorizationOutputWithContext(context.Background())
+func (i ApplicationAuthorizationArgs) ToApplicationAuthorizationOutput() ApplicationAuthorizationOutput {
+	return i.ToApplicationAuthorizationOutputWithContext(context.Background())
 }
 
-func (i ApplicationProviderAuthorizationArgs) ToApplicationProviderAuthorizationOutputWithContext(ctx context.Context) ApplicationProviderAuthorizationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationProviderAuthorizationOutput)
+func (i ApplicationAuthorizationArgs) ToApplicationAuthorizationOutputWithContext(ctx context.Context) ApplicationAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthorizationOutput)
 }
 
-// ApplicationProviderAuthorizationArrayInput is an input type that accepts ApplicationProviderAuthorizationArray and ApplicationProviderAuthorizationArrayOutput values.
-// You can construct a concrete instance of `ApplicationProviderAuthorizationArrayInput` via:
+// ApplicationAuthorizationArrayInput is an input type that accepts ApplicationAuthorizationArray and ApplicationAuthorizationArrayOutput values.
+// You can construct a concrete instance of `ApplicationAuthorizationArrayInput` via:
 //
-//          ApplicationProviderAuthorizationArray{ ApplicationProviderAuthorizationArgs{...} }
-type ApplicationProviderAuthorizationArrayInput interface {
+//	ApplicationAuthorizationArray{ ApplicationAuthorizationArgs{...} }
+type ApplicationAuthorizationArrayInput interface {
 	pulumi.Input
 
-	ToApplicationProviderAuthorizationArrayOutput() ApplicationProviderAuthorizationArrayOutput
-	ToApplicationProviderAuthorizationArrayOutputWithContext(context.Context) ApplicationProviderAuthorizationArrayOutput
+	ToApplicationAuthorizationArrayOutput() ApplicationAuthorizationArrayOutput
+	ToApplicationAuthorizationArrayOutputWithContext(context.Context) ApplicationAuthorizationArrayOutput
 }
 
-type ApplicationProviderAuthorizationArray []ApplicationProviderAuthorizationInput
+type ApplicationAuthorizationArray []ApplicationAuthorizationInput
 
-func (ApplicationProviderAuthorizationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationProviderAuthorization)(nil)).Elem()
+func (ApplicationAuthorizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationAuthorization)(nil)).Elem()
 }
 
-func (i ApplicationProviderAuthorizationArray) ToApplicationProviderAuthorizationArrayOutput() ApplicationProviderAuthorizationArrayOutput {
-	return i.ToApplicationProviderAuthorizationArrayOutputWithContext(context.Background())
+func (i ApplicationAuthorizationArray) ToApplicationAuthorizationArrayOutput() ApplicationAuthorizationArrayOutput {
+	return i.ToApplicationAuthorizationArrayOutputWithContext(context.Background())
 }
 
-func (i ApplicationProviderAuthorizationArray) ToApplicationProviderAuthorizationArrayOutputWithContext(ctx context.Context) ApplicationProviderAuthorizationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationProviderAuthorizationArrayOutput)
+func (i ApplicationAuthorizationArray) ToApplicationAuthorizationArrayOutputWithContext(ctx context.Context) ApplicationAuthorizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthorizationArrayOutput)
 }
 
 // The managed application provider authorization.
-type ApplicationProviderAuthorizationOutput struct{ *pulumi.OutputState }
+type ApplicationAuthorizationOutput struct{ *pulumi.OutputState }
 
-func (ApplicationProviderAuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationProviderAuthorization)(nil)).Elem()
+func (ApplicationAuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAuthorization)(nil)).Elem()
 }
 
-func (o ApplicationProviderAuthorizationOutput) ToApplicationProviderAuthorizationOutput() ApplicationProviderAuthorizationOutput {
+func (o ApplicationAuthorizationOutput) ToApplicationAuthorizationOutput() ApplicationAuthorizationOutput {
 	return o
 }
 
-func (o ApplicationProviderAuthorizationOutput) ToApplicationProviderAuthorizationOutputWithContext(ctx context.Context) ApplicationProviderAuthorizationOutput {
+func (o ApplicationAuthorizationOutput) ToApplicationAuthorizationOutputWithContext(ctx context.Context) ApplicationAuthorizationOutput {
 	return o
 }
 
 // The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-func (o ApplicationProviderAuthorizationOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationProviderAuthorization) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o ApplicationAuthorizationOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationAuthorization) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
 // The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-func (o ApplicationProviderAuthorizationOutput) RoleDefinitionId() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationProviderAuthorization) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+func (o ApplicationAuthorizationOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationAuthorization) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
 
-type ApplicationProviderAuthorizationArrayOutput struct{ *pulumi.OutputState }
+type ApplicationAuthorizationArrayOutput struct{ *pulumi.OutputState }
 
-func (ApplicationProviderAuthorizationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationProviderAuthorization)(nil)).Elem()
+func (ApplicationAuthorizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationAuthorization)(nil)).Elem()
 }
 
-func (o ApplicationProviderAuthorizationArrayOutput) ToApplicationProviderAuthorizationArrayOutput() ApplicationProviderAuthorizationArrayOutput {
+func (o ApplicationAuthorizationArrayOutput) ToApplicationAuthorizationArrayOutput() ApplicationAuthorizationArrayOutput {
 	return o
 }
 
-func (o ApplicationProviderAuthorizationArrayOutput) ToApplicationProviderAuthorizationArrayOutputWithContext(ctx context.Context) ApplicationProviderAuthorizationArrayOutput {
+func (o ApplicationAuthorizationArrayOutput) ToApplicationAuthorizationArrayOutputWithContext(ctx context.Context) ApplicationAuthorizationArrayOutput {
 	return o
 }
 
-func (o ApplicationProviderAuthorizationArrayOutput) Index(i pulumi.IntInput) ApplicationProviderAuthorizationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationProviderAuthorization {
-		return vs[0].([]ApplicationProviderAuthorization)[vs[1].(int)]
-	}).(ApplicationProviderAuthorizationOutput)
+func (o ApplicationAuthorizationArrayOutput) Index(i pulumi.IntInput) ApplicationAuthorizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationAuthorization {
+		return vs[0].([]ApplicationAuthorization)[vs[1].(int)]
+	}).(ApplicationAuthorizationOutput)
 }
 
 // The managed application provider authorization.
-type ApplicationProviderAuthorizationResponse struct {
+type ApplicationAuthorizationResponse struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
 	PrincipalId string `pulumi:"principalId"`
 	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
@@ -306,60 +188,865 @@ type ApplicationProviderAuthorizationResponse struct {
 }
 
 // The managed application provider authorization.
-type ApplicationProviderAuthorizationResponseOutput struct{ *pulumi.OutputState }
+type ApplicationAuthorizationResponseOutput struct{ *pulumi.OutputState }
 
-func (ApplicationProviderAuthorizationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationProviderAuthorizationResponse)(nil)).Elem()
+func (ApplicationAuthorizationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAuthorizationResponse)(nil)).Elem()
 }
 
-func (o ApplicationProviderAuthorizationResponseOutput) ToApplicationProviderAuthorizationResponseOutput() ApplicationProviderAuthorizationResponseOutput {
+func (o ApplicationAuthorizationResponseOutput) ToApplicationAuthorizationResponseOutput() ApplicationAuthorizationResponseOutput {
 	return o
 }
 
-func (o ApplicationProviderAuthorizationResponseOutput) ToApplicationProviderAuthorizationResponseOutputWithContext(ctx context.Context) ApplicationProviderAuthorizationResponseOutput {
+func (o ApplicationAuthorizationResponseOutput) ToApplicationAuthorizationResponseOutputWithContext(ctx context.Context) ApplicationAuthorizationResponseOutput {
 	return o
 }
 
 // The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-func (o ApplicationProviderAuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationProviderAuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o ApplicationAuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationAuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
 // The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-func (o ApplicationProviderAuthorizationResponseOutput) RoleDefinitionId() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationProviderAuthorizationResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+func (o ApplicationAuthorizationResponseOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationAuthorizationResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
 
-type ApplicationProviderAuthorizationResponseArrayOutput struct{ *pulumi.OutputState }
+type ApplicationAuthorizationResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ApplicationProviderAuthorizationResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationProviderAuthorizationResponse)(nil)).Elem()
+func (ApplicationAuthorizationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationAuthorizationResponse)(nil)).Elem()
 }
 
-func (o ApplicationProviderAuthorizationResponseArrayOutput) ToApplicationProviderAuthorizationResponseArrayOutput() ApplicationProviderAuthorizationResponseArrayOutput {
+func (o ApplicationAuthorizationResponseArrayOutput) ToApplicationAuthorizationResponseArrayOutput() ApplicationAuthorizationResponseArrayOutput {
 	return o
 }
 
-func (o ApplicationProviderAuthorizationResponseArrayOutput) ToApplicationProviderAuthorizationResponseArrayOutputWithContext(ctx context.Context) ApplicationProviderAuthorizationResponseArrayOutput {
+func (o ApplicationAuthorizationResponseArrayOutput) ToApplicationAuthorizationResponseArrayOutputWithContext(ctx context.Context) ApplicationAuthorizationResponseArrayOutput {
 	return o
 }
 
-func (o ApplicationProviderAuthorizationResponseArrayOutput) Index(i pulumi.IntInput) ApplicationProviderAuthorizationResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationProviderAuthorizationResponse {
-		return vs[0].([]ApplicationProviderAuthorizationResponse)[vs[1].(int)]
-	}).(ApplicationProviderAuthorizationResponseOutput)
+func (o ApplicationAuthorizationResponseArrayOutput) Index(i pulumi.IntInput) ApplicationAuthorizationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationAuthorizationResponse {
+		return vs[0].([]ApplicationAuthorizationResponse)[vs[1].(int)]
+	}).(ApplicationAuthorizationResponseOutput)
+}
+
+// Managed application billing details definition.
+type ApplicationBillingDetailsDefinitionResponse struct {
+	// The managed application resource usage Id.
+	ResourceUsageId *string `pulumi:"resourceUsageId"`
+}
+
+// Managed application billing details definition.
+type ApplicationBillingDetailsDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationBillingDetailsDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationBillingDetailsDefinitionResponse)(nil)).Elem()
+}
+
+func (o ApplicationBillingDetailsDefinitionResponseOutput) ToApplicationBillingDetailsDefinitionResponseOutput() ApplicationBillingDetailsDefinitionResponseOutput {
+	return o
+}
+
+func (o ApplicationBillingDetailsDefinitionResponseOutput) ToApplicationBillingDetailsDefinitionResponseOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionResponseOutput {
+	return o
+}
+
+// The managed application resource usage Id.
+func (o ApplicationBillingDetailsDefinitionResponseOutput) ResourceUsageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationBillingDetailsDefinitionResponse) *string { return v.ResourceUsageId }).(pulumi.StringPtrOutput)
+}
+
+// The application client details to track the entity creating/updating the managed app resource.
+type ApplicationClientDetailsResponse struct {
+	// The client application Id.
+	ApplicationId *string `pulumi:"applicationId"`
+	// The client Oid.
+	Oid *string `pulumi:"oid"`
+	// The client Puid
+	Puid *string `pulumi:"puid"`
+}
+
+// The application client details to track the entity creating/updating the managed app resource.
+type ApplicationClientDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationClientDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationClientDetailsResponse)(nil)).Elem()
+}
+
+func (o ApplicationClientDetailsResponseOutput) ToApplicationClientDetailsResponseOutput() ApplicationClientDetailsResponseOutput {
+	return o
+}
+
+func (o ApplicationClientDetailsResponseOutput) ToApplicationClientDetailsResponseOutputWithContext(ctx context.Context) ApplicationClientDetailsResponseOutput {
+	return o
+}
+
+// The client application Id.
+func (o ApplicationClientDetailsResponseOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationClientDetailsResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// The client Oid.
+func (o ApplicationClientDetailsResponseOutput) Oid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationClientDetailsResponse) *string { return v.Oid }).(pulumi.StringPtrOutput)
+}
+
+// The client Puid
+func (o ApplicationClientDetailsResponseOutput) Puid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationClientDetailsResponse) *string { return v.Puid }).(pulumi.StringPtrOutput)
+}
+
+// Application definition artifact.
+type ApplicationDefinitionArtifact struct {
+	// The managed application definition artifact name.
+	Name string `pulumi:"name"`
+	// The managed application definition artifact type.
+	Type ApplicationArtifactType `pulumi:"type"`
+	// The managed application definition artifact blob uri.
+	Uri string `pulumi:"uri"`
+}
+
+// ApplicationDefinitionArtifactInput is an input type that accepts ApplicationDefinitionArtifactArgs and ApplicationDefinitionArtifactOutput values.
+// You can construct a concrete instance of `ApplicationDefinitionArtifactInput` via:
+//
+//	ApplicationDefinitionArtifactArgs{...}
+type ApplicationDefinitionArtifactInput interface {
+	pulumi.Input
+
+	ToApplicationDefinitionArtifactOutput() ApplicationDefinitionArtifactOutput
+	ToApplicationDefinitionArtifactOutputWithContext(context.Context) ApplicationDefinitionArtifactOutput
+}
+
+// Application definition artifact.
+type ApplicationDefinitionArtifactArgs struct {
+	// The managed application definition artifact name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The managed application definition artifact type.
+	Type ApplicationArtifactTypeInput `pulumi:"type"`
+	// The managed application definition artifact blob uri.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (ApplicationDefinitionArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDefinitionArtifact)(nil)).Elem()
+}
+
+func (i ApplicationDefinitionArtifactArgs) ToApplicationDefinitionArtifactOutput() ApplicationDefinitionArtifactOutput {
+	return i.ToApplicationDefinitionArtifactOutputWithContext(context.Background())
+}
+
+func (i ApplicationDefinitionArtifactArgs) ToApplicationDefinitionArtifactOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionArtifactOutput)
+}
+
+// ApplicationDefinitionArtifactArrayInput is an input type that accepts ApplicationDefinitionArtifactArray and ApplicationDefinitionArtifactArrayOutput values.
+// You can construct a concrete instance of `ApplicationDefinitionArtifactArrayInput` via:
+//
+//	ApplicationDefinitionArtifactArray{ ApplicationDefinitionArtifactArgs{...} }
+type ApplicationDefinitionArtifactArrayInput interface {
+	pulumi.Input
+
+	ToApplicationDefinitionArtifactArrayOutput() ApplicationDefinitionArtifactArrayOutput
+	ToApplicationDefinitionArtifactArrayOutputWithContext(context.Context) ApplicationDefinitionArtifactArrayOutput
+}
+
+type ApplicationDefinitionArtifactArray []ApplicationDefinitionArtifactInput
+
+func (ApplicationDefinitionArtifactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDefinitionArtifact)(nil)).Elem()
+}
+
+func (i ApplicationDefinitionArtifactArray) ToApplicationDefinitionArtifactArrayOutput() ApplicationDefinitionArtifactArrayOutput {
+	return i.ToApplicationDefinitionArtifactArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationDefinitionArtifactArray) ToApplicationDefinitionArtifactArrayOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionArtifactArrayOutput)
+}
+
+// Application definition artifact.
+type ApplicationDefinitionArtifactOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefinitionArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDefinitionArtifact)(nil)).Elem()
+}
+
+func (o ApplicationDefinitionArtifactOutput) ToApplicationDefinitionArtifactOutput() ApplicationDefinitionArtifactOutput {
+	return o
+}
+
+func (o ApplicationDefinitionArtifactOutput) ToApplicationDefinitionArtifactOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactOutput {
+	return o
+}
+
+// The managed application definition artifact name.
+func (o ApplicationDefinitionArtifactOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifact) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The managed application definition artifact type.
+func (o ApplicationDefinitionArtifactOutput) Type() ApplicationArtifactTypeOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifact) ApplicationArtifactType { return v.Type }).(ApplicationArtifactTypeOutput)
+}
+
+// The managed application definition artifact blob uri.
+func (o ApplicationDefinitionArtifactOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifact) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type ApplicationDefinitionArtifactArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefinitionArtifactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDefinitionArtifact)(nil)).Elem()
+}
+
+func (o ApplicationDefinitionArtifactArrayOutput) ToApplicationDefinitionArtifactArrayOutput() ApplicationDefinitionArtifactArrayOutput {
+	return o
+}
+
+func (o ApplicationDefinitionArtifactArrayOutput) ToApplicationDefinitionArtifactArrayOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactArrayOutput {
+	return o
+}
+
+func (o ApplicationDefinitionArtifactArrayOutput) Index(i pulumi.IntInput) ApplicationDefinitionArtifactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationDefinitionArtifact {
+		return vs[0].([]ApplicationDefinitionArtifact)[vs[1].(int)]
+	}).(ApplicationDefinitionArtifactOutput)
+}
+
+// Application definition artifact.
+type ApplicationDefinitionArtifactResponse struct {
+	// The managed application definition artifact name.
+	Name string `pulumi:"name"`
+	// The managed application definition artifact type.
+	Type string `pulumi:"type"`
+	// The managed application definition artifact blob uri.
+	Uri string `pulumi:"uri"`
+}
+
+// Application definition artifact.
+type ApplicationDefinitionArtifactResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefinitionArtifactResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDefinitionArtifactResponse)(nil)).Elem()
+}
+
+func (o ApplicationDefinitionArtifactResponseOutput) ToApplicationDefinitionArtifactResponseOutput() ApplicationDefinitionArtifactResponseOutput {
+	return o
+}
+
+func (o ApplicationDefinitionArtifactResponseOutput) ToApplicationDefinitionArtifactResponseOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactResponseOutput {
+	return o
+}
+
+// The managed application definition artifact name.
+func (o ApplicationDefinitionArtifactResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifactResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The managed application definition artifact type.
+func (o ApplicationDefinitionArtifactResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifactResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The managed application definition artifact blob uri.
+func (o ApplicationDefinitionArtifactResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifactResponse) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type ApplicationDefinitionArtifactResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefinitionArtifactResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDefinitionArtifactResponse)(nil)).Elem()
+}
+
+func (o ApplicationDefinitionArtifactResponseArrayOutput) ToApplicationDefinitionArtifactResponseArrayOutput() ApplicationDefinitionArtifactResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationDefinitionArtifactResponseArrayOutput) ToApplicationDefinitionArtifactResponseArrayOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationDefinitionArtifactResponseArrayOutput) Index(i pulumi.IntInput) ApplicationDefinitionArtifactResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationDefinitionArtifactResponse {
+		return vs[0].([]ApplicationDefinitionArtifactResponse)[vs[1].(int)]
+	}).(ApplicationDefinitionArtifactResponseOutput)
+}
+
+// Managed application Jit access policy.
+type ApplicationJitAccessPolicy struct {
+	// Whether the JIT access is enabled.
+	JitAccessEnabled bool `pulumi:"jitAccessEnabled"`
+	// JIT approval mode.
+	JitApprovalMode *string `pulumi:"jitApprovalMode"`
+	// The JIT approvers
+	JitApprovers []JitApproverDefinition `pulumi:"jitApprovers"`
+	// The maximum duration JIT access is granted. This is an ISO8601 time period value.
+	MaximumJitAccessDuration *string `pulumi:"maximumJitAccessDuration"`
+}
+
+// ApplicationJitAccessPolicyInput is an input type that accepts ApplicationJitAccessPolicyArgs and ApplicationJitAccessPolicyOutput values.
+// You can construct a concrete instance of `ApplicationJitAccessPolicyInput` via:
+//
+//	ApplicationJitAccessPolicyArgs{...}
+type ApplicationJitAccessPolicyInput interface {
+	pulumi.Input
+
+	ToApplicationJitAccessPolicyOutput() ApplicationJitAccessPolicyOutput
+	ToApplicationJitAccessPolicyOutputWithContext(context.Context) ApplicationJitAccessPolicyOutput
+}
+
+// Managed application Jit access policy.
+type ApplicationJitAccessPolicyArgs struct {
+	// Whether the JIT access is enabled.
+	JitAccessEnabled pulumi.BoolInput `pulumi:"jitAccessEnabled"`
+	// JIT approval mode.
+	JitApprovalMode pulumi.StringPtrInput `pulumi:"jitApprovalMode"`
+	// The JIT approvers
+	JitApprovers JitApproverDefinitionArrayInput `pulumi:"jitApprovers"`
+	// The maximum duration JIT access is granted. This is an ISO8601 time period value.
+	MaximumJitAccessDuration pulumi.StringPtrInput `pulumi:"maximumJitAccessDuration"`
+}
+
+func (ApplicationJitAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJitAccessPolicy)(nil)).Elem()
+}
+
+func (i ApplicationJitAccessPolicyArgs) ToApplicationJitAccessPolicyOutput() ApplicationJitAccessPolicyOutput {
+	return i.ToApplicationJitAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i ApplicationJitAccessPolicyArgs) ToApplicationJitAccessPolicyOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJitAccessPolicyOutput)
+}
+
+func (i ApplicationJitAccessPolicyArgs) ToApplicationJitAccessPolicyPtrOutput() ApplicationJitAccessPolicyPtrOutput {
+	return i.ToApplicationJitAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationJitAccessPolicyArgs) ToApplicationJitAccessPolicyPtrOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJitAccessPolicyOutput).ToApplicationJitAccessPolicyPtrOutputWithContext(ctx)
+}
+
+// ApplicationJitAccessPolicyPtrInput is an input type that accepts ApplicationJitAccessPolicyArgs, ApplicationJitAccessPolicyPtr and ApplicationJitAccessPolicyPtrOutput values.
+// You can construct a concrete instance of `ApplicationJitAccessPolicyPtrInput` via:
+//
+//	        ApplicationJitAccessPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationJitAccessPolicyPtrInput interface {
+	pulumi.Input
+
+	ToApplicationJitAccessPolicyPtrOutput() ApplicationJitAccessPolicyPtrOutput
+	ToApplicationJitAccessPolicyPtrOutputWithContext(context.Context) ApplicationJitAccessPolicyPtrOutput
+}
+
+type applicationJitAccessPolicyPtrType ApplicationJitAccessPolicyArgs
+
+func ApplicationJitAccessPolicyPtr(v *ApplicationJitAccessPolicyArgs) ApplicationJitAccessPolicyPtrInput {
+	return (*applicationJitAccessPolicyPtrType)(v)
+}
+
+func (*applicationJitAccessPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationJitAccessPolicy)(nil)).Elem()
+}
+
+func (i *applicationJitAccessPolicyPtrType) ToApplicationJitAccessPolicyPtrOutput() ApplicationJitAccessPolicyPtrOutput {
+	return i.ToApplicationJitAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationJitAccessPolicyPtrType) ToApplicationJitAccessPolicyPtrOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJitAccessPolicyPtrOutput)
+}
+
+// Managed application Jit access policy.
+type ApplicationJitAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (ApplicationJitAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJitAccessPolicy)(nil)).Elem()
+}
+
+func (o ApplicationJitAccessPolicyOutput) ToApplicationJitAccessPolicyOutput() ApplicationJitAccessPolicyOutput {
+	return o
+}
+
+func (o ApplicationJitAccessPolicyOutput) ToApplicationJitAccessPolicyOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyOutput {
+	return o
+}
+
+func (o ApplicationJitAccessPolicyOutput) ToApplicationJitAccessPolicyPtrOutput() ApplicationJitAccessPolicyPtrOutput {
+	return o.ToApplicationJitAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationJitAccessPolicyOutput) ToApplicationJitAccessPolicyPtrOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJitAccessPolicy) *ApplicationJitAccessPolicy {
+		return &v
+	}).(ApplicationJitAccessPolicyPtrOutput)
+}
+
+// Whether the JIT access is enabled.
+func (o ApplicationJitAccessPolicyOutput) JitAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicy) bool { return v.JitAccessEnabled }).(pulumi.BoolOutput)
+}
+
+// JIT approval mode.
+func (o ApplicationJitAccessPolicyOutput) JitApprovalMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicy) *string { return v.JitApprovalMode }).(pulumi.StringPtrOutput)
+}
+
+// The JIT approvers
+func (o ApplicationJitAccessPolicyOutput) JitApprovers() JitApproverDefinitionArrayOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicy) []JitApproverDefinition { return v.JitApprovers }).(JitApproverDefinitionArrayOutput)
+}
+
+// The maximum duration JIT access is granted. This is an ISO8601 time period value.
+func (o ApplicationJitAccessPolicyOutput) MaximumJitAccessDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicy) *string { return v.MaximumJitAccessDuration }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationJitAccessPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationJitAccessPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationJitAccessPolicy)(nil)).Elem()
+}
+
+func (o ApplicationJitAccessPolicyPtrOutput) ToApplicationJitAccessPolicyPtrOutput() ApplicationJitAccessPolicyPtrOutput {
+	return o
+}
+
+func (o ApplicationJitAccessPolicyPtrOutput) ToApplicationJitAccessPolicyPtrOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyPtrOutput {
+	return o
+}
+
+func (o ApplicationJitAccessPolicyPtrOutput) Elem() ApplicationJitAccessPolicyOutput {
+	return o.ApplyT(func(v *ApplicationJitAccessPolicy) ApplicationJitAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationJitAccessPolicy
+		return ret
+	}).(ApplicationJitAccessPolicyOutput)
+}
+
+// Whether the JIT access is enabled.
+func (o ApplicationJitAccessPolicyPtrOutput) JitAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationJitAccessPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.JitAccessEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// JIT approval mode.
+func (o ApplicationJitAccessPolicyPtrOutput) JitApprovalMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationJitAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JitApprovalMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The JIT approvers
+func (o ApplicationJitAccessPolicyPtrOutput) JitApprovers() JitApproverDefinitionArrayOutput {
+	return o.ApplyT(func(v *ApplicationJitAccessPolicy) []JitApproverDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.JitApprovers
+	}).(JitApproverDefinitionArrayOutput)
+}
+
+// The maximum duration JIT access is granted. This is an ISO8601 time period value.
+func (o ApplicationJitAccessPolicyPtrOutput) MaximumJitAccessDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationJitAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumJitAccessDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed application Jit access policy.
+type ApplicationJitAccessPolicyResponse struct {
+	// Whether the JIT access is enabled.
+	JitAccessEnabled bool `pulumi:"jitAccessEnabled"`
+	// JIT approval mode.
+	JitApprovalMode *string `pulumi:"jitApprovalMode"`
+	// The JIT approvers
+	JitApprovers []JitApproverDefinitionResponse `pulumi:"jitApprovers"`
+	// The maximum duration JIT access is granted. This is an ISO8601 time period value.
+	MaximumJitAccessDuration *string `pulumi:"maximumJitAccessDuration"`
+}
+
+// Managed application Jit access policy.
+type ApplicationJitAccessPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationJitAccessPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJitAccessPolicyResponse)(nil)).Elem()
+}
+
+func (o ApplicationJitAccessPolicyResponseOutput) ToApplicationJitAccessPolicyResponseOutput() ApplicationJitAccessPolicyResponseOutput {
+	return o
+}
+
+func (o ApplicationJitAccessPolicyResponseOutput) ToApplicationJitAccessPolicyResponseOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyResponseOutput {
+	return o
+}
+
+// Whether the JIT access is enabled.
+func (o ApplicationJitAccessPolicyResponseOutput) JitAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicyResponse) bool { return v.JitAccessEnabled }).(pulumi.BoolOutput)
+}
+
+// JIT approval mode.
+func (o ApplicationJitAccessPolicyResponseOutput) JitApprovalMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicyResponse) *string { return v.JitApprovalMode }).(pulumi.StringPtrOutput)
+}
+
+// The JIT approvers
+func (o ApplicationJitAccessPolicyResponseOutput) JitApprovers() JitApproverDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicyResponse) []JitApproverDefinitionResponse { return v.JitApprovers }).(JitApproverDefinitionResponseArrayOutput)
+}
+
+// The maximum duration JIT access is granted. This is an ISO8601 time period value.
+func (o ApplicationJitAccessPolicyResponseOutput) MaximumJitAccessDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicyResponse) *string { return v.MaximumJitAccessDuration }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationJitAccessPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationJitAccessPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationJitAccessPolicyResponse)(nil)).Elem()
+}
+
+func (o ApplicationJitAccessPolicyResponsePtrOutput) ToApplicationJitAccessPolicyResponsePtrOutput() ApplicationJitAccessPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationJitAccessPolicyResponsePtrOutput) ToApplicationJitAccessPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationJitAccessPolicyResponsePtrOutput) Elem() ApplicationJitAccessPolicyResponseOutput {
+	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) ApplicationJitAccessPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationJitAccessPolicyResponse
+		return ret
+	}).(ApplicationJitAccessPolicyResponseOutput)
+}
+
+// Whether the JIT access is enabled.
+func (o ApplicationJitAccessPolicyResponsePtrOutput) JitAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.JitAccessEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// JIT approval mode.
+func (o ApplicationJitAccessPolicyResponsePtrOutput) JitApprovalMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JitApprovalMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The JIT approvers
+func (o ApplicationJitAccessPolicyResponsePtrOutput) JitApprovers() JitApproverDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) []JitApproverDefinitionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.JitApprovers
+	}).(JitApproverDefinitionResponseArrayOutput)
+}
+
+// The maximum duration JIT access is granted. This is an ISO8601 time period value.
+func (o ApplicationJitAccessPolicyResponsePtrOutput) MaximumJitAccessDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumJitAccessDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The application package contact information.
+type ApplicationPackageContactResponse struct {
+	// The contact name.
+	ContactName *string `pulumi:"contactName"`
+	// The contact email.
+	Email string `pulumi:"email"`
+	// The contact phone number.
+	Phone string `pulumi:"phone"`
+}
+
+// The application package contact information.
+type ApplicationPackageContactResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPackageContactResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageContactResponse)(nil)).Elem()
+}
+
+func (o ApplicationPackageContactResponseOutput) ToApplicationPackageContactResponseOutput() ApplicationPackageContactResponseOutput {
+	return o
+}
+
+func (o ApplicationPackageContactResponseOutput) ToApplicationPackageContactResponseOutputWithContext(ctx context.Context) ApplicationPackageContactResponseOutput {
+	return o
+}
+
+// The contact name.
+func (o ApplicationPackageContactResponseOutput) ContactName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPackageContactResponse) *string { return v.ContactName }).(pulumi.StringPtrOutput)
+}
+
+// The contact email.
+func (o ApplicationPackageContactResponseOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageContactResponse) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// The contact phone number.
+func (o ApplicationPackageContactResponseOutput) Phone() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageContactResponse) string { return v.Phone }).(pulumi.StringOutput)
+}
+
+// The appliance package support URLs.
+type ApplicationPackageSupportUrlsResponse struct {
+	// The government cloud support URL.
+	GovernmentCloud *string `pulumi:"governmentCloud"`
+	// The public azure support URL.
+	PublicAzure *string `pulumi:"publicAzure"`
+}
+
+// The appliance package support URLs.
+type ApplicationPackageSupportUrlsResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPackageSupportUrlsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageSupportUrlsResponse)(nil)).Elem()
+}
+
+func (o ApplicationPackageSupportUrlsResponseOutput) ToApplicationPackageSupportUrlsResponseOutput() ApplicationPackageSupportUrlsResponseOutput {
+	return o
+}
+
+func (o ApplicationPackageSupportUrlsResponseOutput) ToApplicationPackageSupportUrlsResponseOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsResponseOutput {
+	return o
+}
+
+// The government cloud support URL.
+func (o ApplicationPackageSupportUrlsResponseOutput) GovernmentCloud() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPackageSupportUrlsResponse) *string { return v.GovernmentCloud }).(pulumi.StringPtrOutput)
+}
+
+// The public azure support URL.
+func (o ApplicationPackageSupportUrlsResponseOutput) PublicAzure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPackageSupportUrlsResponse) *string { return v.PublicAzure }).(pulumi.StringPtrOutput)
+}
+
+// Managed application policy.
+type ApplicationPolicy struct {
+	// The policy name
+	Name *string `pulumi:"name"`
+	// The policy parameters.
+	Parameters *string `pulumi:"parameters"`
+	// The policy definition Id.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+}
+
+// ApplicationPolicyInput is an input type that accepts ApplicationPolicyArgs and ApplicationPolicyOutput values.
+// You can construct a concrete instance of `ApplicationPolicyInput` via:
+//
+//	ApplicationPolicyArgs{...}
+type ApplicationPolicyInput interface {
+	pulumi.Input
+
+	ToApplicationPolicyOutput() ApplicationPolicyOutput
+	ToApplicationPolicyOutputWithContext(context.Context) ApplicationPolicyOutput
+}
+
+// Managed application policy.
+type ApplicationPolicyArgs struct {
+	// The policy name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The policy parameters.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The policy definition Id.
+	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
+}
+
+func (ApplicationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPolicy)(nil)).Elem()
+}
+
+func (i ApplicationPolicyArgs) ToApplicationPolicyOutput() ApplicationPolicyOutput {
+	return i.ToApplicationPolicyOutputWithContext(context.Background())
+}
+
+func (i ApplicationPolicyArgs) ToApplicationPolicyOutputWithContext(ctx context.Context) ApplicationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPolicyOutput)
+}
+
+// ApplicationPolicyArrayInput is an input type that accepts ApplicationPolicyArray and ApplicationPolicyArrayOutput values.
+// You can construct a concrete instance of `ApplicationPolicyArrayInput` via:
+//
+//	ApplicationPolicyArray{ ApplicationPolicyArgs{...} }
+type ApplicationPolicyArrayInput interface {
+	pulumi.Input
+
+	ToApplicationPolicyArrayOutput() ApplicationPolicyArrayOutput
+	ToApplicationPolicyArrayOutputWithContext(context.Context) ApplicationPolicyArrayOutput
+}
+
+type ApplicationPolicyArray []ApplicationPolicyInput
+
+func (ApplicationPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationPolicy)(nil)).Elem()
+}
+
+func (i ApplicationPolicyArray) ToApplicationPolicyArrayOutput() ApplicationPolicyArrayOutput {
+	return i.ToApplicationPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationPolicyArray) ToApplicationPolicyArrayOutputWithContext(ctx context.Context) ApplicationPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPolicyArrayOutput)
+}
+
+// Managed application policy.
+type ApplicationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPolicy)(nil)).Elem()
+}
+
+func (o ApplicationPolicyOutput) ToApplicationPolicyOutput() ApplicationPolicyOutput {
+	return o
+}
+
+func (o ApplicationPolicyOutput) ToApplicationPolicyOutputWithContext(ctx context.Context) ApplicationPolicyOutput {
+	return o
+}
+
+// The policy name
+func (o ApplicationPolicyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The policy parameters.
+func (o ApplicationPolicyOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPolicy) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The policy definition Id.
+func (o ApplicationPolicyOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPolicy) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationPolicy)(nil)).Elem()
+}
+
+func (o ApplicationPolicyArrayOutput) ToApplicationPolicyArrayOutput() ApplicationPolicyArrayOutput {
+	return o
+}
+
+func (o ApplicationPolicyArrayOutput) ToApplicationPolicyArrayOutputWithContext(ctx context.Context) ApplicationPolicyArrayOutput {
+	return o
+}
+
+func (o ApplicationPolicyArrayOutput) Index(i pulumi.IntInput) ApplicationPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationPolicy {
+		return vs[0].([]ApplicationPolicy)[vs[1].(int)]
+	}).(ApplicationPolicyOutput)
+}
+
+// Managed application policy.
+type ApplicationPolicyResponse struct {
+	// The policy name
+	Name *string `pulumi:"name"`
+	// The policy parameters.
+	Parameters *string `pulumi:"parameters"`
+	// The policy definition Id.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+}
+
+// Managed application policy.
+type ApplicationPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPolicyResponse)(nil)).Elem()
+}
+
+func (o ApplicationPolicyResponseOutput) ToApplicationPolicyResponseOutput() ApplicationPolicyResponseOutput {
+	return o
+}
+
+func (o ApplicationPolicyResponseOutput) ToApplicationPolicyResponseOutputWithContext(ctx context.Context) ApplicationPolicyResponseOutput {
+	return o
+}
+
+// The policy name
+func (o ApplicationPolicyResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPolicyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The policy parameters.
+func (o ApplicationPolicyResponseOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPolicyResponse) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The policy definition Id.
+func (o ApplicationPolicyResponseOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPolicyResponse) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationPolicyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPolicyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationPolicyResponse)(nil)).Elem()
+}
+
+func (o ApplicationPolicyResponseArrayOutput) ToApplicationPolicyResponseArrayOutput() ApplicationPolicyResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationPolicyResponseArrayOutput) ToApplicationPolicyResponseArrayOutputWithContext(ctx context.Context) ApplicationPolicyResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationPolicyResponseArrayOutput) Index(i pulumi.IntInput) ApplicationPolicyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationPolicyResponse {
+		return vs[0].([]ApplicationPolicyResponse)[vs[1].(int)]
+	}).(ApplicationPolicyResponseOutput)
 }
 
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
 	Type *ResourceIdentityType `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -371,6 +1058,8 @@ type IdentityInput interface {
 type IdentityArgs struct {
 	// The identity type.
 	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -396,11 +1085,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -456,6 +1145,11 @@ func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
 	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
+// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
 type IdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityPtrOutput) ElementType() reflect.Type {
@@ -490,6 +1184,16 @@ func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
 	}).(ResourceIdentityTypePtrOutput)
 }
 
+// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *Identity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
 // Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
@@ -498,6 +1202,8 @@ type IdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// The identity type.
 	Type *string `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]UserAssignedResourceIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // Identity for the resource.
@@ -528,6 +1234,13 @@ func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 // The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedResourceIdentityResponseMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedResourceIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedResourceIdentityResponseMapOutput)
 }
 
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -584,6 +1297,552 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedResourceIdentityResponseMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedResourceIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedResourceIdentityResponseMapOutput)
+}
+
+// JIT approver definition.
+type JitApproverDefinition struct {
+	// The approver display name.
+	DisplayName *string `pulumi:"displayName"`
+	// The approver service principal Id.
+	Id string `pulumi:"id"`
+	// The approver type.
+	Type *string `pulumi:"type"`
+}
+
+// JitApproverDefinitionInput is an input type that accepts JitApproverDefinitionArgs and JitApproverDefinitionOutput values.
+// You can construct a concrete instance of `JitApproverDefinitionInput` via:
+//
+//	JitApproverDefinitionArgs{...}
+type JitApproverDefinitionInput interface {
+	pulumi.Input
+
+	ToJitApproverDefinitionOutput() JitApproverDefinitionOutput
+	ToJitApproverDefinitionOutputWithContext(context.Context) JitApproverDefinitionOutput
+}
+
+// JIT approver definition.
+type JitApproverDefinitionArgs struct {
+	// The approver display name.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The approver service principal Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The approver type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (JitApproverDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitApproverDefinition)(nil)).Elem()
+}
+
+func (i JitApproverDefinitionArgs) ToJitApproverDefinitionOutput() JitApproverDefinitionOutput {
+	return i.ToJitApproverDefinitionOutputWithContext(context.Background())
+}
+
+func (i JitApproverDefinitionArgs) ToJitApproverDefinitionOutputWithContext(ctx context.Context) JitApproverDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitApproverDefinitionOutput)
+}
+
+// JitApproverDefinitionArrayInput is an input type that accepts JitApproverDefinitionArray and JitApproverDefinitionArrayOutput values.
+// You can construct a concrete instance of `JitApproverDefinitionArrayInput` via:
+//
+//	JitApproverDefinitionArray{ JitApproverDefinitionArgs{...} }
+type JitApproverDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToJitApproverDefinitionArrayOutput() JitApproverDefinitionArrayOutput
+	ToJitApproverDefinitionArrayOutputWithContext(context.Context) JitApproverDefinitionArrayOutput
+}
+
+type JitApproverDefinitionArray []JitApproverDefinitionInput
+
+func (JitApproverDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitApproverDefinition)(nil)).Elem()
+}
+
+func (i JitApproverDefinitionArray) ToJitApproverDefinitionArrayOutput() JitApproverDefinitionArrayOutput {
+	return i.ToJitApproverDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i JitApproverDefinitionArray) ToJitApproverDefinitionArrayOutputWithContext(ctx context.Context) JitApproverDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitApproverDefinitionArrayOutput)
+}
+
+// JIT approver definition.
+type JitApproverDefinitionOutput struct{ *pulumi.OutputState }
+
+func (JitApproverDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitApproverDefinition)(nil)).Elem()
+}
+
+func (o JitApproverDefinitionOutput) ToJitApproverDefinitionOutput() JitApproverDefinitionOutput {
+	return o
+}
+
+func (o JitApproverDefinitionOutput) ToJitApproverDefinitionOutputWithContext(ctx context.Context) JitApproverDefinitionOutput {
+	return o
+}
+
+// The approver display name.
+func (o JitApproverDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitApproverDefinition) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The approver service principal Id.
+func (o JitApproverDefinitionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v JitApproverDefinition) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The approver type.
+func (o JitApproverDefinitionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitApproverDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type JitApproverDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (JitApproverDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitApproverDefinition)(nil)).Elem()
+}
+
+func (o JitApproverDefinitionArrayOutput) ToJitApproverDefinitionArrayOutput() JitApproverDefinitionArrayOutput {
+	return o
+}
+
+func (o JitApproverDefinitionArrayOutput) ToJitApproverDefinitionArrayOutputWithContext(ctx context.Context) JitApproverDefinitionArrayOutput {
+	return o
+}
+
+func (o JitApproverDefinitionArrayOutput) Index(i pulumi.IntInput) JitApproverDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitApproverDefinition {
+		return vs[0].([]JitApproverDefinition)[vs[1].(int)]
+	}).(JitApproverDefinitionOutput)
+}
+
+// JIT approver definition.
+type JitApproverDefinitionResponse struct {
+	// The approver display name.
+	DisplayName *string `pulumi:"displayName"`
+	// The approver service principal Id.
+	Id string `pulumi:"id"`
+	// The approver type.
+	Type *string `pulumi:"type"`
+}
+
+// JIT approver definition.
+type JitApproverDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (JitApproverDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitApproverDefinitionResponse)(nil)).Elem()
+}
+
+func (o JitApproverDefinitionResponseOutput) ToJitApproverDefinitionResponseOutput() JitApproverDefinitionResponseOutput {
+	return o
+}
+
+func (o JitApproverDefinitionResponseOutput) ToJitApproverDefinitionResponseOutputWithContext(ctx context.Context) JitApproverDefinitionResponseOutput {
+	return o
+}
+
+// The approver display name.
+func (o JitApproverDefinitionResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitApproverDefinitionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The approver service principal Id.
+func (o JitApproverDefinitionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v JitApproverDefinitionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The approver type.
+func (o JitApproverDefinitionResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitApproverDefinitionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type JitApproverDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JitApproverDefinitionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitApproverDefinitionResponse)(nil)).Elem()
+}
+
+func (o JitApproverDefinitionResponseArrayOutput) ToJitApproverDefinitionResponseArrayOutput() JitApproverDefinitionResponseArrayOutput {
+	return o
+}
+
+func (o JitApproverDefinitionResponseArrayOutput) ToJitApproverDefinitionResponseArrayOutputWithContext(ctx context.Context) JitApproverDefinitionResponseArrayOutput {
+	return o
+}
+
+func (o JitApproverDefinitionResponseArrayOutput) Index(i pulumi.IntInput) JitApproverDefinitionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitApproverDefinitionResponse {
+		return vs[0].([]JitApproverDefinitionResponse)[vs[1].(int)]
+	}).(JitApproverDefinitionResponseOutput)
+}
+
+// The JIT authorization policies.
+type JitAuthorizationPolicies struct {
+	// The the principal id that will be granted JIT access.
+	PrincipalId string `pulumi:"principalId"`
+	// The role definition id that will be granted to the Principal.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// JitAuthorizationPoliciesInput is an input type that accepts JitAuthorizationPoliciesArgs and JitAuthorizationPoliciesOutput values.
+// You can construct a concrete instance of `JitAuthorizationPoliciesInput` via:
+//
+//	JitAuthorizationPoliciesArgs{...}
+type JitAuthorizationPoliciesInput interface {
+	pulumi.Input
+
+	ToJitAuthorizationPoliciesOutput() JitAuthorizationPoliciesOutput
+	ToJitAuthorizationPoliciesOutputWithContext(context.Context) JitAuthorizationPoliciesOutput
+}
+
+// The JIT authorization policies.
+type JitAuthorizationPoliciesArgs struct {
+	// The the principal id that will be granted JIT access.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The role definition id that will be granted to the Principal.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (JitAuthorizationPoliciesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitAuthorizationPolicies)(nil)).Elem()
+}
+
+func (i JitAuthorizationPoliciesArgs) ToJitAuthorizationPoliciesOutput() JitAuthorizationPoliciesOutput {
+	return i.ToJitAuthorizationPoliciesOutputWithContext(context.Background())
+}
+
+func (i JitAuthorizationPoliciesArgs) ToJitAuthorizationPoliciesOutputWithContext(ctx context.Context) JitAuthorizationPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitAuthorizationPoliciesOutput)
+}
+
+// JitAuthorizationPoliciesArrayInput is an input type that accepts JitAuthorizationPoliciesArray and JitAuthorizationPoliciesArrayOutput values.
+// You can construct a concrete instance of `JitAuthorizationPoliciesArrayInput` via:
+//
+//	JitAuthorizationPoliciesArray{ JitAuthorizationPoliciesArgs{...} }
+type JitAuthorizationPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToJitAuthorizationPoliciesArrayOutput() JitAuthorizationPoliciesArrayOutput
+	ToJitAuthorizationPoliciesArrayOutputWithContext(context.Context) JitAuthorizationPoliciesArrayOutput
+}
+
+type JitAuthorizationPoliciesArray []JitAuthorizationPoliciesInput
+
+func (JitAuthorizationPoliciesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitAuthorizationPolicies)(nil)).Elem()
+}
+
+func (i JitAuthorizationPoliciesArray) ToJitAuthorizationPoliciesArrayOutput() JitAuthorizationPoliciesArrayOutput {
+	return i.ToJitAuthorizationPoliciesArrayOutputWithContext(context.Background())
+}
+
+func (i JitAuthorizationPoliciesArray) ToJitAuthorizationPoliciesArrayOutputWithContext(ctx context.Context) JitAuthorizationPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitAuthorizationPoliciesArrayOutput)
+}
+
+// The JIT authorization policies.
+type JitAuthorizationPoliciesOutput struct{ *pulumi.OutputState }
+
+func (JitAuthorizationPoliciesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitAuthorizationPolicies)(nil)).Elem()
+}
+
+func (o JitAuthorizationPoliciesOutput) ToJitAuthorizationPoliciesOutput() JitAuthorizationPoliciesOutput {
+	return o
+}
+
+func (o JitAuthorizationPoliciesOutput) ToJitAuthorizationPoliciesOutputWithContext(ctx context.Context) JitAuthorizationPoliciesOutput {
+	return o
+}
+
+// The the principal id that will be granted JIT access.
+func (o JitAuthorizationPoliciesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v JitAuthorizationPolicies) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The role definition id that will be granted to the Principal.
+func (o JitAuthorizationPoliciesOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v JitAuthorizationPolicies) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type JitAuthorizationPoliciesArrayOutput struct{ *pulumi.OutputState }
+
+func (JitAuthorizationPoliciesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitAuthorizationPolicies)(nil)).Elem()
+}
+
+func (o JitAuthorizationPoliciesArrayOutput) ToJitAuthorizationPoliciesArrayOutput() JitAuthorizationPoliciesArrayOutput {
+	return o
+}
+
+func (o JitAuthorizationPoliciesArrayOutput) ToJitAuthorizationPoliciesArrayOutputWithContext(ctx context.Context) JitAuthorizationPoliciesArrayOutput {
+	return o
+}
+
+func (o JitAuthorizationPoliciesArrayOutput) Index(i pulumi.IntInput) JitAuthorizationPoliciesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitAuthorizationPolicies {
+		return vs[0].([]JitAuthorizationPolicies)[vs[1].(int)]
+	}).(JitAuthorizationPoliciesOutput)
+}
+
+// The JIT authorization policies.
+type JitAuthorizationPoliciesResponse struct {
+	// The the principal id that will be granted JIT access.
+	PrincipalId string `pulumi:"principalId"`
+	// The role definition id that will be granted to the Principal.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// The JIT authorization policies.
+type JitAuthorizationPoliciesResponseOutput struct{ *pulumi.OutputState }
+
+func (JitAuthorizationPoliciesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitAuthorizationPoliciesResponse)(nil)).Elem()
+}
+
+func (o JitAuthorizationPoliciesResponseOutput) ToJitAuthorizationPoliciesResponseOutput() JitAuthorizationPoliciesResponseOutput {
+	return o
+}
+
+func (o JitAuthorizationPoliciesResponseOutput) ToJitAuthorizationPoliciesResponseOutputWithContext(ctx context.Context) JitAuthorizationPoliciesResponseOutput {
+	return o
+}
+
+// The the principal id that will be granted JIT access.
+func (o JitAuthorizationPoliciesResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v JitAuthorizationPoliciesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The role definition id that will be granted to the Principal.
+func (o JitAuthorizationPoliciesResponseOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v JitAuthorizationPoliciesResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type JitAuthorizationPoliciesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JitAuthorizationPoliciesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitAuthorizationPoliciesResponse)(nil)).Elem()
+}
+
+func (o JitAuthorizationPoliciesResponseArrayOutput) ToJitAuthorizationPoliciesResponseArrayOutput() JitAuthorizationPoliciesResponseArrayOutput {
+	return o
+}
+
+func (o JitAuthorizationPoliciesResponseArrayOutput) ToJitAuthorizationPoliciesResponseArrayOutputWithContext(ctx context.Context) JitAuthorizationPoliciesResponseArrayOutput {
+	return o
+}
+
+func (o JitAuthorizationPoliciesResponseArrayOutput) Index(i pulumi.IntInput) JitAuthorizationPoliciesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitAuthorizationPoliciesResponse {
+		return vs[0].([]JitAuthorizationPoliciesResponse)[vs[1].(int)]
+	}).(JitAuthorizationPoliciesResponseOutput)
+}
+
+// The JIT scheduling policies.
+type JitSchedulingPolicy struct {
+	Duration string `pulumi:"duration"`
+	// The start time of the request.
+	StartTime string `pulumi:"startTime"`
+	// The type of JIT schedule.
+	Type string `pulumi:"type"`
+}
+
+// JitSchedulingPolicyInput is an input type that accepts JitSchedulingPolicyArgs and JitSchedulingPolicyOutput values.
+// You can construct a concrete instance of `JitSchedulingPolicyInput` via:
+//
+//	JitSchedulingPolicyArgs{...}
+type JitSchedulingPolicyInput interface {
+	pulumi.Input
+
+	ToJitSchedulingPolicyOutput() JitSchedulingPolicyOutput
+	ToJitSchedulingPolicyOutputWithContext(context.Context) JitSchedulingPolicyOutput
+}
+
+// The JIT scheduling policies.
+type JitSchedulingPolicyArgs struct {
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// The start time of the request.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// The type of JIT schedule.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JitSchedulingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitSchedulingPolicy)(nil)).Elem()
+}
+
+func (i JitSchedulingPolicyArgs) ToJitSchedulingPolicyOutput() JitSchedulingPolicyOutput {
+	return i.ToJitSchedulingPolicyOutputWithContext(context.Background())
+}
+
+func (i JitSchedulingPolicyArgs) ToJitSchedulingPolicyOutputWithContext(ctx context.Context) JitSchedulingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitSchedulingPolicyOutput)
+}
+
+// The JIT scheduling policies.
+type JitSchedulingPolicyOutput struct{ *pulumi.OutputState }
+
+func (JitSchedulingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitSchedulingPolicy)(nil)).Elem()
+}
+
+func (o JitSchedulingPolicyOutput) ToJitSchedulingPolicyOutput() JitSchedulingPolicyOutput {
+	return o
+}
+
+func (o JitSchedulingPolicyOutput) ToJitSchedulingPolicyOutputWithContext(ctx context.Context) JitSchedulingPolicyOutput {
+	return o
+}
+
+func (o JitSchedulingPolicyOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v JitSchedulingPolicy) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The start time of the request.
+func (o JitSchedulingPolicyOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JitSchedulingPolicy) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The type of JIT schedule.
+func (o JitSchedulingPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JitSchedulingPolicy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The JIT scheduling policies.
+type JitSchedulingPolicyResponse struct {
+	Duration string `pulumi:"duration"`
+	// The start time of the request.
+	StartTime string `pulumi:"startTime"`
+	// The type of JIT schedule.
+	Type string `pulumi:"type"`
+}
+
+// The JIT scheduling policies.
+type JitSchedulingPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (JitSchedulingPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitSchedulingPolicyResponse)(nil)).Elem()
+}
+
+func (o JitSchedulingPolicyResponseOutput) ToJitSchedulingPolicyResponseOutput() JitSchedulingPolicyResponseOutput {
+	return o
+}
+
+func (o JitSchedulingPolicyResponseOutput) ToJitSchedulingPolicyResponseOutputWithContext(ctx context.Context) JitSchedulingPolicyResponseOutput {
+	return o
+}
+
+func (o JitSchedulingPolicyResponseOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v JitSchedulingPolicyResponse) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The start time of the request.
+func (o JitSchedulingPolicyResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JitSchedulingPolicyResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The type of JIT schedule.
+func (o JitSchedulingPolicyResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JitSchedulingPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The managed identity token for the managed app resource.
+type ManagedIdentityTokenResponse struct {
+	// The requested access token.
+	AccessToken *string `pulumi:"accessToken"`
+	// The aud (audience) the access token was request for. This is the same as what was provided in the listTokens request.
+	AuthorizationAudience *string `pulumi:"authorizationAudience"`
+	// The number of seconds the access token will be valid.
+	ExpiresIn *string `pulumi:"expiresIn"`
+	// The timespan when the access token expires. This is represented as the number of seconds from epoch.
+	ExpiresOn *string `pulumi:"expiresOn"`
+	// The timespan when the access token takes effect. This is represented as the number of seconds from epoch.
+	NotBefore *string `pulumi:"notBefore"`
+	// The Azure resource ID for the issued token. This is either the managed application ID or the user-assigned identity ID.
+	ResourceId *string `pulumi:"resourceId"`
+	// The type of the token.
+	TokenType *string `pulumi:"tokenType"`
+}
+
+// The managed identity token for the managed app resource.
+type ManagedIdentityTokenResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityTokenResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityTokenResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityTokenResponseOutput) ToManagedIdentityTokenResponseOutput() ManagedIdentityTokenResponseOutput {
+	return o
+}
+
+func (o ManagedIdentityTokenResponseOutput) ToManagedIdentityTokenResponseOutputWithContext(ctx context.Context) ManagedIdentityTokenResponseOutput {
+	return o
+}
+
+// The requested access token.
+func (o ManagedIdentityTokenResponseOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityTokenResponse) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The aud (audience) the access token was request for. This is the same as what was provided in the listTokens request.
+func (o ManagedIdentityTokenResponseOutput) AuthorizationAudience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityTokenResponse) *string { return v.AuthorizationAudience }).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds the access token will be valid.
+func (o ManagedIdentityTokenResponseOutput) ExpiresIn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityTokenResponse) *string { return v.ExpiresIn }).(pulumi.StringPtrOutput)
+}
+
+// The timespan when the access token expires. This is represented as the number of seconds from epoch.
+func (o ManagedIdentityTokenResponseOutput) ExpiresOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityTokenResponse) *string { return v.ExpiresOn }).(pulumi.StringPtrOutput)
+}
+
+// The timespan when the access token takes effect. This is represented as the number of seconds from epoch.
+func (o ManagedIdentityTokenResponseOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityTokenResponse) *string { return v.NotBefore }).(pulumi.StringPtrOutput)
+}
+
+// The Azure resource ID for the issued token. This is either the managed application ID or the user-assigned identity ID.
+func (o ManagedIdentityTokenResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityTokenResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the token.
+func (o ManagedIdentityTokenResponseOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityTokenResponse) *string { return v.TokenType }).(pulumi.StringPtrOutput)
+}
+
+type ManagedIdentityTokenResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityTokenResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedIdentityTokenResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityTokenResponseArrayOutput) ToManagedIdentityTokenResponseArrayOutput() ManagedIdentityTokenResponseArrayOutput {
+	return o
+}
+
+func (o ManagedIdentityTokenResponseArrayOutput) ToManagedIdentityTokenResponseArrayOutputWithContext(ctx context.Context) ManagedIdentityTokenResponseArrayOutput {
+	return o
+}
+
+func (o ManagedIdentityTokenResponseArrayOutput) Index(i pulumi.IntInput) ManagedIdentityTokenResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedIdentityTokenResponse {
+		return vs[0].([]ManagedIdentityTokenResponse)[vs[1].(int)]
+	}).(ManagedIdentityTokenResponseOutput)
+}
+
 // Plan for the managed application.
 type Plan struct {
 	// The plan name.
@@ -601,7 +1860,7 @@ type Plan struct {
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
 // You can construct a concrete instance of `PlanInput` via:
 //
-//          PlanArgs{...}
+//	PlanArgs{...}
 type PlanInput interface {
 	pulumi.Input
 
@@ -646,11 +1905,11 @@ func (i PlanArgs) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput 
 // PlanPtrInput is an input type that accepts PlanArgs, PlanPtr and PlanPtrOutput values.
 // You can construct a concrete instance of `PlanPtrInput` via:
 //
-//          PlanArgs{...}
+//	        PlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlanPtrInput interface {
 	pulumi.Input
 
@@ -947,7 +2206,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -994,11 +2253,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -1308,19 +2567,98 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentityResponse struct {
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of user assigned identity.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedResourceIdentityResponseOutput) ToUserAssignedResourceIdentityResponseOutput() UserAssignedResourceIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityResponseOutput) ToUserAssignedResourceIdentityResponseOutputWithContext(ctx context.Context) UserAssignedResourceIdentityResponseOutput {
+	return o
+}
+
+// The principal id of user assigned identity.
+func (o UserAssignedResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of user assigned identity.
+func (o UserAssignedResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type UserAssignedResourceIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedResourceIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedResourceIdentityResponseMapOutput) ToUserAssignedResourceIdentityResponseMapOutput() UserAssignedResourceIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityResponseMapOutput) ToUserAssignedResourceIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedResourceIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedResourceIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedResourceIdentityResponse {
+		return vs[0].(map[string]UserAssignedResourceIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedResourceIdentityResponseOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(ApplicationArtifactOutput{})
-	pulumi.RegisterOutputType(ApplicationArtifactArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactResponseArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationProviderAuthorizationOutput{})
-	pulumi.RegisterOutputType(ApplicationProviderAuthorizationArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationProviderAuthorizationResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationProviderAuthorizationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationAuthorizationOutput{})
+	pulumi.RegisterOutputType(ApplicationAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationAuthorizationResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationAuthorizationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationBillingDetailsDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationClientDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationDefinitionArtifactOutput{})
+	pulumi.RegisterOutputType(ApplicationDefinitionArtifactArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationDefinitionArtifactResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationDefinitionArtifactResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationJitAccessPolicyOutput{})
+	pulumi.RegisterOutputType(ApplicationJitAccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationJitAccessPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationJitAccessPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationPackageContactResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationPackageSupportUrlsResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationPolicyOutput{})
+	pulumi.RegisterOutputType(ApplicationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationPolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(JitApproverDefinitionOutput{})
+	pulumi.RegisterOutputType(JitApproverDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(JitApproverDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(JitApproverDefinitionResponseArrayOutput{})
+	pulumi.RegisterOutputType(JitAuthorizationPoliciesOutput{})
+	pulumi.RegisterOutputType(JitAuthorizationPoliciesArrayOutput{})
+	pulumi.RegisterOutputType(JitAuthorizationPoliciesResponseOutput{})
+	pulumi.RegisterOutputType(JitAuthorizationPoliciesResponseArrayOutput{})
+	pulumi.RegisterOutputType(JitSchedulingPolicyOutput{})
+	pulumi.RegisterOutputType(JitSchedulingPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityTokenResponseOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityTokenResponseArrayOutput{})
 	pulumi.RegisterOutputType(PlanOutput{})
 	pulumi.RegisterOutputType(PlanPtrOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
@@ -1329,4 +2667,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedResourceIdentityResponseMapOutput{})
 }

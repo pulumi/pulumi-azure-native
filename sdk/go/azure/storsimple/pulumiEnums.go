@@ -140,7 +140,7 @@ func (o BackupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // BackupTypeInput is an input type that accepts BackupTypeArgs and BackupTypeOutput values.
 // You can construct a concrete instance of `BackupTypeInput` via:
 //
-//          BackupTypeArgs{...}
+//	BackupTypeArgs{...}
 type BackupTypeInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ func (o DayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // DayOfWeekInput is an input type that accepts DayOfWeekArgs and DayOfWeekOutput values.
 // You can construct a concrete instance of `DayOfWeekInput` via:
 //
-//          DayOfWeekArgs{...}
+//	DayOfWeekArgs{...}
 type DayOfWeekInput interface {
 	pulumi.Input
 
@@ -347,7 +347,7 @@ func (in *dayOfWeekPtr) ToDayOfWeekPtrOutputWithContext(ctx context.Context) Day
 // DayOfWeekArrayInput is an input type that accepts DayOfWeekArray and DayOfWeekArrayOutput values.
 // You can construct a concrete instance of `DayOfWeekArrayInput` via:
 //
-//          DayOfWeekArray{ DayOfWeekArgs{...} }
+//	DayOfWeekArray{ DayOfWeekArgs{...} }
 type DayOfWeekArrayInput interface {
 	pulumi.Input
 
@@ -520,7 +520,7 @@ func (o EncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // EncryptionAlgorithmInput is an input type that accepts EncryptionAlgorithmArgs and EncryptionAlgorithmOutput values.
 // You can construct a concrete instance of `EncryptionAlgorithmInput` via:
 //
-//          EncryptionAlgorithmArgs{...}
+//	EncryptionAlgorithmArgs{...}
 type EncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -684,7 +684,7 @@ func (o KindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 // KindInput is an input type that accepts KindArgs and KindOutput values.
 // You can construct a concrete instance of `KindInput` via:
 //
-//          KindArgs{...}
+//	KindArgs{...}
 type KindInput interface {
 	pulumi.Input
 
@@ -848,7 +848,7 @@ func (o ManagerSkuTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // ManagerSkuTypeInput is an input type that accepts ManagerSkuTypeArgs and ManagerSkuTypeOutput values.
 // You can construct a concrete instance of `ManagerSkuTypeInput` via:
 //
-//          ManagerSkuTypeArgs{...}
+//	ManagerSkuTypeArgs{...}
 type ManagerSkuTypeInput interface {
 	pulumi.Input
 
@@ -1013,7 +1013,7 @@ func (o ManagerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // ManagerTypeInput is an input type that accepts ManagerTypeArgs and ManagerTypeOutput values.
 // You can construct a concrete instance of `ManagerTypeInput` via:
 //
-//          ManagerTypeArgs{...}
+//	ManagerTypeArgs{...}
 type ManagerTypeInput interface {
 	pulumi.Input
 
@@ -1178,7 +1178,7 @@ func (o MonitoringStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // MonitoringStatusInput is an input type that accepts MonitoringStatusArgs and MonitoringStatusOutput values.
 // You can construct a concrete instance of `MonitoringStatusInput` via:
 //
-//          MonitoringStatusArgs{...}
+//	MonitoringStatusArgs{...}
 type MonitoringStatusInput interface {
 	pulumi.Input
 
@@ -1345,7 +1345,7 @@ func (o RecurrenceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // RecurrenceTypeInput is an input type that accepts RecurrenceTypeArgs and RecurrenceTypeOutput values.
 // You can construct a concrete instance of `RecurrenceTypeInput` via:
 //
-//          RecurrenceTypeArgs{...}
+//	RecurrenceTypeArgs{...}
 type RecurrenceTypeInput interface {
 	pulumi.Input
 
@@ -1510,7 +1510,7 @@ func (o ScheduleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // ScheduleStatusInput is an input type that accepts ScheduleStatusArgs and ScheduleStatusOutput values.
 // You can construct a concrete instance of `ScheduleStatusInput` via:
 //
-//          ScheduleStatusArgs{...}
+//	ScheduleStatusArgs{...}
 type ScheduleStatusInput interface {
 	pulumi.Input
 
@@ -1675,7 +1675,7 @@ func (o SslStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // SslStatusInput is an input type that accepts SslStatusArgs and SslStatusOutput values.
 // You can construct a concrete instance of `SslStatusInput` via:
 //
-//          SslStatusArgs{...}
+//	SslStatusArgs{...}
 type SslStatusInput interface {
 	pulumi.Input
 
@@ -1840,7 +1840,7 @@ func (o VolumeStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // VolumeStatusInput is an input type that accepts VolumeStatusArgs and VolumeStatusOutput values.
 // You can construct a concrete instance of `VolumeStatusInput` via:
 //
-//          VolumeStatusArgs{...}
+//	VolumeStatusArgs{...}
 type VolumeStatusInput interface {
 	pulumi.Input
 
@@ -2006,7 +2006,7 @@ func (o VolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // VolumeTypeInput is an input type that accepts VolumeTypeArgs and VolumeTypeOutput values.
 // You can construct a concrete instance of `VolumeTypeInput` via:
 //
-//          VolumeTypeArgs{...}
+//	VolumeTypeArgs{...}
 type VolumeTypeInput interface {
 	pulumi.Input
 

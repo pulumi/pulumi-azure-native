@@ -44,7 +44,7 @@ func (val *AcsClusterProperties) Defaults() *AcsClusterProperties {
 // AcsClusterPropertiesInput is an input type that accepts AcsClusterPropertiesArgs and AcsClusterPropertiesOutput values.
 // You can construct a concrete instance of `AcsClusterPropertiesInput` via:
 //
-//          AcsClusterPropertiesArgs{...}
+//	AcsClusterPropertiesArgs{...}
 type AcsClusterPropertiesInput interface {
 	pulumi.Input
 
@@ -223,7 +223,7 @@ type AppInsightsCredentials struct {
 // AppInsightsCredentialsInput is an input type that accepts AppInsightsCredentialsArgs and AppInsightsCredentialsOutput values.
 // You can construct a concrete instance of `AppInsightsCredentialsInput` via:
 //
-//          AppInsightsCredentialsArgs{...}
+//	AppInsightsCredentialsArgs{...}
 type AppInsightsCredentialsInput interface {
 	pulumi.Input
 
@@ -262,11 +262,11 @@ func (i AppInsightsCredentialsArgs) ToAppInsightsCredentialsPtrOutputWithContext
 // AppInsightsCredentialsPtrInput is an input type that accepts AppInsightsCredentialsArgs, AppInsightsCredentialsPtr and AppInsightsCredentialsPtrOutput values.
 // You can construct a concrete instance of `AppInsightsCredentialsPtrInput` via:
 //
-//          AppInsightsCredentialsArgs{...}
+//	        AppInsightsCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AppInsightsCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -486,7 +486,7 @@ func (val *AutoScaleConfiguration) Defaults() *AutoScaleConfiguration {
 // AutoScaleConfigurationInput is an input type that accepts AutoScaleConfigurationArgs and AutoScaleConfigurationOutput values.
 // You can construct a concrete instance of `AutoScaleConfigurationInput` via:
 //
-//          AutoScaleConfigurationArgs{...}
+//	AutoScaleConfigurationArgs{...}
 type AutoScaleConfigurationInput interface {
 	pulumi.Input
 
@@ -548,11 +548,11 @@ func (i AutoScaleConfigurationArgs) ToAutoScaleConfigurationPtrOutputWithContext
 // AutoScaleConfigurationPtrInput is an input type that accepts AutoScaleConfigurationArgs, AutoScaleConfigurationPtr and AutoScaleConfigurationPtrOutput values.
 // You can construct a concrete instance of `AutoScaleConfigurationPtrInput` via:
 //
-//          AutoScaleConfigurationArgs{...}
+//	        AutoScaleConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScaleConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -954,7 +954,7 @@ type ContainerRegistryProperties struct {
 // ContainerRegistryPropertiesInput is an input type that accepts ContainerRegistryPropertiesArgs and ContainerRegistryPropertiesOutput values.
 // You can construct a concrete instance of `ContainerRegistryPropertiesInput` via:
 //
-//          ContainerRegistryPropertiesArgs{...}
+//	ContainerRegistryPropertiesArgs{...}
 type ContainerRegistryPropertiesInput interface {
 	pulumi.Input
 
@@ -991,11 +991,11 @@ func (i ContainerRegistryPropertiesArgs) ToContainerRegistryPropertiesPtrOutputW
 // ContainerRegistryPropertiesPtrInput is an input type that accepts ContainerRegistryPropertiesArgs, ContainerRegistryPropertiesPtr and ContainerRegistryPropertiesPtrOutput values.
 // You can construct a concrete instance of `ContainerRegistryPropertiesPtrInput` via:
 //
-//          ContainerRegistryPropertiesArgs{...}
+//	        ContainerRegistryPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerRegistryPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1269,7 +1269,7 @@ func (val *GlobalServiceConfiguration) Defaults() *GlobalServiceConfiguration {
 // GlobalServiceConfigurationInput is an input type that accepts GlobalServiceConfigurationArgs and GlobalServiceConfigurationOutput values.
 // You can construct a concrete instance of `GlobalServiceConfigurationInput` via:
 //
-//          GlobalServiceConfigurationArgs{...}
+//	GlobalServiceConfigurationArgs{...}
 type GlobalServiceConfigurationInput interface {
 	pulumi.Input
 
@@ -1321,11 +1321,11 @@ func (i GlobalServiceConfigurationArgs) ToGlobalServiceConfigurationPtrOutputWit
 // GlobalServiceConfigurationPtrInput is an input type that accepts GlobalServiceConfigurationArgs, GlobalServiceConfigurationPtr and GlobalServiceConfigurationPtrOutput values.
 // You can construct a concrete instance of `GlobalServiceConfigurationPtrInput` via:
 //
-//          GlobalServiceConfigurationArgs{...}
+//	        GlobalServiceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalServiceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1593,7 +1593,7 @@ type KubernetesClusterProperties struct {
 // KubernetesClusterPropertiesInput is an input type that accepts KubernetesClusterPropertiesArgs and KubernetesClusterPropertiesOutput values.
 // You can construct a concrete instance of `KubernetesClusterPropertiesInput` via:
 //
-//          KubernetesClusterPropertiesArgs{...}
+//	KubernetesClusterPropertiesArgs{...}
 type KubernetesClusterPropertiesInput interface {
 	pulumi.Input
 
@@ -1678,7 +1678,7 @@ type ServiceAuthConfiguration struct {
 // ServiceAuthConfigurationInput is an input type that accepts ServiceAuthConfigurationArgs and ServiceAuthConfigurationOutput values.
 // You can construct a concrete instance of `ServiceAuthConfigurationInput` via:
 //
-//          ServiceAuthConfigurationArgs{...}
+//	ServiceAuthConfigurationArgs{...}
 type ServiceAuthConfigurationInput interface {
 	pulumi.Input
 
@@ -1717,11 +1717,11 @@ func (i ServiceAuthConfigurationArgs) ToServiceAuthConfigurationPtrOutputWithCon
 // ServiceAuthConfigurationPtrInput is an input type that accepts ServiceAuthConfigurationArgs, ServiceAuthConfigurationPtr and ServiceAuthConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceAuthConfigurationPtrInput` via:
 //
-//          ServiceAuthConfigurationArgs{...}
+//	        ServiceAuthConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceAuthConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1914,7 +1914,7 @@ type ServicePrincipalProperties struct {
 // ServicePrincipalPropertiesInput is an input type that accepts ServicePrincipalPropertiesArgs and ServicePrincipalPropertiesOutput values.
 // You can construct a concrete instance of `ServicePrincipalPropertiesInput` via:
 //
-//          ServicePrincipalPropertiesArgs{...}
+//	ServicePrincipalPropertiesArgs{...}
 type ServicePrincipalPropertiesInput interface {
 	pulumi.Input
 
@@ -2070,7 +2070,7 @@ func (val *SslConfiguration) Defaults() *SslConfiguration {
 // SslConfigurationInput is an input type that accepts SslConfigurationArgs and SslConfigurationOutput values.
 // You can construct a concrete instance of `SslConfigurationInput` via:
 //
-//          SslConfigurationArgs{...}
+//	SslConfigurationArgs{...}
 type SslConfigurationInput interface {
 	pulumi.Input
 
@@ -2122,11 +2122,11 @@ func (i SslConfigurationArgs) ToSslConfigurationPtrOutputWithContext(ctx context
 // SslConfigurationPtrInput is an input type that accepts SslConfigurationArgs, SslConfigurationPtr and SslConfigurationPtrOutput values.
 // You can construct a concrete instance of `SslConfigurationPtrInput` via:
 //
-//          SslConfigurationArgs{...}
+//	        SslConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SslConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2456,7 +2456,7 @@ type StorageAccountProperties struct {
 // StorageAccountPropertiesInput is an input type that accepts StorageAccountPropertiesArgs and StorageAccountPropertiesOutput values.
 // You can construct a concrete instance of `StorageAccountPropertiesInput` via:
 //
-//          StorageAccountPropertiesArgs{...}
+//	StorageAccountPropertiesArgs{...}
 type StorageAccountPropertiesInput interface {
 	pulumi.Input
 
@@ -2493,11 +2493,11 @@ func (i StorageAccountPropertiesArgs) ToStorageAccountPropertiesPtrOutputWithCon
 // StorageAccountPropertiesPtrInput is an input type that accepts StorageAccountPropertiesArgs, StorageAccountPropertiesPtr and StorageAccountPropertiesPtrOutput values.
 // You can construct a concrete instance of `StorageAccountPropertiesPtrInput` via:
 //
-//          StorageAccountPropertiesArgs{...}
+//	        StorageAccountPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageAccountPropertiesPtrInput interface {
 	pulumi.Input
 

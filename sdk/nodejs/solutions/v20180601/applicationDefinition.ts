@@ -41,11 +41,11 @@ export class ApplicationDefinition extends pulumi.CustomResource {
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */
-    public readonly artifacts!: pulumi.Output<outputs.solutions.v20180601.ApplicationArtifactResponse[] | undefined>;
+    public readonly artifacts!: pulumi.Output<outputs.solutions.v20180601.ApplicationDefinitionArtifactResponse[] | undefined>;
     /**
      * The managed application provider authorizations.
      */
-    public readonly authorizations!: pulumi.Output<outputs.solutions.v20180601.ApplicationProviderAuthorizationResponse[]>;
+    public readonly authorizations!: pulumi.Output<outputs.solutions.v20180601.ApplicationAuthorizationResponse[] | undefined>;
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
@@ -59,13 +59,9 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * The identity of the resource.
-     */
-    public readonly identity!: pulumi.Output<outputs.solutions.v20180601.IdentityResponse | undefined>;
-    /**
      * A value indicating whether the package is enabled or not.
      */
-    public readonly isEnabled!: pulumi.Output<string | undefined>;
+    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Resource location
      */
@@ -90,6 +86,10 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * The managed application definition package file Uri. Use this element
      */
     public readonly packageFileUri!: pulumi.Output<string | undefined>;
+    /**
+     * The managed application provider policies.
+     */
+    public readonly policies!: pulumi.Output<outputs.solutions.v20180601.ApplicationPolicyResponse[] | undefined>;
     /**
      * The SKU of the resource.
      */
@@ -116,9 +116,6 @@ export class ApplicationDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizations === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'authorizations'");
-            }
             if ((!args || args.lockLevel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lockLevel'");
             }
@@ -131,13 +128,13 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["createUiDefinition"] = args ? args.createUiDefinition : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
             resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["packageFileUri"] = args ? args.packageFileUri : undefined;
+            resourceInputs["policies"] = args ? args.policies : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -149,7 +146,6 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["createUiDefinition"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["lockLevel"] = undefined /*out*/;
@@ -157,12 +153,13 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["packageFileUri"] = undefined /*out*/;
+            resourceInputs["policies"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplicationDefinition" }, { type: "azure-native:solutions/v20160901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20170901:ApplicationDefinition" }, { type: "azure-native:solutions/v20190701:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210701:ApplicationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplicationDefinition" }, { type: "azure-native:solutions/v20160901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20170901:ApplicationDefinition" }, { type: "azure-native:solutions/v20171201:ApplicationDefinition" }, { type: "azure-native:solutions/v20180201:ApplicationDefinition" }, { type: "azure-native:solutions/v20180301:ApplicationDefinition" }, { type: "azure-native:solutions/v20180901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20190701:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210201preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210701:ApplicationDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -179,11 +176,11 @@ export interface ApplicationDefinitionArgs {
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */
-    artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20180601.ApplicationArtifactArgs>[]>;
+    artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20180601.ApplicationDefinitionArtifactArgs>[]>;
     /**
      * The managed application provider authorizations.
      */
-    authorizations: pulumi.Input<pulumi.Input<inputs.solutions.v20180601.ApplicationProviderAuthorizationArgs>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.solutions.v20180601.ApplicationAuthorizationArgs>[]>;
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
@@ -197,13 +194,9 @@ export interface ApplicationDefinitionArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The identity of the resource.
-     */
-    identity?: pulumi.Input<inputs.solutions.v20180601.IdentityArgs>;
-    /**
      * A value indicating whether the package is enabled or not.
      */
-    isEnabled?: pulumi.Input<string>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * Resource location
      */
@@ -224,6 +217,10 @@ export interface ApplicationDefinitionArgs {
      * The managed application definition package file Uri. Use this element
      */
     packageFileUri?: pulumi.Input<string>;
+    /**
+     * The managed application provider policies.
+     */
+    policies?: pulumi.Input<pulumi.Input<inputs.solutions.v20180601.ApplicationPolicyArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -141,7 +141,7 @@ func (o ApplicationArtifactTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // ApplicationArtifactTypeInput is an input type that accepts ApplicationArtifactTypeArgs and ApplicationArtifactTypeOutput values.
 // You can construct a concrete instance of `ApplicationArtifactTypeInput` via:
 //
-//          ApplicationArtifactTypeArgs{...}
+//	ApplicationArtifactTypeArgs{...}
 type ApplicationArtifactTypeInput interface {
 	pulumi.Input
 
@@ -317,7 +317,7 @@ func (o ApplicationLockLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ApplicationLockLevelInput is an input type that accepts ApplicationLockLevelArgs and ApplicationLockLevelOutput values.
 // You can construct a concrete instance of `ApplicationLockLevelInput` via:
 //
-//          ApplicationLockLevelArgs{...}
+//	ApplicationLockLevelArgs{...}
 type ApplicationLockLevelInput interface {
 	pulumi.Input
 
@@ -385,6 +385,15 @@ type JitApproverType string
 const (
 	JitApproverTypeUser  = JitApproverType("user")
 	JitApproverTypeGroup = JitApproverType("group")
+)
+
+// The type of JIT schedule.
+type JitSchedulingType string
+
+const (
+	JitSchedulingTypeNotSpecified = JitSchedulingType("NotSpecified")
+	JitSchedulingTypeOnce         = JitSchedulingType("Once")
+	JitSchedulingTypeRecurring    = JitSchedulingType("Recurring")
 )
 
 // The identity type.
@@ -519,7 +528,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//          ResourceIdentityTypeArgs{...}
+//	ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 

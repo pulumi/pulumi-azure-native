@@ -29,6 +29,7 @@ __all__ = [
     'JitApproverDefinitionResponse',
     'JitAuthorizationPoliciesResponse',
     'JitSchedulingPolicyResponse',
+    'ManagedIdentityTokenResponse',
     'PlanResponse',
     'SkuResponse',
     'UserAssignedResourceIdentityResponse',
@@ -964,6 +965,101 @@ class JitSchedulingPolicyResponse(dict):
         The type of JIT schedule.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ManagedIdentityTokenResponse(dict):
+    """
+    The managed identity token for the managed app resource.
+    """
+    def __init__(__self__, *,
+                 access_token: Optional[str] = None,
+                 authorization_audience: Optional[str] = None,
+                 expires_in: Optional[str] = None,
+                 expires_on: Optional[str] = None,
+                 not_before: Optional[str] = None,
+                 resource_id: Optional[str] = None,
+                 token_type: Optional[str] = None):
+        """
+        The managed identity token for the managed app resource.
+        :param str access_token: The requested access token.
+        :param str authorization_audience: The aud (audience) the access token was request for. This is the same as what was provided in the listTokens request.
+        :param str expires_in: The number of seconds the access token will be valid.
+        :param str expires_on: The timespan when the access token expires. This is represented as the number of seconds from epoch.
+        :param str not_before: The timespan when the access token takes effect. This is represented as the number of seconds from epoch.
+        :param str resource_id: The Azure resource ID for the issued token. This is either the managed application ID or the user-assigned identity ID.
+        :param str token_type: The type of the token.
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if authorization_audience is not None:
+            pulumi.set(__self__, "authorization_audience", authorization_audience)
+        if expires_in is not None:
+            pulumi.set(__self__, "expires_in", expires_in)
+        if expires_on is not None:
+            pulumi.set(__self__, "expires_on", expires_on)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if token_type is not None:
+            pulumi.set(__self__, "token_type", token_type)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        The requested access token.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="authorizationAudience")
+    def authorization_audience(self) -> Optional[str]:
+        """
+        The aud (audience) the access token was request for. This is the same as what was provided in the listTokens request.
+        """
+        return pulumi.get(self, "authorization_audience")
+
+    @property
+    @pulumi.getter(name="expiresIn")
+    def expires_in(self) -> Optional[str]:
+        """
+        The number of seconds the access token will be valid.
+        """
+        return pulumi.get(self, "expires_in")
+
+    @property
+    @pulumi.getter(name="expiresOn")
+    def expires_on(self) -> Optional[str]:
+        """
+        The timespan when the access token expires. This is represented as the number of seconds from epoch.
+        """
+        return pulumi.get(self, "expires_on")
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[str]:
+        """
+        The timespan when the access token takes effect. This is represented as the number of seconds from epoch.
+        """
+        return pulumi.get(self, "not_before")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure resource ID for the issued token. This is either the managed application ID or the user-assigned identity ID.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> Optional[str]:
+        """
+        The type of the token.
+        """
+        return pulumi.get(self, "token_type")
 
 
 @pulumi.output_type

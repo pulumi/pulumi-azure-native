@@ -15,6 +15,8 @@ import (
 type KustoPoolPrincipalAssignment struct {
 	pulumi.CustomResourceState
 
+	// The service principal object id in AAD (Azure active directory)
+	AadObjectId pulumi.StringOutput `pulumi:"aadObjectId"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
@@ -176,6 +178,11 @@ func (o KustoPoolPrincipalAssignmentOutput) ToKustoPoolPrincipalAssignmentOutput
 
 func (o KustoPoolPrincipalAssignmentOutput) ToKustoPoolPrincipalAssignmentOutputWithContext(ctx context.Context) KustoPoolPrincipalAssignmentOutput {
 	return o
+}
+
+// The service principal object id in AAD (Azure active directory)
+func (o KustoPoolPrincipalAssignmentOutput) AadObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPoolPrincipalAssignment) pulumi.StringOutput { return v.AadObjectId }).(pulumi.StringOutput)
 }
 
 // The name of the resource

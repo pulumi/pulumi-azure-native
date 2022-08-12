@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.Sql
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstanceAzureADOnlyAuthentication"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstanceAzureADOnlyAuthentication"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstanceAzureADOnlyAuthentication"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedInstanceAzureADOnlyAuthentication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

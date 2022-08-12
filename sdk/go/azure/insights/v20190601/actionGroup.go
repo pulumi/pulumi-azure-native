@@ -29,12 +29,8 @@ type ActionGroup struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The short name of the action group. This will be used in SMS messages.
 	GroupShortName pulumi.StringOutput `pulumi:"groupShortName"`
-	// Azure resource identity
-	Identity pulumi.StringOutput `pulumi:"identity"`
 	// The list of ITSM receivers that are part of this action group.
 	ItsmReceivers ItsmReceiverResponseArrayOutput `pulumi:"itsmReceivers"`
-	// Azure resource kind
-	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The list of logic app receivers that are part of this action group.
@@ -270,19 +266,9 @@ func (o ActionGroupOutput) GroupShortName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionGroup) pulumi.StringOutput { return v.GroupShortName }).(pulumi.StringOutput)
 }
 
-// Azure resource identity
-func (o ActionGroupOutput) Identity() pulumi.StringOutput {
-	return o.ApplyT(func(v *ActionGroup) pulumi.StringOutput { return v.Identity }).(pulumi.StringOutput)
-}
-
 // The list of ITSM receivers that are part of this action group.
 func (o ActionGroupOutput) ItsmReceivers() ItsmReceiverResponseArrayOutput {
 	return o.ApplyT(func(v *ActionGroup) ItsmReceiverResponseArrayOutput { return v.ItsmReceivers }).(ItsmReceiverResponseArrayOutput)
-}
-
-// Azure resource kind
-func (o ActionGroupOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v *ActionGroup) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
 // Resource location

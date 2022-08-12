@@ -48,6 +48,9 @@ func NewRoleDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:authorization/v20150701:RoleDefinition"),
 		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20220401:RoleDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RoleDefinition

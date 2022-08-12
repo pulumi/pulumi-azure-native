@@ -36,17 +36,17 @@ export interface GetPrivateStoreCollectionArgs {
  */
 export interface GetPrivateStoreCollectionResult {
     /**
-     * Indicating whether all items are approved for this collection (=true) or not (=false).
-     */
-    readonly allItemsApproved: boolean;
-    /**
-     * Gets the modified date of all items approved.
-     */
-    readonly allItemsApprovedModifiedAt: string;
-    /**
      * Indicating whether all subscriptions are selected (=true) or not (=false).
      */
     readonly allSubscriptions?: boolean;
+    /**
+     * Indicating whether all items are approved for this collection (=true) or not (=false).
+     */
+    readonly approveAllItems: boolean;
+    /**
+     * Gets the modified date of all items approved.
+     */
+    readonly approveAllItemsModifiedAt: string;
     /**
      * Gets or sets the association with Commercial's Billing Account.
      */

@@ -158,7 +158,7 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220101preview:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220101preview:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PacketCoreControlPlane.__pulumiType, name, resourceInputs, opts);
     }

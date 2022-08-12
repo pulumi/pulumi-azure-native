@@ -66,7 +66,7 @@ export class ContainerGroup extends pulumi.CustomResource {
     /**
      * The instance view of the container group. Only valid in response.
      */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.containerinstance.v20211001.ContainerGroupResponseInstanceView>;
+    public /*out*/ readonly instanceView!: pulumi.Output<outputs.containerinstance.v20211001.ContainerGroupPropertiesResponseInstanceView>;
     /**
      * The IP address type of the container group.
      */
@@ -147,7 +147,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
             resourceInputs["initContainers"] = args ? args.initContainers : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["ipAddress"] = args ? (args.ipAddress ? pulumi.output(args.ipAddress).apply(inputs.containerinstance.v20211001.ipAddressArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

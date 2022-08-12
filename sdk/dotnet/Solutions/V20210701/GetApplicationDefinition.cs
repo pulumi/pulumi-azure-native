@@ -140,10 +140,6 @@ namespace Pulumi.AzureNative.Solutions.V20210701
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationPolicyResponse> Policies;
         /// <summary>
-        /// Provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
         /// The SKU of the resource.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
@@ -202,8 +198,6 @@ namespace Pulumi.AzureNative.Solutions.V20210701
 
             ImmutableArray<Outputs.ApplicationPolicyResponse> policies,
 
-            string provisioningState,
-
             Outputs.SkuResponse? sku,
 
             string? storageAccountId,
@@ -232,7 +226,6 @@ namespace Pulumi.AzureNative.Solutions.V20210701
             NotificationPolicy = notificationPolicy;
             PackageFileUri = packageFileUri;
             Policies = policies;
-            ProvisioningState = provisioningState;
             Sku = sku;
             StorageAccountId = storageAccountId;
             SystemData = systemData;

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     public partial class KustoPoolDatabasePrincipalAssignment : Pulumi.CustomResource
     {
         /// <summary>
+        /// The service principal object id in AAD (Azure active directory)
+        /// </summary>
+        [Output("aadObjectId")]
+        public Output<string> AadObjectId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]

@@ -81,7 +81,7 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupShortTermRetentionPolicy.__pulumiType, name, resourceInputs, opts);
     }

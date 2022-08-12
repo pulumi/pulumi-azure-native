@@ -238,7 +238,7 @@ class IotConnector(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:IotConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:IotConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotConnector, __self__).__init__(
             'azure-native:healthcareapis:IotConnector',

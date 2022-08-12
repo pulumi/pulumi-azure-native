@@ -19,8 +19,20 @@ type Application struct {
 
 	// The fully qualified path of managed application definition Id.
 	ApplicationDefinitionId pulumi.StringPtrOutput `pulumi:"applicationDefinitionId"`
+	// The collection of managed application artifacts.
+	Artifacts ApplicationArtifactResponseArrayOutput `pulumi:"artifacts"`
+	// The  read-only authorizations property that is retrieved from the application package.
+	Authorizations ApplicationAuthorizationResponseArrayOutput `pulumi:"authorizations"`
+	// The managed application billing details.
+	BillingDetails ApplicationBillingDetailsDefinitionResponseOutput `pulumi:"billingDetails"`
+	// The client entity that created the JIT request.
+	CreatedBy ApplicationClientDetailsResponseOutput `pulumi:"createdBy"`
+	// The read-only customer support property that is retrieved from the application package.
+	CustomerSupport ApplicationPackageContactResponseOutput `pulumi:"customerSupport"`
 	// The identity of the resource.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
+	// The managed application Jit access policy.
+	JitAccessPolicy ApplicationJitAccessPolicyResponsePtrOutput `pulumi:"jitAccessPolicy"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location
@@ -28,7 +40,7 @@ type Application struct {
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
 	// The managed resource group Id.
-	ManagedResourceGroupId pulumi.StringOutput `pulumi:"managedResourceGroupId"`
+	ManagedResourceGroupId pulumi.StringPtrOutput `pulumi:"managedResourceGroupId"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name and value pairs that define the managed application outputs.
@@ -39,12 +51,20 @@ type Application struct {
 	Plan PlanResponsePtrOutput `pulumi:"plan"`
 	// The managed application provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The publisher package Id.
+	PublisherPackageId pulumi.StringPtrOutput `pulumi:"publisherPackageId"`
+	// The publisher tenant Id.
+	PublisherTenantId pulumi.StringOutput `pulumi:"publisherTenantId"`
 	// The SKU of the resource.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The read-only support URLs property that is retrieved from the application package.
+	SupportUrls ApplicationPackageSupportUrlsResponseOutput `pulumi:"supportUrls"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The client entity that last updated the JIT request.
+	UpdatedBy ApplicationClientDetailsResponseOutput `pulumi:"updatedBy"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -56,9 +76,6 @@ func NewApplication(ctx *pulumi.Context,
 
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
-	}
-	if args.ManagedResourceGroupId == nil {
-		return nil, errors.New("invalid value for required argument 'ManagedResourceGroupId'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -74,10 +91,25 @@ func NewApplication(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:solutions/v20170901:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:solutions/v20171201:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180201:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180301:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180901preview:Application"),
+		},
+		{
 			Type: pulumi.String("azure-native:solutions/v20190701:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20200821preview:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20210201preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20210701:Application"),
@@ -122,6 +154,8 @@ type applicationArgs struct {
 	ApplicationName *string `pulumi:"applicationName"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
+	// The managed application Jit access policy.
+	JitAccessPolicy *ApplicationJitAccessPolicy `pulumi:"jitAccessPolicy"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
 	Kind string `pulumi:"kind"`
 	// Resource location
@@ -129,11 +163,13 @@ type applicationArgs struct {
 	// ID of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The managed resource group Id.
-	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
+	ManagedResourceGroupId *string `pulumi:"managedResourceGroupId"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
 	Parameters interface{} `pulumi:"parameters"`
 	// The plan information.
 	Plan *Plan `pulumi:"plan"`
+	// The publisher package Id.
+	PublisherPackageId *string `pulumi:"publisherPackageId"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the resource.
@@ -150,6 +186,8 @@ type ApplicationArgs struct {
 	ApplicationName pulumi.StringPtrInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
+	// The managed application Jit access policy.
+	JitAccessPolicy ApplicationJitAccessPolicyPtrInput
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
 	Kind pulumi.StringInput
 	// Resource location
@@ -157,11 +195,13 @@ type ApplicationArgs struct {
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrInput
 	// The managed resource group Id.
-	ManagedResourceGroupId pulumi.StringInput
+	ManagedResourceGroupId pulumi.StringPtrInput
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
 	Parameters pulumi.Input
 	// The plan information.
 	Plan PlanPtrInput
+	// The publisher package Id.
+	PublisherPackageId pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the resource.
@@ -212,9 +252,39 @@ func (o ApplicationOutput) ApplicationDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationDefinitionId }).(pulumi.StringPtrOutput)
 }
 
+// The collection of managed application artifacts.
+func (o ApplicationOutput) Artifacts() ApplicationArtifactResponseArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationArtifactResponseArrayOutput { return v.Artifacts }).(ApplicationArtifactResponseArrayOutput)
+}
+
+// The  read-only authorizations property that is retrieved from the application package.
+func (o ApplicationOutput) Authorizations() ApplicationAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationAuthorizationResponseArrayOutput { return v.Authorizations }).(ApplicationAuthorizationResponseArrayOutput)
+}
+
+// The managed application billing details.
+func (o ApplicationOutput) BillingDetails() ApplicationBillingDetailsDefinitionResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationBillingDetailsDefinitionResponseOutput { return v.BillingDetails }).(ApplicationBillingDetailsDefinitionResponseOutput)
+}
+
+// The client entity that created the JIT request.
+func (o ApplicationOutput) CreatedBy() ApplicationClientDetailsResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationClientDetailsResponseOutput { return v.CreatedBy }).(ApplicationClientDetailsResponseOutput)
+}
+
+// The read-only customer support property that is retrieved from the application package.
+func (o ApplicationOutput) CustomerSupport() ApplicationPackageContactResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationPackageContactResponseOutput { return v.CustomerSupport }).(ApplicationPackageContactResponseOutput)
+}
+
 // The identity of the resource.
 func (o ApplicationOutput) Identity() IdentityResponsePtrOutput {
 	return o.ApplyT(func(v *Application) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The managed application Jit access policy.
+func (o ApplicationOutput) JitAccessPolicy() ApplicationJitAccessPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationJitAccessPolicyResponsePtrOutput { return v.JitAccessPolicy }).(ApplicationJitAccessPolicyResponsePtrOutput)
 }
 
 // The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -233,8 +303,8 @@ func (o ApplicationOutput) ManagedBy() pulumi.StringPtrOutput {
 }
 
 // The managed resource group Id.
-func (o ApplicationOutput) ManagedResourceGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ManagedResourceGroupId }).(pulumi.StringOutput)
+func (o ApplicationOutput) ManagedResourceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ManagedResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
 // Resource name
@@ -262,9 +332,24 @@ func (o ApplicationOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// The publisher package Id.
+func (o ApplicationOutput) PublisherPackageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.PublisherPackageId }).(pulumi.StringPtrOutput)
+}
+
+// The publisher tenant Id.
+func (o ApplicationOutput) PublisherTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.PublisherTenantId }).(pulumi.StringOutput)
+}
+
 // The SKU of the resource.
 func (o ApplicationOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v *Application) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The read-only support URLs property that is retrieved from the application package.
+func (o ApplicationOutput) SupportUrls() ApplicationPackageSupportUrlsResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationPackageSupportUrlsResponseOutput { return v.SupportUrls }).(ApplicationPackageSupportUrlsResponseOutput)
 }
 
 // Resource tags
@@ -275,6 +360,11 @@ func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o ApplicationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The client entity that last updated the JIT request.
+func (o ApplicationOutput) UpdatedBy() ApplicationClientDetailsResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationClientDetailsResponseOutput { return v.UpdatedBy }).(ApplicationClientDetailsResponseOutput)
 }
 
 func init() {

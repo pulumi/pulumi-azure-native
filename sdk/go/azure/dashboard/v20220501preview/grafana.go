@@ -50,6 +50,9 @@ func NewGrafana(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:dashboard/v20210901preview:Grafana"),
 		},
+		{
+			Type: pulumi.String("azure-native:dashboard/v20220801:Grafana"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Grafana

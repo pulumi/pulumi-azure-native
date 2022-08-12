@@ -463,7 +463,7 @@ type ClusterSku struct {
 // ClusterSkuInput is an input type that accepts ClusterSkuArgs and ClusterSkuOutput values.
 // You can construct a concrete instance of `ClusterSkuInput` via:
 //
-//          ClusterSkuArgs{...}
+//	ClusterSkuArgs{...}
 type ClusterSkuInput interface {
 	pulumi.Input
 
@@ -502,11 +502,11 @@ func (i ClusterSkuArgs) ToClusterSkuPtrOutputWithContext(ctx context.Context) Cl
 // ClusterSkuPtrInput is an input type that accepts ClusterSkuArgs, ClusterSkuPtr and ClusterSkuPtrOutput values.
 // You can construct a concrete instance of `ClusterSkuPtrInput` via:
 //
-//          ClusterSkuArgs{...}
+//	        ClusterSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterSkuPtrInput interface {
 	pulumi.Input
 
@@ -913,7 +913,7 @@ type FunctionType struct {
 // FunctionTypeInput is an input type that accepts FunctionTypeArgs and FunctionTypeOutput values.
 // You can construct a concrete instance of `FunctionTypeInput` via:
 //
-//          FunctionTypeArgs{...}
+//	FunctionTypeArgs{...}
 type FunctionTypeInput interface {
 	pulumi.Input
 
@@ -944,7 +944,7 @@ func (i FunctionTypeArgs) ToFunctionTypeOutputWithContext(ctx context.Context) F
 // FunctionTypeArrayInput is an input type that accepts FunctionTypeArray and FunctionTypeArrayOutput values.
 // You can construct a concrete instance of `FunctionTypeArrayInput` via:
 //
-//          FunctionTypeArray{ FunctionTypeArgs{...} }
+//	FunctionTypeArray{ FunctionTypeArgs{...} }
 type FunctionTypeArrayInput interface {
 	pulumi.Input
 
@@ -1022,7 +1022,7 @@ type FunctionInputType struct {
 // FunctionInputTypeInput is an input type that accepts FunctionInputTypeArgs and FunctionInputTypeOutput values.
 // You can construct a concrete instance of `FunctionInputTypeInput` via:
 //
-//          FunctionInputTypeArgs{...}
+//	FunctionInputTypeArgs{...}
 type FunctionInputTypeInput interface {
 	pulumi.Input
 
@@ -1053,7 +1053,7 @@ func (i FunctionInputTypeArgs) ToFunctionInputTypeOutputWithContext(ctx context.
 // FunctionInputTypeArrayInput is an input type that accepts FunctionInputTypeArray and FunctionInputTypeArrayOutput values.
 // You can construct a concrete instance of `FunctionInputTypeArrayInput` via:
 //
-//          FunctionInputTypeArray{ FunctionInputTypeArgs{...} }
+//	FunctionInputTypeArray{ FunctionInputTypeArgs{...} }
 type FunctionInputTypeArrayInput interface {
 	pulumi.Input
 
@@ -1182,7 +1182,7 @@ type FunctionOutputType struct {
 // FunctionOutputTypeInput is an input type that accepts FunctionOutputTypeArgs and FunctionOutputTypeOutput values.
 // You can construct a concrete instance of `FunctionOutputTypeInput` via:
 //
-//          FunctionOutputTypeArgs{...}
+//	FunctionOutputTypeArgs{...}
 type FunctionOutputTypeInput interface {
 	pulumi.Input
 
@@ -1219,11 +1219,11 @@ func (i FunctionOutputTypeArgs) ToFunctionOutputTypePtrOutputWithContext(ctx con
 // FunctionOutputTypePtrInput is an input type that accepts FunctionOutputTypeArgs, FunctionOutputTypePtr and FunctionOutputTypePtrOutput values.
 // You can construct a concrete instance of `FunctionOutputTypePtrInput` via:
 //
-//          FunctionOutputTypeArgs{...}
+//	        FunctionOutputTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionOutputTypePtrInput interface {
 	pulumi.Input
 
@@ -1451,7 +1451,7 @@ type InputType struct {
 // InputTypeInput is an input type that accepts InputTypeArgs and InputTypeOutput values.
 // You can construct a concrete instance of `InputTypeInput` via:
 //
-//          InputTypeArgs{...}
+//	InputTypeArgs{...}
 type InputTypeInput interface {
 	pulumi.Input
 
@@ -1482,7 +1482,7 @@ func (i InputTypeArgs) ToInputTypeOutputWithContext(ctx context.Context) InputTy
 // InputTypeArrayInput is an input type that accepts InputTypeArray and InputTypeArrayOutput values.
 // You can construct a concrete instance of `InputTypeArrayInput` via:
 //
-//          InputTypeArray{ InputTypeArgs{...} }
+//	InputTypeArray{ InputTypeArgs{...} }
 type InputTypeArrayInput interface {
 	pulumi.Input
 
@@ -1703,7 +1703,7 @@ type OutputType struct {
 // OutputTypeInput is an input type that accepts OutputTypeArgs and OutputTypeOutput values.
 // You can construct a concrete instance of `OutputTypeInput` via:
 //
-//          OutputTypeArgs{...}
+//	OutputTypeArgs{...}
 type OutputTypeInput interface {
 	pulumi.Input
 
@@ -1736,7 +1736,7 @@ func (i OutputTypeArgs) ToOutputTypeOutputWithContext(ctx context.Context) Outpu
 // OutputTypeArrayInput is an input type that accepts OutputTypeArray and OutputTypeArrayOutput values.
 // You can construct a concrete instance of `OutputTypeArrayInput` via:
 //
-//          OutputTypeArray{ OutputTypeArgs{...} }
+//	OutputTypeArray{ OutputTypeArgs{...} }
 type OutputTypeArrayInput interface {
 	pulumi.Input
 
@@ -1947,7 +1947,7 @@ type PrivateEndpointProperties struct {
 // PrivateEndpointPropertiesInput is an input type that accepts PrivateEndpointPropertiesArgs and PrivateEndpointPropertiesOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertiesInput` via:
 //
-//          PrivateEndpointPropertiesArgs{...}
+//	PrivateEndpointPropertiesArgs{...}
 type PrivateEndpointPropertiesInput interface {
 	pulumi.Input
 
@@ -1984,11 +1984,11 @@ func (i PrivateEndpointPropertiesArgs) ToPrivateEndpointPropertiesPtrOutputWithC
 // PrivateEndpointPropertiesPtrInput is an input type that accepts PrivateEndpointPropertiesArgs, PrivateEndpointPropertiesPtr and PrivateEndpointPropertiesPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertiesPtrInput` via:
 //
-//          PrivateEndpointPropertiesArgs{...}
+//	        PrivateEndpointPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateEndpointPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2220,7 +2220,7 @@ type PrivateLinkServiceConnection struct {
 // PrivateLinkServiceConnectionInput is an input type that accepts PrivateLinkServiceConnectionArgs and PrivateLinkServiceConnectionOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionInput` via:
 //
-//          PrivateLinkServiceConnectionArgs{...}
+//	PrivateLinkServiceConnectionArgs{...}
 type PrivateLinkServiceConnectionInput interface {
 	pulumi.Input
 
@@ -2251,7 +2251,7 @@ func (i PrivateLinkServiceConnectionArgs) ToPrivateLinkServiceConnectionOutputWi
 // PrivateLinkServiceConnectionArrayInput is an input type that accepts PrivateLinkServiceConnectionArray and PrivateLinkServiceConnectionArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionArrayInput` via:
 //
-//          PrivateLinkServiceConnectionArray{ PrivateLinkServiceConnectionArgs{...} }
+//	PrivateLinkServiceConnectionArray{ PrivateLinkServiceConnectionArgs{...} }
 type PrivateLinkServiceConnectionArrayInput interface {
 	pulumi.Input
 
@@ -2429,7 +2429,7 @@ type ScalarFunctionProperties struct {
 // ScalarFunctionPropertiesInput is an input type that accepts ScalarFunctionPropertiesArgs and ScalarFunctionPropertiesOutput values.
 // You can construct a concrete instance of `ScalarFunctionPropertiesInput` via:
 //
-//          ScalarFunctionPropertiesArgs{...}
+//	ScalarFunctionPropertiesArgs{...}
 type ScalarFunctionPropertiesInput interface {
 	pulumi.Input
 
@@ -2473,11 +2473,11 @@ func (i ScalarFunctionPropertiesArgs) ToScalarFunctionPropertiesPtrOutputWithCon
 // ScalarFunctionPropertiesPtrInput is an input type that accepts ScalarFunctionPropertiesArgs, ScalarFunctionPropertiesPtr and ScalarFunctionPropertiesPtrOutput values.
 // You can construct a concrete instance of `ScalarFunctionPropertiesPtrInput` via:
 //
-//          ScalarFunctionPropertiesArgs{...}
+//	        ScalarFunctionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalarFunctionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2822,7 +2822,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -2859,11 +2859,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -3068,7 +3068,7 @@ type Transformation struct {
 // TransformationInput is an input type that accepts TransformationArgs and TransformationOutput values.
 // You can construct a concrete instance of `TransformationInput` via:
 //
-//          TransformationArgs{...}
+//	TransformationArgs{...}
 type TransformationInput interface {
 	pulumi.Input
 
@@ -3109,11 +3109,11 @@ func (i TransformationArgs) ToTransformationPtrOutputWithContext(ctx context.Con
 // TransformationPtrInput is an input type that accepts TransformationArgs, TransformationPtr and TransformationPtrOutput values.
 // You can construct a concrete instance of `TransformationPtrInput` via:
 //
-//          TransformationArgs{...}
+//	        TransformationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TransformationPtrInput interface {
 	pulumi.Input
 

@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
     public sealed class GetAutoscaleSettingResult
     {
         /// <summary>
-        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

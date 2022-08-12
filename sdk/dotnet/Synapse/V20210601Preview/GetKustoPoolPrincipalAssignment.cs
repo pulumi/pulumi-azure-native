@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     public sealed class GetKustoPoolPrincipalAssignmentResult
     {
         /// <summary>
+        /// The service principal object id in AAD (Azure active directory)
+        /// </summary>
+        public readonly string AadObjectId;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
         [OutputConstructor]
         private GetKustoPoolPrincipalAssignmentResult(
+            string aadObjectId,
+
             string id,
 
             string name,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             string type)
         {
+            AadObjectId = aadObjectId;
             Id = id;
             Name = name;
             PrincipalId = principalId;

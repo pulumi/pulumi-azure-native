@@ -1013,6 +1013,8 @@ class MachinePropertiesResponse(dict):
             suggest = "last_status_change"
         elif key == "machineFqdn":
             suggest = "machine_fqdn"
+        elif key == "osName":
+            suggest = "os_name"
         elif key == "osSku":
             suggest = "os_sku"
         elif key == "osVersion":
@@ -1064,6 +1066,7 @@ class MachinePropertiesResponse(dict):
                  error_details: Sequence['outputs.ErrorDetailResponse'],
                  last_status_change: str,
                  machine_fqdn: str,
+                 os_name: str,
                  os_sku: str,
                  os_version: str,
                  provisioning_state: str,
@@ -1091,6 +1094,7 @@ class MachinePropertiesResponse(dict):
         :param Sequence['ErrorDetailResponse'] error_details: Details about the error state.
         :param str last_status_change: The time of the last status change.
         :param str machine_fqdn: Specifies the hybrid machine FQDN.
+        :param str os_name: The Operating System running on the hybrid machine.
         :param str os_sku: Specifies the Operating System product SKU.
         :param str os_version: The version of Operating System running on the hybrid machine.
         :param str provisioning_state: The provisioning state, which only appears in the response.
@@ -1117,6 +1121,7 @@ class MachinePropertiesResponse(dict):
         pulumi.set(__self__, "error_details", error_details)
         pulumi.set(__self__, "last_status_change", last_status_change)
         pulumi.set(__self__, "machine_fqdn", machine_fqdn)
+        pulumi.set(__self__, "os_name", os_name)
         pulumi.set(__self__, "os_sku", os_sku)
         pulumi.set(__self__, "os_version", os_version)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -1222,6 +1227,14 @@ class MachinePropertiesResponse(dict):
         Specifies the hybrid machine FQDN.
         """
         return pulumi.get(self, "machine_fqdn")
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> str:
+        """
+        The Operating System running on the hybrid machine.
+        """
+        return pulumi.get(self, "os_name")
 
     @property
     @pulumi.getter(name="osSku")

@@ -1574,7 +1574,8 @@
     "Application": "2021-07-01",
     "ApplicationDefinition": "2021-07-01",
     "JitRequest": "2021-07-01",
-    "listApplicationAllowedUpgradePlans": "2021-07-01"
+    "listApplicationAllowedUpgradePlans": "2021-07-01",
+    "listApplicationTokens": "2021-07-01"
   },
   "Sql": {
     "BackupLongTermRetentionPolicy": "2017-03-01-preview",

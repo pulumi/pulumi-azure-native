@@ -21,7 +21,7 @@ class GetApplicationDefinitionResult:
     """
     Information about managed application definition.
     """
-    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, id=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, provisioning_state=None, sku=None, storage_account_id=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, id=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, sku=None, storage_account_id=None, system_data=None, tags=None, type=None):
         if artifacts and not isinstance(artifacts, list):
             raise TypeError("Expected argument 'artifacts' to be a list")
         pulumi.set(__self__, "artifacts", artifacts)
@@ -76,9 +76,6 @@ class GetApplicationDefinitionResult:
         if policies and not isinstance(policies, list):
             raise TypeError("Expected argument 'policies' to be a list")
         pulumi.set(__self__, "policies", policies)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -240,14 +237,6 @@ class GetApplicationDefinitionResult:
         return pulumi.get(self, "policies")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
@@ -312,7 +301,6 @@ class AwaitableGetApplicationDefinitionResult(GetApplicationDefinitionResult):
             notification_policy=self.notification_policy,
             package_file_uri=self.package_file_uri,
             policies=self.policies,
-            provisioning_state=self.provisioning_state,
             sku=self.sku,
             storage_account_id=self.storage_account_id,
             system_data=self.system_data,
@@ -358,7 +346,6 @@ def get_application_definition(application_definition_name: Optional[str] = None
         notification_policy=__ret__.notification_policy,
         package_file_uri=__ret__.package_file_uri,
         policies=__ret__.policies,
-        provisioning_state=__ret__.provisioning_state,
         sku=__ret__.sku,
         storage_account_id=__ret__.storage_account_id,
         system_data=__ret__.system_data,

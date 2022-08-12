@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DatabaseAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DatabaseAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DatabaseAdvisor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -19,7 +19,7 @@ type GatewayDetails struct {
 // GatewayDetailsInput is an input type that accepts GatewayDetailsArgs and GatewayDetailsOutput values.
 // You can construct a concrete instance of `GatewayDetailsInput` via:
 //
-//          GatewayDetailsArgs{...}
+//	GatewayDetailsArgs{...}
 type GatewayDetailsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i GatewayDetailsArgs) ToGatewayDetailsPtrOutputWithContext(ctx context.Con
 // GatewayDetailsPtrInput is an input type that accepts GatewayDetailsArgs, GatewayDetailsPtr and GatewayDetailsPtrOutput values.
 // You can construct a concrete instance of `GatewayDetailsPtrInput` via:
 //
-//          GatewayDetailsArgs{...}
+//	        GatewayDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GatewayDetailsPtrInput interface {
 	pulumi.Input
 
@@ -255,7 +255,7 @@ type ResourceSku struct {
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
 // You can construct a concrete instance of `ResourceSkuInput` via:
 //
-//          ResourceSkuArgs{...}
+//	ResourceSkuArgs{...}
 type ResourceSkuInput interface {
 	pulumi.Input
 
@@ -350,7 +350,7 @@ type ServerAdministrators struct {
 // ServerAdministratorsInput is an input type that accepts ServerAdministratorsArgs and ServerAdministratorsOutput values.
 // You can construct a concrete instance of `ServerAdministratorsInput` via:
 //
-//          ServerAdministratorsArgs{...}
+//	ServerAdministratorsArgs{...}
 type ServerAdministratorsInput interface {
 	pulumi.Input
 
@@ -387,11 +387,11 @@ func (i ServerAdministratorsArgs) ToServerAdministratorsPtrOutputWithContext(ctx
 // ServerAdministratorsPtrInput is an input type that accepts ServerAdministratorsArgs, ServerAdministratorsPtr and ServerAdministratorsPtrOutput values.
 // You can construct a concrete instance of `ServerAdministratorsPtrInput` via:
 //
-//          ServerAdministratorsArgs{...}
+//	        ServerAdministratorsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerAdministratorsPtrInput interface {
 	pulumi.Input
 

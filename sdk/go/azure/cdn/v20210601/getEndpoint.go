@@ -34,7 +34,7 @@ type LookupEndpointResult struct {
 	// List of content types on which compression applies. The value should be a valid MIME type.
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
 	// The custom domains under the endpoint.
-	CustomDomains []CustomDomainResponse `pulumi:"customDomains"`
+	CustomDomains []DeepCreatedCustomDomainResponse `pulumi:"customDomains"`
 	// A reference to the origin group.
 	DefaultOriginGroup *ResourceReferenceResponse `pulumi:"defaultOriginGroup"`
 	// A policy that specifies the delivery rules to be used for an endpoint.
@@ -132,8 +132,8 @@ func (o LookupEndpointResultOutput) ContentTypesToCompress() pulumi.StringArrayO
 }
 
 // The custom domains under the endpoint.
-func (o LookupEndpointResultOutput) CustomDomains() CustomDomainResponseArrayOutput {
-	return o.ApplyT(func(v LookupEndpointResult) []CustomDomainResponse { return v.CustomDomains }).(CustomDomainResponseArrayOutput)
+func (o LookupEndpointResultOutput) CustomDomains() DeepCreatedCustomDomainResponseArrayOutput {
+	return o.ApplyT(func(v LookupEndpointResult) []DeepCreatedCustomDomainResponse { return v.CustomDomains }).(DeepCreatedCustomDomainResponseArrayOutput)
 }
 
 // A reference to the origin group.

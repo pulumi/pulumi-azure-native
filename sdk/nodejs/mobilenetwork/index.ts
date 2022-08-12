@@ -33,10 +33,12 @@ export * from "../types/enums/mobilenetwork";
 // Export sub-modules:
 import * as v20220101preview from "./v20220101preview";
 import * as v20220301preview from "./v20220301preview";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20220101preview,
     v20220301preview,
+    v20220401preview,
 };
 
 // Import resources to register:

@@ -66,6 +66,9 @@ func NewKeyValue(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:appconfiguration/v20211001preview:KeyValue"),
 		},
 		{
+			Type: pulumi.String("azure-native:appconfiguration/v20220301preview:KeyValue"),
+		},
+		{
 			Type: pulumi.String("azure-native:appconfiguration/v20220501:KeyValue"),
 		},
 	})

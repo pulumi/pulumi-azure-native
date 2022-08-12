@@ -31,7 +31,7 @@ type Backend struct {
 // BackendInput is an input type that accepts BackendArgs and BackendOutput values.
 // You can construct a concrete instance of `BackendInput` via:
 //
-//          BackendArgs{...}
+//	BackendArgs{...}
 type BackendInput interface {
 	pulumi.Input
 
@@ -72,7 +72,7 @@ func (i BackendArgs) ToBackendOutputWithContext(ctx context.Context) BackendOutp
 // BackendArrayInput is an input type that accepts BackendArray and BackendArrayOutput values.
 // You can construct a concrete instance of `BackendArrayInput` via:
 //
-//          BackendArray{ BackendArgs{...} }
+//	BackendArray{ BackendArgs{...} }
 type BackendArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +181,7 @@ type BackendPool struct {
 // BackendPoolInput is an input type that accepts BackendPoolArgs and BackendPoolOutput values.
 // You can construct a concrete instance of `BackendPoolInput` via:
 //
-//          BackendPoolArgs{...}
+//	BackendPoolArgs{...}
 type BackendPoolInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ func (i BackendPoolArgs) ToBackendPoolOutputWithContext(ctx context.Context) Bac
 // BackendPoolArrayInput is an input type that accepts BackendPoolArray and BackendPoolArrayOutput values.
 // You can construct a concrete instance of `BackendPoolArrayInput` via:
 //
-//          BackendPoolArray{ BackendPoolArgs{...} }
+//	BackendPoolArray{ BackendPoolArgs{...} }
 type BackendPoolArrayInput interface {
 	pulumi.Input
 
@@ -412,7 +412,7 @@ func (val *BackendPoolsSettings) Defaults() *BackendPoolsSettings {
 // BackendPoolsSettingsInput is an input type that accepts BackendPoolsSettingsArgs and BackendPoolsSettingsOutput values.
 // You can construct a concrete instance of `BackendPoolsSettingsInput` via:
 //
-//          BackendPoolsSettingsArgs{...}
+//	BackendPoolsSettingsArgs{...}
 type BackendPoolsSettingsInput interface {
 	pulumi.Input
 
@@ -462,11 +462,11 @@ func (i BackendPoolsSettingsArgs) ToBackendPoolsSettingsPtrOutputWithContext(ctx
 // BackendPoolsSettingsPtrInput is an input type that accepts BackendPoolsSettingsArgs, BackendPoolsSettingsPtr and BackendPoolsSettingsPtrOutput values.
 // You can construct a concrete instance of `BackendPoolsSettingsPtrInput` via:
 //
-//          BackendPoolsSettingsArgs{...}
+//	        BackendPoolsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BackendPoolsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -882,7 +882,7 @@ type FrontendEndpoint struct {
 // FrontendEndpointInput is an input type that accepts FrontendEndpointArgs and FrontendEndpointOutput values.
 // You can construct a concrete instance of `FrontendEndpointInput` via:
 //
-//          FrontendEndpointArgs{...}
+//	FrontendEndpointArgs{...}
 type FrontendEndpointInput interface {
 	pulumi.Input
 
@@ -921,7 +921,7 @@ func (i FrontendEndpointArgs) ToFrontendEndpointOutputWithContext(ctx context.Co
 // FrontendEndpointArrayInput is an input type that accepts FrontendEndpointArray and FrontendEndpointArrayOutput values.
 // You can construct a concrete instance of `FrontendEndpointArrayInput` via:
 //
-//          FrontendEndpointArray{ FrontendEndpointArgs{...} }
+//	FrontendEndpointArray{ FrontendEndpointArgs{...} }
 type FrontendEndpointArrayInput interface {
 	pulumi.Input
 
@@ -1197,7 +1197,7 @@ type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink struct {
 // FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkInput is an input type that accepts FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs and FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput values.
 // You can construct a concrete instance of `FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkInput` via:
 //
-//          FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs{...}
+//	FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs{...}
 type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkInput interface {
 	pulumi.Input
 
@@ -1234,11 +1234,11 @@ func (i FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs) To
 // FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrInput is an input type that accepts FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs, FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtr and FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput values.
 // You can construct a concrete instance of `FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrInput` via:
 //
-//          FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs{...}
+//	        FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrInput interface {
 	pulumi.Input
 
@@ -1362,7 +1362,7 @@ func (val *HealthProbeSettingsModel) Defaults() *HealthProbeSettingsModel {
 // HealthProbeSettingsModelInput is an input type that accepts HealthProbeSettingsModelArgs and HealthProbeSettingsModelOutput values.
 // You can construct a concrete instance of `HealthProbeSettingsModelInput` via:
 //
-//          HealthProbeSettingsModelArgs{...}
+//	HealthProbeSettingsModelArgs{...}
 type HealthProbeSettingsModelInput interface {
 	pulumi.Input
 
@@ -1414,7 +1414,7 @@ func (i HealthProbeSettingsModelArgs) ToHealthProbeSettingsModelOutputWithContex
 // HealthProbeSettingsModelArrayInput is an input type that accepts HealthProbeSettingsModelArray and HealthProbeSettingsModelArrayOutput values.
 // You can construct a concrete instance of `HealthProbeSettingsModelArrayInput` via:
 //
-//          HealthProbeSettingsModelArray{ HealthProbeSettingsModelArgs{...} }
+//	HealthProbeSettingsModelArray{ HealthProbeSettingsModelArgs{...} }
 type HealthProbeSettingsModelArrayInput interface {
 	pulumi.Input
 
@@ -1698,7 +1698,7 @@ type LoadBalancingSettingsModel struct {
 // LoadBalancingSettingsModelInput is an input type that accepts LoadBalancingSettingsModelArgs and LoadBalancingSettingsModelOutput values.
 // You can construct a concrete instance of `LoadBalancingSettingsModelInput` via:
 //
-//          LoadBalancingSettingsModelArgs{...}
+//	LoadBalancingSettingsModelArgs{...}
 type LoadBalancingSettingsModelInput interface {
 	pulumi.Input
 
@@ -1735,7 +1735,7 @@ func (i LoadBalancingSettingsModelArgs) ToLoadBalancingSettingsModelOutputWithCo
 // LoadBalancingSettingsModelArrayInput is an input type that accepts LoadBalancingSettingsModelArray and LoadBalancingSettingsModelArrayOutput values.
 // You can construct a concrete instance of `LoadBalancingSettingsModelArrayInput` via:
 //
-//          LoadBalancingSettingsModelArray{ LoadBalancingSettingsModelArgs{...} }
+//	LoadBalancingSettingsModelArray{ LoadBalancingSettingsModelArgs{...} }
 type LoadBalancingSettingsModelArrayInput interface {
 	pulumi.Input
 
@@ -1962,7 +1962,7 @@ type RoutingRule struct {
 // RoutingRuleInput is an input type that accepts RoutingRuleArgs and RoutingRuleOutput values.
 // You can construct a concrete instance of `RoutingRuleInput` via:
 //
-//          RoutingRuleArgs{...}
+//	RoutingRuleArgs{...}
 type RoutingRuleInput interface {
 	pulumi.Input
 
@@ -2003,7 +2003,7 @@ func (i RoutingRuleArgs) ToRoutingRuleOutputWithContext(ctx context.Context) Rou
 // RoutingRuleArrayInput is an input type that accepts RoutingRuleArray and RoutingRuleArrayOutput values.
 // You can construct a concrete instance of `RoutingRuleArrayInput` via:
 //
-//          RoutingRuleArray{ RoutingRuleArgs{...} }
+//	RoutingRuleArray{ RoutingRuleArgs{...} }
 type RoutingRuleArrayInput interface {
 	pulumi.Input
 
@@ -2206,7 +2206,7 @@ type SubResource struct {
 // SubResourceInput is an input type that accepts SubResourceArgs and SubResourceOutput values.
 // You can construct a concrete instance of `SubResourceInput` via:
 //
-//          SubResourceArgs{...}
+//	SubResourceArgs{...}
 type SubResourceInput interface {
 	pulumi.Input
 
@@ -2243,11 +2243,11 @@ func (i SubResourceArgs) ToSubResourcePtrOutputWithContext(ctx context.Context) 
 // SubResourcePtrInput is an input type that accepts SubResourceArgs, SubResourcePtr and SubResourcePtrOutput values.
 // You can construct a concrete instance of `SubResourcePtrInput` via:
 //
-//          SubResourceArgs{...}
+//	        SubResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubResourcePtrInput interface {
 	pulumi.Input
 
@@ -2276,7 +2276,7 @@ func (i *subResourcePtrType) ToSubResourcePtrOutputWithContext(ctx context.Conte
 // SubResourceArrayInput is an input type that accepts SubResourceArray and SubResourceArrayOutput values.
 // You can construct a concrete instance of `SubResourceArrayInput` via:
 //
-//          SubResourceArray{ SubResourceArgs{...} }
+//	SubResourceArray{ SubResourceArgs{...} }
 type SubResourceArrayInput interface {
 	pulumi.Input
 

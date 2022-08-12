@@ -124,6 +124,12 @@ namespace Pulumi.AzureNative.Solutions.V20190701
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The storage account id for bring your own storage scenario.
+        /// </summary>
+        [Output("storageAccountId")]
+        public Output<string?> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
@@ -163,8 +169,13 @@ namespace Pulumi.AzureNative.Solutions.V20190701
                     new Pulumi.Alias { Type = "azure-native:solutions:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20171201:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180201:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180301:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20180601:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20210701:ApplicationDefinition"},
                 },
             };
@@ -320,6 +331,12 @@ namespace Pulumi.AzureNative.Solutions.V20190701
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// The storage account id for bring your own storage scenario.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

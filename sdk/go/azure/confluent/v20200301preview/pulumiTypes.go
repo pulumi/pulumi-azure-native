@@ -27,7 +27,7 @@ type OrganizationResourcePropertiesOfferDetail struct {
 // OrganizationResourcePropertiesOfferDetailInput is an input type that accepts OrganizationResourcePropertiesOfferDetailArgs and OrganizationResourcePropertiesOfferDetailOutput values.
 // You can construct a concrete instance of `OrganizationResourcePropertiesOfferDetailInput` via:
 //
-//          OrganizationResourcePropertiesOfferDetailArgs{...}
+//	OrganizationResourcePropertiesOfferDetailArgs{...}
 type OrganizationResourcePropertiesOfferDetailInput interface {
 	pulumi.Input
 
@@ -72,11 +72,11 @@ func (i OrganizationResourcePropertiesOfferDetailArgs) ToOrganizationResourcePro
 // OrganizationResourcePropertiesOfferDetailPtrInput is an input type that accepts OrganizationResourcePropertiesOfferDetailArgs, OrganizationResourcePropertiesOfferDetailPtr and OrganizationResourcePropertiesOfferDetailPtrOutput values.
 // You can construct a concrete instance of `OrganizationResourcePropertiesOfferDetailPtrInput` via:
 //
-//          OrganizationResourcePropertiesOfferDetailArgs{...}
+//	        OrganizationResourcePropertiesOfferDetailArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrganizationResourcePropertiesOfferDetailPtrInput interface {
 	pulumi.Input
 
@@ -478,7 +478,7 @@ type OrganizationResourcePropertiesUserDetail struct {
 // OrganizationResourcePropertiesUserDetailInput is an input type that accepts OrganizationResourcePropertiesUserDetailArgs and OrganizationResourcePropertiesUserDetailOutput values.
 // You can construct a concrete instance of `OrganizationResourcePropertiesUserDetailInput` via:
 //
-//          OrganizationResourcePropertiesUserDetailArgs{...}
+//	OrganizationResourcePropertiesUserDetailArgs{...}
 type OrganizationResourcePropertiesUserDetailInput interface {
 	pulumi.Input
 
@@ -519,11 +519,11 @@ func (i OrganizationResourcePropertiesUserDetailArgs) ToOrganizationResourceProp
 // OrganizationResourcePropertiesUserDetailPtrInput is an input type that accepts OrganizationResourcePropertiesUserDetailArgs, OrganizationResourcePropertiesUserDetailPtr and OrganizationResourcePropertiesUserDetailPtrOutput values.
 // You can construct a concrete instance of `OrganizationResourcePropertiesUserDetailPtrInput` via:
 //
-//          OrganizationResourcePropertiesUserDetailArgs{...}
+//	        OrganizationResourcePropertiesUserDetailArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrganizationResourcePropertiesUserDetailPtrInput interface {
 	pulumi.Input
 

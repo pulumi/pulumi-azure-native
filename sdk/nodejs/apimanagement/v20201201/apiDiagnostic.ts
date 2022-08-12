@@ -60,6 +60,10 @@ export class ApiDiagnostic extends pulumi.CustomResource {
      */
     public readonly loggerId!: pulumi.Output<string>;
     /**
+     * Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+     */
+    public readonly metrics!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -111,6 +115,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             resourceInputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
             resourceInputs["logClientIp"] = args ? args.logClientIp : undefined;
             resourceInputs["loggerId"] = args ? args.loggerId : undefined;
+            resourceInputs["metrics"] = args ? args.metrics : undefined;
             resourceInputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sampling"] = args ? args.sampling : undefined;
@@ -125,6 +130,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             resourceInputs["httpCorrelationProtocol"] = undefined /*out*/;
             resourceInputs["logClientIp"] = undefined /*out*/;
             resourceInputs["loggerId"] = undefined /*out*/;
+            resourceInputs["metrics"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationNameFormat"] = undefined /*out*/;
             resourceInputs["sampling"] = undefined /*out*/;
@@ -174,6 +180,10 @@ export interface ApiDiagnosticArgs {
      * Resource Id of a target logger.
      */
     loggerId: pulumi.Input<string>;
+    /**
+     * Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+     */
+    metrics?: pulumi.Input<boolean>;
     /**
      * The format of the Operation Name for Application Insights telemetries. Default is Name.
      */

@@ -21,7 +21,7 @@ type ClusterDesiredProperties struct {
 // ClusterDesiredPropertiesInput is an input type that accepts ClusterDesiredPropertiesArgs and ClusterDesiredPropertiesOutput values.
 // You can construct a concrete instance of `ClusterDesiredPropertiesInput` via:
 //
-//          ClusterDesiredPropertiesArgs{...}
+//	ClusterDesiredPropertiesArgs{...}
 type ClusterDesiredPropertiesInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ClusterDesiredPropertiesArgs) ToClusterDesiredPropertiesPtrOutputWithCon
 // ClusterDesiredPropertiesPtrInput is an input type that accepts ClusterDesiredPropertiesArgs, ClusterDesiredPropertiesPtr and ClusterDesiredPropertiesPtrOutput values.
 // You can construct a concrete instance of `ClusterDesiredPropertiesPtrInput` via:
 //
-//          ClusterDesiredPropertiesArgs{...}
+//	        ClusterDesiredPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterDesiredPropertiesPtrInput interface {
 	pulumi.Input
 

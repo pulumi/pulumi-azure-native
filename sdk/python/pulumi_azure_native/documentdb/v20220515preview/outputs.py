@@ -130,7 +130,7 @@ class AccountKeyMetadataResponse(dict):
                  generation_time: str):
         """
         The metadata related to an access key for a given database account.
-        :param str generation_time: Generation time in UTC of the key in ISO-8601 format. A value of null means that the last key regeneration was triggered before 2022-06-18.
+        :param str generation_time: Generation time in UTC of the key in ISO-8601 format. If the value is missing from the object, it means that the last key regeneration was triggered before 2022-06-18.
         """
         pulumi.set(__self__, "generation_time", generation_time)
 
@@ -138,7 +138,7 @@ class AccountKeyMetadataResponse(dict):
     @pulumi.getter(name="generationTime")
     def generation_time(self) -> str:
         """
-        Generation time in UTC of the key in ISO-8601 format. A value of null means that the last key regeneration was triggered before 2022-06-18.
+        Generation time in UTC of the key in ISO-8601 format. If the value is missing from the object, it means that the last key regeneration was triggered before 2022-06-18.
         """
         return pulumi.get(self, "generation_time")
 
@@ -2978,7 +2978,9 @@ class GremlinGraphGetPropertiesResponseResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "conflictResolutionPolicy":
+        if key == "analyticalStorageTtl":
+            suggest = "analytical_storage_ttl"
+        elif key == "conflictResolutionPolicy":
             suggest = "conflict_resolution_policy"
         elif key == "defaultTtl":
             suggest = "default_ttl"
@@ -3005,6 +3007,7 @@ class GremlinGraphGetPropertiesResponseResource(dict):
                  id: str,
                  rid: str,
                  ts: float,
+                 analytical_storage_ttl: Optional[float] = None,
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
                  default_ttl: Optional[int] = None,
                  indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
@@ -3015,6 +3018,7 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         :param str id: Name of the Cosmos DB Gremlin graph
         :param str rid: A system generated property. A unique identifier.
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param float analytical_storage_ttl: Analytical TTL.
         :param 'ConflictResolutionPolicyResponse' conflict_resolution_policy: The conflict resolution policy for the graph.
         :param int default_ttl: Default time to live
         :param 'IndexingPolicyResponse' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
@@ -3025,6 +3029,8 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
         pulumi.set(__self__, "ts", ts)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if default_ttl is not None:
@@ -3067,6 +3073,14 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         A system generated property that denotes the last updated timestamp of the resource.
         """
         return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[float]:
+        """
+        Analytical TTL.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
 
     @property
     @pulumi.getter(name="conflictResolutionPolicy")

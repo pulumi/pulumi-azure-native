@@ -19,7 +19,7 @@ type ApiDefinitionInfo struct {
 // ApiDefinitionInfoInput is an input type that accepts ApiDefinitionInfoArgs and ApiDefinitionInfoOutput values.
 // You can construct a concrete instance of `ApiDefinitionInfoInput` via:
 //
-//          ApiDefinitionInfoArgs{...}
+//	ApiDefinitionInfoArgs{...}
 type ApiDefinitionInfoInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ApiDefinitionInfoArgs) ToApiDefinitionInfoPtrOutputWithContext(ctx conte
 // ApiDefinitionInfoPtrInput is an input type that accepts ApiDefinitionInfoArgs, ApiDefinitionInfoPtr and ApiDefinitionInfoPtrOutput values.
 // You can construct a concrete instance of `ApiDefinitionInfoPtrInput` via:
 //
-//          ApiDefinitionInfoArgs{...}
+//	        ApiDefinitionInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiDefinitionInfoPtrInput interface {
 	pulumi.Input
 
@@ -223,7 +223,7 @@ type ApplicationLogsConfig struct {
 // ApplicationLogsConfigInput is an input type that accepts ApplicationLogsConfigArgs and ApplicationLogsConfigOutput values.
 // You can construct a concrete instance of `ApplicationLogsConfigInput` via:
 //
-//          ApplicationLogsConfigArgs{...}
+//	ApplicationLogsConfigArgs{...}
 type ApplicationLogsConfigInput interface {
 	pulumi.Input
 
@@ -264,11 +264,11 @@ func (i ApplicationLogsConfigArgs) ToApplicationLogsConfigPtrOutputWithContext(c
 // ApplicationLogsConfigPtrInput is an input type that accepts ApplicationLogsConfigArgs, ApplicationLogsConfigPtr and ApplicationLogsConfigPtrOutput values.
 // You can construct a concrete instance of `ApplicationLogsConfigPtrInput` via:
 //
-//          ApplicationLogsConfigArgs{...}
+//	        ApplicationLogsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationLogsConfigPtrInput interface {
 	pulumi.Input
 
@@ -487,7 +487,8 @@ func (o ApplicationLogsConfigResponsePtrOutput) FileSystem() FileSystemApplicati
 }
 
 // AutoHealActions - Describes the actions which can be
-//             taken by the auto-heal module when a rule is triggered.
+//
+//	taken by the auto-heal module when a rule is triggered.
 type AutoHealActions struct {
 	// ActionType - predefined action to be taken
 	ActionType AutoHealActionType `pulumi:"actionType"`
@@ -501,7 +502,7 @@ type AutoHealActions struct {
 // AutoHealActionsInput is an input type that accepts AutoHealActionsArgs and AutoHealActionsOutput values.
 // You can construct a concrete instance of `AutoHealActionsInput` via:
 //
-//          AutoHealActionsArgs{...}
+//	AutoHealActionsArgs{...}
 type AutoHealActionsInput interface {
 	pulumi.Input
 
@@ -510,7 +511,8 @@ type AutoHealActionsInput interface {
 }
 
 // AutoHealActions - Describes the actions which can be
-//             taken by the auto-heal module when a rule is triggered.
+//
+//	taken by the auto-heal module when a rule is triggered.
 type AutoHealActionsArgs struct {
 	// ActionType - predefined action to be taken
 	ActionType AutoHealActionTypeInput `pulumi:"actionType"`
@@ -544,11 +546,11 @@ func (i AutoHealActionsArgs) ToAutoHealActionsPtrOutputWithContext(ctx context.C
 // AutoHealActionsPtrInput is an input type that accepts AutoHealActionsArgs, AutoHealActionsPtr and AutoHealActionsPtrOutput values.
 // You can construct a concrete instance of `AutoHealActionsPtrInput` via:
 //
-//          AutoHealActionsArgs{...}
+//	        AutoHealActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoHealActionsPtrInput interface {
 	pulumi.Input
 
@@ -575,7 +577,8 @@ func (i *autoHealActionsPtrType) ToAutoHealActionsPtrOutputWithContext(ctx conte
 }
 
 // AutoHealActions - Describes the actions which can be
-//             taken by the auto-heal module when a rule is triggered.
+//
+//	taken by the auto-heal module when a rule is triggered.
 type AutoHealActionsOutput struct{ *pulumi.OutputState }
 
 func (AutoHealActionsOutput) ElementType() reflect.Type {
@@ -611,7 +614,8 @@ func (o AutoHealActionsOutput) CustomAction() AutoHealCustomActionPtrOutput {
 }
 
 // MinProcessExecutionTime - minimum time the process must execute
-//             before taking the action
+//
+//	before taking the action
 func (o AutoHealActionsOutput) MinProcessExecutionTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoHealActions) *string { return v.MinProcessExecutionTime }).(pulumi.StringPtrOutput)
 }
@@ -661,7 +665,8 @@ func (o AutoHealActionsPtrOutput) CustomAction() AutoHealCustomActionPtrOutput {
 }
 
 // MinProcessExecutionTime - minimum time the process must execute
-//             before taking the action
+//
+//	before taking the action
 func (o AutoHealActionsPtrOutput) MinProcessExecutionTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoHealActions) *string {
 		if v == nil {
@@ -672,7 +677,8 @@ func (o AutoHealActionsPtrOutput) MinProcessExecutionTime() pulumi.StringPtrOutp
 }
 
 // AutoHealActions - Describes the actions which can be
-//             taken by the auto-heal module when a rule is triggered.
+//
+//	taken by the auto-heal module when a rule is triggered.
 type AutoHealActionsResponse struct {
 	// ActionType - predefined action to be taken
 	ActionType string `pulumi:"actionType"`
@@ -684,7 +690,8 @@ type AutoHealActionsResponse struct {
 }
 
 // AutoHealActions - Describes the actions which can be
-//             taken by the auto-heal module when a rule is triggered.
+//
+//	taken by the auto-heal module when a rule is triggered.
 type AutoHealActionsResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoHealActionsResponseOutput) ElementType() reflect.Type {
@@ -710,7 +717,8 @@ func (o AutoHealActionsResponseOutput) CustomAction() AutoHealCustomActionRespon
 }
 
 // MinProcessExecutionTime - minimum time the process must execute
-//             before taking the action
+//
+//	before taking the action
 func (o AutoHealActionsResponseOutput) MinProcessExecutionTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoHealActionsResponse) *string { return v.MinProcessExecutionTime }).(pulumi.StringPtrOutput)
 }
@@ -760,7 +768,8 @@ func (o AutoHealActionsResponsePtrOutput) CustomAction() AutoHealCustomActionRes
 }
 
 // MinProcessExecutionTime - minimum time the process must execute
-//             before taking the action
+//
+//	before taking the action
 func (o AutoHealActionsResponsePtrOutput) MinProcessExecutionTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoHealActionsResponse) *string {
 		if v == nil {
@@ -771,7 +780,8 @@ func (o AutoHealActionsResponsePtrOutput) MinProcessExecutionTime() pulumi.Strin
 }
 
 // AutoHealCustomAction - Describes the custom action to be executed
-//             when an auto heal rule is triggered.
+//
+//	when an auto heal rule is triggered.
 type AutoHealCustomAction struct {
 	// Executable to be run
 	Exe *string `pulumi:"exe"`
@@ -782,7 +792,7 @@ type AutoHealCustomAction struct {
 // AutoHealCustomActionInput is an input type that accepts AutoHealCustomActionArgs and AutoHealCustomActionOutput values.
 // You can construct a concrete instance of `AutoHealCustomActionInput` via:
 //
-//          AutoHealCustomActionArgs{...}
+//	AutoHealCustomActionArgs{...}
 type AutoHealCustomActionInput interface {
 	pulumi.Input
 
@@ -791,7 +801,8 @@ type AutoHealCustomActionInput interface {
 }
 
 // AutoHealCustomAction - Describes the custom action to be executed
-//             when an auto heal rule is triggered.
+//
+//	when an auto heal rule is triggered.
 type AutoHealCustomActionArgs struct {
 	// Executable to be run
 	Exe pulumi.StringPtrInput `pulumi:"exe"`
@@ -822,11 +833,11 @@ func (i AutoHealCustomActionArgs) ToAutoHealCustomActionPtrOutputWithContext(ctx
 // AutoHealCustomActionPtrInput is an input type that accepts AutoHealCustomActionArgs, AutoHealCustomActionPtr and AutoHealCustomActionPtrOutput values.
 // You can construct a concrete instance of `AutoHealCustomActionPtrInput` via:
 //
-//          AutoHealCustomActionArgs{...}
+//	        AutoHealCustomActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoHealCustomActionPtrInput interface {
 	pulumi.Input
 
@@ -853,7 +864,8 @@ func (i *autoHealCustomActionPtrType) ToAutoHealCustomActionPtrOutputWithContext
 }
 
 // AutoHealCustomAction - Describes the custom action to be executed
-//             when an auto heal rule is triggered.
+//
+//	when an auto heal rule is triggered.
 type AutoHealCustomActionOutput struct{ *pulumi.OutputState }
 
 func (AutoHealCustomActionOutput) ElementType() reflect.Type {
@@ -933,7 +945,8 @@ func (o AutoHealCustomActionPtrOutput) Parameters() pulumi.StringPtrOutput {
 }
 
 // AutoHealCustomAction - Describes the custom action to be executed
-//             when an auto heal rule is triggered.
+//
+//	when an auto heal rule is triggered.
 type AutoHealCustomActionResponse struct {
 	// Executable to be run
 	Exe *string `pulumi:"exe"`
@@ -942,7 +955,8 @@ type AutoHealCustomActionResponse struct {
 }
 
 // AutoHealCustomAction - Describes the custom action to be executed
-//             when an auto heal rule is triggered.
+//
+//	when an auto heal rule is triggered.
 type AutoHealCustomActionResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoHealCustomActionResponseOutput) ElementType() reflect.Type {
@@ -1022,7 +1036,7 @@ type AutoHealRules struct {
 // AutoHealRulesInput is an input type that accepts AutoHealRulesArgs and AutoHealRulesOutput values.
 // You can construct a concrete instance of `AutoHealRulesInput` via:
 //
-//          AutoHealRulesArgs{...}
+//	AutoHealRulesArgs{...}
 type AutoHealRulesInput interface {
 	pulumi.Input
 
@@ -1061,11 +1075,11 @@ func (i AutoHealRulesArgs) ToAutoHealRulesPtrOutputWithContext(ctx context.Conte
 // AutoHealRulesPtrInput is an input type that accepts AutoHealRulesArgs, AutoHealRulesPtr and AutoHealRulesPtrOutput values.
 // You can construct a concrete instance of `AutoHealRulesPtrInput` via:
 //
-//          AutoHealRulesArgs{...}
+//	        AutoHealRulesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoHealRulesPtrInput interface {
 	pulumi.Input
 
@@ -1262,7 +1276,7 @@ type AutoHealTriggers struct {
 // AutoHealTriggersInput is an input type that accepts AutoHealTriggersArgs and AutoHealTriggersOutput values.
 // You can construct a concrete instance of `AutoHealTriggersInput` via:
 //
-//          AutoHealTriggersArgs{...}
+//	AutoHealTriggersArgs{...}
 type AutoHealTriggersInput interface {
 	pulumi.Input
 
@@ -1305,11 +1319,11 @@ func (i AutoHealTriggersArgs) ToAutoHealTriggersPtrOutputWithContext(ctx context
 // AutoHealTriggersPtrInput is an input type that accepts AutoHealTriggersArgs, AutoHealTriggersPtr and AutoHealTriggersPtrOutput values.
 // You can construct a concrete instance of `AutoHealTriggersPtrInput` via:
 //
-//          AutoHealTriggersArgs{...}
+//	        AutoHealTriggersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoHealTriggersPtrInput interface {
 	pulumi.Input
 
@@ -1570,7 +1584,7 @@ type AzureBlobStorageApplicationLogsConfig struct {
 // AzureBlobStorageApplicationLogsConfigInput is an input type that accepts AzureBlobStorageApplicationLogsConfigArgs and AzureBlobStorageApplicationLogsConfigOutput values.
 // You can construct a concrete instance of `AzureBlobStorageApplicationLogsConfigInput` via:
 //
-//          AzureBlobStorageApplicationLogsConfigArgs{...}
+//	AzureBlobStorageApplicationLogsConfigArgs{...}
 type AzureBlobStorageApplicationLogsConfigInput interface {
 	pulumi.Input
 
@@ -1613,11 +1627,11 @@ func (i AzureBlobStorageApplicationLogsConfigArgs) ToAzureBlobStorageApplication
 // AzureBlobStorageApplicationLogsConfigPtrInput is an input type that accepts AzureBlobStorageApplicationLogsConfigArgs, AzureBlobStorageApplicationLogsConfigPtr and AzureBlobStorageApplicationLogsConfigPtrOutput values.
 // You can construct a concrete instance of `AzureBlobStorageApplicationLogsConfigPtrInput` via:
 //
-//          AzureBlobStorageApplicationLogsConfigArgs{...}
+//	        AzureBlobStorageApplicationLogsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureBlobStorageApplicationLogsConfigPtrInput interface {
 	pulumi.Input
 
@@ -1674,8 +1688,9 @@ func (o AzureBlobStorageApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
 }
 
 // Retention in days.
-//             Remove blobs older than X days.
-//             0 or lower means no retention.
+//
+//	Remove blobs older than X days.
+//	0 or lower means no retention.
 func (o AzureBlobStorageApplicationLogsConfigOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -1720,8 +1735,9 @@ func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutpu
 }
 
 // Retention in days.
-//             Remove blobs older than X days.
-//             0 or lower means no retention.
+//
+//	Remove blobs older than X days.
+//	0 or lower means no retention.
 func (o AzureBlobStorageApplicationLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *int {
 		if v == nil {
@@ -1774,8 +1790,9 @@ func (o AzureBlobStorageApplicationLogsConfigResponseOutput) Level() pulumi.Stri
 }
 
 // Retention in days.
-//             Remove blobs older than X days.
-//             0 or lower means no retention.
+//
+//	Remove blobs older than X days.
+//	0 or lower means no retention.
 func (o AzureBlobStorageApplicationLogsConfigResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -1820,8 +1837,9 @@ func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) Level() pulumi.S
 }
 
 // Retention in days.
-//             Remove blobs older than X days.
-//             0 or lower means no retention.
+//
+//	Remove blobs older than X days.
+//	0 or lower means no retention.
 func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) *int {
 		if v == nil {
@@ -1856,7 +1874,7 @@ type AzureBlobStorageHttpLogsConfig struct {
 // AzureBlobStorageHttpLogsConfigInput is an input type that accepts AzureBlobStorageHttpLogsConfigArgs and AzureBlobStorageHttpLogsConfigOutput values.
 // You can construct a concrete instance of `AzureBlobStorageHttpLogsConfigInput` via:
 //
-//          AzureBlobStorageHttpLogsConfigArgs{...}
+//	AzureBlobStorageHttpLogsConfigArgs{...}
 type AzureBlobStorageHttpLogsConfigInput interface {
 	pulumi.Input
 
@@ -1899,11 +1917,11 @@ func (i AzureBlobStorageHttpLogsConfigArgs) ToAzureBlobStorageHttpLogsConfigPtrO
 // AzureBlobStorageHttpLogsConfigPtrInput is an input type that accepts AzureBlobStorageHttpLogsConfigArgs, AzureBlobStorageHttpLogsConfigPtr and AzureBlobStorageHttpLogsConfigPtrOutput values.
 // You can construct a concrete instance of `AzureBlobStorageHttpLogsConfigPtrInput` via:
 //
-//          AzureBlobStorageHttpLogsConfigArgs{...}
+//	        AzureBlobStorageHttpLogsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureBlobStorageHttpLogsConfigPtrInput interface {
 	pulumi.Input
 
@@ -1960,8 +1978,9 @@ func (o AzureBlobStorageHttpLogsConfigOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Retention in days.
-//             Remove blobs older than X days.
-//             0 or lower means no retention.
+//
+//	Remove blobs older than X days.
+//	0 or lower means no retention.
 func (o AzureBlobStorageHttpLogsConfigOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -2006,8 +2025,9 @@ func (o AzureBlobStorageHttpLogsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput 
 }
 
 // Retention in days.
-//             Remove blobs older than X days.
-//             0 or lower means no retention.
+//
+//	Remove blobs older than X days.
+//	0 or lower means no retention.
 func (o AzureBlobStorageHttpLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) *int {
 		if v == nil {
@@ -2060,8 +2080,9 @@ func (o AzureBlobStorageHttpLogsConfigResponseOutput) Enabled() pulumi.BoolPtrOu
 }
 
 // Retention in days.
-//             Remove blobs older than X days.
-//             0 or lower means no retention.
+//
+//	Remove blobs older than X days.
+//	0 or lower means no retention.
 func (o AzureBlobStorageHttpLogsConfigResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -2106,8 +2127,9 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) Enabled() pulumi.BoolPt
 }
 
 // Retention in days.
-//             Remove blobs older than X days.
-//             0 or lower means no retention.
+//
+//	Remove blobs older than X days.
+//	0 or lower means no retention.
 func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) *int {
 		if v == nil {
@@ -2138,7 +2160,7 @@ type AzureTableStorageApplicationLogsConfig struct {
 // AzureTableStorageApplicationLogsConfigInput is an input type that accepts AzureTableStorageApplicationLogsConfigArgs and AzureTableStorageApplicationLogsConfigOutput values.
 // You can construct a concrete instance of `AzureTableStorageApplicationLogsConfigInput` via:
 //
-//          AzureTableStorageApplicationLogsConfigArgs{...}
+//	AzureTableStorageApplicationLogsConfigArgs{...}
 type AzureTableStorageApplicationLogsConfigInput interface {
 	pulumi.Input
 
@@ -2177,11 +2199,11 @@ func (i AzureTableStorageApplicationLogsConfigArgs) ToAzureTableStorageApplicati
 // AzureTableStorageApplicationLogsConfigPtrInput is an input type that accepts AzureTableStorageApplicationLogsConfigArgs, AzureTableStorageApplicationLogsConfigPtr and AzureTableStorageApplicationLogsConfigPtrOutput values.
 // You can construct a concrete instance of `AzureTableStorageApplicationLogsConfigPtrInput` via:
 //
-//          AzureTableStorageApplicationLogsConfigArgs{...}
+//	        AzureTableStorageApplicationLogsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureTableStorageApplicationLogsConfigPtrInput interface {
 	pulumi.Input
 
@@ -2382,7 +2404,7 @@ type BackupSchedule struct {
 // BackupScheduleInput is an input type that accepts BackupScheduleArgs and BackupScheduleOutput values.
 // You can construct a concrete instance of `BackupScheduleInput` via:
 //
-//          BackupScheduleArgs{...}
+//	BackupScheduleArgs{...}
 type BackupScheduleInput interface {
 	pulumi.Input
 
@@ -2429,11 +2451,11 @@ func (i BackupScheduleArgs) ToBackupSchedulePtrOutputWithContext(ctx context.Con
 // BackupSchedulePtrInput is an input type that accepts BackupScheduleArgs, BackupSchedulePtr and BackupSchedulePtrOutput values.
 // You can construct a concrete instance of `BackupSchedulePtrInput` via:
 //
-//          BackupScheduleArgs{...}
+//	        BackupScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BackupSchedulePtrInput interface {
 	pulumi.Input
 
@@ -2775,7 +2797,7 @@ type CloningInfo struct {
 // CloningInfoInput is an input type that accepts CloningInfoArgs and CloningInfoOutput values.
 // You can construct a concrete instance of `CloningInfoInput` via:
 //
-//          CloningInfoArgs{...}
+//	CloningInfoArgs{...}
 type CloningInfoInput interface {
 	pulumi.Input
 
@@ -2835,11 +2857,11 @@ func (i CloningInfoArgs) ToCloningInfoPtrOutputWithContext(ctx context.Context) 
 // CloningInfoPtrInput is an input type that accepts CloningInfoArgs, CloningInfoPtr and CloningInfoPtrOutput values.
 // You can construct a concrete instance of `CloningInfoPtrInput` via:
 //
-//          CloningInfoArgs{...}
+//	        CloningInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloningInfoPtrInput interface {
 	pulumi.Input
 
@@ -2891,7 +2913,8 @@ func (o CloningInfoOutput) ToCloningInfoPtrOutputWithContext(ctx context.Context
 }
 
 // Application settings overrides for cloned web app. If specified these settings will override the settings cloned
-//             from source web app. If not specified, application settings from source web app are retained.
+//
+//	from source web app. If not specified, application settings from source web app are retained.
 func (o CloningInfoOutput) AppSettingsOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CloningInfo) map[string]string { return v.AppSettingsOverrides }).(pulumi.StringMapOutput)
 }
@@ -2912,7 +2935,8 @@ func (o CloningInfoOutput) ConfigureLoadBalancing() pulumi.BoolPtrOutput {
 }
 
 // Correlation Id of cloning operation. This id ties multiple cloning operations
-//             together to use the same snapshot
+//
+//	together to use the same snapshot
 func (o CloningInfoOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
@@ -2928,14 +2952,16 @@ func (o CloningInfoOutput) Overwrite() pulumi.BoolPtrOutput {
 }
 
 // ARM resource id of the source web app. Web app resource id is of the form
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
+//
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
 func (o CloningInfoOutput) SourceWebAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *string { return v.SourceWebAppId }).(pulumi.StringPtrOutput)
 }
 
 // ARM resource id of the traffic manager profile to use if it exists. Traffic manager resource id is of the form
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
+//
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
 func (o CloningInfoOutput) TrafficManagerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *string { return v.TrafficManagerProfileId }).(pulumi.StringPtrOutput)
 }
@@ -2970,7 +2996,8 @@ func (o CloningInfoPtrOutput) Elem() CloningInfoOutput {
 }
 
 // Application settings overrides for cloned web app. If specified these settings will override the settings cloned
-//             from source web app. If not specified, application settings from source web app are retained.
+//
+//	from source web app. If not specified, application settings from source web app are retained.
 func (o CloningInfoPtrOutput) AppSettingsOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloningInfo) map[string]string {
 		if v == nil {
@@ -3011,7 +3038,8 @@ func (o CloningInfoPtrOutput) ConfigureLoadBalancing() pulumi.BoolPtrOutput {
 }
 
 // Correlation Id of cloning operation. This id ties multiple cloning operations
-//             together to use the same snapshot
+//
+//	together to use the same snapshot
 func (o CloningInfoPtrOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *string {
 		if v == nil {
@@ -3042,8 +3070,9 @@ func (o CloningInfoPtrOutput) Overwrite() pulumi.BoolPtrOutput {
 }
 
 // ARM resource id of the source web app. Web app resource id is of the form
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
+//
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
 func (o CloningInfoPtrOutput) SourceWebAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *string {
 		if v == nil {
@@ -3054,7 +3083,8 @@ func (o CloningInfoPtrOutput) SourceWebAppId() pulumi.StringPtrOutput {
 }
 
 // ARM resource id of the traffic manager profile to use if it exists. Traffic manager resource id is of the form
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
+//
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
 func (o CloningInfoPtrOutput) TrafficManagerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *string {
 		if v == nil {
@@ -3119,7 +3149,8 @@ func (o CloningInfoResponseOutput) ToCloningInfoResponseOutputWithContext(ctx co
 }
 
 // Application settings overrides for cloned web app. If specified these settings will override the settings cloned
-//             from source web app. If not specified, application settings from source web app are retained.
+//
+//	from source web app. If not specified, application settings from source web app are retained.
 func (o CloningInfoResponseOutput) AppSettingsOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CloningInfoResponse) map[string]string { return v.AppSettingsOverrides }).(pulumi.StringMapOutput)
 }
@@ -3140,7 +3171,8 @@ func (o CloningInfoResponseOutput) ConfigureLoadBalancing() pulumi.BoolPtrOutput
 }
 
 // Correlation Id of cloning operation. This id ties multiple cloning operations
-//             together to use the same snapshot
+//
+//	together to use the same snapshot
 func (o CloningInfoResponseOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
@@ -3156,14 +3188,16 @@ func (o CloningInfoResponseOutput) Overwrite() pulumi.BoolPtrOutput {
 }
 
 // ARM resource id of the source web app. Web app resource id is of the form
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
+//
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
 func (o CloningInfoResponseOutput) SourceWebAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *string { return v.SourceWebAppId }).(pulumi.StringPtrOutput)
 }
 
 // ARM resource id of the traffic manager profile to use if it exists. Traffic manager resource id is of the form
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
+//
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
 func (o CloningInfoResponseOutput) TrafficManagerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *string { return v.TrafficManagerProfileId }).(pulumi.StringPtrOutput)
 }
@@ -3198,7 +3232,8 @@ func (o CloningInfoResponsePtrOutput) Elem() CloningInfoResponseOutput {
 }
 
 // Application settings overrides for cloned web app. If specified these settings will override the settings cloned
-//             from source web app. If not specified, application settings from source web app are retained.
+//
+//	from source web app. If not specified, application settings from source web app are retained.
 func (o CloningInfoResponsePtrOutput) AppSettingsOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloningInfoResponse) map[string]string {
 		if v == nil {
@@ -3239,7 +3274,8 @@ func (o CloningInfoResponsePtrOutput) ConfigureLoadBalancing() pulumi.BoolPtrOut
 }
 
 // Correlation Id of cloning operation. This id ties multiple cloning operations
-//             together to use the same snapshot
+//
+//	together to use the same snapshot
 func (o CloningInfoResponsePtrOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfoResponse) *string {
 		if v == nil {
@@ -3270,8 +3306,9 @@ func (o CloningInfoResponsePtrOutput) Overwrite() pulumi.BoolPtrOutput {
 }
 
 // ARM resource id of the source web app. Web app resource id is of the form
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
+//
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
 func (o CloningInfoResponsePtrOutput) SourceWebAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfoResponse) *string {
 		if v == nil {
@@ -3282,7 +3319,8 @@ func (o CloningInfoResponsePtrOutput) SourceWebAppId() pulumi.StringPtrOutput {
 }
 
 // ARM resource id of the traffic manager profile to use if it exists. Traffic manager resource id is of the form
-//             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
+//
+//	/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
 func (o CloningInfoResponsePtrOutput) TrafficManagerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfoResponse) *string {
 		if v == nil {
@@ -3315,7 +3353,7 @@ type ConnStringInfo struct {
 // ConnStringInfoInput is an input type that accepts ConnStringInfoArgs and ConnStringInfoOutput values.
 // You can construct a concrete instance of `ConnStringInfoInput` via:
 //
-//          ConnStringInfoArgs{...}
+//	ConnStringInfoArgs{...}
 type ConnStringInfoInput interface {
 	pulumi.Input
 
@@ -3348,7 +3386,7 @@ func (i ConnStringInfoArgs) ToConnStringInfoOutputWithContext(ctx context.Contex
 // ConnStringInfoArrayInput is an input type that accepts ConnStringInfoArray and ConnStringInfoArrayOutput values.
 // You can construct a concrete instance of `ConnStringInfoArrayInput` via:
 //
-//          ConnStringInfoArray{ ConnStringInfoArgs{...} }
+//	ConnStringInfoArray{ ConnStringInfoArgs{...} }
 type ConnStringInfoArrayInput interface {
 	pulumi.Input
 
@@ -3491,7 +3529,7 @@ type ConnStringValueTypePair struct {
 // ConnStringValueTypePairInput is an input type that accepts ConnStringValueTypePairArgs and ConnStringValueTypePairOutput values.
 // You can construct a concrete instance of `ConnStringValueTypePairInput` via:
 //
-//          ConnStringValueTypePairArgs{...}
+//	ConnStringValueTypePairArgs{...}
 type ConnStringValueTypePairInput interface {
 	pulumi.Input
 
@@ -3522,7 +3560,7 @@ func (i ConnStringValueTypePairArgs) ToConnStringValueTypePairOutputWithContext(
 // ConnStringValueTypePairMapInput is an input type that accepts ConnStringValueTypePairMap and ConnStringValueTypePairMapOutput values.
 // You can construct a concrete instance of `ConnStringValueTypePairMapInput` via:
 //
-//          ConnStringValueTypePairMap{ "key": ConnStringValueTypePairArgs{...} }
+//	ConnStringValueTypePairMap{ "key": ConnStringValueTypePairArgs{...} }
 type ConnStringValueTypePairMapInput interface {
 	pulumi.Input
 
@@ -3652,7 +3690,7 @@ type CorsSettings struct {
 // CorsSettingsInput is an input type that accepts CorsSettingsArgs and CorsSettingsOutput values.
 // You can construct a concrete instance of `CorsSettingsInput` via:
 //
-//          CorsSettingsArgs{...}
+//	CorsSettingsArgs{...}
 type CorsSettingsInput interface {
 	pulumi.Input
 
@@ -3690,11 +3728,11 @@ func (i CorsSettingsArgs) ToCorsSettingsPtrOutputWithContext(ctx context.Context
 // CorsSettingsPtrInput is an input type that accepts CorsSettingsArgs, CorsSettingsPtr and CorsSettingsPtrOutput values.
 // You can construct a concrete instance of `CorsSettingsPtrInput` via:
 //
-//          CorsSettingsArgs{...}
+//	        CorsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CorsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3746,7 +3784,8 @@ func (o CorsSettingsOutput) ToCorsSettingsPtrOutputWithContext(ctx context.Conte
 }
 
 // Gets or sets the list of origins that should be allowed to make cross-origin
-//             calls (for example: http://example.com:12345). Use "*" to allow all.
+//
+//	calls (for example: http://example.com:12345). Use "*" to allow all.
 func (o CorsSettingsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsSettings) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
@@ -3776,7 +3815,8 @@ func (o CorsSettingsPtrOutput) Elem() CorsSettingsOutput {
 }
 
 // Gets or sets the list of origins that should be allowed to make cross-origin
-//             calls (for example: http://example.com:12345). Use "*" to allow all.
+//
+//	calls (for example: http://example.com:12345). Use "*" to allow all.
 func (o CorsSettingsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CorsSettings) []string {
 		if v == nil {
@@ -3809,7 +3849,8 @@ func (o CorsSettingsResponseOutput) ToCorsSettingsResponseOutputWithContext(ctx 
 }
 
 // Gets or sets the list of origins that should be allowed to make cross-origin
-//             calls (for example: http://example.com:12345). Use "*" to allow all.
+//
+//	calls (for example: http://example.com:12345). Use "*" to allow all.
 func (o CorsSettingsResponseOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsSettingsResponse) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
@@ -3839,7 +3880,8 @@ func (o CorsSettingsResponsePtrOutput) Elem() CorsSettingsResponseOutput {
 }
 
 // Gets or sets the list of origins that should be allowed to make cross-origin
-//             calls (for example: http://example.com:12345). Use "*" to allow all.
+//
+//	calls (for example: http://example.com:12345). Use "*" to allow all.
 func (o CorsSettingsResponsePtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CorsSettingsResponse) []string {
 		if v == nil {
@@ -3850,8 +3892,9 @@ func (o CorsSettingsResponsePtrOutput) AllowedOrigins() pulumi.StringArrayOutput
 }
 
 // Note: properties are serialized in JSON format and stored in DB.
-//             if new properties are added they might not be in the previous data rows
-//             so please handle nulls
+//
+//	if new properties are added they might not be in the previous data rows
+//	so please handle nulls
 type DatabaseBackupSetting struct {
 	// Contains a connection string to a database which is being backed up/restored. If the restore should happen to a new database, the database name inside is the new one.
 	ConnectionString *string `pulumi:"connectionString"`
@@ -3866,7 +3909,7 @@ type DatabaseBackupSetting struct {
 // DatabaseBackupSettingInput is an input type that accepts DatabaseBackupSettingArgs and DatabaseBackupSettingOutput values.
 // You can construct a concrete instance of `DatabaseBackupSettingInput` via:
 //
-//          DatabaseBackupSettingArgs{...}
+//	DatabaseBackupSettingArgs{...}
 type DatabaseBackupSettingInput interface {
 	pulumi.Input
 
@@ -3875,8 +3918,9 @@ type DatabaseBackupSettingInput interface {
 }
 
 // Note: properties are serialized in JSON format and stored in DB.
-//             if new properties are added they might not be in the previous data rows
-//             so please handle nulls
+//
+//	if new properties are added they might not be in the previous data rows
+//	so please handle nulls
 type DatabaseBackupSettingArgs struct {
 	// Contains a connection string to a database which is being backed up/restored. If the restore should happen to a new database, the database name inside is the new one.
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
@@ -3903,7 +3947,7 @@ func (i DatabaseBackupSettingArgs) ToDatabaseBackupSettingOutputWithContext(ctx 
 // DatabaseBackupSettingArrayInput is an input type that accepts DatabaseBackupSettingArray and DatabaseBackupSettingArrayOutput values.
 // You can construct a concrete instance of `DatabaseBackupSettingArrayInput` via:
 //
-//          DatabaseBackupSettingArray{ DatabaseBackupSettingArgs{...} }
+//	DatabaseBackupSettingArray{ DatabaseBackupSettingArgs{...} }
 type DatabaseBackupSettingArrayInput interface {
 	pulumi.Input
 
@@ -3926,8 +3970,9 @@ func (i DatabaseBackupSettingArray) ToDatabaseBackupSettingArrayOutputWithContex
 }
 
 // Note: properties are serialized in JSON format and stored in DB.
-//             if new properties are added they might not be in the previous data rows
-//             so please handle nulls
+//
+//	if new properties are added they might not be in the previous data rows
+//	so please handle nulls
 type DatabaseBackupSettingOutput struct{ *pulumi.OutputState }
 
 func (DatabaseBackupSettingOutput) ElementType() reflect.Type {
@@ -3948,7 +3993,8 @@ func (o DatabaseBackupSettingOutput) ConnectionString() pulumi.StringPtrOutput {
 }
 
 // Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-//             This is used during restore with overwrite connection strings options.
+//
+//	This is used during restore with overwrite connection strings options.
 func (o DatabaseBackupSettingOutput) ConnectionStringName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseBackupSetting) *string { return v.ConnectionStringName }).(pulumi.StringPtrOutput)
 }
@@ -3983,8 +4029,9 @@ func (o DatabaseBackupSettingArrayOutput) Index(i pulumi.IntInput) DatabaseBacku
 }
 
 // Note: properties are serialized in JSON format and stored in DB.
-//             if new properties are added they might not be in the previous data rows
-//             so please handle nulls
+//
+//	if new properties are added they might not be in the previous data rows
+//	so please handle nulls
 type DatabaseBackupSettingResponse struct {
 	// Contains a connection string to a database which is being backed up/restored. If the restore should happen to a new database, the database name inside is the new one.
 	ConnectionString *string `pulumi:"connectionString"`
@@ -3997,8 +4044,9 @@ type DatabaseBackupSettingResponse struct {
 }
 
 // Note: properties are serialized in JSON format and stored in DB.
-//             if new properties are added they might not be in the previous data rows
-//             so please handle nulls
+//
+//	if new properties are added they might not be in the previous data rows
+//	so please handle nulls
 type DatabaseBackupSettingResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseBackupSettingResponseOutput) ElementType() reflect.Type {
@@ -4019,7 +4067,8 @@ func (o DatabaseBackupSettingResponseOutput) ConnectionString() pulumi.StringPtr
 }
 
 // Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-//             This is used during restore with overwrite connection strings options.
+//
+//	This is used during restore with overwrite connection strings options.
 func (o DatabaseBackupSettingResponseOutput) ConnectionStringName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseBackupSettingResponse) *string { return v.ConnectionStringName }).(pulumi.StringPtrOutput)
 }
@@ -4062,7 +4111,7 @@ type EnabledConfig struct {
 // EnabledConfigInput is an input type that accepts EnabledConfigArgs and EnabledConfigOutput values.
 // You can construct a concrete instance of `EnabledConfigInput` via:
 //
-//          EnabledConfigArgs{...}
+//	EnabledConfigArgs{...}
 type EnabledConfigInput interface {
 	pulumi.Input
 
@@ -4099,11 +4148,11 @@ func (i EnabledConfigArgs) ToEnabledConfigPtrOutputWithContext(ctx context.Conte
 // EnabledConfigPtrInput is an input type that accepts EnabledConfigArgs, EnabledConfigPtr and EnabledConfigPtrOutput values.
 // You can construct a concrete instance of `EnabledConfigPtrInput` via:
 //
-//          EnabledConfigArgs{...}
+//	        EnabledConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnabledConfigPtrInput interface {
 	pulumi.Input
 
@@ -4262,7 +4311,7 @@ type Experiments struct {
 // ExperimentsInput is an input type that accepts ExperimentsArgs and ExperimentsOutput values.
 // You can construct a concrete instance of `ExperimentsInput` via:
 //
-//          ExperimentsArgs{...}
+//	ExperimentsArgs{...}
 type ExperimentsInput interface {
 	pulumi.Input
 
@@ -4299,11 +4348,11 @@ func (i ExperimentsArgs) ToExperimentsPtrOutputWithContext(ctx context.Context) 
 // ExperimentsPtrInput is an input type that accepts ExperimentsArgs, ExperimentsPtr and ExperimentsPtrOutput values.
 // You can construct a concrete instance of `ExperimentsPtrInput` via:
 //
-//          ExperimentsArgs{...}
+//	        ExperimentsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExperimentsPtrInput interface {
 	pulumi.Input
 
@@ -4462,7 +4511,7 @@ type FileSystemApplicationLogsConfig struct {
 // FileSystemApplicationLogsConfigInput is an input type that accepts FileSystemApplicationLogsConfigArgs and FileSystemApplicationLogsConfigOutput values.
 // You can construct a concrete instance of `FileSystemApplicationLogsConfigInput` via:
 //
-//          FileSystemApplicationLogsConfigArgs{...}
+//	FileSystemApplicationLogsConfigArgs{...}
 type FileSystemApplicationLogsConfigInput interface {
 	pulumi.Input
 
@@ -4499,11 +4548,11 @@ func (i FileSystemApplicationLogsConfigArgs) ToFileSystemApplicationLogsConfigPt
 // FileSystemApplicationLogsConfigPtrInput is an input type that accepts FileSystemApplicationLogsConfigArgs, FileSystemApplicationLogsConfigPtr and FileSystemApplicationLogsConfigPtrOutput values.
 // You can construct a concrete instance of `FileSystemApplicationLogsConfigPtrInput` via:
 //
-//          FileSystemApplicationLogsConfigArgs{...}
+//	        FileSystemApplicationLogsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemApplicationLogsConfigPtrInput interface {
 	pulumi.Input
 
@@ -4670,7 +4719,7 @@ type FileSystemHttpLogsConfig struct {
 // FileSystemHttpLogsConfigInput is an input type that accepts FileSystemHttpLogsConfigArgs and FileSystemHttpLogsConfigOutput values.
 // You can construct a concrete instance of `FileSystemHttpLogsConfigInput` via:
 //
-//          FileSystemHttpLogsConfigArgs{...}
+//	FileSystemHttpLogsConfigArgs{...}
 type FileSystemHttpLogsConfigInput interface {
 	pulumi.Input
 
@@ -4715,11 +4764,11 @@ func (i FileSystemHttpLogsConfigArgs) ToFileSystemHttpLogsConfigPtrOutputWithCon
 // FileSystemHttpLogsConfigPtrInput is an input type that accepts FileSystemHttpLogsConfigArgs, FileSystemHttpLogsConfigPtr and FileSystemHttpLogsConfigPtrOutput values.
 // You can construct a concrete instance of `FileSystemHttpLogsConfigPtrInput` via:
 //
-//          FileSystemHttpLogsConfigArgs{...}
+//	        FileSystemHttpLogsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemHttpLogsConfigPtrInput interface {
 	pulumi.Input
 
@@ -4776,15 +4825,17 @@ func (o FileSystemHttpLogsConfigOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Retention in days.
-//             Remove files older than X days.
-//             0 or lower means no retention.
+//
+//	Remove files older than X days.
+//	0 or lower means no retention.
 func (o FileSystemHttpLogsConfigOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemHttpLogsConfig) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
 // Maximum size in megabytes that http log files can use.
-//             When reached old log files will be removed to make space for new ones.
-//             Value can range between 25 and 100.
+//
+//	When reached old log files will be removed to make space for new ones.
+//	Value can range between 25 and 100.
 func (o FileSystemHttpLogsConfigOutput) RetentionInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemHttpLogsConfig) *int { return v.RetentionInMb }).(pulumi.IntPtrOutput)
 }
@@ -4824,8 +4875,9 @@ func (o FileSystemHttpLogsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Retention in days.
-//             Remove files older than X days.
-//             0 or lower means no retention.
+//
+//	Remove files older than X days.
+//	0 or lower means no retention.
 func (o FileSystemHttpLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemHttpLogsConfig) *int {
 		if v == nil {
@@ -4836,8 +4888,9 @@ func (o FileSystemHttpLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput
 }
 
 // Maximum size in megabytes that http log files can use.
-//             When reached old log files will be removed to make space for new ones.
-//             Value can range between 25 and 100.
+//
+//	When reached old log files will be removed to make space for new ones.
+//	Value can range between 25 and 100.
 func (o FileSystemHttpLogsConfigPtrOutput) RetentionInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemHttpLogsConfig) *int {
 		if v == nil {
@@ -4882,15 +4935,17 @@ func (o FileSystemHttpLogsConfigResponseOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Retention in days.
-//             Remove files older than X days.
-//             0 or lower means no retention.
+//
+//	Remove files older than X days.
+//	0 or lower means no retention.
 func (o FileSystemHttpLogsConfigResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
 // Maximum size in megabytes that http log files can use.
-//             When reached old log files will be removed to make space for new ones.
-//             Value can range between 25 and 100.
+//
+//	When reached old log files will be removed to make space for new ones.
+//	Value can range between 25 and 100.
 func (o FileSystemHttpLogsConfigResponseOutput) RetentionInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *int { return v.RetentionInMb }).(pulumi.IntPtrOutput)
 }
@@ -4930,8 +4985,9 @@ func (o FileSystemHttpLogsConfigResponsePtrOutput) Enabled() pulumi.BoolPtrOutpu
 }
 
 // Retention in days.
-//             Remove files older than X days.
-//             0 or lower means no retention.
+//
+//	Remove files older than X days.
+//	0 or lower means no retention.
 func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) *int {
 		if v == nil {
@@ -4942,8 +4998,9 @@ func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntP
 }
 
 // Maximum size in megabytes that http log files can use.
-//             When reached old log files will be removed to make space for new ones.
-//             Value can range between 25 and 100.
+//
+//	When reached old log files will be removed to make space for new ones.
+//	Value can range between 25 and 100.
 func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) *int {
 		if v == nil {
@@ -4954,7 +5011,8 @@ func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInMb() pulumi.IntPtr
 }
 
 // The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-//             For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+//
+//	For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMapping struct {
 	// Command-line arguments to be passed to the script processor.
 	Arguments *string `pulumi:"arguments"`
@@ -4967,7 +5025,7 @@ type HandlerMapping struct {
 // HandlerMappingInput is an input type that accepts HandlerMappingArgs and HandlerMappingOutput values.
 // You can construct a concrete instance of `HandlerMappingInput` via:
 //
-//          HandlerMappingArgs{...}
+//	HandlerMappingArgs{...}
 type HandlerMappingInput interface {
 	pulumi.Input
 
@@ -4976,7 +5034,8 @@ type HandlerMappingInput interface {
 }
 
 // The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-//             For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+//
+//	For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMappingArgs struct {
 	// Command-line arguments to be passed to the script processor.
 	Arguments pulumi.StringPtrInput `pulumi:"arguments"`
@@ -5001,7 +5060,7 @@ func (i HandlerMappingArgs) ToHandlerMappingOutputWithContext(ctx context.Contex
 // HandlerMappingArrayInput is an input type that accepts HandlerMappingArray and HandlerMappingArrayOutput values.
 // You can construct a concrete instance of `HandlerMappingArrayInput` via:
 //
-//          HandlerMappingArray{ HandlerMappingArgs{...} }
+//	HandlerMappingArray{ HandlerMappingArgs{...} }
 type HandlerMappingArrayInput interface {
 	pulumi.Input
 
@@ -5024,7 +5083,8 @@ func (i HandlerMappingArray) ToHandlerMappingArrayOutputWithContext(ctx context.
 }
 
 // The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-//             For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+//
+//	For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMappingOutput struct{ *pulumi.OutputState }
 
 func (HandlerMappingOutput) ElementType() reflect.Type {
@@ -5075,7 +5135,8 @@ func (o HandlerMappingArrayOutput) Index(i pulumi.IntInput) HandlerMappingOutput
 }
 
 // The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-//             For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+//
+//	For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMappingResponse struct {
 	// Command-line arguments to be passed to the script processor.
 	Arguments *string `pulumi:"arguments"`
@@ -5086,7 +5147,8 @@ type HandlerMappingResponse struct {
 }
 
 // The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-//             For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+//
+//	For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (HandlerMappingResponseOutput) ElementType() reflect.Type {
@@ -5153,7 +5215,7 @@ type HostNameSslState struct {
 // HostNameSslStateInput is an input type that accepts HostNameSslStateArgs and HostNameSslStateOutput values.
 // You can construct a concrete instance of `HostNameSslStateInput` via:
 //
-//          HostNameSslStateArgs{...}
+//	HostNameSslStateArgs{...}
 type HostNameSslStateInput interface {
 	pulumi.Input
 
@@ -5190,7 +5252,7 @@ func (i HostNameSslStateArgs) ToHostNameSslStateOutputWithContext(ctx context.Co
 // HostNameSslStateArrayInput is an input type that accepts HostNameSslStateArray and HostNameSslStateArrayOutput values.
 // You can construct a concrete instance of `HostNameSslStateArrayInput` via:
 //
-//          HostNameSslStateArray{ HostNameSslStateArgs{...} }
+//	HostNameSslStateArray{ HostNameSslStateArgs{...} }
 type HostNameSslStateArrayInput interface {
 	pulumi.Input
 
@@ -5359,7 +5421,7 @@ type HostingEnvironmentProfile struct {
 // HostingEnvironmentProfileInput is an input type that accepts HostingEnvironmentProfileArgs and HostingEnvironmentProfileOutput values.
 // You can construct a concrete instance of `HostingEnvironmentProfileInput` via:
 //
-//          HostingEnvironmentProfileArgs{...}
+//	HostingEnvironmentProfileArgs{...}
 type HostingEnvironmentProfileInput interface {
 	pulumi.Input
 
@@ -5400,11 +5462,11 @@ func (i HostingEnvironmentProfileArgs) ToHostingEnvironmentProfilePtrOutputWithC
 // HostingEnvironmentProfilePtrInput is an input type that accepts HostingEnvironmentProfileArgs, HostingEnvironmentProfilePtr and HostingEnvironmentProfilePtrOutput values.
 // You can construct a concrete instance of `HostingEnvironmentProfilePtrInput` via:
 //
-//          HostingEnvironmentProfileArgs{...}
+//	        HostingEnvironmentProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HostingEnvironmentProfilePtrInput interface {
 	pulumi.Input
 
@@ -5629,7 +5691,7 @@ type HttpLogsConfig struct {
 // HttpLogsConfigInput is an input type that accepts HttpLogsConfigArgs and HttpLogsConfigOutput values.
 // You can construct a concrete instance of `HttpLogsConfigInput` via:
 //
-//          HttpLogsConfigArgs{...}
+//	HttpLogsConfigArgs{...}
 type HttpLogsConfigInput interface {
 	pulumi.Input
 
@@ -5668,11 +5730,11 @@ func (i HttpLogsConfigArgs) ToHttpLogsConfigPtrOutputWithContext(ctx context.Con
 // HttpLogsConfigPtrInput is an input type that accepts HttpLogsConfigArgs, HttpLogsConfigPtr and HttpLogsConfigPtrOutput values.
 // You can construct a concrete instance of `HttpLogsConfigPtrInput` via:
 //
-//          HttpLogsConfigArgs{...}
+//	        HttpLogsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HttpLogsConfigPtrInput interface {
 	pulumi.Input
 
@@ -5865,7 +5927,7 @@ type IpSecurityRestriction struct {
 // IpSecurityRestrictionInput is an input type that accepts IpSecurityRestrictionArgs and IpSecurityRestrictionOutput values.
 // You can construct a concrete instance of `IpSecurityRestrictionInput` via:
 //
-//          IpSecurityRestrictionArgs{...}
+//	IpSecurityRestrictionArgs{...}
 type IpSecurityRestrictionInput interface {
 	pulumi.Input
 
@@ -5896,7 +5958,7 @@ func (i IpSecurityRestrictionArgs) ToIpSecurityRestrictionOutputWithContext(ctx 
 // IpSecurityRestrictionArrayInput is an input type that accepts IpSecurityRestrictionArray and IpSecurityRestrictionArrayOutput values.
 // You can construct a concrete instance of `IpSecurityRestrictionArrayInput` via:
 //
-//          IpSecurityRestrictionArray{ IpSecurityRestrictionArgs{...} }
+//	IpSecurityRestrictionArray{ IpSecurityRestrictionArgs{...} }
 type IpSecurityRestrictionArrayInput interface {
 	pulumi.Input
 
@@ -6027,7 +6089,7 @@ type NameValuePair struct {
 // NameValuePairInput is an input type that accepts NameValuePairArgs and NameValuePairOutput values.
 // You can construct a concrete instance of `NameValuePairInput` via:
 //
-//          NameValuePairArgs{...}
+//	NameValuePairArgs{...}
 type NameValuePairInput interface {
 	pulumi.Input
 
@@ -6058,7 +6120,7 @@ func (i NameValuePairArgs) ToNameValuePairOutputWithContext(ctx context.Context)
 // NameValuePairArrayInput is an input type that accepts NameValuePairArray and NameValuePairArrayOutput values.
 // You can construct a concrete instance of `NameValuePairArrayInput` via:
 //
-//          NameValuePairArray{ NameValuePairArgs{...} }
+//	NameValuePairArray{ NameValuePairArgs{...} }
 type NameValuePairArrayInput interface {
 	pulumi.Input
 
@@ -6188,7 +6250,7 @@ type NetworkAccessControlEntry struct {
 // NetworkAccessControlEntryInput is an input type that accepts NetworkAccessControlEntryArgs and NetworkAccessControlEntryOutput values.
 // You can construct a concrete instance of `NetworkAccessControlEntryInput` via:
 //
-//          NetworkAccessControlEntryArgs{...}
+//	NetworkAccessControlEntryArgs{...}
 type NetworkAccessControlEntryInput interface {
 	pulumi.Input
 
@@ -6218,7 +6280,7 @@ func (i NetworkAccessControlEntryArgs) ToNetworkAccessControlEntryOutputWithCont
 // NetworkAccessControlEntryArrayInput is an input type that accepts NetworkAccessControlEntryArray and NetworkAccessControlEntryArrayOutput values.
 // You can construct a concrete instance of `NetworkAccessControlEntryArrayInput` via:
 //
-//          NetworkAccessControlEntryArray{ NetworkAccessControlEntryArgs{...} }
+//	NetworkAccessControlEntryArray{ NetworkAccessControlEntryArgs{...} }
 type NetworkAccessControlEntryArrayInput interface {
 	pulumi.Input
 
@@ -6373,7 +6435,7 @@ type RampUpRule struct {
 // RampUpRuleInput is an input type that accepts RampUpRuleArgs and RampUpRuleOutput values.
 // You can construct a concrete instance of `RampUpRuleInput` via:
 //
-//          RampUpRuleArgs{...}
+//	RampUpRuleArgs{...}
 type RampUpRuleInput interface {
 	pulumi.Input
 
@@ -6419,7 +6481,7 @@ func (i RampUpRuleArgs) ToRampUpRuleOutputWithContext(ctx context.Context) RampU
 // RampUpRuleArrayInput is an input type that accepts RampUpRuleArray and RampUpRuleArrayOutput values.
 // You can construct a concrete instance of `RampUpRuleArrayInput` via:
 //
-//          RampUpRuleArray{ RampUpRuleArgs{...} }
+//	RampUpRuleArray{ RampUpRuleArgs{...} }
 type RampUpRuleArrayInput interface {
 	pulumi.Input
 
@@ -6462,7 +6524,8 @@ func (o RampUpRuleOutput) ActionHostName() pulumi.StringPtrOutput {
 }
 
 // Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified. See TiPCallback site extension for the scaffold and contracts.
-//             https://www.siteextensions.net/packages/TiPCallback/
+//
+//	https://www.siteextensions.net/packages/TiPCallback/
 func (o RampUpRuleOutput) ChangeDecisionCallbackUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RampUpRule) *string { return v.ChangeDecisionCallbackUrl }).(pulumi.StringPtrOutput)
 }
@@ -6473,8 +6536,9 @@ func (o RampUpRuleOutput) ChangeIntervalInMinutes() pulumi.IntPtrOutput {
 }
 
 // [Optional] In auto ramp up scenario this is the step to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches
-//             {Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.
-//             Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}
+//
+//	{Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.
+//	Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}
 func (o RampUpRuleOutput) ChangeStep() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RampUpRule) *float64 { return v.ChangeStep }).(pulumi.Float64PtrOutput)
 }
@@ -6563,7 +6627,8 @@ func (o RampUpRuleResponseOutput) ActionHostName() pulumi.StringPtrOutput {
 }
 
 // Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified. See TiPCallback site extension for the scaffold and contracts.
-//             https://www.siteextensions.net/packages/TiPCallback/
+//
+//	https://www.siteextensions.net/packages/TiPCallback/
 func (o RampUpRuleResponseOutput) ChangeDecisionCallbackUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RampUpRuleResponse) *string { return v.ChangeDecisionCallbackUrl }).(pulumi.StringPtrOutput)
 }
@@ -6574,8 +6639,9 @@ func (o RampUpRuleResponseOutput) ChangeIntervalInMinutes() pulumi.IntPtrOutput 
 }
 
 // [Optional] In auto ramp up scenario this is the step to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches
-//             {Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.
-//             Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}
+//
+//	{Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.
+//	Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}
 func (o RampUpRuleResponseOutput) ChangeStep() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RampUpRuleResponse) *float64 { return v.ChangeStep }).(pulumi.Float64PtrOutput)
 }
@@ -6631,7 +6697,7 @@ type RequestsBasedTrigger struct {
 // RequestsBasedTriggerInput is an input type that accepts RequestsBasedTriggerArgs and RequestsBasedTriggerOutput values.
 // You can construct a concrete instance of `RequestsBasedTriggerInput` via:
 //
-//          RequestsBasedTriggerArgs{...}
+//	RequestsBasedTriggerArgs{...}
 type RequestsBasedTriggerInput interface {
 	pulumi.Input
 
@@ -6670,11 +6736,11 @@ func (i RequestsBasedTriggerArgs) ToRequestsBasedTriggerPtrOutputWithContext(ctx
 // RequestsBasedTriggerPtrInput is an input type that accepts RequestsBasedTriggerArgs, RequestsBasedTriggerPtr and RequestsBasedTriggerPtrOutput values.
 // You can construct a concrete instance of `RequestsBasedTriggerPtrInput` via:
 //
-//          RequestsBasedTriggerArgs{...}
+//	        RequestsBasedTriggerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RequestsBasedTriggerPtrInput interface {
 	pulumi.Input
 
@@ -6959,7 +7025,7 @@ type SiteConfig struct {
 // SiteConfigInput is an input type that accepts SiteConfigArgs and SiteConfigOutput values.
 // You can construct a concrete instance of `SiteConfigInput` via:
 //
-//          SiteConfigArgs{...}
+//	SiteConfigArgs{...}
 type SiteConfigInput interface {
 	pulumi.Input
 
@@ -7090,11 +7156,11 @@ func (i SiteConfigArgs) ToSiteConfigPtrOutputWithContext(ctx context.Context) Si
 // SiteConfigPtrInput is an input type that accepts SiteConfigArgs, SiteConfigPtr and SiteConfigPtrOutput values.
 // You can construct a concrete instance of `SiteConfigPtrInput` via:
 //
-//          SiteConfigArgs{...}
+//	        SiteConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SiteConfigPtrInput interface {
 	pulumi.Input
 
@@ -8761,7 +8827,7 @@ type SiteLimits struct {
 // SiteLimitsInput is an input type that accepts SiteLimitsArgs and SiteLimitsOutput values.
 // You can construct a concrete instance of `SiteLimitsInput` via:
 //
-//          SiteLimitsArgs{...}
+//	SiteLimitsArgs{...}
 type SiteLimitsInput interface {
 	pulumi.Input
 
@@ -8802,11 +8868,11 @@ func (i SiteLimitsArgs) ToSiteLimitsPtrOutputWithContext(ctx context.Context) Si
 // SiteLimitsPtrInput is an input type that accepts SiteLimitsArgs, SiteLimitsPtr and SiteLimitsPtrOutput values.
 // You can construct a concrete instance of `SiteLimitsPtrInput` via:
 //
-//          SiteLimitsArgs{...}
+//	        SiteLimitsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SiteLimitsPtrInput interface {
 	pulumi.Input
 
@@ -9037,7 +9103,7 @@ type SkuDescription struct {
 // SkuDescriptionInput is an input type that accepts SkuDescriptionArgs and SkuDescriptionOutput values.
 // You can construct a concrete instance of `SkuDescriptionInput` via:
 //
-//          SkuDescriptionArgs{...}
+//	SkuDescriptionArgs{...}
 type SkuDescriptionInput interface {
 	pulumi.Input
 
@@ -9082,11 +9148,11 @@ func (i SkuDescriptionArgs) ToSkuDescriptionPtrOutputWithContext(ctx context.Con
 // SkuDescriptionPtrInput is an input type that accepts SkuDescriptionArgs, SkuDescriptionPtr and SkuDescriptionPtrOutput values.
 // You can construct a concrete instance of `SkuDescriptionPtrInput` via:
 //
-//          SkuDescriptionArgs{...}
+//	        SkuDescriptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuDescriptionPtrInput interface {
 	pulumi.Input
 
@@ -9377,7 +9443,7 @@ type SlowRequestsBasedTrigger struct {
 // SlowRequestsBasedTriggerInput is an input type that accepts SlowRequestsBasedTriggerArgs and SlowRequestsBasedTriggerOutput values.
 // You can construct a concrete instance of `SlowRequestsBasedTriggerInput` via:
 //
-//          SlowRequestsBasedTriggerArgs{...}
+//	SlowRequestsBasedTriggerArgs{...}
 type SlowRequestsBasedTriggerInput interface {
 	pulumi.Input
 
@@ -9418,11 +9484,11 @@ func (i SlowRequestsBasedTriggerArgs) ToSlowRequestsBasedTriggerPtrOutputWithCon
 // SlowRequestsBasedTriggerPtrInput is an input type that accepts SlowRequestsBasedTriggerArgs, SlowRequestsBasedTriggerPtr and SlowRequestsBasedTriggerPtrOutput values.
 // You can construct a concrete instance of `SlowRequestsBasedTriggerPtrInput` via:
 //
-//          SlowRequestsBasedTriggerArgs{...}
+//	        SlowRequestsBasedTriggerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SlowRequestsBasedTriggerPtrInput interface {
 	pulumi.Input
 
@@ -9667,7 +9733,7 @@ type StampCapacity struct {
 // StampCapacityInput is an input type that accepts StampCapacityArgs and StampCapacityOutput values.
 // You can construct a concrete instance of `StampCapacityInput` via:
 //
-//          StampCapacityArgs{...}
+//	StampCapacityArgs{...}
 type StampCapacityInput interface {
 	pulumi.Input
 
@@ -9718,7 +9784,7 @@ func (i StampCapacityArgs) ToStampCapacityOutputWithContext(ctx context.Context)
 // StampCapacityArrayInput is an input type that accepts StampCapacityArray and StampCapacityArrayOutput values.
 // You can construct a concrete instance of `StampCapacityArrayInput` via:
 //
-//          StampCapacityArray{ StampCapacityArgs{...} }
+//	StampCapacityArray{ StampCapacityArgs{...} }
 type StampCapacityArrayInput interface {
 	pulumi.Input
 
@@ -9766,7 +9832,8 @@ func (o StampCapacityOutput) ComputeMode() ComputeModeOptionsPtrOutput {
 }
 
 // If true it includes basic sites
-//             Basic sites are not used for capacity allocation.
+//
+//	Basic sites are not used for capacity allocation.
 func (o StampCapacityOutput) ExcludeFromCapacityAllocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StampCapacity) *bool { return v.ExcludeFromCapacityAllocation }).(pulumi.BoolPtrOutput)
 }
@@ -9802,9 +9869,10 @@ func (o StampCapacityOutput) WorkerSize() WorkerSizeOptionsPtrOutput {
 }
 
 // Size Id of machines:
-//             0 - Small
-//             1 - Medium
-//             2 - Large
+//
+//	0 - Small
+//	1 - Medium
+//	2 - Large
 func (o StampCapacityOutput) WorkerSizeId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StampCapacity) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
 }
@@ -9883,7 +9951,8 @@ func (o StampCapacityResponseOutput) ComputeMode() pulumi.StringPtrOutput {
 }
 
 // If true it includes basic sites
-//             Basic sites are not used for capacity allocation.
+//
+//	Basic sites are not used for capacity allocation.
 func (o StampCapacityResponseOutput) ExcludeFromCapacityAllocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *bool { return v.ExcludeFromCapacityAllocation }).(pulumi.BoolPtrOutput)
 }
@@ -9919,9 +9988,10 @@ func (o StampCapacityResponseOutput) WorkerSize() pulumi.StringPtrOutput {
 }
 
 // Size Id of machines:
-//             0 - Small
-//             1 - Medium
-//             2 - Large
+//
+//	0 - Small
+//	1 - Medium
+//	2 - Large
 func (o StampCapacityResponseOutput) WorkerSizeId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
 }
@@ -9963,7 +10033,7 @@ type StatusCodesBasedTrigger struct {
 // StatusCodesBasedTriggerInput is an input type that accepts StatusCodesBasedTriggerArgs and StatusCodesBasedTriggerOutput values.
 // You can construct a concrete instance of `StatusCodesBasedTriggerInput` via:
 //
-//          StatusCodesBasedTriggerArgs{...}
+//	StatusCodesBasedTriggerArgs{...}
 type StatusCodesBasedTriggerInput interface {
 	pulumi.Input
 
@@ -10000,7 +10070,7 @@ func (i StatusCodesBasedTriggerArgs) ToStatusCodesBasedTriggerOutputWithContext(
 // StatusCodesBasedTriggerArrayInput is an input type that accepts StatusCodesBasedTriggerArray and StatusCodesBasedTriggerArrayOutput values.
 // You can construct a concrete instance of `StatusCodesBasedTriggerArrayInput` via:
 //
-//          StatusCodesBasedTriggerArray{ StatusCodesBasedTriggerArgs{...} }
+//	StatusCodesBasedTriggerArray{ StatusCodesBasedTriggerArgs{...} }
 type StatusCodesBasedTriggerArrayInput interface {
 	pulumi.Input
 
@@ -10166,7 +10236,7 @@ type VirtualApplication struct {
 // VirtualApplicationInput is an input type that accepts VirtualApplicationArgs and VirtualApplicationOutput values.
 // You can construct a concrete instance of `VirtualApplicationInput` via:
 //
-//          VirtualApplicationArgs{...}
+//	VirtualApplicationArgs{...}
 type VirtualApplicationInput interface {
 	pulumi.Input
 
@@ -10196,7 +10266,7 @@ func (i VirtualApplicationArgs) ToVirtualApplicationOutputWithContext(ctx contex
 // VirtualApplicationArrayInput is an input type that accepts VirtualApplicationArray and VirtualApplicationArrayOutput values.
 // You can construct a concrete instance of `VirtualApplicationArrayInput` via:
 //
-//          VirtualApplicationArray{ VirtualApplicationArgs{...} }
+//	VirtualApplicationArray{ VirtualApplicationArgs{...} }
 type VirtualApplicationArrayInput interface {
 	pulumi.Input
 
@@ -10333,7 +10403,7 @@ type VirtualDirectory struct {
 // VirtualDirectoryInput is an input type that accepts VirtualDirectoryArgs and VirtualDirectoryOutput values.
 // You can construct a concrete instance of `VirtualDirectoryInput` via:
 //
-//          VirtualDirectoryArgs{...}
+//	VirtualDirectoryArgs{...}
 type VirtualDirectoryInput interface {
 	pulumi.Input
 
@@ -10361,7 +10431,7 @@ func (i VirtualDirectoryArgs) ToVirtualDirectoryOutputWithContext(ctx context.Co
 // VirtualDirectoryArrayInput is an input type that accepts VirtualDirectoryArray and VirtualDirectoryArrayOutput values.
 // You can construct a concrete instance of `VirtualDirectoryArrayInput` via:
 //
-//          VirtualDirectoryArray{ VirtualDirectoryArgs{...} }
+//	VirtualDirectoryArray{ VirtualDirectoryArgs{...} }
 type VirtualDirectoryArrayInput interface {
 	pulumi.Input
 
@@ -10487,7 +10557,7 @@ type VirtualIPMapping struct {
 // VirtualIPMappingInput is an input type that accepts VirtualIPMappingArgs and VirtualIPMappingOutput values.
 // You can construct a concrete instance of `VirtualIPMappingInput` via:
 //
-//          VirtualIPMappingArgs{...}
+//	VirtualIPMappingArgs{...}
 type VirtualIPMappingInput interface {
 	pulumi.Input
 
@@ -10522,7 +10592,7 @@ func (i VirtualIPMappingArgs) ToVirtualIPMappingOutputWithContext(ctx context.Co
 // VirtualIPMappingArrayInput is an input type that accepts VirtualIPMappingArray and VirtualIPMappingArrayOutput values.
 // You can construct a concrete instance of `VirtualIPMappingArrayInput` via:
 //
-//          VirtualIPMappingArray{ VirtualIPMappingArgs{...} }
+//	VirtualIPMappingArray{ VirtualIPMappingArgs{...} }
 type VirtualIPMappingArrayInput interface {
 	pulumi.Input
 
@@ -10681,7 +10751,7 @@ type VirtualNetworkProfile struct {
 // VirtualNetworkProfileInput is an input type that accepts VirtualNetworkProfileArgs and VirtualNetworkProfileOutput values.
 // You can construct a concrete instance of `VirtualNetworkProfileInput` via:
 //
-//          VirtualNetworkProfileArgs{...}
+//	VirtualNetworkProfileArgs{...}
 type VirtualNetworkProfileInput interface {
 	pulumi.Input
 
@@ -10724,11 +10794,11 @@ func (i VirtualNetworkProfileArgs) ToVirtualNetworkProfilePtrOutputWithContext(c
 // VirtualNetworkProfilePtrInput is an input type that accepts VirtualNetworkProfileArgs, VirtualNetworkProfilePtr and VirtualNetworkProfilePtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkProfilePtrInput` via:
 //
-//          VirtualNetworkProfileArgs{...}
+//	        VirtualNetworkProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualNetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -11005,7 +11075,7 @@ type VnetRoute struct {
 // VnetRouteInput is an input type that accepts VnetRouteArgs and VnetRouteOutput values.
 // You can construct a concrete instance of `VnetRouteInput` via:
 //
-//          VnetRouteArgs{...}
+//	VnetRouteArgs{...}
 type VnetRouteInput interface {
 	pulumi.Input
 
@@ -11056,7 +11126,7 @@ func (i VnetRouteArgs) ToVnetRouteOutputWithContext(ctx context.Context) VnetRou
 // VnetRouteArrayInput is an input type that accepts VnetRouteArray and VnetRouteArrayOutput values.
 // You can construct a concrete instance of `VnetRouteArrayInput` via:
 //
-//          VnetRouteArray{ VnetRouteArgs{...} }
+//	VnetRouteArray{ VnetRouteArgs{...} }
 type VnetRouteArrayInput interface {
 	pulumi.Input
 
@@ -11119,12 +11189,13 @@ func (o VnetRouteOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The type of route this is:
-//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-//             INHERITED - Routes inherited from the real Virtual Network routes
-//             STATIC - Static route set on the web app only
 //
-//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-//             with new INHERITED routes.
+//	DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+//	INHERITED - Routes inherited from the real Virtual Network routes
+//	STATIC - Static route set on the web app only
+//
+//	These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+//	with new INHERITED routes.
 func (o VnetRouteOutput) RouteType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRoute) *string { return v.RouteType }).(pulumi.StringPtrOutput)
 }
@@ -11233,12 +11304,13 @@ func (o VnetRouteResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The type of route this is:
-//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-//             INHERITED - Routes inherited from the real Virtual Network routes
-//             STATIC - Static route set on the web app only
 //
-//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-//             with new INHERITED routes.
+//	DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+//	INHERITED - Routes inherited from the real Virtual Network routes
+//	STATIC - Static route set on the web app only
+//
+//	These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+//	with new INHERITED routes.
 func (o VnetRouteResponseOutput) RouteType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteResponse) *string { return v.RouteType }).(pulumi.StringPtrOutput)
 }
@@ -11309,7 +11381,7 @@ type WorkerPool struct {
 // WorkerPoolInput is an input type that accepts WorkerPoolArgs and WorkerPoolOutput values.
 // You can construct a concrete instance of `WorkerPoolInput` via:
 //
-//          WorkerPoolArgs{...}
+//	WorkerPoolArgs{...}
 type WorkerPoolInput interface {
 	pulumi.Input
 
@@ -11360,7 +11432,7 @@ func (i WorkerPoolArgs) ToWorkerPoolOutputWithContext(ctx context.Context) Worke
 // WorkerPoolArrayInput is an input type that accepts WorkerPoolArray and WorkerPoolArrayOutput values.
 // You can construct a concrete instance of `WorkerPoolArrayInput` via:
 //
-//          WorkerPoolArray{ WorkerPoolArgs{...} }
+//	WorkerPoolArray{ WorkerPoolArgs{...} }
 type WorkerPoolArrayInput interface {
 	pulumi.Input
 

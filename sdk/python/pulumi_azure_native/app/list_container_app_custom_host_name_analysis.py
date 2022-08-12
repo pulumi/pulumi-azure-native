@@ -21,7 +21,7 @@ class ListContainerAppCustomHostNameAnalysisResult:
     """
     Custom domain analysis.
     """
-    def __init__(__self__, a_records=None, alternate_c_name_records=None, alternate_txt_records=None, c_name_records=None, conflicting_container_app_resource_id=None, custom_domain_verification_failure_info=None, custom_domain_verification_test=None, has_conflict_on_managed_environment=None, host_name=None, id=None, is_hostname_already_verified=None, name=None, system_data=None, txt_records=None, type=None):
+    def __init__(__self__, a_records=None, alternate_c_name_records=None, alternate_txt_records=None, c_name_records=None, conflicting_container_app_resource_id=None, custom_domain_verification_failure_info=None, custom_domain_verification_test=None, has_conflict_on_managed_environment=None, host_name=None, is_hostname_already_verified=None, txt_records=None):
         if a_records and not isinstance(a_records, list):
             raise TypeError("Expected argument 'a_records' to be a list")
         pulumi.set(__self__, "a_records", a_records)
@@ -49,24 +49,12 @@ class ListContainerAppCustomHostNameAnalysisResult:
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if is_hostname_already_verified and not isinstance(is_hostname_already_verified, bool):
             raise TypeError("Expected argument 'is_hostname_already_verified' to be a bool")
         pulumi.set(__self__, "is_hostname_already_verified", is_hostname_already_verified)
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        pulumi.set(__self__, "name", name)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if txt_records and not isinstance(txt_records, list):
             raise TypeError("Expected argument 'txt_records' to be a list")
         pulumi.set(__self__, "txt_records", txt_records)
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="aRecords")
@@ -141,14 +129,6 @@ class ListContainerAppCustomHostNameAnalysisResult:
         return pulumi.get(self, "host_name")
 
     @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        """
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="isHostnameAlreadyVerified")
     def is_hostname_already_verified(self) -> bool:
         """
@@ -157,36 +137,12 @@ class ListContainerAppCustomHostNameAnalysisResult:
         return pulumi.get(self, "is_hostname_already_verified")
 
     @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter(name="txtRecords")
     def txt_records(self) -> Optional[Sequence[str]]:
         """
         TXT records visible for this hostname.
         """
         return pulumi.get(self, "txt_records")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        """
-        return pulumi.get(self, "type")
 
 
 class AwaitableListContainerAppCustomHostNameAnalysisResult(ListContainerAppCustomHostNameAnalysisResult):
@@ -204,12 +160,8 @@ class AwaitableListContainerAppCustomHostNameAnalysisResult(ListContainerAppCust
             custom_domain_verification_test=self.custom_domain_verification_test,
             has_conflict_on_managed_environment=self.has_conflict_on_managed_environment,
             host_name=self.host_name,
-            id=self.id,
             is_hostname_already_verified=self.is_hostname_already_verified,
-            name=self.name,
-            system_data=self.system_data,
-            txt_records=self.txt_records,
-            type=self.type)
+            txt_records=self.txt_records)
 
 
 def list_container_app_custom_host_name_analysis(container_app_name: Optional[str] = None,
@@ -245,12 +197,8 @@ def list_container_app_custom_host_name_analysis(container_app_name: Optional[st
         custom_domain_verification_test=__ret__.custom_domain_verification_test,
         has_conflict_on_managed_environment=__ret__.has_conflict_on_managed_environment,
         host_name=__ret__.host_name,
-        id=__ret__.id,
         is_hostname_already_verified=__ret__.is_hostname_already_verified,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        txt_records=__ret__.txt_records,
-        type=__ret__.type)
+        txt_records=__ret__.txt_records)
 
 
 @_utilities.lift_output_func(list_container_app_custom_host_name_analysis)

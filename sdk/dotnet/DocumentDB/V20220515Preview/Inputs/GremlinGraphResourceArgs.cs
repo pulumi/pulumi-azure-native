@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview.Inputs
     public sealed class GremlinGraphResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Analytical TTL.
+        /// </summary>
+        [Input("analyticalStorageTtl")]
+        public Input<double>? AnalyticalStorageTtl { get; set; }
+
+        /// <summary>
         /// The conflict resolution policy for the graph.
         /// </summary>
         [Input("conflictResolutionPolicy")]

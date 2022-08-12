@@ -208,8 +208,8 @@ class PrivateStoreCollection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'private_store_id'")
             __props__.__dict__["private_store_id"] = private_store_id
             __props__.__dict__["subscriptions_list"] = subscriptions_list
-            __props__.__dict__["all_items_approved"] = None
-            __props__.__dict__["all_items_approved_modified_at"] = None
+            __props__.__dict__["approve_all_items"] = None
+            __props__.__dict__["approve_all_items_modified_at"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["number_of_offers"] = None
             __props__.__dict__["system_data"] = None
@@ -238,9 +238,9 @@ class PrivateStoreCollection(pulumi.CustomResource):
 
         __props__ = PrivateStoreCollectionArgs.__new__(PrivateStoreCollectionArgs)
 
-        __props__.__dict__["all_items_approved"] = None
-        __props__.__dict__["all_items_approved_modified_at"] = None
         __props__.__dict__["all_subscriptions"] = None
+        __props__.__dict__["approve_all_items"] = None
+        __props__.__dict__["approve_all_items_modified_at"] = None
         __props__.__dict__["claim"] = None
         __props__.__dict__["collection_id"] = None
         __props__.__dict__["collection_name"] = None
@@ -253,28 +253,28 @@ class PrivateStoreCollection(pulumi.CustomResource):
         return PrivateStoreCollection(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="allItemsApproved")
-    def all_items_approved(self) -> pulumi.Output[bool]:
-        """
-        Indicating whether all items are approved for this collection (=true) or not (=false).
-        """
-        return pulumi.get(self, "all_items_approved")
-
-    @property
-    @pulumi.getter(name="allItemsApprovedModifiedAt")
-    def all_items_approved_modified_at(self) -> pulumi.Output[str]:
-        """
-        Gets the modified date of all items approved.
-        """
-        return pulumi.get(self, "all_items_approved_modified_at")
-
-    @property
     @pulumi.getter(name="allSubscriptions")
     def all_subscriptions(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicating whether all subscriptions are selected (=true) or not (=false).
         """
         return pulumi.get(self, "all_subscriptions")
+
+    @property
+    @pulumi.getter(name="approveAllItems")
+    def approve_all_items(self) -> pulumi.Output[bool]:
+        """
+        Indicating whether all items are approved for this collection (=true) or not (=false).
+        """
+        return pulumi.get(self, "approve_all_items")
+
+    @property
+    @pulumi.getter(name="approveAllItemsModifiedAt")
+    def approve_all_items_modified_at(self) -> pulumi.Output[str]:
+        """
+        Gets the modified date of all items approved.
+        """
+        return pulumi.get(self, "approve_all_items_modified_at")
 
     @property
     @pulumi.getter

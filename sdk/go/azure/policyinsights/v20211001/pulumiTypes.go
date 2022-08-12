@@ -221,7 +221,7 @@ type RemediationFilters struct {
 // RemediationFiltersInput is an input type that accepts RemediationFiltersArgs and RemediationFiltersOutput values.
 // You can construct a concrete instance of `RemediationFiltersInput` via:
 //
-//          RemediationFiltersArgs{...}
+//	RemediationFiltersArgs{...}
 type RemediationFiltersInput interface {
 	pulumi.Input
 
@@ -258,11 +258,11 @@ func (i RemediationFiltersArgs) ToRemediationFiltersPtrOutputWithContext(ctx con
 // RemediationFiltersPtrInput is an input type that accepts RemediationFiltersArgs, RemediationFiltersPtr and RemediationFiltersPtrOutput values.
 // You can construct a concrete instance of `RemediationFiltersPtrInput` via:
 //
-//          RemediationFiltersArgs{...}
+//	        RemediationFiltersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemediationFiltersPtrInput interface {
 	pulumi.Input
 
@@ -421,7 +421,7 @@ type RemediationPropertiesFailureThreshold struct {
 // RemediationPropertiesFailureThresholdInput is an input type that accepts RemediationPropertiesFailureThresholdArgs and RemediationPropertiesFailureThresholdOutput values.
 // You can construct a concrete instance of `RemediationPropertiesFailureThresholdInput` via:
 //
-//          RemediationPropertiesFailureThresholdArgs{...}
+//	RemediationPropertiesFailureThresholdArgs{...}
 type RemediationPropertiesFailureThresholdInput interface {
 	pulumi.Input
 
@@ -458,11 +458,11 @@ func (i RemediationPropertiesFailureThresholdArgs) ToRemediationPropertiesFailur
 // RemediationPropertiesFailureThresholdPtrInput is an input type that accepts RemediationPropertiesFailureThresholdArgs, RemediationPropertiesFailureThresholdPtr and RemediationPropertiesFailureThresholdPtrOutput values.
 // You can construct a concrete instance of `RemediationPropertiesFailureThresholdPtrInput` via:
 //
-//          RemediationPropertiesFailureThresholdArgs{...}
+//	        RemediationPropertiesFailureThresholdArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemediationPropertiesFailureThresholdPtrInput interface {
 	pulumi.Input
 

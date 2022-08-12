@@ -21,7 +21,7 @@ type ClusterSku struct {
 // ClusterSkuInput is an input type that accepts ClusterSkuArgs and ClusterSkuOutput values.
 // You can construct a concrete instance of `ClusterSkuInput` via:
 //
-//          ClusterSkuArgs{...}
+//	ClusterSkuArgs{...}
 type ClusterSkuInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ClusterSkuArgs) ToClusterSkuPtrOutputWithContext(ctx context.Context) Cl
 // ClusterSkuPtrInput is an input type that accepts ClusterSkuArgs, ClusterSkuPtr and ClusterSkuPtrOutput values.
 // You can construct a concrete instance of `ClusterSkuPtrInput` via:
 //
-//          ClusterSkuArgs{...}
+//	        ClusterSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterSkuPtrInput interface {
 	pulumi.Input
 
@@ -255,7 +255,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -292,11 +292,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -493,7 +493,7 @@ type KeyVaultProperties struct {
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesInput` via:
 //
-//          KeyVaultPropertiesArgs{...}
+//	KeyVaultPropertiesArgs{...}
 type KeyVaultPropertiesInput interface {
 	pulumi.Input
 
@@ -534,11 +534,11 @@ func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx con
 // KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
 //
-//          KeyVaultPropertiesArgs{...}
+//	        KeyVaultPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KeyVaultPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -816,7 +816,7 @@ type StorageAccount struct {
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
 // You can construct a concrete instance of `StorageAccountInput` via:
 //
-//          StorageAccountArgs{...}
+//	StorageAccountArgs{...}
 type StorageAccountInput interface {
 	pulumi.Input
 
@@ -946,7 +946,7 @@ type Tag struct {
 // TagInput is an input type that accepts TagArgs and TagOutput values.
 // You can construct a concrete instance of `TagInput` via:
 //
-//          TagArgs{...}
+//	TagArgs{...}
 type TagInput interface {
 	pulumi.Input
 
@@ -977,7 +977,7 @@ func (i TagArgs) ToTagOutputWithContext(ctx context.Context) TagOutput {
 // TagArrayInput is an input type that accepts TagArray and TagArrayOutput values.
 // You can construct a concrete instance of `TagArrayInput` via:
 //
-//          TagArray{ TagArgs{...} }
+//	TagArray{ TagArgs{...} }
 type TagArrayInput interface {
 	pulumi.Input
 
@@ -1106,7 +1106,7 @@ type WorkspaceCapping struct {
 // WorkspaceCappingInput is an input type that accepts WorkspaceCappingArgs and WorkspaceCappingOutput values.
 // You can construct a concrete instance of `WorkspaceCappingInput` via:
 //
-//          WorkspaceCappingArgs{...}
+//	WorkspaceCappingArgs{...}
 type WorkspaceCappingInput interface {
 	pulumi.Input
 
@@ -1143,11 +1143,11 @@ func (i WorkspaceCappingArgs) ToWorkspaceCappingPtrOutputWithContext(ctx context
 // WorkspaceCappingPtrInput is an input type that accepts WorkspaceCappingArgs, WorkspaceCappingPtr and WorkspaceCappingPtrOutput values.
 // You can construct a concrete instance of `WorkspaceCappingPtrInput` via:
 //
-//          WorkspaceCappingArgs{...}
+//	        WorkspaceCappingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceCappingPtrInput interface {
 	pulumi.Input
 
@@ -1342,7 +1342,7 @@ type WorkspaceSku struct {
 // WorkspaceSkuInput is an input type that accepts WorkspaceSkuArgs and WorkspaceSkuOutput values.
 // You can construct a concrete instance of `WorkspaceSkuInput` via:
 //
-//          WorkspaceSkuArgs{...}
+//	WorkspaceSkuArgs{...}
 type WorkspaceSkuInput interface {
 	pulumi.Input
 
@@ -1381,11 +1381,11 @@ func (i WorkspaceSkuArgs) ToWorkspaceSkuPtrOutputWithContext(ctx context.Context
 // WorkspaceSkuPtrInput is an input type that accepts WorkspaceSkuArgs, WorkspaceSkuPtr and WorkspaceSkuPtrOutput values.
 // You can construct a concrete instance of `WorkspaceSkuPtrInput` via:
 //
-//          WorkspaceSkuArgs{...}
+//	        WorkspaceSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceSkuPtrInput interface {
 	pulumi.Input
 

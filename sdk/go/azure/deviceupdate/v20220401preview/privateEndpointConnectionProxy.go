@@ -51,6 +51,9 @@ func NewPrivateEndpointConnectionProxy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy"),
 		},
+		{
+			Type: pulumi.String("azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnectionProxy

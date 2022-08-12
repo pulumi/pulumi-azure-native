@@ -316,7 +316,7 @@ class ElasticPool(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20171001preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ElasticPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20171001preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ElasticPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ElasticPool, __self__).__init__(
             'azure-native:sql:ElasticPool',

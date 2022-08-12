@@ -36,17 +36,17 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
     }
 
     /**
-     * Indicating whether all items are approved for this collection (=true) or not (=false).
-     */
-    public /*out*/ readonly allItemsApproved!: pulumi.Output<boolean>;
-    /**
-     * Gets the modified date of all items approved.
-     */
-    public /*out*/ readonly allItemsApprovedModifiedAt!: pulumi.Output<string>;
-    /**
      * Indicating whether all subscriptions are selected (=true) or not (=false).
      */
     public readonly allSubscriptions!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicating whether all items are approved for this collection (=true) or not (=false).
+     */
+    public /*out*/ readonly approveAllItems!: pulumi.Output<boolean>;
+    /**
+     * Gets the modified date of all items approved.
+     */
+    public /*out*/ readonly approveAllItemsModifiedAt!: pulumi.Output<string>;
     /**
      * Gets or sets the association with Commercial's Billing Account.
      */
@@ -105,16 +105,16 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["privateStoreId"] = args ? args.privateStoreId : undefined;
             resourceInputs["subscriptionsList"] = args ? args.subscriptionsList : undefined;
-            resourceInputs["allItemsApproved"] = undefined /*out*/;
-            resourceInputs["allItemsApprovedModifiedAt"] = undefined /*out*/;
+            resourceInputs["approveAllItems"] = undefined /*out*/;
+            resourceInputs["approveAllItemsModifiedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["numberOfOffers"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["allItemsApproved"] = undefined /*out*/;
-            resourceInputs["allItemsApprovedModifiedAt"] = undefined /*out*/;
             resourceInputs["allSubscriptions"] = undefined /*out*/;
+            resourceInputs["approveAllItems"] = undefined /*out*/;
+            resourceInputs["approveAllItemsModifiedAt"] = undefined /*out*/;
             resourceInputs["claim"] = undefined /*out*/;
             resourceInputs["collectionId"] = undefined /*out*/;
             resourceInputs["collectionName"] = undefined /*out*/;

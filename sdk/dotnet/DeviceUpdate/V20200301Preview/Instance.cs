@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:deviceupdate:Instance"},
                     new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Instance"},
+                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:Instance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

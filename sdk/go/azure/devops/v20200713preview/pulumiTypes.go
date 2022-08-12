@@ -21,7 +21,7 @@ type Authorization struct {
 // AuthorizationInput is an input type that accepts AuthorizationArgs and AuthorizationOutput values.
 // You can construct a concrete instance of `AuthorizationInput` via:
 //
-//          AuthorizationArgs{...}
+//	AuthorizationArgs{...}
 type AuthorizationInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i AuthorizationArgs) ToAuthorizationPtrOutputWithContext(ctx context.Conte
 // AuthorizationPtrInput is an input type that accepts AuthorizationArgs, AuthorizationPtr and AuthorizationPtrOutput values.
 // You can construct a concrete instance of `AuthorizationPtrInput` via:
 //
-//          AuthorizationArgs{...}
+//	        AuthorizationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AuthorizationPtrInput interface {
 	pulumi.Input
 
@@ -257,7 +257,7 @@ type BootstrapConfiguration struct {
 // BootstrapConfigurationInput is an input type that accepts BootstrapConfigurationArgs and BootstrapConfigurationOutput values.
 // You can construct a concrete instance of `BootstrapConfigurationInput` via:
 //
-//          BootstrapConfigurationArgs{...}
+//	BootstrapConfigurationArgs{...}
 type BootstrapConfigurationInput interface {
 	pulumi.Input
 
@@ -360,7 +360,7 @@ type CodeRepository struct {
 // CodeRepositoryInput is an input type that accepts CodeRepositoryArgs and CodeRepositoryOutput values.
 // You can construct a concrete instance of `CodeRepositoryInput` via:
 //
-//          CodeRepositoryArgs{...}
+//	CodeRepositoryArgs{...}
 type CodeRepositoryInput interface {
 	pulumi.Input
 
@@ -405,11 +405,11 @@ func (i CodeRepositoryArgs) ToCodeRepositoryPtrOutputWithContext(ctx context.Con
 // CodeRepositoryPtrInput is an input type that accepts CodeRepositoryArgs, CodeRepositoryPtr and CodeRepositoryPtrOutput values.
 // You can construct a concrete instance of `CodeRepositoryPtrInput` via:
 //
-//          CodeRepositoryArgs{...}
+//	        CodeRepositoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CodeRepositoryPtrInput interface {
 	pulumi.Input
 
@@ -698,7 +698,7 @@ type PipelineTemplate struct {
 // PipelineTemplateInput is an input type that accepts PipelineTemplateArgs and PipelineTemplateOutput values.
 // You can construct a concrete instance of `PipelineTemplateInput` via:
 //
-//          PipelineTemplateArgs{...}
+//	PipelineTemplateArgs{...}
 type PipelineTemplateInput interface {
 	pulumi.Input
 

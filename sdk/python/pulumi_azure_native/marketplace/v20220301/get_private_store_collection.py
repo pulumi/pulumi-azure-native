@@ -21,16 +21,16 @@ class GetPrivateStoreCollectionResult:
     """
     The Collection data structure.
     """
-    def __init__(__self__, all_items_approved=None, all_items_approved_modified_at=None, all_subscriptions=None, claim=None, collection_id=None, collection_name=None, enabled=None, id=None, name=None, number_of_offers=None, subscriptions_list=None, system_data=None, type=None):
-        if all_items_approved and not isinstance(all_items_approved, bool):
-            raise TypeError("Expected argument 'all_items_approved' to be a bool")
-        pulumi.set(__self__, "all_items_approved", all_items_approved)
-        if all_items_approved_modified_at and not isinstance(all_items_approved_modified_at, str):
-            raise TypeError("Expected argument 'all_items_approved_modified_at' to be a str")
-        pulumi.set(__self__, "all_items_approved_modified_at", all_items_approved_modified_at)
+    def __init__(__self__, all_subscriptions=None, approve_all_items=None, approve_all_items_modified_at=None, claim=None, collection_id=None, collection_name=None, enabled=None, id=None, name=None, number_of_offers=None, subscriptions_list=None, system_data=None, type=None):
         if all_subscriptions and not isinstance(all_subscriptions, bool):
             raise TypeError("Expected argument 'all_subscriptions' to be a bool")
         pulumi.set(__self__, "all_subscriptions", all_subscriptions)
+        if approve_all_items and not isinstance(approve_all_items, bool):
+            raise TypeError("Expected argument 'approve_all_items' to be a bool")
+        pulumi.set(__self__, "approve_all_items", approve_all_items)
+        if approve_all_items_modified_at and not isinstance(approve_all_items_modified_at, str):
+            raise TypeError("Expected argument 'approve_all_items_modified_at' to be a str")
+        pulumi.set(__self__, "approve_all_items_modified_at", approve_all_items_modified_at)
         if claim and not isinstance(claim, str):
             raise TypeError("Expected argument 'claim' to be a str")
         pulumi.set(__self__, "claim", claim)
@@ -63,28 +63,28 @@ class GetPrivateStoreCollectionResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="allItemsApproved")
-    def all_items_approved(self) -> bool:
-        """
-        Indicating whether all items are approved for this collection (=true) or not (=false).
-        """
-        return pulumi.get(self, "all_items_approved")
-
-    @property
-    @pulumi.getter(name="allItemsApprovedModifiedAt")
-    def all_items_approved_modified_at(self) -> str:
-        """
-        Gets the modified date of all items approved.
-        """
-        return pulumi.get(self, "all_items_approved_modified_at")
-
-    @property
     @pulumi.getter(name="allSubscriptions")
     def all_subscriptions(self) -> Optional[bool]:
         """
         Indicating whether all subscriptions are selected (=true) or not (=false).
         """
         return pulumi.get(self, "all_subscriptions")
+
+    @property
+    @pulumi.getter(name="approveAllItems")
+    def approve_all_items(self) -> bool:
+        """
+        Indicating whether all items are approved for this collection (=true) or not (=false).
+        """
+        return pulumi.get(self, "approve_all_items")
+
+    @property
+    @pulumi.getter(name="approveAllItemsModifiedAt")
+    def approve_all_items_modified_at(self) -> str:
+        """
+        Gets the modified date of all items approved.
+        """
+        return pulumi.get(self, "approve_all_items_modified_at")
 
     @property
     @pulumi.getter
@@ -173,9 +173,9 @@ class AwaitableGetPrivateStoreCollectionResult(GetPrivateStoreCollectionResult):
         if False:
             yield self
         return GetPrivateStoreCollectionResult(
-            all_items_approved=self.all_items_approved,
-            all_items_approved_modified_at=self.all_items_approved_modified_at,
             all_subscriptions=self.all_subscriptions,
+            approve_all_items=self.approve_all_items,
+            approve_all_items_modified_at=self.approve_all_items_modified_at,
             claim=self.claim,
             collection_id=self.collection_id,
             collection_name=self.collection_name,
@@ -208,9 +208,9 @@ def get_private_store_collection(collection_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:marketplace/v20220301:getPrivateStoreCollection', __args__, opts=opts, typ=GetPrivateStoreCollectionResult).value
 
     return AwaitableGetPrivateStoreCollectionResult(
-        all_items_approved=__ret__.all_items_approved,
-        all_items_approved_modified_at=__ret__.all_items_approved_modified_at,
         all_subscriptions=__ret__.all_subscriptions,
+        approve_all_items=__ret__.approve_all_items,
+        approve_all_items_modified_at=__ret__.approve_all_items_modified_at,
         claim=__ret__.claim,
         collection_id=__ret__.collection_id,
         collection_name=__ret__.collection_name,

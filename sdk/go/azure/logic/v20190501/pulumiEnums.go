@@ -142,7 +142,7 @@ func (o AgreementTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // AgreementTypeInput is an input type that accepts AgreementTypeArgs and AgreementTypeOutput values.
 // You can construct a concrete instance of `AgreementTypeInput` via:
 //
-//          AgreementTypeArgs{...}
+//	AgreementTypeArgs{...}
 type AgreementTypeInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ func (o DayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // DayOfWeekInput is an input type that accepts DayOfWeekArgs and DayOfWeekOutput values.
 // You can construct a concrete instance of `DayOfWeekInput` via:
 //
-//          DayOfWeekArgs{...}
+//	DayOfWeekArgs{...}
 type DayOfWeekInput interface {
 	pulumi.Input
 
@@ -481,7 +481,7 @@ func (o DaysOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // DaysOfWeekInput is an input type that accepts DaysOfWeekArgs and DaysOfWeekOutput values.
 // You can construct a concrete instance of `DaysOfWeekInput` via:
 //
-//          DaysOfWeekArgs{...}
+//	DaysOfWeekArgs{...}
 type DaysOfWeekInput interface {
 	pulumi.Input
 
@@ -519,7 +519,7 @@ func (in *daysOfWeekPtr) ToDaysOfWeekPtrOutputWithContext(ctx context.Context) D
 // DaysOfWeekArrayInput is an input type that accepts DaysOfWeekArray and DaysOfWeekArrayOutput values.
 // You can construct a concrete instance of `DaysOfWeekArrayInput` via:
 //
-//          DaysOfWeekArray{ DaysOfWeekArgs{...} }
+//	DaysOfWeekArray{ DaysOfWeekArgs{...} }
 type DaysOfWeekArrayInput interface {
 	pulumi.Input
 
@@ -713,7 +713,7 @@ func (o EdifactDecimalIndicatorPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // EdifactDecimalIndicatorInput is an input type that accepts EdifactDecimalIndicatorArgs and EdifactDecimalIndicatorOutput values.
 // You can construct a concrete instance of `EdifactDecimalIndicatorInput` via:
 //
-//          EdifactDecimalIndicatorArgs{...}
+//	EdifactDecimalIndicatorArgs{...}
 type EdifactDecimalIndicatorInput interface {
 	pulumi.Input
 
@@ -1025,7 +1025,7 @@ func (o SegmentTerminatorSuffixPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // SegmentTerminatorSuffixInput is an input type that accepts SegmentTerminatorSuffixArgs and SegmentTerminatorSuffixOutput values.
 // You can construct a concrete instance of `SegmentTerminatorSuffixInput` via:
 //
-//          SegmentTerminatorSuffixArgs{...}
+//	SegmentTerminatorSuffixArgs{...}
 type SegmentTerminatorSuffixInput interface {
 	pulumi.Input
 

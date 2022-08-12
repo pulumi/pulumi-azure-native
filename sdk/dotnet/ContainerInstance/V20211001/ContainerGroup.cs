@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001
         /// The instance view of the container group. Only valid in response.
         /// </summary>
         [Output("instanceView")]
-        public Output<Outputs.ContainerGroupResponseInstanceView> InstanceView { get; private set; } = null!;
+        public Output<Outputs.ContainerGroupPropertiesResponseInstanceView> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// The IP address type of the container group.

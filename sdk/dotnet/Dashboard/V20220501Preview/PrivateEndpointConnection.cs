@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.Dashboard.V20220501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:dashboard:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:dashboard/v20220801:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -24,6 +24,13 @@ const (
 	AzureSearchIndexWriteBehaviorTypeUpload = AzureSearchIndexWriteBehaviorType("Upload")
 )
 
+// Big data pool reference type.
+type BigDataPoolReferenceType string
+
+const (
+	BigDataPoolReferenceTypeBigDataPoolReference = BigDataPoolReferenceType("BigDataPoolReference")
+)
+
 type BlobEventTypes string
 
 const (
@@ -301,6 +308,23 @@ const (
 	MongoDbAuthenticationTypeAnonymous = MongoDbAuthenticationType("Anonymous")
 )
 
+// Notebook parameter type.
+type NotebookParameterType string
+
+const (
+	NotebookParameterTypeString = NotebookParameterType("string")
+	NotebookParameterTypeInt    = NotebookParameterType("int")
+	NotebookParameterTypeFloat  = NotebookParameterType("float")
+	NotebookParameterTypeBool   = NotebookParameterType("bool")
+)
+
+// Synapse notebook reference type.
+type NotebookReferenceType string
+
+const (
+	NotebookReferenceTypeNotebookReference = NotebookReferenceType("NotebookReference")
+)
+
 // Specify the credential type (key or cert) is used for service principal.
 type ODataAadServicePrincipalCredentialType string
 
@@ -490,6 +514,13 @@ const (
 	SparkAuthenticationTypeUsername                     = SparkAuthenticationType("Username")
 	SparkAuthenticationTypeUsernameAndPassword          = SparkAuthenticationType("UsernameAndPassword")
 	SparkAuthenticationTypeWindowsAzureHDInsightService = SparkAuthenticationType("WindowsAzureHDInsightService")
+)
+
+// Synapse spark job reference type.
+type SparkJobReferenceType string
+
+const (
+	SparkJobReferenceTypeSparkJobDefinitionReference = SparkJobReferenceType("SparkJobDefinitionReference")
 )
 
 // The type of Spark server.

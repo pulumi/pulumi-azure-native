@@ -116,29 +116,13 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if hostname is already verified; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         public readonly bool IsHostnameAlreadyVerified;
         /// <summary>
-        /// The name of the resource
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// TXT records visible for this hostname.
         /// </summary>
         public readonly ImmutableArray<string> TxtRecords;
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private ListContainerAppCustomHostNameAnalysisResult(
@@ -160,17 +144,9 @@ namespace Pulumi.AzureNative.App.V20220101Preview
 
             string hostName,
 
-            string id,
-
             bool isHostnameAlreadyVerified,
 
-            string name,
-
-            Outputs.SystemDataResponse systemData,
-
-            ImmutableArray<string> txtRecords,
-
-            string type)
+            ImmutableArray<string> txtRecords)
         {
             ARecords = aRecords;
             AlternateCNameRecords = alternateCNameRecords;
@@ -181,12 +157,8 @@ namespace Pulumi.AzureNative.App.V20220101Preview
             CustomDomainVerificationTest = customDomainVerificationTest;
             HasConflictOnManagedEnvironment = hasConflictOnManagedEnvironment;
             HostName = hostName;
-            Id = id;
             IsHostnameAlreadyVerified = isHostnameAlreadyVerified;
-            Name = name;
-            SystemData = systemData;
             TxtRecords = txtRecords;
-            Type = type;
         }
     }
 }

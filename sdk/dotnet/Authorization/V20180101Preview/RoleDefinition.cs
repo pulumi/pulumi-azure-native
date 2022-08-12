@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Authorization.V20180101Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:authorization:RoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20220401:RoleDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

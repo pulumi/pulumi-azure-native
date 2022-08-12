@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.Network.V20200501
                     new Pulumi.Alias { Type = "azure-native:network:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200101:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210601:RulesEngine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

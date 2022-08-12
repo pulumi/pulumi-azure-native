@@ -21,7 +21,7 @@ type AppServiceCertificate struct {
 // AppServiceCertificateInput is an input type that accepts AppServiceCertificateArgs and AppServiceCertificateOutput values.
 // You can construct a concrete instance of `AppServiceCertificateInput` via:
 //
-//          AppServiceCertificateArgs{...}
+//	AppServiceCertificateArgs{...}
 type AppServiceCertificateInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i AppServiceCertificateArgs) ToAppServiceCertificateOutputWithContext(ctx 
 // AppServiceCertificateMapInput is an input type that accepts AppServiceCertificateMap and AppServiceCertificateMapOutput values.
 // You can construct a concrete instance of `AppServiceCertificateMapInput` via:
 //
-//          AppServiceCertificateMap{ "key": AppServiceCertificateArgs{...} }
+//	AppServiceCertificateMap{ "key": AppServiceCertificateArgs{...} }
 type AppServiceCertificateMapInput interface {
 	pulumi.Input
 

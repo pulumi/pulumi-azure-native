@@ -54,6 +54,9 @@ func NewTarget(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:chaos/v20210915preview:Target"),
 		},
+		{
+			Type: pulumi.String("azure-native:chaos/v20220701preview:Target"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Target

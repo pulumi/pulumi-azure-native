@@ -30,7 +30,7 @@ type EventHandler struct {
 // EventHandlerInput is an input type that accepts EventHandlerArgs and EventHandlerOutput values.
 // You can construct a concrete instance of `EventHandlerInput` via:
 //
-//          EventHandlerArgs{...}
+//	EventHandlerArgs{...}
 type EventHandlerInput interface {
 	pulumi.Input
 
@@ -70,7 +70,7 @@ func (i EventHandlerArgs) ToEventHandlerOutputWithContext(ctx context.Context) E
 // EventHandlerArrayInput is an input type that accepts EventHandlerArray and EventHandlerArrayOutput values.
 // You can construct a concrete instance of `EventHandlerArrayInput` via:
 //
-//          EventHandlerArray{ EventHandlerArgs{...} }
+//	EventHandlerArray{ EventHandlerArgs{...} }
 type EventHandlerArrayInput interface {
 	pulumi.Input
 
@@ -125,9 +125,9 @@ func (o EventHandlerOutput) UrlTemplate() pulumi.StringOutput {
 
 // Gets or sets the matching pattern for event names.
 // There are 3 kind of patterns supported:
-//     1. "*", it to matches any event name
-//     2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-//     3. The single event name, for example, "event1", it matches "event1"
+//  1. "*", it to matches any event name
+//  2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
+//  3. The single event name, for example, "event1", it matches "event1"
 func (o EventHandlerOutput) UserEventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHandler) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
 }
@@ -202,9 +202,9 @@ func (o EventHandlerResponseOutput) UrlTemplate() pulumi.StringOutput {
 
 // Gets or sets the matching pattern for event names.
 // There are 3 kind of patterns supported:
-//     1. "*", it to matches any event name
-//     2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-//     3. The single event name, for example, "event1", it matches "event1"
+//  1. "*", it to matches any event name
+//  2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
+//  3. The single event name, for example, "event1", it matches "event1"
 func (o EventHandlerResponseOutput) UserEventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHandlerResponse) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
 }
@@ -238,7 +238,7 @@ type EventHandlerSettings struct {
 // EventHandlerSettingsInput is an input type that accepts EventHandlerSettingsArgs and EventHandlerSettingsOutput values.
 // You can construct a concrete instance of `EventHandlerSettingsInput` via:
 //
-//          EventHandlerSettingsArgs{...}
+//	EventHandlerSettingsArgs{...}
 type EventHandlerSettingsInput interface {
 	pulumi.Input
 
@@ -275,11 +275,11 @@ func (i EventHandlerSettingsArgs) ToEventHandlerSettingsPtrOutputWithContext(ctx
 // EventHandlerSettingsPtrInput is an input type that accepts EventHandlerSettingsArgs, EventHandlerSettingsPtr and EventHandlerSettingsPtrOutput values.
 // You can construct a concrete instance of `EventHandlerSettingsPtrInput` via:
 //
-//          EventHandlerSettingsArgs{...}
+//	        EventHandlerSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventHandlerSettingsPtrInput interface {
 	pulumi.Input
 
@@ -452,7 +452,7 @@ type EventHandlerTemplate struct {
 // EventHandlerTemplateInput is an input type that accepts EventHandlerTemplateArgs and EventHandlerTemplateOutput values.
 // You can construct a concrete instance of `EventHandlerTemplateInput` via:
 //
-//          EventHandlerTemplateArgs{...}
+//	EventHandlerTemplateArgs{...}
 type EventHandlerTemplateInput interface {
 	pulumi.Input
 
@@ -495,7 +495,7 @@ func (i EventHandlerTemplateArgs) ToEventHandlerTemplateOutputWithContext(ctx co
 // EventHandlerTemplateArrayInput is an input type that accepts EventHandlerTemplateArray and EventHandlerTemplateArrayOutput values.
 // You can construct a concrete instance of `EventHandlerTemplateArrayInput` via:
 //
-//          EventHandlerTemplateArray{ EventHandlerTemplateArgs{...} }
+//	EventHandlerTemplateArray{ EventHandlerTemplateArgs{...} }
 type EventHandlerTemplateArrayInput interface {
 	pulumi.Input
 
@@ -539,8 +539,8 @@ func (o EventHandlerTemplateOutput) Auth() UpstreamAuthSettingsPtrOutput {
 
 // Gets ot sets the system event pattern.
 // There are 2 kind of patterns supported:
-//     1. The single event name, for example, "connect", it matches "connect"
-//     2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
+//  1. The single event name, for example, "connect", it matches "connect"
+//  2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
 func (o EventHandlerTemplateOutput) SystemEventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHandlerTemplate) *string { return v.SystemEventPattern }).(pulumi.StringPtrOutput)
 }
@@ -553,9 +553,9 @@ func (o EventHandlerTemplateOutput) UrlTemplate() pulumi.StringOutput {
 
 // Gets or sets the matching pattern for event names.
 // There are 3 kind of patterns supported:
-//     1. "*", it to matches any event name
-//     2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-//     3. The single event name, for example, "event1", it matches "event1"
+//  1. "*", it to matches any event name
+//  2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
+//  3. The single event name, for example, "event1", it matches "event1"
 func (o EventHandlerTemplateOutput) UserEventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHandlerTemplate) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
 }
@@ -622,8 +622,8 @@ func (o EventHandlerTemplateResponseOutput) Auth() UpstreamAuthSettingsResponseP
 
 // Gets ot sets the system event pattern.
 // There are 2 kind of patterns supported:
-//     1. The single event name, for example, "connect", it matches "connect"
-//     2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
+//  1. The single event name, for example, "connect", it matches "connect"
+//  2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
 func (o EventHandlerTemplateResponseOutput) SystemEventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHandlerTemplateResponse) *string { return v.SystemEventPattern }).(pulumi.StringPtrOutput)
 }
@@ -636,9 +636,9 @@ func (o EventHandlerTemplateResponseOutput) UrlTemplate() pulumi.StringOutput {
 
 // Gets or sets the matching pattern for event names.
 // There are 3 kind of patterns supported:
-//     1. "*", it to matches any event name
-//     2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-//     3. The single event name, for example, "event1", it matches "event1"
+//  1. "*", it to matches any event name
+//  2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
+//  3. The single event name, for example, "event1", it matches "event1"
 func (o EventHandlerTemplateResponseOutput) UserEventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHandlerTemplateResponse) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
 }
@@ -674,7 +674,7 @@ type ManagedIdentity struct {
 // ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
 // You can construct a concrete instance of `ManagedIdentityInput` via:
 //
-//          ManagedIdentityArgs{...}
+//	ManagedIdentityArgs{...}
 type ManagedIdentityInput interface {
 	pulumi.Input
 
@@ -713,11 +713,11 @@ func (i ManagedIdentityArgs) ToManagedIdentityPtrOutputWithContext(ctx context.C
 // ManagedIdentityPtrInput is an input type that accepts ManagedIdentityArgs, ManagedIdentityPtr and ManagedIdentityPtrOutput values.
 // You can construct a concrete instance of `ManagedIdentityPtrInput` via:
 //
-//          ManagedIdentityArgs{...}
+//	        ManagedIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagedIdentityPtrInput interface {
 	pulumi.Input
 
@@ -951,7 +951,7 @@ type ManagedIdentitySettings struct {
 // ManagedIdentitySettingsInput is an input type that accepts ManagedIdentitySettingsArgs and ManagedIdentitySettingsOutput values.
 // You can construct a concrete instance of `ManagedIdentitySettingsInput` via:
 //
-//          ManagedIdentitySettingsArgs{...}
+//	ManagedIdentitySettingsArgs{...}
 type ManagedIdentitySettingsInput interface {
 	pulumi.Input
 
@@ -989,11 +989,11 @@ func (i ManagedIdentitySettingsArgs) ToManagedIdentitySettingsPtrOutputWithConte
 // ManagedIdentitySettingsPtrInput is an input type that accepts ManagedIdentitySettingsArgs, ManagedIdentitySettingsPtr and ManagedIdentitySettingsPtrOutput values.
 // You can construct a concrete instance of `ManagedIdentitySettingsPtrInput` via:
 //
-//          ManagedIdentitySettingsArgs{...}
+//	        ManagedIdentitySettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagedIdentitySettingsPtrInput interface {
 	pulumi.Input
 
@@ -1159,7 +1159,7 @@ type NetworkACL struct {
 // NetworkACLInput is an input type that accepts NetworkACLArgs and NetworkACLOutput values.
 // You can construct a concrete instance of `NetworkACLInput` via:
 //
-//          NetworkACLArgs{...}
+//	NetworkACLArgs{...}
 type NetworkACLInput interface {
 	pulumi.Input
 
@@ -1198,11 +1198,11 @@ func (i NetworkACLArgs) ToNetworkACLPtrOutputWithContext(ctx context.Context) Ne
 // NetworkACLPtrInput is an input type that accepts NetworkACLArgs, NetworkACLPtr and NetworkACLPtrOutput values.
 // You can construct a concrete instance of `NetworkACLPtrInput` via:
 //
-//          NetworkACLArgs{...}
+//	        NetworkACLArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkACLPtrInput interface {
 	pulumi.Input
 
@@ -1393,7 +1393,7 @@ type PrivateEndpoint struct {
 // PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
 // You can construct a concrete instance of `PrivateEndpointInput` via:
 //
-//          PrivateEndpointArgs{...}
+//	PrivateEndpointArgs{...}
 type PrivateEndpointInput interface {
 	pulumi.Input
 
@@ -1430,11 +1430,11 @@ func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.C
 // PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPtrInput` via:
 //
-//          PrivateEndpointArgs{...}
+//	        PrivateEndpointArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateEndpointPtrInput interface {
 	pulumi.Input
 
@@ -1537,7 +1537,7 @@ type PrivateEndpointACL struct {
 // PrivateEndpointACLInput is an input type that accepts PrivateEndpointACLArgs and PrivateEndpointACLOutput values.
 // You can construct a concrete instance of `PrivateEndpointACLInput` via:
 //
-//          PrivateEndpointACLArgs{...}
+//	PrivateEndpointACLArgs{...}
 type PrivateEndpointACLInput interface {
 	pulumi.Input
 
@@ -1570,7 +1570,7 @@ func (i PrivateEndpointACLArgs) ToPrivateEndpointACLOutputWithContext(ctx contex
 // PrivateEndpointACLArrayInput is an input type that accepts PrivateEndpointACLArray and PrivateEndpointACLArrayOutput values.
 // You can construct a concrete instance of `PrivateEndpointACLArrayInput` via:
 //
-//          PrivateEndpointACLArray{ PrivateEndpointACLArgs{...} }
+//	PrivateEndpointACLArray{ PrivateEndpointACLArgs{...} }
 type PrivateEndpointACLArrayInput interface {
 	pulumi.Input
 
@@ -1865,7 +1865,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -1906,11 +1906,11 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 // PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	        PrivateLinkServiceConnectionStateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateLinkServiceConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -2145,7 +2145,7 @@ type ResourceSku struct {
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
 // You can construct a concrete instance of `ResourceSkuInput` via:
 //
-//          ResourceSkuArgs{...}
+//	ResourceSkuArgs{...}
 type ResourceSkuInput interface {
 	pulumi.Input
 
@@ -2194,11 +2194,11 @@ func (i ResourceSkuArgs) ToResourceSkuPtrOutputWithContext(ctx context.Context) 
 // ResourceSkuPtrInput is an input type that accepts ResourceSkuArgs, ResourceSkuPtr and ResourceSkuPtrOutput values.
 // You can construct a concrete instance of `ResourceSkuPtrInput` via:
 //
-//          ResourceSkuArgs{...}
+//	        ResourceSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSkuPtrInput interface {
 	pulumi.Input
 
@@ -2252,8 +2252,9 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context
 // Optional, integer. The unit count of the resource. 1 by default.
 //
 // If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
+//
+//	Free: 1
+//	Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -2299,8 +2300,9 @@ func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
 // Optional, integer. The unit count of the resource. 1 by default.
 //
 // If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
+//
+//	Free: 1
+//	Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *int {
 		if v == nil {
@@ -2374,8 +2376,9 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponseOutputWithContext(ctx co
 // Optional, integer. The unit count of the resource. 1 by default.
 //
 // If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
+//
+//	Free: 1
+//	Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -2431,8 +2434,9 @@ func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
 // Optional, integer. The unit count of the resource. 1 by default.
 //
 // If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
+//
+//	Free: 1
+//	Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *int {
 		if v == nil {
@@ -2660,7 +2664,7 @@ type UpstreamAuthSettings struct {
 // UpstreamAuthSettingsInput is an input type that accepts UpstreamAuthSettingsArgs and UpstreamAuthSettingsOutput values.
 // You can construct a concrete instance of `UpstreamAuthSettingsInput` via:
 //
-//          UpstreamAuthSettingsArgs{...}
+//	UpstreamAuthSettingsArgs{...}
 type UpstreamAuthSettingsInput interface {
 	pulumi.Input
 
@@ -2699,11 +2703,11 @@ func (i UpstreamAuthSettingsArgs) ToUpstreamAuthSettingsPtrOutputWithContext(ctx
 // UpstreamAuthSettingsPtrInput is an input type that accepts UpstreamAuthSettingsArgs, UpstreamAuthSettingsPtr and UpstreamAuthSettingsPtrOutput values.
 // You can construct a concrete instance of `UpstreamAuthSettingsPtrInput` via:
 //
-//          UpstreamAuthSettingsArgs{...}
+//	        UpstreamAuthSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UpstreamAuthSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2954,7 +2958,7 @@ type WebPubSubFeature struct {
 // WebPubSubFeatureInput is an input type that accepts WebPubSubFeatureArgs and WebPubSubFeatureOutput values.
 // You can construct a concrete instance of `WebPubSubFeatureInput` via:
 //
-//          WebPubSubFeatureArgs{...}
+//	WebPubSubFeatureArgs{...}
 type WebPubSubFeatureInput interface {
 	pulumi.Input
 
@@ -2990,7 +2994,7 @@ func (i WebPubSubFeatureArgs) ToWebPubSubFeatureOutputWithContext(ctx context.Co
 // WebPubSubFeatureArrayInput is an input type that accepts WebPubSubFeatureArray and WebPubSubFeatureArrayOutput values.
 // You can construct a concrete instance of `WebPubSubFeatureArrayInput` via:
 //
-//          WebPubSubFeatureArray{ WebPubSubFeatureArgs{...} }
+//	WebPubSubFeatureArray{ WebPubSubFeatureArgs{...} }
 type WebPubSubFeatureArrayInput interface {
 	pulumi.Input
 
@@ -3028,9 +3032,9 @@ func (o WebPubSubFeatureOutput) ToWebPubSubFeatureOutputWithContext(ctx context.
 }
 
 // FeatureFlags is the supported features of Azure SignalR service.
-//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+//   - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+//   - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+//   - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
 func (o WebPubSubFeatureOutput) Flag() pulumi.StringOutput {
 	return o.ApplyT(func(v WebPubSubFeature) string { return v.Flag }).(pulumi.StringOutput)
 }
@@ -3094,9 +3098,9 @@ func (o WebPubSubFeatureResponseOutput) ToWebPubSubFeatureResponseOutputWithCont
 }
 
 // FeatureFlags is the supported features of Azure SignalR service.
-//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+//   - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+//   - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+//   - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
 func (o WebPubSubFeatureResponseOutput) Flag() pulumi.StringOutput {
 	return o.ApplyT(func(v WebPubSubFeatureResponse) string { return v.Flag }).(pulumi.StringOutput)
 }
@@ -3155,7 +3159,7 @@ func (val *WebPubSubHubProperties) Defaults() *WebPubSubHubProperties {
 // WebPubSubHubPropertiesInput is an input type that accepts WebPubSubHubPropertiesArgs and WebPubSubHubPropertiesOutput values.
 // You can construct a concrete instance of `WebPubSubHubPropertiesInput` via:
 //
-//          WebPubSubHubPropertiesArgs{...}
+//	WebPubSubHubPropertiesArgs{...}
 type WebPubSubHubPropertiesInput interface {
 	pulumi.Input
 
@@ -3291,7 +3295,7 @@ func (val *WebPubSubNetworkACLs) Defaults() *WebPubSubNetworkACLs {
 // WebPubSubNetworkACLsInput is an input type that accepts WebPubSubNetworkACLsArgs and WebPubSubNetworkACLsOutput values.
 // You can construct a concrete instance of `WebPubSubNetworkACLsInput` via:
 //
-//          WebPubSubNetworkACLsArgs{...}
+//	WebPubSubNetworkACLsArgs{...}
 type WebPubSubNetworkACLsInput interface {
 	pulumi.Input
 
@@ -3343,11 +3347,11 @@ func (i WebPubSubNetworkACLsArgs) ToWebPubSubNetworkACLsPtrOutputWithContext(ctx
 // WebPubSubNetworkACLsPtrInput is an input type that accepts WebPubSubNetworkACLsArgs, WebPubSubNetworkACLsPtr and WebPubSubNetworkACLsPtrOutput values.
 // You can construct a concrete instance of `WebPubSubNetworkACLsPtrInput` via:
 //
-//          WebPubSubNetworkACLsArgs{...}
+//	        WebPubSubNetworkACLsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebPubSubNetworkACLsPtrInput interface {
 	pulumi.Input
 
@@ -3596,7 +3600,7 @@ func (val *WebPubSubTlsSettings) Defaults() *WebPubSubTlsSettings {
 // WebPubSubTlsSettingsInput is an input type that accepts WebPubSubTlsSettingsArgs and WebPubSubTlsSettingsOutput values.
 // You can construct a concrete instance of `WebPubSubTlsSettingsInput` via:
 //
-//          WebPubSubTlsSettingsArgs{...}
+//	WebPubSubTlsSettingsArgs{...}
 type WebPubSubTlsSettingsInput interface {
 	pulumi.Input
 
@@ -3644,11 +3648,11 @@ func (i WebPubSubTlsSettingsArgs) ToWebPubSubTlsSettingsPtrOutputWithContext(ctx
 // WebPubSubTlsSettingsPtrInput is an input type that accepts WebPubSubTlsSettingsArgs, WebPubSubTlsSettingsPtr and WebPubSubTlsSettingsPtrOutput values.
 // You can construct a concrete instance of `WebPubSubTlsSettingsPtrInput` via:
 //
-//          WebPubSubTlsSettingsArgs{...}
+//	        WebPubSubTlsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebPubSubTlsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3828,7 +3832,7 @@ func (i EventHandlerTemplateArrayMap) ToEventHandlerTemplateArrayMapOutputWithCo
 // EventHandlerTemplateArrayMapInput is an input type that accepts EventHandlerTemplateArrayMap and EventHandlerTemplateArrayMapOutput values.
 // You can construct a concrete instance of `EventHandlerTemplateArrayMapInput` via:
 //
-//          EventHandlerTemplateArrayMap{ "key": EventHandlerTemplateArray{ EventHandlerTemplateArgs{...} } }
+//	EventHandlerTemplateArrayMap{ "key": EventHandlerTemplateArray{ EventHandlerTemplateArgs{...} } }
 type EventHandlerTemplateArrayMapInput interface {
 	pulumi.Input
 

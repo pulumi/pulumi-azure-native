@@ -130,7 +130,7 @@ export class SyncGroup extends pulumi.CustomResource {
             resourceInputs["usePrivateLinkConnection"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncGroup" }, { type: "azure-native:sql/v20150501preview:SyncGroup" }, { type: "azure-native:sql/v20200202preview:SyncGroup" }, { type: "azure-native:sql/v20200801preview:SyncGroup" }, { type: "azure-native:sql/v20201101preview:SyncGroup" }, { type: "azure-native:sql/v20210201preview:SyncGroup" }, { type: "azure-native:sql/v20210501preview:SyncGroup" }, { type: "azure-native:sql/v20210801preview:SyncGroup" }, { type: "azure-native:sql/v20211101preview:SyncGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncGroup" }, { type: "azure-native:sql/v20150501preview:SyncGroup" }, { type: "azure-native:sql/v20200202preview:SyncGroup" }, { type: "azure-native:sql/v20200801preview:SyncGroup" }, { type: "azure-native:sql/v20201101preview:SyncGroup" }, { type: "azure-native:sql/v20210201preview:SyncGroup" }, { type: "azure-native:sql/v20210501preview:SyncGroup" }, { type: "azure-native:sql/v20210801preview:SyncGroup" }, { type: "azure-native:sql/v20211101preview:SyncGroup" }, { type: "azure-native:sql/v20220201preview:SyncGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncGroup.__pulumiType, name, resourceInputs, opts);
     }

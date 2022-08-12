@@ -144,6 +144,10 @@ namespace Pulumi.AzureNative.Solutions.V20190701
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
+        /// The storage account id for bring your own storage scenario.
+        /// </summary>
+        public readonly string? StorageAccountId;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -192,6 +196,8 @@ namespace Pulumi.AzureNative.Solutions.V20190701
 
             Outputs.SkuResponse? sku,
 
+            string? storageAccountId,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -215,6 +221,7 @@ namespace Pulumi.AzureNative.Solutions.V20190701
             PackageFileUri = packageFileUri;
             Policies = policies;
             Sku = sku;
+            StorageAccountId = storageAccountId;
             Tags = tags;
             Type = type;
         }

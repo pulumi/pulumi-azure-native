@@ -53,7 +53,7 @@ type ApiEntity struct {
 // ApiEntityInput is an input type that accepts ApiEntityArgs and ApiEntityOutput values.
 // You can construct a concrete instance of `ApiEntityInput` via:
 //
-//          ApiEntityArgs{...}
+//	ApiEntityArgs{...}
 type ApiEntityInput interface {
 	pulumi.Input
 
@@ -124,11 +124,11 @@ func (i ApiEntityArgs) ToApiEntityPtrOutputWithContext(ctx context.Context) ApiE
 // ApiEntityPtrInput is an input type that accepts ApiEntityArgs, ApiEntityPtr and ApiEntityPtrOutput values.
 // You can construct a concrete instance of `ApiEntityPtrInput` via:
 //
-//          ApiEntityArgs{...}
+//	        ApiEntityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiEntityPtrInput interface {
 	pulumi.Input
 
@@ -843,7 +843,7 @@ type ApiOAuthSettings struct {
 // ApiOAuthSettingsInput is an input type that accepts ApiOAuthSettingsArgs and ApiOAuthSettingsOutput values.
 // You can construct a concrete instance of `ApiOAuthSettingsInput` via:
 //
-//          ApiOAuthSettingsArgs{...}
+//	ApiOAuthSettingsArgs{...}
 type ApiOAuthSettingsInput interface {
 	pulumi.Input
 
@@ -892,11 +892,11 @@ func (i ApiOAuthSettingsArgs) ToApiOAuthSettingsPtrOutputWithContext(ctx context
 // ApiOAuthSettingsPtrInput is an input type that accepts ApiOAuthSettingsArgs, ApiOAuthSettingsPtr and ApiOAuthSettingsPtrOutput values.
 // You can construct a concrete instance of `ApiOAuthSettingsPtrInput` via:
 //
-//          ApiOAuthSettingsArgs{...}
+//	        ApiOAuthSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiOAuthSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1089,7 +1089,7 @@ type ApiOAuthSettingsParameter struct {
 // ApiOAuthSettingsParameterInput is an input type that accepts ApiOAuthSettingsParameterArgs and ApiOAuthSettingsParameterOutput values.
 // You can construct a concrete instance of `ApiOAuthSettingsParameterInput` via:
 //
-//          ApiOAuthSettingsParameterArgs{...}
+//	ApiOAuthSettingsParameterArgs{...}
 type ApiOAuthSettingsParameterInput interface {
 	pulumi.Input
 
@@ -1122,7 +1122,7 @@ func (i ApiOAuthSettingsParameterArgs) ToApiOAuthSettingsParameterOutputWithCont
 // ApiOAuthSettingsParameterMapInput is an input type that accepts ApiOAuthSettingsParameterMap and ApiOAuthSettingsParameterMapOutput values.
 // You can construct a concrete instance of `ApiOAuthSettingsParameterMapInput` via:
 //
-//          ApiOAuthSettingsParameterMap{ "key": ApiOAuthSettingsParameterArgs{...} }
+//	ApiOAuthSettingsParameterMap{ "key": ApiOAuthSettingsParameterArgs{...} }
 type ApiOAuthSettingsParameterMapInput interface {
 	pulumi.Input
 
@@ -1439,7 +1439,7 @@ type ApiPolicies struct {
 // ApiPoliciesInput is an input type that accepts ApiPoliciesArgs and ApiPoliciesOutput values.
 // You can construct a concrete instance of `ApiPoliciesInput` via:
 //
-//          ApiPoliciesArgs{...}
+//	ApiPoliciesArgs{...}
 type ApiPoliciesInput interface {
 	pulumi.Input
 
@@ -1488,11 +1488,11 @@ func (i ApiPoliciesArgs) ToApiPoliciesPtrOutputWithContext(ctx context.Context) 
 // ApiPoliciesPtrInput is an input type that accepts ApiPoliciesArgs, ApiPoliciesPtr and ApiPoliciesPtrOutput values.
 // You can construct a concrete instance of `ApiPoliciesPtrInput` via:
 //
-//          ApiPoliciesArgs{...}
+//	        ApiPoliciesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiPoliciesPtrInput interface {
 	pulumi.Input
 
@@ -1851,7 +1851,7 @@ type ArmPlan struct {
 // ArmPlanInput is an input type that accepts ArmPlanArgs and ArmPlanOutput values.
 // You can construct a concrete instance of `ArmPlanInput` via:
 //
-//          ArmPlanArgs{...}
+//	ArmPlanArgs{...}
 type ArmPlanInput interface {
 	pulumi.Input
 
@@ -1896,11 +1896,11 @@ func (i ArmPlanArgs) ToArmPlanPtrOutputWithContext(ctx context.Context) ArmPlanP
 // ArmPlanPtrInput is an input type that accepts ArmPlanArgs, ArmPlanPtr and ArmPlanPtrOutput values.
 // You can construct a concrete instance of `ArmPlanPtrInput` via:
 //
-//          ArmPlanArgs{...}
+//	        ArmPlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ArmPlanPtrInput interface {
 	pulumi.Input
 
@@ -2201,7 +2201,7 @@ type BackendServiceDefinition struct {
 // BackendServiceDefinitionInput is an input type that accepts BackendServiceDefinitionArgs and BackendServiceDefinitionOutput values.
 // You can construct a concrete instance of `BackendServiceDefinitionInput` via:
 //
-//          BackendServiceDefinitionArgs{...}
+//	BackendServiceDefinitionArgs{...}
 type BackendServiceDefinitionInput interface {
 	pulumi.Input
 
@@ -2252,11 +2252,11 @@ func (i BackendServiceDefinitionArgs) ToBackendServiceDefinitionPtrOutputWithCon
 // BackendServiceDefinitionPtrInput is an input type that accepts BackendServiceDefinitionArgs, BackendServiceDefinitionPtr and BackendServiceDefinitionPtrOutput values.
 // You can construct a concrete instance of `BackendServiceDefinitionPtrInput` via:
 //
-//          BackendServiceDefinitionArgs{...}
+//	        BackendServiceDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BackendServiceDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -2657,7 +2657,7 @@ type ConnectionError struct {
 // ConnectionErrorInput is an input type that accepts ConnectionErrorArgs and ConnectionErrorOutput values.
 // You can construct a concrete instance of `ConnectionErrorInput` via:
 //
-//          ConnectionErrorArgs{...}
+//	ConnectionErrorArgs{...}
 type ConnectionErrorInput interface {
 	pulumi.Input
 
@@ -2708,11 +2708,11 @@ func (i ConnectionErrorArgs) ToConnectionErrorPtrOutputWithContext(ctx context.C
 // ConnectionErrorPtrInput is an input type that accepts ConnectionErrorArgs, ConnectionErrorPtr and ConnectionErrorPtrOutput values.
 // You can construct a concrete instance of `ConnectionErrorPtrInput` via:
 //
-//          ConnectionErrorArgs{...}
+//	        ConnectionErrorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionErrorPtrInput interface {
 	pulumi.Input
 
@@ -3101,7 +3101,7 @@ type ConnectionParameter struct {
 // ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
 // You can construct a concrete instance of `ConnectionParameterInput` via:
 //
-//          ConnectionParameterArgs{...}
+//	ConnectionParameterArgs{...}
 type ConnectionParameterInput interface {
 	pulumi.Input
 
@@ -3136,7 +3136,7 @@ func (i ConnectionParameterArgs) ToConnectionParameterOutputWithContext(ctx cont
 // ConnectionParameterMapInput is an input type that accepts ConnectionParameterMap and ConnectionParameterMapOutput values.
 // You can construct a concrete instance of `ConnectionParameterMapInput` via:
 //
-//          ConnectionParameterMap{ "key": ConnectionParameterArgs{...} }
+//	ConnectionParameterMap{ "key": ConnectionParameterArgs{...} }
 type ConnectionParameterMapInput interface {
 	pulumi.Input
 
@@ -3305,7 +3305,7 @@ type ConnectionStatus struct {
 // ConnectionStatusInput is an input type that accepts ConnectionStatusArgs and ConnectionStatusOutput values.
 // You can construct a concrete instance of `ConnectionStatusInput` via:
 //
-//          ConnectionStatusArgs{...}
+//	ConnectionStatusArgs{...}
 type ConnectionStatusInput interface {
 	pulumi.Input
 
@@ -3350,7 +3350,7 @@ func (i ConnectionStatusArgs) ToConnectionStatusOutputWithContext(ctx context.Co
 // ConnectionStatusArrayInput is an input type that accepts ConnectionStatusArray and ConnectionStatusArrayOutput values.
 // You can construct a concrete instance of `ConnectionStatusArrayInput` via:
 //
-//          ConnectionStatusArray{ ConnectionStatusArgs{...} }
+//	ConnectionStatusArray{ ConnectionStatusArgs{...} }
 type ConnectionStatusArrayInput interface {
 	pulumi.Input
 
@@ -3571,7 +3571,7 @@ type ConsentLinkInputParameter struct {
 // ConsentLinkInputParameterInput is an input type that accepts ConsentLinkInputParameterArgs and ConsentLinkInputParameterOutput values.
 // You can construct a concrete instance of `ConsentLinkInputParameterInput` via:
 //
-//          ConsentLinkInputParameterArgs{...}
+//	ConsentLinkInputParameterArgs{...}
 type ConsentLinkInputParameterInput interface {
 	pulumi.Input
 
@@ -3608,7 +3608,7 @@ func (i ConsentLinkInputParameterArgs) ToConsentLinkInputParameterOutputWithCont
 // ConsentLinkInputParameterArrayInput is an input type that accepts ConsentLinkInputParameterArray and ConsentLinkInputParameterArrayOutput values.
 // You can construct a concrete instance of `ConsentLinkInputParameterArrayInput` via:
 //
-//          ConsentLinkInputParameterArray{ ConsentLinkInputParameterArgs{...} }
+//	ConsentLinkInputParameterArray{ ConsentLinkInputParameterArgs{...} }
 type ConsentLinkInputParameterArrayInput interface {
 	pulumi.Input
 
@@ -3645,7 +3645,8 @@ func (o ConsentLinkInputParameterOutput) ToConsentLinkInputParameterOutputWithCo
 }
 
 // AAD OID (user or group) if the principal type is ActiveDirectory.
-//             MSA PUID if the principal type is MicrosoftAccount.
+//
+//	MSA PUID if the principal type is MicrosoftAccount.
 func (o ConsentLinkInputParameterOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
@@ -3776,7 +3777,7 @@ type CustomLoginSettingValue struct {
 // CustomLoginSettingValueInput is an input type that accepts CustomLoginSettingValueArgs and CustomLoginSettingValueOutput values.
 // You can construct a concrete instance of `CustomLoginSettingValueInput` via:
 //
-//          CustomLoginSettingValueArgs{...}
+//	CustomLoginSettingValueArgs{...}
 type CustomLoginSettingValueInput interface {
 	pulumi.Input
 
@@ -3817,7 +3818,7 @@ func (i CustomLoginSettingValueArgs) ToCustomLoginSettingValueOutputWithContext(
 // CustomLoginSettingValueMapInput is an input type that accepts CustomLoginSettingValueMap and CustomLoginSettingValueMapOutput values.
 // You can construct a concrete instance of `CustomLoginSettingValueMapInput` via:
 //
-//          CustomLoginSettingValueMap{ "key": CustomLoginSettingValueArgs{...} }
+//	CustomLoginSettingValueMap{ "key": CustomLoginSettingValueArgs{...} }
 type CustomLoginSettingValueMapInput interface {
 	pulumi.Input
 
@@ -4018,7 +4019,7 @@ type ExpandedParentApiEntity struct {
 // ExpandedParentApiEntityInput is an input type that accepts ExpandedParentApiEntityArgs and ExpandedParentApiEntityOutput values.
 // You can construct a concrete instance of `ExpandedParentApiEntityInput` via:
 //
-//          ExpandedParentApiEntityArgs{...}
+//	ExpandedParentApiEntityArgs{...}
 type ExpandedParentApiEntityInput interface {
 	pulumi.Input
 
@@ -4067,11 +4068,11 @@ func (i ExpandedParentApiEntityArgs) ToExpandedParentApiEntityPtrOutputWithConte
 // ExpandedParentApiEntityPtrInput is an input type that accepts ExpandedParentApiEntityArgs, ExpandedParentApiEntityPtr and ExpandedParentApiEntityPtrOutput values.
 // You can construct a concrete instance of `ExpandedParentApiEntityPtrInput` via:
 //
-//          ExpandedParentApiEntityArgs{...}
+//	        ExpandedParentApiEntityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExpandedParentApiEntityPtrInput interface {
 	pulumi.Input
 
@@ -4444,7 +4445,7 @@ type GeneralApiInformation struct {
 // GeneralApiInformationInput is an input type that accepts GeneralApiInformationArgs and GeneralApiInformationOutput values.
 // You can construct a concrete instance of `GeneralApiInformationInput` via:
 //
-//          GeneralApiInformationArgs{...}
+//	GeneralApiInformationArgs{...}
 type GeneralApiInformationInput interface {
 	pulumi.Input
 
@@ -4503,11 +4504,11 @@ func (i GeneralApiInformationArgs) ToGeneralApiInformationPtrOutputWithContext(c
 // GeneralApiInformationPtrInput is an input type that accepts GeneralApiInformationArgs, GeneralApiInformationPtr and GeneralApiInformationPtrOutput values.
 // You can construct a concrete instance of `GeneralApiInformationPtrInput` via:
 //
-//          GeneralApiInformationArgs{...}
+//	        GeneralApiInformationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GeneralApiInformationPtrInput interface {
 	pulumi.Input
 
@@ -5027,7 +5028,7 @@ type HostingEnvironmentServiceDescriptions struct {
 // HostingEnvironmentServiceDescriptionsInput is an input type that accepts HostingEnvironmentServiceDescriptionsArgs and HostingEnvironmentServiceDescriptionsOutput values.
 // You can construct a concrete instance of `HostingEnvironmentServiceDescriptionsInput` via:
 //
-//          HostingEnvironmentServiceDescriptionsArgs{...}
+//	HostingEnvironmentServiceDescriptionsArgs{...}
 type HostingEnvironmentServiceDescriptionsInput interface {
 	pulumi.Input
 
@@ -5065,7 +5066,7 @@ func (i HostingEnvironmentServiceDescriptionsArgs) ToHostingEnvironmentServiceDe
 // HostingEnvironmentServiceDescriptionsArrayInput is an input type that accepts HostingEnvironmentServiceDescriptionsArray and HostingEnvironmentServiceDescriptionsArrayOutput values.
 // You can construct a concrete instance of `HostingEnvironmentServiceDescriptionsArrayInput` via:
 //
-//          HostingEnvironmentServiceDescriptionsArray{ HostingEnvironmentServiceDescriptionsArgs{...} }
+//	HostingEnvironmentServiceDescriptionsArray{ HostingEnvironmentServiceDescriptionsArgs{...} }
 type HostingEnvironmentServiceDescriptionsArrayInput interface {
 	pulumi.Input
 
@@ -5118,9 +5119,10 @@ func (o HostingEnvironmentServiceDescriptionsOutput) ServiceUrl() pulumi.StringP
 }
 
 // When the backend url is in same ASE, for performance reason this flag can be set to true
-//             If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only
-//             via API calls
-//             Note: calls will fail if this option is used but back end is not on the same ASE
+//
+//	If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only
+//	via API calls
+//	Note: calls will fail if this option is used but back end is not on the same ASE
 func (o HostingEnvironmentServiceDescriptionsOutput) UseInternalRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentServiceDescriptions) *bool { return v.UseInternalRouting }).(pulumi.BoolPtrOutput)
 }
@@ -5191,9 +5193,10 @@ func (o HostingEnvironmentServiceDescriptionsResponseOutput) ServiceUrl() pulumi
 }
 
 // When the backend url is in same ASE, for performance reason this flag can be set to true
-//             If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only
-//             via API calls
-//             Note: calls will fail if this option is used but back end is not on the same ASE
+//
+//	If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only
+//	via API calls
+//	Note: calls will fail if this option is used but back end is not on the same ASE
 func (o HostingEnvironmentServiceDescriptionsResponseOutput) UseInternalRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentServiceDescriptionsResponse) *bool { return v.UseInternalRouting }).(pulumi.BoolPtrOutput)
 }
@@ -5239,7 +5242,7 @@ type ParameterCustomLoginSettingValues struct {
 // ParameterCustomLoginSettingValuesInput is an input type that accepts ParameterCustomLoginSettingValuesArgs and ParameterCustomLoginSettingValuesOutput values.
 // You can construct a concrete instance of `ParameterCustomLoginSettingValuesInput` via:
 //
-//          ParameterCustomLoginSettingValuesArgs{...}
+//	ParameterCustomLoginSettingValuesArgs{...}
 type ParameterCustomLoginSettingValuesInput interface {
 	pulumi.Input
 
@@ -5280,7 +5283,7 @@ func (i ParameterCustomLoginSettingValuesArgs) ToParameterCustomLoginSettingValu
 // ParameterCustomLoginSettingValuesMapInput is an input type that accepts ParameterCustomLoginSettingValuesMap and ParameterCustomLoginSettingValuesMapOutput values.
 // You can construct a concrete instance of `ParameterCustomLoginSettingValuesMapInput` via:
 //
-//          ParameterCustomLoginSettingValuesMap{ "key": ParameterCustomLoginSettingValuesArgs{...} }
+//	ParameterCustomLoginSettingValuesMap{ "key": ParameterCustomLoginSettingValuesArgs{...} }
 type ParameterCustomLoginSettingValuesMapInput interface {
 	pulumi.Input
 
@@ -5489,7 +5492,7 @@ type ResponseMessageEnvelopeApiEntity struct {
 // ResponseMessageEnvelopeApiEntityInput is an input type that accepts ResponseMessageEnvelopeApiEntityArgs and ResponseMessageEnvelopeApiEntityOutput values.
 // You can construct a concrete instance of `ResponseMessageEnvelopeApiEntityInput` via:
 //
-//          ResponseMessageEnvelopeApiEntityArgs{...}
+//	ResponseMessageEnvelopeApiEntityArgs{...}
 type ResponseMessageEnvelopeApiEntityInput interface {
 	pulumi.Input
 
@@ -5542,11 +5545,11 @@ func (i ResponseMessageEnvelopeApiEntityArgs) ToResponseMessageEnvelopeApiEntity
 // ResponseMessageEnvelopeApiEntityPtrInput is an input type that accepts ResponseMessageEnvelopeApiEntityArgs, ResponseMessageEnvelopeApiEntityPtr and ResponseMessageEnvelopeApiEntityPtrOutput values.
 // You can construct a concrete instance of `ResponseMessageEnvelopeApiEntityPtrInput` via:
 //
-//          ResponseMessageEnvelopeApiEntityArgs{...}
+//	        ResponseMessageEnvelopeApiEntityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseMessageEnvelopeApiEntityPtrInput interface {
 	pulumi.Input
 
@@ -5598,8 +5601,9 @@ func (o ResponseMessageEnvelopeApiEntityOutput) ToResponseMessageEnvelopeApiEnti
 }
 
 // Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-//             value for GET requests only.
-//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+//
+//	value for GET requests only.
+//	For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
 func (o ResponseMessageEnvelopeApiEntityOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5664,8 +5668,9 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) Elem() ResponseMessageEnvelop
 }
 
 // Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-//             value for GET requests only.
-//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+//
+//	value for GET requests only.
+//	For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) *string {
 		if v == nil {
@@ -5783,8 +5788,9 @@ func (o ResponseMessageEnvelopeApiEntityResponseOutput) ToResponseMessageEnvelop
 }
 
 // Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-//             value for GET requests only.
-//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+//
+//	value for GET requests only.
+//	For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5849,8 +5855,9 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Elem() ResponseMessag
 }
 
 // Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-//             value for GET requests only.
-//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+//
+//	value for GET requests only.
+//	For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) *string {
 		if v == nil {
@@ -5947,7 +5954,7 @@ type SkuDescription struct {
 // SkuDescriptionInput is an input type that accepts SkuDescriptionArgs and SkuDescriptionOutput values.
 // You can construct a concrete instance of `SkuDescriptionInput` via:
 //
-//          SkuDescriptionArgs{...}
+//	SkuDescriptionArgs{...}
 type SkuDescriptionInput interface {
 	pulumi.Input
 
@@ -5992,11 +5999,11 @@ func (i SkuDescriptionArgs) ToSkuDescriptionPtrOutputWithContext(ctx context.Con
 // SkuDescriptionPtrInput is an input type that accepts SkuDescriptionArgs, SkuDescriptionPtr and SkuDescriptionPtrOutput values.
 // You can construct a concrete instance of `SkuDescriptionPtrInput` via:
 //
-//          SkuDescriptionArgs{...}
+//	        SkuDescriptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuDescriptionPtrInput interface {
 	pulumi.Input
 

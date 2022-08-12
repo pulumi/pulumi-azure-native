@@ -1197,7 +1197,7 @@ type JobDeliveryInfo struct {
 // JobDeliveryInfoInput is an input type that accepts JobDeliveryInfoArgs and JobDeliveryInfoOutput values.
 // You can construct a concrete instance of `JobDeliveryInfoInput` via:
 //
-//          JobDeliveryInfoArgs{...}
+//	JobDeliveryInfoArgs{...}
 type JobDeliveryInfoInput interface {
 	pulumi.Input
 
@@ -1234,11 +1234,11 @@ func (i JobDeliveryInfoArgs) ToJobDeliveryInfoPtrOutputWithContext(ctx context.C
 // JobDeliveryInfoPtrInput is an input type that accepts JobDeliveryInfoArgs, JobDeliveryInfoPtr and JobDeliveryInfoPtrOutput values.
 // You can construct a concrete instance of `JobDeliveryInfoPtrInput` via:
 //
-//          JobDeliveryInfoArgs{...}
+//	        JobDeliveryInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDeliveryInfoPtrInput interface {
 	pulumi.Input
 
@@ -1657,7 +1657,7 @@ func (val *ResourceIdentity) Defaults() *ResourceIdentity {
 // ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
 // You can construct a concrete instance of `ResourceIdentityInput` via:
 //
-//          ResourceIdentityArgs{...}
+//	ResourceIdentityArgs{...}
 type ResourceIdentityInput interface {
 	pulumi.Input
 
@@ -1707,11 +1707,11 @@ func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context
 // ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
 // You can construct a concrete instance of `ResourceIdentityPtrInput` via:
 //
-//          ResourceIdentityArgs{...}
+//	        ResourceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -2043,7 +2043,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

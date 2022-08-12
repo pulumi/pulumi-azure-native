@@ -71,11 +71,11 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         /// <summary>
         /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationArtifactResponse> Artifacts;
+        public readonly ImmutableArray<Outputs.ApplicationDefinitionArtifactResponse> Artifacts;
         /// <summary>
         /// The managed application provider authorizations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse> Authorizations;
+        public readonly ImmutableArray<Outputs.ApplicationAuthorizationResponse> Authorizations;
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
@@ -93,13 +93,9 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identity of the resource.
-        /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
-        /// <summary>
         /// A value indicating whether the package is enabled or not.
         /// </summary>
-        public readonly string? IsEnabled;
+        public readonly bool? IsEnabled;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -125,6 +121,10 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         /// </summary>
         public readonly string? PackageFileUri;
         /// <summary>
+        /// The managed application provider policies.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationPolicyResponse> Policies;
+        /// <summary>
         /// The SKU of the resource.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
@@ -139,9 +139,9 @@ namespace Pulumi.AzureNative.Solutions.V20180601
 
         [OutputConstructor]
         private GetApplicationDefinitionResult(
-            ImmutableArray<Outputs.ApplicationArtifactResponse> artifacts,
+            ImmutableArray<Outputs.ApplicationDefinitionArtifactResponse> artifacts,
 
-            ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse> authorizations,
+            ImmutableArray<Outputs.ApplicationAuthorizationResponse> authorizations,
 
             object? createUiDefinition,
 
@@ -151,9 +151,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601
 
             string id,
 
-            Outputs.IdentityResponse? identity,
-
-            string? isEnabled,
+            bool? isEnabled,
 
             string? location,
 
@@ -167,6 +165,8 @@ namespace Pulumi.AzureNative.Solutions.V20180601
 
             string? packageFileUri,
 
+            ImmutableArray<Outputs.ApplicationPolicyResponse> policies,
+
             Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
@@ -179,7 +179,6 @@ namespace Pulumi.AzureNative.Solutions.V20180601
             Description = description;
             DisplayName = displayName;
             Id = id;
-            Identity = identity;
             IsEnabled = isEnabled;
             Location = location;
             LockLevel = lockLevel;
@@ -187,6 +186,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601
             ManagedBy = managedBy;
             Name = name;
             PackageFileUri = packageFileUri;
+            Policies = policies;
             Sku = sku;
             Tags = tags;
             Type = type;

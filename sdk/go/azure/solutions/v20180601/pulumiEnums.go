@@ -10,12 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The managed application artifact type.
+// The managed application definition artifact type.
 type ApplicationArtifactType string
 
 const (
-	ApplicationArtifactTypeTemplate = ApplicationArtifactType("Template")
-	ApplicationArtifactTypeCustom   = ApplicationArtifactType("Custom")
+	ApplicationArtifactTypeNotSpecified = ApplicationArtifactType("NotSpecified")
+	ApplicationArtifactTypeTemplate     = ApplicationArtifactType("Template")
+	ApplicationArtifactTypeCustom       = ApplicationArtifactType("Custom")
 )
 
 func (ApplicationArtifactType) ElementType() reflect.Type {
@@ -140,7 +141,7 @@ func (o ApplicationArtifactTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // ApplicationArtifactTypeInput is an input type that accepts ApplicationArtifactTypeArgs and ApplicationArtifactTypeOutput values.
 // You can construct a concrete instance of `ApplicationArtifactTypeInput` via:
 //
-//          ApplicationArtifactTypeArgs{...}
+//	ApplicationArtifactTypeArgs{...}
 type ApplicationArtifactTypeInput interface {
 	pulumi.Input
 
@@ -174,6 +175,16 @@ func (in *applicationArtifactTypePtr) ToApplicationArtifactTypePtrOutput() Appli
 func (in *applicationArtifactTypePtr) ToApplicationArtifactTypePtrOutputWithContext(ctx context.Context) ApplicationArtifactTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationArtifactTypePtrOutput)
 }
+
+// The managed application definition artifact name.
+type ApplicationDefinitionArtifactName string
+
+const (
+	ApplicationDefinitionArtifactNameNotSpecified                = ApplicationDefinitionArtifactName("NotSpecified")
+	ApplicationDefinitionArtifactNameApplicationResourceTemplate = ApplicationDefinitionArtifactName("ApplicationResourceTemplate")
+	ApplicationDefinitionArtifactNameCreateUiDefinition          = ApplicationDefinitionArtifactName("CreateUiDefinition")
+	ApplicationDefinitionArtifactNameMainTemplateParameters      = ApplicationDefinitionArtifactName("MainTemplateParameters")
+)
 
 // The managed application lock level.
 type ApplicationLockLevel string
@@ -306,7 +317,7 @@ func (o ApplicationLockLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ApplicationLockLevelInput is an input type that accepts ApplicationLockLevelArgs and ApplicationLockLevelOutput values.
 // You can construct a concrete instance of `ApplicationLockLevelInput` via:
 //
-//          ApplicationLockLevelArgs{...}
+//	ApplicationLockLevelArgs{...}
 type ApplicationLockLevelInput interface {
 	pulumi.Input
 
@@ -341,11 +352,40 @@ func (in *applicationLockLevelPtr) ToApplicationLockLevelPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationLockLevelPtrOutput)
 }
 
+// JIT approval mode.
+type JitApprovalMode string
+
+const (
+	JitApprovalModeNotSpecified  = JitApprovalMode("NotSpecified")
+	JitApprovalModeAutoApprove   = JitApprovalMode("AutoApprove")
+	JitApprovalModeManualApprove = JitApprovalMode("ManualApprove")
+)
+
+// The approver type.
+type JitApproverType string
+
+const (
+	JitApproverTypeUser  = JitApproverType("user")
+	JitApproverTypeGroup = JitApproverType("group")
+)
+
+// The type of JIT schedule.
+type JitSchedulingType string
+
+const (
+	JitSchedulingTypeNotSpecified = JitSchedulingType("NotSpecified")
+	JitSchedulingTypeOnce         = JitSchedulingType("Once")
+	JitSchedulingTypeRecurring    = JitSchedulingType("Recurring")
+)
+
 // The identity type.
 type ResourceIdentityType string
 
 const (
-	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
+	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned, UserAssigned")
+	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
 )
 
 func (ResourceIdentityType) ElementType() reflect.Type {
@@ -470,7 +510,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//          ResourceIdentityTypeArgs{...}
+//	ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 

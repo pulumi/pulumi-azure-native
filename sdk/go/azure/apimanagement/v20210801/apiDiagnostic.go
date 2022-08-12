@@ -27,6 +27,8 @@ type ApiDiagnostic struct {
 	LogClientIp pulumi.BoolPtrOutput `pulumi:"logClientIp"`
 	// Resource Id of a target logger.
 	LoggerId pulumi.StringOutput `pulumi:"loggerId"`
+	// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+	Metrics pulumi.BoolPtrOutput `pulumi:"metrics"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The format of the Operation Name for Application Insights telemetries. Default is Name.
@@ -145,6 +147,8 @@ type apiDiagnosticArgs struct {
 	LogClientIp *bool `pulumi:"logClientIp"`
 	// Resource Id of a target logger.
 	LoggerId string `pulumi:"loggerId"`
+	// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+	Metrics *bool `pulumi:"metrics"`
 	// The format of the Operation Name for Application Insights telemetries. Default is Name.
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The name of the resource group.
@@ -175,6 +179,8 @@ type ApiDiagnosticArgs struct {
 	LogClientIp pulumi.BoolPtrInput
 	// Resource Id of a target logger.
 	LoggerId pulumi.StringInput
+	// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+	Metrics pulumi.BoolPtrInput
 	// The format of the Operation Name for Application Insights telemetries. Default is Name.
 	OperationNameFormat pulumi.StringPtrInput
 	// The name of the resource group.
@@ -252,6 +258,11 @@ func (o ApiDiagnosticOutput) LogClientIp() pulumi.BoolPtrOutput {
 // Resource Id of a target logger.
 func (o ApiDiagnosticOutput) LoggerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiDiagnostic) pulumi.StringOutput { return v.LoggerId }).(pulumi.StringOutput)
+}
+
+// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+func (o ApiDiagnosticOutput) Metrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) pulumi.BoolPtrOutput { return v.Metrics }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource

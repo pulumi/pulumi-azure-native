@@ -32,7 +32,7 @@ class AutoscaleSettingArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] autoscale_setting_name: The autoscale setting name.
-        :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: the name of the autoscale setting.
         :param pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]] notifications: the collection of notifications.
@@ -46,7 +46,7 @@ class AutoscaleSettingArgs:
         if autoscale_setting_name is not None:
             pulumi.set(__self__, "autoscale_setting_name", autoscale_setting_name)
         if enabled is None:
-            enabled = True
+            enabled = False
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if location is not None:
@@ -104,7 +104,7 @@ class AutoscaleSettingArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         """
         return pulumi.get(self, "enabled")
 
@@ -220,7 +220,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscale_setting_name: The autoscale setting name.
-        :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: the name of the autoscale setting.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]] notifications: the collection of notifications.
@@ -280,7 +280,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
             __props__.__dict__["autoscale_setting_name"] = autoscale_setting_name
             if enabled is None:
-                enabled = True
+                enabled = False
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -297,7 +297,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             __props__.__dict__["target_resource_uri"] = target_resource_uri
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20140401:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20150401:AutoscaleSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20140401:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20150401:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20221001:AutoscaleSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutoscaleSetting, __self__).__init__(
             'azure-native:insights/v20210501preview:AutoscaleSetting',
@@ -338,7 +338,7 @@ class AutoscaleSetting(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         """
         return pulumi.get(self, "enabled")
 

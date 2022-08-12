@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20200301preview from "./v20200301preview";
 import * as v20220401preview from "./v20220401preview";
+import * as v20221001 from "./v20221001";
 
 export {
     v20200301preview,
     v20220401preview,
+    v20221001,
 };
 
 export const AuthenticationType = {

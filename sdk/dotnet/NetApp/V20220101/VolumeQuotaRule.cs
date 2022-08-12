@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.NetApp.V20220101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:netapp:VolumeQuotaRule"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20220301:VolumeQuotaRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

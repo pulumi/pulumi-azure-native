@@ -21,7 +21,7 @@ class GetApiDiagnosticResult:
     """
     Diagnostic details.
     """
-    def __init__(__self__, always_log=None, backend=None, frontend=None, http_correlation_protocol=None, id=None, log_client_ip=None, logger_id=None, name=None, operation_name_format=None, sampling=None, type=None, verbosity=None):
+    def __init__(__self__, always_log=None, backend=None, frontend=None, http_correlation_protocol=None, id=None, log_client_ip=None, logger_id=None, metrics=None, name=None, operation_name_format=None, sampling=None, type=None, verbosity=None):
         if always_log and not isinstance(always_log, str):
             raise TypeError("Expected argument 'always_log' to be a str")
         pulumi.set(__self__, "always_log", always_log)
@@ -43,6 +43,9 @@ class GetApiDiagnosticResult:
         if logger_id and not isinstance(logger_id, str):
             raise TypeError("Expected argument 'logger_id' to be a str")
         pulumi.set(__self__, "logger_id", logger_id)
+        if metrics and not isinstance(metrics, bool):
+            raise TypeError("Expected argument 'metrics' to be a bool")
+        pulumi.set(__self__, "metrics", metrics)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -117,6 +120,14 @@ class GetApiDiagnosticResult:
 
     @property
     @pulumi.getter
+    def metrics(self) -> Optional[bool]:
+        """
+        Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+        """
+        return pulumi.get(self, "metrics")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Resource name.
@@ -169,6 +180,7 @@ class AwaitableGetApiDiagnosticResult(GetApiDiagnosticResult):
             id=self.id,
             log_client_ip=self.log_client_ip,
             logger_id=self.logger_id,
+            metrics=self.metrics,
             name=self.name,
             operation_name_format=self.operation_name_format,
             sampling=self.sampling,
@@ -209,6 +221,7 @@ def get_api_diagnostic(api_id: Optional[str] = None,
         id=__ret__.id,
         log_client_ip=__ret__.log_client_ip,
         logger_id=__ret__.logger_id,
+        metrics=__ret__.metrics,
         name=__ret__.name,
         operation_name_format=__ret__.operation_name_format,
         sampling=__ret__.sampling,

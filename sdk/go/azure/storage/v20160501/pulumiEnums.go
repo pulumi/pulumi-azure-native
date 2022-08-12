@@ -140,7 +140,7 @@ func (o AccessTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // AccessTierInput is an input type that accepts AccessTierArgs and AccessTierOutput values.
 // You can construct a concrete instance of `AccessTierInput` via:
 //
-//          AccessTierArgs{...}
+//	AccessTierArgs{...}
 type AccessTierInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o HttpProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // HttpProtocolInput is an input type that accepts HttpProtocolArgs and HttpProtocolOutput values.
 // You can construct a concrete instance of `HttpProtocolInput` via:
 //
-//          HttpProtocolArgs{...}
+//	HttpProtocolArgs{...}
 type HttpProtocolInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (o KindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 // KindInput is an input type that accepts KindArgs and KindOutput values.
 // You can construct a concrete instance of `KindInput` via:
 //
-//          KindArgs{...}
+//	KindArgs{...}
 type KindInput interface {
 	pulumi.Input
 
@@ -638,7 +638,7 @@ func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
 // You can construct a concrete instance of `SkuNameInput` via:
 //
-//          SkuNameArgs{...}
+//	SkuNameArgs{...}
 type SkuNameInput interface {
 	pulumi.Input
 

@@ -25,7 +25,7 @@ type DeepCreatedOrigin struct {
 // DeepCreatedOriginInput is an input type that accepts DeepCreatedOriginArgs and DeepCreatedOriginOutput values.
 // You can construct a concrete instance of `DeepCreatedOriginInput` via:
 //
-//          DeepCreatedOriginArgs{...}
+//	DeepCreatedOriginArgs{...}
 type DeepCreatedOriginInput interface {
 	pulumi.Input
 
@@ -60,7 +60,7 @@ func (i DeepCreatedOriginArgs) ToDeepCreatedOriginOutputWithContext(ctx context.
 // DeepCreatedOriginArrayInput is an input type that accepts DeepCreatedOriginArray and DeepCreatedOriginArrayOutput values.
 // You can construct a concrete instance of `DeepCreatedOriginArrayInput` via:
 //
-//          DeepCreatedOriginArray{ DeepCreatedOriginArgs{...} }
+//	DeepCreatedOriginArray{ DeepCreatedOriginArgs{...} }
 type DeepCreatedOriginArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +217,7 @@ type GeoFilter struct {
 // GeoFilterInput is an input type that accepts GeoFilterArgs and GeoFilterOutput values.
 // You can construct a concrete instance of `GeoFilterInput` via:
 //
-//          GeoFilterArgs{...}
+//	GeoFilterArgs{...}
 type GeoFilterInput interface {
 	pulumi.Input
 
@@ -250,7 +250,7 @@ func (i GeoFilterArgs) ToGeoFilterOutputWithContext(ctx context.Context) GeoFilt
 // GeoFilterArrayInput is an input type that accepts GeoFilterArray and GeoFilterArrayOutput values.
 // You can construct a concrete instance of `GeoFilterArrayInput` via:
 //
-//          GeoFilterArray{ GeoFilterArgs{...} }
+//	GeoFilterArray{ GeoFilterArgs{...} }
 type GeoFilterArrayInput interface {
 	pulumi.Input
 
@@ -391,7 +391,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

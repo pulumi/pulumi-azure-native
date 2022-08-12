@@ -74,6 +74,36 @@ namespace Pulumi.AzureNative.DataFactory
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Big data pool reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct BigDataPoolReferenceType : IEquatable<BigDataPoolReferenceType>
+    {
+        private readonly string _value;
+
+        private BigDataPoolReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BigDataPoolReferenceType BigDataPoolReference { get; } = new BigDataPoolReferenceType("BigDataPoolReference");
+
+        public static bool operator ==(BigDataPoolReferenceType left, BigDataPoolReferenceType right) => left.Equals(right);
+        public static bool operator !=(BigDataPoolReferenceType left, BigDataPoolReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(BigDataPoolReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BigDataPoolReferenceType other && Equals(other);
+        public bool Equals(BigDataPoolReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct BlobEventTypes : IEquatable<BlobEventTypes>
     {
@@ -1059,6 +1089,69 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// Notebook parameter type.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotebookParameterType : IEquatable<NotebookParameterType>
+    {
+        private readonly string _value;
+
+        private NotebookParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotebookParameterType @String { get; } = new NotebookParameterType("string");
+        public static NotebookParameterType @Int { get; } = new NotebookParameterType("int");
+        public static NotebookParameterType @Float { get; } = new NotebookParameterType("float");
+        public static NotebookParameterType @Bool { get; } = new NotebookParameterType("bool");
+
+        public static bool operator ==(NotebookParameterType left, NotebookParameterType right) => left.Equals(right);
+        public static bool operator !=(NotebookParameterType left, NotebookParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(NotebookParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotebookParameterType other && Equals(other);
+        public bool Equals(NotebookParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Synapse notebook reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotebookReferenceType : IEquatable<NotebookReferenceType>
+    {
+        private readonly string _value;
+
+        private NotebookReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotebookReferenceType NotebookReference { get; } = new NotebookReferenceType("NotebookReference");
+
+        public static bool operator ==(NotebookReferenceType left, NotebookReferenceType right) => left.Equals(right);
+        public static bool operator !=(NotebookReferenceType left, NotebookReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(NotebookReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotebookReferenceType other && Equals(other);
+        public bool Equals(NotebookReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specify the credential type (key or cert) is used for service principal.
     /// </summary>
     [EnumType]
@@ -1702,6 +1795,36 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SparkAuthenticationType other && Equals(other);
         public bool Equals(SparkAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Synapse spark job reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SparkJobReferenceType : IEquatable<SparkJobReferenceType>
+    {
+        private readonly string _value;
+
+        private SparkJobReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SparkJobReferenceType SparkJobDefinitionReference { get; } = new SparkJobReferenceType("SparkJobDefinitionReference");
+
+        public static bool operator ==(SparkJobReferenceType left, SparkJobReferenceType right) => left.Equals(right);
+        public static bool operator !=(SparkJobReferenceType left, SparkJobReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(SparkJobReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SparkJobReferenceType other && Equals(other);
+        public bool Equals(SparkJobReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

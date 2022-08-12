@@ -19,7 +19,10 @@ if typing.TYPE_CHECKING:
     v20210901preview = __v20210901preview
     import pulumi_azure_native.networkfunction.v20220501 as __v20220501
     v20220501 = __v20220501
+    import pulumi_azure_native.networkfunction.v20220801 as __v20220801
+    v20220801 = __v20220801
 else:
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.networkfunction.v20210901preview')
     v20220501 = _utilities.lazy_import('pulumi_azure_native.networkfunction.v20220501')
+    v20220801 = _utilities.lazy_import('pulumi_azure_native.networkfunction.v20220801')
 

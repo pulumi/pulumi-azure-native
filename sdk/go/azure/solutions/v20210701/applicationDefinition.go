@@ -49,8 +49,6 @@ type ApplicationDefinition struct {
 	PackageFileUri pulumi.StringPtrOutput `pulumi:"packageFileUri"`
 	// The managed application provider policies.
 	Policies ApplicationPolicyResponseArrayOutput `pulumi:"policies"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The SKU of the resource.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// The storage account id for bring your own storage scenario.
@@ -87,13 +85,28 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:solutions/v20170901:ApplicationDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:solutions/v20171201:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180201:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180301:ApplicationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-native:solutions/v20180601:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180901preview:ApplicationDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20190701:ApplicationDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20200821preview:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20210201preview:ApplicationDefinition"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -343,11 +356,6 @@ func (o ApplicationDefinitionOutput) PackageFileUri() pulumi.StringPtrOutput {
 // The managed application provider policies.
 func (o ApplicationDefinitionOutput) Policies() ApplicationPolicyResponseArrayOutput {
 	return o.ApplyT(func(v *ApplicationDefinition) ApplicationPolicyResponseArrayOutput { return v.Policies }).(ApplicationPolicyResponseArrayOutput)
-}
-
-// Provisioning state.
-func (o ApplicationDefinitionOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The SKU of the resource.

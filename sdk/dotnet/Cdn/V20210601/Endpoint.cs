@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         /// The custom domains under the endpoint.
         /// </summary>
         [Output("customDomains")]
-        public Output<ImmutableArray<Outputs.CustomDomainResponse>> CustomDomains { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeepCreatedCustomDomainResponse>> CustomDomains { get; private set; } = null!;
 
         /// <summary>
         /// A reference to the origin group.

@@ -57,6 +57,9 @@ func NewInstance(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:deviceupdate/v20200301preview:Instance"),
 		},
+		{
+			Type: pulumi.String("azure-native:deviceupdate/v20221001:Instance"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Instance

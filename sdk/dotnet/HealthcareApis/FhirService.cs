@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:FhirService"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:FhirService"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:FhirService"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:FhirService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

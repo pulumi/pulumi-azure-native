@@ -104,10 +104,6 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      */
     public readonly policies!: pulumi.Output<outputs.solutions.v20210701.ApplicationPolicyResponse[] | undefined>;
     /**
-     * Provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
      * The SKU of the resource.
      */
     public readonly sku!: pulumi.Output<outputs.solutions.v20210701.SkuResponse | undefined>;
@@ -167,7 +163,6 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -188,7 +183,6 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["notificationPolicy"] = undefined /*out*/;
             resourceInputs["packageFileUri"] = undefined /*out*/;
             resourceInputs["policies"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["storageAccountId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -196,7 +190,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplicationDefinition" }, { type: "azure-native:solutions/v20160901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20170901:ApplicationDefinition" }, { type: "azure-native:solutions/v20180601:ApplicationDefinition" }, { type: "azure-native:solutions/v20190701:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplicationDefinition" }, { type: "azure-native:solutions/v20160901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20170901:ApplicationDefinition" }, { type: "azure-native:solutions/v20171201:ApplicationDefinition" }, { type: "azure-native:solutions/v20180201:ApplicationDefinition" }, { type: "azure-native:solutions/v20180301:ApplicationDefinition" }, { type: "azure-native:solutions/v20180601:ApplicationDefinition" }, { type: "azure-native:solutions/v20180901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20190701:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210201preview:ApplicationDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationDefinition.__pulumiType, name, resourceInputs, opts);
     }

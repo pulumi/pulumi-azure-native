@@ -18,7 +18,7 @@ type DataPartitionNames struct {
 // DataPartitionNamesInput is an input type that accepts DataPartitionNamesArgs and DataPartitionNamesOutput values.
 // You can construct a concrete instance of `DataPartitionNamesInput` via:
 //
-//          DataPartitionNamesArgs{...}
+//	DataPartitionNamesArgs{...}
 type DataPartitionNamesInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i DataPartitionNamesArgs) ToDataPartitionNamesOutputWithContext(ctx contex
 // DataPartitionNamesArrayInput is an input type that accepts DataPartitionNamesArray and DataPartitionNamesArrayOutput values.
 // You can construct a concrete instance of `DataPartitionNamesArrayInput` via:
 //
-//          DataPartitionNamesArray{ DataPartitionNamesArgs{...} }
+//	DataPartitionNamesArray{ DataPartitionNamesArgs{...} }
 type DataPartitionNamesArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +212,7 @@ type EnergyServiceProperties struct {
 // EnergyServicePropertiesInput is an input type that accepts EnergyServicePropertiesArgs and EnergyServicePropertiesOutput values.
 // You can construct a concrete instance of `EnergyServicePropertiesInput` via:
 //
-//          EnergyServicePropertiesArgs{...}
+//	EnergyServicePropertiesArgs{...}
 type EnergyServicePropertiesInput interface {
 	pulumi.Input
 
@@ -248,11 +248,11 @@ func (i EnergyServicePropertiesArgs) ToEnergyServicePropertiesPtrOutputWithConte
 // EnergyServicePropertiesPtrInput is an input type that accepts EnergyServicePropertiesArgs, EnergyServicePropertiesPtr and EnergyServicePropertiesPtrOutput values.
 // You can construct a concrete instance of `EnergyServicePropertiesPtrInput` via:
 //
-//          EnergyServicePropertiesArgs{...}
+//	        EnergyServicePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnergyServicePropertiesPtrInput interface {
 	pulumi.Input
 

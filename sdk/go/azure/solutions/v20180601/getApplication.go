@@ -33,10 +33,22 @@ type LookupApplicationArgs struct {
 type LookupApplicationResult struct {
 	// The fully qualified path of managed application definition Id.
 	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
+	// The collection of managed application artifacts.
+	Artifacts []ApplicationArtifactResponse `pulumi:"artifacts"`
+	// The  read-only authorizations property that is retrieved from the application package.
+	Authorizations []ApplicationAuthorizationResponse `pulumi:"authorizations"`
+	// The managed application billing details.
+	BillingDetails ApplicationBillingDetailsDefinitionResponse `pulumi:"billingDetails"`
+	// The client entity that created the JIT request.
+	CreatedBy ApplicationClientDetailsResponse `pulumi:"createdBy"`
+	// The read-only customer support property that is retrieved from the application package.
+	CustomerSupport ApplicationPackageContactResponse `pulumi:"customerSupport"`
 	// Resource ID
 	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
+	// The managed application Jit access policy.
+	JitAccessPolicy *ApplicationJitAccessPolicyResponse `pulumi:"jitAccessPolicy"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
 	Kind string `pulumi:"kind"`
 	// Resource location
@@ -44,7 +56,7 @@ type LookupApplicationResult struct {
 	// ID of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The managed resource group Id.
-	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
+	ManagedResourceGroupId *string `pulumi:"managedResourceGroupId"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Name and value pairs that define the managed application outputs.
@@ -55,12 +67,20 @@ type LookupApplicationResult struct {
 	Plan *PlanResponse `pulumi:"plan"`
 	// The managed application provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The publisher package Id.
+	PublisherPackageId *string `pulumi:"publisherPackageId"`
+	// The publisher tenant Id.
+	PublisherTenantId string `pulumi:"publisherTenantId"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
+	// The read-only support URLs property that is retrieved from the application package.
+	SupportUrls ApplicationPackageSupportUrlsResponse `pulumi:"supportUrls"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The client entity that last updated the JIT request.
+	UpdatedBy ApplicationClientDetailsResponse `pulumi:"updatedBy"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -107,6 +127,31 @@ func (o LookupApplicationResultOutput) ApplicationDefinitionId() pulumi.StringPt
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationDefinitionId }).(pulumi.StringPtrOutput)
 }
 
+// The collection of managed application artifacts.
+func (o LookupApplicationResultOutput) Artifacts() ApplicationArtifactResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []ApplicationArtifactResponse { return v.Artifacts }).(ApplicationArtifactResponseArrayOutput)
+}
+
+// The  read-only authorizations property that is retrieved from the application package.
+func (o LookupApplicationResultOutput) Authorizations() ApplicationAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []ApplicationAuthorizationResponse { return v.Authorizations }).(ApplicationAuthorizationResponseArrayOutput)
+}
+
+// The managed application billing details.
+func (o LookupApplicationResultOutput) BillingDetails() ApplicationBillingDetailsDefinitionResponseOutput {
+	return o.ApplyT(func(v LookupApplicationResult) ApplicationBillingDetailsDefinitionResponse { return v.BillingDetails }).(ApplicationBillingDetailsDefinitionResponseOutput)
+}
+
+// The client entity that created the JIT request.
+func (o LookupApplicationResultOutput) CreatedBy() ApplicationClientDetailsResponseOutput {
+	return o.ApplyT(func(v LookupApplicationResult) ApplicationClientDetailsResponse { return v.CreatedBy }).(ApplicationClientDetailsResponseOutput)
+}
+
+// The read-only customer support property that is retrieved from the application package.
+func (o LookupApplicationResultOutput) CustomerSupport() ApplicationPackageContactResponseOutput {
+	return o.ApplyT(func(v LookupApplicationResult) ApplicationPackageContactResponse { return v.CustomerSupport }).(ApplicationPackageContactResponseOutput)
+}
+
 // Resource ID
 func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Id }).(pulumi.StringOutput)
@@ -115,6 +160,11 @@ func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
 // The identity of the resource.
 func (o LookupApplicationResultOutput) Identity() IdentityResponsePtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The managed application Jit access policy.
+func (o LookupApplicationResultOutput) JitAccessPolicy() ApplicationJitAccessPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationJitAccessPolicyResponse { return v.JitAccessPolicy }).(ApplicationJitAccessPolicyResponsePtrOutput)
 }
 
 // The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -133,8 +183,8 @@ func (o LookupApplicationResultOutput) ManagedBy() pulumi.StringPtrOutput {
 }
 
 // The managed resource group Id.
-func (o LookupApplicationResultOutput) ManagedResourceGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupApplicationResult) string { return v.ManagedResourceGroupId }).(pulumi.StringOutput)
+func (o LookupApplicationResultOutput) ManagedResourceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ManagedResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
 // Resource name
@@ -162,9 +212,24 @@ func (o LookupApplicationResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// The publisher package Id.
+func (o LookupApplicationResultOutput) PublisherPackageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.PublisherPackageId }).(pulumi.StringPtrOutput)
+}
+
+// The publisher tenant Id.
+func (o LookupApplicationResultOutput) PublisherTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.PublisherTenantId }).(pulumi.StringOutput)
+}
+
 // The SKU of the resource.
 func (o LookupApplicationResultOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The read-only support URLs property that is retrieved from the application package.
+func (o LookupApplicationResultOutput) SupportUrls() ApplicationPackageSupportUrlsResponseOutput {
+	return o.ApplyT(func(v LookupApplicationResult) ApplicationPackageSupportUrlsResponse { return v.SupportUrls }).(ApplicationPackageSupportUrlsResponseOutput)
 }
 
 // Resource tags
@@ -175,6 +240,11 @@ func (o LookupApplicationResultOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o LookupApplicationResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The client entity that last updated the JIT request.
+func (o LookupApplicationResultOutput) UpdatedBy() ApplicationClientDetailsResponseOutput {
+	return o.ApplyT(func(v LookupApplicationResult) ApplicationClientDetailsResponse { return v.UpdatedBy }).(ApplicationClientDetailsResponseOutput)
 }
 
 func init() {

@@ -28,6 +28,8 @@ type Diagnostic struct {
 	LogClientIp pulumi.BoolPtrOutput `pulumi:"logClientIp"`
 	// Resource Id of a target logger.
 	LoggerId pulumi.StringOutput `pulumi:"loggerId"`
+	// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+	Metrics pulumi.BoolPtrOutput `pulumi:"metrics"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The format of the Operation Name for Application Insights telemetries. Default is Name.
@@ -141,6 +143,8 @@ type diagnosticArgs struct {
 	LogClientIp *bool `pulumi:"logClientIp"`
 	// Resource Id of a target logger.
 	LoggerId string `pulumi:"loggerId"`
+	// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+	Metrics *bool `pulumi:"metrics"`
 	// The format of the Operation Name for Application Insights telemetries. Default is Name.
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The name of the resource group.
@@ -169,6 +173,8 @@ type DiagnosticArgs struct {
 	LogClientIp pulumi.BoolPtrInput
 	// Resource Id of a target logger.
 	LoggerId pulumi.StringInput
+	// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+	Metrics pulumi.BoolPtrInput
 	// The format of the Operation Name for Application Insights telemetries. Default is Name.
 	OperationNameFormat pulumi.StringPtrInput
 	// The name of the resource group.
@@ -246,6 +252,11 @@ func (o DiagnosticOutput) LogClientIp() pulumi.BoolPtrOutput {
 // Resource Id of a target logger.
 func (o DiagnosticOutput) LoggerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Diagnostic) pulumi.StringOutput { return v.LoggerId }).(pulumi.StringOutput)
+}
+
+// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+func (o DiagnosticOutput) Metrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.BoolPtrOutput { return v.Metrics }).(pulumi.BoolPtrOutput)
 }
 
 // Resource name.

@@ -101,7 +101,7 @@ export class CollectorPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkfunction:CollectorPolicy" }, { type: "azure-native:networkfunction/v20210901preview:CollectorPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkfunction:CollectorPolicy" }, { type: "azure-native:networkfunction/v20210901preview:CollectorPolicy" }, { type: "azure-native:networkfunction/v20220801:CollectorPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CollectorPolicy.__pulumiType, name, resourceInputs, opts);
     }

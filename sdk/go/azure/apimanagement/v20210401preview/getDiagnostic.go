@@ -45,6 +45,8 @@ type LookupDiagnosticResult struct {
 	LogClientIp *bool `pulumi:"logClientIp"`
 	// Resource Id of a target logger.
 	LoggerId string `pulumi:"loggerId"`
+	// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+	Metrics *bool `pulumi:"metrics"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The format of the Operation Name for Application Insights telemetries. Default is Name.
@@ -131,6 +133,11 @@ func (o LookupDiagnosticResultOutput) LogClientIp() pulumi.BoolPtrOutput {
 // Resource Id of a target logger.
 func (o LookupDiagnosticResultOutput) LoggerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDiagnosticResult) string { return v.LoggerId }).(pulumi.StringOutput)
+}
+
+// Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+func (o LookupDiagnosticResultOutput) Metrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDiagnosticResult) *bool { return v.Metrics }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource

@@ -165,7 +165,7 @@ func (o RunLocationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // RunLocationInput is an input type that accepts RunLocationArgs and RunLocationOutput values.
 // You can construct a concrete instance of `RunLocationInput` via:
 //
-//          RunLocationArgs{...}
+//	RunLocationArgs{...}
 type RunLocationInput interface {
 	pulumi.Input
 
@@ -331,7 +331,7 @@ func (o StatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 // StateInput is an input type that accepts StateArgs and StateOutput values.
 // You can construct a concrete instance of `StateInput` via:
 //
-//          StateArgs{...}
+//	StateArgs{...}
 type StateInput interface {
 	pulumi.Input
 
@@ -498,7 +498,7 @@ func (o SupportedAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // SupportedAlgorithmInput is an input type that accepts SupportedAlgorithmArgs and SupportedAlgorithmOutput values.
 // You can construct a concrete instance of `SupportedAlgorithmInput` via:
 //
-//          SupportedAlgorithmArgs{...}
+//	SupportedAlgorithmArgs{...}
 type SupportedAlgorithmInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ func (o UserConfirmationPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // UserConfirmationInput is an input type that accepts UserConfirmationArgs and UserConfirmationOutput values.
 // You can construct a concrete instance of `UserConfirmationInput` via:
 //
-//          UserConfirmationArgs{...}
+//	UserConfirmationArgs{...}
 type UserConfirmationInput interface {
 	pulumi.Input
 

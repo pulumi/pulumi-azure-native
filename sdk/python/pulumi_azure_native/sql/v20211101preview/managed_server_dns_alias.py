@@ -151,7 +151,7 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["public_azure_dns_record"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ManagedServerDnsAlias")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ManagedServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedServerDnsAlias")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedServerDnsAlias, __self__).__init__(
             'azure-native:sql/v20211101preview:ManagedServerDnsAlias',

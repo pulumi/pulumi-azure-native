@@ -73,6 +73,10 @@ namespace Pulumi.AzureNative.HybridCompute.V20220510Preview.Outputs
         /// </summary>
         public readonly string? MssqlDiscovered;
         /// <summary>
+        /// The Operating System running on the hybrid machine.
+        /// </summary>
+        public readonly string OsName;
+        /// <summary>
         /// Specifies the operating system settings for the hybrid machine.
         /// </summary>
         public readonly Outputs.OSProfileResponse? OsProfile;
@@ -147,6 +151,8 @@ namespace Pulumi.AzureNative.HybridCompute.V20220510Preview.Outputs
 
             string? mssqlDiscovered,
 
+            string osName,
+
             Outputs.OSProfileResponse? osProfile,
 
             string osSku,
@@ -183,6 +189,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20220510Preview.Outputs
             LocationData = locationData;
             MachineFqdn = machineFqdn;
             MssqlDiscovered = mssqlDiscovered;
+            OsName = osName;
             OsProfile = osProfile;
             OsSku = osSku;
             OsType = osType;

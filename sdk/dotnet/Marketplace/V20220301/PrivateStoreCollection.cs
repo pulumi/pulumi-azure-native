@@ -16,22 +16,22 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
     public partial class PrivateStoreCollection : Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicating whether all items are approved for this collection (=true) or not (=false).
-        /// </summary>
-        [Output("allItemsApproved")]
-        public Output<bool> AllItemsApproved { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the modified date of all items approved.
-        /// </summary>
-        [Output("allItemsApprovedModifiedAt")]
-        public Output<string> AllItemsApprovedModifiedAt { get; private set; } = null!;
-
-        /// <summary>
         /// Indicating whether all subscriptions are selected (=true) or not (=false).
         /// </summary>
         [Output("allSubscriptions")]
         public Output<bool?> AllSubscriptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicating whether all items are approved for this collection (=true) or not (=false).
+        /// </summary>
+        [Output("approveAllItems")]
+        public Output<bool> ApproveAllItems { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the modified date of all items approved.
+        /// </summary>
+        [Output("approveAllItemsModifiedAt")]
+        public Output<string> ApproveAllItemsModifiedAt { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the association with Commercial's Billing Account.

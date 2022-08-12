@@ -19,23 +19,23 @@ namespace Pulumi.AzureNative.Solutions.V20180601.Outputs
         /// <summary>
         /// The managed application artifact name.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// The managed application artifact type.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
         /// <summary>
         /// The managed application artifact blob uri.
         /// </summary>
-        public readonly string? Uri;
+        public readonly string Uri;
 
         [OutputConstructor]
         private ApplicationArtifactResponse(
-            string? name,
+            string name,
 
-            string? type,
+            string type,
 
-            string? uri)
+            string uri)
         {
             Name = name;
             Type = type;

@@ -72,13 +72,28 @@ func NewApplianceDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:solutions/v20170901:ApplianceDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:solutions/v20171201:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180201:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180301:ApplianceDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-native:solutions/v20180601:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180901preview:ApplianceDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20190701:ApplianceDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20200821preview:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20210201preview:ApplianceDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20210701:ApplianceDefinition"),

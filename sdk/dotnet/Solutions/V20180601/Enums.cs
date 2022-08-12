@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.Solutions.V20180601
 {
     /// <summary>
-    /// The managed application artifact type.
+    /// The managed application definition artifact type.
     /// </summary>
     [EnumType]
     public readonly struct ApplicationArtifactType : IEquatable<ApplicationArtifactType>
@@ -20,6 +20,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ApplicationArtifactType NotSpecified { get; } = new ApplicationArtifactType("NotSpecified");
         public static ApplicationArtifactType Template { get; } = new ApplicationArtifactType("Template");
         public static ApplicationArtifactType Custom { get; } = new ApplicationArtifactType("Custom");
 
@@ -31,6 +32,39 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ApplicationArtifactType other && Equals(other);
         public bool Equals(ApplicationArtifactType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The managed application definition artifact name.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationDefinitionArtifactName : IEquatable<ApplicationDefinitionArtifactName>
+    {
+        private readonly string _value;
+
+        private ApplicationDefinitionArtifactName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationDefinitionArtifactName NotSpecified { get; } = new ApplicationDefinitionArtifactName("NotSpecified");
+        public static ApplicationDefinitionArtifactName ApplicationResourceTemplate { get; } = new ApplicationDefinitionArtifactName("ApplicationResourceTemplate");
+        public static ApplicationDefinitionArtifactName CreateUiDefinition { get; } = new ApplicationDefinitionArtifactName("CreateUiDefinition");
+        public static ApplicationDefinitionArtifactName MainTemplateParameters { get; } = new ApplicationDefinitionArtifactName("MainTemplateParameters");
+
+        public static bool operator ==(ApplicationDefinitionArtifactName left, ApplicationDefinitionArtifactName right) => left.Equals(right);
+        public static bool operator !=(ApplicationDefinitionArtifactName left, ApplicationDefinitionArtifactName right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationDefinitionArtifactName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationDefinitionArtifactName other && Equals(other);
+        public bool Equals(ApplicationDefinitionArtifactName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -71,6 +105,101 @@ namespace Pulumi.AzureNative.Solutions.V20180601
     }
 
     /// <summary>
+    /// JIT approval mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct JitApprovalMode : IEquatable<JitApprovalMode>
+    {
+        private readonly string _value;
+
+        private JitApprovalMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JitApprovalMode NotSpecified { get; } = new JitApprovalMode("NotSpecified");
+        public static JitApprovalMode AutoApprove { get; } = new JitApprovalMode("AutoApprove");
+        public static JitApprovalMode ManualApprove { get; } = new JitApprovalMode("ManualApprove");
+
+        public static bool operator ==(JitApprovalMode left, JitApprovalMode right) => left.Equals(right);
+        public static bool operator !=(JitApprovalMode left, JitApprovalMode right) => !left.Equals(right);
+
+        public static explicit operator string(JitApprovalMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JitApprovalMode other && Equals(other);
+        public bool Equals(JitApprovalMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The approver type.
+    /// </summary>
+    [EnumType]
+    public readonly struct JitApproverType : IEquatable<JitApproverType>
+    {
+        private readonly string _value;
+
+        private JitApproverType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JitApproverType User { get; } = new JitApproverType("user");
+        public static JitApproverType @Group { get; } = new JitApproverType("group");
+
+        public static bool operator ==(JitApproverType left, JitApproverType right) => left.Equals(right);
+        public static bool operator !=(JitApproverType left, JitApproverType right) => !left.Equals(right);
+
+        public static explicit operator string(JitApproverType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JitApproverType other && Equals(other);
+        public bool Equals(JitApproverType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of JIT schedule.
+    /// </summary>
+    [EnumType]
+    public readonly struct JitSchedulingType : IEquatable<JitSchedulingType>
+    {
+        private readonly string _value;
+
+        private JitSchedulingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JitSchedulingType NotSpecified { get; } = new JitSchedulingType("NotSpecified");
+        public static JitSchedulingType Once { get; } = new JitSchedulingType("Once");
+        public static JitSchedulingType Recurring { get; } = new JitSchedulingType("Recurring");
+
+        public static bool operator ==(JitSchedulingType left, JitSchedulingType right) => left.Equals(right);
+        public static bool operator !=(JitSchedulingType left, JitSchedulingType right) => !left.Equals(right);
+
+        public static explicit operator string(JitSchedulingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JitSchedulingType other && Equals(other);
+        public bool Equals(JitSchedulingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The identity type.
     /// </summary>
     [EnumType]
@@ -84,6 +213,9 @@ namespace Pulumi.AzureNative.Solutions.V20180601
         }
 
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned, UserAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
         public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);

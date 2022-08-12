@@ -144,7 +144,7 @@ func (o B2CResourceSKUNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // B2CResourceSKUNameInput is an input type that accepts B2CResourceSKUNameArgs and B2CResourceSKUNameOutput values.
 // You can construct a concrete instance of `B2CResourceSKUNameInput` via:
 //
-//          B2CResourceSKUNameArgs{...}
+//	B2CResourceSKUNameArgs{...}
 type B2CResourceSKUNameInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ func (o B2CResourceSKUTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // B2CResourceSKUTierInput is an input type that accepts B2CResourceSKUTierArgs and B2CResourceSKUTierOutput values.
 // You can construct a concrete instance of `B2CResourceSKUTierInput` via:
 //
-//          B2CResourceSKUTierArgs{...}
+//	B2CResourceSKUTierArgs{...}
 type B2CResourceSKUTierInput interface {
 	pulumi.Input
 

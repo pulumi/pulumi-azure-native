@@ -19,7 +19,7 @@ type FailoverGroupReadOnlyEndpoint struct {
 // FailoverGroupReadOnlyEndpointInput is an input type that accepts FailoverGroupReadOnlyEndpointArgs and FailoverGroupReadOnlyEndpointOutput values.
 // You can construct a concrete instance of `FailoverGroupReadOnlyEndpointInput` via:
 //
-//          FailoverGroupReadOnlyEndpointArgs{...}
+//	FailoverGroupReadOnlyEndpointArgs{...}
 type FailoverGroupReadOnlyEndpointInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i FailoverGroupReadOnlyEndpointArgs) ToFailoverGroupReadOnlyEndpointPtrOut
 // FailoverGroupReadOnlyEndpointPtrInput is an input type that accepts FailoverGroupReadOnlyEndpointArgs, FailoverGroupReadOnlyEndpointPtr and FailoverGroupReadOnlyEndpointPtrOutput values.
 // You can construct a concrete instance of `FailoverGroupReadOnlyEndpointPtrInput` via:
 //
-//          FailoverGroupReadOnlyEndpointArgs{...}
+//	        FailoverGroupReadOnlyEndpointArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FailoverGroupReadOnlyEndpointPtrInput interface {
 	pulumi.Input
 
@@ -221,7 +221,7 @@ type FailoverGroupReadWriteEndpoint struct {
 // FailoverGroupReadWriteEndpointInput is an input type that accepts FailoverGroupReadWriteEndpointArgs and FailoverGroupReadWriteEndpointOutput values.
 // You can construct a concrete instance of `FailoverGroupReadWriteEndpointInput` via:
 //
-//          FailoverGroupReadWriteEndpointArgs{...}
+//	FailoverGroupReadWriteEndpointArgs{...}
 type FailoverGroupReadWriteEndpointInput interface {
 	pulumi.Input
 
@@ -316,7 +316,7 @@ type PartnerInfo struct {
 // PartnerInfoInput is an input type that accepts PartnerInfoArgs and PartnerInfoOutput values.
 // You can construct a concrete instance of `PartnerInfoInput` via:
 //
-//          PartnerInfoArgs{...}
+//	PartnerInfoArgs{...}
 type PartnerInfoInput interface {
 	pulumi.Input
 
@@ -345,7 +345,7 @@ func (i PartnerInfoArgs) ToPartnerInfoOutputWithContext(ctx context.Context) Par
 // PartnerInfoArrayInput is an input type that accepts PartnerInfoArray and PartnerInfoArrayOutput values.
 // You can construct a concrete instance of `PartnerInfoArrayInput` via:
 //
-//          PartnerInfoArray{ PartnerInfoArgs{...} }
+//	PartnerInfoArray{ PartnerInfoArgs{...} }
 type PartnerInfoArrayInput interface {
 	pulumi.Input
 
@@ -967,7 +967,7 @@ type ResourceIdentity struct {
 // ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
 // You can construct a concrete instance of `ResourceIdentityInput` via:
 //
-//          ResourceIdentityArgs{...}
+//	ResourceIdentityArgs{...}
 type ResourceIdentityInput interface {
 	pulumi.Input
 
@@ -1004,11 +1004,11 @@ func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context
 // ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
 // You can construct a concrete instance of `ResourceIdentityPtrInput` via:
 //
-//          ResourceIdentityArgs{...}
+//	        ResourceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1209,7 +1209,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1254,11 +1254,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -1547,7 +1547,7 @@ type SyncGroupSchema struct {
 // SyncGroupSchemaInput is an input type that accepts SyncGroupSchemaArgs and SyncGroupSchemaOutput values.
 // You can construct a concrete instance of `SyncGroupSchemaInput` via:
 //
-//          SyncGroupSchemaArgs{...}
+//	SyncGroupSchemaArgs{...}
 type SyncGroupSchemaInput interface {
 	pulumi.Input
 
@@ -1586,11 +1586,11 @@ func (i SyncGroupSchemaArgs) ToSyncGroupSchemaPtrOutputWithContext(ctx context.C
 // SyncGroupSchemaPtrInput is an input type that accepts SyncGroupSchemaArgs, SyncGroupSchemaPtr and SyncGroupSchemaPtrOutput values.
 // You can construct a concrete instance of `SyncGroupSchemaPtrInput` via:
 //
-//          SyncGroupSchemaArgs{...}
+//	        SyncGroupSchemaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SyncGroupSchemaPtrInput interface {
 	pulumi.Input
 
@@ -1783,7 +1783,7 @@ type SyncGroupSchemaTable struct {
 // SyncGroupSchemaTableInput is an input type that accepts SyncGroupSchemaTableArgs and SyncGroupSchemaTableOutput values.
 // You can construct a concrete instance of `SyncGroupSchemaTableInput` via:
 //
-//          SyncGroupSchemaTableArgs{...}
+//	SyncGroupSchemaTableArgs{...}
 type SyncGroupSchemaTableInput interface {
 	pulumi.Input
 
@@ -1814,7 +1814,7 @@ func (i SyncGroupSchemaTableArgs) ToSyncGroupSchemaTableOutputWithContext(ctx co
 // SyncGroupSchemaTableArrayInput is an input type that accepts SyncGroupSchemaTableArray and SyncGroupSchemaTableArrayOutput values.
 // You can construct a concrete instance of `SyncGroupSchemaTableArrayInput` via:
 //
-//          SyncGroupSchemaTableArray{ SyncGroupSchemaTableArgs{...} }
+//	SyncGroupSchemaTableArray{ SyncGroupSchemaTableArgs{...} }
 type SyncGroupSchemaTableArrayInput interface {
 	pulumi.Input
 
@@ -1894,7 +1894,7 @@ type SyncGroupSchemaTableColumn struct {
 // SyncGroupSchemaTableColumnInput is an input type that accepts SyncGroupSchemaTableColumnArgs and SyncGroupSchemaTableColumnOutput values.
 // You can construct a concrete instance of `SyncGroupSchemaTableColumnInput` via:
 //
-//          SyncGroupSchemaTableColumnArgs{...}
+//	SyncGroupSchemaTableColumnArgs{...}
 type SyncGroupSchemaTableColumnInput interface {
 	pulumi.Input
 
@@ -1927,7 +1927,7 @@ func (i SyncGroupSchemaTableColumnArgs) ToSyncGroupSchemaTableColumnOutputWithCo
 // SyncGroupSchemaTableColumnArrayInput is an input type that accepts SyncGroupSchemaTableColumnArray and SyncGroupSchemaTableColumnArrayOutput values.
 // You can construct a concrete instance of `SyncGroupSchemaTableColumnArrayInput` via:
 //
-//          SyncGroupSchemaTableColumnArray{ SyncGroupSchemaTableColumnArgs{...} }
+//	SyncGroupSchemaTableColumnArray{ SyncGroupSchemaTableColumnArgs{...} }
 type SyncGroupSchemaTableColumnArrayInput interface {
 	pulumi.Input
 

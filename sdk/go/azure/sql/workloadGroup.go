@@ -84,6 +84,9 @@ func NewWorkloadGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:WorkloadGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20220201preview:WorkloadGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WorkloadGroup

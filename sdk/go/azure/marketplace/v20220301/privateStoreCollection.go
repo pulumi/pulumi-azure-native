@@ -15,12 +15,12 @@ import (
 type PrivateStoreCollection struct {
 	pulumi.CustomResourceState
 
-	// Indicating whether all items are approved for this collection (=true) or not (=false).
-	AllItemsApproved pulumi.BoolOutput `pulumi:"allItemsApproved"`
-	// Gets the modified date of all items approved.
-	AllItemsApprovedModifiedAt pulumi.StringOutput `pulumi:"allItemsApprovedModifiedAt"`
 	// Indicating whether all subscriptions are selected (=true) or not (=false).
 	AllSubscriptions pulumi.BoolPtrOutput `pulumi:"allSubscriptions"`
+	// Indicating whether all items are approved for this collection (=true) or not (=false).
+	ApproveAllItems pulumi.BoolOutput `pulumi:"approveAllItems"`
+	// Gets the modified date of all items approved.
+	ApproveAllItemsModifiedAt pulumi.StringOutput `pulumi:"approveAllItemsModifiedAt"`
 	// Gets or sets the association with Commercial's Billing Account.
 	Claim pulumi.StringPtrOutput `pulumi:"claim"`
 	// Gets collection Id.
@@ -166,19 +166,19 @@ func (o PrivateStoreCollectionOutput) ToPrivateStoreCollectionOutputWithContext(
 	return o
 }
 
-// Indicating whether all items are approved for this collection (=true) or not (=false).
-func (o PrivateStoreCollectionOutput) AllItemsApproved() pulumi.BoolOutput {
-	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.BoolOutput { return v.AllItemsApproved }).(pulumi.BoolOutput)
-}
-
-// Gets the modified date of all items approved.
-func (o PrivateStoreCollectionOutput) AllItemsApprovedModifiedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.StringOutput { return v.AllItemsApprovedModifiedAt }).(pulumi.StringOutput)
-}
-
 // Indicating whether all subscriptions are selected (=true) or not (=false).
 func (o PrivateStoreCollectionOutput) AllSubscriptions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.BoolPtrOutput { return v.AllSubscriptions }).(pulumi.BoolPtrOutput)
+}
+
+// Indicating whether all items are approved for this collection (=true) or not (=false).
+func (o PrivateStoreCollectionOutput) ApproveAllItems() pulumi.BoolOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.BoolOutput { return v.ApproveAllItems }).(pulumi.BoolOutput)
+}
+
+// Gets the modified date of all items approved.
+func (o PrivateStoreCollectionOutput) ApproveAllItemsModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.StringOutput { return v.ApproveAllItemsModifiedAt }).(pulumi.StringOutput)
 }
 
 // Gets or sets the association with Commercial's Billing Account.

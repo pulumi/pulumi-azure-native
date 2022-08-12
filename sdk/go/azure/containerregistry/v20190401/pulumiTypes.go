@@ -19,7 +19,7 @@ type AgentProperties struct {
 // AgentPropertiesInput is an input type that accepts AgentPropertiesArgs and AgentPropertiesOutput values.
 // You can construct a concrete instance of `AgentPropertiesInput` via:
 //
-//          AgentPropertiesArgs{...}
+//	AgentPropertiesArgs{...}
 type AgentPropertiesInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AgentPropertiesArgs) ToAgentPropertiesPtrOutputWithContext(ctx context.C
 // AgentPropertiesPtrInput is an input type that accepts AgentPropertiesArgs, AgentPropertiesPtr and AgentPropertiesPtrOutput values.
 // You can construct a concrete instance of `AgentPropertiesPtrInput` via:
 //
-//          AgentPropertiesArgs{...}
+//	        AgentPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AgentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -273,7 +273,7 @@ type AuthInfo struct {
 // AuthInfoInput is an input type that accepts AuthInfoArgs and AuthInfoOutput values.
 // You can construct a concrete instance of `AuthInfoInput` via:
 //
-//          AuthInfoArgs{...}
+//	AuthInfoArgs{...}
 type AuthInfoInput interface {
 	pulumi.Input
 
@@ -318,11 +318,11 @@ func (i AuthInfoArgs) ToAuthInfoPtrOutputWithContext(ctx context.Context) AuthIn
 // AuthInfoPtrInput is an input type that accepts AuthInfoArgs, AuthInfoPtr and AuthInfoPtrOutput values.
 // You can construct a concrete instance of `AuthInfoPtrInput` via:
 //
-//          AuthInfoArgs{...}
+//	        AuthInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AuthInfoPtrInput interface {
 	pulumi.Input
 
@@ -640,7 +640,7 @@ func (val *BaseImageTrigger) Defaults() *BaseImageTrigger {
 // BaseImageTriggerInput is an input type that accepts BaseImageTriggerArgs and BaseImageTriggerOutput values.
 // You can construct a concrete instance of `BaseImageTriggerInput` via:
 //
-//          BaseImageTriggerArgs{...}
+//	BaseImageTriggerArgs{...}
 type BaseImageTriggerInput interface {
 	pulumi.Input
 
@@ -692,11 +692,11 @@ func (i BaseImageTriggerArgs) ToBaseImageTriggerPtrOutputWithContext(ctx context
 // BaseImageTriggerPtrInput is an input type that accepts BaseImageTriggerArgs, BaseImageTriggerPtr and BaseImageTriggerPtrOutput values.
 // You can construct a concrete instance of `BaseImageTriggerPtrInput` via:
 //
-//          BaseImageTriggerArgs{...}
+//	        BaseImageTriggerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BaseImageTriggerPtrInput interface {
 	pulumi.Input
 
@@ -936,7 +936,7 @@ type Credentials struct {
 // CredentialsInput is an input type that accepts CredentialsArgs and CredentialsOutput values.
 // You can construct a concrete instance of `CredentialsInput` via:
 //
-//          CredentialsArgs{...}
+//	CredentialsArgs{...}
 type CredentialsInput interface {
 	pulumi.Input
 
@@ -977,11 +977,11 @@ func (i CredentialsArgs) ToCredentialsPtrOutputWithContext(ctx context.Context) 
 // CredentialsPtrInput is an input type that accepts CredentialsArgs, CredentialsPtr and CredentialsPtrOutput values.
 // You can construct a concrete instance of `CredentialsPtrInput` via:
 //
-//          CredentialsArgs{...}
+//	        CredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CredentialsPtrInput interface {
 	pulumi.Input
 
@@ -1191,7 +1191,7 @@ type CustomRegistryCredentials struct {
 // CustomRegistryCredentialsInput is an input type that accepts CustomRegistryCredentialsArgs and CustomRegistryCredentialsOutput values.
 // You can construct a concrete instance of `CustomRegistryCredentialsInput` via:
 //
-//          CustomRegistryCredentialsArgs{...}
+//	CustomRegistryCredentialsArgs{...}
 type CustomRegistryCredentialsInput interface {
 	pulumi.Input
 
@@ -1229,7 +1229,7 @@ func (i CustomRegistryCredentialsArgs) ToCustomRegistryCredentialsOutputWithCont
 // CustomRegistryCredentialsMapInput is an input type that accepts CustomRegistryCredentialsMap and CustomRegistryCredentialsMapOutput values.
 // You can construct a concrete instance of `CustomRegistryCredentialsMapInput` via:
 //
-//          CustomRegistryCredentialsMap{ "key": CustomRegistryCredentialsArgs{...} }
+//	CustomRegistryCredentialsMap{ "key": CustomRegistryCredentialsArgs{...} }
 type CustomRegistryCredentialsMapInput interface {
 	pulumi.Input
 
@@ -1548,7 +1548,7 @@ type IdentityProperties struct {
 // IdentityPropertiesInput is an input type that accepts IdentityPropertiesArgs and IdentityPropertiesOutput values.
 // You can construct a concrete instance of `IdentityPropertiesInput` via:
 //
-//          IdentityPropertiesArgs{...}
+//	IdentityPropertiesArgs{...}
 type IdentityPropertiesInput interface {
 	pulumi.Input
 
@@ -1594,11 +1594,11 @@ func (i IdentityPropertiesArgs) ToIdentityPropertiesPtrOutputWithContext(ctx con
 // IdentityPropertiesPtrInput is an input type that accepts IdentityPropertiesArgs, IdentityPropertiesPtr and IdentityPropertiesPtrOutput values.
 // You can construct a concrete instance of `IdentityPropertiesPtrInput` via:
 //
-//          IdentityPropertiesArgs{...}
+//	        IdentityPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1667,7 +1667,8 @@ func (o IdentityPropertiesOutput) Type() ResourceIdentityTypePtrOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//
+//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
 	return o.ApplyT(func(v IdentityProperties) map[string]UserIdentityProperties { return v.UserAssignedIdentities }).(UserIdentityPropertiesMapOutput)
 }
@@ -1729,7 +1730,8 @@ func (o IdentityPropertiesPtrOutput) Type() ResourceIdentityTypePtrOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//
+//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesPtrOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
 	return o.ApplyT(func(v *IdentityProperties) map[string]UserIdentityProperties {
 		if v == nil {
@@ -1787,7 +1789,8 @@ func (o IdentityPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//
+//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesResponseOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) map[string]UserIdentityPropertiesResponse {
 		return v.UserAssignedIdentities
@@ -1851,7 +1854,8 @@ func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // The list of user identities associated with the resource. The user identity
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+//
+//	providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesResponsePtrOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) map[string]UserIdentityPropertiesResponse {
 		if v == nil {
@@ -1874,7 +1878,7 @@ type PlatformProperties struct {
 // PlatformPropertiesInput is an input type that accepts PlatformPropertiesArgs and PlatformPropertiesOutput values.
 // You can construct a concrete instance of `PlatformPropertiesInput` via:
 //
-//          PlatformPropertiesArgs{...}
+//	PlatformPropertiesArgs{...}
 type PlatformPropertiesInput interface {
 	pulumi.Input
 
@@ -1988,7 +1992,7 @@ type SecretObject struct {
 // SecretObjectInput is an input type that accepts SecretObjectArgs and SecretObjectOutput values.
 // You can construct a concrete instance of `SecretObjectInput` via:
 //
-//          SecretObjectArgs{...}
+//	SecretObjectArgs{...}
 type SecretObjectInput interface {
 	pulumi.Input
 
@@ -2030,11 +2034,11 @@ func (i SecretObjectArgs) ToSecretObjectPtrOutputWithContext(ctx context.Context
 // SecretObjectPtrInput is an input type that accepts SecretObjectArgs, SecretObjectPtr and SecretObjectPtrOutput values.
 // You can construct a concrete instance of `SecretObjectPtrInput` via:
 //
-//          SecretObjectArgs{...}
+//	        SecretObjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SecretObjectPtrInput interface {
 	pulumi.Input
 
@@ -2293,7 +2297,7 @@ type SourceProperties struct {
 // SourcePropertiesInput is an input type that accepts SourcePropertiesArgs and SourcePropertiesOutput values.
 // You can construct a concrete instance of `SourcePropertiesInput` via:
 //
-//          SourcePropertiesArgs{...}
+//	SourcePropertiesArgs{...}
 type SourcePropertiesInput interface {
 	pulumi.Input
 
@@ -2422,7 +2426,7 @@ type SourceRegistryCredentials struct {
 // SourceRegistryCredentialsInput is an input type that accepts SourceRegistryCredentialsArgs and SourceRegistryCredentialsOutput values.
 // You can construct a concrete instance of `SourceRegistryCredentialsInput` via:
 //
-//          SourceRegistryCredentialsArgs{...}
+//	SourceRegistryCredentialsArgs{...}
 type SourceRegistryCredentialsInput interface {
 	pulumi.Input
 
@@ -2461,11 +2465,11 @@ func (i SourceRegistryCredentialsArgs) ToSourceRegistryCredentialsPtrOutputWithC
 // SourceRegistryCredentialsPtrInput is an input type that accepts SourceRegistryCredentialsArgs, SourceRegistryCredentialsPtr and SourceRegistryCredentialsPtrOutput values.
 // You can construct a concrete instance of `SourceRegistryCredentialsPtrInput` via:
 //
-//          SourceRegistryCredentialsArgs{...}
+//	        SourceRegistryCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SourceRegistryCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -2653,7 +2657,7 @@ func (val *SourceTrigger) Defaults() *SourceTrigger {
 // SourceTriggerInput is an input type that accepts SourceTriggerArgs and SourceTriggerOutput values.
 // You can construct a concrete instance of `SourceTriggerInput` via:
 //
-//          SourceTriggerArgs{...}
+//	SourceTriggerArgs{...}
 type SourceTriggerInput interface {
 	pulumi.Input
 
@@ -2699,7 +2703,7 @@ func (i SourceTriggerArgs) ToSourceTriggerOutputWithContext(ctx context.Context)
 // SourceTriggerArrayInput is an input type that accepts SourceTriggerArray and SourceTriggerArrayOutput values.
 // You can construct a concrete instance of `SourceTriggerArrayInput` via:
 //
-//          SourceTriggerArray{ SourceTriggerArgs{...} }
+//	SourceTriggerArray{ SourceTriggerArgs{...} }
 type SourceTriggerArrayInput interface {
 	pulumi.Input
 
@@ -2882,7 +2886,7 @@ func (val *TimerTrigger) Defaults() *TimerTrigger {
 // TimerTriggerInput is an input type that accepts TimerTriggerArgs and TimerTriggerOutput values.
 // You can construct a concrete instance of `TimerTriggerInput` via:
 //
-//          TimerTriggerArgs{...}
+//	TimerTriggerArgs{...}
 type TimerTriggerInput interface {
 	pulumi.Input
 
@@ -2926,7 +2930,7 @@ func (i TimerTriggerArgs) ToTimerTriggerOutputWithContext(ctx context.Context) T
 // TimerTriggerArrayInput is an input type that accepts TimerTriggerArray and TimerTriggerArrayOutput values.
 // You can construct a concrete instance of `TimerTriggerArrayInput` via:
 //
-//          TimerTriggerArray{ TimerTriggerArgs{...} }
+//	TimerTriggerArray{ TimerTriggerArgs{...} }
 type TimerTriggerArrayInput interface {
 	pulumi.Input
 
@@ -3095,7 +3099,7 @@ func (val *TriggerProperties) Defaults() *TriggerProperties {
 // TriggerPropertiesInput is an input type that accepts TriggerPropertiesArgs and TriggerPropertiesOutput values.
 // You can construct a concrete instance of `TriggerPropertiesInput` via:
 //
-//          TriggerPropertiesArgs{...}
+//	TriggerPropertiesArgs{...}
 type TriggerPropertiesInput interface {
 	pulumi.Input
 
@@ -3145,11 +3149,11 @@ func (i TriggerPropertiesArgs) ToTriggerPropertiesPtrOutputWithContext(ctx conte
 // TriggerPropertiesPtrInput is an input type that accepts TriggerPropertiesArgs, TriggerPropertiesPtr and TriggerPropertiesPtrOutput values.
 // You can construct a concrete instance of `TriggerPropertiesPtrInput` via:
 //
-//          TriggerPropertiesArgs{...}
+//	        TriggerPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TriggerPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3384,7 +3388,7 @@ type UserIdentityProperties struct {
 // UserIdentityPropertiesInput is an input type that accepts UserIdentityPropertiesArgs and UserIdentityPropertiesOutput values.
 // You can construct a concrete instance of `UserIdentityPropertiesInput` via:
 //
-//          UserIdentityPropertiesArgs{...}
+//	UserIdentityPropertiesArgs{...}
 type UserIdentityPropertiesInput interface {
 	pulumi.Input
 
@@ -3414,7 +3418,7 @@ func (i UserIdentityPropertiesArgs) ToUserIdentityPropertiesOutputWithContext(ct
 // UserIdentityPropertiesMapInput is an input type that accepts UserIdentityPropertiesMap and UserIdentityPropertiesMapOutput values.
 // You can construct a concrete instance of `UserIdentityPropertiesMapInput` via:
 //
-//          UserIdentityPropertiesMap{ "key": UserIdentityPropertiesArgs{...} }
+//	UserIdentityPropertiesMap{ "key": UserIdentityPropertiesArgs{...} }
 type UserIdentityPropertiesMapInput interface {
 	pulumi.Input
 

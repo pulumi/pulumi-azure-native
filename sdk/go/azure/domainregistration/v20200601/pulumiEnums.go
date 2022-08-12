@@ -140,7 +140,7 @@ func (o DnsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // DnsTypeInput is an input type that accepts DnsTypeArgs and DnsTypeOutput values.
 // You can construct a concrete instance of `DnsTypeInput` via:
 //
-//          DnsTypeArgs{...}
+//	DnsTypeArgs{...}
 type DnsTypeInput interface {
 	pulumi.Input
 

@@ -109,7 +109,7 @@ export class AzureTrafficCollector extends pulumi.CustomResource {
             resourceInputs["virtualHub"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkfunction:AzureTrafficCollector" }, { type: "azure-native:networkfunction/v20220501:AzureTrafficCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkfunction:AzureTrafficCollector" }, { type: "azure-native:networkfunction/v20220501:AzureTrafficCollector" }, { type: "azure-native:networkfunction/v20220801:AzureTrafficCollector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureTrafficCollector.__pulumiType, name, resourceInputs, opts);
     }

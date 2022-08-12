@@ -213,7 +213,7 @@ func (o OperatingSystemTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // OperatingSystemTypesInput is an input type that accepts OperatingSystemTypesArgs and OperatingSystemTypesOutput values.
 // You can construct a concrete instance of `OperatingSystemTypesInput` via:
 //
-//          OperatingSystemTypesArgs{...}
+//	OperatingSystemTypesArgs{...}
 type OperatingSystemTypesInput interface {
 	pulumi.Input
 

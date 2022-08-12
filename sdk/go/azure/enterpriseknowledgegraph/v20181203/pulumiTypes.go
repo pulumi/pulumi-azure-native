@@ -23,7 +23,7 @@ type EnterpriseKnowledgeGraphProperties struct {
 // EnterpriseKnowledgeGraphPropertiesInput is an input type that accepts EnterpriseKnowledgeGraphPropertiesArgs and EnterpriseKnowledgeGraphPropertiesOutput values.
 // You can construct a concrete instance of `EnterpriseKnowledgeGraphPropertiesInput` via:
 //
-//          EnterpriseKnowledgeGraphPropertiesArgs{...}
+//	EnterpriseKnowledgeGraphPropertiesArgs{...}
 type EnterpriseKnowledgeGraphPropertiesInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i EnterpriseKnowledgeGraphPropertiesArgs) ToEnterpriseKnowledgeGraphProper
 // EnterpriseKnowledgeGraphPropertiesPtrInput is an input type that accepts EnterpriseKnowledgeGraphPropertiesArgs, EnterpriseKnowledgeGraphPropertiesPtr and EnterpriseKnowledgeGraphPropertiesPtrOutput values.
 // You can construct a concrete instance of `EnterpriseKnowledgeGraphPropertiesPtrInput` via:
 //
-//          EnterpriseKnowledgeGraphPropertiesArgs{...}
+//	        EnterpriseKnowledgeGraphPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnterpriseKnowledgeGraphPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -237,7 +237,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -274,11 +274,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 

@@ -26,7 +26,7 @@ type MediaGraphAssetSink struct {
 // MediaGraphAssetSinkInput is an input type that accepts MediaGraphAssetSinkArgs and MediaGraphAssetSinkOutput values.
 // You can construct a concrete instance of `MediaGraphAssetSinkInput` via:
 //
-//          MediaGraphAssetSinkArgs{...}
+//	MediaGraphAssetSinkArgs{...}
 type MediaGraphAssetSinkInput interface {
 	pulumi.Input
 
@@ -62,7 +62,7 @@ func (i MediaGraphAssetSinkArgs) ToMediaGraphAssetSinkOutputWithContext(ctx cont
 // MediaGraphAssetSinkArrayInput is an input type that accepts MediaGraphAssetSinkArray and MediaGraphAssetSinkArrayOutput values.
 // You can construct a concrete instance of `MediaGraphAssetSinkArrayInput` via:
 //
-//          MediaGraphAssetSinkArray{ MediaGraphAssetSinkArgs{...} }
+//	MediaGraphAssetSinkArray{ MediaGraphAssetSinkArgs{...} }
 type MediaGraphAssetSinkArrayInput interface {
 	pulumi.Input
 
@@ -265,7 +265,7 @@ type MediaGraphRtspSource struct {
 // MediaGraphRtspSourceInput is an input type that accepts MediaGraphRtspSourceArgs and MediaGraphRtspSourceOutput values.
 // You can construct a concrete instance of `MediaGraphRtspSourceInput` via:
 //
-//          MediaGraphRtspSourceArgs{...}
+//	MediaGraphRtspSourceArgs{...}
 type MediaGraphRtspSourceInput interface {
 	pulumi.Input
 
@@ -301,7 +301,7 @@ func (i MediaGraphRtspSourceArgs) ToMediaGraphRtspSourceOutputWithContext(ctx co
 // MediaGraphRtspSourceArrayInput is an input type that accepts MediaGraphRtspSourceArray and MediaGraphRtspSourceArrayOutput values.
 // You can construct a concrete instance of `MediaGraphRtspSourceArrayInput` via:
 //
-//          MediaGraphRtspSourceArray{ MediaGraphRtspSourceArgs{...} }
+//	MediaGraphRtspSourceArray{ MediaGraphRtspSourceArgs{...} }
 type MediaGraphRtspSourceArrayInput interface {
 	pulumi.Input
 

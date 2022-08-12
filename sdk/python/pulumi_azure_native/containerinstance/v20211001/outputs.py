@@ -15,8 +15,7 @@ __all__ = [
     'ContainerExecResponse',
     'ContainerGroupDiagnosticsResponse',
     'ContainerGroupIdentityResponse',
-    'ContainerGroupIdentityResponseUserAssignedIdentities',
-    'ContainerGroupResponseInstanceView',
+    'ContainerGroupPropertiesResponseInstanceView',
     'ContainerGroupSubnetIdResponse',
     'ContainerHttpGetResponse',
     'ContainerPortResponse',
@@ -40,6 +39,7 @@ __all__ = [
     'ResourceLimitsResponse',
     'ResourceRequestsResponse',
     'ResourceRequirementsResponse',
+    'UserAssignedIdentitiesResponse',
     'VolumeMountResponse',
     'VolumeResponse',
 ]
@@ -217,13 +217,13 @@ class ContainerGroupIdentityResponse(dict):
                  principal_id: str,
                  tenant_id: str,
                  type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.ContainerGroupIdentityResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None):
         """
         Identity for the container group.
         :param str principal_id: The principal id of the container group identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id associated with the container group. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
-        :param Mapping[str, 'ContainerGroupIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesResponse'] user_assigned_identities: The list of user identities associated with the container group.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -258,63 +258,15 @@ class ContainerGroupIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ContainerGroupIdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']]:
         """
-        The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        The list of user identities associated with the container group.
         """
         return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
-class ContainerGroupIdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ContainerGroupIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ContainerGroupIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-
-@pulumi.output_type
-class ContainerGroupResponseInstanceView(dict):
+class ContainerGroupPropertiesResponseInstanceView(dict):
     """
     The instance view of the container group. Only valid in response.
     """
@@ -1606,10 +1558,10 @@ class IpAddressResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dnsNameLabel":
+        if key == "autoGeneratedDomainNameLabelScope":
+            suggest = "auto_generated_domain_name_label_scope"
+        elif key == "dnsNameLabel":
             suggest = "dns_name_label"
-        elif key == "dnsNameLabelReusePolicy":
-            suggest = "dns_name_label_reuse_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IpAddressResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1626,25 +1578,27 @@ class IpAddressResponse(dict):
                  fqdn: str,
                  ports: Sequence['outputs.PortResponse'],
                  type: str,
+                 auto_generated_domain_name_label_scope: Optional[str] = None,
                  dns_name_label: Optional[str] = None,
-                 dns_name_label_reuse_policy: Optional[str] = None,
                  ip: Optional[str] = None):
         """
         IP address for the container group.
         :param str fqdn: The FQDN for the IP.
         :param Sequence['PortResponse'] ports: The list of ports exposed on the container group.
         :param str type: Specifies if the IP is exposed to the public internet or private VNET.
+        :param str auto_generated_domain_name_label_scope: The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
         :param str dns_name_label: The Dns name label for the IP.
-        :param str dns_name_label_reuse_policy: The value representing the security enum.
         :param str ip: The IP exposed to the public internet.
         """
         pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "ports", ports)
         pulumi.set(__self__, "type", type)
+        if auto_generated_domain_name_label_scope is None:
+            auto_generated_domain_name_label_scope = 'Unsecure'
+        if auto_generated_domain_name_label_scope is not None:
+            pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if dns_name_label is not None:
             pulumi.set(__self__, "dns_name_label", dns_name_label)
-        if dns_name_label_reuse_policy is not None:
-            pulumi.set(__self__, "dns_name_label_reuse_policy", dns_name_label_reuse_policy)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
 
@@ -1673,20 +1627,20 @@ class IpAddressResponse(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="autoGeneratedDomainNameLabelScope")
+    def auto_generated_domain_name_label_scope(self) -> Optional[str]:
+        """
+        The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
+        """
+        return pulumi.get(self, "auto_generated_domain_name_label_scope")
+
+    @property
     @pulumi.getter(name="dnsNameLabel")
     def dns_name_label(self) -> Optional[str]:
         """
         The Dns name label for the IP.
         """
         return pulumi.get(self, "dns_name_label")
-
-    @property
-    @pulumi.getter(name="dnsNameLabelReusePolicy")
-    def dns_name_label_reuse_policy(self) -> Optional[str]:
-        """
-        The value representing the security enum.
-        """
-        return pulumi.get(self, "dns_name_label_reuse_policy")
 
     @property
     @pulumi.getter
@@ -1981,6 +1935,58 @@ class ResourceRequirementsResponse(dict):
         The resource limits of this container instance.
         """
         return pulumi.get(self, "limits")
+
+
+@pulumi.output_type
+class UserAssignedIdentitiesResponse(dict):
+    """
+    The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentitiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentitiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

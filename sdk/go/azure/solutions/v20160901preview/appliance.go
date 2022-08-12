@@ -70,13 +70,28 @@ func NewAppliance(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:solutions/v20170901:Appliance"),
 		},
 		{
+			Type: pulumi.String("azure-native:solutions/v20171201:Appliance"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180201:Appliance"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180301:Appliance"),
+		},
+		{
 			Type: pulumi.String("azure-native:solutions/v20180601:Appliance"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180901preview:Appliance"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20190701:Appliance"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20200821preview:Appliance"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20210201preview:Appliance"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20210701:Appliance"),

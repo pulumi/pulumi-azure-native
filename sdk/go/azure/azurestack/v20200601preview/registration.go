@@ -60,6 +60,9 @@ func NewRegistration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:azurestack/v20170601:Registration"),
 		},
+		{
+			Type: pulumi.String("azure-native:azurestack/v20220601:Registration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Registration

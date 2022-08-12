@@ -19,7 +19,7 @@ type MyWorkbookManagedIdentity struct {
 // MyWorkbookManagedIdentityInput is an input type that accepts MyWorkbookManagedIdentityArgs and MyWorkbookManagedIdentityOutput values.
 // You can construct a concrete instance of `MyWorkbookManagedIdentityInput` via:
 //
-//          MyWorkbookManagedIdentityArgs{...}
+//	MyWorkbookManagedIdentityArgs{...}
 type MyWorkbookManagedIdentityInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i MyWorkbookManagedIdentityArgs) ToMyWorkbookManagedIdentityPtrOutputWithC
 // MyWorkbookManagedIdentityPtrInput is an input type that accepts MyWorkbookManagedIdentityArgs, MyWorkbookManagedIdentityPtr and MyWorkbookManagedIdentityPtrOutput values.
 // You can construct a concrete instance of `MyWorkbookManagedIdentityPtrInput` via:
 //
-//          MyWorkbookManagedIdentityArgs{...}
+//	        MyWorkbookManagedIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MyWorkbookManagedIdentityPtrInput interface {
 	pulumi.Input
 
@@ -376,7 +376,7 @@ type WorkbookManagedIdentity struct {
 // WorkbookManagedIdentityInput is an input type that accepts WorkbookManagedIdentityArgs and WorkbookManagedIdentityOutput values.
 // You can construct a concrete instance of `WorkbookManagedIdentityInput` via:
 //
-//          WorkbookManagedIdentityArgs{...}
+//	WorkbookManagedIdentityArgs{...}
 type WorkbookManagedIdentityInput interface {
 	pulumi.Input
 
@@ -413,11 +413,11 @@ func (i WorkbookManagedIdentityArgs) ToWorkbookManagedIdentityPtrOutputWithConte
 // WorkbookManagedIdentityPtrInput is an input type that accepts WorkbookManagedIdentityArgs, WorkbookManagedIdentityPtr and WorkbookManagedIdentityPtrOutput values.
 // You can construct a concrete instance of `WorkbookManagedIdentityPtrInput` via:
 //
-//          WorkbookManagedIdentityArgs{...}
+//	        WorkbookManagedIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkbookManagedIdentityPtrInput interface {
 	pulumi.Input
 

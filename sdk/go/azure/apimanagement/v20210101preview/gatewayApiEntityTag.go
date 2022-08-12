@@ -310,7 +310,7 @@ func (o GatewayApiEntityTagOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.BoolPtrOutput { return v.SubscriptionRequired }).(pulumi.BoolPtrOutput)
 }
 
-//  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+// A URL to the Terms of Service for the API. MUST be in the format of a URL.
 func (o GatewayApiEntityTagOutput) TermsOfServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.TermsOfServiceUrl }).(pulumi.StringPtrOutput)
 }

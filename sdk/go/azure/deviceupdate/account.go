@@ -58,6 +58,9 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:deviceupdate/v20220401preview:Account"),
 		},
+		{
+			Type: pulumi.String("azure-native:deviceupdate/v20221001:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account

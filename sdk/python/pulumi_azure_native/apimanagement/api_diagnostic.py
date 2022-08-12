@@ -26,6 +26,7 @@ class ApiDiagnosticArgs:
                  frontend: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']] = None,
                  http_correlation_protocol: Optional[pulumi.Input[Union[str, 'HttpCorrelationProtocol']]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
+                 metrics: Optional[pulumi.Input[bool]] = None,
                  operation_name_format: Optional[pulumi.Input[Union[str, 'OperationNameFormat']]] = None,
                  sampling: Optional[pulumi.Input['SamplingSettingsArgs']] = None,
                  verbosity: Optional[pulumi.Input[Union[str, 'Verbosity']]] = None):
@@ -41,6 +42,7 @@ class ApiDiagnosticArgs:
         :param pulumi.Input['PipelineDiagnosticSettingsArgs'] frontend: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         :param pulumi.Input[Union[str, 'HttpCorrelationProtocol']] http_correlation_protocol: Sets correlation protocol to use for Application Insights diagnostics.
         :param pulumi.Input[bool] log_client_ip: Log the ClientIP. Default is false.
+        :param pulumi.Input[bool] metrics: Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
         :param pulumi.Input[Union[str, 'OperationNameFormat']] operation_name_format: The format of the Operation Name for Application Insights telemetries. Default is Name.
         :param pulumi.Input['SamplingSettingsArgs'] sampling: Sampling settings for Diagnostic.
         :param pulumi.Input[Union[str, 'Verbosity']] verbosity: The verbosity level applied to traces emitted by trace policies.
@@ -61,6 +63,8 @@ class ApiDiagnosticArgs:
             pulumi.set(__self__, "http_correlation_protocol", http_correlation_protocol)
         if log_client_ip is not None:
             pulumi.set(__self__, "log_client_ip", log_client_ip)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
         if operation_name_format is not None:
             pulumi.set(__self__, "operation_name_format", operation_name_format)
         if sampling is not None:
@@ -189,6 +193,18 @@ class ApiDiagnosticArgs:
         pulumi.set(self, "log_client_ip", value)
 
     @property
+    @pulumi.getter
+    def metrics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+        """
+        return pulumi.get(self, "metrics")
+
+    @metrics.setter
+    def metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics", value)
+
+    @property
     @pulumi.getter(name="operationNameFormat")
     def operation_name_format(self) -> Optional[pulumi.Input[Union[str, 'OperationNameFormat']]]:
         """
@@ -238,6 +254,7 @@ class ApiDiagnostic(pulumi.CustomResource):
                  http_correlation_protocol: Optional[pulumi.Input[Union[str, 'HttpCorrelationProtocol']]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
                  logger_id: Optional[pulumi.Input[str]] = None,
+                 metrics: Optional[pulumi.Input[bool]] = None,
                  operation_name_format: Optional[pulumi.Input[Union[str, 'OperationNameFormat']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sampling: Optional[pulumi.Input[pulumi.InputType['SamplingSettingsArgs']]] = None,
@@ -258,6 +275,7 @@ class ApiDiagnostic(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'HttpCorrelationProtocol']] http_correlation_protocol: Sets correlation protocol to use for Application Insights diagnostics.
         :param pulumi.Input[bool] log_client_ip: Log the ClientIP. Default is false.
         :param pulumi.Input[str] logger_id: Resource Id of a target logger.
+        :param pulumi.Input[bool] metrics: Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
         :param pulumi.Input[Union[str, 'OperationNameFormat']] operation_name_format: The format of the Operation Name for Application Insights telemetries. Default is Name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SamplingSettingsArgs']] sampling: Sampling settings for Diagnostic.
@@ -297,6 +315,7 @@ class ApiDiagnostic(pulumi.CustomResource):
                  http_correlation_protocol: Optional[pulumi.Input[Union[str, 'HttpCorrelationProtocol']]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
                  logger_id: Optional[pulumi.Input[str]] = None,
+                 metrics: Optional[pulumi.Input[bool]] = None,
                  operation_name_format: Optional[pulumi.Input[Union[str, 'OperationNameFormat']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sampling: Optional[pulumi.Input[pulumi.InputType['SamplingSettingsArgs']]] = None,
@@ -326,6 +345,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             if logger_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logger_id'")
             __props__.__dict__["logger_id"] = logger_id
+            __props__.__dict__["metrics"] = metrics
             __props__.__dict__["operation_name_format"] = operation_name_format
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -367,6 +387,7 @@ class ApiDiagnostic(pulumi.CustomResource):
         __props__.__dict__["http_correlation_protocol"] = None
         __props__.__dict__["log_client_ip"] = None
         __props__.__dict__["logger_id"] = None
+        __props__.__dict__["metrics"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["operation_name_format"] = None
         __props__.__dict__["sampling"] = None
@@ -421,6 +442,14 @@ class ApiDiagnostic(pulumi.CustomResource):
         Resource Id of a target logger.
         """
         return pulumi.get(self, "logger_id")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+        """
+        return pulumi.get(self, "metrics")
 
     @property
     @pulumi.getter

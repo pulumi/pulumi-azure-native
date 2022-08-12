@@ -50,18 +50,10 @@ type ListContainerAppCustomHostNameAnalysisResult struct {
 	HasConflictOnManagedEnvironment bool `pulumi:"hasConflictOnManagedEnvironment"`
 	// Host name that was analyzed
 	HostName string `pulumi:"hostName"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
 	// <code>true</code> if hostname is already verified; otherwise, <code>false</code>.
 	IsHostnameAlreadyVerified bool `pulumi:"isHostnameAlreadyVerified"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// TXT records visible for this hostname.
 	TxtRecords []string `pulumi:"txtRecords"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
 }
 
 func ListContainerAppCustomHostNameAnalysisOutput(ctx *pulumi.Context, args ListContainerAppCustomHostNameAnalysisOutputArgs, opts ...pulumi.InvokeOption) ListContainerAppCustomHostNameAnalysisResultOutput {
@@ -154,34 +146,14 @@ func (o ListContainerAppCustomHostNameAnalysisResultOutput) HostName() pulumi.St
 	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-func (o ListContainerAppCustomHostNameAnalysisResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) string { return v.Id }).(pulumi.StringOutput)
-}
-
 // <code>true</code> if hostname is already verified; otherwise, <code>false</code>.
 func (o ListContainerAppCustomHostNameAnalysisResultOutput) IsHostnameAlreadyVerified() pulumi.BoolOutput {
 	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) bool { return v.IsHostnameAlreadyVerified }).(pulumi.BoolOutput)
 }
 
-// The name of the resource
-func (o ListContainerAppCustomHostNameAnalysisResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-func (o ListContainerAppCustomHostNameAnalysisResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // TXT records visible for this hostname.
 func (o ListContainerAppCustomHostNameAnalysisResultOutput) TxtRecords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) []string { return v.TxtRecords }).(pulumi.StringArrayOutput)
-}
-
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-func (o ListContainerAppCustomHostNameAnalysisResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -140,7 +140,7 @@ func (o AccessRightsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // AccessRightsInput is an input type that accepts AccessRightsArgs and AccessRightsOutput values.
 // You can construct a concrete instance of `AccessRightsInput` via:
 //
-//          AccessRightsArgs{...}
+//	AccessRightsArgs{...}
 type AccessRightsInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (in *accessRightsPtr) ToAccessRightsPtrOutputWithContext(ctx context.Contex
 // AccessRightsArrayInput is an input type that accepts AccessRightsArray and AccessRightsArrayOutput values.
 // You can construct a concrete instance of `AccessRightsArrayInput` via:
 //
-//          AccessRightsArray{ AccessRightsArgs{...} }
+//	AccessRightsArray{ AccessRightsArgs{...} }
 type AccessRightsArrayInput interface {
 	pulumi.Input
 
@@ -350,7 +350,7 @@ func (o NamespaceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // NamespaceTypeInput is an input type that accepts NamespaceTypeArgs and NamespaceTypeOutput values.
 // You can construct a concrete instance of `NamespaceTypeInput` via:
 //
-//          NamespaceTypeArgs{...}
+//	NamespaceTypeArgs{...}
 type NamespaceTypeInput interface {
 	pulumi.Input
 

@@ -36,7 +36,7 @@ func (val *InboundEndpointIPConfiguration) Defaults() *InboundEndpointIPConfigur
 // InboundEndpointIPConfigurationInput is an input type that accepts InboundEndpointIPConfigurationArgs and InboundEndpointIPConfigurationOutput values.
 // You can construct a concrete instance of `InboundEndpointIPConfigurationInput` via:
 //
-//          InboundEndpointIPConfigurationArgs{...}
+//	InboundEndpointIPConfigurationArgs{...}
 type InboundEndpointIPConfigurationInput interface {
 	pulumi.Input
 
@@ -80,7 +80,7 @@ func (i InboundEndpointIPConfigurationArgs) ToInboundEndpointIPConfigurationOutp
 // InboundEndpointIPConfigurationArrayInput is an input type that accepts InboundEndpointIPConfigurationArray and InboundEndpointIPConfigurationArrayOutput values.
 // You can construct a concrete instance of `InboundEndpointIPConfigurationArrayInput` via:
 //
-//          InboundEndpointIPConfigurationArray{ InboundEndpointIPConfigurationArgs{...} }
+//	InboundEndpointIPConfigurationArray{ InboundEndpointIPConfigurationArgs{...} }
 type InboundEndpointIPConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +234,7 @@ type SubResource struct {
 // SubResourceInput is an input type that accepts SubResourceArgs and SubResourceOutput values.
 // You can construct a concrete instance of `SubResourceInput` via:
 //
-//          SubResourceArgs{...}
+//	SubResourceArgs{...}
 type SubResourceInput interface {
 	pulumi.Input
 
@@ -271,11 +271,11 @@ func (i SubResourceArgs) ToSubResourcePtrOutputWithContext(ctx context.Context) 
 // SubResourcePtrInput is an input type that accepts SubResourceArgs, SubResourcePtr and SubResourcePtrOutput values.
 // You can construct a concrete instance of `SubResourcePtrInput` via:
 //
-//          SubResourceArgs{...}
+//	        SubResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubResourcePtrInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (i *subResourcePtrType) ToSubResourcePtrOutputWithContext(ctx context.Conte
 // SubResourceArrayInput is an input type that accepts SubResourceArray and SubResourceArrayOutput values.
 // You can construct a concrete instance of `SubResourceArrayInput` via:
 //
-//          SubResourceArray{ SubResourceArgs{...} }
+//	SubResourceArray{ SubResourceArgs{...} }
 type SubResourceArrayInput interface {
 	pulumi.Input
 
@@ -575,7 +575,7 @@ func (val *TargetDnsServer) Defaults() *TargetDnsServer {
 // TargetDnsServerInput is an input type that accepts TargetDnsServerArgs and TargetDnsServerOutput values.
 // You can construct a concrete instance of `TargetDnsServerInput` via:
 //
-//          TargetDnsServerArgs{...}
+//	TargetDnsServerArgs{...}
 type TargetDnsServerInput interface {
 	pulumi.Input
 
@@ -617,7 +617,7 @@ func (i TargetDnsServerArgs) ToTargetDnsServerOutputWithContext(ctx context.Cont
 // TargetDnsServerArrayInput is an input type that accepts TargetDnsServerArray and TargetDnsServerArrayOutput values.
 // You can construct a concrete instance of `TargetDnsServerArrayInput` via:
 //
-//          TargetDnsServerArray{ TargetDnsServerArgs{...} }
+//	TargetDnsServerArray{ TargetDnsServerArgs{...} }
 type TargetDnsServerArrayInput interface {
 	pulumi.Input
 

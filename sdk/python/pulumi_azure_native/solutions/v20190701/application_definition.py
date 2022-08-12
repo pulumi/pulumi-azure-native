@@ -35,6 +35,7 @@ class ApplicationDefinitionArgs:
                  package_file_uri: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPolicyArgs']]]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ApplicationDefinition resource.
@@ -57,6 +58,7 @@ class ApplicationDefinitionArgs:
         :param pulumi.Input[str] package_file_uri: The managed application definition package file Uri. Use this element
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationPolicyArgs']]] policies: The managed application provider policies.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
+        :param pulumi.Input[str] storage_account_id: The storage account id for bring your own storage scenario.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "lock_level", lock_level)
@@ -95,6 +97,8 @@ class ApplicationDefinitionArgs:
             pulumi.set(__self__, "policies", policies)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -327,6 +331,18 @@ class ApplicationDefinitionArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage account id for bring your own storage scenario.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -363,6 +379,7 @@ class ApplicationDefinition(pulumi.CustomResource):
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -389,6 +406,7 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]] policies: The managed application provider policies.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
+        :param pulumi.Input[str] storage_account_id: The storage account id for bring your own storage scenario.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -434,6 +452,7 @@ class ApplicationDefinition(pulumi.CustomResource):
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -470,10 +489,11 @@ class ApplicationDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20160901preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20170901:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180601:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20210701:ApplicationDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20160901preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20170901:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20171201:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180201:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180301:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180601:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180901preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20210701:ApplicationDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationDefinition, __self__).__init__(
             'azure-native:solutions/v20190701:ApplicationDefinition',
@@ -515,6 +535,7 @@ class ApplicationDefinition(pulumi.CustomResource):
         __props__.__dict__["package_file_uri"] = None
         __props__.__dict__["policies"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["storage_account_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ApplicationDefinition(resource_name, opts=opts, __props__=__props__)
@@ -662,6 +683,14 @@ class ApplicationDefinition(pulumi.CustomResource):
         The SKU of the resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The storage account id for bring your own storage scenario.
+        """
+        return pulumi.get(self, "storage_account_id")
 
     @property
     @pulumi.getter

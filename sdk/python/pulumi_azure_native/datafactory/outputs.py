@@ -114,10 +114,12 @@ __all__ = [
     'AzureSqlSourceResponse',
     'AzureSqlTableDatasetResponse',
     'AzureStorageLinkedServiceResponse',
+    'AzureSynapseArtifactsLinkedServiceResponse',
     'AzureTableDatasetResponse',
     'AzureTableSinkResponse',
     'AzureTableSourceResponse',
     'AzureTableStorageLinkedServiceResponse',
+    'BigDataPoolParametrizationReferenceResponse',
     'BinaryDatasetResponse',
     'BinaryReadSettingsResponse',
     'BinarySinkResponse',
@@ -352,6 +354,7 @@ __all__ = [
     'NetezzaPartitionSettingsResponse',
     'NetezzaSourceResponse',
     'NetezzaTableDatasetResponse',
+    'NotebookParameterResponse',
     'ODataLinkedServiceResponse',
     'ODataResourceDatasetResponse',
     'ODataSourceResponse',
@@ -538,6 +541,10 @@ __all__ = [
     'SybaseLinkedServiceResponse',
     'SybaseSourceResponse',
     'SybaseTableDatasetResponse',
+    'SynapseNotebookActivityResponse',
+    'SynapseNotebookReferenceResponse',
+    'SynapseSparkJobDefinitionActivityResponse',
+    'SynapseSparkJobReferenceResponse',
     'TabularSourceResponse',
     'TarGZipReadSettingsResponse',
     'TarReadSettingsResponse',
@@ -15734,6 +15741,118 @@ class AzureStorageLinkedServiceResponse(dict):
 
 
 @pulumi.output_type
+class AzureSynapseArtifactsLinkedServiceResponse(dict):
+    """
+    Azure Synapse Analytics (Artifacts) linked service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSynapseArtifactsLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSynapseArtifactsLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSynapseArtifactsLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: Any,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 authentication: Optional[Any] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Azure Synapse Analytics (Artifacts) linked service.
+        :param Any endpoint: https://<workspacename>.dev.azuresynapse.net, Azure Synapse Analytics workspace URL. Type: string (or Expression with resultType string).
+        :param str type: Type of linked service.
+               Expected value is 'AzureSynapseArtifacts'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any authentication: Required to specify MSI, if using system assigned managed identity as authentication method. Type: string (or Expression with resultType string).
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "type", 'AzureSynapseArtifacts')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Any:
+        """
+        https://<workspacename>.dev.azuresynapse.net, Azure Synapse Analytics workspace URL. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'AzureSynapseArtifacts'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[Any]:
+        """
+        Required to specify MSI, if using system assigned managed identity as authentication method. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class AzureTableDatasetResponse(dict):
     """
     The Azure Table storage dataset.
@@ -16357,6 +16476,56 @@ class AzureTableStorageLinkedServiceResponse(dict):
         SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "sas_uri")
+
+
+@pulumi.output_type
+class BigDataPoolParametrizationReferenceResponse(dict):
+    """
+    Big data pool reference type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceName":
+            suggest = "reference_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BigDataPoolParametrizationReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BigDataPoolParametrizationReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BigDataPoolParametrizationReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reference_name: Any,
+                 type: str):
+        """
+        Big data pool reference type.
+        :param Any reference_name: Reference big data pool name. Type: string (or Expression with resultType string).
+        :param str type: Big data pool reference type.
+        """
+        pulumi.set(__self__, "reference_name", reference_name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Any:
+        """
+        Reference big data pool name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "reference_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Big data pool reference type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -31515,7 +31684,7 @@ class ForEachActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity is used for iterating over a collection and execute given activities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute .
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute .
         :param 'ExpressionResponse' items: Collection to iterate.
         :param str name: Activity name.
         :param str type: Type of activity.
@@ -39065,8 +39234,8 @@ class IfConditionActivityResponse(dict):
                Expected value is 'IfCondition'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "expression", expression)
@@ -47919,6 +48088,41 @@ class NetezzaTableDatasetResponse(dict):
         This property will be retired. Please consider using schema + table properties instead.
         """
         return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
+class NotebookParameterResponse(dict):
+    """
+    Notebook parameter.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 value: Optional[Any] = None):
+        """
+        Notebook parameter.
+        :param str type: Notebook parameter type.
+        :param Any value: Notebook parameter value. Type: string (or Expression with resultType string).
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Notebook parameter type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        Notebook parameter value. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -72182,7 +72386,7 @@ class SwitchActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Switch'.
         :param Sequence['SwitchCaseResponse'] cases: List of cases that correspond to expected values of the 'on' property. This is an optional property and if not provided, the activity will execute activities provided in defaultActivities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -72277,7 +72481,7 @@ class SwitchCaseResponse(dict):
                  value: Optional[str] = None):
         """
         Switch cases with have a value and corresponding activities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute for satisfied case condition.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute for satisfied case condition.
         :param str value: Expected value that satisfies the expression result of the 'on' property.
         """
         if activities is not None:
@@ -72748,6 +72952,560 @@ class SybaseTableDatasetResponse(dict):
         The Sybase table name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
+class SynapseNotebookActivityResponse(dict):
+    """
+    Execute Synapse notebook activity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "driverSize":
+            suggest = "driver_size"
+        elif key == "executorSize":
+            suggest = "executor_size"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "numExecutors":
+            suggest = "num_executors"
+        elif key == "sparkPool":
+            suggest = "spark_pool"
+        elif key == "userProperties":
+            suggest = "user_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SynapseNotebookActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SynapseNotebookActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SynapseNotebookActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 notebook: 'outputs.SynapseNotebookReferenceResponse',
+                 type: str,
+                 conf: Optional[Any] = None,
+                 depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
+                 description: Optional[str] = None,
+                 driver_size: Optional[Any] = None,
+                 executor_size: Optional[Any] = None,
+                 linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 num_executors: Optional[int] = None,
+                 parameters: Optional[Mapping[str, 'outputs.NotebookParameterResponse']] = None,
+                 policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 spark_pool: Optional['outputs.BigDataPoolParametrizationReferenceResponse'] = None,
+                 user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
+        """
+        Execute Synapse notebook activity.
+        :param str name: Activity name.
+        :param 'SynapseNotebookReferenceResponse' notebook: Synapse notebook reference.
+        :param str type: Type of activity.
+               Expected value is 'SynapseNotebook'.
+        :param Any conf: Spark configuration properties, which will override the 'conf' of the notebook you provide.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
+        :param str description: Activity description.
+        :param Any driver_size: Number of core and memory to be used for driver allocated in the specified Spark pool for the session, which will be used for overriding 'driverCores' and 'driverMemory' of the notebook you provide. Type: string (or Expression with resultType string).
+        :param Any executor_size: Number of core and memory to be used for executors allocated in the specified Spark pool for the session, which will be used for overriding 'executorCores' and 'executorMemory' of the notebook you provide. Type: string (or Expression with resultType string).
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param int num_executors: Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide.
+        :param Mapping[str, 'NotebookParameterResponse'] parameters: Notebook parameters.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param 'BigDataPoolParametrizationReferenceResponse' spark_pool: The name of the big data pool which will be used to execute the notebook.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "notebook", notebook)
+        pulumi.set(__self__, "type", 'SynapseNotebook')
+        if conf is not None:
+            pulumi.set(__self__, "conf", conf)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if driver_size is not None:
+            pulumi.set(__self__, "driver_size", driver_size)
+        if executor_size is not None:
+            pulumi.set(__self__, "executor_size", executor_size)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if num_executors is not None:
+            pulumi.set(__self__, "num_executors", num_executors)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if spark_pool is not None:
+            pulumi.set(__self__, "spark_pool", spark_pool)
+        if user_properties is not None:
+            pulumi.set(__self__, "user_properties", user_properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notebook(self) -> 'outputs.SynapseNotebookReferenceResponse':
+        """
+        Synapse notebook reference.
+        """
+        return pulumi.get(self, "notebook")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of activity.
+        Expected value is 'SynapseNotebook'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def conf(self) -> Optional[Any]:
+        """
+        Spark configuration properties, which will override the 'conf' of the notebook you provide.
+        """
+        return pulumi.get(self, "conf")
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence['outputs.ActivityDependencyResponse']]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="driverSize")
+    def driver_size(self) -> Optional[Any]:
+        """
+        Number of core and memory to be used for driver allocated in the specified Spark pool for the session, which will be used for overriding 'driverCores' and 'driverMemory' of the notebook you provide. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "driver_size")
+
+    @property
+    @pulumi.getter(name="executorSize")
+    def executor_size(self) -> Optional[Any]:
+        """
+        Number of core and memory to be used for executors allocated in the specified Spark pool for the session, which will be used for overriding 'executorCores' and 'executorMemory' of the notebook you provide. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "executor_size")
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="numExecutors")
+    def num_executors(self) -> Optional[int]:
+        """
+        Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide.
+        """
+        return pulumi.get(self, "num_executors")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.NotebookParameterResponse']]:
+        """
+        Notebook parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="sparkPool")
+    def spark_pool(self) -> Optional['outputs.BigDataPoolParametrizationReferenceResponse']:
+        """
+        The name of the big data pool which will be used to execute the notebook.
+        """
+        return pulumi.get(self, "spark_pool")
+
+    @property
+    @pulumi.getter(name="userProperties")
+    def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
+        """
+        Activity user properties.
+        """
+        return pulumi.get(self, "user_properties")
+
+
+@pulumi.output_type
+class SynapseNotebookReferenceResponse(dict):
+    """
+    Synapse notebook reference type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceName":
+            suggest = "reference_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SynapseNotebookReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SynapseNotebookReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SynapseNotebookReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reference_name: Any,
+                 type: str):
+        """
+        Synapse notebook reference type.
+        :param Any reference_name: Reference notebook name. Type: string (or Expression with resultType string).
+        :param str type: Synapse notebook reference type.
+        """
+        pulumi.set(__self__, "reference_name", reference_name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Any:
+        """
+        Reference notebook name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "reference_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Synapse notebook reference type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SynapseSparkJobDefinitionActivityResponse(dict):
+    """
+    Execute spark job activity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sparkJob":
+            suggest = "spark_job"
+        elif key == "className":
+            suggest = "class_name"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "driverSize":
+            suggest = "driver_size"
+        elif key == "executorSize":
+            suggest = "executor_size"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "numExecutors":
+            suggest = "num_executors"
+        elif key == "targetBigDataPool":
+            suggest = "target_big_data_pool"
+        elif key == "userProperties":
+            suggest = "user_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SynapseSparkJobDefinitionActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SynapseSparkJobDefinitionActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SynapseSparkJobDefinitionActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 spark_job: 'outputs.SynapseSparkJobReferenceResponse',
+                 type: str,
+                 arguments: Optional[Sequence[Any]] = None,
+                 class_name: Optional[Any] = None,
+                 conf: Optional[Any] = None,
+                 depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
+                 description: Optional[str] = None,
+                 driver_size: Optional[Any] = None,
+                 executor_size: Optional[Any] = None,
+                 file: Optional[Any] = None,
+                 files: Optional[Sequence[Any]] = None,
+                 linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 num_executors: Optional[int] = None,
+                 policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 target_big_data_pool: Optional['outputs.BigDataPoolParametrizationReferenceResponse'] = None,
+                 user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
+        """
+        Execute spark job activity.
+        :param str name: Activity name.
+        :param 'SynapseSparkJobReferenceResponse' spark_job: Synapse spark job reference.
+        :param str type: Type of activity.
+               Expected value is 'SparkJob'.
+        :param Sequence[Any] arguments: User specified arguments to SynapseSparkJobDefinitionActivity.
+        :param Any class_name: The fully-qualified identifier or the main class that is in the main definition file, which will override the 'className' of the spark job definition you provide. Type: string (or Expression with resultType string).
+        :param Any conf: Spark configuration properties, which will override the 'conf' of the spark job definition you provide.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
+        :param str description: Activity description.
+        :param Any driver_size: Number of core and memory to be used for driver allocated in the specified Spark pool for the job, which will be used for overriding 'driverCores' and 'driverMemory' of the spark job definition you provide. Type: string (or Expression with resultType string).
+        :param Any executor_size: Number of core and memory to be used for executors allocated in the specified Spark pool for the job, which will be used for overriding 'executorCores' and 'executorMemory' of the spark job definition you provide. Type: string (or Expression with resultType string).
+        :param Any file: The main file used for the job, which will override the 'file' of the spark job definition you provide. Type: string (or Expression with resultType string).
+        :param Sequence[Any] files: Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param int num_executors: Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param 'BigDataPoolParametrizationReferenceResponse' target_big_data_pool: The name of the big data pool which will be used to execute the spark batch job, which will override the 'targetBigDataPool' of the spark job definition you provide.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "spark_job", spark_job)
+        pulumi.set(__self__, "type", 'SparkJob')
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if class_name is not None:
+            pulumi.set(__self__, "class_name", class_name)
+        if conf is not None:
+            pulumi.set(__self__, "conf", conf)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if driver_size is not None:
+            pulumi.set(__self__, "driver_size", driver_size)
+        if executor_size is not None:
+            pulumi.set(__self__, "executor_size", executor_size)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if num_executors is not None:
+            pulumi.set(__self__, "num_executors", num_executors)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if target_big_data_pool is not None:
+            pulumi.set(__self__, "target_big_data_pool", target_big_data_pool)
+        if user_properties is not None:
+            pulumi.set(__self__, "user_properties", user_properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sparkJob")
+    def spark_job(self) -> 'outputs.SynapseSparkJobReferenceResponse':
+        """
+        Synapse spark job reference.
+        """
+        return pulumi.get(self, "spark_job")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of activity.
+        Expected value is 'SparkJob'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[Sequence[Any]]:
+        """
+        User specified arguments to SynapseSparkJobDefinitionActivity.
+        """
+        return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter(name="className")
+    def class_name(self) -> Optional[Any]:
+        """
+        The fully-qualified identifier or the main class that is in the main definition file, which will override the 'className' of the spark job definition you provide. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "class_name")
+
+    @property
+    @pulumi.getter
+    def conf(self) -> Optional[Any]:
+        """
+        Spark configuration properties, which will override the 'conf' of the spark job definition you provide.
+        """
+        return pulumi.get(self, "conf")
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence['outputs.ActivityDependencyResponse']]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="driverSize")
+    def driver_size(self) -> Optional[Any]:
+        """
+        Number of core and memory to be used for driver allocated in the specified Spark pool for the job, which will be used for overriding 'driverCores' and 'driverMemory' of the spark job definition you provide. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "driver_size")
+
+    @property
+    @pulumi.getter(name="executorSize")
+    def executor_size(self) -> Optional[Any]:
+        """
+        Number of core and memory to be used for executors allocated in the specified Spark pool for the job, which will be used for overriding 'executorCores' and 'executorMemory' of the spark job definition you provide. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "executor_size")
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[Any]:
+        """
+        The main file used for the job, which will override the 'file' of the spark job definition you provide. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def files(self) -> Optional[Sequence[Any]]:
+        """
+        Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="numExecutors")
+    def num_executors(self) -> Optional[int]:
+        """
+        Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide.
+        """
+        return pulumi.get(self, "num_executors")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="targetBigDataPool")
+    def target_big_data_pool(self) -> Optional['outputs.BigDataPoolParametrizationReferenceResponse']:
+        """
+        The name of the big data pool which will be used to execute the spark batch job, which will override the 'targetBigDataPool' of the spark job definition you provide.
+        """
+        return pulumi.get(self, "target_big_data_pool")
+
+    @property
+    @pulumi.getter(name="userProperties")
+    def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
+        """
+        Activity user properties.
+        """
+        return pulumi.get(self, "user_properties")
+
+
+@pulumi.output_type
+class SynapseSparkJobReferenceResponse(dict):
+    """
+    Synapse spark job reference type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceName":
+            suggest = "reference_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SynapseSparkJobReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SynapseSparkJobReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SynapseSparkJobReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reference_name: str,
+                 type: str):
+        """
+        Synapse spark job reference type.
+        :param str reference_name: Reference spark job name.
+        :param str type: Synapse spark job reference type.
+        """
+        pulumi.set(__self__, "reference_name", reference_name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> str:
+        """
+        Reference spark job name.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Synapse spark job reference type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -74535,7 +75293,7 @@ class UntilActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute.
         :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
         :param str name: Activity name.
         :param str type: Type of activity.

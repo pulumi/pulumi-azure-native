@@ -135,7 +135,7 @@ func (o LookupClusterResultOutput) Certificate() CertificateDescriptionResponseP
 	return o.ApplyT(func(v LookupClusterResult) *CertificateDescriptionResponse { return v.Certificate }).(CertificateDescriptionResponsePtrOutput)
 }
 
-//  List of client certificates to whitelist based on common names
+// List of client certificates to whitelist based on common names
 func (o LookupClusterResultOutput) ClientCertificateCommonNames() ClientCertificateCommonNameResponseArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []ClientCertificateCommonNameResponse {
 		return v.ClientCertificateCommonNames

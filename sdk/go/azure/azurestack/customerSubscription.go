@@ -46,6 +46,9 @@ func NewCustomerSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:azurestack/v20200601preview:CustomerSubscription"),
 		},
+		{
+			Type: pulumi.String("azure-native:azurestack/v20220601:CustomerSubscription"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomerSubscription

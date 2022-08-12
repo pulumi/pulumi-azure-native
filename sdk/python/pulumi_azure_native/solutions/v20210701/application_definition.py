@@ -492,10 +492,9 @@ class ApplicationDefinition(pulumi.CustomResource):
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20160901preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20170901:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180601:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20190701:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:ApplicationDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20160901preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20170901:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20171201:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180201:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180301:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180601:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180901preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20190701:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:ApplicationDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationDefinition, __self__).__init__(
             'azure-native:solutions/v20210701:ApplicationDefinition',
@@ -536,7 +535,6 @@ class ApplicationDefinition(pulumi.CustomResource):
         __props__.__dict__["notification_policy"] = None
         __props__.__dict__["package_file_uri"] = None
         __props__.__dict__["policies"] = None
-        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["storage_account_id"] = None
         __props__.__dict__["system_data"] = None
@@ -679,14 +677,6 @@ class ApplicationDefinition(pulumi.CustomResource):
         The managed application provider policies.
         """
         return pulumi.get(self, "policies")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter

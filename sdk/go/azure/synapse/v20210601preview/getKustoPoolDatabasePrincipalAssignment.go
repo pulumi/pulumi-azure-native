@@ -35,6 +35,8 @@ type LookupKustoPoolDatabasePrincipalAssignmentArgs struct {
 
 // Class representing a database principal assignment.
 type LookupKustoPoolDatabasePrincipalAssignmentResult struct {
+	// The service principal object id in AAD (Azure active directory)
+	AadObjectId string `pulumi:"aadObjectId"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
@@ -102,6 +104,11 @@ func (o LookupKustoPoolDatabasePrincipalAssignmentResultOutput) ToLookupKustoPoo
 
 func (o LookupKustoPoolDatabasePrincipalAssignmentResultOutput) ToLookupKustoPoolDatabasePrincipalAssignmentResultOutputWithContext(ctx context.Context) LookupKustoPoolDatabasePrincipalAssignmentResultOutput {
 	return o
+}
+
+// The service principal object id in AAD (Azure active directory)
+func (o LookupKustoPoolDatabasePrincipalAssignmentResultOutput) AadObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolDatabasePrincipalAssignmentResult) string { return v.AadObjectId }).(pulumi.StringOutput)
 }
 
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

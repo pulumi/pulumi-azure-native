@@ -36,7 +36,7 @@ type AzureIaaSVMProtectionPolicyResponse struct {
 	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
 }
 
-//  The Azure SQL workload-specific backup policy.
+// The Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicy struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureSql'.
@@ -47,7 +47,7 @@ type AzureSqlProtectionPolicy struct {
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 }
 
-//  The Azure SQL workload-specific backup policy.
+// The Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyResponse struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureSql'.
@@ -107,7 +107,7 @@ type IdentityData struct {
 // IdentityDataInput is an input type that accepts IdentityDataArgs and IdentityDataOutput values.
 // You can construct a concrete instance of `IdentityDataInput` via:
 //
-//          IdentityDataArgs{...}
+//	IdentityDataArgs{...}
 type IdentityDataInput interface {
 	pulumi.Input
 
@@ -144,11 +144,11 @@ func (i IdentityDataArgs) ToIdentityDataPtrOutputWithContext(ctx context.Context
 // IdentityDataPtrInput is an input type that accepts IdentityDataArgs, IdentityDataPtr and IdentityDataPtrOutput values.
 // You can construct a concrete instance of `IdentityDataPtrInput` via:
 //
-//          IdentityDataArgs{...}
+//	        IdentityDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityDataPtrInput interface {
 	pulumi.Input
 
@@ -586,7 +586,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -623,11 +623,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 

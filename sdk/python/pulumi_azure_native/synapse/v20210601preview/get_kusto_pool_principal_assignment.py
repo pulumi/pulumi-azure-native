@@ -21,7 +21,10 @@ class GetKustoPoolPrincipalAssignmentResult:
     """
     Class representing a cluster principal assignment.
     """
-    def __init__(__self__, id=None, name=None, principal_id=None, principal_name=None, principal_type=None, provisioning_state=None, role=None, system_data=None, tenant_id=None, tenant_name=None, type=None):
+    def __init__(__self__, aad_object_id=None, id=None, name=None, principal_id=None, principal_name=None, principal_type=None, provisioning_state=None, role=None, system_data=None, tenant_id=None, tenant_name=None, type=None):
+        if aad_object_id and not isinstance(aad_object_id, str):
+            raise TypeError("Expected argument 'aad_object_id' to be a str")
+        pulumi.set(__self__, "aad_object_id", aad_object_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -55,6 +58,14 @@ class GetKustoPoolPrincipalAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="aadObjectId")
+    def aad_object_id(self) -> str:
+        """
+        The service principal object id in AAD (Azure active directory)
+        """
+        return pulumi.get(self, "aad_object_id")
 
     @property
     @pulumi.getter
@@ -151,6 +162,7 @@ class AwaitableGetKustoPoolPrincipalAssignmentResult(GetKustoPoolPrincipalAssign
         if False:
             yield self
         return GetKustoPoolPrincipalAssignmentResult(
+            aad_object_id=self.aad_object_id,
             id=self.id,
             name=self.name,
             principal_id=self.principal_id,
@@ -190,6 +202,7 @@ def get_kusto_pool_principal_assignment(kusto_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:getKustoPoolPrincipalAssignment', __args__, opts=opts, typ=GetKustoPoolPrincipalAssignmentResult).value
 
     return AwaitableGetKustoPoolPrincipalAssignmentResult(
+        aad_object_id=__ret__.aad_object_id,
         id=__ret__.id,
         name=__ret__.name,
         principal_id=__ret__.principal_id,

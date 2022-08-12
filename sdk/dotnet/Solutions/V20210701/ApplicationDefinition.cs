@@ -118,12 +118,6 @@ namespace Pulumi.AzureNative.Solutions.V20210701
         public Output<ImmutableArray<Outputs.ApplicationPolicyResponse>> Policies { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
@@ -181,9 +175,14 @@ namespace Pulumi.AzureNative.Solutions.V20210701
                     new Pulumi.Alias { Type = "azure-native:solutions:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20171201:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180201:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180301:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20180601:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20190701:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:ApplicationDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

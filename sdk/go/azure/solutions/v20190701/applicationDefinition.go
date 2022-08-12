@@ -51,6 +51,8 @@ type ApplicationDefinition struct {
 	Policies ApplicationPolicyResponseArrayOutput `pulumi:"policies"`
 	// The SKU of the resource.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -81,10 +83,25 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:solutions/v20170901:ApplicationDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:solutions/v20171201:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180201:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180301:ApplicationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-native:solutions/v20180601:ApplicationDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:solutions/v20180901preview:ApplicationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-native:solutions/v20200821preview:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20210201preview:ApplicationDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20210701:ApplicationDefinition"),
@@ -161,6 +178,8 @@ type applicationDefinitionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the resource.
 	Sku *Sku `pulumi:"sku"`
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -205,6 +224,8 @@ type ApplicationDefinitionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the resource.
 	Sku SkuPtrInput
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }
@@ -338,6 +359,11 @@ func (o ApplicationDefinitionOutput) Policies() ApplicationPolicyResponseArrayOu
 // The SKU of the resource.
 func (o ApplicationDefinitionOutput) Sku() SkuResponsePtrOutput {
 	return o.ApplyT(func(v *ApplicationDefinition) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The storage account id for bring your own storage scenario.
+func (o ApplicationDefinitionOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
 
 // Resource tags

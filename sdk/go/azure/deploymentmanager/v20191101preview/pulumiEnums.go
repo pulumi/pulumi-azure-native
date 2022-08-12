@@ -140,7 +140,7 @@ func (o DeploymentModePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // DeploymentModeInput is an input type that accepts DeploymentModeArgs and DeploymentModeOutput values.
 // You can construct a concrete instance of `DeploymentModeInput` via:
 //
-//          DeploymentModeArgs{...}
+//	DeploymentModeArgs{...}
 type DeploymentModeInput interface {
 	pulumi.Input
 

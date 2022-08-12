@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Network.V20200401
                     new Pulumi.Alias { Type = "azure-native:network/v20190501:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200101:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200501:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210601:FrontDoor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -17,7 +17,7 @@ func LookupContainerGroup(ctx *pulumi.Context, args *LookupContainerGroupArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupContainerGroupArgs struct {
@@ -46,7 +46,7 @@ type LookupContainerGroupResult struct {
 	// The init containers for a container group.
 	InitContainers []InitContainerDefinitionResponse `pulumi:"initContainers"`
 	// The instance view of the container group. Only valid in response.
-	InstanceView ContainerGroupResponseInstanceView `pulumi:"instanceView"`
+	InstanceView ContainerGroupPropertiesResponseInstanceView `pulumi:"instanceView"`
 	// The IP address type of the container group.
 	IpAddress *IpAddressResponse `pulumi:"ipAddress"`
 	// The resource location.
@@ -74,6 +74,17 @@ type LookupContainerGroupResult struct {
 	Volumes []VolumeResponse `pulumi:"volumes"`
 	// The zones for the container group.
 	Zones []string `pulumi:"zones"`
+}
+
+// Defaults sets the appropriate defaults for LookupContainerGroupResult
+func (val *LookupContainerGroupResult) Defaults() *LookupContainerGroupResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.IpAddress = tmp.IpAddress.Defaults()
+
+	return &tmp
 }
 
 func LookupContainerGroupOutput(ctx *pulumi.Context, args LookupContainerGroupOutputArgs, opts ...pulumi.InvokeOption) LookupContainerGroupResultOutput {
@@ -158,8 +169,8 @@ func (o LookupContainerGroupResultOutput) InitContainers() InitContainerDefiniti
 }
 
 // The instance view of the container group. Only valid in response.
-func (o LookupContainerGroupResultOutput) InstanceView() ContainerGroupResponseInstanceViewOutput {
-	return o.ApplyT(func(v LookupContainerGroupResult) ContainerGroupResponseInstanceView { return v.InstanceView }).(ContainerGroupResponseInstanceViewOutput)
+func (o LookupContainerGroupResultOutput) InstanceView() ContainerGroupPropertiesResponseInstanceViewOutput {
+	return o.ApplyT(func(v LookupContainerGroupResult) ContainerGroupPropertiesResponseInstanceView { return v.InstanceView }).(ContainerGroupPropertiesResponseInstanceViewOutput)
 }
 
 // The IP address type of the container group.

@@ -141,7 +141,7 @@ func (o AutoHealActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // AutoHealActionTypeInput is an input type that accepts AutoHealActionTypeArgs and AutoHealActionTypeOutput values.
 // You can construct a concrete instance of `AutoHealActionTypeInput` via:
 //
-//          AutoHealActionTypeArgs{...}
+//	AutoHealActionTypeArgs{...}
 type AutoHealActionTypeInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o AzureResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // AzureResourceTypeInput is an input type that accepts AzureResourceTypeArgs and AzureResourceTypeOutput values.
 // You can construct a concrete instance of `AzureResourceTypeInput` via:
 //
-//          AzureResourceTypeArgs{...}
+//	AzureResourceTypeArgs{...}
 type AzureResourceTypeInput interface {
 	pulumi.Input
 
@@ -471,7 +471,7 @@ func (o AzureStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // AzureStorageTypeInput is an input type that accepts AzureStorageTypeArgs and AzureStorageTypeOutput values.
 // You can construct a concrete instance of `AzureStorageTypeInput` via:
 //
-//          AzureStorageTypeArgs{...}
+//	AzureStorageTypeArgs{...}
 type AzureStorageTypeInput interface {
 	pulumi.Input
 
@@ -642,7 +642,7 @@ func (o BuiltInAuthenticationProviderPtrOutput) ToStringPtrOutputWithContext(ctx
 // BuiltInAuthenticationProviderInput is an input type that accepts BuiltInAuthenticationProviderArgs and BuiltInAuthenticationProviderOutput values.
 // You can construct a concrete instance of `BuiltInAuthenticationProviderInput` via:
 //
-//          BuiltInAuthenticationProviderArgs{...}
+//	BuiltInAuthenticationProviderArgs{...}
 type BuiltInAuthenticationProviderInput interface {
 	pulumi.Input
 
@@ -811,7 +811,7 @@ func (o ClientCertModePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // ClientCertModeInput is an input type that accepts ClientCertModeArgs and ClientCertModeOutput values.
 // You can construct a concrete instance of `ClientCertModeInput` via:
 //
-//          ClientCertModeArgs{...}
+//	ClientCertModeArgs{...}
 type ClientCertModeInput interface {
 	pulumi.Input
 
@@ -975,7 +975,7 @@ func (o ClientCredentialMethodPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // ClientCredentialMethodInput is an input type that accepts ClientCredentialMethodArgs and ClientCredentialMethodOutput values.
 // You can construct a concrete instance of `ClientCredentialMethodInput` via:
 //
-//          ClientCredentialMethodArgs{...}
+//	ClientCredentialMethodArgs{...}
 type ClientCredentialMethodInput interface {
 	pulumi.Input
 
@@ -1149,7 +1149,7 @@ func (o ConnectionStringTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ConnectionStringTypeInput is an input type that accepts ConnectionStringTypeArgs and ConnectionStringTypeOutput values.
 // You can construct a concrete instance of `ConnectionStringTypeInput` via:
 //
-//          ConnectionStringTypeArgs{...}
+//	ConnectionStringTypeArgs{...}
 type ConnectionStringTypeInput interface {
 	pulumi.Input
 
@@ -1314,7 +1314,7 @@ func (o CookieExpirationConventionPtrOutput) ToStringPtrOutputWithContext(ctx co
 // CookieExpirationConventionInput is an input type that accepts CookieExpirationConventionArgs and CookieExpirationConventionOutput values.
 // You can construct a concrete instance of `CookieExpirationConventionInput` via:
 //
-//          CookieExpirationConventionArgs{...}
+//	CookieExpirationConventionArgs{...}
 type CookieExpirationConventionInput interface {
 	pulumi.Input
 
@@ -1479,7 +1479,7 @@ func (o CustomHostNameDnsRecordTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // CustomHostNameDnsRecordTypeInput is an input type that accepts CustomHostNameDnsRecordTypeArgs and CustomHostNameDnsRecordTypeOutput values.
 // You can construct a concrete instance of `CustomHostNameDnsRecordTypeInput` via:
 //
-//          CustomHostNameDnsRecordTypeArgs{...}
+//	CustomHostNameDnsRecordTypeArgs{...}
 type CustomHostNameDnsRecordTypeInput interface {
 	pulumi.Input
 
@@ -1655,7 +1655,7 @@ func (o ForwardProxyConventionPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // ForwardProxyConventionInput is an input type that accepts ForwardProxyConventionArgs and ForwardProxyConventionOutput values.
 // You can construct a concrete instance of `ForwardProxyConventionInput` via:
 //
-//          ForwardProxyConventionArgs{...}
+//	ForwardProxyConventionArgs{...}
 type ForwardProxyConventionInput interface {
 	pulumi.Input
 
@@ -1820,7 +1820,7 @@ func (o FrequencyUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // FrequencyUnitInput is an input type that accepts FrequencyUnitArgs and FrequencyUnitOutput values.
 // You can construct a concrete instance of `FrequencyUnitInput` via:
 //
-//          FrequencyUnitArgs{...}
+//	FrequencyUnitArgs{...}
 type FrequencyUnitInput interface {
 	pulumi.Input
 
@@ -1994,7 +1994,7 @@ func (o HostNameTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // HostNameTypeInput is an input type that accepts HostNameTypeArgs and HostNameTypeOutput values.
 // You can construct a concrete instance of `HostNameTypeInput` via:
 //
-//          HostNameTypeArgs{...}
+//	HostNameTypeArgs{...}
 type HostNameTypeInput interface {
 	pulumi.Input
 
@@ -2159,7 +2159,7 @@ func (o HostTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 // HostTypeInput is an input type that accepts HostTypeArgs and HostTypeOutput values.
 // You can construct a concrete instance of `HostTypeInput` via:
 //
-//          HostTypeArgs{...}
+//	HostTypeArgs{...}
 type HostTypeInput interface {
 	pulumi.Input
 
@@ -2346,7 +2346,7 @@ func (o LogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 // LogLevelInput is an input type that accepts LogLevelArgs and LogLevelOutput values.
 // You can construct a concrete instance of `LogLevelInput` via:
 //
-//          LogLevelArgs{...}
+//	LogLevelArgs{...}
 type LogLevelInput interface {
 	pulumi.Input
 
@@ -2511,7 +2511,7 @@ func (o ManagedPipelineModePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // ManagedPipelineModeInput is an input type that accepts ManagedPipelineModeArgs and ManagedPipelineModeOutput values.
 // You can construct a concrete instance of `ManagedPipelineModeInput` via:
 //
-//          ManagedPipelineModeArgs{...}
+//	ManagedPipelineModeArgs{...}
 type ManagedPipelineModeInput interface {
 	pulumi.Input
 
@@ -2678,7 +2678,7 @@ func (o ManagedServiceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 // ManagedServiceIdentityTypeInput is an input type that accepts ManagedServiceIdentityTypeArgs and ManagedServiceIdentityTypeOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityTypeInput` via:
 //
-//          ManagedServiceIdentityTypeArgs{...}
+//	ManagedServiceIdentityTypeArgs{...}
 type ManagedServiceIdentityTypeInput interface {
 	pulumi.Input
 
@@ -2844,7 +2844,7 @@ func (o PublicCertificateLocationPtrOutput) ToStringPtrOutputWithContext(ctx con
 // PublicCertificateLocationInput is an input type that accepts PublicCertificateLocationArgs and PublicCertificateLocationOutput values.
 // You can construct a concrete instance of `PublicCertificateLocationInput` via:
 //
-//          PublicCertificateLocationArgs{...}
+//	PublicCertificateLocationArgs{...}
 type PublicCertificateLocationInput interface {
 	pulumi.Input
 
@@ -3012,7 +3012,7 @@ func (o RedundancyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // RedundancyModeInput is an input type that accepts RedundancyModeArgs and RedundancyModeOutput values.
 // You can construct a concrete instance of `RedundancyModeInput` via:
 //
-//          RedundancyModeArgs{...}
+//	RedundancyModeArgs{...}
 type RedundancyModeInput interface {
 	pulumi.Input
 
@@ -3215,7 +3215,7 @@ func (o SiteLoadBalancingPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // SiteLoadBalancingInput is an input type that accepts SiteLoadBalancingArgs and SiteLoadBalancingOutput values.
 // You can construct a concrete instance of `SiteLoadBalancingInput` via:
 //
-//          SiteLoadBalancingArgs{...}
+//	SiteLoadBalancingArgs{...}
 type SiteLoadBalancingInput interface {
 	pulumi.Input
 
@@ -3381,7 +3381,7 @@ func (o SslStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 // SslStateInput is an input type that accepts SslStateArgs and SslStateOutput values.
 // You can construct a concrete instance of `SslStateInput` via:
 //
-//          SslStateArgs{...}
+//	SslStateArgs{...}
 type SslStateInput interface {
 	pulumi.Input
 
@@ -3546,7 +3546,7 @@ func (o StagingEnvironmentPolicyPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // StagingEnvironmentPolicyInput is an input type that accepts StagingEnvironmentPolicyArgs and StagingEnvironmentPolicyOutput values.
 // You can construct a concrete instance of `StagingEnvironmentPolicyInput` via:
 //
-//          StagingEnvironmentPolicyArgs{...}
+//	StagingEnvironmentPolicyArgs{...}
 type StagingEnvironmentPolicyInput interface {
 	pulumi.Input
 
@@ -3720,7 +3720,7 @@ func (o UnauthenticatedClientActionPtrOutput) ToStringPtrOutputWithContext(ctx c
 // UnauthenticatedClientActionInput is an input type that accepts UnauthenticatedClientActionArgs and UnauthenticatedClientActionOutput values.
 // You can construct a concrete instance of `UnauthenticatedClientActionInput` via:
 //
-//          UnauthenticatedClientActionArgs{...}
+//	UnauthenticatedClientActionArgs{...}
 type UnauthenticatedClientActionInput interface {
 	pulumi.Input
 
@@ -3887,7 +3887,7 @@ func (o UnauthenticatedClientActionV2PtrOutput) ToStringPtrOutputWithContext(ctx
 // UnauthenticatedClientActionV2Input is an input type that accepts UnauthenticatedClientActionV2Args and UnauthenticatedClientActionV2Output values.
 // You can construct a concrete instance of `UnauthenticatedClientActionV2Input` via:
 //
-//          UnauthenticatedClientActionV2Args{...}
+//	UnauthenticatedClientActionV2Args{...}
 type UnauthenticatedClientActionV2Input interface {
 	pulumi.Input
 

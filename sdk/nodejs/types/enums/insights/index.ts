@@ -25,6 +25,7 @@ import * as v20210801 from "./v20210801";
 import * as v20210901preview from "./v20210901preview";
 import * as v20220401 from "./v20220401";
 import * as v20220615 from "./v20220615";
+import * as v20221001 from "./v20221001";
 
 export {
     v20140401,
@@ -50,6 +51,7 @@ export {
     v20210901preview,
     v20220401,
     v20220615,
+    v20221001,
 };
 
 export const AggregationTypeEnum = {

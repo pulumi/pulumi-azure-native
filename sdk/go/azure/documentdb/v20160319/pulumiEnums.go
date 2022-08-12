@@ -175,7 +175,7 @@ func (o DatabaseAccountOfferTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // DatabaseAccountOfferTypeInput is an input type that accepts DatabaseAccountOfferTypeArgs and DatabaseAccountOfferTypeOutput values.
 // You can construct a concrete instance of `DatabaseAccountOfferTypeInput` via:
 //
-//          DatabaseAccountOfferTypeArgs{...}
+//	DatabaseAccountOfferTypeArgs{...}
 type DatabaseAccountOfferTypeInput interface {
 	pulumi.Input
 
@@ -343,7 +343,7 @@ func (o DefaultConsistencyLevelPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // DefaultConsistencyLevelInput is an input type that accepts DefaultConsistencyLevelArgs and DefaultConsistencyLevelOutput values.
 // You can construct a concrete instance of `DefaultConsistencyLevelInput` via:
 //
-//          DefaultConsistencyLevelArgs{...}
+//	DefaultConsistencyLevelArgs{...}
 type DefaultConsistencyLevelInput interface {
 	pulumi.Input
 
