@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Container for data asset versions.
     /// </summary>
-    public sealed class DataContainerArgs : Pulumi.ResourceArgs
+    public sealed class DataContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Specifies the type of data.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         {
             IsArchived = false;
         }
+        public static new DataContainerArgs Empty => new DataContainerArgs();
     }
 }

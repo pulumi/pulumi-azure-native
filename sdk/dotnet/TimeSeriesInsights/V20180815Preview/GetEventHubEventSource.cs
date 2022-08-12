@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
     }
 
 
-    public sealed class GetEventHubEventSourceArgs : Pulumi.InvokeArgs
+    public sealed class GetEventHubEventSourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public GetEventHubEventSourceArgs()
         {
         }
+        public static new GetEventHubEventSourceArgs Empty => new GetEventHubEventSourceArgs();
     }
 
-    public sealed class GetEventHubEventSourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventHubEventSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public GetEventHubEventSourceInvokeArgs()
         {
         }
+        public static new GetEventHubEventSourceInvokeArgs Empty => new GetEventHubEventSourceInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
     }
 
 
-    public sealed class GetCustomerSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomerSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the product.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         public GetCustomerSubscriptionArgs()
         {
         }
+        public static new GetCustomerSubscriptionArgs Empty => new GetCustomerSubscriptionArgs();
     }
 
-    public sealed class GetCustomerSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomerSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the product.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         public GetCustomerSubscriptionInvokeArgs()
         {
         }
+        public static new GetCustomerSubscriptionInvokeArgs Empty => new GetCustomerSubscriptionInvokeArgs();
     }
 
 

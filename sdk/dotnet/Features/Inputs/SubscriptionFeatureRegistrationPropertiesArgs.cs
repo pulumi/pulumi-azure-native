@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Features.Inputs
 {
 
-    public sealed class SubscriptionFeatureRegistrationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionFeatureRegistrationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The feature description.
@@ -46,5 +46,6 @@ namespace Pulumi.AzureNative.Features.Inputs
         {
             ShouldFeatureDisplayInPortal = false;
         }
+        public static new SubscriptionFeatureRegistrationPropertiesArgs Empty => new SubscriptionFeatureRegistrationPropertiesArgs();
     }
 }

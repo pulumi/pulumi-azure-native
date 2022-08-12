@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
     /// Response for iSCSI Target requests.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool/v20210801:IscsiTarget")]
-    public partial class IscsiTarget : Pulumi.CustomResource
+    public partial class IscsiTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Mode for Target connectivity.
@@ -124,9 +124,9 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storagepool:IscsiTarget"},
-                    new Pulumi.Alias { Type = "azure-native:storagepool/v20200315preview:IscsiTarget"},
-                    new Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:IscsiTarget"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagepool:IscsiTarget"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20200315preview:IscsiTarget"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:IscsiTarget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
         }
     }
 
-    public sealed class IscsiTargetArgs : Pulumi.ResourceArgs
+    public sealed class IscsiTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mode for Target connectivity.
@@ -225,5 +225,6 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
         public IscsiTargetArgs()
         {
         }
+        public static new IscsiTargetArgs Empty => new IscsiTargetArgs();
     }
 }

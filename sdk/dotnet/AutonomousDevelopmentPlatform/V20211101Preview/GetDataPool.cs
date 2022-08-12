@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview
     }
 
 
-    public sealed class GetDataPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetDataPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ADP account
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview
         public GetDataPoolArgs()
         {
         }
+        public static new GetDataPoolArgs Empty => new GetDataPoolArgs();
     }
 
-    public sealed class GetDataPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ADP account
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview
         public GetDataPoolInvokeArgs()
         {
         }
+        public static new GetDataPoolInvokeArgs Empty => new GetDataPoolInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20210101.Inputs
     /// <summary>
     /// The network configuration for a pool.
     /// </summary>
-    public sealed class NetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Batch.V20210101.Inputs
         public NetworkConfigurationArgs()
         {
         }
+        public static new NetworkConfigurationArgs Empty => new NetworkConfigurationArgs();
     }
 }

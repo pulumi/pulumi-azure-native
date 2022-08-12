@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20211001Preview.Inputs
     /// <summary>
     /// Settings concerning key vault encryption for a configuration store.
     /// </summary>
-    public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client id of the identity which will be used to access key vault.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AppConfiguration.V20211001Preview.Inputs
         public KeyVaultPropertiesArgs()
         {
         }
+        public static new KeyVaultPropertiesArgs Empty => new KeyVaultPropertiesArgs();
     }
 }

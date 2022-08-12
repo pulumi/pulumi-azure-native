@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
     /// <summary>
     /// Specifies that the content key ID is specified in the PlayReady configuration.
     /// </summary>
-    public sealed class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content key ID.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
         public ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs()
         {
         }
+        public static new ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs Empty => new ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs();
     }
 }

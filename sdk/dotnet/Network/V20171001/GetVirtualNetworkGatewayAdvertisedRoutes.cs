@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20171001
     }
 
 
-    public sealed class GetVirtualNetworkGatewayAdvertisedRoutesArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayAdvertisedRoutesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The IP address of the peer
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20171001
         public GetVirtualNetworkGatewayAdvertisedRoutesArgs()
         {
         }
+        public static new GetVirtualNetworkGatewayAdvertisedRoutesArgs Empty => new GetVirtualNetworkGatewayAdvertisedRoutesArgs();
     }
 
-    public sealed class GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The IP address of the peer
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20171001
         public GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs Empty => new GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs();
     }
 
 

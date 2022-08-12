@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220501
     /// Defines web application firewall policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220501:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Describes custom rules inside the policy.
@@ -121,12 +121,12 @@ namespace Pulumi.AzureNative.Network.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190301:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191001:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210601:Policy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:Policy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190301:Policy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191001:Policy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:Policy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:Policy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210601:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Network.V20220501
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes custom rules inside the policy.
@@ -207,5 +207,6 @@ namespace Pulumi.AzureNative.Network.V20220501
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 }

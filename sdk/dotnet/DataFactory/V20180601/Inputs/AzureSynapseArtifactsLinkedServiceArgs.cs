@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure Synapse Analytics (Artifacts) linked service.
     /// </summary>
-    public sealed class AzureSynapseArtifactsLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureSynapseArtifactsLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureSynapseArtifactsLinkedServiceArgs()
         {
         }
+        public static new AzureSynapseArtifactsLinkedServiceArgs Empty => new AzureSynapseArtifactsLinkedServiceArgs();
     }
 }

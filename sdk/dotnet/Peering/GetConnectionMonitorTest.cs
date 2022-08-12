@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Peering
     }
 
 
-    public sealed class GetConnectionMonitorTestArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionMonitorTestArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connection monitor test
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Peering
         public GetConnectionMonitorTestArgs()
         {
         }
+        public static new GetConnectionMonitorTestArgs Empty => new GetConnectionMonitorTestArgs();
     }
 
-    public sealed class GetConnectionMonitorTestInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionMonitorTestInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connection monitor test
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Peering
         public GetConnectionMonitorTestInvokeArgs()
         {
         }
+        public static new GetConnectionMonitorTestInvokeArgs Empty => new GetConnectionMonitorTestInvokeArgs();
     }
 
 

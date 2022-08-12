@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// Describes a role on the cluster.
     /// </summary>
-    public sealed class RoleArgs : Pulumi.ResourceArgs
+    public sealed class RoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The autoscale configurations.
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         {
             EncryptDataDisks = false;
         }
+        public static new RoleArgs Empty => new RoleArgs();
     }
 }

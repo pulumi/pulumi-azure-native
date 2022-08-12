@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// This activity verifies that an external resource exists.
     /// </summary>
-    public sealed class ValidationActivityArgs : Pulumi.ResourceArgs
+    public sealed class ValidationActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Can be used if dataset points to a folder. If set to true, the folder must have at least one file. If set to false, the folder must be empty. Type: boolean (or Expression with resultType boolean).
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public ValidationActivityArgs()
         {
         }
+        public static new ValidationActivityArgs Empty => new ValidationActivityArgs();
     }
 }

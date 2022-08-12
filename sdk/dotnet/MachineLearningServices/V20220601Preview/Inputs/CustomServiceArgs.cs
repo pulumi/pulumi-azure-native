@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Specifies the custom service configuration
     /// </summary>
-    public sealed class CustomServiceArgs : Pulumi.ResourceArgs
+    public sealed class CustomServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the docker settings for the image
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public CustomServiceArgs()
         {
         }
+        public static new CustomServiceArgs Empty => new CustomServiceArgs();
     }
 }

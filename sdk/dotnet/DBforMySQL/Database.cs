@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// API Version: 2017-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Database")]
-    public partial class Database : Pulumi.CustomResource
+    public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The charset of the database.
@@ -65,8 +65,8 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Database"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         }
     }
 
-    public sealed class DatabaseArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The charset of the database.
@@ -123,5 +123,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         public DatabaseArgs()
         {
         }
+        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 }

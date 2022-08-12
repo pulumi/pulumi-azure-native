@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     /// A web app, a mobile app backend, or an API app.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220301:WebAppSlot")]
-    public partial class WebAppSlot : Pulumi.CustomResource
+    public partial class WebAppSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Management information availability state for the app.
@@ -354,20 +354,20 @@ namespace Pulumi.AzureNative.Web.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -389,7 +389,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         }
     }
 
-    public sealed class WebAppSlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; to enable client affinity; &lt;code&gt;false&lt;/code&gt; to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is &lt;code&gt;true&lt;/code&gt;.
@@ -626,5 +626,6 @@ namespace Pulumi.AzureNative.Web.V20220301
             Reserved = false;
             ScmSiteAlsoStopped = false;
         }
+        public static new WebAppSlotArgs Empty => new WebAppSlotArgs();
     }
 }

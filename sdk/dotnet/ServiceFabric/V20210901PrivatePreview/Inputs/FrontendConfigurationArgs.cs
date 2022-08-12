@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
     /// <summary>
     /// Describes the frontend configurations for the node type.
     /// </summary>
-    public sealed class FrontendConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FrontendConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address type of this frontend configuration. If omitted the default value is IPv4.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
         public FrontendConfigurationArgs()
         {
         }
+        public static new FrontendConfigurationArgs Empty => new FrontendConfigurationArgs();
     }
 }

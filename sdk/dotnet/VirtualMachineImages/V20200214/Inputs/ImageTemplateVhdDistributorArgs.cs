@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
     /// <summary>
     /// Distribute via VHD in a storage account.
     /// </summary>
-    public sealed class ImageTemplateVhdDistributorArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplateVhdDistributorArgs : global::Pulumi.ResourceArgs
     {
         [Input("artifactTags")]
         private InputMap<string>? _artifactTags;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
         public ImageTemplateVhdDistributorArgs()
         {
         }
+        public static new ImageTemplateVhdDistributorArgs Empty => new ImageTemplateVhdDistributorArgs();
     }
 }

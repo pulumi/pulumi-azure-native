@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class WorkspaceConnectionUsernamePasswordArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceConnectionUsernamePasswordArgs : global::Pulumi.ResourceArgs
     {
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public WorkspaceConnectionUsernamePasswordArgs()
         {
         }
+        public static new WorkspaceConnectionUsernamePasswordArgs Empty => new WorkspaceConnectionUsernamePasswordArgs();
     }
 }

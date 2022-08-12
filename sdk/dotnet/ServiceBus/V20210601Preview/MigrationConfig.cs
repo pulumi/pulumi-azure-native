@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
     /// Single item in List or Get Migration Config operation
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20210601preview:MigrationConfig")]
-    public partial class MigrationConfig : Pulumi.CustomResource
+    public partial class MigrationConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
@@ -88,12 +88,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicebus:MigrationConfig"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:MigrationConfig"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:MigrationConfig"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:MigrationConfig"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:MigrationConfig"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:MigrationConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:MigrationConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:MigrationConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:MigrationConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:MigrationConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:MigrationConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:MigrationConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         }
     }
 
-    public sealed class MigrationConfigArgs : Pulumi.ResourceArgs
+    public sealed class MigrationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration name. Should always be "$default".
@@ -150,5 +150,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         public MigrationConfigArgs()
         {
         }
+        public static new MigrationConfigArgs Empty => new MigrationConfigArgs();
     }
 }

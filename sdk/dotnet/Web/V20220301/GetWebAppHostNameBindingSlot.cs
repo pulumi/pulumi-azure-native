@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     }
 
 
-    public sealed class GetWebAppHostNameBindingSlotArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppHostNameBindingSlotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Hostname in the hostname binding.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Web.V20220301
         public GetWebAppHostNameBindingSlotArgs()
         {
         }
+        public static new GetWebAppHostNameBindingSlotArgs Empty => new GetWebAppHostNameBindingSlotArgs();
     }
 
-    public sealed class GetWebAppHostNameBindingSlotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppHostNameBindingSlotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Hostname in the hostname binding.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         public GetWebAppHostNameBindingSlotInvokeArgs()
         {
         }
+        public static new GetWebAppHostNameBindingSlotInvokeArgs Empty => new GetWebAppHostNameBindingSlotInvokeArgs();
     }
 
 

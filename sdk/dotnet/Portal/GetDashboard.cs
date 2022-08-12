@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Portal
     }
 
 
-    public sealed class GetDashboardArgs : Pulumi.InvokeArgs
+    public sealed class GetDashboardArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the dashboard.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Portal
         public GetDashboardArgs()
         {
         }
+        public static new GetDashboardArgs Empty => new GetDashboardArgs();
     }
 
-    public sealed class GetDashboardInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDashboardInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the dashboard.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Portal
         public GetDashboardInvokeArgs()
         {
         }
+        public static new GetDashboardInvokeArgs Empty => new GetDashboardInvokeArgs();
     }
 
 

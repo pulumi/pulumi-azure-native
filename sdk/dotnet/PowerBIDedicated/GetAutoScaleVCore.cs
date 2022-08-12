@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
     }
 
 
-    public sealed class GetAutoScaleVCoreArgs : Pulumi.InvokeArgs
+    public sealed class GetAutoScaleVCoreArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public GetAutoScaleVCoreArgs()
         {
         }
+        public static new GetAutoScaleVCoreArgs Empty => new GetAutoScaleVCoreArgs();
     }
 
-    public sealed class GetAutoScaleVCoreInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAutoScaleVCoreInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public GetAutoScaleVCoreInvokeArgs()
         {
         }
+        public static new GetAutoScaleVCoreInvokeArgs Empty => new GetAutoScaleVCoreInvokeArgs();
     }
 
 

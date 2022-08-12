@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
     /// <summary>
     /// VMwareCbt disk input.
     /// </summary>
-    public sealed class VMwareCbtDiskInputArgs : Pulumi.ResourceArgs
+    public sealed class VMwareCbtDiskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DiskEncryptionSet ARM Id.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
         public VMwareCbtDiskInputArgs()
         {
         }
+        public static new VMwareCbtDiskInputArgs Empty => new VMwareCbtDiskInputArgs();
     }
 }

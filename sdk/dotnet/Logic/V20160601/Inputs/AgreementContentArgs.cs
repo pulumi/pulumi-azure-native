@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The integration account agreement content.
     /// </summary>
-    public sealed class AgreementContentArgs : Pulumi.ResourceArgs
+    public sealed class AgreementContentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AS2 agreement content.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public AgreementContentArgs()
         {
         }
+        public static new AgreementContentArgs Empty => new AgreementContentArgs();
     }
 }

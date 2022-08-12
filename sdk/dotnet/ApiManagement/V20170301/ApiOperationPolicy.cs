@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     /// Policy Contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:ApiOperationPolicy")]
-    public partial class ApiOperationPolicy : Pulumi.CustomResource
+    public partial class ApiOperationPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -58,18 +58,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiOperationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiOperationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         }
     }
 
-    public sealed class ApiOperationPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -132,5 +132,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public ApiOperationPolicyArgs()
         {
         }
+        public static new ApiOperationPolicyArgs Empty => new ApiOperationPolicyArgs();
     }
 }

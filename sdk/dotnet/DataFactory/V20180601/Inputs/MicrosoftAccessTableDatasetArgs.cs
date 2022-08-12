@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The Microsoft Access table dataset.
     /// </summary>
-    public sealed class MicrosoftAccessTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class MicrosoftAccessTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public MicrosoftAccessTableDatasetArgs()
         {
         }
+        public static new MicrosoftAccessTableDatasetArgs Empty => new MicrosoftAccessTableDatasetArgs();
     }
 }

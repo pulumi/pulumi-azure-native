@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     }
 
 
-    public sealed class GetCustomImageResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomImageResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetCustomImageResourceArgs()
         {
         }
+        public static new GetCustomImageResourceArgs Empty => new GetCustomImageResourceArgs();
     }
 
-    public sealed class GetCustomImageResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomImageResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public GetCustomImageResourceInvokeArgs()
         {
         }
+        public static new GetCustomImageResourceInvokeArgs Empty => new GetCustomImageResourceInvokeArgs();
     }
 
 

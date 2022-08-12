@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Inputs
     /// <summary>
     /// Customer-initiated diagnostic log collection storage properties
     /// </summary>
-    public sealed class DiagnosticStoragePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticStoragePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Type
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Inputs
         public DiagnosticStoragePropertiesArgs()
         {
         }
+        public static new DiagnosticStoragePropertiesArgs Empty => new DiagnosticStoragePropertiesArgs();
     }
 }

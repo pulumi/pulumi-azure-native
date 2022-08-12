@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview.Inputs
     /// <summary>
     /// Schedule based backup criteria
     /// </summary>
-    public sealed class ScheduleBasedBackupCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleBasedBackupCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("absoluteCriteria")]
         private InputList<Union<string, Pulumi.AzureNative.DataProtection.V20210201Preview.AbsoluteMarker>>? _absoluteCriteria;
@@ -98,5 +98,6 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview.Inputs
         public ScheduleBasedBackupCriteriaArgs()
         {
         }
+        public static new ScheduleBasedBackupCriteriaArgs Empty => new ScheduleBasedBackupCriteriaArgs();
     }
 }

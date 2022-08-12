@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview.Inputs
     /// <summary>
     /// The fields needed for OIDC with GitHub.
     /// </summary>
-    public sealed class GitHubWorkflowProfileOidcCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class GitHubWorkflowProfileOidcCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Application Client ID
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview.Inputs
         public GitHubWorkflowProfileOidcCredentialsArgs()
         {
         }
+        public static new GitHubWorkflowProfileOidcCredentialsArgs Empty => new GitHubWorkflowProfileOidcCredentialsArgs();
     }
 }

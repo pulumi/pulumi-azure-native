@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20200301.Inputs
 {
 
-    public sealed class WindowsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WindowsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If omitted, the default value is true.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Batch.V20200301.Inputs
         public WindowsConfigurationArgs()
         {
         }
+        public static new WindowsConfigurationArgs Empty => new WindowsConfigurationArgs();
     }
 }

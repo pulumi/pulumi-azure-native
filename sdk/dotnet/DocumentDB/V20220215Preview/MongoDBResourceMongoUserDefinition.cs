@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
     /// An Azure Cosmos DB User Definition
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20220215preview:MongoDBResourceMongoUserDefinition")]
-    public partial class MongoDBResourceMongoUserDefinition : Pulumi.CustomResource
+    public partial class MongoDBResourceMongoUserDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A custom definition for the USer Definition.
@@ -88,10 +88,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:MongoDBResourceMongoUserDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoDBResourceMongoUserDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
         }
     }
 
-    public sealed class MongoDBResourceMongoUserDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class MongoDBResourceMongoUserDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -178,5 +178,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
         public MongoDBResourceMongoUserDefinitionArgs()
         {
         }
+        public static new MongoDBResourceMongoUserDefinitionArgs Empty => new MongoDBResourceMongoUserDefinitionArgs();
     }
 }

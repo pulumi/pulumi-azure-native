@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.NetworkFunction.V20220501
     }
 
 
-    public sealed class GetAzureTrafficCollectorArgs : Pulumi.InvokeArgs
+    public sealed class GetAzureTrafficCollectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure Traffic Collector name
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.NetworkFunction.V20220501
         public GetAzureTrafficCollectorArgs()
         {
         }
+        public static new GetAzureTrafficCollectorArgs Empty => new GetAzureTrafficCollectorArgs();
     }
 
-    public sealed class GetAzureTrafficCollectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAzureTrafficCollectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure Traffic Collector name
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.NetworkFunction.V20220501
         public GetAzureTrafficCollectorInvokeArgs()
         {
         }
+        public static new GetAzureTrafficCollectorInvokeArgs Empty => new GetAzureTrafficCollectorInvokeArgs();
     }
 
 

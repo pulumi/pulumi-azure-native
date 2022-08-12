@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
     /// The Fleet resource which contains multiple Kubernetes clusters as its members.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20220602preview:Fleet")]
-    public partial class Fleet : Pulumi.CustomResource
+    public partial class Fleet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Etag.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
         }
     }
 
-    public sealed class FleetArgs : Pulumi.ResourceArgs
+    public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Fleet resource.
@@ -147,5 +147,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview
         public FleetArgs()
         {
         }
+        public static new FleetArgs Empty => new FleetArgs();
     }
 }

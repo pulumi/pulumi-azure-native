@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220501:CodeContainer")]
-    public partial class CodeContainer : Pulumi.CustomResource
+    public partial class CodeContainer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:CodeContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:CodeContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:CodeContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:CodeContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:CodeContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:CodeContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:CodeContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:CodeContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         }
     }
 
-    public sealed class CodeContainerArgs : Pulumi.ResourceArgs
+    public sealed class CodeContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -118,5 +118,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public CodeContainerArgs()
         {
         }
+        public static new CodeContainerArgs Empty => new CodeContainerArgs();
     }
 }

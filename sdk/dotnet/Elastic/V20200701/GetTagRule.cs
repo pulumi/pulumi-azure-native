@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Elastic.V20200701
     }
 
 
-    public sealed class GetTagRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetTagRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Elastic.V20200701
         public GetTagRuleArgs()
         {
         }
+        public static new GetTagRuleArgs Empty => new GetTagRuleArgs();
     }
 
-    public sealed class GetTagRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTagRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Elastic.V20200701
         public GetTagRuleInvokeArgs()
         {
         }
+        public static new GetTagRuleInvokeArgs Empty => new GetTagRuleInvokeArgs();
     }
 
 

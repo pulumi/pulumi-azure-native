@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceBus
     /// API Version: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Topic")]
-    public partial class Topic : Pulumi.CustomResource
+    public partial class Topic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Last time the message was sent, or a request was received, for this topic.
@@ -149,14 +149,14 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Topic"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.ServiceBus
         }
     }
 
-    public sealed class TopicArgs : Pulumi.ResourceArgs
+    public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
@@ -261,5 +261,6 @@ namespace Pulumi.AzureNative.ServiceBus
         public TopicArgs()
         {
         }
+        public static new TopicArgs Empty => new TopicArgs();
     }
 }

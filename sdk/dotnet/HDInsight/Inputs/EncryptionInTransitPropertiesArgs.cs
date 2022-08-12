@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
     /// <summary>
     /// The encryption-in-transit properties.
     /// </summary>
-    public sealed class EncryptionInTransitPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionInTransitPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether or not inter cluster node communication is encrypted in transit.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         {
             IsEncryptionInTransitEnabled = false;
         }
+        public static new EncryptionInTransitPropertiesArgs Empty => new EncryptionInTransitPropertiesArgs();
     }
 }

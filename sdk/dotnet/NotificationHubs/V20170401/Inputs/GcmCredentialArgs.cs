@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401.Inputs
     /// <summary>
     /// Description of a NotificationHub GcmCredential.
     /// </summary>
-    public sealed class GcmCredentialArgs : Pulumi.ResourceArgs
+    public sealed class GcmCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401.Inputs
         public GcmCredentialArgs()
         {
         }
+        public static new GcmCredentialArgs Empty => new GcmCredentialArgs();
     }
 }

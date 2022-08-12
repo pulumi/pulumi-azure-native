@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210701Preview.Inputs
     /// <summary>
     /// Service principal for uploading billing, metrics and logs.
     /// </summary>
-    public sealed class UploadServicePrincipalArgs : Pulumi.ResourceArgs
+    public sealed class UploadServicePrincipalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authority for the service principal. Example: https://login.microsoftonline.com/
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20210701Preview.Inputs
         public UploadServicePrincipalArgs()
         {
         }
+        public static new UploadServicePrincipalArgs Empty => new UploadServicePrincipalArgs();
     }
 }

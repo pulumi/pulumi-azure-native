@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity DelimitedText sink.
     /// </summary>
-    public sealed class DelimitedTextSinkArgs : Pulumi.ResourceArgs
+    public sealed class DelimitedTextSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DelimitedTextSinkArgs()
         {
         }
+        public static new DelimitedTextSinkArgs Empty => new DelimitedTextSinkArgs();
     }
 }

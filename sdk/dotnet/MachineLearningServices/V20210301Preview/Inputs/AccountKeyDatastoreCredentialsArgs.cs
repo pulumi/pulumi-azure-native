@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Account key datastore credentials configuration.
     /// </summary>
-    public sealed class AccountKeyDatastoreCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class AccountKeyDatastoreCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the datastore credentials type.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public AccountKeyDatastoreCredentialsArgs()
         {
         }
+        public static new AccountKeyDatastoreCredentialsArgs Empty => new AccountKeyDatastoreCredentialsArgs();
     }
 }

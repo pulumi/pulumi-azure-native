@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
     /// <summary>
     /// Describes the compute profile.
     /// </summary>
-    public sealed class ComputeProfileArgs : Pulumi.ResourceArgs
+    public sealed class ComputeProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("roles")]
         private InputList<Inputs.RoleArgs>? _roles;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
         public ComputeProfileArgs()
         {
         }
+        public static new ComputeProfileArgs Empty => new ComputeProfileArgs();
     }
 }

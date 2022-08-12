@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200801.Inputs
     /// <summary>
     /// Specifies policy and settings for SSH access.
     /// </summary>
-    public sealed class ComputeInstanceSshSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ComputeInstanceSshSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200801.Inputs
         {
             SshPublicAccess = "Disabled";
         }
+        public static new ComputeInstanceSshSettingsArgs Empty => new ComputeInstanceSshSettingsArgs();
     }
 }

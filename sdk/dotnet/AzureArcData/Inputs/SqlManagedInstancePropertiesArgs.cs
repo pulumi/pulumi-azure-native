@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
     /// <summary>
     /// Properties of sqlManagedInstance.
     /// </summary>
-    public sealed class SqlManagedInstancePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SqlManagedInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance admin user
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public SqlManagedInstancePropertiesArgs()
         {
         }
+        public static new SqlManagedInstancePropertiesArgs Empty => new SqlManagedInstancePropertiesArgs();
     }
 }

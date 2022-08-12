@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     /// A datastore resource
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20210601:Datastore")]
-    public partial class Datastore : Pulumi.CustomResource
+    public partial class Datastore : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An iSCSI volume
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.AVS.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs:Datastore"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Datastore"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Datastore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
         }
     }
 
-    public sealed class DatastoreArgs : Pulumi.ResourceArgs
+    public sealed class DatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the cluster in the private cloud
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.AVS.V20210601
         public DatastoreArgs()
         {
         }
+        public static new DatastoreArgs Empty => new DatastoreArgs();
     }
 }

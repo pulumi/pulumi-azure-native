@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Consumption.V20210501.Inputs
     /// <summary>
     /// May be used to filter budgets by resource group, resource, or meter.
     /// </summary>
-    public sealed class BudgetFilterArgs : Pulumi.ResourceArgs
+    public sealed class BudgetFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("and")]
         private InputList<Inputs.BudgetFilterPropertiesArgs>? _and;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Consumption.V20210501.Inputs
         public BudgetFilterArgs()
         {
         }
+        public static new BudgetFilterArgs Empty => new BudgetFilterArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Management.V20191101
     }
 
 
-    public sealed class GetEntityArgs : Pulumi.InvokeArgs
+    public sealed class GetEntityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The filter parameter allows you to filter on the the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.
@@ -78,9 +78,10 @@ namespace Pulumi.AzureNative.Management.V20191101
         public GetEntityArgs()
         {
         }
+        public static new GetEntityArgs Empty => new GetEntityArgs();
     }
 
-    public sealed class GetEntityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEntityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The filter parameter allows you to filter on the the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.
@@ -133,6 +134,7 @@ namespace Pulumi.AzureNative.Management.V20191101
         public GetEntityInvokeArgs()
         {
         }
+        public static new GetEntityInvokeArgs Empty => new GetEntityInvokeArgs();
     }
 
 

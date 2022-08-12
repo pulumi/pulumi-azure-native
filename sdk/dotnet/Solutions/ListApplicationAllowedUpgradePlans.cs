@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Solutions
     }
 
 
-    public sealed class ListApplicationAllowedUpgradePlansArgs : Pulumi.InvokeArgs
+    public sealed class ListApplicationAllowedUpgradePlansArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed application.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Solutions
         public ListApplicationAllowedUpgradePlansArgs()
         {
         }
+        public static new ListApplicationAllowedUpgradePlansArgs Empty => new ListApplicationAllowedUpgradePlansArgs();
     }
 
-    public sealed class ListApplicationAllowedUpgradePlansInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListApplicationAllowedUpgradePlansInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed application.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Solutions
         public ListApplicationAllowedUpgradePlansInvokeArgs()
         {
         }
+        public static new ListApplicationAllowedUpgradePlansInvokeArgs Empty => new ListApplicationAllowedUpgradePlansInvokeArgs();
     }
 
 

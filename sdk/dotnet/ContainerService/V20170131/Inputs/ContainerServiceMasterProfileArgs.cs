@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20170131.Inputs
     /// <summary>
     /// Profile for the container service master.
     /// </summary>
-    public sealed class ContainerServiceMasterProfileArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceMasterProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.ContainerService.V20170131.Inputs
         {
             Count = 1;
         }
+        public static new ContainerServiceMasterProfileArgs Empty => new ContainerServiceMasterProfileArgs();
     }
 }

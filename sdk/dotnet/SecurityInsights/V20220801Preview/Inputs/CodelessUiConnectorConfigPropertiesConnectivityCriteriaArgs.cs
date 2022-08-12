@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
 {
 
-    public sealed class CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// type of connectivity
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
         public CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs()
         {
         }
+        public static new CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs Empty => new CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs();
     }
 }

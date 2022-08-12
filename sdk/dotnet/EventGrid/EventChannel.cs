@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// API Version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:EventChannel")]
-    public partial class EventChannel : Pulumi.CustomResource
+    public partial class EventChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Represents the destination of an event channel.
@@ -103,10 +103,10 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:EventChannel"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:EventChannel"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:EventChannel"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:EventChannel"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:EventChannel"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:EventChannel"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:EventChannel"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:EventChannel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
     }
 
-    public sealed class EventChannelArgs : Pulumi.ResourceArgs
+    public sealed class EventChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the destination of an event channel.
@@ -183,5 +183,6 @@ namespace Pulumi.AzureNative.EventGrid
         public EventChannelArgs()
         {
         }
+        public static new EventChannelArgs Empty => new EventChannelArgs();
     }
 }

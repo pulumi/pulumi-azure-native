@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Inputs
     /// <summary>
     /// An Image asset.
     /// </summary>
-    public sealed class ImageAssetArgs : Pulumi.ResourceArgs
+    public sealed class ImageAssetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Asset Id.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Inputs
         public ImageAssetArgs()
         {
         }
+        public static new ImageAssetArgs Empty => new ImageAssetArgs();
     }
 }

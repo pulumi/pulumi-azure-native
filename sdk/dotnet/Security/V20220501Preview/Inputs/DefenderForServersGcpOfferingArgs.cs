@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The Defender for Servers GCP offering configurations
     /// </summary>
-    public sealed class DefenderForServersGcpOfferingArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForServersGcpOfferingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARC autoprovisioning configuration
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForServersGcpOfferingArgs()
         {
         }
+        public static new DefenderForServersGcpOfferingArgs Empty => new DefenderForServersGcpOfferingArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20181201Preview.Inputs
     /// <summary>
     /// Public representation of one of the locations where a resource is provisioned.
     /// </summary>
-    public sealed class IotHubLocationDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class IotHubLocationDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Geo Regions
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Devices.V20181201Preview.Inputs
         public IotHubLocationDescriptionArgs()
         {
         }
+        public static new IotHubLocationDescriptionArgs Empty => new IotHubLocationDescriptionArgs();
     }
 }

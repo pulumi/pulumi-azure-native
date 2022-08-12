@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Represents a configuration for non-DRM keys.
     /// </summary>
-    public sealed class ContentKeyPolicyClearKeyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyClearKeyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public ContentKeyPolicyClearKeyConfigurationArgs()
         {
         }
+        public static new ContentKeyPolicyClearKeyConfigurationArgs Empty => new ContentKeyPolicyClearKeyConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// The Defender for Servers AWS offering configurations
     /// </summary>
-    public sealed class DefenderForServersAwsOfferingArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForServersAwsOfferingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARC autoprovisioning configuration
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public DefenderForServersAwsOfferingArgs()
         {
         }
+        public static new DefenderForServersAwsOfferingArgs Empty => new DefenderForServersAwsOfferingArgs();
     }
 }

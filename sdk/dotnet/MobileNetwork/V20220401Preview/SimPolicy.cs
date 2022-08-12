@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
     /// SIM policy resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220401preview:SimPolicy")]
-    public partial class SimPolicy : Pulumi.CustomResource
+    public partial class SimPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -142,9 +142,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork:SimPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:SimPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:SimPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:SimPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:SimPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:SimPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         }
     }
 
-    public sealed class SimPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SimPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -280,5 +280,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         {
             RegistrationTimer = 3240;
         }
+        public static new SimPolicyArgs Empty => new SimPolicyArgs();
     }
 }

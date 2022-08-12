@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191001
     }
 
 
-    public sealed class ListConfigurationStoreKeyValueArgs : Pulumi.InvokeArgs
+    public sealed class ListConfigurationStoreKeyValueArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191001
         public ListConfigurationStoreKeyValueArgs()
         {
         }
+        public static new ListConfigurationStoreKeyValueArgs Empty => new ListConfigurationStoreKeyValueArgs();
     }
 
-    public sealed class ListConfigurationStoreKeyValueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListConfigurationStoreKeyValueInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191001
         public ListConfigurationStoreKeyValueInvokeArgs()
         {
         }
+        public static new ListConfigurationStoreKeyValueInvokeArgs Empty => new ListConfigurationStoreKeyValueInvokeArgs();
     }
 
 

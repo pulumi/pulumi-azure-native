@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
     }
 
 
-    public sealed class GetSentinelOnboardingStateArgs : Pulumi.InvokeArgs
+    public sealed class GetSentinelOnboardingStateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         public GetSentinelOnboardingStateArgs()
         {
         }
+        public static new GetSentinelOnboardingStateArgs Empty => new GetSentinelOnboardingStateArgs();
     }
 
-    public sealed class GetSentinelOnboardingStateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSentinelOnboardingStateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         public GetSentinelOnboardingStateInvokeArgs()
         {
         }
+        public static new GetSentinelOnboardingStateInvokeArgs Empty => new GetSentinelOnboardingStateInvokeArgs();
     }
 
 

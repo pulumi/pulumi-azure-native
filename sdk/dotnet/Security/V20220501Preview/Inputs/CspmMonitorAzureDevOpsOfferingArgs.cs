@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The CSPM monitoring for AzureDevOps offering
     /// </summary>
-    public sealed class CspmMonitorAzureDevOpsOfferingArgs : Pulumi.ResourceArgs
+    public sealed class CspmMonitorAzureDevOpsOfferingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the security offering.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public CspmMonitorAzureDevOpsOfferingArgs()
         {
         }
+        public static new CspmMonitorAzureDevOpsOfferingArgs Empty => new CspmMonitorAzureDevOpsOfferingArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
     /// SIM group resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220401preview:SimGroup")]
-    public partial class SimGroup : Pulumi.CustomResource
+    public partial class SimGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         }
     }
 
-    public sealed class SimGroupArgs : Pulumi.ResourceArgs
+    public sealed class SimGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -237,5 +237,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         public SimGroupArgs()
         {
         }
+        public static new SimGroupArgs Empty => new SimGroupArgs();
     }
 }

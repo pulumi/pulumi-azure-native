@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
     /// <summary>
     /// Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
     /// </summary>
-    public sealed class DateAfterModificationArgs : Pulumi.ResourceArgs
+    public sealed class DateAfterModificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value indicating the age in days after blob creation.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
         public DateAfterModificationArgs()
         {
         }
+        public static new DateAfterModificationArgs Empty => new DateAfterModificationArgs();
     }
 }

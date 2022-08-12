@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
     /// </summary>
     [Obsolete(@"Version 2019-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerservice/v20190201:AgentPool")]
-    public partial class AgentPool : Pulumi.CustomResource
+    public partial class AgentPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
@@ -125,40 +125,40 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerservice:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190401:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190601:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190801:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20191001:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20191101:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200101:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200201:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200301:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200401:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200601:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200701:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200901:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201101:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210301:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210501:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210701:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210801:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210901:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20211001:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20211101preview:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220101:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220102preview:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220201:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220301:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220401:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220601:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190401:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190601:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190801:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20191001:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20191101:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200101:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200201:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200301:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200401:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200601:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200701:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200901:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20201101:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20201201:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210201:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210301:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210501:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210701:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210801:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210901:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20211001:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20211101preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220101:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220102preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220201:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220301:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220401:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220601:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
         }
     }
 
-    public sealed class AgentPoolArgs : Pulumi.ResourceArgs
+    public sealed class AgentPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the agent pool.
@@ -282,5 +282,6 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
         {
             Count = 1;
         }
+        public static new AgentPoolArgs Empty => new AgentPoolArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
     }
 
 
-    public sealed class GetCodelessUiDataConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetCodelessUiDataConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         public GetCodelessUiDataConnectorArgs()
         {
         }
+        public static new GetCodelessUiDataConnectorArgs Empty => new GetCodelessUiDataConnectorArgs();
     }
 
-    public sealed class GetCodelessUiDataConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCodelessUiDataConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
         public GetCodelessUiDataConnectorInvokeArgs()
         {
         }
+        public static new GetCodelessUiDataConnectorInvokeArgs Empty => new GetCodelessUiDataConnectorInvokeArgs();
     }
 
 

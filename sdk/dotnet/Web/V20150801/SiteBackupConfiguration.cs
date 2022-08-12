@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteBackupConfiguration")]
-    public partial class SiteBackupConfiguration : Pulumi.CustomResource
+    public partial class SiteBackupConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Schedule for the backup if it is executed periodically
@@ -95,20 +95,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteBackupConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteBackupConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteBackupConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteBackupConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SiteBackupConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Schedule for the backup if it is executed periodically
@@ -213,5 +213,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteBackupConfigurationArgs()
         {
         }
+        public static new SiteBackupConfigurationArgs Empty => new SiteBackupConfigurationArgs();
     }
 }

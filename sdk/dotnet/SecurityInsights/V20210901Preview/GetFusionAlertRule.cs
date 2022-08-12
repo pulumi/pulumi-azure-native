@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     }
 
 
-    public sealed class GetFusionAlertRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetFusionAlertRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public GetFusionAlertRuleArgs()
         {
         }
+        public static new GetFusionAlertRuleArgs Empty => new GetFusionAlertRuleArgs();
     }
 
-    public sealed class GetFusionAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFusionAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public GetFusionAlertRuleInvokeArgs()
         {
         }
+        public static new GetFusionAlertRuleInvokeArgs Empty => new GetFusionAlertRuleInvokeArgs();
     }
 
 

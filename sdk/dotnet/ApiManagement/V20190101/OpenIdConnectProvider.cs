@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
     /// OpenId Connect Provider details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20190101:OpenIdConnectProvider")]
-    public partial class OpenIdConnectProvider : Pulumi.CustomResource
+    public partial class OpenIdConnectProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Client ID of developer console which is the client application.
@@ -82,20 +82,20 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:OpenIdConnectProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         }
     }
 
-    public sealed class OpenIdConnectProviderArgs : Pulumi.ResourceArgs
+    public sealed class OpenIdConnectProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Client ID of developer console which is the client application.
@@ -170,5 +170,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         public OpenIdConnectProviderArgs()
         {
         }
+        public static new OpenIdConnectProviderArgs Empty => new OpenIdConnectProviderArgs();
     }
 }

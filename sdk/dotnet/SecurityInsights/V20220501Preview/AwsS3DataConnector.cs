@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
     /// Represents Amazon Web Services S3 data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220501preview:AwsS3DataConnector")]
-    public partial class AwsS3DataConnector : Pulumi.CustomResource
+    public partial class AwsS3DataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -102,18 +102,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AwsS3DataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AwsS3DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AwsS3DataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
         }
     }
 
-    public sealed class AwsS3DataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class AwsS3DataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -195,5 +195,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
         public AwsS3DataConnectorArgs()
         {
         }
+        public static new AwsS3DataConnectorArgs Empty => new AwsS3DataConnectorArgs();
     }
 }

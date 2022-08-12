@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
 {
 
-    public sealed class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiVersion")]
         public Input<string>? ApiVersion { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
         public ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs()
         {
         }
+        public static new ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs Empty => new ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs();
     }
 }

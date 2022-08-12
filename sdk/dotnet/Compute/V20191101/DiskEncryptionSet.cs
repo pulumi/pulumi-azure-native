@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20191101
     /// </summary>
     [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20191101:DiskEncryptionSet")]
-    public partial class DiskEncryptionSet : Pulumi.CustomResource
+    public partial class DiskEncryptionSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The key vault key which is currently used by this disk encryption set.
@@ -89,16 +89,16 @@ namespace Pulumi.AzureNative.Compute.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskEncryptionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:DiskEncryptionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:DiskEncryptionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskEncryptionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskEncryptionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskEncryptionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskEncryptionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskEncryptionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskEncryptionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskEncryptionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskEncryptionSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Compute.V20191101
         }
     }
 
-    public sealed class DiskEncryptionSetArgs : Pulumi.ResourceArgs
+    public sealed class DiskEncryptionSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key vault key which is currently used by this disk encryption set.
@@ -167,5 +167,6 @@ namespace Pulumi.AzureNative.Compute.V20191101
         public DiskEncryptionSetArgs()
         {
         }
+        public static new DiskEncryptionSetArgs Empty => new DiskEncryptionSetArgs();
     }
 }

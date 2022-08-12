@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// The parameters to provide for the Microsoft Teams channel.
     /// </summary>
-    public sealed class MsTeamsChannelPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MsTeamsChannelPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether this channel accepted terms
@@ -56,5 +56,6 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
             DeploymentEnvironment = "FallbackDeploymentEnvironment";
             EnableCalling = false;
         }
+        public static new MsTeamsChannelPropertiesArgs Empty => new MsTeamsChannelPropertiesArgs();
     }
 }

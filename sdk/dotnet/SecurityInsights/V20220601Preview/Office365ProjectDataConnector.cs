@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
     /// Represents Office Microsoft Project data connector.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220601preview:Office365ProjectDataConnector")]
-    public partial class Office365ProjectDataConnector : Pulumi.CustomResource
+    public partial class Office365ProjectDataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -90,18 +90,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Office365ProjectDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Office365ProjectDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:Office365ProjectDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         }
     }
 
-    public sealed class Office365ProjectDataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class Office365ProjectDataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -165,5 +165,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
         public Office365ProjectDataConnectorArgs()
         {
         }
+        public static new Office365ProjectDataConnectorArgs Empty => new Office365ProjectDataConnectorArgs();
     }
 }

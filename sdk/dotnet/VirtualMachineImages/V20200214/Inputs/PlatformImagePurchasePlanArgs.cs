@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
     /// <summary>
     /// Purchase plan configuration for platform image.
     /// </summary>
-    public sealed class PlatformImagePurchasePlanArgs : Pulumi.ResourceArgs
+    public sealed class PlatformImagePurchasePlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the purchase plan.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
         public PlatformImagePurchasePlanArgs()
         {
         }
+        public static new PlatformImagePurchasePlanArgs Empty => new PlatformImagePurchasePlanArgs();
     }
 }

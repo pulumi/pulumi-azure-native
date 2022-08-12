@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
     /// Settings with single toggle.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220501preview:Ueba")]
-    public partial class Ueba : Pulumi.CustomResource
+    public partial class Ueba : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The relevant data sources that enriched by ueba
@@ -84,16 +84,16 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:Ueba"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Ueba"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Ueba"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Ueba"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Ueba"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Ueba"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Ueba"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Ueba"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Ueba"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:Ueba"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
         }
     }
 
-    public sealed class UebaArgs : Pulumi.ResourceArgs
+    public sealed class UebaArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSources")]
         private InputList<Union<string, Pulumi.AzureNative.SecurityInsights.V20220501Preview.UebaDataSources>>? _dataSources;
@@ -157,5 +157,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
         public UebaArgs()
         {
         }
+        public static new UebaArgs Empty => new UebaArgs();
     }
 }

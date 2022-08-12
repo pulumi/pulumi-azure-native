@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
     /// <summary>
     /// The integration account AS2 one-way agreement.
     /// </summary>
-    public sealed class AS2OneWayAgreementArgs : Pulumi.ResourceArgs
+    public sealed class AS2OneWayAgreementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AS2 protocol settings.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
         public AS2OneWayAgreementArgs()
         {
         }
+        public static new AS2OneWayAgreementArgs Empty => new AS2OneWayAgreementArgs();
     }
 }

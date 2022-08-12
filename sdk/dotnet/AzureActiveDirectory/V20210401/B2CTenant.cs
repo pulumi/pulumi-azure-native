@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureActiveDirectory.V20210401
 {
     [AzureNativeResourceType("azure-native:azureactivedirectory/v20210401:B2CTenant")]
-    public partial class B2CTenant : Pulumi.CustomResource
+    public partial class B2CTenant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The billing configuration for the tenant.
@@ -85,8 +85,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:azureactivedirectory:B2CTenant"},
-                    new Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20190101preview:B2CTenant"},
+                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory:B2CTenant"},
+                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20190101preview:B2CTenant"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20210401
         }
     }
 
-    public sealed class B2CTenantArgs : Pulumi.ResourceArgs
+    public sealed class B2CTenantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
@@ -161,5 +161,6 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20210401
         public B2CTenantArgs()
         {
         }
+        public static new B2CTenantArgs Empty => new B2CTenantArgs();
     }
 }

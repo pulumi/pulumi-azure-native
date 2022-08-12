@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20211001.Inputs
 {
 
-    public sealed class AutomationRulePropertyValuesConditionArgs : Pulumi.ResourceArgs
+    public sealed class AutomationRulePropertyValuesConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("operator")]
         public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20211001.AutomationRulePropertyConditionSupportedOperator>? Operator { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001.Inputs
         public AutomationRulePropertyValuesConditionArgs()
         {
         }
+        public static new AutomationRulePropertyValuesConditionArgs Empty => new AutomationRulePropertyValuesConditionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StoragePool.V20210801.Inputs
     /// <summary>
     /// Sku for ARM resource
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sku name
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.StoragePool.V20210801.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

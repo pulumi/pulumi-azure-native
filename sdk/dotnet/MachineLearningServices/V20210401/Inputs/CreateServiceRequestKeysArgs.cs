@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
     /// <summary>
     /// The authentication keys.
     /// </summary>
-    public sealed class CreateServiceRequestKeysArgs : Pulumi.ResourceArgs
+    public sealed class CreateServiceRequestKeysArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The primary key.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
         public CreateServiceRequestKeysArgs()
         {
         }
+        public static new CreateServiceRequestKeysArgs Empty => new CreateServiceRequestKeysArgs();
     }
 }

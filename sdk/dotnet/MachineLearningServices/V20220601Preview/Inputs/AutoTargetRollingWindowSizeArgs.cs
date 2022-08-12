@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Target lags rolling window determined automatically.
     /// </summary>
-    public sealed class AutoTargetRollingWindowSizeArgs : Pulumi.ResourceArgs
+    public sealed class AutoTargetRollingWindowSizeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Target rolling windows size mode.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public AutoTargetRollingWindowSizeArgs()
         {
         }
+        public static new AutoTargetRollingWindowSizeArgs Empty => new AutoTargetRollingWindowSizeArgs();
     }
 }

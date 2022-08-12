@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
     /// <summary>
     /// The start and end date for recurrence schedule.
     /// </summary>
-    public sealed class ReportRecurrencePeriodArgs : Pulumi.ResourceArgs
+    public sealed class ReportRecurrencePeriodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The start date of recurrence.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
         public ReportRecurrencePeriodArgs()
         {
         }
+        public static new ReportRecurrencePeriodArgs Empty => new ReportRecurrencePeriodArgs();
     }
 }

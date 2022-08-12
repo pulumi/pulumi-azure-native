@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180331Preview
     /// </summary>
     [Obsolete(@"Version 2018-03-31-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datamigration/v20180331preview:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
         /// UTC Date and time when project was created
@@ -107,15 +107,15 @@ namespace Pulumi.AzureNative.DataMigration.V20180331Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datamigration:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Project"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180331Preview
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("databasesInfo")]
         private InputList<Inputs.DatabaseInfoArgs>? _databasesInfo;
@@ -214,5 +214,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180331Preview
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001.Inputs
     /// <summary>
     /// Group connectivity details.
     /// </summary>
-    public sealed class GroupConnectivityInformationArgs : Pulumi.ResourceArgs
+    public sealed class GroupConnectivityInformationArgs : global::Pulumi.ResourceArgs
     {
         [Input("customerVisibleFqdns")]
         private InputList<string>? _customerVisibleFqdns;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001.Inputs
         public GroupConnectivityInformationArgs()
         {
         }
+        public static new GroupConnectivityInformationArgs Empty => new GroupConnectivityInformationArgs();
     }
 }

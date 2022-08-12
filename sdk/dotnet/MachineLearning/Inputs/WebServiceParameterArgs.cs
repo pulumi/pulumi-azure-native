@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
     /// <summary>
     /// Web Service Parameter object for node and global parameter
     /// </summary>
-    public sealed class WebServiceParameterArgs : Pulumi.ResourceArgs
+    public sealed class WebServiceParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearning.Inputs
         public WebServiceParameterArgs()
         {
         }
+        public static new WebServiceParameterArgs Empty => new WebServiceParameterArgs();
     }
 }

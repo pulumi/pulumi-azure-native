@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Inputs
 {
 
-    public sealed class VirtualApplicationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualApplicationArgs : global::Pulumi.ResourceArgs
     {
         [Input("physicalPath")]
         public Input<string>? PhysicalPath { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public VirtualApplicationArgs()
         {
         }
+        public static new VirtualApplicationArgs Empty => new VirtualApplicationArgs();
     }
 }

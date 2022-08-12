@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200101Preview.Inputs
     /// <summary>
     /// Sku definition
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sku Name.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200101Preview.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

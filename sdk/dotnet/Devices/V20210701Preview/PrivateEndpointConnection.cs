@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview
     /// The private endpoint connection of an IotHub
     /// </summary>
     [AzureNativeResourceType("azure-native:devices/v20210701preview:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource name.
@@ -58,21 +58,21 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devices:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20200401:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20200615:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20200710preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20200801:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20200831:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20200831preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20210201preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20210303preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20210331:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20210701:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20210702:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20210702preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:devices/v20220430preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200401:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200615:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200710preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200801:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200831:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200831preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210201preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210303preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210331:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection
@@ -123,5 +123,6 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

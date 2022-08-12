@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Describes a virtual machine scale set virtual machine profile.
     /// </summary>
-    public sealed class VirtualMachineScaleSetVMProfileArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetVMProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the gallery applications that should be made available to the VM/VMSS
@@ -108,5 +108,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public VirtualMachineScaleSetVMProfileArgs()
         {
         }
+        public static new VirtualMachineScaleSetVMProfileArgs Empty => new VirtualMachineScaleSetVMProfileArgs();
     }
 }

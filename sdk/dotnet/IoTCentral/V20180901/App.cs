@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
     /// </summary>
     [Obsolete(@"Version 2018-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:iotcentral/v20180901:App")]
-    public partial class App : Pulumi.CustomResource
+    public partial class App : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the application.
@@ -95,9 +95,9 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:iotcentral:App"},
-                    new Pulumi.Alias { Type = "azure-native:iotcentral/v20210601:App"},
-                    new Pulumi.Alias { Type = "azure-native:iotcentral/v20211101preview:App"},
+                    new global::Pulumi.Alias { Type = "azure-native:iotcentral:App"},
+                    new global::Pulumi.Alias { Type = "azure-native:iotcentral/v20210601:App"},
+                    new global::Pulumi.Alias { Type = "azure-native:iotcentral/v20211101preview:App"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
         }
     }
 
-    public sealed class AppArgs : Pulumi.ResourceArgs
+    public sealed class AppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The display name of the application.
@@ -178,5 +178,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
         public AppArgs()
         {
         }
+        public static new AppArgs Empty => new AppArgs();
     }
 }

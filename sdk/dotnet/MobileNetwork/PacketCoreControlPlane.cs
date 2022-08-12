@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// API Version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCoreControlPlane")]
-    public partial class PacketCoreControlPlane : Pulumi.CustomResource
+    public partial class PacketCoreControlPlane : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
@@ -137,9 +137,9 @@ namespace Pulumi.AzureNative.MobileNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:PacketCoreControlPlane"},
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane"},
-                    new Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:PacketCoreControlPlane"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -161,7 +161,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         }
     }
 
-    public sealed class PacketCoreControlPlaneArgs : Pulumi.ResourceArgs
+    public sealed class PacketCoreControlPlaneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
@@ -262,5 +262,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public PacketCoreControlPlaneArgs()
         {
         }
+        public static new PacketCoreControlPlaneArgs Empty => new PacketCoreControlPlaneArgs();
     }
 }

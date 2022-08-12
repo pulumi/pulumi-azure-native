@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Describes how an individual MongoDB database should be migrated
     /// </summary>
-    public sealed class MongoDbDatabaseSettingsArgs : Pulumi.ResourceArgs
+    public sealed class MongoDbDatabaseSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("collections", required: true)]
         private InputMap<Inputs.MongoDbCollectionSettingsArgs>? _collections;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public MongoDbDatabaseSettingsArgs()
         {
         }
+        public static new MongoDbDatabaseSettingsArgs Empty => new MongoDbDatabaseSettingsArgs();
     }
 }

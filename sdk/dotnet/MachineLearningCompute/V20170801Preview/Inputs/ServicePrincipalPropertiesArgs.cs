@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
     /// <summary>
     /// The Azure service principal used by Kubernetes for configuring load balancers
     /// </summary>
-    public sealed class ServicePrincipalPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ServicePrincipalPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The service principal client ID
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
         public ServicePrincipalPropertiesArgs()
         {
         }
+        public static new ServicePrincipalPropertiesArgs Empty => new ServicePrincipalPropertiesArgs();
     }
 }

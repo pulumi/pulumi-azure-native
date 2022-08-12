@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Reference to another resource along with its state.
     /// </summary>
-    public sealed class ActivatedResourceReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ActivatedResourceReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public ActivatedResourceReferenceArgs()
         {
         }
+        public static new ActivatedResourceReferenceArgs Empty => new ActivatedResourceReferenceArgs();
     }
 }

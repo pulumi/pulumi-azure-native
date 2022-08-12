@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210601
     }
 
 
-    public sealed class GetRulesEngineArgs : Pulumi.InvokeArgs
+    public sealed class GetRulesEngineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Front Door which is globally unique.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20210601
         public GetRulesEngineArgs()
         {
         }
+        public static new GetRulesEngineArgs Empty => new GetRulesEngineArgs();
     }
 
-    public sealed class GetRulesEngineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRulesEngineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Front Door which is globally unique.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20210601
         public GetRulesEngineInvokeArgs()
         {
         }
+        public static new GetRulesEngineInvokeArgs Empty => new GetRulesEngineInvokeArgs();
     }
 
 

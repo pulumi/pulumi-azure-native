@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20200901
     /// Managed cluster.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20200901:ManagedCluster")]
-    public partial class ManagedCluster : Pulumi.CustomResource
+    public partial class ManagedCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Profile of Azure Active Directory configuration.
@@ -202,43 +202,43 @@ namespace Pulumi.AzureNative.ContainerService.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerservice:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20170831:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20180331:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20180801preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190201:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190401:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190601:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190801:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20191001:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20191101:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200101:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200201:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200301:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200401:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200601:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200701:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201101:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210301:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210501:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210701:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210801:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210901:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20211001:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20211101preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220101:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220102preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220201:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220301:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220401:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220601:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20170831:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20180331:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20180801preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190201:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190401:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190601:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190801:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20191001:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20191101:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200101:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200201:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200301:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200401:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200601:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20200701:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20201101:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20201201:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210201:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210301:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210501:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210701:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210801:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210901:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20211001:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20211101preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220101:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220102preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220201:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220301:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220401:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220601:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -260,7 +260,7 @@ namespace Pulumi.AzureNative.ContainerService.V20200901
         }
     }
 
-    public sealed class ManagedClusterArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Profile of Azure Active Directory configuration.
@@ -421,5 +421,6 @@ namespace Pulumi.AzureNative.ContainerService.V20200901
         public ManagedClusterArgs()
         {
         }
+        public static new ManagedClusterArgs Empty => new ManagedClusterArgs();
     }
 }

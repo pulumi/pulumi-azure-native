@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Class for data inputs.
     /// </summary>
-    public sealed class TableVerticalDataSettingsArgs : Pulumi.ResourceArgs
+    public sealed class TableVerticalDataSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Target column name: This is prediction values column.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public TableVerticalDataSettingsArgs()
         {
         }
+        public static new TableVerticalDataSettingsArgs Empty => new TableVerticalDataSettingsArgs();
     }
 }

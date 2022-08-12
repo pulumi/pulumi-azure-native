@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
     /// The Application Group object
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20220101preview:ApplicationGroup")]
-    public partial class ApplicationGroup : Pulumi.CustomResource
+    public partial class ApplicationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Unique identifier for application group.Supports SAS(SASKeyName=KeyName) or AAD(AADAppID=Guid)
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventhub:ApplicationGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:ApplicationGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         }
     }
 
-    public sealed class ApplicationGroupArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application Group name 
@@ -151,5 +151,6 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         public ApplicationGroupArgs()
         {
         }
+        public static new ApplicationGroupArgs Empty => new ApplicationGroupArgs();
     }
 }

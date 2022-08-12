@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.Inputs
     /// <summary>
     /// The content of markdown part.
     /// </summary>
-    public sealed class MarkdownPartMetadataContentArgs : Pulumi.ResourceArgs
+    public sealed class MarkdownPartMetadataContentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The setting of the content of markdown part.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Portal.Inputs
         public MarkdownPartMetadataContentArgs()
         {
         }
+        public static new MarkdownPartMetadataContentArgs Empty => new MarkdownPartMetadataContentArgs();
     }
 }

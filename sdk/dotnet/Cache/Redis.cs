@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cache
     /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:Redis")]
-    public partial class Redis : Pulumi.CustomResource
+    public partial class Redis : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
@@ -185,16 +185,16 @@ namespace Pulumi.AzureNative.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cache/v20150801:Redis"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20160401:Redis"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20170201:Redis"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20171001:Redis"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20180301:Redis"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20190701:Redis"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20200601:Redis"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20201201:Redis"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20210601:Redis"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20220501:Redis"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20150801:Redis"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20160401:Redis"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20170201:Redis"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20171001:Redis"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20180301:Redis"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20190701:Redis"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20200601:Redis"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:Redis"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:Redis"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:Redis"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -216,7 +216,7 @@ namespace Pulumi.AzureNative.Cache
         }
     }
 
-    public sealed class RedisArgs : Pulumi.ResourceArgs
+    public sealed class RedisArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the non-ssl Redis server port (6379) is enabled.
@@ -331,5 +331,6 @@ namespace Pulumi.AzureNative.Cache
             EnableNonSslPort = false;
             PublicNetworkAccess = "Enabled";
         }
+        public static new RedisArgs Empty => new RedisArgs();
     }
 }

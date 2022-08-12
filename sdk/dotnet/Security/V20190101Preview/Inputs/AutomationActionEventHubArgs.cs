@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
     /// <summary>
     /// The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
     /// </summary>
-    public sealed class AutomationActionEventHubArgs : Pulumi.ResourceArgs
+    public sealed class AutomationActionEventHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the action that will be triggered by the Automation
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
         public AutomationActionEventHubArgs()
         {
         }
+        public static new AutomationActionEventHubArgs Empty => new AutomationActionEventHubArgs();
     }
 }

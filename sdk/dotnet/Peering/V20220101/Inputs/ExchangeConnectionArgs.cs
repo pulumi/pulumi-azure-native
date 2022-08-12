@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.V20220101.Inputs
     /// <summary>
     /// The properties that define an exchange connection.
     /// </summary>
-    public sealed class ExchangeConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ExchangeConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The BGP session associated with the connection.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Peering.V20220101.Inputs
         public ExchangeConnectionArgs()
         {
         }
+        public static new ExchangeConnectionArgs Empty => new ExchangeConnectionArgs();
     }
 }

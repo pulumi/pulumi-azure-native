@@ -349,3 +349,13 @@ jobs:
         status: ${{ job.status }}
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
+  sentinel:
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    name: sentinel
+    needs:
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Is workflow a success
+        run: echo yes

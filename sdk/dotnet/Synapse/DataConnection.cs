@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Synapse
     /// </summary>
     [Obsolete(@"Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")]
     [AzureNativeResourceType("azure-native:synapse:DataConnection")]
-    public partial class DataConnection : Pulumi.CustomResource
+    public partial class DataConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of the endpoint for the data connection
@@ -72,8 +72,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:DataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:DataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class DataConnectionArgs : Pulumi.ResourceArgs
+    public sealed class DataConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the data connection.
@@ -142,5 +142,6 @@ namespace Pulumi.AzureNative.Synapse
         public DataConnectionArgs()
         {
         }
+        public static new DataConnectionArgs Empty => new DataConnectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// VM or VMSS node profile
     /// </summary>
-    public sealed class NodeProfileArgs : Pulumi.ResourceArgs
+    public sealed class NodeProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
         private InputList<Inputs.DiskInfoArgs>? _dataDisks;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public NodeProfileArgs()
         {
         }
+        public static new NodeProfileArgs Empty => new NodeProfileArgs();
     }
 }

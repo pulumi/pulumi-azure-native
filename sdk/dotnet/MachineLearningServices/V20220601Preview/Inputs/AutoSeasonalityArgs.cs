@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class AutoSeasonalityArgs : Pulumi.ResourceArgs
+    public sealed class AutoSeasonalityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Forecasting seasonality mode.
@@ -22,5 +22,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public AutoSeasonalityArgs()
         {
         }
+        public static new AutoSeasonalityArgs Empty => new AutoSeasonalityArgs();
     }
 }

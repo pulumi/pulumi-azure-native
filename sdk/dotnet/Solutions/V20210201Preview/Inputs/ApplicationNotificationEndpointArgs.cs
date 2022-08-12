@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20210201Preview.Inputs
     /// <summary>
     /// Managed application notification endpoint.
     /// </summary>
-    public sealed class ApplicationNotificationEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationNotificationEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed application notification endpoint uri.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Solutions.V20210201Preview.Inputs
         public ApplicationNotificationEndpointArgs()
         {
         }
+        public static new ApplicationNotificationEndpointArgs Empty => new ApplicationNotificationEndpointArgs();
     }
 }

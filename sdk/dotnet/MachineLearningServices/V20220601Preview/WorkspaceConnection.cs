@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
 {
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220601preview:WorkspaceConnection")]
-    public partial class WorkspaceConnection : Pulumi.CustomResource
+    public partial class WorkspaceConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -58,17 +58,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:WorkspaceConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         }
     }
 
-    public sealed class WorkspaceConnectionArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Friendly name of the workspace connection
@@ -116,5 +116,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public WorkspaceConnectionArgs()
         {
         }
+        public static new WorkspaceConnectionArgs Empty => new WorkspaceConnectionArgs();
     }
 }

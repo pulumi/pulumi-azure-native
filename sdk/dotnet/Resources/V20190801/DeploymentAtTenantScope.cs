@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20190801
     /// Deployment information.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20190801:DeploymentAtTenantScope")]
-    public partial class DeploymentAtTenantScope : Pulumi.CustomResource
+    public partial class DeploymentAtTenantScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the location of the deployment.
@@ -64,14 +64,14 @@ namespace Pulumi.AzureNative.Resources.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:resources:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtTenantScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources:DeploymentAtTenantScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtTenantScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtTenantScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtTenantScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtTenantScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtTenantScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtTenantScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtTenantScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Resources.V20190801
         }
     }
 
-    public sealed class DeploymentAtTenantScopeArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentAtTenantScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the deployment.
@@ -116,5 +116,6 @@ namespace Pulumi.AzureNative.Resources.V20190801
         public DeploymentAtTenantScopeArgs()
         {
         }
+        public static new DeploymentAtTenantScopeArgs Empty => new DeploymentAtTenantScopeArgs();
     }
 }

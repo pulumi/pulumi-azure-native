@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180801
     /// Interface endpoint resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180801:InterfaceEndpoint")]
-    public partial class InterfaceEndpoint : Pulumi.CustomResource
+    public partial class InterfaceEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A reference to the service being brought into the virtual network.
@@ -106,30 +106,30 @@ namespace Pulumi.AzureNative.Network.V20180801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:InterfaceEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:InterfaceEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:InterfaceEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.Network.V20180801
         }
     }
 
-    public sealed class InterfaceEndpointArgs : Pulumi.ResourceArgs
+    public sealed class InterfaceEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A reference to the service being brought into the virtual network.
@@ -210,5 +210,6 @@ namespace Pulumi.AzureNative.Network.V20180801
         public InterfaceEndpointArgs()
         {
         }
+        public static new InterfaceEndpointArgs Empty => new InterfaceEndpointArgs();
     }
 }

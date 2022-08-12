@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101.Inputs
     /// <summary>
     /// SKU of the namespace.
     /// </summary>
-    public sealed class SBSkuArgs : Pulumi.ResourceArgs
+    public sealed class SBSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101.Inputs
         public SBSkuArgs()
         {
         }
+        public static new SBSkuArgs Empty => new SBSkuArgs();
     }
 }

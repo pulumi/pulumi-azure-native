@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
     /// A global reach connection resource
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20210101preview:GlobalReachConnection")]
-    public partial class GlobalReachConnection : Pulumi.CustomResource
+    public partial class GlobalReachConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The network used for global reach carved out from the original network block provided for the private cloud
@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs:GlobalReachConnection"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:GlobalReachConnection"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:GlobalReachConnection"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:GlobalReachConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:GlobalReachConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:GlobalReachConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:GlobalReachConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:GlobalReachConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
         }
     }
 
-    public sealed class GlobalReachConnectionArgs : Pulumi.ResourceArgs
+    public sealed class GlobalReachConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authorization key from the peer express route used for the global reach connection
@@ -142,5 +142,6 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
         public GlobalReachConnectionArgs()
         {
         }
+        public static new GlobalReachConnectionArgs Empty => new GlobalReachConnectionArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20191201
     /// </summary>
     [Obsolete(@"Version 2019-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20191201:SshPublicKey")]
-    public partial class SshPublicKey : Pulumi.CustomResource
+    public partial class SshPublicKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -71,14 +71,14 @@ namespace Pulumi.AzureNative.Compute.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:SshPublicKey"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:SshPublicKey"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:SshPublicKey"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:SshPublicKey"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:SshPublicKey"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:SshPublicKey"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:SshPublicKey"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:SshPublicKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:SshPublicKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:SshPublicKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:SshPublicKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:SshPublicKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:SshPublicKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:SshPublicKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:SshPublicKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:SshPublicKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Compute.V20191201
         }
     }
 
-    public sealed class SshPublicKeyArgs : Pulumi.ResourceArgs
+    public sealed class SshPublicKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location
@@ -141,5 +141,6 @@ namespace Pulumi.AzureNative.Compute.V20191201
         public SshPublicKeyArgs()
         {
         }
+        public static new SshPublicKeyArgs Empty => new SshPublicKeyArgs();
     }
 }

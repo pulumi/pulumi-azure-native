@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetNspProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetNspProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network security perimeter.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Network
         public GetNspProfileArgs()
         {
         }
+        public static new GetNspProfileArgs Empty => new GetNspProfileArgs();
     }
 
-    public sealed class GetNspProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNspProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network security perimeter.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Network
         public GetNspProfileInvokeArgs()
         {
         }
+        public static new GetNspProfileInvokeArgs Empty => new GetNspProfileInvokeArgs();
     }
 
 

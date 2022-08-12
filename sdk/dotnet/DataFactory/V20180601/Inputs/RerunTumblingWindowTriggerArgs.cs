@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Trigger that schedules pipeline reruns for all fixed time interval windows from a requested start time to requested end time.
     /// </summary>
-    public sealed class RerunTumblingWindowTriggerArgs : Pulumi.ResourceArgs
+    public sealed class RerunTumblingWindowTriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public RerunTumblingWindowTriggerArgs()
         {
         }
+        public static new RerunTumblingWindowTriggerArgs Empty => new RerunTumblingWindowTriggerArgs();
     }
 }

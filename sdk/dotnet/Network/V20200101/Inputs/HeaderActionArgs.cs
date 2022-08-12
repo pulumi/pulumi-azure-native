@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200101.Inputs
     /// <summary>
     /// An action that can manipulate an http header.
     /// </summary>
-    public sealed class HeaderActionArgs : Pulumi.ResourceArgs
+    public sealed class HeaderActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Which type of manipulation to apply to the header.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20200101.Inputs
         public HeaderActionArgs()
         {
         }
+        public static new HeaderActionArgs Empty => new HeaderActionArgs();
     }
 }

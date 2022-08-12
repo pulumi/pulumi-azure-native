@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// The network address and port translation settings to use for the attached data network.
     /// </summary>
-    public sealed class NaptConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NaptConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether NAPT is enabled for connections to this attached data network.
@@ -51,5 +51,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         {
             PinholeLimits = 65536;
         }
+        public static new NaptConfigurationArgs Empty => new NaptConfigurationArgs();
     }
 }

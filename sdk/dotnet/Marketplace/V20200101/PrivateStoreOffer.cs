@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Marketplace.V20200101
     /// The privateStore offer data structure.
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace/v20200101:PrivateStoreOffer")]
-    public partial class PrivateStoreOffer : Pulumi.CustomResource
+    public partial class PrivateStoreOffer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Private store offer creation date
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Marketplace.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:marketplace:PrivateStoreOffer"},
+                    new global::Pulumi.Alias { Type = "azure-native:marketplace:PrivateStoreOffer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Marketplace.V20200101
         }
     }
 
-    public sealed class PrivateStoreOfferArgs : Pulumi.ResourceArgs
+    public sealed class PrivateStoreOfferArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier for purposes of race condition
@@ -205,5 +205,6 @@ namespace Pulumi.AzureNative.Marketplace.V20200101
         public PrivateStoreOfferArgs()
         {
         }
+        public static new PrivateStoreOfferArgs Empty => new PrivateStoreOfferArgs();
     }
 }

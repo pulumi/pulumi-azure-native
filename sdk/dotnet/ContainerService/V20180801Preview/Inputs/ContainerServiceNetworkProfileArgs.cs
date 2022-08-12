@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20180801Preview.Inputs
     /// <summary>
     /// Profile of network configuration.
     /// </summary>
-    public sealed class ContainerServiceNetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -59,5 +59,6 @@ namespace Pulumi.AzureNative.ContainerService.V20180801Preview.Inputs
             PodCidr = "10.244.0.0/16";
             ServiceCidr = "10.0.0.0/16";
         }
+        public static new ContainerServiceNetworkProfileArgs Empty => new ContainerServiceNetworkProfileArgs();
     }
 }

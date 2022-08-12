@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20150615
     }
 
 
-    public sealed class GetVirtualNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Network.V20150615
         public GetVirtualNetworkArgs()
         {
         }
+        public static new GetVirtualNetworkArgs Empty => new GetVirtualNetworkArgs();
     }
 
-    public sealed class GetVirtualNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Network.V20150615
         public GetVirtualNetworkInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkInvokeArgs Empty => new GetVirtualNetworkInvokeArgs();
     }
 
 

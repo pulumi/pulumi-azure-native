@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
     /// <summary>
     /// Managed Virtual Network Settings
     /// </summary>
-    public sealed class ManagedVirtualNetworkSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ManagedVirtualNetworkSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedAadTenantIdsForLinking")]
         private InputList<string>? _allowedAadTenantIdsForLinking;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
         public ManagedVirtualNetworkSettingsArgs()
         {
         }
+        public static new ManagedVirtualNetworkSettingsArgs Empty => new ManagedVirtualNetworkSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20180712.Inputs
     /// <summary>
     /// Sms channel definition
     /// </summary>
-    public sealed class SmsChannelArgs : Pulumi.ResourceArgs
+    public sealed class SmsChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.BotService.V20180712.Inputs
         public SmsChannelArgs()
         {
         }
+        public static new SmsChannelArgs Empty => new SmsChannelArgs();
     }
 }

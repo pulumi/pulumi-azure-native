@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200401.Inputs
     /// <summary>
     /// The properties of a private endpoint connection
     /// </summary>
-    public sealed class PrivateEndpointConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The current state of a private endpoint connection
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Devices.V20200401.Inputs
         public PrivateEndpointConnectionPropertiesArgs()
         {
         }
+        public static new PrivateEndpointConnectionPropertiesArgs Empty => new PrivateEndpointConnectionPropertiesArgs();
     }
 }

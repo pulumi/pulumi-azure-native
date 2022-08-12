@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301
     /// Storage resource for managedEnvironment.
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20220301:ManagedEnvironmentsStorage")]
-    public partial class ManagedEnvironmentsStorage : Pulumi.CustomResource
+    public partial class ManagedEnvironmentsStorage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,8 +64,8 @@ namespace Pulumi.AzureNative.App.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:app:ManagedEnvironmentsStorage"},
-                    new Pulumi.Alias { Type = "azure-native:app/v20220101preview:ManagedEnvironmentsStorage"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:ManagedEnvironmentsStorage"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ManagedEnvironmentsStorage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.App.V20220301
         }
     }
 
-    public sealed class ManagedEnvironmentsStorageArgs : Pulumi.ResourceArgs
+    public sealed class ManagedEnvironmentsStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Environment.
@@ -116,5 +116,6 @@ namespace Pulumi.AzureNative.App.V20220301
         public ManagedEnvironmentsStorageArgs()
         {
         }
+        public static new ManagedEnvironmentsStorageArgs Empty => new ManagedEnvironmentsStorageArgs();
     }
 }

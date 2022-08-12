@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     /// <summary>
     /// Describes a file input data source that contains reference data.
     /// </summary>
-    public sealed class FileReferenceInputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class FileReferenceInputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path of the file.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public FileReferenceInputDataSourceArgs()
         {
         }
+        public static new FileReferenceInputDataSourceArgs Empty => new FileReferenceInputDataSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// <summary>
     /// Key Encryption Key (KEK) information.
     /// </summary>
-    public sealed class KeyEncryptionKeyInfoArgs : Pulumi.ResourceArgs
+    public sealed class KeyEncryptionKeyInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key URL / identifier.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public KeyEncryptionKeyInfoArgs()
         {
         }
+        public static new KeyEncryptionKeyInfoArgs Empty => new KeyEncryptionKeyInfoArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Phoenix server dataset.
     /// </summary>
-    public sealed class PhoenixObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class PhoenixObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public PhoenixObjectDatasetArgs()
         {
         }
+        public static new PhoenixObjectDatasetArgs Empty => new PhoenixObjectDatasetArgs();
     }
 }

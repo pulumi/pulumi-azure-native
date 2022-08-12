@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Inputs
     /// <summary>
     /// Settings concerning the virtual network.
     /// </summary>
-    public sealed class VirtualNetworkPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Uri of the virtual network.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Inputs
         public VirtualNetworkPropertiesArgs()
         {
         }
+        public static new VirtualNetworkPropertiesArgs Empty => new VirtualNetworkPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Consumption.V20190501.Inputs
     /// <summary>
     /// May be used to filter budgets by user-specified dimensions and/or tags.
     /// </summary>
-    public sealed class FilterArgs : Pulumi.ResourceArgs
+    public sealed class FilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("meters")]
         private InputList<string>? _meters;
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Consumption.V20190501.Inputs
         public FilterArgs()
         {
         }
+        public static new FilterArgs Empty => new FilterArgs();
     }
 }

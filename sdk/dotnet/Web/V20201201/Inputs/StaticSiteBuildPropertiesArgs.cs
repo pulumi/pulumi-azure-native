@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
     /// <summary>
     /// Build properties for the static site.
     /// </summary>
-    public sealed class StaticSiteBuildPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class StaticSiteBuildPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A custom command to run during deployment of the Azure Functions API application.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         public StaticSiteBuildPropertiesArgs()
         {
         }
+        public static new StaticSiteBuildPropertiesArgs Empty => new StaticSiteBuildPropertiesArgs();
     }
 }

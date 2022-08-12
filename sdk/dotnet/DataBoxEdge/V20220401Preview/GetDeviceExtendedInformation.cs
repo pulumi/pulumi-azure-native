@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
     }
 
 
-    public sealed class GetDeviceExtendedInformationArgs : Pulumi.InvokeArgs
+    public sealed class GetDeviceExtendedInformationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         public GetDeviceExtendedInformationArgs()
         {
         }
+        public static new GetDeviceExtendedInformationArgs Empty => new GetDeviceExtendedInformationArgs();
     }
 
-    public sealed class GetDeviceExtendedInformationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeviceExtendedInformationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         public GetDeviceExtendedInformationInvokeArgs()
         {
         }
+        public static new GetDeviceExtendedInformationInvokeArgs Empty => new GetDeviceExtendedInformationInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101.Inputs
     /// <summary>
     /// Describes a Subnet.
     /// </summary>
-    public sealed class SubnetArgs : Pulumi.ResourceArgs
+    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101.Inputs
         public SubnetArgs()
         {
         }
+        public static new SubnetArgs Empty => new SubnetArgs();
     }
 }

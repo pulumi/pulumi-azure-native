@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
     /// <summary>
     /// Additional settings for the VM app that contains the target package and config file name when it is deployed to target VM or VM scale set.
     /// </summary>
-    public sealed class UserArtifactSettingsArgs : Pulumi.ResourceArgs
+    public sealed class UserArtifactSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional. The name to assign the downloaded config file on the VM. This is limited to 4096 characters. If not specified, the config file will be named the Gallery Application name appended with "_config".
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20220103.Inputs
         public UserArtifactSettingsArgs()
         {
         }
+        public static new UserArtifactSettingsArgs Empty => new UserArtifactSettingsArgs();
     }
 }

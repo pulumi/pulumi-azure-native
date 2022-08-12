@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220601.Inputs
     /// <summary>
     /// Snapshot Controller settings for the storage profile.
     /// </summary>
-    public sealed class ManagedClusterStorageProfileSnapshotControllerArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterStorageProfileSnapshotControllerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable Snapshot Controller. The default value is true.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220601.Inputs
         public ManagedClusterStorageProfileSnapshotControllerArgs()
         {
         }
+        public static new ManagedClusterStorageProfileSnapshotControllerArgs Empty => new ManagedClusterStorageProfileSnapshotControllerArgs();
     }
 }

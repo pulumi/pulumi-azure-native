@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180110.Inputs
     /// <summary>
     /// VMWare Azure specific protection profile Input.
     /// </summary>
-    public sealed class InMagePolicyInputArgs : Pulumi.ResourceArgs
+    public sealed class InMagePolicyInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The app consistent snapshot frequency (in minutes).
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180110.Inputs
         public InMagePolicyInputArgs()
         {
         }
+        public static new InMagePolicyInputArgs Empty => new InMagePolicyInputArgs();
     }
 }

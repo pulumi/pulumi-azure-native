@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     }
 
 
-    public sealed class ListSiteBackupConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class ListSiteBackupConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of web app
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Web.V20150801
         public ListSiteBackupConfigurationArgs()
         {
         }
+        public static new ListSiteBackupConfigurationArgs Empty => new ListSiteBackupConfigurationArgs();
     }
 
-    public sealed class ListSiteBackupConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListSiteBackupConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of web app
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         public ListSiteBackupConfigurationInvokeArgs()
         {
         }
+        public static new ListSiteBackupConfigurationInvokeArgs Empty => new ListSiteBackupConfigurationInvokeArgs();
     }
 
 

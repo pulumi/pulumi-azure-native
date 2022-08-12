@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20200701.Inputs
     /// <summary>
     /// Daily Schedule properties
     /// </summary>
-    public sealed class DailyScheduleArgs : Pulumi.ResourceArgs
+    public sealed class DailyScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates which hour in UTC timezone a snapshot should be taken
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.NetApp.V20200701.Inputs
         public DailyScheduleArgs()
         {
         }
+        public static new DailyScheduleArgs Empty => new DailyScheduleArgs();
     }
 }

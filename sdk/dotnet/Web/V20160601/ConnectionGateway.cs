@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20160601
     /// The gateway definition
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20160601:ConnectionGateway")]
-    public partial class ConnectionGateway : Pulumi.CustomResource
+    public partial class ConnectionGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource ETag
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.Web.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:ConnectionGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:ConnectionGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Web.V20160601
         }
     }
 
-    public sealed class ConnectionGatewayArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The connection gateway name
@@ -139,5 +139,6 @@ namespace Pulumi.AzureNative.Web.V20160601
         public ConnectionGatewayArgs()
         {
         }
+        public static new ConnectionGatewayArgs Empty => new ConnectionGatewayArgs();
     }
 }

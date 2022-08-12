@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
     /// A Database Migration Service resource
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration/v20220330preview:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time delay before the service is auto-stopped when idle.
@@ -109,15 +109,15 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datamigration:Service"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Service"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Service"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time delay before the service is auto-stopped when idle.
@@ -209,5 +209,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview.Inputs
     /// <summary>
     /// Additional Map account properties
     /// </summary>
-    public sealed class MapsAccountPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MapsAccountPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview.Inputs
         {
             DisableLocalAuth = false;
         }
+        public static new MapsAccountPropertiesArgs Empty => new MapsAccountPropertiesArgs();
     }
 }

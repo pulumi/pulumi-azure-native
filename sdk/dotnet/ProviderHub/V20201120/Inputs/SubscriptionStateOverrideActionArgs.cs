@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class SubscriptionStateOverrideActionArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionStateOverrideActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.SubscriptionNotificationOperation> Action { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public SubscriptionStateOverrideActionArgs()
         {
         }
+        public static new SubscriptionStateOverrideActionArgs Empty => new SubscriptionStateOverrideActionArgs();
     }
 }

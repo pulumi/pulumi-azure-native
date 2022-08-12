@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview.Inputs
     /// <summary>
     /// Encryption entities for databricks workspace resource.
     /// </summary>
-    public sealed class EncryptionEntitiesDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionEntitiesDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encryption properties for the databricks managed services.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview.Inputs
         public EncryptionEntitiesDefinitionArgs()
         {
         }
+        public static new EncryptionEntitiesDefinitionArgs Empty => new EncryptionEntitiesDefinitionArgs();
     }
 }

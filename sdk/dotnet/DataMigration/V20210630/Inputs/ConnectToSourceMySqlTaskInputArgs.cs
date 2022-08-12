@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Input for the task that validates MySQL database connection
     /// </summary>
-    public sealed class ConnectToSourceMySqlTaskInputArgs : Pulumi.ResourceArgs
+    public sealed class ConnectToSourceMySqlTaskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Permission group for validations
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         {
             IsOfflineMigration = false;
         }
+        public static new ConnectToSourceMySqlTaskInputArgs Empty => new ConnectToSourceMySqlTaskInputArgs();
     }
 }

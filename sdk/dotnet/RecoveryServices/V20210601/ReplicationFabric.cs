@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
     /// Fabric definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20210601:ReplicationFabric")]
-    public partial class ReplicationFabric : Pulumi.CustomResource
+    public partial class ReplicationFabric : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Location
@@ -64,23 +64,23 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationFabric"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationFabric"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
         }
     }
 
-    public sealed class ReplicationFabricArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationFabricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the ASR fabric.
@@ -131,5 +131,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
         public ReplicationFabricArgs()
         {
         }
+        public static new ReplicationFabricArgs Empty => new ReplicationFabricArgs();
     }
 }

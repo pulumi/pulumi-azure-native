@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20171101.Inputs
     /// <summary>
     /// A common class for general resource information
     /// </summary>
-    public sealed class VirtualNetworkGatewayArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ActiveActive flag
@@ -114,5 +114,6 @@ namespace Pulumi.AzureNative.Network.V20171101.Inputs
         public VirtualNetworkGatewayArgs()
         {
         }
+        public static new VirtualNetworkGatewayArgs Empty => new VirtualNetworkGatewayArgs();
     }
 }

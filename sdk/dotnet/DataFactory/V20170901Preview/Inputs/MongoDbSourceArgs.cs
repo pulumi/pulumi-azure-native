@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity source for a MongoDB database.
     /// </summary>
-    public sealed class MongoDbSourceArgs : Pulumi.ResourceArgs
+    public sealed class MongoDbSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database query. Should be a SQL-92 query expression. Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public MongoDbSourceArgs()
         {
         }
+        public static new MongoDbSourceArgs Empty => new MongoDbSourceArgs();
     }
 }

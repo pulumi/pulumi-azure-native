@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220401.Inputs
     /// <summary>
     /// Adhoc trigger context
     /// </summary>
-    public sealed class AdhocBasedTriggerContextArgs : Pulumi.ResourceArgs
+    public sealed class AdhocBasedTriggerContextArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the specific object - used for deserializing
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataProtection.V20220401.Inputs
         public AdhocBasedTriggerContextArgs()
         {
         }
+        public static new AdhocBasedTriggerContextArgs Empty => new AdhocBasedTriggerContextArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Azure File datastore configuration.
     /// </summary>
-    public sealed class AzureFileDatastoreArgs : Pulumi.ResourceArgs
+    public sealed class AzureFileDatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Storage account name.
@@ -92,5 +92,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         {
             ServiceDataAccessAuthIdentity = "None";
         }
+        public static new AzureFileDatastoreArgs Empty => new AzureFileDatastoreArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
     /// <summary>
     /// Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
     /// </summary>
-    public sealed class MigrateSqlServerSqlDbTaskInputArgs : Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlDbTaskInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("selectedDatabases", required: true)]
         private InputList<Inputs.MigrateSqlServerSqlDbDatabaseInputArgs>? _selectedDatabases;
@@ -50,5 +50,6 @@ namespace Pulumi.AzureNative.DataMigration.V20210630.Inputs
         public MigrateSqlServerSqlDbTaskInputArgs()
         {
         }
+        public static new MigrateSqlServerSqlDbTaskInputArgs Empty => new MigrateSqlServerSqlDbTaskInputArgs();
     }
 }

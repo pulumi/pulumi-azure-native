@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
     /// <summary>
     /// Parameters that define the configuration of traffic analytics.
     /// </summary>
-    public sealed class TrafficAnalyticsConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TrafficAnalyticsConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to enable/disable traffic analytics.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.V20191101.Inputs
         public TrafficAnalyticsConfigurationPropertiesArgs()
         {
         }
+        public static new TrafficAnalyticsConfigurationPropertiesArgs Empty => new TrafficAnalyticsConfigurationPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// File share profile
     /// </summary>
-    public sealed class FileshareProfileArgs : Pulumi.ResourceArgs
+    public sealed class FileshareProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// File share size in GB
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public FileshareProfileArgs()
         {
         }
+        public static new FileshareProfileArgs Empty => new FileshareProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the route configuration override action for the delivery rule. Only applicable to Frontdoor Standard/Premium Profiles.
     /// </summary>
-    public sealed class DeliveryRuleRouteConfigurationOverrideActionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleRouteConfigurationOverrideActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public DeliveryRuleRouteConfigurationOverrideActionArgs()
         {
         }
+        public static new DeliveryRuleRouteConfigurationOverrideActionArgs Empty => new DeliveryRuleRouteConfigurationOverrideActionArgs();
     }
 }

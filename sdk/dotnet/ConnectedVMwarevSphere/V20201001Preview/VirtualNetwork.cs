@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     /// Define the virtualNetwork.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20201001preview:VirtualNetwork")]
-    public partial class VirtualNetwork : Pulumi.CustomResource
+    public partial class VirtualNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VirtualNetwork"},
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         }
     }
 
-    public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the extended location.
@@ -218,5 +218,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public VirtualNetworkArgs()
         {
         }
+        public static new VirtualNetworkArgs Empty => new VirtualNetworkArgs();
     }
 }

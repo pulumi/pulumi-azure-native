@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview.Inputs
     /// <summary>
     /// Scaling plan reference to hostpool.
     /// </summary>
-    public sealed class ScalingHostPoolReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ScalingHostPoolReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Arm path of referenced hostpool.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview.Inputs
         public ScalingHostPoolReferenceArgs()
         {
         }
+        public static new ScalingHostPoolReferenceArgs Empty => new ScalingHostPoolReferenceArgs();
     }
 }

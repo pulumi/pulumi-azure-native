@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ImportExport.V20161101.Inputs
     /// <summary>
     /// Contains information about the package being shipped by the customer to the Microsoft data center.
     /// </summary>
-    public sealed class PackageInfomationArgs : Pulumi.ResourceArgs
+    public sealed class PackageInfomationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the carrier that is used to ship the import or export drives.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ImportExport.V20161101.Inputs
         public PackageInfomationArgs()
         {
         }
+        public static new PackageInfomationArgs Empty => new PackageInfomationArgs();
     }
 }

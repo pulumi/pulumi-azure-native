@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RulesEngine")]
-    public partial class RulesEngine : Pulumi.CustomResource
+    public partial class RulesEngine : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20200101:RulesEngine"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:RulesEngine"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:RulesEngine"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210601:RulesEngine"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:RulesEngine"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:RulesEngine"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:RulesEngine"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210601:RulesEngine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class RulesEngineArgs : Pulumi.ResourceArgs
+    public sealed class RulesEngineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Front Door which is globally unique.
@@ -125,5 +125,6 @@ namespace Pulumi.AzureNative.Network
         public RulesEngineArgs()
         {
         }
+        public static new RulesEngineArgs Empty => new RulesEngineArgs();
     }
 }

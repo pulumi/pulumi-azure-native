@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview.Inputs
     /// <summary>
     /// The properties of a storage account for a container registry. Only applicable to Basic SKU.
     /// </summary>
-    public sealed class StorageAccountPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the storage account.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview.Inputs
         public StorageAccountPropertiesArgs()
         {
         }
+        public static new StorageAccountPropertiesArgs Empty => new StorageAccountPropertiesArgs();
     }
 }

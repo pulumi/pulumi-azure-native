@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.Inputs
 {
 
-    public sealed class PartnerEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
+    public sealed class PartnerEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the endpoint for the event subscription destination.
@@ -28,5 +28,6 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public PartnerEventSubscriptionDestinationArgs()
         {
         }
+        public static new PartnerEventSubscriptionDestinationArgs Empty => new PartnerEventSubscriptionDestinationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview.Inputs
     /// <summary>
     /// Describes properties of an component as related to the standard
     /// </summary>
-    public sealed class StandardComponentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class StandardComponentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Component Key matching componentMetadata
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Security.V20210801Preview.Inputs
         public StandardComponentPropertiesArgs()
         {
         }
+        public static new StandardComponentPropertiesArgs Empty => new StandardComponentPropertiesArgs();
     }
 }

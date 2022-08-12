@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301
     /// Specifies information about the capacity reservation.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20220301:CapacityReservation")]
-    public partial class CapacityReservation : Pulumi.CustomResource
+    public partial class CapacityReservation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Capacity reservation instance view.
@@ -112,10 +112,10 @@ namespace Pulumi.AzureNative.Compute.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:CapacityReservation"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:CapacityReservation"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservation"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservation"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:CapacityReservation"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:CapacityReservation"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservation"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.Compute.V20220301
         }
     }
 
-    public sealed class CapacityReservationArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the capacity reservation group.
@@ -196,5 +196,6 @@ namespace Pulumi.AzureNative.Compute.V20220301
         public CapacityReservationArgs()
         {
         }
+        public static new CapacityReservationArgs Empty => new CapacityReservationArgs();
     }
 }

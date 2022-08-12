@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20181101.Inputs
     /// <summary>
     /// Application Gateway autoscale configuration.
     /// </summary>
-    public sealed class ApplicationGatewayAutoscaleConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayAutoscaleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Upper bound on number of Application Gateway capacity
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20181101.Inputs
         public ApplicationGatewayAutoscaleConfigurationArgs()
         {
         }
+        public static new ApplicationGatewayAutoscaleConfigurationArgs Empty => new ApplicationGatewayAutoscaleConfigurationArgs();
     }
 }

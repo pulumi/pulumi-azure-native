@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Describes the properties for producing a series of PNG images from the input video.
     /// </summary>
-    public sealed class PngImageArgs : Pulumi.ResourceArgs
+    public sealed class PngImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public PngImageArgs()
         {
         }
+        public static new PngImageArgs Empty => new PngImageArgs();
     }
 }

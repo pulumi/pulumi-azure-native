@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
     /// EnterpriseKnowledgeGraph resource definition
     /// </summary>
     [AzureNativeResourceType("azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph")]
-    public partial class EnterpriseKnowledgeGraph : Pulumi.CustomResource
+    public partial class EnterpriseKnowledgeGraph : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the location of the resource.
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"},
+                    new global::Pulumi.Alias { Type = "azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
         }
     }
 
-    public sealed class EnterpriseKnowledgeGraphArgs : Pulumi.ResourceArgs
+    public sealed class EnterpriseKnowledgeGraphArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the location of the resource.
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
         public EnterpriseKnowledgeGraphArgs()
         {
         }
+        public static new EnterpriseKnowledgeGraphArgs Empty => new EnterpriseKnowledgeGraphArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Inputs
     /// <summary>
     /// LDAP search scope 
     /// </summary>
-    public sealed class LdapSearchScopeOptArgs : Pulumi.ResourceArgs
+    public sealed class LdapSearchScopeOptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This specifies the group DN, which overrides the base DN for group lookups.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.NetApp.V20220101.Inputs
         public LdapSearchScopeOptArgs()
         {
         }
+        public static new LdapSearchScopeOptArgs Empty => new LdapSearchScopeOptArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20200710Preview.Inputs
     /// <summary>
     /// The properties of the KeyVault key.
     /// </summary>
-    public sealed class KeyVaultKeyPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultKeyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Devices.V20200710Preview.Inputs
         public KeyVaultKeyPropertiesArgs()
         {
         }
+        public static new KeyVaultKeyPropertiesArgs Empty => new KeyVaultKeyPropertiesArgs();
     }
 }

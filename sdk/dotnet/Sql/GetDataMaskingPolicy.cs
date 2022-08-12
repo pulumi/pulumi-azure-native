@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetDataMaskingPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetDataMaskingPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database for which the data masking rule applies.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.Sql
         public GetDataMaskingPolicyArgs()
         {
         }
+        public static new GetDataMaskingPolicyArgs Empty => new GetDataMaskingPolicyArgs();
     }
 
-    public sealed class GetDataMaskingPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataMaskingPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database for which the data masking rule applies.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.Sql
         public GetDataMaskingPolicyInvokeArgs()
         {
         }
+        public static new GetDataMaskingPolicyInvokeArgs Empty => new GetDataMaskingPolicyInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
     /// <summary>
     /// Represents a supported source subtype configuration under a source signal in Fusion detection.
     /// </summary>
-    public sealed class FusionSourceSubTypeSettingArgs : Pulumi.ResourceArgs
+    public sealed class FusionSourceSubTypeSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether this source subtype under source signal is enabled or disabled in Fusion detection.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public FusionSourceSubTypeSettingArgs()
         {
         }
+        public static new FusionSourceSubTypeSettingArgs Empty => new FusionSourceSubTypeSettingArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     }
 
 
-    public sealed class ListOpenShiftClusterAdminCredentialsArgs : Pulumi.InvokeArgs
+    public sealed class ListOpenShiftClusterAdminCredentialsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         public ListOpenShiftClusterAdminCredentialsArgs()
         {
         }
+        public static new ListOpenShiftClusterAdminCredentialsArgs Empty => new ListOpenShiftClusterAdminCredentialsArgs();
     }
 
-    public sealed class ListOpenShiftClusterAdminCredentialsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListOpenShiftClusterAdminCredentialsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         public ListOpenShiftClusterAdminCredentialsInvokeArgs()
         {
         }
+        public static new ListOpenShiftClusterAdminCredentialsInvokeArgs Empty => new ListOpenShiftClusterAdminCredentialsInvokeArgs();
     }
 
 

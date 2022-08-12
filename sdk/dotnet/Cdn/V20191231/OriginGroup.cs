@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn.V20191231
     /// </summary>
     [Obsolete(@"Version 2019-12-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cdn/v20191231:OriginGroup")]
-    public partial class OriginGroup : Pulumi.CustomResource
+    public partial class OriginGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
@@ -89,11 +89,11 @@ namespace Pulumi.AzureNative.Cdn.V20191231
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cdn:OriginGroup"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:OriginGroup"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:OriginGroup"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:OriginGroup"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:OriginGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:OriginGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:OriginGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:OriginGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:OriginGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:OriginGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Cdn.V20191231
         }
     }
 
-    public sealed class OriginGroupArgs : Pulumi.ResourceArgs
+    public sealed class OriginGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -174,5 +174,6 @@ namespace Pulumi.AzureNative.Cdn.V20191231
         public OriginGroupArgs()
         {
         }
+        public static new OriginGroupArgs Empty => new OriginGroupArgs();
     }
 }

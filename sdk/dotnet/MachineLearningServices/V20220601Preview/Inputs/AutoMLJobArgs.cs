@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// Use this class for executing AutoML tasks like Classification/Regression etc.
     /// See TaskType enum for all the tasks supported.
     /// </summary>
-    public sealed class AutoMLJobArgs : Pulumi.ResourceArgs
+    public sealed class AutoMLJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the component resource.
@@ -152,5 +152,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             ExperimentName = "Default";
             IsArchived = false;
         }
+        public static new AutoMLJobArgs Empty => new AutoMLJobArgs();
     }
 }

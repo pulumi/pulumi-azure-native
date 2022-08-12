@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
     }
 
 
-    public sealed class GetDataSourceArgs : Pulumi.InvokeArgs
+    public sealed class GetDataSourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the datasource
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public GetDataSourceArgs()
         {
         }
+        public static new GetDataSourceArgs Empty => new GetDataSourceArgs();
     }
 
-    public sealed class GetDataSourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the datasource
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public GetDataSourceInvokeArgs()
         {
         }
+        public static new GetDataSourceInvokeArgs Empty => new GetDataSourceInvokeArgs();
     }
 
 

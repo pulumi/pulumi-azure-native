@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// The result of the assessment
     /// </summary>
-    public sealed class AssessmentStatusArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentStatusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Programmatic code for the cause of the assessment status
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public AssessmentStatusArgs()
         {
         }
+        public static new AssessmentStatusArgs Empty => new AssessmentStatusArgs();
     }
 }

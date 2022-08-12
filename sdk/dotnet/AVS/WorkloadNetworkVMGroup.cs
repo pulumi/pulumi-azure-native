@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AVS
     /// API Version: 2020-07-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkVMGroup")]
-    public partial class WorkloadNetworkVMGroup : Pulumi.CustomResource
+    public partial class WorkloadNetworkVMGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Display name of the VM group.
@@ -83,10 +83,10 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkVMGroup"},
-                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkVMGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkVMGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkVMGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.AVS
         }
     }
 
-    public sealed class WorkloadNetworkVMGroupArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadNetworkVMGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Display name of the VM group.
@@ -155,5 +155,6 @@ namespace Pulumi.AzureNative.AVS
         public WorkloadNetworkVMGroupArgs()
         {
         }
+        public static new WorkloadNetworkVMGroupArgs Empty => new WorkloadNetworkVMGroupArgs();
     }
 }

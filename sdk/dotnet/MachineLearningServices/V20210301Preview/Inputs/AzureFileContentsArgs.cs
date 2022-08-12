@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Azure File datastore configuration.
     /// </summary>
-    public sealed class AzureFileContentsArgs : Pulumi.ResourceArgs
+    public sealed class AzureFileContentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Storage account name.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public AzureFileContentsArgs()
         {
         }
+        public static new AzureFileContentsArgs Empty => new AzureFileContentsArgs();
     }
 }

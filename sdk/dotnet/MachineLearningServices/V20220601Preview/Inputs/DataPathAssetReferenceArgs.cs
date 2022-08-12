@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Reference to an asset via its path in a datastore.
     /// </summary>
-    public sealed class DataPathAssetReferenceArgs : Pulumi.ResourceArgs
+    public sealed class DataPathAssetReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the datastore where the asset is located.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public DataPathAssetReferenceArgs()
         {
         }
+        public static new DataPathAssetReferenceArgs Empty => new DataPathAssetReferenceArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20191001.Inputs
 {
 
-    public sealed class CollectorAgentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CollectorAgentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("spnDetails")]
         public Input<Inputs.CollectorBodyAgentSpnPropertiesArgs>? SpnDetails { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Inputs
         public CollectorAgentPropertiesArgs()
         {
         }
+        public static new CollectorAgentPropertiesArgs Empty => new CollectorAgentPropertiesArgs();
     }
 }

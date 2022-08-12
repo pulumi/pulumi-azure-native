@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
     /// <summary>
     /// Quality of Service defines the traffic configuration between endpoints. Mandatory to have one marking.
     /// </summary>
-    public sealed class QosDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class QosDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationIpRanges")]
         private InputList<Inputs.QosIpRangeArgs>? _destinationIpRanges;
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.Network.V20210501.Inputs
         public QosDefinitionArgs()
         {
         }
+        public static new QosDefinitionArgs Empty => new QosDefinitionArgs();
     }
 }

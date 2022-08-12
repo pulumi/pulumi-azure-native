@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
     /// <summary>
     /// A single field mapping of the mapped entity
     /// </summary>
-    public sealed class FieldMappingArgs : Pulumi.ResourceArgs
+    public sealed class FieldMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the column name to be mapped to the identifier
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
         public FieldMappingArgs()
         {
         }
+        public static new FieldMappingArgs Empty => new FieldMappingArgs();
     }
 }

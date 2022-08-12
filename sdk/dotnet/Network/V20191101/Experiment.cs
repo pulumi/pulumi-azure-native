@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20191101
     /// Defines the properties of an Experiment
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20191101:Experiment")]
-    public partial class Experiment : Pulumi.CustomResource
+    public partial class Experiment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the details or intents of the Experiment
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:Experiment"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:Experiment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Network.V20191101
         }
     }
 
-    public sealed class ExperimentArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the details or intents of the Experiment
@@ -193,5 +193,6 @@ namespace Pulumi.AzureNative.Network.V20191101
         public ExperimentArgs()
         {
         }
+        public static new ExperimentArgs Empty => new ExperimentArgs();
     }
 }

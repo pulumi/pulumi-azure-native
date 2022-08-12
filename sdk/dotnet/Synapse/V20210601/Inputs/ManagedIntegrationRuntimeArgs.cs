@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
     /// <summary>
     /// Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
     /// </summary>
-    public sealed class ManagedIntegrationRuntimeArgs : Pulumi.ResourceArgs
+    public sealed class ManagedIntegrationRuntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compute resource for managed integration runtime.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
         public ManagedIntegrationRuntimeArgs()
         {
         }
+        public static new ManagedIntegrationRuntimeArgs Empty => new ManagedIntegrationRuntimeArgs();
     }
 }

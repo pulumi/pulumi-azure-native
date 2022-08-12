@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Specifies the hardware settings for the virtual machine scale set.
     /// </summary>
-    public sealed class VirtualMachineScaleSetHardwareProfileArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetHardwareProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the properties for customizing the size of the virtual machine. Minimum api-version: 2022-03-01. &lt;br&gt;&lt;br&gt; Please follow the instructions in [VM Customization](https://aka.ms/vmcustomization) for more details.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public VirtualMachineScaleSetHardwareProfileArgs()
         {
         }
+        public static new VirtualMachineScaleSetHardwareProfileArgs Empty => new VirtualMachineScaleSetHardwareProfileArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorageSync
     /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.StorageSync
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.StorageSync
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -123,5 +123,6 @@ namespace Pulumi.AzureNative.StorageSync
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

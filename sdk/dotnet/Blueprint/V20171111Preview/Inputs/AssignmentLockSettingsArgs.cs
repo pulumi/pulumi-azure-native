@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Inputs
     /// <summary>
     /// Defines how Blueprint-managed resources will be locked.
     /// </summary>
-    public sealed class AssignmentLockSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AssignmentLockSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Lock mode.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Inputs
         public AssignmentLockSettingsArgs()
         {
         }
+        public static new AssignmentLockSettingsArgs Empty => new AssignmentLockSettingsArgs();
     }
 }

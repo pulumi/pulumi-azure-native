@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
     /// </summary>
     [Obsolete(@"Version 2016-02-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount")]
-    public partial class CognitiveServicesAccount : Pulumi.CustomResource
+    public partial class CognitiveServicesAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Endpoint of the created account
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices:CognitiveServicesAccount"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:CognitiveServicesAccount"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:CognitiveServicesAccount"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:CognitiveServicesAccount"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:CognitiveServicesAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:CognitiveServicesAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:CognitiveServicesAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:CognitiveServicesAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:CognitiveServicesAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:CognitiveServicesAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
         }
     }
 
-    public sealed class CognitiveServicesAccountArgs : Pulumi.ResourceArgs
+    public sealed class CognitiveServicesAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -168,5 +168,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
         public CognitiveServicesAccountArgs()
         {
         }
+        public static new CognitiveServicesAccountArgs Empty => new CognitiveServicesAccountArgs();
     }
 }

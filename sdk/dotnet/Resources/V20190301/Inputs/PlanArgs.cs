@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20190301.Inputs
     /// <summary>
     /// Plan for the resource.
     /// </summary>
-    public sealed class PlanArgs : Pulumi.ResourceArgs
+    public sealed class PlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The plan ID.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Resources.V20190301.Inputs
         public PlanArgs()
         {
         }
+        public static new PlanArgs Empty => new PlanArgs();
     }
 }

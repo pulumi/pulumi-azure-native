@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
     /// <summary>
     /// Allow to exclude some variable satisfy the condition for the WAF check.
     /// </summary>
-    public sealed class ApplicationGatewayFirewallExclusionArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayFirewallExclusionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The variable to be excluded.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
         public ApplicationGatewayFirewallExclusionArgs()
         {
         }
+        public static new ApplicationGatewayFirewallExclusionArgs Empty => new ApplicationGatewayFirewallExclusionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     }
 
 
-    public sealed class GetEmailTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetEmailTemplateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public GetEmailTemplateArgs()
         {
         }
+        public static new GetEmailTemplateArgs Empty => new GetEmailTemplateArgs();
     }
 
-    public sealed class GetEmailTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEmailTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public GetEmailTemplateInvokeArgs()
         {
         }
+        public static new GetEmailTemplateInvokeArgs Empty => new GetEmailTemplateInvokeArgs();
     }
 
 

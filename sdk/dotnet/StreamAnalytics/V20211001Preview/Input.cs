@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
     /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics/v20211001preview:Input")]
-    public partial class Input : Pulumi.CustomResource
+    public partial class Input : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name
@@ -58,10 +58,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics:Input"},
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Input"},
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Input"},
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Input"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:Input"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Input"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Input"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Input"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         }
     }
 
-    public sealed class InputArgs : Pulumi.ResourceArgs
+    public sealed class InputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the input.
@@ -118,5 +118,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         public InputArgs()
         {
         }
+        public static new InputArgs Empty => new InputArgs();
     }
 }

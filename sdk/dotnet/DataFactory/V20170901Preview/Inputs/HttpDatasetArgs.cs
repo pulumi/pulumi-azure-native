@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A file in an HTTP web server.
     /// </summary>
-    public sealed class HttpDatasetArgs : Pulumi.ResourceArgs
+    public sealed class HttpDatasetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
@@ -105,5 +105,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HttpDatasetArgs()
         {
         }
+        public static new HttpDatasetArgs Empty => new HttpDatasetArgs();
     }
 }

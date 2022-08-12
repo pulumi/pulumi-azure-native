@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
     /// Properties that define an Analytics item that is associated to an Application Insights component.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20150501:AnalyticsItem")]
-    public partial class AnalyticsItem : Pulumi.CustomResource
+    public partial class AnalyticsItem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The content of this item
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights:AnalyticsItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:AnalyticsItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
         }
     }
 
-    public sealed class AnalyticsItemArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of this item
@@ -175,5 +175,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public AnalyticsItemArgs()
         {
         }
+        public static new AnalyticsItemArgs Empty => new AnalyticsItemArgs();
     }
 }

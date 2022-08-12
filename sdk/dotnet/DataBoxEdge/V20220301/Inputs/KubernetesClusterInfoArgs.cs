@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301.Inputs
     /// <summary>
     /// Kubernetes cluster configuration
     /// </summary>
-    public sealed class KubernetesClusterInfoArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kubernetes cluster version
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301.Inputs
         public KubernetesClusterInfoArgs()
         {
         }
+        public static new KubernetesClusterInfoArgs Empty => new KubernetesClusterInfoArgs();
     }
 }

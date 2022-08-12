@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
 
-    public sealed class GetReplicationMigrationItemArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationMigrationItemArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fabric unique name.
@@ -62,9 +62,10 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetReplicationMigrationItemArgs()
         {
         }
+        public static new GetReplicationMigrationItemArgs Empty => new GetReplicationMigrationItemArgs();
     }
 
-    public sealed class GetReplicationMigrationItemInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationMigrationItemInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Fabric unique name.
@@ -99,6 +100,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetReplicationMigrationItemInvokeArgs()
         {
         }
+        public static new GetReplicationMigrationItemInvokeArgs Empty => new GetReplicationMigrationItemInvokeArgs();
     }
 
 

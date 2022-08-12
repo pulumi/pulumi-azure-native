@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Amazon Marketplace Web Service linked service.
     /// </summary>
-    public sealed class AmazonMWSLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AmazonMWSLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key id used to access data.
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AmazonMWSLinkedServiceArgs()
         {
         }
+        public static new AmazonMWSLinkedServiceArgs Empty => new AmazonMWSLinkedServiceArgs();
     }
 }

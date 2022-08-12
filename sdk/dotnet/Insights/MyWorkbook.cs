@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2020-10-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:MyWorkbook")]
-    public partial class MyWorkbook : Pulumi.CustomResource
+    public partial class MyWorkbook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Workbook category, as defined by the user at creation time.
@@ -131,9 +131,9 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:MyWorkbook"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20201020:MyWorkbook"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20210308:MyWorkbook"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:MyWorkbook"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20201020:MyWorkbook"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210308:MyWorkbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class MyWorkbookArgs : Pulumi.ResourceArgs
+    public sealed class MyWorkbookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Workbook category, as defined by the user at creation time.
@@ -256,5 +256,6 @@ namespace Pulumi.AzureNative.Insights
         public MyWorkbookArgs()
         {
         }
+        public static new MyWorkbookArgs Empty => new MyWorkbookArgs();
     }
 }

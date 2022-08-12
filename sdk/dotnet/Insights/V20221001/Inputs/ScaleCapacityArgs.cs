@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20221001.Inputs
     /// <summary>
     /// The number of instances that can be used during this profile.
     /// </summary>
-    public sealed class ScaleCapacityArgs : Pulumi.ResourceArgs
+    public sealed class ScaleCapacityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Insights.V20221001.Inputs
         public ScaleCapacityArgs()
         {
         }
+        public static new ScaleCapacityArgs Empty => new ScaleCapacityArgs();
     }
 }

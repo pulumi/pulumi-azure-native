@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class UriFolderJobOutputArgs : Pulumi.ResourceArgs
+    public sealed class UriFolderJobOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the output.
@@ -41,5 +41,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             Mode = "ReadWriteMount";
         }
+        public static new UriFolderJobOutputArgs Empty => new UriFolderJobOutputArgs();
     }
 }

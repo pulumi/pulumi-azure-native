@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     /// <summary>
     /// The error message associated with the cluster creation.
     /// </summary>
-    public sealed class ErrorsArgs : Pulumi.ResourceArgs
+    public sealed class ErrorsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The error code.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
         public ErrorsArgs()
         {
         }
+        public static new ErrorsArgs Empty => new ErrorsArgs();
     }
 }

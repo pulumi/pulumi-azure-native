@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
     /// <summary>
     /// Workload Identity settings for the security profile.
     /// </summary>
-    public sealed class ManagedClusterSecurityProfileWorkloadIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterSecurityProfileWorkloadIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable Workload Identity
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
         public ManagedClusterSecurityProfileWorkloadIdentityArgs()
         {
         }
+        public static new ManagedClusterSecurityProfileWorkloadIdentityArgs Empty => new ManagedClusterSecurityProfileWorkloadIdentityArgs();
     }
 }

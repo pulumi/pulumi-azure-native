@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
     /// <summary>
     /// Recovery disk encryption info (BEK and KEK).
     /// </summary>
-    public sealed class DiskEncryptionInfoArgs : Pulumi.ResourceArgs
+    public sealed class DiskEncryptionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The recovery KeyVault reference for secret.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
         public DiskEncryptionInfoArgs()
         {
         }
+        public static new DiskEncryptionInfoArgs Empty => new DiskEncryptionInfoArgs();
     }
 }

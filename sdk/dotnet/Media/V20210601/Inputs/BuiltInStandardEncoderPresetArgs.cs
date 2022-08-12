@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// Describes a built-in preset for encoding the input video with the Standard Encoder.
     /// </summary>
-    public sealed class BuiltInStandardEncoderPresetArgs : Pulumi.ResourceArgs
+    public sealed class BuiltInStandardEncoderPresetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// PresetConfigurations are only supported for the ContentAwareEncoding and H265ContentAwareEncoding built-in presets. These settings will not affect other built-in or custom defined presets.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public BuiltInStandardEncoderPresetArgs()
         {
         }
+        public static new BuiltInStandardEncoderPresetArgs Empty => new BuiltInStandardEncoderPresetArgs();
     }
 }

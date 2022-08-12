@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Azure SQL Database datastore configuration.
     /// </summary>
-    public sealed class AzureSqlDatabaseContentsArgs : Pulumi.ResourceArgs
+    public sealed class AzureSqlDatabaseContentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the datastore contents type.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public AzureSqlDatabaseContentsArgs()
         {
         }
+        public static new AzureSqlDatabaseContentsArgs Empty => new AzureSqlDatabaseContentsArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20191101
     }
 
 
-    public sealed class GetInboundNatRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetInboundNatRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Network.V20191101
         public GetInboundNatRuleArgs()
         {
         }
+        public static new GetInboundNatRuleArgs Empty => new GetInboundNatRuleArgs();
     }
 
-    public sealed class GetInboundNatRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInboundNatRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Network.V20191101
         public GetInboundNatRuleInvokeArgs()
         {
         }
+        public static new GetInboundNatRuleInvokeArgs Empty => new GetInboundNatRuleInvokeArgs();
     }
 
 

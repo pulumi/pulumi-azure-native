@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
     /// </summary>
-    public sealed class HttpSettingsArgs : Pulumi.ResourceArgs
+    public sealed class HttpSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration settings of a forward proxy used to make the requests.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.App.Inputs
         public HttpSettingsArgs()
         {
         }
+        public static new HttpSettingsArgs Empty => new HttpSettingsArgs();
     }
 }

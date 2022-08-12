@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
     /// </summary>
-    public sealed class RuleEmailActionArgs : Pulumi.ResourceArgs
+    public sealed class RuleEmailActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("customEmails")]
         private InputList<string>? _customEmails;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public RuleEmailActionArgs()
         {
         }
+        public static new RuleEmailActionArgs Empty => new RuleEmailActionArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Automation
     }
 
 
-    public sealed class GetPython2PackageArgs : Pulumi.InvokeArgs
+    public sealed class GetPython2PackageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Automation
         public GetPython2PackageArgs()
         {
         }
+        public static new GetPython2PackageArgs Empty => new GetPython2PackageArgs();
     }
 
-    public sealed class GetPython2PackageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPython2PackageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Automation
         public GetPython2PackageInvokeArgs()
         {
         }
+        public static new GetPython2PackageInvokeArgs Empty => new GetPython2PackageInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Forecasting Training related configuration.
     /// </summary>
-    public sealed class ForecastingTrainingSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ForecastingTrainingSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedTrainingAlgorithms")]
         private InputList<Union<string, Pulumi.AzureNative.MachineLearningServices.V20220601Preview.ForecastingModels>>? _allowedTrainingAlgorithms;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             EnableVoteEnsemble = true;
             EnsembleModelDownloadTimeout = "PT5M";
         }
+        public static new ForecastingTrainingSettingsArgs Empty => new ForecastingTrainingSettingsArgs();
     }
 }

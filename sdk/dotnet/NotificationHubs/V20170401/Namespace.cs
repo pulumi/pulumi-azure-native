@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
     /// Description of a Namespace resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs/v20170401:Namespace")]
-    public partial class Namespace : Pulumi.CustomResource
+    public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the namespace was created.
@@ -148,9 +148,9 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:notificationhubs:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20140901:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20140901:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
         }
     }
 
-    public sealed class NamespaceArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time the namespace was created.
@@ -291,5 +291,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
         public NamespaceArgs()
         {
         }
+        public static new NamespaceArgs Empty => new NamespaceArgs();
     }
 }

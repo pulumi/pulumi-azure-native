@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20220103
     }
 
 
-    public sealed class GetGalleryArgs : Pulumi.InvokeArgs
+    public sealed class GetGalleryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand query option to apply on the operation.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Compute.V20220103
         public GetGalleryArgs()
         {
         }
+        public static new GetGalleryArgs Empty => new GetGalleryArgs();
     }
 
-    public sealed class GetGalleryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGalleryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand query option to apply on the operation.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Compute.V20220103
         public GetGalleryInvokeArgs()
         {
         }
+        public static new GetGalleryInvokeArgs Empty => new GetGalleryInvokeArgs();
     }
 
 

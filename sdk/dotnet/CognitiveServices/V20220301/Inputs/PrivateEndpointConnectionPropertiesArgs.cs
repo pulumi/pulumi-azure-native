@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20220301.Inputs
     /// <summary>
     /// Properties of the PrivateEndpointConnectProperties.
     /// </summary>
-    public sealed class PrivateEndpointConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20220301.Inputs
         public PrivateEndpointConnectionPropertiesArgs()
         {
         }
+        public static new PrivateEndpointConnectionPropertiesArgs Empty => new PrivateEndpointConnectionPropertiesArgs();
     }
 }

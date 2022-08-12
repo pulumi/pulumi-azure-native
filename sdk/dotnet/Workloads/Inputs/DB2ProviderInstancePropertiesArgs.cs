@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Gets or sets the DB2 provider properties.
     /// </summary>
-    public sealed class DB2ProviderInstancePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DB2ProviderInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the db2 database name.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public DB2ProviderInstancePropertiesArgs()
         {
         }
+        public static new DB2ProviderInstancePropertiesArgs Empty => new DB2ProviderInstancePropertiesArgs();
     }
 }

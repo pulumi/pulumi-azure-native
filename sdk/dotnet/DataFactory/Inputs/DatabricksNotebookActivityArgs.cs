@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// DatabricksNotebook activity.
     /// </summary>
-    public sealed class DatabricksNotebookActivityArgs : Pulumi.ResourceArgs
+    public sealed class DatabricksNotebookActivityArgs : global::Pulumi.ResourceArgs
     {
         [Input("baseParameters")]
         private InputMap<object>? _baseParameters;
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DatabricksNotebookActivityArgs()
         {
         }
+        public static new DatabricksNotebookActivityArgs Empty => new DatabricksNotebookActivityArgs();
     }
 }

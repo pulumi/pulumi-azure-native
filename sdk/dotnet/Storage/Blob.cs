@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     /// Manages a Blob within a Storage Container.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Blob")]
-    public partial class Blob : Pulumi.CustomResource
+    public partial class Blob : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The access tier of the storage blob.
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Storage
         }
     }
 
-    public sealed class BlobArgs : Pulumi.ResourceArgs
+    public sealed class BlobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access tier of the storage blob.
@@ -172,5 +172,6 @@ namespace Pulumi.AzureNative.Storage
         {
             Type = Pulumi.AzureNative.Storage.BlobType.Block;
         }
+        public static new BlobArgs Empty => new BlobArgs();
     }
 }

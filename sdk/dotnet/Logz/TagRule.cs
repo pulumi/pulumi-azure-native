@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Logz
     /// API Version: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logz:TagRule")]
-    public partial class TagRule : Pulumi.CustomResource
+    public partial class TagRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the rule set.
@@ -65,9 +65,9 @@ namespace Pulumi.AzureNative.Logz
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logz/v20201001:TagRule"},
-                    new Pulumi.Alias { Type = "azure-native:logz/v20201001preview:TagRule"},
-                    new Pulumi.Alias { Type = "azure-native:logz/v20220101preview:TagRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001:TagRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001preview:TagRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:logz/v20220101preview:TagRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Logz
         }
     }
 
-    public sealed class TagRuleArgs : Pulumi.ResourceArgs
+    public sealed class TagRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -115,5 +115,6 @@ namespace Pulumi.AzureNative.Logz
         public TagRuleArgs()
         {
         }
+        public static new TagRuleArgs Empty => new TagRuleArgs();
     }
 }

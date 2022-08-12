@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     }
 
 
-    public sealed class GetDaprComponentArgs : Pulumi.InvokeArgs
+    public sealed class GetDaprComponentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Managed Environment.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         public GetDaprComponentArgs()
         {
         }
+        public static new GetDaprComponentArgs Empty => new GetDaprComponentArgs();
     }
 
-    public sealed class GetDaprComponentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDaprComponentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Managed Environment.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         public GetDaprComponentInvokeArgs()
         {
         }
+        public static new GetDaprComponentInvokeArgs Empty => new GetDaprComponentInvokeArgs();
     }
 
 

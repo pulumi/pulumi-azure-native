@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HybridCompute
     /// API Version: 2020-08-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:PrivateLinkScopedResource")]
-    public partial class PrivateLinkScopedResource : Pulumi.CustomResource
+    public partial class PrivateLinkScopedResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource id of the scoped Azure monitor resource.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.HybridCompute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.HybridCompute
         }
     }
 
-    public sealed class PrivateLinkScopedResourceArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkScopedResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of the scoped Azure monitor resource.
@@ -116,5 +116,6 @@ namespace Pulumi.AzureNative.HybridCompute
         public PrivateLinkScopedResourceArgs()
         {
         }
+        public static new PrivateLinkScopedResourceArgs Empty => new PrivateLinkScopedResourceArgs();
     }
 }

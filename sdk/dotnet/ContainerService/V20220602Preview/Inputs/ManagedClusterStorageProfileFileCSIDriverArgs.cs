@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
     /// <summary>
     /// AzureFile CSI Driver settings for the storage profile.
     /// </summary>
-    public sealed class ManagedClusterStorageProfileFileCSIDriverArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterStorageProfileFileCSIDriverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable AzureFile CSI Driver. The default value is true.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
         public ManagedClusterStorageProfileFileCSIDriverArgs()
         {
         }
+        public static new ManagedClusterStorageProfileFileCSIDriverArgs Empty => new ManagedClusterStorageProfileFileCSIDriverArgs();
     }
 }

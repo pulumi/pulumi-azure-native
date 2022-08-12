@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic.V20210901Preview.Inputs
     /// <summary>
     /// Definition of the properties for a TagRules resource.
     /// </summary>
-    public sealed class MonitoringTagRulesPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringTagRulesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Rules for sending logs.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Elastic.V20210901Preview.Inputs
         public MonitoringTagRulesPropertiesArgs()
         {
         }
+        public static new MonitoringTagRulesPropertiesArgs Empty => new MonitoringTagRulesPropertiesArgs();
     }
 }

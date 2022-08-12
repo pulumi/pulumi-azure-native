@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
     /// Diagnostic details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:ApiDiagnostic")]
-    public partial class ApiDiagnostic : Pulumi.CustomResource
+    public partial class ApiDiagnostic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether a diagnostic should receive data or not.
@@ -58,18 +58,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiDiagnostic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         }
     }
 
-    public sealed class ApiDiagnosticArgs : Pulumi.ResourceArgs
+    public sealed class ApiDiagnosticArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         public ApiDiagnosticArgs()
         {
         }
+        public static new ApiDiagnosticArgs Empty => new ApiDiagnosticArgs();
     }
 }

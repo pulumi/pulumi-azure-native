@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// Keytab used for authenticate with Active Directory.
     /// </summary>
-    public sealed class KeytabInformationArgs : Pulumi.ResourceArgs
+    public sealed class KeytabInformationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A base64-encoded keytab.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public KeytabInformationArgs()
         {
         }
+        public static new KeytabInformationArgs Empty => new KeytabInformationArgs();
     }
 }

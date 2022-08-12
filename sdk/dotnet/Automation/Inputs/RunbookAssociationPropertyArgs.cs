@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.Inputs
     /// <summary>
     /// The runbook property associated with the entity.
     /// </summary>
-    public sealed class RunbookAssociationPropertyArgs : Pulumi.ResourceArgs
+    public sealed class RunbookAssociationPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the name of the runbook.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Automation.Inputs
         public RunbookAssociationPropertyArgs()
         {
         }
+        public static new RunbookAssociationPropertyArgs Empty => new RunbookAssociationPropertyArgs();
     }
 }

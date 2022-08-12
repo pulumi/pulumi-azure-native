@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The X12 processing settings.
     /// </summary>
-    public sealed class X12ProcessingSettingsArgs : Pulumi.ResourceArgs
+    public sealed class X12ProcessingSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to convert numerical type to implied decimal.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public X12ProcessingSettingsArgs()
         {
         }
+        public static new X12ProcessingSettingsArgs Empty => new X12ProcessingSettingsArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.BotService
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice:Channel")]
-    public partial class Channel : Pulumi.CustomResource
+    public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Entity Tag
@@ -95,12 +95,12 @@ namespace Pulumi.AzureNative.BotService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20171201:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20180712:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20200602:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20210301:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:botservice/v20220615preview:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20171201:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20180712:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20200602:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210301:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20220615preview:Channel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.BotService
         }
     }
 
-    public sealed class ChannelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Channel resource.
@@ -181,5 +181,6 @@ namespace Pulumi.AzureNative.BotService
         public ChannelArgs()
         {
         }
+        public static new ChannelArgs Empty => new ChannelArgs();
     }
 }

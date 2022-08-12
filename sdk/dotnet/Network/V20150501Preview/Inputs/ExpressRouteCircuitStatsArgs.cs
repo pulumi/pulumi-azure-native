@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
     /// <summary>
     /// Contains Stats associated with the peering
     /// </summary>
-    public sealed class ExpressRouteCircuitStatsArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitStatsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets BytesIn of the peering.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
         public ExpressRouteCircuitStatsArgs()
         {
         }
+        public static new ExpressRouteCircuitStatsArgs Empty => new ExpressRouteCircuitStatsArgs();
     }
 }

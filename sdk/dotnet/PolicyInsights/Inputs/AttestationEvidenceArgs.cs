@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights.Inputs
     /// <summary>
     /// A piece of evidence supporting the compliance state set in the attestation.
     /// </summary>
-    public sealed class AttestationEvidenceArgs : Pulumi.ResourceArgs
+    public sealed class AttestationEvidenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description for this piece of evidence.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.PolicyInsights.Inputs
         public AttestationEvidenceArgs()
         {
         }
+        public static new AttestationEvidenceArgs Empty => new AttestationEvidenceArgs();
     }
 }

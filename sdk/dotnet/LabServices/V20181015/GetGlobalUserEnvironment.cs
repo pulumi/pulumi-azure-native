@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     }
 
 
-    public sealed class GetGlobalUserEnvironmentArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalUserEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resourceId of the environment
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetGlobalUserEnvironmentArgs()
         {
         }
+        public static new GetGlobalUserEnvironmentArgs Empty => new GetGlobalUserEnvironmentArgs();
     }
 
-    public sealed class GetGlobalUserEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalUserEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resourceId of the environment
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetGlobalUserEnvironmentInvokeArgs()
         {
         }
+        public static new GetGlobalUserEnvironmentInvokeArgs Empty => new GetGlobalUserEnvironmentInvokeArgs();
     }
 
 

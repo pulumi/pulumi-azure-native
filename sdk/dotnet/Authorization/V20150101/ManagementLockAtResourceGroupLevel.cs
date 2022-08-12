@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Authorization.V20150101
     /// </summary>
     [Obsolete(@"Version 2015-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel")]
-    public partial class ManagementLockAtResourceGroupLevel : Pulumi.CustomResource
+    public partial class ManagementLockAtResourceGroupLevel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The lock level of the management lock.
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.Authorization.V20150101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization:ManagementLockAtResourceGroupLevel"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization:ManagementLockAtResourceGroupLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Authorization.V20150101
         }
     }
 
-    public sealed class ManagementLockAtResourceGroupLevelArgs : Pulumi.ResourceArgs
+    public sealed class ManagementLockAtResourceGroupLevelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The lock level of the management lock.
@@ -125,5 +125,6 @@ namespace Pulumi.AzureNative.Authorization.V20150101
         public ManagementLockAtResourceGroupLevelArgs()
         {
         }
+        public static new ManagementLockAtResourceGroupLevelArgs Empty => new ManagementLockAtResourceGroupLevelArgs();
     }
 }

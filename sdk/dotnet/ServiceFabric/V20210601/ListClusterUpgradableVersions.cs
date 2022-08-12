@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
     }
 
 
-    public sealed class ListClusterUpgradableVersionsArgs : Pulumi.InvokeArgs
+    public sealed class ListClusterUpgradableVersionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
         public ListClusterUpgradableVersionsArgs()
         {
         }
+        public static new ListClusterUpgradableVersionsArgs Empty => new ListClusterUpgradableVersionsArgs();
     }
 
-    public sealed class ListClusterUpgradableVersionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListClusterUpgradableVersionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
         public ListClusterUpgradableVersionsInvokeArgs()
         {
         }
+        public static new ListClusterUpgradableVersionsInvokeArgs Empty => new ListClusterUpgradableVersionsInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
     }
 
 
-    public sealed class ListClusterLanguageExtensionsArgs : Pulumi.InvokeArgs
+    public sealed class ListClusterLanguageExtensionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         public ListClusterLanguageExtensionsArgs()
         {
         }
+        public static new ListClusterLanguageExtensionsArgs Empty => new ListClusterLanguageExtensionsArgs();
     }
 
-    public sealed class ListClusterLanguageExtensionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListClusterLanguageExtensionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         public ListClusterLanguageExtensionsInvokeArgs()
         {
         }
+        public static new ListClusterLanguageExtensionsInvokeArgs Empty => new ListClusterLanguageExtensionsInvokeArgs();
     }
 
 

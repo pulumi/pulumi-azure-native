@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20180601.Inputs
     /// <summary>
     /// SKU for the resource.
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SKU capacity.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Solutions.V20180601.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

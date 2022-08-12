@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Compute properties for data flow activity.
     /// </summary>
-    public sealed class ExecuteDataFlowActivityTypePropertiesComputeArgs : Pulumi.ResourceArgs
+    public sealed class ExecuteDataFlowActivityTypePropertiesComputeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compute type of the cluster which will execute data flow job. Possible values include: 'General', 'MemoryOptimized', 'ComputeOptimized'. Type: string (or Expression with resultType string)
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public ExecuteDataFlowActivityTypePropertiesComputeArgs()
         {
         }
+        public static new ExecuteDataFlowActivityTypePropertiesComputeArgs Empty => new ExecuteDataFlowActivityTypePropertiesComputeArgs();
     }
 }

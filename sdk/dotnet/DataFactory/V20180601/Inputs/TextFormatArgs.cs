@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The data stored in text format.
     /// </summary>
-    public sealed class TextFormatArgs : Pulumi.ResourceArgs
+    public sealed class TextFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The column delimiter. Type: string (or Expression with resultType string).
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public TextFormatArgs()
         {
         }
+        public static new TextFormatArgs Empty => new TextFormatArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetWebTestArgs : Pulumi.InvokeArgs
+    public sealed class GetWebTestArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Insights
         public GetWebTestArgs()
         {
         }
+        public static new GetWebTestArgs Empty => new GetWebTestArgs();
     }
 
-    public sealed class GetWebTestInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebTestInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Insights
         public GetWebTestInvokeArgs()
         {
         }
+        public static new GetWebTestInvokeArgs Empty => new GetWebTestInvokeArgs();
     }
 
 

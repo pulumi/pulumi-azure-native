@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Square Service source.
     /// </summary>
-    public sealed class SquareSourceArgs : Pulumi.ResourceArgs
+    public sealed class SquareSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SquareSourceArgs()
         {
         }
+        public static new SquareSourceArgs Empty => new SquareSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// Properties for a Connection Setting Item
     /// </summary>
-    public sealed class ConnectionSettingPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionSettingPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Client Id associated with the Connection Setting.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         public ConnectionSettingPropertiesArgs()
         {
         }
+        public static new ConnectionSettingPropertiesArgs Empty => new ConnectionSettingPropertiesArgs();
     }
 }

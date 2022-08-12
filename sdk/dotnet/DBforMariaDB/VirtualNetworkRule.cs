@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
     /// API Version: 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb:VirtualNetworkRule")]
-    public partial class VirtualNetworkRule : Pulumi.CustomResource
+    public partial class VirtualNetworkRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Create firewall rule before the virtual network has vnet service endpoint enabled.
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
         }
     }
 
-    public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Create firewall rule before the virtual network has vnet service endpoint enabled.
@@ -129,5 +129,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         public VirtualNetworkRuleArgs()
         {
         }
+        public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }
 }

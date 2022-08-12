@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Allow to exclude some variable satisfy the condition for the WAF check.
     /// </summary>
-    public sealed class OwaspCrsExclusionEntryArgs : Pulumi.ResourceArgs
+    public sealed class OwaspCrsExclusionEntryArgs : global::Pulumi.ResourceArgs
     {
         [Input("exclusionManagedRuleSets")]
         private InputList<Inputs.ExclusionManagedRuleSetArgs>? _exclusionManagedRuleSets;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public OwaspCrsExclusionEntryArgs()
         {
         }
+        public static new OwaspCrsExclusionEntryArgs Empty => new OwaspCrsExclusionEntryArgs();
     }
 }

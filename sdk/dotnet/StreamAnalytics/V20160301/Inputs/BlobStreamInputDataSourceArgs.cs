@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
     /// <summary>
     /// Describes a blob input data source that contains stream data.
     /// </summary>
-    public sealed class BlobStreamInputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class BlobStreamInputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
         public BlobStreamInputDataSourceArgs()
         {
         }
+        public static new BlobStreamInputDataSourceArgs Empty => new BlobStreamInputDataSourceArgs();
     }
 }

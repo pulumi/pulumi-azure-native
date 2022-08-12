@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
     /// <summary>
     /// Specifies the Security profile settings for the virtual machine.
     /// </summary>
-    public sealed class SecurityProfileArgs : Pulumi.ResourceArgs
+    public sealed class SecurityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the security settings like secure boot used while creating the virtual machine.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
         public SecurityProfileArgs()
         {
         }
+        public static new SecurityProfileArgs Empty => new SecurityProfileArgs();
     }
 }

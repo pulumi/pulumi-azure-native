@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Class to specify properties of all content keys in Streaming Policy
     /// </summary>
-    public sealed class StreamingPolicyContentKeysArgs : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyContentKeysArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default content key for an encryption scheme
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public StreamingPolicyContentKeysArgs()
         {
         }
+        public static new StreamingPolicyContentKeysArgs Empty => new StreamingPolicyContentKeysArgs();
     }
 }

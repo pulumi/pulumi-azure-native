@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401.Inputs
     /// <summary>
     /// Log policy schedule.
     /// </summary>
-    public sealed class LogSchedulePolicyArgs : Pulumi.ResourceArgs
+    public sealed class LogSchedulePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Frequency of the log schedule operation of this policy in minutes.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401.Inputs
         public LogSchedulePolicyArgs()
         {
         }
+        public static new LogSchedulePolicyArgs Empty => new LogSchedulePolicyArgs();
     }
 }

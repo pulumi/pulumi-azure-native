@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701
     }
 
 
-    public sealed class ListComputeNodesArgs : Pulumi.InvokeArgs
+    public sealed class ListComputeNodesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Machine Learning compute.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701
         public ListComputeNodesArgs()
         {
         }
+        public static new ListComputeNodesArgs Empty => new ListComputeNodesArgs();
     }
 
-    public sealed class ListComputeNodesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListComputeNodesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure Machine Learning compute.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701
         public ListComputeNodesInvokeArgs()
         {
         }
+        public static new ListComputeNodesInvokeArgs Empty => new ListComputeNodesInvokeArgs();
     }
 
 

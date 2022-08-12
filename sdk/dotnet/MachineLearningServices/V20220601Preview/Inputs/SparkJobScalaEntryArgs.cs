@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class SparkJobScalaEntryArgs : Pulumi.ResourceArgs
+    public sealed class SparkJobScalaEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Scala class name used as entry point.
@@ -28,5 +28,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public SparkJobScalaEntryArgs()
         {
         }
+        public static new SparkJobScalaEntryArgs Empty => new SparkJobScalaEntryArgs();
     }
 }

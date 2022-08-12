@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview.Inputs
     /// <summary>
     /// Export operation configuration information
     /// </summary>
-    public sealed class FhirServiceExportConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FhirServiceExportConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the default export storage account.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview.Inputs
         public FhirServiceExportConfigurationArgs()
         {
         }
+        public static new FhirServiceExportConfigurationArgs Empty => new FhirServiceExportConfigurationArgs();
     }
 }

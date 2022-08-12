@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Inputs
     /// <summary>
     /// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
     /// </summary>
-    public sealed class ActionArgs : Pulumi.ResourceArgs
+    public sealed class ActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Inputs
         {
             RequiresPreprocessing = true;
         }
+        public static new ActionArgs Empty => new ActionArgs();
     }
 }

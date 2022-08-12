@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     /// Property details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:Property")]
-    public partial class Property : Pulumi.CustomResource
+    public partial class Property : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
@@ -76,12 +76,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:Property"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Property"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Property"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Property"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Property"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Property"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Property"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Property"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Property"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Property"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Property"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Property"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         }
     }
 
-    public sealed class PropertyArgs : Pulumi.ResourceArgs
+    public sealed class PropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
@@ -156,5 +156,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public PropertyArgs()
         {
         }
+        public static new PropertyArgs Empty => new PropertyArgs();
     }
 }

@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
 
-    public sealed class GetTaskRunArgs : Pulumi.InvokeArgs
+    public sealed class GetTaskRunArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -52,9 +52,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public GetTaskRunArgs()
         {
         }
+        public static new GetTaskRunArgs Empty => new GetTaskRunArgs();
     }
 
-    public sealed class GetTaskRunInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTaskRunInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public GetTaskRunInvokeArgs()
         {
         }
+        public static new GetTaskRunInvokeArgs Empty => new GetTaskRunInvokeArgs();
     }
 
 

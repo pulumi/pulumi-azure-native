@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// A TrackSelection to select video tracks.
     /// </summary>
-    public sealed class VideoTrackDescriptorArgs : Pulumi.ResourceArgs
+    public sealed class VideoTrackDescriptorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public VideoTrackDescriptorArgs()
         {
         }
+        public static new VideoTrackDescriptorArgs Empty => new VideoTrackDescriptorArgs();
     }
 }

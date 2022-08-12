@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
     /// <summary>
     /// Gets or sets the availability set resource settings.
     /// </summary>
-    public sealed class AvailabilitySetResourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AvailabilitySetResourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the target fault domain.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
         public AvailabilitySetResourceSettingsArgs()
         {
         }
+        public static new AvailabilitySetResourceSettingsArgs Empty => new AvailabilitySetResourceSettingsArgs();
     }
 }

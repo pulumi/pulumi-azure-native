@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Inputs
     /// <summary>
     /// Container group subnet information.
     /// </summary>
-    public sealed class ContainerGroupSubnetIdArgs : Pulumi.ResourceArgs
+    public sealed class ContainerGroupSubnetIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of virtual network and subnet.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Inputs
         public ContainerGroupSubnetIdArgs()
         {
         }
+        public static new ContainerGroupSubnetIdArgs Empty => new ContainerGroupSubnetIdArgs();
     }
 }

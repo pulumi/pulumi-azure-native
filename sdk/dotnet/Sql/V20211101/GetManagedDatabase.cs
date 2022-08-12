@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
     }
 
 
-    public sealed class GetManagedDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Sql.V20211101
         public GetManagedDatabaseArgs()
         {
         }
+        public static new GetManagedDatabaseArgs Empty => new GetManagedDatabaseArgs();
     }
 
-    public sealed class GetManagedDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
         public GetManagedDatabaseInvokeArgs()
         {
         }
+        public static new GetManagedDatabaseInvokeArgs Empty => new GetManagedDatabaseInvokeArgs();
     }
 
 

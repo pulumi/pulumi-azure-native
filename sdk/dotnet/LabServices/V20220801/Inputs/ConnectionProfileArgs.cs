@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801.Inputs
     /// <summary>
     /// Connection profile for how users connect to lab virtual machines.
     /// </summary>
-    public sealed class ConnectionProfileArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The enabled access level for Client Access over RDP.
@@ -46,5 +46,6 @@ namespace Pulumi.AzureNative.LabServices.V20220801.Inputs
             WebRdpAccess = Pulumi.AzureNative.LabServices.V20220801.ConnectionType.None;
             WebSshAccess = Pulumi.AzureNative.LabServices.V20220801.ConnectionType.None;
         }
+        public static new ConnectionProfileArgs Empty => new ConnectionProfileArgs();
     }
 }

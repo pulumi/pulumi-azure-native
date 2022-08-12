@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
     /// <summary>
     /// The resource requirements for the container (cpu and memory).
     /// </summary>
-    public sealed class ContainerResourceRequirementsArgs : Pulumi.ResourceArgs
+    public sealed class ContainerResourceRequirementsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of CPU cores on the container.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
         public ContainerResourceRequirementsArgs()
         {
         }
+        public static new ContainerResourceRequirementsArgs Empty => new ContainerResourceRequirementsArgs();
     }
 }

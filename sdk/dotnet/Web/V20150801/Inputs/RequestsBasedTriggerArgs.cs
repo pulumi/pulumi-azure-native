@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// RequestsBasedTrigger
     /// </summary>
-    public sealed class RequestsBasedTriggerArgs : Pulumi.ResourceArgs
+    public sealed class RequestsBasedTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Count
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public RequestsBasedTriggerArgs()
         {
         }
+        public static new RequestsBasedTriggerArgs Empty => new RequestsBasedTriggerArgs();
     }
 }

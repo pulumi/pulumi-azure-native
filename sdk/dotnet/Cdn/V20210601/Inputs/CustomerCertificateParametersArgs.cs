@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Customer Certificate used for https
     /// </summary>
-    public sealed class CustomerCertificateParametersArgs : Pulumi.ResourceArgs
+    public sealed class CustomerCertificateParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{certificateName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public CustomerCertificateParametersArgs()
         {
         }
+        public static new CustomerCertificateParametersArgs Empty => new CustomerCertificateParametersArgs();
     }
 }

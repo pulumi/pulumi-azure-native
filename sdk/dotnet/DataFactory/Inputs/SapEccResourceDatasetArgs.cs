@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The path of the SAP ECC OData entity.
     /// </summary>
-    public sealed class SapEccResourceDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SapEccResourceDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapEccResourceDatasetArgs()
         {
         }
+        public static new SapEccResourceDatasetArgs Empty => new SapEccResourceDatasetArgs();
     }
 }

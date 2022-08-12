@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     /// The integration account map.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20160601:Map")]
-    public partial class Map : Pulumi.CustomResource
+    public partial class Map : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The changed time.
@@ -112,10 +112,10 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logic:Map"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Map"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Map"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:Map"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:Map"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Map"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Map"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:Map"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
         }
     }
 
-    public sealed class MapArgs : Pulumi.ResourceArgs
+    public sealed class MapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content.
@@ -208,5 +208,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public MapArgs()
         {
         }
+        public static new MapArgs Empty => new MapArgs();
     }
 }

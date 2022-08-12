@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute
     /// API Version: 2017-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningcompute:OperationalizationCluster")]
-    public partial class OperationalizationCluster : Pulumi.CustomResource
+    public partial class OperationalizationCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AppInsights configuration.
@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.MachineLearningCompute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningcompute/v20170601preview:OperationalizationCluster"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningcompute/v20170601preview:OperationalizationCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute
         }
     }
 
-    public sealed class OperationalizationClusterArgs : Pulumi.ResourceArgs
+    public sealed class OperationalizationClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AppInsights configuration.
@@ -231,5 +231,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute
         public OperationalizationClusterArgs()
         {
         }
+        public static new OperationalizationClusterArgs Empty => new OperationalizationClusterArgs();
     }
 }

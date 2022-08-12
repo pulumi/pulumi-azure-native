@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Greenplum Database source.
     /// </summary>
-    public sealed class GreenplumSourceArgs : Pulumi.ResourceArgs
+    public sealed class GreenplumSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public GreenplumSourceArgs()
         {
         }
+        public static new GreenplumSourceArgs Empty => new GreenplumSourceArgs();
     }
 }

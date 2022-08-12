@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
     /// <summary>
     /// Settings for classic alerts
     /// </summary>
-    public sealed class ClassicAlertSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ClassicAlertSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("alertsForCriticalOperations")]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20220401.AlertsState>? AlertsForCriticalOperations { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
         public ClassicAlertSettingsArgs()
         {
         }
+        public static new ClassicAlertSettingsArgs Empty => new ClassicAlertSettingsArgs();
     }
 }

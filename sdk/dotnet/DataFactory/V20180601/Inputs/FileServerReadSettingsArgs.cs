@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// File server read settings.
     /// </summary>
-    public sealed class FileServerReadSettingsArgs : Pulumi.ResourceArgs
+    public sealed class FileServerReadSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public FileServerReadSettingsArgs()
         {
         }
+        public static new FileServerReadSettingsArgs Empty => new FileServerReadSettingsArgs();
     }
 }

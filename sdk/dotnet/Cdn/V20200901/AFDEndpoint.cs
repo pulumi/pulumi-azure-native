@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:AFDEndpoint")]
-    public partial class AFDEndpoint : Pulumi.CustomResource
+    public partial class AFDEndpoint : global::Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
@@ -97,8 +97,8 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cdn:AFDEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:AFDEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         }
     }
 
-    public sealed class AFDEndpointArgs : Pulumi.ResourceArgs
+    public sealed class AFDEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -173,5 +173,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public AFDEndpointArgs()
         {
         }
+        public static new AFDEndpointArgs Empty => new AFDEndpointArgs();
     }
 }

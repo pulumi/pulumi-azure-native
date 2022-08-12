@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AppPlatform
     /// API Version: 2020-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Deployment")]
-    public partial class Deployment : Pulumi.CustomResource
+    public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -65,14 +65,14 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220401:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Deployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.AppPlatform
         }
     }
 
-    public sealed class DeploymentArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App resource.
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.AppPlatform
         public DeploymentArgs()
         {
         }
+        public static new DeploymentArgs Empty => new DeploymentArgs();
     }
 }

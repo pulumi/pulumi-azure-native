@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class DockerArgs : Pulumi.ResourceArgs
+    public sealed class DockerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicate whether container shall run in privileged or non-privileged mode.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public DockerArgs()
         {
         }
+        public static new DockerArgs Empty => new DockerArgs();
     }
 }

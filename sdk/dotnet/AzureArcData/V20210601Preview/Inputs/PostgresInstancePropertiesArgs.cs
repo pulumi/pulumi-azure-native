@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview.Inputs
     /// <summary>
     /// Postgres Instance properties.
     /// </summary>
-    public sealed class PostgresInstancePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PostgresInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance admin
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview.Inputs
         public PostgresInstancePropertiesArgs()
         {
         }
+        public static new PostgresInstancePropertiesArgs Empty => new PostgresInstancePropertiesArgs();
     }
 }

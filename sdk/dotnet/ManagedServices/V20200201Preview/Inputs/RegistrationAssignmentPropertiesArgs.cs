@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
     /// <summary>
     /// The properties of the registration assignment.
     /// </summary>
-    public sealed class RegistrationAssignmentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RegistrationAssignmentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fully qualified path of the registration definition.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
         public RegistrationAssignmentPropertiesArgs()
         {
         }
+        public static new RegistrationAssignmentPropertiesArgs Empty => new RegistrationAssignmentPropertiesArgs();
     }
 }

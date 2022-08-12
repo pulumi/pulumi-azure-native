@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
     /// </summary>
     [Obsolete(@"Version 2017-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:azuredata/v20170301preview:SqlServer")]
-    public partial class SqlServer : Pulumi.CustomResource
+    public partial class SqlServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Sql Server Edition.
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:azuredata:SqlServer"},
-                    new Pulumi.Alias { Type = "azure-native:azuredata/v20190724preview:SqlServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:azuredata:SqlServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:azuredata/v20190724preview:SqlServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
         }
     }
 
-    public sealed class SqlServerArgs : Pulumi.ResourceArgs
+    public sealed class SqlServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cores of the Sql Server.
@@ -153,5 +153,6 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
         public SqlServerArgs()
         {
         }
+        public static new SqlServerArgs Empty => new SqlServerArgs();
     }
 }

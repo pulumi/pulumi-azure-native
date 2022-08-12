@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
     /// <summary>
     /// Specifies the security settings like secure boot used while creating the virtual machine.
     /// </summary>
-    public sealed class UefiSettingsArgs : Pulumi.ResourceArgs
+    public sealed class UefiSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether secure boot should be enabled on the virtual machine.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
         public UefiSettingsArgs()
         {
         }
+        public static new UefiSettingsArgs Empty => new UefiSettingsArgs();
     }
 }

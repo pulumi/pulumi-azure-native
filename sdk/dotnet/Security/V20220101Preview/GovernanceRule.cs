@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     /// Security GovernanceRule over a given scope
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20220101preview:GovernanceRule")]
-    public partial class GovernanceRule : Pulumi.CustomResource
+    public partial class GovernanceRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// description of the governanceRule
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         }
     }
 
-    public sealed class GovernanceRuleArgs : Pulumi.ResourceArgs
+    public sealed class GovernanceRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// description of the governanceRule
@@ -201,5 +201,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public GovernanceRuleArgs()
         {
         }
+        public static new GovernanceRuleArgs Empty => new GovernanceRuleArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
     /// </summary>
     [Obsolete(@"Version 2015-11-06 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20151106:DatabaseAccountTable")]
-    public partial class DatabaseAccountTable : Pulumi.CustomResource
+    public partial class DatabaseAccountTable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource group to which the resource belongs.
@@ -65,31 +65,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210515:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210615:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:DatabaseAccountTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:DatabaseAccountTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
         }
     }
 
-    public sealed class DatabaseAccountTableArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseAccountTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -152,5 +152,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
         public DatabaseAccountTableArgs()
         {
         }
+        public static new DatabaseAccountTableArgs Empty => new DatabaseAccountTableArgs();
     }
 }

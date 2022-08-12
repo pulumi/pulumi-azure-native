@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
     }
 
 
-    public sealed class GetFarmBeatsModelArgs : Pulumi.InvokeArgs
+    public sealed class GetFarmBeatsModelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// FarmBeats resource name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         public GetFarmBeatsModelArgs()
         {
         }
+        public static new GetFarmBeatsModelArgs Empty => new GetFarmBeatsModelArgs();
     }
 
-    public sealed class GetFarmBeatsModelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFarmBeatsModelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// FarmBeats resource name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         public GetFarmBeatsModelInvokeArgs()
         {
         }
+        public static new GetFarmBeatsModelInvokeArgs Empty => new GetFarmBeatsModelInvokeArgs();
     }
 
 

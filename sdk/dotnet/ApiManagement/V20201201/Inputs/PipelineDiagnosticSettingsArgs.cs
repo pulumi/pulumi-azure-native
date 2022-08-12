@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201.Inputs
     /// <summary>
     /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
     /// </summary>
-    public sealed class PipelineDiagnosticSettingsArgs : Pulumi.ResourceArgs
+    public sealed class PipelineDiagnosticSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Diagnostic settings for request.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201.Inputs
         public PipelineDiagnosticSettingsArgs()
         {
         }
+        public static new PipelineDiagnosticSettingsArgs Empty => new PipelineDiagnosticSettingsArgs();
     }
 }

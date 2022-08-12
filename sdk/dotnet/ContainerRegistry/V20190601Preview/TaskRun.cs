@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
     /// The task run will have the information of request and result of a run.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20190601preview:TaskRun")]
-    public partial class TaskRun : Pulumi.CustomResource
+    public partial class TaskRun : global::Pulumi.CustomResource
     {
         /// <summary>
         /// How the run should be forced to rerun even if the run request configuration has not changed
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:TaskRun"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:TaskRun"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         }
     }
 
-    public sealed class TaskRunArgs : Pulumi.ResourceArgs
+    public sealed class TaskRunArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// How the run should be forced to rerun even if the run request configuration has not changed
@@ -164,5 +164,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         public TaskRunArgs()
         {
         }
+        public static new TaskRunArgs Empty => new TaskRunArgs();
     }
 }

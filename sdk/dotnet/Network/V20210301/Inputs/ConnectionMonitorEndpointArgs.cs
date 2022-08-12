@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210301.Inputs
     /// <summary>
     /// Describes the connection monitor endpoint.
     /// </summary>
-    public sealed class ConnectionMonitorEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address of the connection monitor endpoint (IP or domain name).
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Network.V20210301.Inputs
         public ConnectionMonitorEndpointArgs()
         {
         }
+        public static new ConnectionMonitorEndpointArgs Empty => new ConnectionMonitorEndpointArgs();
     }
 }

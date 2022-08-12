@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.App
     }
 
 
-    public sealed class ListDaprComponentSecretsArgs : Pulumi.InvokeArgs
+    public sealed class ListDaprComponentSecretsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Dapr Component.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.App
         public ListDaprComponentSecretsArgs()
         {
         }
+        public static new ListDaprComponentSecretsArgs Empty => new ListDaprComponentSecretsArgs();
     }
 
-    public sealed class ListDaprComponentSecretsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListDaprComponentSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Dapr Component.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.App
         public ListDaprComponentSecretsInvokeArgs()
         {
         }
+        public static new ListDaprComponentSecretsInvokeArgs Empty => new ListDaprComponentSecretsInvokeArgs();
     }
 
 

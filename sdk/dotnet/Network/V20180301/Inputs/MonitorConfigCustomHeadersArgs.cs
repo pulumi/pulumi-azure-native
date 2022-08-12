@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180301.Inputs
     /// <summary>
     /// Custom header name and value.
     /// </summary>
-    public sealed class MonitorConfigCustomHeadersArgs : Pulumi.ResourceArgs
+    public sealed class MonitorConfigCustomHeadersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Header name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20180301.Inputs
         public MonitorConfigCustomHeadersArgs()
         {
         }
+        public static new MonitorConfigCustomHeadersArgs Empty => new MonitorConfigCustomHeadersArgs();
     }
 }

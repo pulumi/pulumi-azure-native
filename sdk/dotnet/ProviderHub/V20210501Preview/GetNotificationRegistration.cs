@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
     }
 
 
-    public sealed class GetNotificationRegistrationArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationRegistrationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The notification registration.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
         public GetNotificationRegistrationArgs()
         {
         }
+        public static new GetNotificationRegistrationArgs Empty => new GetNotificationRegistrationArgs();
     }
 
-    public sealed class GetNotificationRegistrationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationRegistrationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The notification registration.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
         public GetNotificationRegistrationInvokeArgs()
         {
         }
+        public static new GetNotificationRegistrationInvokeArgs Empty => new GetNotificationRegistrationInvokeArgs();
     }
 
 

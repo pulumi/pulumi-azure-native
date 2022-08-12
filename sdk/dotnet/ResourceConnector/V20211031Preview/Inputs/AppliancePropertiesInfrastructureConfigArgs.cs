@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview.Inputs
     /// <summary>
     /// Contains infrastructure information about the Appliance
     /// </summary>
-    public sealed class AppliancePropertiesInfrastructureConfigArgs : Pulumi.ResourceArgs
+    public sealed class AppliancePropertiesInfrastructureConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the connected appliance.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview.Inputs
         public AppliancePropertiesInfrastructureConfigArgs()
         {
         }
+        public static new AppliancePropertiesInfrastructureConfigArgs Empty => new AppliancePropertiesInfrastructureConfigArgs();
     }
 }

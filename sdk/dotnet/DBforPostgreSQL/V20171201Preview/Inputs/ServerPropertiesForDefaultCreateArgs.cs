@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview.Inputs
     /// <summary>
     /// The properties used to create a new server.
     /// </summary>
-    public sealed class ServerPropertiesForDefaultCreateArgs : Pulumi.ResourceArgs
+    public sealed class ServerPropertiesForDefaultCreateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview.Inputs
         public ServerPropertiesForDefaultCreateArgs()
         {
         }
+        public static new ServerPropertiesForDefaultCreateArgs Empty => new ServerPropertiesForDefaultCreateArgs();
     }
 }

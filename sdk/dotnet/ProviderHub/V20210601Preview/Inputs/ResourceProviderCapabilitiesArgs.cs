@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
 {
 
-    public sealed class ResourceProviderCapabilitiesArgs : Pulumi.ResourceArgs
+    public sealed class ResourceProviderCapabilitiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("effect", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20210601Preview.ResourceProviderCapabilitiesEffect> Effect { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
         public ResourceProviderCapabilitiesArgs()
         {
         }
+        public static new ResourceProviderCapabilitiesArgs Empty => new ResourceProviderCapabilitiesArgs();
     }
 }

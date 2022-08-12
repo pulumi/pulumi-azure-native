@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180701.Inputs
     /// <summary>
     /// Service Endpoint policy definitions.
     /// </summary>
-    public sealed class ServiceEndpointPolicyDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointPolicyDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for this rule. Restricted to 140 chars.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Network.V20180701.Inputs
         public ServiceEndpointPolicyDefinitionArgs()
         {
         }
+        public static new ServiceEndpointPolicyDefinitionArgs Empty => new ServiceEndpointPolicyDefinitionArgs();
     }
 }

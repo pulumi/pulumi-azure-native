@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Marketplace
     }
 
 
-    public sealed class GetPrivateStoreOfferArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateStoreOfferArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The offer ID to update or delete
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Marketplace
         public GetPrivateStoreOfferArgs()
         {
         }
+        public static new GetPrivateStoreOfferArgs Empty => new GetPrivateStoreOfferArgs();
     }
 
-    public sealed class GetPrivateStoreOfferInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateStoreOfferInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The offer ID to update or delete
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Marketplace
         public GetPrivateStoreOfferInvokeArgs()
         {
         }
+        public static new GetPrivateStoreOfferInvokeArgs Empty => new GetPrivateStoreOfferInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2014-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:TransparentDataEncryption")]
-    public partial class TransparentDataEncryption : Pulumi.CustomResource
+    public partial class TransparentDataEncryption : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location.
@@ -65,16 +65,16 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:TransparentDataEncryption"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class TransparentDataEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class TransparentDataEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database for which setting the transparent data encryption applies.
@@ -131,5 +131,6 @@ namespace Pulumi.AzureNative.Sql
         public TransparentDataEncryptionArgs()
         {
         }
+        public static new TransparentDataEncryptionArgs Empty => new TransparentDataEncryptionArgs();
     }
 }

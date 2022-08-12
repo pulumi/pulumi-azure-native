@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The Edifact validation override settings.
     /// </summary>
-    public sealed class EdifactValidationOverrideArgs : Pulumi.ResourceArgs
+    public sealed class EdifactValidationOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to allow leading and trailing spaces and zeroes.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public EdifactValidationOverrideArgs()
         {
         }
+        public static new EdifactValidationOverrideArgs Empty => new EdifactValidationOverrideArgs();
     }
 }

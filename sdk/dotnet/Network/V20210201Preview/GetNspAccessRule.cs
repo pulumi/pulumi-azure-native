@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     }
 
 
-    public sealed class GetNspAccessRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetNspAccessRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NSP access rule.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public GetNspAccessRuleArgs()
         {
         }
+        public static new GetNspAccessRuleArgs Empty => new GetNspAccessRuleArgs();
     }
 
-    public sealed class GetNspAccessRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNspAccessRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NSP access rule.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public GetNspAccessRuleInvokeArgs()
         {
         }
+        public static new GetNspAccessRuleInvokeArgs Empty => new GetNspAccessRuleInvokeArgs();
     }
 
 

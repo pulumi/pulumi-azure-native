@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactAgreementContentArgs : Pulumi.ResourceArgs
+    public sealed class EdifactAgreementContentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The EDIFACT one-way receive agreement.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactAgreementContentArgs()
         {
         }
+        public static new EdifactAgreementContentArgs Empty => new EdifactAgreementContentArgs();
     }
 }

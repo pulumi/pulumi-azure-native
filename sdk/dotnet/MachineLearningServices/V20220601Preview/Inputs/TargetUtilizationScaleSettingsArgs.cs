@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class TargetUtilizationScaleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class TargetUtilizationScaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances.
@@ -50,5 +50,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             PollingInterval = "PT1S";
             TargetUtilizationPercentage = 70;
         }
+        public static new TargetUtilizationScaleSettingsArgs Empty => new TargetUtilizationScaleSettingsArgs();
     }
 }

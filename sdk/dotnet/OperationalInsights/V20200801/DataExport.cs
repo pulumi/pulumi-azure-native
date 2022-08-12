@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
     /// The top level data export resource container.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20200801:DataExport")]
-    public partial class DataExport : Pulumi.CustomResource
+    public partial class DataExport : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The latest data export rule modification time.
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights:DataExport"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:DataExport"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataExport"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:DataExport"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:DataExport"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataExport"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         }
     }
 
-    public sealed class DataExportArgs : Pulumi.ResourceArgs
+    public sealed class DataExportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The latest data export rule modification time.
@@ -189,5 +189,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public DataExportArgs()
         {
         }
+        public static new DataExportArgs Empty => new DataExportArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// <summary>
     /// The configuration settings of the registration for the Apple provider
     /// </summary>
-    public sealed class AppleRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class AppleRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Client ID of the app used for login.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public AppleRegistrationArgs()
         {
         }
+        public static new AppleRegistrationArgs Empty => new AppleRegistrationArgs();
     }
 }

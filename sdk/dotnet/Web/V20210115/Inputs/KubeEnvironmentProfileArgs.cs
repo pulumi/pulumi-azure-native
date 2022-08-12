@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
     /// <summary>
     /// Specification for a Kubernetes Environment to use for this resource.
     /// </summary>
-    public sealed class KubeEnvironmentProfileArgs : Pulumi.ResourceArgs
+    public sealed class KubeEnvironmentProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of the Kubernetes Environment.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public KubeEnvironmentProfileArgs()
         {
         }
+        public static new KubeEnvironmentProfileArgs Empty => new KubeEnvironmentProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220101Preview
     /// The Flux Configuration object returned in Get &amp; Put response.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration")]
-    public partial class FluxConfiguration : Pulumi.CustomResource
+    public partial class FluxConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Parameters to reconcile to the Bucket source kind type.
@@ -148,10 +148,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:FluxConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220301:FluxConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:FluxConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220301:FluxConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -173,7 +173,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220101Preview
         }
     }
 
-    public sealed class FluxConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FluxConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameters to reconcile to the Bucket source kind type.
@@ -271,5 +271,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220101Preview
             SourceKind = "GitRepository";
             Suspend = false;
         }
+        public static new FluxConfigurationArgs Empty => new FluxConfigurationArgs();
     }
 }

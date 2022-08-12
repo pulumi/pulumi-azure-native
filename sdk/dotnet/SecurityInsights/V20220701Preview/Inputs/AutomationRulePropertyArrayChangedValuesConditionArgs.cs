@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
 {
 
-    public sealed class AutomationRulePropertyArrayChangedValuesConditionArgs : Pulumi.ResourceArgs
+    public sealed class AutomationRulePropertyArrayChangedValuesConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("arrayType")]
         public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20220701Preview.AutomationRulePropertyArrayChangedConditionSupportedArrayType>? ArrayType { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview.Inputs
         public AutomationRulePropertyArrayChangedValuesConditionArgs()
         {
         }
+        public static new AutomationRulePropertyArrayChangedValuesConditionArgs Empty => new AutomationRulePropertyArrayChangedValuesConditionArgs();
     }
 }

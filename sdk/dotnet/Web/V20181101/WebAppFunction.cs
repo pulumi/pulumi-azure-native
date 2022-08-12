@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20181101
     /// Web Job Information.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20181101:WebAppFunction")]
-    public partial class WebAppFunction : Pulumi.CustomResource
+    public partial class WebAppFunction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Config information.
@@ -112,19 +112,19 @@ namespace Pulumi.AzureNative.Web.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.Web.V20181101
         }
     }
 
-    public sealed class WebAppFunctionArgs : Pulumi.ResourceArgs
+    public sealed class WebAppFunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Config information.
@@ -235,5 +235,6 @@ namespace Pulumi.AzureNative.Web.V20181101
         public WebAppFunctionArgs()
         {
         }
+        public static new WebAppFunctionArgs Empty => new WebAppFunctionArgs();
     }
 }

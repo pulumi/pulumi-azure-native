@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Azure Blob source.
     /// </summary>
-    public sealed class BlobSourceArgs : Pulumi.ResourceArgs
+    public sealed class BlobSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public BlobSourceArgs()
         {
         }
+        public static new BlobSourceArgs Empty => new BlobSourceArgs();
     }
 }

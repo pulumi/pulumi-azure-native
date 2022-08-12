@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.Inputs
     /// <summary>
     /// Self-hosted integration runtime.
     /// </summary>
-    public sealed class SelfHostedIntegrationRuntimeArgs : Pulumi.ResourceArgs
+    public sealed class SelfHostedIntegrationRuntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Integration runtime description.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Synapse.Inputs
         public SelfHostedIntegrationRuntimeArgs()
         {
         }
+        public static new SelfHostedIntegrationRuntimeArgs Empty => new SelfHostedIntegrationRuntimeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
     /// <summary>
     /// Azure Blob datastore configuration.
     /// </summary>
-    public sealed class AzureBlobDatastoreArgs : Pulumi.ResourceArgs
+    public sealed class AzureBlobDatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Storage account name.
@@ -92,5 +92,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         {
             ServiceDataAccessAuthIdentity = "None";
         }
+        public static new AzureBlobDatastoreArgs Empty => new AzureBlobDatastoreArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20190615.Inputs
     /// <summary>
     /// Additional information on the backed up item.
     /// </summary>
-    public sealed class MabFileFolderProtectedItemExtendedInfoArgs : Pulumi.ResourceArgs
+    public sealed class MabFileFolderProtectedItemExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Last time when the agent data synced to service.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20190615.Inputs
         public MabFileFolderProtectedItemExtendedInfoArgs()
         {
         }
+        public static new MabFileFolderProtectedItemExtendedInfoArgs Empty => new MabFileFolderProtectedItemExtendedInfoArgs();
     }
 }

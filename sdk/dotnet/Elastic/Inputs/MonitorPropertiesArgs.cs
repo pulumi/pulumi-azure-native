@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic.Inputs
     /// <summary>
     /// Properties specific to the monitor resource.
     /// </summary>
-    public sealed class MonitorPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MonitorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag specifying if the resource monitoring is enabled or disabled.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Elastic.Inputs
         public MonitorPropertiesArgs()
         {
         }
+        public static new MonitorPropertiesArgs Empty => new MonitorPropertiesArgs();
     }
 }

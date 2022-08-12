@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure Databricks Delta Lake linked service.
     /// </summary>
-    public sealed class AzureDatabricksDeltaLakeLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureDatabricksDeltaLakeLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureDatabricksDeltaLakeLinkedServiceArgs()
         {
         }
+        public static new AzureDatabricksDeltaLakeLinkedServiceArgs Empty => new AzureDatabricksDeltaLakeLinkedServiceArgs();
     }
 }

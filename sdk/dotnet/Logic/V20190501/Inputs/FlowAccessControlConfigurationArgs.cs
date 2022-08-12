@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The access control configuration.
     /// </summary>
-    public sealed class FlowAccessControlConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FlowAccessControlConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access control configuration for workflow actions.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public FlowAccessControlConfigurationArgs()
         {
         }
+        public static new FlowAccessControlConfigurationArgs Empty => new FlowAccessControlConfigurationArgs();
     }
 }

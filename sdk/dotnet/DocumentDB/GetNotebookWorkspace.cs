@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
 
-    public sealed class GetNotebookWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetNotebookWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.DocumentDB
         public GetNotebookWorkspaceArgs()
         {
         }
+        public static new GetNotebookWorkspaceArgs Empty => new GetNotebookWorkspaceArgs();
     }
 
-    public sealed class GetNotebookWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNotebookWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.DocumentDB
         public GetNotebookWorkspaceInvokeArgs()
         {
         }
+        public static new GetNotebookWorkspaceInvokeArgs Empty => new GetNotebookWorkspaceInvokeArgs();
     }
 
 

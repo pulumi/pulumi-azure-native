@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20160301.Inputs
     /// <summary>
     /// A rule condition based on a metric crossing a threshold.
     /// </summary>
-    public sealed class ThresholdRuleConditionArgs : Pulumi.ResourceArgs
+    public sealed class ThresholdRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.Insights.V20160301.Inputs
         public ThresholdRuleConditionArgs()
         {
         }
+        public static new ThresholdRuleConditionArgs Empty => new ThresholdRuleConditionArgs();
     }
 }

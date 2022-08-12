@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorSimple.Inputs
     /// <summary>
     /// The schedule recurrence.
     /// </summary>
-    public sealed class ScheduleRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The recurrence type.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.StorSimple.Inputs
         public ScheduleRecurrenceArgs()
         {
         }
+        public static new ScheduleRecurrenceArgs Empty => new ScheduleRecurrenceArgs();
     }
 }

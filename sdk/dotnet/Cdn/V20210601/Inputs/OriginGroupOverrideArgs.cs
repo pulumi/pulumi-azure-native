@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the parameters for the origin group override configuration.
     /// </summary>
-    public sealed class OriginGroupOverrideArgs : Pulumi.ResourceArgs
+    public sealed class OriginGroupOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Protocol this rule will use when forwarding traffic to backends.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public OriginGroupOverrideArgs()
         {
         }
+        public static new OriginGroupOverrideArgs Empty => new OriginGroupOverrideArgs();
     }
 }

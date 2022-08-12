@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
     /// <summary>
     /// The Dsc configuration property associated with the entity.
     /// </summary>
-    public sealed class DscConfigurationAssociationPropertyArgs : Pulumi.ResourceArgs
+    public sealed class DscConfigurationAssociationPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the name of the Dsc configuration.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
         public DscConfigurationAssociationPropertyArgs()
         {
         }
+        public static new DscConfigurationAssociationPropertyArgs Empty => new DscConfigurationAssociationPropertyArgs();
     }
 }

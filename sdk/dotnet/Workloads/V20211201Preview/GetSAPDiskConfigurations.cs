@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     }
 
 
-    public sealed class GetSAPDiskConfigurationsArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPDiskConfigurationsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The geo-location where the SAP resources will be created.
@@ -72,9 +72,10 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public GetSAPDiskConfigurationsArgs()
         {
         }
+        public static new GetSAPDiskConfigurationsArgs Empty => new GetSAPDiskConfigurationsArgs();
     }
 
-    public sealed class GetSAPDiskConfigurationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPDiskConfigurationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The geo-location where the SAP resources will be created.
@@ -121,6 +122,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public GetSAPDiskConfigurationsInvokeArgs()
         {
         }
+        public static new GetSAPDiskConfigurationsInvokeArgs Empty => new GetSAPDiskConfigurationsInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Forecast horizon determined automatically by system.
     /// </summary>
-    public sealed class AutoForecastHorizonArgs : Pulumi.ResourceArgs
+    public sealed class AutoForecastHorizonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine forecast horizon selection mode.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public AutoForecastHorizonArgs()
         {
         }
+        public static new AutoForecastHorizonArgs Empty => new AutoForecastHorizonArgs();
     }
 }

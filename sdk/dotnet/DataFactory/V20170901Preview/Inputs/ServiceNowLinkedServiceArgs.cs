@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// ServiceNow server linked service.
     /// </summary>
-    public sealed class ServiceNowLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceNowLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ServiceNowLinkedServiceArgs()
         {
         }
+        public static new ServiceNowLinkedServiceArgs Empty => new ServiceNowLinkedServiceArgs();
     }
 }

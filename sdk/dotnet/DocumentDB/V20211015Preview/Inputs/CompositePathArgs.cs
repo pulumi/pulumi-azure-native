@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20211015Preview.Inputs
 {
 
-    public sealed class CompositePathArgs : Pulumi.ResourceArgs
+    public sealed class CompositePathArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sort order for composite paths.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015Preview.Inputs
         public CompositePathArgs()
         {
         }
+        public static new CompositePathArgs Empty => new CompositePathArgs();
     }
 }

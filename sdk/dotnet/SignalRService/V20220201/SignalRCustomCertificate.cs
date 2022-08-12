@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
     /// A custom certificate.
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice/v20220201:SignalRCustomCertificate")]
-    public partial class SignalRCustomCertificate : Pulumi.CustomResource
+    public partial class SignalRCustomCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Base uri of the KeyVault that stores certificate.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:signalrservice:SignalRCustomCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRCustomCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
         }
     }
 
-    public sealed class SignalRCustomCertificateArgs : Pulumi.ResourceArgs
+    public sealed class SignalRCustomCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom certificate name
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
         public SignalRCustomCertificateArgs()
         {
         }
+        public static new SignalRCustomCertificateArgs Empty => new SignalRCustomCertificateArgs();
     }
 }

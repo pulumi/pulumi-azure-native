@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20180712.Inputs
     /// <summary>
     /// The parameters to provide for the Telegram channel.
     /// </summary>
-    public sealed class TelegramChannelPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TelegramChannelPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.BotService.V20180712.Inputs
         public TelegramChannelPropertiesArgs()
         {
         }
+        public static new TelegramChannelPropertiesArgs Empty => new TelegramChannelPropertiesArgs();
     }
 }

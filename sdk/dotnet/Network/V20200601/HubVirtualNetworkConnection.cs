@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     /// HubVirtualNetworkConnection Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200601:HubVirtualNetworkConnection")]
-    public partial class HubVirtualNetworkConnection : Pulumi.CustomResource
+    public partial class HubVirtualNetworkConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
@@ -88,16 +88,16 @@ namespace Pulumi.AzureNative.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:HubVirtualNetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:HubVirtualNetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:HubVirtualNetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:HubVirtualNetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:HubVirtualNetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:HubVirtualNetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:HubVirtualNetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:HubVirtualNetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:HubVirtualNetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:HubVirtualNetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:HubVirtualNetworkConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Network.V20200601
         }
     }
 
-    public sealed class HubVirtualNetworkConnectionArgs : Pulumi.ResourceArgs
+    public sealed class HubVirtualNetworkConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
@@ -184,5 +184,6 @@ namespace Pulumi.AzureNative.Network.V20200601
         public HubVirtualNetworkConnectionArgs()
         {
         }
+        public static new HubVirtualNetworkConnectionArgs Empty => new HubVirtualNetworkConnectionArgs();
     }
 }

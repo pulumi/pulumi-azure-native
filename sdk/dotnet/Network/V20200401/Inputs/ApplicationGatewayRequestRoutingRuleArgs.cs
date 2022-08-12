@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
     /// <summary>
     /// Request routing rule of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayRequestRoutingRuleArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayRequestRoutingRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backend address pool resource of the application gateway.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Network.V20200401.Inputs
         public ApplicationGatewayRequestRoutingRuleArgs()
         {
         }
+        public static new ApplicationGatewayRequestRoutingRuleArgs Empty => new ApplicationGatewayRequestRoutingRuleArgs();
     }
 }

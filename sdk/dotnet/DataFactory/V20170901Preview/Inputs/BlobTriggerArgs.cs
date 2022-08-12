@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Trigger that runs every time the selected Blob container changes.
     /// </summary>
-    public sealed class BlobTriggerArgs : Pulumi.ResourceArgs
+    public sealed class BlobTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Trigger description.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public BlobTriggerArgs()
         {
         }
+        public static new BlobTriggerArgs Empty => new BlobTriggerArgs();
     }
 }

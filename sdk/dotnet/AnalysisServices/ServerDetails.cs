@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AnalysisServices
     /// API Version: 2017-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:analysisservices:ServerDetails")]
-    public partial class ServerDetails : Pulumi.CustomResource
+    public partial class ServerDetails : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A collection of AS server administrators
@@ -131,10 +131,10 @@ namespace Pulumi.AzureNative.AnalysisServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20160516:ServerDetails"},
-                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170714:ServerDetails"},
-                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170801:ServerDetails"},
-                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170801beta:ServerDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20160516:ServerDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20170714:ServerDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20170801:ServerDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20170801beta:ServerDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.AnalysisServices
         }
     }
 
-    public sealed class ServerDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ServerDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A collection of AS server administrators
@@ -242,5 +242,6 @@ namespace Pulumi.AzureNative.AnalysisServices
             QuerypoolConnectionMode = Pulumi.AzureNative.AnalysisServices.ConnectionMode.All;
             ServerMonitorMode = 1;
         }
+        public static new ServerDetailsArgs Empty => new ServerDetailsArgs();
     }
 }

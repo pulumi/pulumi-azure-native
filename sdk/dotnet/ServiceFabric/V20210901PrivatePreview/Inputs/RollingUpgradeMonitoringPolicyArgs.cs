@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
     /// <summary>
     /// The policy used for monitoring the application upgrade
     /// </summary>
-    public sealed class RollingUpgradeMonitoringPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RollingUpgradeMonitoringPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
         public RollingUpgradeMonitoringPolicyArgs()
         {
         }
+        public static new RollingUpgradeMonitoringPolicyArgs Empty => new RollingUpgradeMonitoringPolicyArgs();
     }
 }

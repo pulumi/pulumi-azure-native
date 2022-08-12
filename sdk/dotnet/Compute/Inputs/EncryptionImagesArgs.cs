@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// <summary>
     /// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
     /// </summary>
-    public sealed class EncryptionImagesArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionImagesArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataDiskImages")]
         private InputList<Inputs.DataDiskImageEncryptionArgs>? _dataDiskImages;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public EncryptionImagesArgs()
         {
         }
+        public static new EncryptionImagesArgs Empty => new EncryptionImagesArgs();
     }
 }

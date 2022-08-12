@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp
     /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Subvolume")]
-    public partial class Subvolume : Pulumi.CustomResource
+    public partial class Subvolume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -77,9 +77,9 @@ namespace Pulumi.AzureNative.NetApp
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20211001:Subvolume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20220101:Subvolume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/v20220301:Subvolume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Subvolume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Subvolume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Subvolume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.NetApp
         }
     }
 
-    public sealed class SubvolumeArgs : Pulumi.ResourceArgs
+    public sealed class SubvolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account
@@ -154,5 +154,6 @@ namespace Pulumi.AzureNative.NetApp
         public SubvolumeArgs()
         {
         }
+        public static new SubvolumeArgs Empty => new SubvolumeArgs();
     }
 }

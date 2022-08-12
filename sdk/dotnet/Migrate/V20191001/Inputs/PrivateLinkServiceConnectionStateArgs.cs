@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Inputs
     /// <summary>
     /// State of a private endpoint connection.
     /// </summary>
-    public sealed class PrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actions required on the private endpoint connection.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001.Inputs
         public PrivateLinkServiceConnectionStateArgs()
         {
         }
+        public static new PrivateLinkServiceConnectionStateArgs Empty => new PrivateLinkServiceConnectionStateArgs();
     }
 }

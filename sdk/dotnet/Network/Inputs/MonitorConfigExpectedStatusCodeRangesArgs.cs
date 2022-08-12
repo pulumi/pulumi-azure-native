@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Min and max value of a status code range.
     /// </summary>
-    public sealed class MonitorConfigExpectedStatusCodeRangesArgs : Pulumi.ResourceArgs
+    public sealed class MonitorConfigExpectedStatusCodeRangesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Max status code.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public MonitorConfigExpectedStatusCodeRangesArgs()
         {
         }
+        public static new MonitorConfigExpectedStatusCodeRangesArgs Empty => new MonitorConfigExpectedStatusCodeRangesArgs();
     }
 }

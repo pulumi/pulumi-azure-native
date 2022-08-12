@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
     /// A short term retention policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy")]
-    public partial class BackupShortTermRetentionPolicy : Pulumi.CustomResource
+    public partial class BackupShortTermRetentionPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
@@ -64,16 +64,16 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:BackupShortTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:BackupShortTermRetentionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         }
     }
 
-    public sealed class BackupShortTermRetentionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class BackupShortTermRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database.
@@ -136,5 +136,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public BackupShortTermRetentionPolicyArgs()
         {
         }
+        public static new BackupShortTermRetentionPolicyArgs Empty => new BackupShortTermRetentionPolicyArgs();
     }
 }

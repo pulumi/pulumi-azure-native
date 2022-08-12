@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
     }
 
 
-    public sealed class GetMaintenanceConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetMaintenanceConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the maintenance configuration.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
         public GetMaintenanceConfigurationArgs()
         {
         }
+        public static new GetMaintenanceConfigurationArgs Empty => new GetMaintenanceConfigurationArgs();
     }
 
-    public sealed class GetMaintenanceConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMaintenanceConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the maintenance configuration.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
         public GetMaintenanceConfigurationInvokeArgs()
         {
         }
+        public static new GetMaintenanceConfigurationInvokeArgs Empty => new GetMaintenanceConfigurationInvokeArgs();
     }
 
 

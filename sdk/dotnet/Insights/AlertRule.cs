@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2016-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:AlertRule")]
-    public partial class AlertRule : Pulumi.CustomResource
+    public partial class AlertRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
@@ -107,8 +107,8 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20140401:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20160301:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20140401:AlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20160301:AlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class AlertRuleArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
@@ -213,5 +213,6 @@ namespace Pulumi.AzureNative.Insights
         public AlertRuleArgs()
         {
         }
+        public static new AlertRuleArgs Empty => new AlertRuleArgs();
     }
 }

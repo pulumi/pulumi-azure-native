@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2016-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:CustomApi")]
-    public partial class CustomApi : Pulumi.CustomResource
+    public partial class CustomApi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource ETag
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web/v20160601:CustomApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160601:CustomApi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class CustomApiArgs : Pulumi.ResourceArgs
+    public sealed class CustomApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API name
@@ -146,5 +146,6 @@ namespace Pulumi.AzureNative.Web
         public CustomApiArgs()
         {
         }
+        public static new CustomApiArgs Empty => new CustomApiArgs();
     }
 }

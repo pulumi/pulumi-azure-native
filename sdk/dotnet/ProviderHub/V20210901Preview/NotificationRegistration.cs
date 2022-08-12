@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
     /// The notification registration definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub/v20210901preview:NotificationRegistration")]
-    public partial class NotificationRegistration : Pulumi.CustomResource
+    public partial class NotificationRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -61,10 +61,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:providerhub:NotificationRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:NotificationRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:NotificationRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:NotificationRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub:NotificationRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:NotificationRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:NotificationRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:NotificationRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         }
     }
 
-    public sealed class NotificationRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The notification registration.
@@ -106,5 +106,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         public NotificationRegistrationArgs()
         {
         }
+        public static new NotificationRegistrationArgs Empty => new NotificationRegistrationArgs();
     }
 }

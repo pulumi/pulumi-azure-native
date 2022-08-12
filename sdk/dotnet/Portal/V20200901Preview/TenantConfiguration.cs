@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
     /// Tenant configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:portal/v20200901preview:TenantConfiguration")]
-    public partial class TenantConfiguration : Pulumi.CustomResource
+    public partial class TenantConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
@@ -58,8 +58,8 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:portal:TenantConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:portal/v20190101preview:TenantConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:portal:TenantConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:portal/v20190101preview:TenantConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
         }
     }
 
-    public sealed class TenantConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class TenantConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration name. Value must be 'default'
@@ -98,5 +98,6 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
         public TenantConfigurationArgs()
         {
         }
+        public static new TenantConfigurationArgs Empty => new TenantConfigurationArgs();
     }
 }

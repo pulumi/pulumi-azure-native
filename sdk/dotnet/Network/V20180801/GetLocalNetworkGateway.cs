@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20180801
     }
 
 
-    public sealed class GetLocalNetworkGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalNetworkGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the local network gateway.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Network.V20180801
         public GetLocalNetworkGatewayArgs()
         {
         }
+        public static new GetLocalNetworkGatewayArgs Empty => new GetLocalNetworkGatewayArgs();
     }
 
-    public sealed class GetLocalNetworkGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalNetworkGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the local network gateway.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Network.V20180801
         public GetLocalNetworkGatewayInvokeArgs()
         {
         }
+        public static new GetLocalNetworkGatewayInvokeArgs Empty => new GetLocalNetworkGatewayInvokeArgs();
     }
 
 

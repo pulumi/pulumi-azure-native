@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20221001.Inputs
     /// <summary>
     /// Autoscale profile.
     /// </summary>
-    public sealed class AutoscaleProfileArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the number of instances that can be used during this profile.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Insights.V20221001.Inputs
         public AutoscaleProfileArgs()
         {
         }
+        public static new AutoscaleProfileArgs Empty => new AutoscaleProfileArgs();
     }
 }

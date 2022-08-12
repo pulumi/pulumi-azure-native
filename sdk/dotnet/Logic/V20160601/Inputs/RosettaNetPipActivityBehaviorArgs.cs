@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The integration account RosettaNet ProcessConfiguration activity behavior.
     /// </summary>
-    public sealed class RosettaNetPipActivityBehaviorArgs : Pulumi.ResourceArgs
+    public sealed class RosettaNetPipActivityBehaviorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether the RosettaNet PIP is used for a single action.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public RosettaNetPipActivityBehaviorArgs()
         {
         }
+        public static new RosettaNetPipActivityBehaviorArgs Empty => new RosettaNetPipActivityBehaviorArgs();
     }
 }

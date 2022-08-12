@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
     /// <summary>
     /// Specifies the job properties
     /// </summary>
-    public sealed class JobDetailsArgs : Pulumi.ResourceArgs
+    public sealed class JobDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
             CancelRequested = false;
             State = "Creating";
         }
+        public static new JobDetailsArgs Empty => new JobDetailsArgs();
     }
 }

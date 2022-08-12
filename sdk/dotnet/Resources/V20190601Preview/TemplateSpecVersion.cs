@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
     /// Template Spec Version object.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20190601preview:TemplateSpecVersion")]
-    public partial class TemplateSpecVersion : Pulumi.CustomResource
+    public partial class TemplateSpecVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An array of Template Spec artifacts.
@@ -88,10 +88,10 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:resources:TemplateSpecVersion"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpecVersion"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20210501:TemplateSpecVersion"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20220201:TemplateSpecVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources:TemplateSpecVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpecVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210501:TemplateSpecVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20220201:TemplateSpecVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
         }
     }
 
-    public sealed class TemplateSpecVersionArgs : Pulumi.ResourceArgs
+    public sealed class TemplateSpecVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("artifacts")]
         private InputList<Inputs.TemplateSpecTemplateArtifactArgs>? _artifacts;
@@ -178,5 +178,6 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
         public TemplateSpecVersionArgs()
         {
         }
+        public static new TemplateSpecVersionArgs Empty => new TemplateSpecVersionArgs();
     }
 }

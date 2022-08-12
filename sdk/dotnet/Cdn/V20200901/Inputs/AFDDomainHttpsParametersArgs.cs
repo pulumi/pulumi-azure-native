@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// The JSON object that contains the properties to secure a domain.
     /// </summary>
-    public sealed class AFDDomainHttpsParametersArgs : Pulumi.ResourceArgs
+    public sealed class AFDDomainHttpsParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the source of the SSL certificate.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public AFDDomainHttpsParametersArgs()
         {
         }
+        public static new AFDDomainHttpsParametersArgs Empty => new AFDDomainHttpsParametersArgs();
     }
 }

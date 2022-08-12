@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.Inputs
     /// <summary>
     /// A notification event receiver value.
     /// </summary>
-    public sealed class NotificationReceiverValueArgs : Pulumi.ResourceArgs
+    public sealed class NotificationReceiverValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The user object receiver value.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.TestBase.Inputs
         public NotificationReceiverValueArgs()
         {
         }
+        public static new NotificationReceiverValueArgs Empty => new NotificationReceiverValueArgs();
     }
 }

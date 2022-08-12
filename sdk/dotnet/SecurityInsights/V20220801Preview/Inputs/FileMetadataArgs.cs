@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
     /// <summary>
     /// Represents a file.
     /// </summary>
-    public sealed class FileMetadataArgs : Pulumi.ResourceArgs
+    public sealed class FileMetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The format of the file
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
         public FileMetadataArgs()
         {
         }
+        public static new FileMetadataArgs Empty => new FileMetadataArgs();
     }
 }

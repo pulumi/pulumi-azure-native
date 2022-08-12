@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20180401.Inputs
     /// <summary>
     /// A container instance.
     /// </summary>
-    public sealed class ContainerArgs : Pulumi.ResourceArgs
+    public sealed class ContainerArgs : global::Pulumi.ResourceArgs
     {
         [Input("command")]
         private InputList<string>? _command;
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20180401.Inputs
         public ContainerArgs()
         {
         }
+        public static new ContainerArgs Empty => new ContainerArgs();
     }
 }

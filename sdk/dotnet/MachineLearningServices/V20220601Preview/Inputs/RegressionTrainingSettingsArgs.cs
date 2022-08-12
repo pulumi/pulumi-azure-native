@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Regression Training related configuration.
     /// </summary>
-    public sealed class RegressionTrainingSettingsArgs : Pulumi.ResourceArgs
+    public sealed class RegressionTrainingSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedTrainingAlgorithms")]
         private InputList<Union<string, Pulumi.AzureNative.MachineLearningServices.V20220601Preview.RegressionModels>>? _allowedTrainingAlgorithms;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             EnableVoteEnsemble = true;
             EnsembleModelDownloadTimeout = "PT5M";
         }
+        public static new RegressionTrainingSettingsArgs Empty => new RegressionTrainingSettingsArgs();
     }
 }

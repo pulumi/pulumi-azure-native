@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20181001
     /// A common class for general resource information
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20181001:VirtualNetworkGatewayConnection")]
-    public partial class VirtualNetworkGatewayConnection : Pulumi.CustomResource
+    public partial class VirtualNetworkGatewayConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The authorizationKey.
@@ -184,46 +184,46 @@ namespace Pulumi.AzureNative.Network.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20150615:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160330:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160601:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160901:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20161201:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170601:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170801:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171101:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180101:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetworkGatewayConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20150615:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160330:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160601:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetworkGatewayConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -245,7 +245,7 @@ namespace Pulumi.AzureNative.Network.V20181001
         }
     }
 
-    public sealed class VirtualNetworkGatewayConnectionArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorizationKey.
@@ -376,5 +376,6 @@ namespace Pulumi.AzureNative.Network.V20181001
         public VirtualNetworkGatewayConnectionArgs()
         {
         }
+        public static new VirtualNetworkGatewayConnectionArgs Empty => new VirtualNetworkGatewayConnectionArgs();
     }
 }

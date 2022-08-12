@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20210701.Inputs
     /// <summary>
     /// The JIT authorization policies.
     /// </summary>
-    public sealed class JitAuthorizationPoliciesArgs : Pulumi.ResourceArgs
+    public sealed class JitAuthorizationPoliciesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The the principal id that will be granted JIT access.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Solutions.V20210701.Inputs
         public JitAuthorizationPoliciesArgs()
         {
         }
+        public static new JitAuthorizationPoliciesArgs Empty => new JitAuthorizationPoliciesArgs();
     }
 }

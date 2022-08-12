@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// <summary>
     /// Azure Active Directory Application
     /// </summary>
-    public sealed class AzureActiveDirectoryAppArgs : Pulumi.ResourceArgs
+    public sealed class AzureActiveDirectoryAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key used to authenticate to the Azure Active Directory Application
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public AzureActiveDirectoryAppArgs()
         {
         }
+        public static new AzureActiveDirectoryAppArgs Empty => new AzureActiveDirectoryAppArgs();
     }
 }

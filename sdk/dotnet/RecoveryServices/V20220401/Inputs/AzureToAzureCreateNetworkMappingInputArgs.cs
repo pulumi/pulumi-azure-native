@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
     /// <summary>
     /// Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
     /// </summary>
-    public sealed class AzureToAzureCreateNetworkMappingInputArgs : Pulumi.ResourceArgs
+    public sealed class AzureToAzureCreateNetworkMappingInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance type.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
         public AzureToAzureCreateNetworkMappingInputArgs()
         {
         }
+        public static new AzureToAzureCreateNetworkMappingInputArgs Empty => new AzureToAzureCreateNetworkMappingInputArgs();
     }
 }

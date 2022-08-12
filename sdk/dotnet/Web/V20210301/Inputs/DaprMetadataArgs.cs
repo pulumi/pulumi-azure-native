@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
     /// <summary>
     /// Container App Dapr component metadata.
     /// </summary>
-    public sealed class DaprMetadataArgs : Pulumi.ResourceArgs
+    public sealed class DaprMetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Metadata property name.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
         public DaprMetadataArgs()
         {
         }
+        public static new DaprMetadataArgs Empty => new DaprMetadataArgs();
     }
 }

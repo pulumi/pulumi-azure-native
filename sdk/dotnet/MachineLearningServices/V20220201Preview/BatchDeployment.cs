@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
 {
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220201preview:BatchDeployment")]
-    public partial class BatchDeployment : Pulumi.CustomResource
+    public partial class BatchDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -91,10 +91,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:BatchDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:BatchDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:BatchDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:BatchDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:BatchDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:BatchDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:BatchDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:BatchDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         }
     }
 
-    public sealed class BatchDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class BatchDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -187,5 +187,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
         public BatchDeploymentArgs()
         {
         }
+        public static new BatchDeploymentArgs Empty => new BatchDeploymentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
     /// An event source that receives its data from an Azure EventHub.
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20210630preview:EventHubEventSource")]
-    public partial class EventHubEventSource : Pulumi.CustomResource
+    public partial class EventHubEventSource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the event hub's consumer group that holds the partitions from which events will be read.
@@ -138,12 +138,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:EventHubEventSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:EventHubEventSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:EventHubEventSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:EventHubEventSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:EventHubEventSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         }
     }
 
-    public sealed class EventHubEventSourceArgs : Pulumi.ResourceArgs
+    public sealed class EventHubEventSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the event hub's consumer group that holds the partitions from which events will be read.
@@ -273,5 +273,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         public EventHubEventSourceArgs()
         {
         }
+        public static new EventHubEventSourceArgs Empty => new EventHubEventSourceArgs();
     }
 }

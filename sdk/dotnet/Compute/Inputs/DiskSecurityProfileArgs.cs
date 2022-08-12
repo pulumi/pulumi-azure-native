@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// <summary>
     /// Contains the security related information for the resource.
     /// </summary>
-    public sealed class DiskSecurityProfileArgs : Pulumi.ResourceArgs
+    public sealed class DiskSecurityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the SecurityType of the VM. Applicable for OS disks only.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public DiskSecurityProfileArgs()
         {
         }
+        public static new DiskSecurityProfileArgs Empty => new DiskSecurityProfileArgs();
     }
 }

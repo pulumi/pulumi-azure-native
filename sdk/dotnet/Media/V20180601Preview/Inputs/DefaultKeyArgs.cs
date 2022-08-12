@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// Class to specify properties of default content key for each encryption scheme
     /// </summary>
-    public sealed class DefaultKeyArgs : Pulumi.ResourceArgs
+    public sealed class DefaultKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Label can be used to specify Content Key when creating a Streaming Locator
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public DefaultKeyArgs()
         {
         }
+        public static new DefaultKeyArgs Empty => new DefaultKeyArgs();
     }
 }

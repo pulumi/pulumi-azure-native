@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview.Inputs
     /// <summary>
     /// Remote Private Endpoint Connection resource.
     /// </summary>
-    public sealed class RemotePrivateEndpointConnectionWrapperArgs : Pulumi.ResourceArgs
+    public sealed class RemotePrivateEndpointConnectionWrapperArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private Endpoint connection resource id
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview.Inputs
         public RemotePrivateEndpointConnectionWrapperArgs()
         {
         }
+        public static new RemotePrivateEndpointConnectionWrapperArgs Empty => new RemotePrivateEndpointConnectionWrapperArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// Reference to an Azure Arc custom location resource.
     /// </summary>
-    public sealed class AzureStackEdgeDeviceResourceIdArgs : Pulumi.ResourceArgs
+    public sealed class AzureStackEdgeDeviceResourceIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Stack Edge device resource ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         public AzureStackEdgeDeviceResourceIdArgs()
         {
         }
+        public static new AzureStackEdgeDeviceResourceIdArgs Empty => new AzureStackEdgeDeviceResourceIdArgs();
     }
 }

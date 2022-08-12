@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
     /// <summary>
     /// The quarantine policy for a container registry.
     /// </summary>
-    public sealed class QuarantinePolicyArgs : Pulumi.ResourceArgs
+    public sealed class QuarantinePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value that indicates whether the policy is enabled or not.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview.Inputs
         {
             Status = "disabled";
         }
+        public static new QuarantinePolicyArgs Empty => new QuarantinePolicyArgs();
     }
 }

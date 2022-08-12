@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301.Inputs
     /// <summary>
     /// InMageRcm fabric provider specific settings.
     /// </summary>
-    public sealed class InMageRcmFabricCreationInputArgs : Pulumi.ResourceArgs
+    public sealed class InMageRcmFabricCreationInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate to be used for AAD authentication.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301.Inputs
         public InMageRcmFabricCreationInputArgs()
         {
         }
+        public static new InMageRcmFabricCreationInputArgs Empty => new InMageRcmFabricCreationInputArgs();
     }
 }

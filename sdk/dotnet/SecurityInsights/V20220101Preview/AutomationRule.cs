@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
 {
     [AzureNativeResourceType("azure-native:securityinsights/v20220101preview:AutomationRule")]
-    public partial class AutomationRule : Pulumi.CustomResource
+    public partial class AutomationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The actions to execute when the automation rule is triggered
@@ -109,16 +109,16 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:AutomationRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AutomationRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AutomationRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AutomationRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AutomationRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AutomationRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AutomationRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AutomationRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AutomationRule"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AutomationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         }
     }
 
-    public sealed class AutomationRuleArgs : Pulumi.ResourceArgs
+    public sealed class AutomationRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Union<Inputs.AutomationRuleModifyPropertiesActionArgs, Inputs.AutomationRuleRunPlaybookActionArgs>>? _actions;
@@ -193,5 +193,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         public AutomationRuleArgs()
         {
         }
+        public static new AutomationRuleArgs Empty => new AutomationRuleArgs();
     }
 }

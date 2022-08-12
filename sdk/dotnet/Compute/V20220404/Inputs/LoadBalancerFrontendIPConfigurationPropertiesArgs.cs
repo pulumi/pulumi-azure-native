@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220404.Inputs
     /// <summary>
     /// Describes a cloud service IP Configuration
     /// </summary>
-    public sealed class LoadBalancerFrontendIPConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerFrontendIPConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The virtual network private IP address of the IP configuration.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.V20220404.Inputs
         public LoadBalancerFrontendIPConfigurationPropertiesArgs()
         {
         }
+        public static new LoadBalancerFrontendIPConfigurationPropertiesArgs Empty => new LoadBalancerFrontendIPConfigurationPropertiesArgs();
     }
 }

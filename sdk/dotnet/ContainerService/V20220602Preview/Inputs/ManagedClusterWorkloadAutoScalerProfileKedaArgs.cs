@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
     /// <summary>
     /// KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
     /// </summary>
-    public sealed class ManagedClusterWorkloadAutoScalerProfileKedaArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterWorkloadAutoScalerProfileKedaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable KEDA.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
         public ManagedClusterWorkloadAutoScalerProfileKedaArgs()
         {
         }
+        public static new ManagedClusterWorkloadAutoScalerProfileKedaArgs Empty => new ManagedClusterWorkloadAutoScalerProfileKedaArgs();
     }
 }

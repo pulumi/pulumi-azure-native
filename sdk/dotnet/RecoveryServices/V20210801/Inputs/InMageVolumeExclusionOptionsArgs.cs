@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210801.Inputs
     /// <summary>
     /// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
     /// </summary>
-    public sealed class InMageVolumeExclusionOptionsArgs : Pulumi.ResourceArgs
+    public sealed class InMageVolumeExclusionOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210801.Inputs
         public InMageVolumeExclusionOptionsArgs()
         {
         }
+        public static new InMageVolumeExclusionOptionsArgs Empty => new InMageVolumeExclusionOptionsArgs();
     }
 }

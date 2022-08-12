@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
     /// <summary>
     /// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
     /// </summary>
-    public sealed class ServiceInputOutputSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceInputOutputSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Swagger schema.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
         {
             Type = "object";
         }
+        public static new ServiceInputOutputSpecificationArgs Empty => new ServiceInputOutputSpecificationArgs();
     }
 }

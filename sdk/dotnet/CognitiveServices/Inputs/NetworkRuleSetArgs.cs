@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     /// <summary>
     /// A set of rules governing the network accessibility.
     /// </summary>
-    public sealed class NetworkRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class NetworkRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public NetworkRuleSetArgs()
         {
         }
+        public static new NetworkRuleSetArgs Empty => new NetworkRuleSetArgs();
     }
 }

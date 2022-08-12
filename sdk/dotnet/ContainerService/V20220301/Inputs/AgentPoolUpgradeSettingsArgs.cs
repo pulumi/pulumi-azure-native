@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220301.Inputs
     /// <summary>
     /// Settings for upgrading an agentpool
     /// </summary>
-    public sealed class AgentPoolUpgradeSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AgentPoolUpgradeSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220301.Inputs
         public AgentPoolUpgradeSettingsArgs()
         {
         }
+        public static new AgentPoolUpgradeSettingsArgs Empty => new AgentPoolUpgradeSettingsArgs();
     }
 }

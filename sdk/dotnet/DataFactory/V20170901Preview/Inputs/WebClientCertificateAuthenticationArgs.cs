@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
     /// </summary>
-    public sealed class WebClientCertificateAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class WebClientCertificateAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of authentication used to connect to the web table source.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public WebClientCertificateAuthenticationArgs()
         {
         }
+        public static new WebClientCertificateAuthenticationArgs Empty => new WebClientCertificateAuthenticationArgs();
     }
 }

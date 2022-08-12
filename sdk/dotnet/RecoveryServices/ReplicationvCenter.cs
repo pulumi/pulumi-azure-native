@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// API Version: 2018-07-10.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationvCenter")]
-    public partial class ReplicationvCenter : Pulumi.CustomResource
+    public partial class ReplicationvCenter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Location
@@ -65,23 +65,23 @@ namespace Pulumi.AzureNative.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationvCenter"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationvCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationvCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         }
     }
 
-    public sealed class ReplicationvCenterArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationvCenterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fabric name.
@@ -138,5 +138,6 @@ namespace Pulumi.AzureNative.RecoveryServices
         public ReplicationvCenterArgs()
         {
         }
+        public static new ReplicationvCenterArgs Empty => new ReplicationvCenterArgs();
     }
 }

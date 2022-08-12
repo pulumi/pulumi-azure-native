@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class X12ProcessingSettingsArgs : Pulumi.ResourceArgs
+    public sealed class X12ProcessingSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to convert numerical type to implied decimal.
@@ -51,5 +51,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public X12ProcessingSettingsArgs()
         {
         }
+        public static new X12ProcessingSettingsArgs Empty => new X12ProcessingSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
     /// <summary>
     /// Resource Access Rule.
     /// </summary>
-    public sealed class ResourceAccessRuleArgs : Pulumi.ResourceArgs
+    public sealed class ResourceAccessRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
         public ResourceAccessRuleArgs()
         {
         }
+        public static new ResourceAccessRuleArgs Empty => new ResourceAccessRuleArgs();
     }
 }

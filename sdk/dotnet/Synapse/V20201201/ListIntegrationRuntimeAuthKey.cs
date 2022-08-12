@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     }
 
 
-    public sealed class ListIntegrationRuntimeAuthKeyArgs : Pulumi.InvokeArgs
+    public sealed class ListIntegrationRuntimeAuthKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Integration runtime name
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public ListIntegrationRuntimeAuthKeyArgs()
         {
         }
+        public static new ListIntegrationRuntimeAuthKeyArgs Empty => new ListIntegrationRuntimeAuthKeyArgs();
     }
 
-    public sealed class ListIntegrationRuntimeAuthKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListIntegrationRuntimeAuthKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Integration runtime name
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public ListIntegrationRuntimeAuthKeyInvokeArgs()
         {
         }
+        public static new ListIntegrationRuntimeAuthKeyInvokeArgs Empty => new ListIntegrationRuntimeAuthKeyInvokeArgs();
     }
 
 

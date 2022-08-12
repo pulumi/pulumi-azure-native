@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Binary dataset.
     /// </summary>
-    public sealed class BinaryDatasetArgs : Pulumi.ResourceArgs
+    public sealed class BinaryDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public BinaryDatasetArgs()
         {
         }
+        public static new BinaryDatasetArgs Empty => new BinaryDatasetArgs();
     }
 }

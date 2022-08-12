@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
     /// <summary>
     /// AKS properties
     /// </summary>
-    public sealed class AKSPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AKSPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of agents
@@ -68,5 +68,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Inputs
             ClusterPurpose = "FastProd";
             LoadBalancerType = "PublicIp";
         }
+        public static new AKSPropertiesArgs Empty => new AKSPropertiesArgs();
     }
 }

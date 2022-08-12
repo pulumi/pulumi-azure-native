@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Solutions.V20180301
     /// </summary>
     [Obsolete(@"Version 2018-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20180301:JitRequest")]
-    public partial class JitRequest : Pulumi.CustomResource
+    public partial class JitRequest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The parent application id.
@@ -113,13 +113,13 @@ namespace Pulumi.AzureNative.Solutions.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:solutions:JitRequest"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:JitRequest"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:JitRequest"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:JitRequest"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:JitRequest"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:JitRequest"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20210701:JitRequest"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions:JitRequest"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180601:JitRequest"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:JitRequest"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:JitRequest"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:JitRequest"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:JitRequest"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:JitRequest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Solutions.V20180301
         }
     }
 
-    public sealed class JitRequestArgs : Pulumi.ResourceArgs
+    public sealed class JitRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parent application id.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.Solutions.V20180301
         public JitRequestArgs()
         {
         }
+        public static new JitRequestArgs Empty => new JitRequestArgs();
     }
 }

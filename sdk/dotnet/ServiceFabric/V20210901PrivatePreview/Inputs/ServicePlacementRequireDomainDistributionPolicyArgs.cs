@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
     /// datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
     /// policy should be set.
     /// </summary>
-    public sealed class ServicePlacementRequireDomainDistributionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ServicePlacementRequireDomainDistributionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the domain that should used for placement as per this policy.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview.Inputs
         public ServicePlacementRequireDomainDistributionPolicyArgs()
         {
         }
+        public static new ServicePlacementRequireDomainDistributionPolicyArgs Empty => new ServicePlacementRequireDomainDistributionPolicyArgs();
     }
 }

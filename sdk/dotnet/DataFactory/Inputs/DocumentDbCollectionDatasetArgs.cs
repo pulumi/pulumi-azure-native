@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Microsoft Azure Document Database Collection dataset.
     /// </summary>
-    public sealed class DocumentDbCollectionDatasetArgs : Pulumi.ResourceArgs
+    public sealed class DocumentDbCollectionDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DocumentDbCollectionDatasetArgs()
         {
         }
+        public static new DocumentDbCollectionDatasetArgs Empty => new DocumentDbCollectionDatasetArgs();
     }
 }

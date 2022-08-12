@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Linked service for Cassandra data source.
     /// </summary>
-    public sealed class CassandraLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class CassandraLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public CassandraLinkedServiceArgs()
         {
         }
+        public static new CassandraLinkedServiceArgs Empty => new CassandraLinkedServiceArgs();
     }
 }

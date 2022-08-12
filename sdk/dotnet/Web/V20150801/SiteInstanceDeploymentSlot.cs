@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteInstanceDeploymentSlot")]
-    public partial class SiteInstanceDeploymentSlot : Pulumi.CustomResource
+    public partial class SiteInstanceDeploymentSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Active
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteInstanceDeploymentSlotArgs : Pulumi.ResourceArgs
+    public sealed class SiteInstanceDeploymentSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Active
@@ -262,5 +262,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteInstanceDeploymentSlotArgs()
         {
         }
+        public static new SiteInstanceDeploymentSlotArgs Empty => new SiteInstanceDeploymentSlotArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Authorization
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:AccessReviewScheduleDefinitionById")]
-    public partial class AccessReviewScheduleDefinitionById : Pulumi.CustomResource
+    public partial class AccessReviewScheduleDefinitionById : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The role assignment state eligible/active to review
@@ -221,11 +221,11 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20211116preview:AccessReviewScheduleDefinitionById"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20211116preview:AccessReviewScheduleDefinitionById"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -247,7 +247,7 @@ namespace Pulumi.AzureNative.Authorization
         }
     }
 
-    public sealed class AccessReviewScheduleDefinitionByIdArgs : Pulumi.ResourceArgs
+    public sealed class AccessReviewScheduleDefinitionByIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
@@ -396,5 +396,6 @@ namespace Pulumi.AzureNative.Authorization
         public AccessReviewScheduleDefinitionByIdArgs()
         {
         }
+        public static new AccessReviewScheduleDefinitionByIdArgs Empty => new AccessReviewScheduleDefinitionByIdArgs();
     }
 }

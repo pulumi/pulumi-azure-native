@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
     }
 
 
-    public sealed class GetSimArgs : Pulumi.InvokeArgs
+    public sealed class GetSimArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
         public GetSimArgs()
         {
         }
+        public static new GetSimArgs Empty => new GetSimArgs();
     }
 
-    public sealed class GetSimInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSimInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220101Preview
         public GetSimInvokeArgs()
         {
         }
+        public static new GetSimInvokeArgs Empty => new GetSimInvokeArgs();
     }
 
 

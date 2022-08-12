@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
     }
 
 
-    public sealed class GetDedicatedCloudServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedCloudServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// dedicated cloud Service name
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
         public GetDedicatedCloudServiceArgs()
         {
         }
+        public static new GetDedicatedCloudServiceArgs Empty => new GetDedicatedCloudServiceArgs();
     }
 
-    public sealed class GetDedicatedCloudServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedCloudServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// dedicated cloud Service name
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
         public GetDedicatedCloudServiceInvokeArgs()
         {
         }
+        public static new GetDedicatedCloudServiceInvokeArgs Empty => new GetDedicatedCloudServiceInvokeArgs();
     }
 
 

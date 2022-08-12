@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class ListWebAppFunctionKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppFunctionKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Function name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Web
         public ListWebAppFunctionKeysArgs()
         {
         }
+        public static new ListWebAppFunctionKeysArgs Empty => new ListWebAppFunctionKeysArgs();
     }
 
-    public sealed class ListWebAppFunctionKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWebAppFunctionKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Function name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Web
         public ListWebAppFunctionKeysInvokeArgs()
         {
         }
+        public static new ListWebAppFunctionKeysInvokeArgs Empty => new ListWebAppFunctionKeysInvokeArgs();
     }
 
 

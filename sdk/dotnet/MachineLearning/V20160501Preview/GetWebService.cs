@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview
     }
 
 
-    public sealed class GetWebServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetWebServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group in which the web service is located.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview
         public GetWebServiceArgs()
         {
         }
+        public static new GetWebServiceArgs Empty => new GetWebServiceArgs();
     }
 
-    public sealed class GetWebServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group in which the web service is located.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview
         public GetWebServiceInvokeArgs()
         {
         }
+        public static new GetWebServiceInvokeArgs Empty => new GetWebServiceInvokeArgs();
     }
 
 

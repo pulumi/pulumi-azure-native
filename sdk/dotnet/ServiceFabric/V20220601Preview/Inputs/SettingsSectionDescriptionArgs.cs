@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220601Preview.Inputs
     /// <summary>
     /// Describes a section in the fabric settings of the cluster.
     /// </summary>
-    public sealed class SettingsSectionDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class SettingsSectionDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The section name of the fabric settings.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220601Preview.Inputs
         public SettingsSectionDescriptionArgs()
         {
         }
+        public static new SettingsSectionDescriptionArgs Empty => new SettingsSectionDescriptionArgs();
     }
 }

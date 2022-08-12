@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.V20190801Preview.Inputs
     /// <summary>
     /// The properties that define a BGP session.
     /// </summary>
-    public sealed class BgpSessionArgs : Pulumi.ResourceArgs
+    public sealed class BgpSessionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of prefixes advertised over the IPv4 session.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Peering.V20190801Preview.Inputs
         public BgpSessionArgs()
         {
         }
+        public static new BgpSessionArgs Empty => new BgpSessionArgs();
     }
 }

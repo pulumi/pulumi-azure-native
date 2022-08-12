@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
     /// Represents a disaster recovery configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20140401:DisasterRecoveryConfiguration")]
-    public partial class DisasterRecoveryConfiguration : Pulumi.CustomResource
+    public partial class DisasterRecoveryConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether or not failover can be done automatically.
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:DisasterRecoveryConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:DisasterRecoveryConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
         }
     }
 
-    public sealed class DisasterRecoveryConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DisasterRecoveryConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the disaster recovery configuration to be created/updated.
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public DisasterRecoveryConfigurationArgs()
         {
         }
+        public static new DisasterRecoveryConfigurationArgs Empty => new DisasterRecoveryConfigurationArgs();
     }
 }

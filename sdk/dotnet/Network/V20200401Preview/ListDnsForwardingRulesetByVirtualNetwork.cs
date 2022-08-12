@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
     }
 
 
-    public sealed class ListDnsForwardingRulesetByVirtualNetworkArgs : Pulumi.InvokeArgs
+    public sealed class ListDnsForwardingRulesetByVirtualNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         public ListDnsForwardingRulesetByVirtualNetworkArgs()
         {
         }
+        public static new ListDnsForwardingRulesetByVirtualNetworkArgs Empty => new ListDnsForwardingRulesetByVirtualNetworkArgs();
     }
 
-    public sealed class ListDnsForwardingRulesetByVirtualNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListDnsForwardingRulesetByVirtualNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         public ListDnsForwardingRulesetByVirtualNetworkInvokeArgs()
         {
         }
+        public static new ListDnsForwardingRulesetByVirtualNetworkInvokeArgs Empty => new ListDnsForwardingRulesetByVirtualNetworkInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     /// <summary>
     /// Address details for an order item.
     /// </summary>
-    public sealed class AddressDetailsArgs : Pulumi.ResourceArgs
+    public sealed class AddressDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Customer address and contact details. It should be address resource
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         public AddressDetailsArgs()
         {
         }
+        public static new AddressDetailsArgs Empty => new AddressDetailsArgs();
     }
 }

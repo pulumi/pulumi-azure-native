@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     /// <summary>
     /// Represents product details
     /// </summary>
-    public sealed class ProductDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ProductDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Hierarchy of the product which uniquely identifies the product
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         public ProductDetailsArgs()
         {
         }
+        public static new ProductDetailsArgs Empty => new ProductDetailsArgs();
     }
 }

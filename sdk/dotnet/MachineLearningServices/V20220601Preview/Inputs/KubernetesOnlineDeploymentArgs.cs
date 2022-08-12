@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Properties specific to a KubernetesOnlineDeployment.
     /// </summary>
-    public sealed class KubernetesOnlineDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesOnlineDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, enables Application Insights logging.
@@ -132,5 +132,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             AppInsightsEnabled = false;
             EgressPublicNetworkAccess = "Enabled";
         }
+        public static new KubernetesOnlineDeploymentArgs Empty => new KubernetesOnlineDeploymentArgs();
     }
 }

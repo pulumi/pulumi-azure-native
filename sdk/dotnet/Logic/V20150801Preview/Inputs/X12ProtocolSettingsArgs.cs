@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class X12ProtocolSettingsArgs : Pulumi.ResourceArgs
+    public sealed class X12ProtocolSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The X12 acknowledgment settings.
@@ -117,5 +117,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public X12ProtocolSettingsArgs()
         {
         }
+        public static new X12ProtocolSettingsArgs Empty => new X12ProtocolSettingsArgs();
     }
 }

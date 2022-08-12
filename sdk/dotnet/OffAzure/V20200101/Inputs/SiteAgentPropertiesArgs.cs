@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200101.Inputs
     /// <summary>
     /// Class for site agent properties.
     /// </summary>
-    public sealed class SiteAgentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SiteAgentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key vault ARM Id.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.OffAzure.V20200101.Inputs
         public SiteAgentPropertiesArgs()
         {
         }
+        public static new SiteAgentPropertiesArgs Empty => new SiteAgentPropertiesArgs();
     }
 }

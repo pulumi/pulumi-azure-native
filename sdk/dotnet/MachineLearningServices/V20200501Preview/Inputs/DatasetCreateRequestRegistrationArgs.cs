@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
 {
 
-    public sealed class DatasetCreateRequestRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class DatasetCreateRequestRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description for the dataset.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
         public DatasetCreateRequestRegistrationArgs()
         {
         }
+        public static new DatasetCreateRequestRegistrationArgs Empty => new DatasetCreateRequestRegistrationArgs();
     }
 }

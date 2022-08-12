@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The X12 agreement acknowledgement settings.
     /// </summary>
-    public sealed class X12AcknowledgementSettingsArgs : Pulumi.ResourceArgs
+    public sealed class X12AcknowledgementSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The acknowledgement control number lower bound.
@@ -108,5 +108,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public X12AcknowledgementSettingsArgs()
         {
         }
+        public static new X12AcknowledgementSettingsArgs Empty => new X12AcknowledgementSettingsArgs();
     }
 }

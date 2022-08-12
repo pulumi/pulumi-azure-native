@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// Friendly Secret name mapping to the any Secret or secret related information.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20210601:Secret")]
-    public partial class Secret : Pulumi.CustomResource
+    public partial class Secret : global::Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
@@ -79,8 +79,8 @@ namespace Pulumi.AzureNative.Cdn.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cdn:Secret"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Secret"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         }
     }
 
-    public sealed class SecretArgs : Pulumi.ResourceArgs
+    public sealed class SecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// object which contains secret parameters
@@ -131,5 +131,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public SecretArgs()
         {
         }
+        public static new SecretArgs Empty => new SecretArgs();
     }
 }

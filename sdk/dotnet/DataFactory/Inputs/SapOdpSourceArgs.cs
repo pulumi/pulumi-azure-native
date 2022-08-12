@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity source for SAP ODP source.
     /// </summary>
-    public sealed class SapOdpSourceArgs : Pulumi.ResourceArgs
+    public sealed class SapOdpSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapOdpSourceArgs()
         {
         }
+        public static new SapOdpSourceArgs Empty => new SapOdpSourceArgs();
     }
 }

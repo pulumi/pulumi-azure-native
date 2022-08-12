@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
     /// <summary>
     /// Describe the owner source of governance rule
     /// </summary>
-    public sealed class GovernanceRuleOwnerSourceArgs : Pulumi.ResourceArgs
+    public sealed class GovernanceRuleOwnerSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The owner type for the governance rule owner source
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
         public GovernanceRuleOwnerSourceArgs()
         {
         }
+        public static new GovernanceRuleOwnerSourceArgs Empty => new GovernanceRuleOwnerSourceArgs();
     }
 }

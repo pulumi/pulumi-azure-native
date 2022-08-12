@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     }
 
 
-    public sealed class GetBlobContainerDataSetArgs : Pulumi.InvokeArgs
+    public sealed class GetBlobContainerDataSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public GetBlobContainerDataSetArgs()
         {
         }
+        public static new GetBlobContainerDataSetArgs Empty => new GetBlobContainerDataSetArgs();
     }
 
-    public sealed class GetBlobContainerDataSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBlobContainerDataSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public GetBlobContainerDataSetInvokeArgs()
         {
         }
+        public static new GetBlobContainerDataSetInvokeArgs Empty => new GetBlobContainerDataSetInvokeArgs();
     }
 
 

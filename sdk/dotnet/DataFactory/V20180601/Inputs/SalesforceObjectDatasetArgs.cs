@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The Salesforce object dataset.
     /// </summary>
-    public sealed class SalesforceObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SalesforceObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SalesforceObjectDatasetArgs()
         {
         }
+        public static new SalesforceObjectDatasetArgs Empty => new SalesforceObjectDatasetArgs();
     }
 }

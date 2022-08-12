@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.V20210601.Inputs
     /// <summary>
     /// The sub resource.
     /// </summary>
-    public sealed class SubResourceArgs : Pulumi.ResourceArgs
+    public sealed class SubResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the referenced resource.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Peering.V20210601.Inputs
         public SubResourceArgs()
         {
         }
+        public static new SubResourceArgs Empty => new SubResourceArgs();
     }
 }

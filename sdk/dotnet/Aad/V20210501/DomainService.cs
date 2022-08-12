@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20210501
     /// Domain service.
     /// </summary>
     [AzureNativeResourceType("azure-native:aad/v20210501:DomainService")]
-    public partial class DomainService : Pulumi.CustomResource
+    public partial class DomainService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration diagnostics data containing latest execution from client.
@@ -172,11 +172,11 @@ namespace Pulumi.AzureNative.Aad.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:aad:DomainService"},
-                    new Pulumi.Alias { Type = "azure-native:aad/v20170101:DomainService"},
-                    new Pulumi.Alias { Type = "azure-native:aad/v20170601:DomainService"},
-                    new Pulumi.Alias { Type = "azure-native:aad/v20200101:DomainService"},
-                    new Pulumi.Alias { Type = "azure-native:aad/v20210301:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20170101:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20170601:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20200101:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20210301:DomainService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNative.Aad.V20210501
         }
     }
 
-    public sealed class DomainServiceArgs : Pulumi.ResourceArgs
+    public sealed class DomainServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration diagnostics data containing latest execution from client.
@@ -299,5 +299,6 @@ namespace Pulumi.AzureNative.Aad.V20210501
         public DomainServiceArgs()
         {
         }
+        public static new DomainServiceArgs Empty => new DomainServiceArgs();
     }
 }

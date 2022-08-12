@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// The specification of data sources. 
     /// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
     /// </summary>
-    public sealed class DataCollectionRuleDataSourcesArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleDataSourcesArgs : global::Pulumi.ResourceArgs
     {
         [Input("extensions")]
         private InputList<Inputs.ExtensionDataSourceArgs>? _extensions;
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public DataCollectionRuleDataSourcesArgs()
         {
         }
+        public static new DataCollectionRuleDataSourcesArgs Empty => new DataCollectionRuleDataSourcesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview.Inputs
     /// <summary>
     /// Describe the authentication properties needed to successfully authenticate with the server
     /// </summary>
-    public sealed class CodelessConnectorPollingAuthPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CodelessConnectorPollingAuthPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A prefix send in the header before the actual token
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview.Inputs
         public CodelessConnectorPollingAuthPropertiesArgs()
         {
         }
+        public static new CodelessConnectorPollingAuthPropertiesArgs Empty => new CodelessConnectorPollingAuthPropertiesArgs();
     }
 }

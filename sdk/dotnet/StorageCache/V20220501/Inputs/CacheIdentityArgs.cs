@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20220501.Inputs
     /// <summary>
     /// Cache identity properties.
     /// </summary>
-    public sealed class CacheIdentityArgs : Pulumi.ResourceArgs
+    public sealed class CacheIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the cache
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.StorageCache.V20220501.Inputs
         public CacheIdentityArgs()
         {
         }
+        public static new CacheIdentityArgs Empty => new CacheIdentityArgs();
     }
 }

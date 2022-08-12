@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     /// Channel info.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20220615:Channel")]
-    public partial class Channel : Pulumi.CustomResource
+    public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The type of the event channel which represents the direction flow of events.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid:Channel"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:Channel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         }
     }
 
-    public sealed class ChannelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the channel.
@@ -178,5 +178,6 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         public ChannelArgs()
         {
         }
+        public static new ChannelArgs Empty => new ChannelArgs();
     }
 }

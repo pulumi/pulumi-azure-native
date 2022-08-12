@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
     /// <summary>
     /// Custom container user source info
     /// </summary>
-    public sealed class CustomContainerUserSourceInfoArgs : Pulumi.ResourceArgs
+    public sealed class CustomContainerUserSourceInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom container payload
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
         public CustomContainerUserSourceInfoArgs()
         {
         }
+        public static new CustomContainerUserSourceInfoArgs Empty => new CustomContainerUserSourceInfoArgs();
     }
 }

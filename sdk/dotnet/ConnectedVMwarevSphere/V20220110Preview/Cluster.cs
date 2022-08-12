@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     /// Define the cluster.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20220110preview:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the cluster.
@@ -230,5 +230,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

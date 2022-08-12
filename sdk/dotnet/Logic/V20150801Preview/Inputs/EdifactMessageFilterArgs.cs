@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class EdifactMessageFilterArgs : Pulumi.ResourceArgs
+    public sealed class EdifactMessageFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message filter type.
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public EdifactMessageFilterArgs()
         {
         }
+        public static new EdifactMessageFilterArgs Empty => new EdifactMessageFilterArgs();
     }
 }

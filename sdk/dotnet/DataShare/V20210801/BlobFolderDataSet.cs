@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     /// An Azure storage blob folder data set.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20210801:BlobFolderDataSet")]
-    public partial class BlobFolderDataSet : Pulumi.CustomResource
+    public partial class BlobFolderDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Container that has the file path.
@@ -108,11 +108,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare:BlobFolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobFolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobFolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobFolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobFolderDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobFolderDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobFolderDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobFolderDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobFolderDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobFolderDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         }
     }
 
-    public sealed class BlobFolderDataSetArgs : Pulumi.ResourceArgs
+    public sealed class BlobFolderDataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public BlobFolderDataSetArgs()
         {
         }
+        public static new BlobFolderDataSetArgs Empty => new BlobFolderDataSetArgs();
     }
 }

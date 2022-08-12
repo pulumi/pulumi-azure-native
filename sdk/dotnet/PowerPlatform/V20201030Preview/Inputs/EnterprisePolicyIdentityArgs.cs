@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Inputs
     /// <summary>
     /// The identity of the EnterprisePolicy.
     /// </summary>
-    public sealed class EnterprisePolicyIdentityArgs : Pulumi.ResourceArgs
+    public sealed class EnterprisePolicyIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Inputs
         public EnterprisePolicyIdentityArgs()
         {
         }
+        public static new EnterprisePolicyIdentityArgs Empty => new EnterprisePolicyIdentityArgs();
     }
 }

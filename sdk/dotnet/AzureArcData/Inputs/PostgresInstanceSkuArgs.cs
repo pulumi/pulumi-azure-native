@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
     /// <summary>
     /// The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
     /// </summary>
-    public sealed class PostgresInstanceSkuArgs : Pulumi.ResourceArgs
+    public sealed class PostgresInstanceSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -56,5 +56,6 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
             Dev = true;
             Tier = Pulumi.AzureNative.AzureArcData.PostgresInstanceSkuTier.Hyperscale;
         }
+        public static new PostgresInstanceSkuArgs Empty => new PostgresInstanceSkuArgs();
     }
 }

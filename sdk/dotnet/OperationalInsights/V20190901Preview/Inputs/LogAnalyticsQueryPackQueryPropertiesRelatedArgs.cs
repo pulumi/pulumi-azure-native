@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview.Inputs
     /// <summary>
     /// The related metadata items for the function.
     /// </summary>
-    public sealed class LogAnalyticsQueryPackQueryPropertiesRelatedArgs : Pulumi.ResourceArgs
+    public sealed class LogAnalyticsQueryPackQueryPropertiesRelatedArgs : global::Pulumi.ResourceArgs
     {
         [Input("categories")]
         private InputList<string>? _categories;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview.Inputs
         public LogAnalyticsQueryPackQueryPropertiesRelatedArgs()
         {
         }
+        public static new LogAnalyticsQueryPackQueryPropertiesRelatedArgs Empty => new LogAnalyticsQueryPackQueryPropertiesRelatedArgs();
     }
 }

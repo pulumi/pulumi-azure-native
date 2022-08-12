@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevSpaces.V20190401
 {
     [AzureNativeResourceType("azure-native:devspaces/v20190401:Controller")]
-    public partial class Controller : Pulumi.CustomResource
+    public partial class Controller : global::Pulumi.CustomResource
     {
         /// <summary>
         /// DNS name for accessing DataPlane services
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devspaces:Controller"},
+                    new global::Pulumi.Alias { Type = "azure-native:devspaces:Controller"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
         }
     }
 
-    public sealed class ControllerArgs : Pulumi.ResourceArgs
+    public sealed class ControllerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Region where the Azure resource is located.
@@ -172,5 +172,6 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
         public ControllerArgs()
         {
         }
+        public static new ControllerArgs Empty => new ControllerArgs();
     }
 }

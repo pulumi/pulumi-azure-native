@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     /// </summary>
     [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20160515:ServiceRunner")]
-    public partial class ServiceRunner : Pulumi.CustomResource
+    public partial class ServiceRunner : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab:ServiceRunner"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ServiceRunner"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:ServiceRunner"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ServiceRunner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         }
     }
 
-    public sealed class ServiceRunnerArgs : Pulumi.ResourceArgs
+    public sealed class ServiceRunnerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity of the resource.
@@ -141,5 +141,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public ServiceRunnerArgs()
         {
         }
+        public static new ServiceRunnerArgs Empty => new ServiceRunnerArgs();
     }
 }

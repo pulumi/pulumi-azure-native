@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220501.Inputs
     /// <summary>
     /// Enable migration input properties.
     /// </summary>
-    public sealed class EnableMigrationInputPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class EnableMigrationInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy Id.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220501.Inputs
         public EnableMigrationInputPropertiesArgs()
         {
         }
+        public static new EnableMigrationInputPropertiesArgs Empty => new EnableMigrationInputPropertiesArgs();
     }
 }

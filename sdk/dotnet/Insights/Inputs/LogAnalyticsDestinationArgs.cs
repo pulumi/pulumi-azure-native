@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Log Analytics destination.
     /// </summary>
-    public sealed class LogAnalyticsDestinationArgs : Pulumi.ResourceArgs
+    public sealed class LogAnalyticsDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A friendly name for the destination. 
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public LogAnalyticsDestinationArgs()
         {
         }
+        public static new LogAnalyticsDestinationArgs Empty => new LogAnalyticsDestinationArgs();
     }
 }

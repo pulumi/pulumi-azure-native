@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
     /// <summary>
     /// Describes a virtual machine scale set network profile's network configurations.
     /// </summary>
-    public sealed class VirtualMachineScaleSetNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dns settings to be applied on the network interfaces.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Compute.V20200601.Inputs
         public VirtualMachineScaleSetNetworkConfigurationArgs()
         {
         }
+        public static new VirtualMachineScaleSetNetworkConfigurationArgs Empty => new VirtualMachineScaleSetNetworkConfigurationArgs();
     }
 }

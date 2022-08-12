@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
     /// <summary>
     /// Datasource to be backed up
     /// </summary>
-    public sealed class DatasourceArgs : Pulumi.ResourceArgs
+    public sealed class DatasourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DatasourceType of the resource.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.DataProtection.V20211001Preview.Inputs
         public DatasourceArgs()
         {
         }
+        public static new DatasourceArgs Empty => new DatasourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The Tar compression read settings.
     /// </summary>
-    public sealed class TarReadSettingsArgs : Pulumi.ResourceArgs
+    public sealed class TarReadSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Preserve the compression file name as folder path. Type: boolean (or Expression with resultType boolean).
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public TarReadSettingsArgs()
         {
         }
+        public static new TarReadSettingsArgs Empty => new TarReadSettingsArgs();
     }
 }

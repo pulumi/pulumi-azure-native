@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The Microsoft Defender for Endpoint autoprovisioning configuration
     /// </summary>
-    public sealed class DefenderForServersGcpOfferingMdeAutoProvisioningArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForServersGcpOfferingMdeAutoProvisioningArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// configuration for Microsoft Defender for Endpoint autoprovisioning
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForServersGcpOfferingMdeAutoProvisioningArgs()
         {
         }
+        public static new DefenderForServersGcpOfferingMdeAutoProvisioningArgs Empty => new DefenderForServersGcpOfferingMdeAutoProvisioningArgs();
     }
 }

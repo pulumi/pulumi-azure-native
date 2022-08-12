@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     }
 
 
-    public sealed class GetManagerArgs : Pulumi.InvokeArgs
+    public sealed class GetManagerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetManagerArgs()
         {
         }
+        public static new GetManagerArgs Empty => new GetManagerArgs();
     }
 
-    public sealed class GetManagerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The manager name
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public GetManagerInvokeArgs()
         {
         }
+        public static new GetManagerInvokeArgs Empty => new GetManagerInvokeArgs();
     }
 
 

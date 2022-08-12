@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Inputs
     /// Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
     /// Collected from either Windows and Linux machines, depending on which extension is defined.
     /// </summary>
-    public sealed class ExtensionDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class ExtensionDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the VM extension.
@@ -63,5 +63,6 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Inputs
         public ExtensionDataSourceArgs()
         {
         }
+        public static new ExtensionDataSourceArgs Empty => new ExtensionDataSourceArgs();
     }
 }

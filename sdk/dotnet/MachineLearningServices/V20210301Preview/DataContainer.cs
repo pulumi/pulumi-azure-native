@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:DataContainer")]
-    public partial class DataContainer : Pulumi.CustomResource
+    public partial class DataContainer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:DataContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:DataContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:DataContainer"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:DataContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:DataContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:DataContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:DataContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:DataContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         }
     }
 
-    public sealed class DataContainerArgs : Pulumi.ResourceArgs
+    public sealed class DataContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container name.
@@ -118,5 +118,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public DataContainerArgs()
         {
         }
+        public static new DataContainerArgs Empty => new DataContainerArgs();
     }
 }

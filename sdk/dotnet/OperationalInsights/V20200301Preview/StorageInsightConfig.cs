@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     /// The top level storage insight resource container.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:StorageInsightConfig")]
-    public partial class StorageInsightConfig : Pulumi.CustomResource
+    public partial class StorageInsightConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The names of the blob containers that the workspace should read
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights:StorageInsightConfig"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:StorageInsightConfig"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:StorageInsightConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:StorageInsightConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:StorageInsightConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:StorageInsightConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         }
     }
 
-    public sealed class StorageInsightConfigArgs : Pulumi.ResourceArgs
+    public sealed class StorageInsightConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("containers")]
         private InputList<string>? _containers;
@@ -183,5 +183,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public StorageInsightConfigArgs()
         {
         }
+        public static new StorageInsightConfigArgs Empty => new StorageInsightConfigArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// Reference to an Azure Arc custom location resource.
     /// </summary>
-    public sealed class CustomLocationResourceIdArgs : Pulumi.ResourceArgs
+    public sealed class CustomLocationResourceIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Arc custom location resource ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         public CustomLocationResourceIdArgs()
         {
         }
+        public static new CustomLocationResourceIdArgs Empty => new CustomLocationResourceIdArgs();
     }
 }

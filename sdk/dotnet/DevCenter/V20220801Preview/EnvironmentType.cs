@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// Represents an environment type.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:EnvironmentType")]
-    public partial class EnvironmentType : Pulumi.CustomResource
+    public partial class EnvironmentType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class EnvironmentTypeArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the devcenter.
@@ -123,5 +123,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public EnvironmentTypeArgs()
         {
         }
+        public static new EnvironmentTypeArgs Empty => new EnvironmentTypeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701.Inputs
     /// <summary>
     /// Additional information of the container.
     /// </summary>
-    public sealed class MabContainerExtendedInfoArgs : Pulumi.ResourceArgs
+    public sealed class MabContainerExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup items associated with this container.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701.Inputs
         public MabContainerExtendedInfoArgs()
         {
         }
+        public static new MabContainerExtendedInfoArgs Empty => new MabContainerExtendedInfoArgs();
     }
 }

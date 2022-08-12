@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Inputs
     /// <summary>
     /// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
     /// </summary>
-    public sealed class SqlFilterArgs : Pulumi.ResourceArgs
+    public sealed class SqlFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Inputs
             CompatibilityLevel = 20;
             RequiresPreprocessing = true;
         }
+        public static new SqlFilterArgs Empty => new SqlFilterArgs();
     }
 }

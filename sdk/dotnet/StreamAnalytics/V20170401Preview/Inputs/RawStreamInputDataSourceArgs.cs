@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
     /// </summary>
-    public sealed class RawStreamInputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class RawStreamInputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public RawStreamInputDataSourceArgs()
         {
         }
+        public static new RawStreamInputDataSourceArgs Empty => new RawStreamInputDataSourceArgs();
     }
 }

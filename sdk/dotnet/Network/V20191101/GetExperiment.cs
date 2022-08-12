@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20191101
     }
 
 
-    public sealed class GetExperimentArgs : Pulumi.InvokeArgs
+    public sealed class GetExperimentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Experiment identifier associated with the Experiment
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20191101
         public GetExperimentArgs()
         {
         }
+        public static new GetExperimentArgs Empty => new GetExperimentArgs();
     }
 
-    public sealed class GetExperimentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExperimentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Experiment identifier associated with the Experiment
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20191101
         public GetExperimentInvokeArgs()
         {
         }
+        public static new GetExperimentInvokeArgs Empty => new GetExperimentInvokeArgs();
     }
 
 

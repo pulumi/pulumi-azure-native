@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Json dataset.
     /// </summary>
-    public sealed class JsonDatasetArgs : Pulumi.ResourceArgs
+    public sealed class JsonDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public JsonDatasetArgs()
         {
         }
+        public static new JsonDatasetArgs Empty => new JsonDatasetArgs();
     }
 }

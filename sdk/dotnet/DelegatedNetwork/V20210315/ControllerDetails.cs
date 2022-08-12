@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
     /// Represents an instance of a DNC controller.
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork/v20210315:ControllerDetails")]
-    public partial class ControllerDetails : Pulumi.CustomResource
+    public partial class ControllerDetails : global::Pulumi.CustomResource
     {
         /// <summary>
         /// dnc application id should be used by customer to authenticate with dnc gateway.
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:delegatednetwork:ControllerDetails"},
-                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:ControllerDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork:ControllerDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:ControllerDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         }
     }
 
-    public sealed class ControllerDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ControllerDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the resource.
@@ -152,5 +152,6 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         public ControllerDetailsArgs()
         {
         }
+        public static new ControllerDetailsArgs Empty => new ControllerDetailsArgs();
     }
 }

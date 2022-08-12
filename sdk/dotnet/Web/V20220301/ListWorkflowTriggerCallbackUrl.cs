@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     }
 
 
-    public sealed class ListWorkflowTriggerCallbackUrlArgs : Pulumi.InvokeArgs
+    public sealed class ListWorkflowTriggerCallbackUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Site name.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Web.V20220301
         public ListWorkflowTriggerCallbackUrlArgs()
         {
         }
+        public static new ListWorkflowTriggerCallbackUrlArgs Empty => new ListWorkflowTriggerCallbackUrlArgs();
     }
 
-    public sealed class ListWorkflowTriggerCallbackUrlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWorkflowTriggerCallbackUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Site name.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         public ListWorkflowTriggerCallbackUrlInvokeArgs()
         {
         }
+        public static new ListWorkflowTriggerCallbackUrlInvokeArgs Empty => new ListWorkflowTriggerCallbackUrlInvokeArgs();
     }
 
 

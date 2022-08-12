@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// For more information on the available settings please visit the official documentation:
     /// https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
     /// </summary>
-    public sealed class ImageModelSettingsClassificationArgs : Pulumi.ResourceArgs
+    public sealed class ImageModelSettingsClassificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Settings for advanced scenarios.
@@ -248,5 +248,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             LearningRateScheduler = "None";
             Optimizer = "None";
         }
+        public static new ImageModelSettingsClassificationArgs Empty => new ImageModelSettingsClassificationArgs();
     }
 }

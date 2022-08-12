@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
     /// <summary>
     /// Defines the URL path condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleUrlPathConditionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleUrlPathConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
         public DeliveryRuleUrlPathConditionArgs()
         {
         }
+        public static new DeliveryRuleUrlPathConditionArgs Empty => new DeliveryRuleUrlPathConditionArgs();
     }
 }

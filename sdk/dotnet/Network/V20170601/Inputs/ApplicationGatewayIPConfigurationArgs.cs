@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20170601.Inputs
     /// <summary>
     /// IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
     /// </summary>
-    public sealed class ApplicationGatewayIPConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayIPConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20170601.Inputs
         public ApplicationGatewayIPConfigurationArgs()
         {
         }
+        public static new ApplicationGatewayIPConfigurationArgs Empty => new ApplicationGatewayIPConfigurationArgs();
     }
 }

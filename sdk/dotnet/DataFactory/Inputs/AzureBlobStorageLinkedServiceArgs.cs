@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The azure blob storage linked service.
     /// </summary>
-    public sealed class AzureBlobStorageLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureBlobStorageLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure key vault secret reference of accountKey in connection string.
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureBlobStorageLinkedServiceArgs()
         {
         }
+        public static new AzureBlobStorageLinkedServiceArgs Empty => new AzureBlobStorageLinkedServiceArgs();
     }
 }

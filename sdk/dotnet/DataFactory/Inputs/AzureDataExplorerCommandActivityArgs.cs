@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure Data Explorer command activity.
     /// </summary>
-    public sealed class AzureDataExplorerCommandActivityArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataExplorerCommandActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A control command, according to the Azure Data Explorer command syntax. Type: string (or Expression with resultType string).
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureDataExplorerCommandActivityArgs()
         {
         }
+        public static new AzureDataExplorerCommandActivityArgs Empty => new AzureDataExplorerCommandActivityArgs();
     }
 }

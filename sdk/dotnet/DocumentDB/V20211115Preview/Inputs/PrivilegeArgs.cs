@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
     /// <summary>
     /// The set of data plane operations permitted through this Role Definition.
     /// </summary>
-    public sealed class PrivilegeArgs : Pulumi.ResourceArgs
+    public sealed class PrivilegeArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<string>? _actions;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
         public PrivilegeArgs()
         {
         }
+        public static new PrivilegeArgs Empty => new PrivilegeArgs();
     }
 }

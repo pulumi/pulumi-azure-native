@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     }
 
 
-    public sealed class GetPrivateEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetPrivateEndpointArgs()
         {
         }
+        public static new GetPrivateEndpointArgs Empty => new GetPrivateEndpointArgs();
     }
 
-    public sealed class GetPrivateEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Expands referenced resources.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         public GetPrivateEndpointInvokeArgs()
         {
         }
+        public static new GetPrivateEndpointInvokeArgs Empty => new GetPrivateEndpointInvokeArgs();
     }
 
 

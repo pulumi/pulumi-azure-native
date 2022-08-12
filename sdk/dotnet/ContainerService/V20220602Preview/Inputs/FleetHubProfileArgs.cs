@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
     /// <summary>
     /// The FleetHubProfile configures the fleet hub.
     /// </summary>
-    public sealed class FleetHubProfileArgs : Pulumi.ResourceArgs
+    public sealed class FleetHubProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DNS prefix used to create the FQDN for the Fleet hub.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
         public FleetHubProfileArgs()
         {
         }
+        public static new FleetHubProfileArgs Empty => new FleetHubProfileArgs();
     }
 }

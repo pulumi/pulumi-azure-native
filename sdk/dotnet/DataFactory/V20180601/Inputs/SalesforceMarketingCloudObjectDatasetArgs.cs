@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Salesforce Marketing Cloud dataset.
     /// </summary>
-    public sealed class SalesforceMarketingCloudObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SalesforceMarketingCloudObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SalesforceMarketingCloudObjectDatasetArgs()
         {
         }
+        public static new SalesforceMarketingCloudObjectDatasetArgs Empty => new SalesforceMarketingCloudObjectDatasetArgs();
     }
 }

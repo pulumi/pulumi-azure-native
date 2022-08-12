@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20171201Preview.Inputs
     /// <summary>
     /// The properties of the volume mount.
     /// </summary>
-    public sealed class VolumeMountArgs : Pulumi.ResourceArgs
+    public sealed class VolumeMountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path within the container where the volume should be mounted. Must not contain colon (:).
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20171201Preview.Inputs
         public VolumeMountArgs()
         {
         }
+        public static new VolumeMountArgs Empty => new VolumeMountArgs();
     }
 }

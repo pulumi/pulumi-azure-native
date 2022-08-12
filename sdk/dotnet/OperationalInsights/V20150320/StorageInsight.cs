@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
     /// </summary>
     [Obsolete(@"Version 2015-03-20 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20150320:StorageInsight")]
-    public partial class StorageInsight : Pulumi.CustomResource
+    public partial class StorageInsight : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The names of the blob containers that the workspace should read
@@ -89,9 +89,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights:StorageInsight"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:StorageInsight"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:StorageInsight"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:StorageInsight"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:StorageInsight"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:StorageInsight"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         }
     }
 
-    public sealed class StorageInsightArgs : Pulumi.ResourceArgs
+    public sealed class StorageInsightArgs : global::Pulumi.ResourceArgs
     {
         [Input("containers")]
         private InputList<string>? _containers;
@@ -184,5 +184,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         public StorageInsightArgs()
         {
         }
+        public static new StorageInsightArgs Empty => new StorageInsightArgs();
     }
 }

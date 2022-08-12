@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox.V20210301.Inputs
     /// <summary>
     /// Databox Heavy Device Job Details
     /// </summary>
-    public sealed class DataBoxHeavyJobDetailsArgs : Pulumi.ResourceArgs
+    public sealed class DataBoxHeavyJobDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contact details for notification and shipping.
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataBox.V20210301.Inputs
         public DataBoxHeavyJobDetailsArgs()
         {
         }
+        public static new DataBoxHeavyJobDetailsArgs Empty => new DataBoxHeavyJobDetailsArgs();
     }
 }

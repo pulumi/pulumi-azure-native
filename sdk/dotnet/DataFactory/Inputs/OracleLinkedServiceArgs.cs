@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Oracle database.
     /// </summary>
-    public sealed class OracleLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class OracleLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public OracleLinkedServiceArgs()
         {
         }
+        public static new OracleLinkedServiceArgs Empty => new OracleLinkedServiceArgs();
     }
 }

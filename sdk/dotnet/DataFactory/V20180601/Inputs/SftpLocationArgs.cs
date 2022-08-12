@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The location of SFTP dataset.
     /// </summary>
-    public sealed class SftpLocationArgs : Pulumi.ResourceArgs
+    public sealed class SftpLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SftpLocationArgs()
         {
         }
+        public static new SftpLocationArgs Empty => new SftpLocationArgs();
     }
 }

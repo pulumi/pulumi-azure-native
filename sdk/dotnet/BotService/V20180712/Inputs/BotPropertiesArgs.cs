@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20180712.Inputs
     /// <summary>
     /// The parameters to provide for the Bot.
     /// </summary>
-    public sealed class BotPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class BotPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the bot
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.BotService.V20180712.Inputs
         public BotPropertiesArgs()
         {
         }
+        public static new BotPropertiesArgs Empty => new BotPropertiesArgs();
     }
 }

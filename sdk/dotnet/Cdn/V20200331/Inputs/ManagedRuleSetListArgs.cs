@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
     /// <summary>
     /// Defines the list of managed rule sets for the policy.
     /// </summary>
-    public sealed class ManagedRuleSetListArgs : Pulumi.ResourceArgs
+    public sealed class ManagedRuleSetListArgs : global::Pulumi.ResourceArgs
     {
         [Input("managedRuleSets")]
         private InputList<Inputs.ManagedRuleSetArgs>? _managedRuleSets;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
         public ManagedRuleSetListArgs()
         {
         }
+        public static new ManagedRuleSetListArgs Empty => new ManagedRuleSetListArgs();
     }
 }

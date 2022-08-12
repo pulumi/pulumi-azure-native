@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic.V20200701
     /// Monitor resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic/v20200701:Monitor")]
-    public partial class Monitor : Pulumi.CustomResource
+    public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identity properties of the monitor resource.
@@ -88,10 +88,10 @@ namespace Pulumi.AzureNative.Elastic.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:elastic:Monitor"},
-                    new Pulumi.Alias { Type = "azure-native:elastic/v20200701preview:Monitor"},
-                    new Pulumi.Alias { Type = "azure-native:elastic/v20210901preview:Monitor"},
-                    new Pulumi.Alias { Type = "azure-native:elastic/v20211001preview:Monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:elastic:Monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20200701preview:Monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20210901preview:Monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20211001preview:Monitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.Elastic.V20200701
         }
     }
 
-    public sealed class MonitorArgs : Pulumi.ResourceArgs
+    public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity properties of the monitor resource.
@@ -166,5 +166,6 @@ namespace Pulumi.AzureNative.Elastic.V20200701
         public MonitorArgs()
         {
         }
+        public static new MonitorArgs Empty => new MonitorArgs();
     }
 }

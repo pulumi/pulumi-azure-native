@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     /// <summary>
     /// A grouping of information about the connection to the remote resource.
     /// </summary>
-    public sealed class PrivateLinkServiceConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceConnectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         public PrivateLinkServiceConnectionArgs()
         {
         }
+        public static new PrivateLinkServiceConnectionArgs Empty => new PrivateLinkServiceConnectionArgs();
     }
 }

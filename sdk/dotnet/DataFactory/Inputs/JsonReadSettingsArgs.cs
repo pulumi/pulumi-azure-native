@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Json read settings.
     /// </summary>
-    public sealed class JsonReadSettingsArgs : Pulumi.ResourceArgs
+    public sealed class JsonReadSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compression settings.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public JsonReadSettingsArgs()
         {
         }
+        public static new JsonReadSettingsArgs Empty => new JsonReadSettingsArgs();
     }
 }

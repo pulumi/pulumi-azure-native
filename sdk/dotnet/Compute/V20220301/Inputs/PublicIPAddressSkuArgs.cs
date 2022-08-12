@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Describes the public IP Sku. It can only be set with OrchestrationMode as Flexible.
     /// </summary>
-    public sealed class PublicIPAddressSkuArgs : Pulumi.ResourceArgs
+    public sealed class PublicIPAddressSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify public IP sku name
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public PublicIPAddressSkuArgs()
         {
         }
+        public static new PublicIPAddressSkuArgs Empty => new PublicIPAddressSkuArgs();
     }
 }

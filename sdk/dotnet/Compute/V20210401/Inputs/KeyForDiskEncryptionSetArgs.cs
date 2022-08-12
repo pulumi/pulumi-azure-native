@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
     /// <summary>
     /// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
     /// </summary>
-    public sealed class KeyForDiskEncryptionSetArgs : Pulumi.ResourceArgs
+    public sealed class KeyForDiskEncryptionSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20210401.Inputs
         public KeyForDiskEncryptionSetArgs()
         {
         }
+        public static new KeyForDiskEncryptionSetArgs Empty => new KeyForDiskEncryptionSetArgs();
     }
 }

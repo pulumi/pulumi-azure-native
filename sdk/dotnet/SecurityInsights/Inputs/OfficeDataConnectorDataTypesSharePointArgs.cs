@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
     /// <summary>
     /// SharePoint data type connection.
     /// </summary>
-    public sealed class OfficeDataConnectorDataTypesSharePointArgs : Pulumi.ResourceArgs
+    public sealed class OfficeDataConnectorDataTypesSharePointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         public OfficeDataConnectorDataTypesSharePointArgs()
         {
         }
+        public static new OfficeDataConnectorDataTypesSharePointArgs Empty => new OfficeDataConnectorDataTypesSharePointArgs();
     }
 }

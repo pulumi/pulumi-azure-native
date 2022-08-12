@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20171115.Inputs
     /// <summary>
     /// Description of the IoT hub.
     /// </summary>
-    public sealed class IotHubDefinitionDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class IotHubDefinitionDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Weight to apply for a given IoT hub.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Devices.V20171115.Inputs
         public IotHubDefinitionDescriptionArgs()
         {
         }
+        public static new IotHubDefinitionDescriptionArgs Empty => new IotHubDefinitionDescriptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20170119.Inputs
     /// <summary>
     /// The properties of an IoT hub.
     /// </summary>
-    public sealed class IotHubPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IotHubPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizationPolicies")]
         private InputList<Inputs.SharedAccessSignatureAuthorizationRuleArgs>? _authorizationPolicies;
@@ -114,5 +114,6 @@ namespace Pulumi.AzureNative.Devices.V20170119.Inputs
         public IotHubPropertiesArgs()
         {
         }
+        public static new IotHubPropertiesArgs Empty => new IotHubPropertiesArgs();
     }
 }

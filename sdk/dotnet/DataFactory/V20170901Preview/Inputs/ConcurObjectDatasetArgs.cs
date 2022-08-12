@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Concur Service dataset.
     /// </summary>
-    public sealed class ConcurObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class ConcurObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public ConcurObjectDatasetArgs()
         {
         }
+        public static new ConcurObjectDatasetArgs Empty => new ConcurObjectDatasetArgs();
     }
 }

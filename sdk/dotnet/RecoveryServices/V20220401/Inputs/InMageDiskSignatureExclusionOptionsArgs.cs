@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
     /// <summary>
     /// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
     /// </summary>
-    public sealed class InMageDiskSignatureExclusionOptionsArgs : Pulumi.ResourceArgs
+    public sealed class InMageDiskSignatureExclusionOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The guest signature of disk to be excluded from replication.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
         public InMageDiskSignatureExclusionOptionsArgs()
         {
         }
+        public static new InMageDiskSignatureExclusionOptionsArgs Empty => new InMageDiskSignatureExclusionOptionsArgs();
     }
 }

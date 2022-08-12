@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20170821Preview.Inputs
     /// <summary>
     /// List of possible provisioning service SKUs.
     /// </summary>
-    public sealed class IotDpsSkuInfoArgs : Pulumi.ResourceArgs
+    public sealed class IotDpsSkuInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of services of the selected tier allowed in the subscription.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Devices.V20170821Preview.Inputs
         public IotDpsSkuInfoArgs()
         {
         }
+        public static new IotDpsSkuInfoArgs Empty => new IotDpsSkuInfoArgs();
     }
 }

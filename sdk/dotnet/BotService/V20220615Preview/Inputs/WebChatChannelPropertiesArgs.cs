@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// The parameters to provide for the Web Chat channel.
     /// </summary>
-    public sealed class WebChatChannelPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class WebChatChannelPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("sites")]
         private InputList<Inputs.WebChatSiteArgs>? _sites;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         public WebChatChannelPropertiesArgs()
         {
         }
+        public static new WebChatChannelPropertiesArgs Empty => new WebChatChannelPropertiesArgs();
     }
 }

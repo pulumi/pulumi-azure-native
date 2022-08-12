@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
     /// <summary>
     /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
     /// </summary>
-    public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dns settings to be applied on the publicIP addresses .
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Compute.V20201201.Inputs
         public VirtualMachineScaleSetPublicIPAddressConfigurationArgs()
         {
         }
+        public static new VirtualMachineScaleSetPublicIPAddressConfigurationArgs Empty => new VirtualMachineScaleSetPublicIPAddressConfigurationArgs();
     }
 }

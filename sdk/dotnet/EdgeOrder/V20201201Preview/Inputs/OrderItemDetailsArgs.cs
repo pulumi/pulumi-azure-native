@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
     /// <summary>
     /// Order item details
     /// </summary>
-    public sealed class OrderItemDetailsArgs : Pulumi.ResourceArgs
+    public sealed class OrderItemDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("notificationEmailList")]
         private InputList<string>? _notificationEmailList;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
         public OrderItemDetailsArgs()
         {
         }
+        public static new OrderItemDetailsArgs Empty => new OrderItemDetailsArgs();
     }
 }

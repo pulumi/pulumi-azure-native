@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// The kubernetes scheduling information.
     /// </summary>
-    public sealed class K8sSchedulingArgs : Pulumi.ResourceArgs
+    public sealed class K8sSchedulingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public K8sSchedulingArgs()
         {
         }
+        public static new K8sSchedulingArgs Empty => new K8sSchedulingArgs();
     }
 }

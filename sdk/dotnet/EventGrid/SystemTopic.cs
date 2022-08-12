@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// API Version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:SystemTopic")]
-    public partial class SystemTopic : Pulumi.CustomResource
+    public partial class SystemTopic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identity information for the resource.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:SystemTopic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:SystemTopic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:SystemTopic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:SystemTopic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:SystemTopic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:SystemTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:SystemTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:SystemTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:SystemTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:SystemTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:SystemTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:SystemTopic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
     }
 
-    public sealed class SystemTopicArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity information for the resource.
@@ -181,5 +181,6 @@ namespace Pulumi.AzureNative.EventGrid
         public SystemTopicArgs()
         {
         }
+        public static new SystemTopicArgs Empty => new SystemTopicArgs();
     }
 }

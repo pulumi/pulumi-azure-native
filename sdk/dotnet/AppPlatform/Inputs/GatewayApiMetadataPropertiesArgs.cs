@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// <summary>
     /// API metadata property for Spring Cloud Gateway
     /// </summary>
-    public sealed class GatewayApiMetadataPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class GatewayApiMetadataPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public GatewayApiMetadataPropertiesArgs()
         {
         }
+        public static new GatewayApiMetadataPropertiesArgs Empty => new GatewayApiMetadataPropertiesArgs();
     }
 }

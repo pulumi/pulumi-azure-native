@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     }
 
 
-    public sealed class GetServerKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetServerKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the MySQL Server key to be retrieved.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.DBforMySQL
         public GetServerKeyArgs()
         {
         }
+        public static new GetServerKeyArgs Empty => new GetServerKeyArgs();
     }
 
-    public sealed class GetServerKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the MySQL Server key to be retrieved.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         public GetServerKeyInvokeArgs()
         {
         }
+        public static new GetServerKeyInvokeArgs Empty => new GetServerKeyInvokeArgs();
     }
 
 

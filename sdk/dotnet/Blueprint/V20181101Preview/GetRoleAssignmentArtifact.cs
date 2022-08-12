@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
     }
 
 
-    public sealed class GetRoleAssignmentArtifactArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleAssignmentArtifactArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the blueprint artifact.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public GetRoleAssignmentArtifactArgs()
         {
         }
+        public static new GetRoleAssignmentArtifactArgs Empty => new GetRoleAssignmentArtifactArgs();
     }
 
-    public sealed class GetRoleAssignmentArtifactInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleAssignmentArtifactInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the blueprint artifact.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public GetRoleAssignmentArtifactInvokeArgs()
         {
         }
+        public static new GetRoleAssignmentArtifactInvokeArgs Empty => new GetRoleAssignmentArtifactInvokeArgs();
     }
 
 

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20190401Preview
     }
 
 
-    public sealed class GetRegistrationDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistrationDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Guid of the registration definition.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.ManagedServices.V20190401Preview
         public GetRegistrationDefinitionArgs()
         {
         }
+        public static new GetRegistrationDefinitionArgs Empty => new GetRegistrationDefinitionArgs();
     }
 
-    public sealed class GetRegistrationDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistrationDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Guid of the registration definition.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20190401Preview
         public GetRegistrationDefinitionInvokeArgs()
         {
         }
+        public static new GetRegistrationDefinitionInvokeArgs Empty => new GetRegistrationDefinitionInvokeArgs();
     }
 
 

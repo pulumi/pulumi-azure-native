@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001.Inputs
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001.Inputs
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

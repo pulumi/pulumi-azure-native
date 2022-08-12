@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     /// Security GovernanceAssignment over a given scope
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20220101preview:GovernanceAssignment")]
-    public partial class GovernanceAssignment : Pulumi.CustomResource
+    public partial class GovernanceAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The additional data for the governance assignment - e.g. links to ticket (optional), see example
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         }
     }
 
-    public sealed class GovernanceAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class GovernanceAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The additional data for the governance assignment - e.g. links to ticket (optional), see example
@@ -165,5 +165,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public GovernanceAssignmentArgs()
         {
         }
+        public static new GovernanceAssignmentArgs Empty => new GovernanceAssignmentArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -71,16 +71,16 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20180601preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private endpoint which the connection belongs to.
@@ -134,5 +134,6 @@ namespace Pulumi.AzureNative.Sql
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

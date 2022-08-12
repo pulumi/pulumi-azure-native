@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
     /// <summary>
     /// Defines load balancer frontend IP configuration properties.
     /// </summary>
-    public sealed class LBFrontendIPConfigurationResourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class LBFrontendIPConfigurationResourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the frontend IP configuration name.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.Migrate.V20210801.Inputs
         public LBFrontendIPConfigurationResourceSettingsArgs()
         {
         }
+        public static new LBFrontendIPConfigurationResourceSettingsArgs Empty => new LBFrontendIPConfigurationResourceSettingsArgs();
     }
 }

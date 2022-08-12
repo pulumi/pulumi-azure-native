@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Datastore SAS secrets.
     /// </summary>
-    public sealed class SasDatastoreSecretsArgs : Pulumi.ResourceArgs
+    public sealed class SasDatastoreSecretsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Storage container SAS token.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public SasDatastoreSecretsArgs()
         {
         }
+        public static new SasDatastoreSecretsArgs Empty => new SasDatastoreSecretsArgs();
     }
 }

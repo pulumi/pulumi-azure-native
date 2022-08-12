@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210601
     /// The properties of a storage account’s Blob service.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210601:BlobServiceProperties")]
-    public partial class BlobServiceProperties : Pulumi.CustomResource
+    public partial class BlobServiceProperties : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Deprecated in favor of isVersioningEnabled property.
@@ -112,18 +112,18 @@ namespace Pulumi.AzureNative.Storage.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storage:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20181101:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20181101:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:BlobServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.Storage.V20210601
         }
     }
 
-    public sealed class BlobServicePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class BlobServicePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -222,5 +222,6 @@ namespace Pulumi.AzureNative.Storage.V20210601
         public BlobServicePropertiesArgs()
         {
         }
+        public static new BlobServicePropertiesArgs Empty => new BlobServicePropertiesArgs();
     }
 }

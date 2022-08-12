@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
     /// <summary>
     /// Information about the event hub destination for an event subscription.
     /// </summary>
-    public sealed class EventHubEventSubscriptionDestinationArgs : Pulumi.ResourceArgs
+    public sealed class EventHubEventSubscriptionDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("deliveryAttributeMappings")]
         private InputList<Union<Inputs.DynamicDeliveryAttributeMappingArgs, Inputs.StaticDeliveryAttributeMappingArgs>>? _deliveryAttributeMappings;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
         public EventHubEventSubscriptionDestinationArgs()
         {
         }
+        public static new EventHubEventSubscriptionDestinationArgs Empty => new EventHubEventSubscriptionDestinationArgs();
     }
 }

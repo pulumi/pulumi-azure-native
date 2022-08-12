@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Devices
     }
 
 
-    public sealed class ListIotDpsResourceKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListIotDpsResourceKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The provisioning service name to get the shared access keys for.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Devices
         public ListIotDpsResourceKeysArgs()
         {
         }
+        public static new ListIotDpsResourceKeysArgs Empty => new ListIotDpsResourceKeysArgs();
     }
 
-    public sealed class ListIotDpsResourceKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListIotDpsResourceKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The provisioning service name to get the shared access keys for.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Devices
         public ListIotDpsResourceKeysInvokeArgs()
         {
         }
+        public static new ListIotDpsResourceKeysInvokeArgs Empty => new ListIotDpsResourceKeysInvokeArgs();
     }
 
 

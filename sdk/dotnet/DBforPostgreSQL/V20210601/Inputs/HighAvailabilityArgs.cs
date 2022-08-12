@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601.Inputs
     /// <summary>
     /// High availability properties of a server
     /// </summary>
-    public sealed class HighAvailabilityArgs : Pulumi.ResourceArgs
+    public sealed class HighAvailabilityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HA mode for the server.
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601.Inputs
             Mode = "Disabled";
             StandbyAvailabilityZone = "";
         }
+        public static new HighAvailabilityArgs Empty => new HighAvailabilityArgs();
     }
 }

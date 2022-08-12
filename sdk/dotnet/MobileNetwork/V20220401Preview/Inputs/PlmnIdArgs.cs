@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// Public land mobile network (PLMN) ID.
     /// </summary>
-    public sealed class PlmnIdArgs : Pulumi.ResourceArgs
+    public sealed class PlmnIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mobile country code (MCC).
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         public PlmnIdArgs()
         {
         }
+        public static new PlmnIdArgs Empty => new PlmnIdArgs();
     }
 }

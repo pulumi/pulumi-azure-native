@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20211101:ServerTrustCertificate")]
-    public partial class ServerTrustCertificate : Pulumi.CustomResource
+    public partial class ServerTrustCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The certificate name
@@ -70,11 +70,11 @@ namespace Pulumi.AzureNative.Sql.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:ServerTrustCertificate"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerTrustCertificate"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerTrustCertificate"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerTrustCertificate"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerTrustCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:ServerTrustCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerTrustCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerTrustCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerTrustCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerTrustCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
         }
     }
 
-    public sealed class ServerTrustCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ServerTrustCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of of the certificate to upload.
@@ -125,5 +125,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
         public ServerTrustCertificateArgs()
         {
         }
+        public static new ServerTrustCertificateArgs Empty => new ServerTrustCertificateArgs();
     }
 }

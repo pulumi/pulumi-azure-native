@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Confluent.V20200301.Inputs
     /// <summary>
     /// Subscriber detail
     /// </summary>
-    public sealed class OrganizationResourcePropertiesUserDetailArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationResourcePropertiesUserDetailArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email address
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Confluent.V20200301.Inputs
         public OrganizationResourcePropertiesUserDetailArgs()
         {
         }
+        public static new OrganizationResourcePropertiesUserDetailArgs Empty => new OrganizationResourcePropertiesUserDetailArgs();
     }
 }

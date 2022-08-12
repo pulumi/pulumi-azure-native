@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     }
 
 
-    public sealed class GetGen1EnvironmentArgs : Pulumi.InvokeArgs
+    public sealed class GetGen1EnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         public GetGen1EnvironmentArgs()
         {
         }
+        public static new GetGen1EnvironmentArgs Empty => new GetGen1EnvironmentArgs();
     }
 
-    public sealed class GetGen1EnvironmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGen1EnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         public GetGen1EnvironmentInvokeArgs()
         {
         }
+        public static new GetGen1EnvironmentInvokeArgs Empty => new GetGen1EnvironmentInvokeArgs();
     }
 
 

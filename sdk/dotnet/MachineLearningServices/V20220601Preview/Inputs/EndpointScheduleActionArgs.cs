@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class EndpointScheduleActionArgs : Pulumi.ResourceArgs
+    public sealed class EndpointScheduleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// 
@@ -29,5 +29,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public EndpointScheduleActionArgs()
         {
         }
+        public static new EndpointScheduleActionArgs Empty => new EndpointScheduleActionArgs();
     }
 }

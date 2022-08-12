@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
     /// Appliances definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:resourceconnector/v20211031preview:Appliance")]
-    public partial class Appliance : Pulumi.CustomResource
+    public partial class Appliance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Represents a supported Fabric/Infra. (AKSEdge etc...).
@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:resourceconnector:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:resourceconnector/v20220415preview:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:resourceconnector:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:resourceconnector/v20220415preview:Appliance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
         }
     }
 
-    public sealed class ApplianceArgs : Pulumi.ResourceArgs
+    public sealed class ApplianceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents a supported Fabric/Infra. (AKSEdge etc...).
@@ -195,5 +195,6 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
         {
             Distro = "AKSEdge";
         }
+        public static new ApplianceArgs Empty => new ApplianceArgs();
     }
 }

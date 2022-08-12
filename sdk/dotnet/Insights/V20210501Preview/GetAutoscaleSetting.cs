@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
     }
 
 
-    public sealed class GetAutoscaleSettingArgs : Pulumi.InvokeArgs
+    public sealed class GetAutoscaleSettingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The autoscale setting name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         public GetAutoscaleSettingArgs()
         {
         }
+        public static new GetAutoscaleSettingArgs Empty => new GetAutoscaleSettingArgs();
     }
 
-    public sealed class GetAutoscaleSettingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAutoscaleSettingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The autoscale setting name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         public GetAutoscaleSettingInvokeArgs()
         {
         }
+        public static new GetAutoscaleSettingInvokeArgs Empty => new GetAutoscaleSettingInvokeArgs();
     }
 
 

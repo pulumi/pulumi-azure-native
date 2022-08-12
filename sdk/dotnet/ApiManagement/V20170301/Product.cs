@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     /// Product details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:Product")]
-    public partial class Product : Pulumi.CustomResource
+    public partial class Product : global::Pulumi.CustomResource
     {
         /// <summary>
         /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
@@ -94,20 +94,20 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Product"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Product"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         }
     }
 
-    public sealed class ProductArgs : Pulumi.ResourceArgs
+    public sealed class ProductArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
@@ -194,5 +194,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public ProductArgs()
         {
         }
+        public static new ProductArgs Empty => new ProductArgs();
     }
 }

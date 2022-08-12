@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20201001.Inputs
     /// <summary>
     /// Additional information on Azure Sql specific protected item.
     /// </summary>
-    public sealed class AzureSqlProtectedItemExtendedInfoArgs : Pulumi.ResourceArgs
+    public sealed class AzureSqlProtectedItemExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The oldest backup copy available for this item in the service.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20201001.Inputs
         public AzureSqlProtectedItemExtendedInfoArgs()
         {
         }
+        public static new AzureSqlProtectedItemExtendedInfoArgs Empty => new AzureSqlProtectedItemExtendedInfoArgs();
     }
 }

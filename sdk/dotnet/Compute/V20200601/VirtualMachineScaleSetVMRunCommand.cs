@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20200601
     /// </summary>
     [Obsolete(@"Version 2020-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand")]
-    public partial class VirtualMachineScaleSetVMRunCommand : Pulumi.CustomResource
+    public partial class VirtualMachineScaleSetVMRunCommand : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
@@ -131,13 +131,13 @@ namespace Pulumi.AzureNative.Compute.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSetVMRunCommand"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSetVMRunCommand"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineScaleSetVMRunCommand"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineScaleSetVMRunCommand"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineScaleSetVMRunCommand"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSetVMRunCommand"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSetVMRunCommand"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineScaleSetVMRunCommand"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineScaleSetVMRunCommand"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineScaleSetVMRunCommand"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.Compute.V20200601
         }
     }
 
-    public sealed class VirtualMachineScaleSetVMRunCommandArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetVMRunCommandArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
@@ -273,5 +273,6 @@ namespace Pulumi.AzureNative.Compute.V20200601
         {
             AsyncExecution = false;
         }
+        public static new VirtualMachineScaleSetVMRunCommandArgs Empty => new VirtualMachineScaleSetVMRunCommandArgs();
     }
 }

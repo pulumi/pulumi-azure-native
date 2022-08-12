@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
     /// </summary>
     [Obsolete(@"Version 2018-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20180301preview:StorageAccountManagementPolicies")]
-    public partial class StorageAccountManagementPolicies : Pulumi.CustomResource
+    public partial class StorageAccountManagementPolicies : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Returns the date and time the ManagementPolicies was last modified.
@@ -65,18 +65,18 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storage:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20181101:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20220501:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20181101:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190401:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:StorageAccountManagementPolicies"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:StorageAccountManagementPolicies"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
         }
     }
 
-    public sealed class StorageAccountManagementPoliciesArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountManagementPoliciesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -127,5 +127,6 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
         public StorageAccountManagementPoliciesArgs()
         {
         }
+        public static new StorageAccountManagementPoliciesArgs Empty => new StorageAccountManagementPoliciesArgs();
     }
 }

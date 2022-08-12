@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// Class for content key in Streaming Locator
     /// </summary>
-    public sealed class StreamingLocatorContentKeyArgs : Pulumi.ResourceArgs
+    public sealed class StreamingLocatorContentKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of Content Key
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public StreamingLocatorContentKeyArgs()
         {
         }
+        public static new StreamingLocatorContentKeyArgs Empty => new StreamingLocatorContentKeyArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
     }
 
 
-    public sealed class GetTransformArgs : Pulumi.InvokeArgs
+    public sealed class GetTransformArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public GetTransformArgs()
         {
         }
+        public static new GetTransformArgs Empty => new GetTransformArgs();
     }
 
-    public sealed class GetTransformInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTransformInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public GetTransformInvokeArgs()
         {
         }
+        public static new GetTransformInvokeArgs Empty => new GetTransformInvokeArgs();
     }
 
 

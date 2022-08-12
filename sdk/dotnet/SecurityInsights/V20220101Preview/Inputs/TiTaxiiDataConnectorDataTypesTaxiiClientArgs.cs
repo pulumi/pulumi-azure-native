@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
     /// <summary>
     /// Data type for TAXII connector.
     /// </summary>
-    public sealed class TiTaxiiDataConnectorDataTypesTaxiiClientArgs : Pulumi.ResourceArgs
+    public sealed class TiTaxiiDataConnectorDataTypesTaxiiClientArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview.Inputs
         public TiTaxiiDataConnectorDataTypesTaxiiClientArgs()
         {
         }
+        public static new TiTaxiiDataConnectorDataTypesTaxiiClientArgs Empty => new TiTaxiiDataConnectorDataTypesTaxiiClientArgs();
     }
 }

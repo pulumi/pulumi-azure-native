@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version: 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:PolicyFragment")]
-    public partial class PolicyFragment : Pulumi.CustomResource
+    public partial class PolicyFragment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Policy fragment description.
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PolicyFragment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PolicyFragment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
     }
 
-    public sealed class PolicyFragmentArgs : Pulumi.ResourceArgs
+    public sealed class PolicyFragmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy fragment description.
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.ApiManagement
         {
             Format = "xml";
         }
+        public static new PolicyFragmentArgs Empty => new PolicyFragmentArgs();
     }
 }

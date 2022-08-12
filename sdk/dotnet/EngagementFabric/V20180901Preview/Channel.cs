@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
     /// The EngagementFabric channel
     /// </summary>
     [AzureNativeResourceType("azure-native:engagementfabric/v20180901preview:Channel")]
-    public partial class Channel : Pulumi.CustomResource
+    public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The functions to be enabled for the channel
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:engagementfabric:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:engagementfabric:Channel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         }
     }
 
-    public sealed class ChannelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account Name
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         public ChannelArgs()
         {
         }
+        public static new ChannelArgs Empty => new ChannelArgs();
     }
 }

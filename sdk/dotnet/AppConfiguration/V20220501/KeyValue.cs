@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220501
     /// The key-value resource along with all resource properties.
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration/v20220501:KeyValue")]
-    public partial class KeyValue : Pulumi.CustomResource
+    public partial class KeyValue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The content type of the key-value's value.
@@ -104,11 +104,11 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration:KeyValue"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:KeyValue"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:KeyValue"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:KeyValue"},
-                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:KeyValue"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration:KeyValue"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:KeyValue"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:KeyValue"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:KeyValue"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:KeyValue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220501
         }
     }
 
-    public sealed class KeyValueArgs : Pulumi.ResourceArgs
+    public sealed class KeyValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the configuration store.
@@ -178,5 +178,6 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220501
         public KeyValueArgs()
         {
         }
+        public static new KeyValueArgs Empty => new KeyValueArgs();
     }
 }

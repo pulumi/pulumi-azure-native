@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
     /// ObjectAnchorsAccount Response.
     /// </summary>
     [AzureNativeResourceType("azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount")]
-    public partial class ObjectAnchorsAccount : Pulumi.CustomResource
+    public partial class ObjectAnchorsAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Correspond domain name of certain Spatial Anchors Account
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:mixedreality:ObjectAnchorsAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality:ObjectAnchorsAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
         }
     }
 
-    public sealed class ObjectAnchorsAccountArgs : Pulumi.ResourceArgs
+    public sealed class ObjectAnchorsAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of an Mixed Reality Account.
@@ -193,5 +193,6 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
         public ObjectAnchorsAccountArgs()
         {
         }
+        public static new ObjectAnchorsAccountArgs Empty => new ObjectAnchorsAccountArgs();
     }
 }

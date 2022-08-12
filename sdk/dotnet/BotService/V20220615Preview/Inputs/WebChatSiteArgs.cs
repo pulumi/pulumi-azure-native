@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// A site for the Webchat channel
     /// </summary>
-    public sealed class WebChatSiteArgs : Pulumi.ResourceArgs
+    public sealed class WebChatSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DirectLine application id
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         {
             IsWebchatPreviewEnabled = false;
         }
+        public static new WebChatSiteArgs Empty => new WebChatSiteArgs();
     }
 }

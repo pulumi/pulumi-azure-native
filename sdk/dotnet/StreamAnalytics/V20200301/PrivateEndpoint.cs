@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
     /// Complete information about the private endpoint.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics/v20200301:PrivateEndpoint")]
-    public partial class PrivateEndpoint : Pulumi.CustomResource
+    public partial class PrivateEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date when this private endpoint was created.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         }
     }
 
-    public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -128,5 +128,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         public PrivateEndpointArgs()
         {
         }
+        public static new PrivateEndpointArgs Empty => new PrivateEndpointArgs();
     }
 }

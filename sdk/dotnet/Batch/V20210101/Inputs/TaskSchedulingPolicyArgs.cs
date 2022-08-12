@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210101.Inputs
 {
 
-    public sealed class TaskSchedulingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class TaskSchedulingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("nodeFillType", required: true)]
         public Input<Pulumi.AzureNative.Batch.V20210101.ComputeNodeFillType> NodeFillType { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AzureNative.Batch.V20210101.Inputs
         public TaskSchedulingPolicyArgs()
         {
         }
+        public static new TaskSchedulingPolicyArgs Empty => new TaskSchedulingPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
     /// <summary>
     /// Represents an output file produced.
     /// </summary>
-    public sealed class OutputFileArgs : Pulumi.ResourceArgs
+    public sealed class OutputFileArgs : global::Pulumi.ResourceArgs
     {
         [Input("labels")]
         private InputList<string>? _labels;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
         public OutputFileArgs()
         {
         }
+        public static new OutputFileArgs Empty => new OutputFileArgs();
     }
 }

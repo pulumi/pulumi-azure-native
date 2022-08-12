@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity source for Db2 databases.
     /// </summary>
-    public sealed class Db2SourceArgs : Pulumi.ResourceArgs
+    public sealed class Db2SourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Db2SourceArgs()
         {
         }
+        public static new Db2SourceArgs Empty => new Db2SourceArgs();
     }
 }

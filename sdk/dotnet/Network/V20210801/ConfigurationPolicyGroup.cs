@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801
     /// VpnServerConfigurationPolicyGroup Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210801:ConfigurationPolicyGroup")]
-    public partial class ConfigurationPolicyGroup : Pulumi.CustomResource
+    public partial class ConfigurationPolicyGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.Network.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:ConfigurationPolicyGroup"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ConfigurationPolicyGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:ConfigurationPolicyGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ConfigurationPolicyGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.Network.V20210801
         }
     }
 
-    public sealed class ConfigurationPolicyGroupArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationPolicyGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ConfigurationPolicyGroup.
@@ -170,5 +170,6 @@ namespace Pulumi.AzureNative.Network.V20210801
         public ConfigurationPolicyGroupArgs()
         {
         }
+        public static new ConfigurationPolicyGroupArgs Empty => new ConfigurationPolicyGroupArgs();
     }
 }

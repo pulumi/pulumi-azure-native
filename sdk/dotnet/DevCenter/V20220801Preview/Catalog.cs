@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// Represents a catalog.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:Catalog")]
-    public partial class Catalog : Pulumi.CustomResource
+    public partial class Catalog : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Properties for an Azure DevOps catalog type.
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class CatalogArgs : Pulumi.ResourceArgs
+    public sealed class CatalogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties for an Azure DevOps catalog type.
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public CatalogArgs()
         {
         }
+        public static new CatalogArgs Empty => new CatalogArgs();
     }
 }

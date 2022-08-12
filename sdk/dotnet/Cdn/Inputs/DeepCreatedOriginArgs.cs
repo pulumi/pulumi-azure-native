@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// <summary>
     /// The main origin of CDN content which is added when creating a CDN endpoint.
     /// </summary>
-    public sealed class DeepCreatedOriginArgs : Pulumi.ResourceArgs
+    public sealed class DeepCreatedOriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Origin is enabled for load balancing or not. By default, origin is always enabled.
@@ -90,5 +90,6 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public DeepCreatedOriginArgs()
         {
         }
+        public static new DeepCreatedOriginArgs Empty => new DeepCreatedOriginArgs();
     }
 }

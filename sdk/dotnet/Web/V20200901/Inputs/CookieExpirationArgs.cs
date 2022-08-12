@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Inputs
 {
 
-    public sealed class CookieExpirationArgs : Pulumi.ResourceArgs
+    public sealed class CookieExpirationArgs : global::Pulumi.ResourceArgs
     {
         [Input("convention")]
         public Input<Pulumi.AzureNative.Web.V20200901.CookieExpirationConvention>? Convention { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public CookieExpirationArgs()
         {
         }
+        public static new CookieExpirationArgs Empty => new CookieExpirationArgs();
     }
 }

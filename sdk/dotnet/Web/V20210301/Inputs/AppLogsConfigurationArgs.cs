@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210301.Inputs
 {
 
-    public sealed class AppLogsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AppLogsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Web.V20210301.Inputs
         public AppLogsConfigurationArgs()
         {
         }
+        public static new AppLogsConfigurationArgs Empty => new AppLogsConfigurationArgs();
     }
 }

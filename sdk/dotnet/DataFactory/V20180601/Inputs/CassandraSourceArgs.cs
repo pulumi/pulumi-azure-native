@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity source for a Cassandra database.
     /// </summary>
-    public sealed class CassandraSourceArgs : Pulumi.ResourceArgs
+    public sealed class CassandraSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public CassandraSourceArgs()
         {
         }
+        public static new CassandraSourceArgs Empty => new CassandraSourceArgs();
     }
 }

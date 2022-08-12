@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The integration service environment managed api deployment parameters.
     /// </summary>
-    public sealed class IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The integration service environment managed api content link for deployment.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs()
         {
         }
+        public static new IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs Empty => new IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs();
     }
 }

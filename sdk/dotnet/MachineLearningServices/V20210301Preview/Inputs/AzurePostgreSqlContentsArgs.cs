@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Azure Postgre SQL datastore configuration.
     /// </summary>
-    public sealed class AzurePostgreSqlContentsArgs : Pulumi.ResourceArgs
+    public sealed class AzurePostgreSqlContentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the datastore contents type.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public AzurePostgreSqlContentsArgs()
         {
         }
+        public static new AzurePostgreSqlContentsArgs Empty => new AzurePostgreSqlContentsArgs();
     }
 }

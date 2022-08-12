@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Inputs
     /// <summary>
     /// Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
     /// </summary>
-    public sealed class SecureStringArgs : Pulumi.ResourceArgs
+    public sealed class SecureStringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the secret.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Inputs
         public SecureStringArgs()
         {
         }
+        public static new SecureStringArgs Empty => new SecureStringArgs();
     }
 }

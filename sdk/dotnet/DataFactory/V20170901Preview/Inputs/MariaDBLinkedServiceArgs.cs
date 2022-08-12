@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// MariaDB server linked service.
     /// </summary>
-    public sealed class MariaDBLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class MariaDBLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public MariaDBLinkedServiceArgs()
         {
         }
+        public static new MariaDBLinkedServiceArgs Empty => new MariaDBLinkedServiceArgs();
     }
 }

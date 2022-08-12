@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure Data Lake Analytics linked service.
     /// </summary>
-    public sealed class AzureDataLakeAnalyticsLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataLakeAnalyticsLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
@@ -109,5 +109,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureDataLakeAnalyticsLinkedServiceArgs()
         {
         }
+        public static new AzureDataLakeAnalyticsLinkedServiceArgs Empty => new AzureDataLakeAnalyticsLinkedServiceArgs();
     }
 }

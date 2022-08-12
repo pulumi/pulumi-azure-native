@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220401Preview.Inputs
     /// <summary>
     /// Scope of Network Manager.
     /// </summary>
-    public sealed class NetworkManagerPropertiesNetworkManagerScopesArgs : Pulumi.ResourceArgs
+    public sealed class NetworkManagerPropertiesNetworkManagerScopesArgs : global::Pulumi.ResourceArgs
     {
         [Input("managementGroups")]
         private InputList<string>? _managementGroups;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20220401Preview.Inputs
         public NetworkManagerPropertiesNetworkManagerScopesArgs()
         {
         }
+        public static new NetworkManagerPropertiesNetworkManagerScopesArgs Empty => new NetworkManagerPropertiesNetworkManagerScopesArgs();
     }
 }

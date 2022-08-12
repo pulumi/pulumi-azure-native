@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     /// <summary>
     /// Information about a domain controller in the AD domain.
     /// </summary>
-    public sealed class ActiveDirectoryDomainControllerArgs : Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryDomainControllerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fully-qualified domain name of a domain controller in the AD domain.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public ActiveDirectoryDomainControllerArgs()
         {
         }
+        public static new ActiveDirectoryDomainControllerArgs Empty => new ActiveDirectoryDomainControllerArgs();
     }
 }

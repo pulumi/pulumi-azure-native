@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity HBase server source.
     /// </summary>
-    public sealed class HBaseSourceArgs : Pulumi.ResourceArgs
+    public sealed class HBaseSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public HBaseSourceArgs()
         {
         }
+        public static new HBaseSourceArgs Empty => new HBaseSourceArgs();
     }
 }

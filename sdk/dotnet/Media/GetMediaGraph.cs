@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Media
     }
 
 
-    public sealed class GetMediaGraphArgs : Pulumi.InvokeArgs
+    public sealed class GetMediaGraphArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Media
         public GetMediaGraphArgs()
         {
         }
+        public static new GetMediaGraphArgs Empty => new GetMediaGraphArgs();
     }
 
-    public sealed class GetMediaGraphInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMediaGraphInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Media
         public GetMediaGraphInvokeArgs()
         {
         }
+        public static new GetMediaGraphInvokeArgs Empty => new GetMediaGraphInvokeArgs();
     }
 
 

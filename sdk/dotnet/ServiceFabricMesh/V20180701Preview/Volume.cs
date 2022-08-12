@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     /// </summary>
     [Obsolete(@"Version 2018-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180701preview:Volume")]
-    public partial class Volume : Pulumi.CustomResource
+    public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// This type describes a volume provided by an Azure Files file share.
@@ -89,8 +89,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         }
     }
 
-    public sealed class VolumeArgs : Pulumi.ResourceArgs
+    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This type describes a volume provided by an Azure Files file share.
@@ -165,5 +165,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public VolumeArgs()
         {
         }
+        public static new VolumeArgs Empty => new VolumeArgs();
     }
 }

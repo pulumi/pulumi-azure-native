@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
     /// An Azure resource which represents which will provision the ability to create private location data.
     /// </summary>
     [AzureNativeResourceType("azure-native:maps/v20200201preview:PrivateAtlase")]
-    public partial class PrivateAtlase : Pulumi.CustomResource
+    public partial class PrivateAtlase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The geo-location where the resource lives
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:maps:PrivateAtlase"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps:PrivateAtlase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
         }
     }
 
-    public sealed class PrivateAtlaseArgs : Pulumi.ResourceArgs
+    public sealed class PrivateAtlaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
         public PrivateAtlaseArgs()
         {
         }
+        public static new PrivateAtlaseArgs Empty => new PrivateAtlaseArgs();
     }
 }

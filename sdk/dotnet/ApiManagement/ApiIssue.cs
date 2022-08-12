@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiIssue")]
-    public partial class ApiIssue : Pulumi.CustomResource
+    public partial class ApiIssue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A resource identifier for the API the issue was created for.
@@ -89,18 +89,18 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiIssue"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiIssue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
     }
 
-    public sealed class ApiIssueArgs : Pulumi.ResourceArgs
+    public sealed class ApiIssueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A resource identifier for the API the issue was created for.
@@ -181,5 +181,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public ApiIssueArgs()
         {
         }
+        public static new ApiIssueArgs Empty => new ApiIssueArgs();
     }
 }

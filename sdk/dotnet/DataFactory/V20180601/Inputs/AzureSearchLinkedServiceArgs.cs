@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Linked service for Windows Azure Search Service.
     /// </summary>
-    public sealed class AzureSearchLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureSearchLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureSearchLinkedServiceArgs()
         {
         }
+        public static new AzureSearchLinkedServiceArgs Empty => new AzureSearchLinkedServiceArgs();
     }
 }

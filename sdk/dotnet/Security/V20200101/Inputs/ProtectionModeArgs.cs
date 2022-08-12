@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101.Inputs
     /// <summary>
     /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
     /// </summary>
-    public sealed class ProtectionModeArgs : Pulumi.ResourceArgs
+    public sealed class ProtectionModeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application control policy enforcement/protection mode of the machine group
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Security.V20200101.Inputs
         public ProtectionModeArgs()
         {
         }
+        public static new ProtectionModeArgs Empty => new ProtectionModeArgs();
     }
 }

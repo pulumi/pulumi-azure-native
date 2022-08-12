@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Kusto
     }
 
 
-    public sealed class GetDataConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetDataConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -57,9 +57,10 @@ namespace Pulumi.AzureNative.Kusto
         public GetDataConnectionArgs()
         {
         }
+        public static new GetDataConnectionArgs Empty => new GetDataConnectionArgs();
     }
 
-    public sealed class GetDataConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto cluster.
@@ -88,6 +89,7 @@ namespace Pulumi.AzureNative.Kusto
         public GetDataConnectionInvokeArgs()
         {
         }
+        public static new GetDataConnectionInvokeArgs Empty => new GetDataConnectionInvokeArgs();
     }
 
 

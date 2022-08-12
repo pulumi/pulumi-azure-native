@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150504Preview.Inputs
     /// <summary>
     /// An MX record.
     /// </summary>
-    public sealed class MxRecordArgs : Pulumi.ResourceArgs
+    public sealed class MxRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the domain name of the mail host, without a terminating dot.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20150504Preview.Inputs
         public MxRecordArgs()
         {
         }
+        public static new MxRecordArgs Empty => new MxRecordArgs();
     }
 }

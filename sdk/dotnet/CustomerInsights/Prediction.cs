@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// API Version: 2017-04-26.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:Prediction")]
-    public partial class Prediction : Pulumi.CustomResource
+    public partial class Prediction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether do auto analyze.
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Prediction"},
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Prediction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNative.CustomerInsights
         }
     }
 
-    public sealed class PredictionArgs : Pulumi.ResourceArgs
+    public sealed class PredictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether do auto analyze.
@@ -314,5 +314,6 @@ namespace Pulumi.AzureNative.CustomerInsights
         public PredictionArgs()
         {
         }
+        public static new PredictionArgs Empty => new PredictionArgs();
     }
 }

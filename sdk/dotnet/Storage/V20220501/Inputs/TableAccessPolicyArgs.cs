@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
     /// <summary>
     /// Table Access Policy Properties Object.
     /// </summary>
-    public sealed class TableAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class TableAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expiry time of the access policy
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
         public TableAccessPolicyArgs()
         {
         }
+        public static new TableAccessPolicyArgs Empty => new TableAccessPolicyArgs();
     }
 }

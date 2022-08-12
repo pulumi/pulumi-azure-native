@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity SQL Data Warehouse sink.
     /// </summary>
-    public sealed class SqlDWSinkArgs : Pulumi.ResourceArgs
+    public sealed class SqlDWSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates to use PolyBase to copy data into SQL Data Warehouse when applicable. Type: boolean (or Expression with resultType boolean).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SqlDWSinkArgs()
         {
         }
+        public static new SqlDWSinkArgs Empty => new SqlDWSinkArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
     /// <summary>
     /// The hardware profile.
     /// </summary>
-    public sealed class HardwareProfileArgs : Pulumi.ResourceArgs
+    public sealed class HardwareProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The size of the VM
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         public HardwareProfileArgs()
         {
         }
+        public static new HardwareProfileArgs Empty => new HardwareProfileArgs();
     }
 }

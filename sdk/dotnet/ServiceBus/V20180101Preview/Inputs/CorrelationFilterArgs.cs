@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Inputs
     /// <summary>
     /// Represents the correlation filter expression.
     /// </summary>
-    public sealed class CorrelationFilterArgs : Pulumi.ResourceArgs
+    public sealed class CorrelationFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content type of the message.
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Inputs
         {
             RequiresPreprocessing = true;
         }
+        public static new CorrelationFilterArgs Empty => new CorrelationFilterArgs();
     }
 }

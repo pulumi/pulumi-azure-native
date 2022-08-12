@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ProviderHub
     /// API Version: 2020-11-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:NotificationRegistration")]
-    public partial class NotificationRegistration : Pulumi.CustomResource
+    public partial class NotificationRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -56,10 +56,10 @@ namespace Pulumi.AzureNative.ProviderHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:NotificationRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:NotificationRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:NotificationRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:NotificationRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:NotificationRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:NotificationRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:NotificationRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:NotificationRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.ProviderHub
         }
     }
 
-    public sealed class NotificationRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The notification registration.
@@ -101,5 +101,6 @@ namespace Pulumi.AzureNative.ProviderHub
         public NotificationRegistrationArgs()
         {
         }
+        public static new NotificationRegistrationArgs Empty => new NotificationRegistrationArgs();
     }
 }

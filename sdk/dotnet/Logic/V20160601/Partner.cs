@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     /// The integration account partner.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20160601:Partner")]
-    public partial class Partner : Pulumi.CustomResource
+    public partial class Partner : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The changed time.
@@ -94,10 +94,10 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logic:Partner"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Partner"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Partner"},
-                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:Partner"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:Partner"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Partner"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Partner"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:Partner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
         }
     }
 
-    public sealed class PartnerArgs : Pulumi.ResourceArgs
+    public sealed class PartnerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The partner content.
@@ -178,5 +178,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public PartnerArgs()
         {
         }
+        public static new PartnerArgs Empty => new PartnerArgs();
     }
 }

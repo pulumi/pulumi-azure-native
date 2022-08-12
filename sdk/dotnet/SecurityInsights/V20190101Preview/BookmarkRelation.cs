@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// Represents a relation between two resources
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:BookmarkRelation")]
-    public partial class BookmarkRelation : Pulumi.CustomResource
+    public partial class BookmarkRelation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -82,15 +82,15 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:BookmarkRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:BookmarkRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:BookmarkRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:BookmarkRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:BookmarkRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:BookmarkRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:BookmarkRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:BookmarkRelation"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:BookmarkRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:BookmarkRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:BookmarkRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:BookmarkRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:BookmarkRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:BookmarkRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:BookmarkRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:BookmarkRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:BookmarkRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:BookmarkRelation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         }
     }
 
-    public sealed class BookmarkRelationArgs : Pulumi.ResourceArgs
+    public sealed class BookmarkRelationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bookmark ID
@@ -153,5 +153,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public BookmarkRelationArgs()
         {
         }
+        public static new BookmarkRelationArgs Empty => new BookmarkRelationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
     /// <summary>
     /// IPConfiguration in a network interface.
     /// </summary>
-    public sealed class NetworkInterfaceIPConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceIPConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -90,5 +90,6 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
         public NetworkInterfaceIPConfigurationArgs()
         {
         }
+        public static new NetworkInterfaceIPConfigurationArgs Empty => new NetworkInterfaceIPConfigurationArgs();
     }
 }

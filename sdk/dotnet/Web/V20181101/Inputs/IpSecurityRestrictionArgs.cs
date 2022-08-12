@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20181101.Inputs
     /// <summary>
     /// IP security restriction on an app.
     /// </summary>
-    public sealed class IpSecurityRestrictionArgs : Pulumi.ResourceArgs
+    public sealed class IpSecurityRestrictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow or Deny access for this IP range.
@@ -81,5 +81,6 @@ namespace Pulumi.AzureNative.Web.V20181101.Inputs
         public IpSecurityRestrictionArgs()
         {
         }
+        public static new IpSecurityRestrictionArgs Empty => new IpSecurityRestrictionArgs();
     }
 }

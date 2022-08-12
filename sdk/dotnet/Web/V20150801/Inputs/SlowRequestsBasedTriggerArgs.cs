@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// SlowRequestsBasedTrigger
     /// </summary>
-    public sealed class SlowRequestsBasedTriggerArgs : Pulumi.ResourceArgs
+    public sealed class SlowRequestsBasedTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Count
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public SlowRequestsBasedTriggerArgs()
         {
         }
+        public static new SlowRequestsBasedTriggerArgs Empty => new SlowRequestsBasedTriggerArgs();
     }
 }

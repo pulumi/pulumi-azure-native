@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
     }
 
 
-    public sealed class GetFhirServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetFhirServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of FHIR Service resource.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public GetFhirServiceArgs()
         {
         }
+        public static new GetFhirServiceArgs Empty => new GetFhirServiceArgs();
     }
 
-    public sealed class GetFhirServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFhirServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of FHIR Service resource.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public GetFhirServiceInvokeArgs()
         {
         }
+        public static new GetFhirServiceInvokeArgs Empty => new GetFhirServiceInvokeArgs();
     }
 
 

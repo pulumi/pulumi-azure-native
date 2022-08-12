@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Inputs
 {
 
-    public sealed class CustomOpenIdConnectProviderArgs : Pulumi.ResourceArgs
+    public sealed class CustomOpenIdConnectProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
         public CustomOpenIdConnectProviderArgs()
         {
         }
+        public static new CustomOpenIdConnectProviderArgs Empty => new CustomOpenIdConnectProviderArgs();
     }
 }

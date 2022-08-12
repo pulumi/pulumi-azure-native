@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// <summary>
     /// Extended information of the container.
     /// </summary>
-    public sealed class AzureWorkloadContainerExtendedInfoArgs : Pulumi.ResourceArgs
+    public sealed class AzureWorkloadContainerExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public AzureWorkloadContainerExtendedInfoArgs()
         {
         }
+        public static new AzureWorkloadContainerExtendedInfoArgs Empty => new AzureWorkloadContainerExtendedInfoArgs();
     }
 }

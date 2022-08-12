@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
     /// <summary>
     /// VpnClientConfiguration for P2S client.
     /// </summary>
-    public sealed class VpnClientConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VpnClientConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
@@ -102,5 +102,6 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
         public VpnClientConfigurationArgs()
         {
         }
+        public static new VpnClientConfigurationArgs Empty => new VpnClientConfigurationArgs();
     }
 }

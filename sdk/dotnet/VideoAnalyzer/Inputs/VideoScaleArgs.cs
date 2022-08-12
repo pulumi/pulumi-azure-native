@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
     /// <summary>
     /// The video scaling information.
     /// </summary>
-    public sealed class VideoScaleArgs : Pulumi.ResourceArgs
+    public sealed class VideoScaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The desired output video height.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         public VideoScaleArgs()
         {
         }
+        public static new VideoScaleArgs Empty => new VideoScaleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20181001.Inputs
     /// <summary>
     /// Identity for the virtual machine.
     /// </summary>
-    public sealed class VirtualMachineIdentityArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.V20181001.Inputs
         public VirtualMachineIdentityArgs()
         {
         }
+        public static new VirtualMachineIdentityArgs Empty => new VirtualMachineIdentityArgs();
     }
 }

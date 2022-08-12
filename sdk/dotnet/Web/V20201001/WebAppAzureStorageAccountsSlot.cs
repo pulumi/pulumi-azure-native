@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20201001
     /// AzureStorageInfo dictionary resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201001:WebAppAzureStorageAccountsSlot")]
-    public partial class WebAppAzureStorageAccountsSlot : Pulumi.CustomResource
+    public partial class WebAppAzureStorageAccountsSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -70,18 +70,18 @@ namespace Pulumi.AzureNative.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAzureStorageAccountsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.Web.V20201001
         }
     }
 
-    public sealed class WebAppAzureStorageAccountsSlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppAzureStorageAccountsSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -144,5 +144,6 @@ namespace Pulumi.AzureNative.Web.V20201001
         public WebAppAzureStorageAccountsSlotArgs()
         {
         }
+        public static new WebAppAzureStorageAccountsSlotArgs Empty => new WebAppAzureStorageAccountsSlotArgs();
     }
 }

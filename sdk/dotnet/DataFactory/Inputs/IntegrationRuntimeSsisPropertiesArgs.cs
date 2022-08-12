@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// SSIS properties for managed integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeSsisPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Catalog information for managed dedicated integration runtime.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public IntegrationRuntimeSsisPropertiesArgs()
         {
         }
+        public static new IntegrationRuntimeSsisPropertiesArgs Empty => new IntegrationRuntimeSsisPropertiesArgs();
     }
 }

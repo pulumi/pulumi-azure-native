@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure File Storage write settings.
     /// </summary>
-    public sealed class AzureFileStorageWriteSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AzureFileStorageWriteSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of copy behavior for copy sink.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureFileStorageWriteSettingsArgs()
         {
         }
+        public static new AzureFileStorageWriteSettingsArgs Empty => new AzureFileStorageWriteSettingsArgs();
     }
 }

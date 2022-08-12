@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Firewall Policy Insights.
     /// </summary>
-    public sealed class FirewallPolicyInsightsArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyInsightsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to indicate if the insights are enabled on the policy.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public FirewallPolicyInsightsArgs()
         {
         }
+        public static new FirewallPolicyInsightsArgs Empty => new FirewallPolicyInsightsArgs();
     }
 }

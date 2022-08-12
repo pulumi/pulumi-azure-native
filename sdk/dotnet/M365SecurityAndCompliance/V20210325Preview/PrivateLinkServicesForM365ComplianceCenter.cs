@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
     /// The description of the service.
     /// </summary>
     [AzureNativeResourceType("azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForM365ComplianceCenter")]
-    public partial class PrivateLinkServicesForM365ComplianceCenter : Pulumi.CustomResource
+    public partial class PrivateLinkServicesForM365ComplianceCenter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:m365securityandcompliance:privateLinkServicesForM365ComplianceCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:privateLinkServicesForM365ComplianceCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         }
     }
 
-    public sealed class PrivateLinkServicesForM365ComplianceCenterArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServicesForM365ComplianceCenterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
@@ -169,5 +169,6 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         public PrivateLinkServicesForM365ComplianceCenterArgs()
         {
         }
+        public static new PrivateLinkServicesForM365ComplianceCenterArgs Empty => new PrivateLinkServicesForM365ComplianceCenterArgs();
     }
 }

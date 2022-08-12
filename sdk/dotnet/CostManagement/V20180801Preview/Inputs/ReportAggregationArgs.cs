@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
     /// <summary>
     /// The aggregation expression to be used in the report.
     /// </summary>
-    public sealed class ReportAggregationArgs : Pulumi.ResourceArgs
+    public sealed class ReportAggregationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the aggregation function to use.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
         public ReportAggregationArgs()
         {
         }
+        public static new ReportAggregationArgs Empty => new ReportAggregationArgs();
     }
 }

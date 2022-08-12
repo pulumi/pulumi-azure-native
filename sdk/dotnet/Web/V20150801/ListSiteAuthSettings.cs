@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     }
 
 
-    public sealed class ListSiteAuthSettingsArgs : Pulumi.InvokeArgs
+    public sealed class ListSiteAuthSettingsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of web app
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Web.V20150801
         public ListSiteAuthSettingsArgs()
         {
         }
+        public static new ListSiteAuthSettingsArgs Empty => new ListSiteAuthSettingsArgs();
     }
 
-    public sealed class ListSiteAuthSettingsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListSiteAuthSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of web app
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         public ListSiteAuthSettingsInvokeArgs()
         {
         }
+        public static new ListSiteAuthSettingsInvokeArgs Empty => new ListSiteAuthSettingsInvokeArgs();
     }
 
 

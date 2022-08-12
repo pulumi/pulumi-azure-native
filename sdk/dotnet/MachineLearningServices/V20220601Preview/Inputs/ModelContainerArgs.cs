@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class ModelContainerArgs : Pulumi.ResourceArgs
+    public sealed class ModelContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The asset description text.
@@ -52,5 +52,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             IsArchived = false;
         }
+        public static new ModelContainerArgs Empty => new ModelContainerArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20210303Preview.Inputs
 {
 
-    public sealed class ArmIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ArmIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
@@ -29,5 +29,6 @@ namespace Pulumi.AzureNative.Devices.V20210303Preview.Inputs
         public ArmIdentityArgs()
         {
         }
+        public static new ArmIdentityArgs Empty => new ArmIdentityArgs();
     }
 }

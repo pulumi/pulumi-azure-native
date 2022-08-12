@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The gcpOrganization data for the member account
     /// </summary>
-    public sealed class GcpOrganizationalDataMemberArgs : Pulumi.ResourceArgs
+    public sealed class GcpOrganizationalDataMemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The GCP management project number from organizational onboarding
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public GcpOrganizationalDataMemberArgs()
         {
         }
+        public static new GcpOrganizationalDataMemberArgs Empty => new GcpOrganizationalDataMemberArgs();
     }
 }

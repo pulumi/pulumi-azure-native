@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// Interface properties
     /// </summary>
-    public sealed class InterfacePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class InterfacePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IPv4 address.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         public InterfacePropertiesArgs()
         {
         }
+        public static new InterfacePropertiesArgs Empty => new InterfacePropertiesArgs();
     }
 }

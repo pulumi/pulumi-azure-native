@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220302.Inputs
     /// <summary>
     /// Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
     /// </summary>
-    public sealed class CopyCompletionErrorArgs : Pulumi.ResourceArgs
+    public sealed class CopyCompletionErrorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the error code if the background copy of a resource created via the CopyStart operation fails.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20220302.Inputs
         public CopyCompletionErrorArgs()
         {
         }
+        public static new CopyCompletionErrorArgs Empty => new CopyCompletionErrorArgs();
     }
 }

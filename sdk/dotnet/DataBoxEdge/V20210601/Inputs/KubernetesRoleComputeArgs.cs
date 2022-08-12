@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601.Inputs
     /// <summary>
     /// Kubernetes role compute resource
     /// </summary>
-    public sealed class KubernetesRoleComputeArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesRoleComputeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// VM profile
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601.Inputs
         public KubernetesRoleComputeArgs()
         {
         }
+        public static new KubernetesRoleComputeArgs Empty => new KubernetesRoleComputeArgs();
     }
 }

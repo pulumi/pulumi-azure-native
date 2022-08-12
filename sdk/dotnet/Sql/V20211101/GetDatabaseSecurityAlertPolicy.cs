@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
     }
 
 
-    public sealed class GetDatabaseSecurityAlertPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseSecurityAlertPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the  database for which the security alert policy is defined.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Sql.V20211101
         public GetDatabaseSecurityAlertPolicyArgs()
         {
         }
+        public static new GetDatabaseSecurityAlertPolicyArgs Empty => new GetDatabaseSecurityAlertPolicyArgs();
     }
 
-    public sealed class GetDatabaseSecurityAlertPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseSecurityAlertPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the  database for which the security alert policy is defined.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
         public GetDatabaseSecurityAlertPolicyInvokeArgs()
         {
         }
+        public static new GetDatabaseSecurityAlertPolicyInvokeArgs Empty => new GetDatabaseSecurityAlertPolicyInvokeArgs();
     }
 
 

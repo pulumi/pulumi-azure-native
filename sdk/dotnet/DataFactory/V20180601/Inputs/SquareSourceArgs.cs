@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Square Service source.
     /// </summary>
-    public sealed class SquareSourceArgs : Pulumi.ResourceArgs
+    public sealed class SquareSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SquareSourceArgs()
         {
         }
+        public static new SquareSourceArgs Empty => new SquareSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
     /// <summary>
     /// An Azure Machine Learning Model.
     /// </summary>
-    public sealed class ModelArgs : Pulumi.ResourceArgs
+    public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Model creation time (UTC).
@@ -168,5 +168,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public ModelArgs()
         {
         }
+        public static new ModelArgs Empty => new ModelArgs();
     }
 }

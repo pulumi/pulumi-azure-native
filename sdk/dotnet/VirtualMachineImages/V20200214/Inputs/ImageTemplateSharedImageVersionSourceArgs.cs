@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
     /// <summary>
     /// Describes an image source that is an image version in a shared image gallery.
     /// </summary>
-    public sealed class ImageTemplateSharedImageVersionSourceArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplateSharedImageVersionSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource id of the image version in the shared image gallery
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
         public ImageTemplateSharedImageVersionSourceArgs()
         {
         }
+        public static new ImageTemplateSharedImageVersionSourceArgs Empty => new ImageTemplateSharedImageVersionSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
     /// <summary>
     /// Specifies a configuration for PlayReady licenses.
     /// </summary>
-    public sealed class ContentKeyPolicyPlayReadyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPlayReadyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("licenses", required: true)]
         private InputList<Inputs.ContentKeyPolicyPlayReadyLicenseArgs>? _licenses;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
         public ContentKeyPolicyPlayReadyConfigurationArgs()
         {
         }
+        public static new ContentKeyPolicyPlayReadyConfigurationArgs Empty => new ContentKeyPolicyPlayReadyConfigurationArgs();
     }
 }

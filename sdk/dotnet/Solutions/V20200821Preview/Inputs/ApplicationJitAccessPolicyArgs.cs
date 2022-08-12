@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20200821Preview.Inputs
     /// <summary>
     /// Managed application Jit access policy.
     /// </summary>
-    public sealed class ApplicationJitAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationJitAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the JIT access is enabled.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Solutions.V20200821Preview.Inputs
         public ApplicationJitAccessPolicyArgs()
         {
         }
+        public static new ApplicationJitAccessPolicyArgs Empty => new ApplicationJitAccessPolicyArgs();
     }
 }

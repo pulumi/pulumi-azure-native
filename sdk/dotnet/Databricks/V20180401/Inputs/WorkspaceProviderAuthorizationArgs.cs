@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20180401.Inputs
     /// <summary>
     /// The workspace provider authorization.
     /// </summary>
-    public sealed class WorkspaceProviderAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceProviderAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Databricks.V20180401.Inputs
         public WorkspaceProviderAuthorizationArgs()
         {
         }
+        public static new WorkspaceProviderAuthorizationArgs Empty => new WorkspaceProviderAuthorizationArgs();
     }
 }

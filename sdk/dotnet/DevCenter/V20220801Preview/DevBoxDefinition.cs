@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// Represents a definition for a Developer Machine.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:DevBoxDefinition")]
-    public partial class DevBoxDefinition : Pulumi.CustomResource
+    public partial class DevBoxDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Image reference information for the currently active image (only populated during updates).
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class DevBoxDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DevBoxDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Dev Box definition.
@@ -189,5 +189,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public DevBoxDefinitionArgs()
         {
         }
+        public static new DevBoxDefinitionArgs Empty => new DevBoxDefinitionArgs();
     }
 }

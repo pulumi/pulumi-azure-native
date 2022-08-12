@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
 
-    public sealed class GetThreatIntelligenceIndicatorArgs : Pulumi.InvokeArgs
+    public sealed class GetThreatIntelligenceIndicatorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Threat intelligence indicator name field.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         public GetThreatIntelligenceIndicatorArgs()
         {
         }
+        public static new GetThreatIntelligenceIndicatorArgs Empty => new GetThreatIntelligenceIndicatorArgs();
     }
 
-    public sealed class GetThreatIntelligenceIndicatorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetThreatIntelligenceIndicatorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Threat intelligence indicator name field.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public GetThreatIntelligenceIndicatorInvokeArgs()
         {
         }
+        public static new GetThreatIntelligenceIndicatorInvokeArgs Empty => new GetThreatIntelligenceIndicatorInvokeArgs();
     }
 
 

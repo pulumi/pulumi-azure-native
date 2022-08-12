@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
     /// <summary>
     /// Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
     /// </summary>
-    public sealed class MigrateSqlServerSqlDbSyncTaskInputArgs : Pulumi.ResourceArgs
+    public sealed class MigrateSqlServerSqlDbSyncTaskInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("selectedDatabases", required: true)]
         private InputList<Inputs.MigrateSqlServerSqlDbSyncDatabaseInputArgs>? _selectedDatabases;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview.Inputs
         public MigrateSqlServerSqlDbSyncTaskInputArgs()
         {
         }
+        public static new MigrateSqlServerSqlDbSyncTaskInputArgs Empty => new MigrateSqlServerSqlDbSyncTaskInputArgs();
     }
 }

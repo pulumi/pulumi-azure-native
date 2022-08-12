@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearning
     }
 
 
-    public sealed class GetCommitmentPlanArgs : Pulumi.InvokeArgs
+    public sealed class GetCommitmentPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure ML commitment plan name.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.MachineLearning
         public GetCommitmentPlanArgs()
         {
         }
+        public static new GetCommitmentPlanArgs Empty => new GetCommitmentPlanArgs();
     }
 
-    public sealed class GetCommitmentPlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCommitmentPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure ML commitment plan name.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.MachineLearning
         public GetCommitmentPlanInvokeArgs()
         {
         }
+        public static new GetCommitmentPlanInvokeArgs Empty => new GetCommitmentPlanInvokeArgs();
     }
 
 

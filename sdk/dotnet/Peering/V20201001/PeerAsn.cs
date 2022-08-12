@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Peering.V20201001
     /// </summary>
     [Obsolete(@"Version 2020-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:peering/v20201001:PeerAsn")]
-    public partial class PeerAsn : Pulumi.CustomResource
+    public partial class PeerAsn : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The error message for the validation state
@@ -83,15 +83,15 @@ namespace Pulumi.AzureNative.Peering.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:peering:PeerAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20190801preview:PeerAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:PeerAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:PeerAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:PeerAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20210101:PeerAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20210601:PeerAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20220101:PeerAsn"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20220601:PeerAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering:PeerAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190801preview:PeerAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190901preview:PeerAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200101preview:PeerAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200401:PeerAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210101:PeerAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:PeerAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:PeerAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:PeerAsn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.Peering.V20201001
         }
     }
 
-    public sealed class PeerAsnArgs : Pulumi.ResourceArgs
+    public sealed class PeerAsnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Autonomous System Number (ASN) of the peer.
@@ -154,5 +154,6 @@ namespace Pulumi.AzureNative.Peering.V20201001
         public PeerAsnArgs()
         {
         }
+        public static new PeerAsnArgs Empty => new PeerAsnArgs();
     }
 }

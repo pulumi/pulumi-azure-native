@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
     /// <summary>
     /// Defines the UrlFileExtension condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleUrlFileExtensionConditionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleUrlFileExtensionConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
         public DeliveryRuleUrlFileExtensionConditionArgs()
         {
         }
+        public static new DeliveryRuleUrlFileExtensionConditionArgs Empty => new DeliveryRuleUrlFileExtensionConditionArgs();
     }
 }

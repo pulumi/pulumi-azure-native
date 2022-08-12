@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
     /// <summary>
     /// Virtual disk model
     /// </summary>
-    public sealed class VirtualDiskArgs : Pulumi.ResourceArgs
+    public sealed class VirtualDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the controller id.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
         public VirtualDiskArgs()
         {
         }
+        public static new VirtualDiskArgs Empty => new VirtualDiskArgs();
     }
 }

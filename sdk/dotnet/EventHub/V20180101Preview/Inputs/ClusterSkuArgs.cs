@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview.Inputs
     /// <summary>
     /// SKU parameters particular to a cluster instance.
     /// </summary>
-    public sealed class ClusterSkuArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview.Inputs
         public ClusterSkuArgs()
         {
         }
+        public static new ClusterSkuArgs Empty => new ClusterSkuArgs();
     }
 }

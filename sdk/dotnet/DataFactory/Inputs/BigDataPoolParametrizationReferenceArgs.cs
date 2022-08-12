@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Big data pool reference type.
     /// </summary>
-    public sealed class BigDataPoolParametrizationReferenceArgs : Pulumi.ResourceArgs
+    public sealed class BigDataPoolParametrizationReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reference big data pool name. Type: string (or Expression with resultType string).
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public BigDataPoolParametrizationReferenceArgs()
         {
         }
+        public static new BigDataPoolParametrizationReferenceArgs Empty => new BigDataPoolParametrizationReferenceArgs();
     }
 }

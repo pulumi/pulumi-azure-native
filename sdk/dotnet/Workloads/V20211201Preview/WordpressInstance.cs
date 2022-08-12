@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     /// WordPress instance resource
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads/v20211201preview:WordpressInstance")]
-    public partial class WordpressInstance : Pulumi.CustomResource
+    public partial class WordpressInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Database name used by the application
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:workloads:WordpressInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:WordpressInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         }
     }
 
-    public sealed class WordpressInstanceArgs : Pulumi.ResourceArgs
+    public sealed class WordpressInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database name used by the application
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public WordpressInstanceArgs()
         {
         }
+        public static new WordpressInstanceArgs Empty => new WordpressInstanceArgs();
     }
 }

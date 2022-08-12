@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AzureData
     }
 
 
-    public sealed class GetSqlServerRegistrationArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlServerRegistrationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.AzureData
         public GetSqlServerRegistrationArgs()
         {
         }
+        public static new GetSqlServerRegistrationArgs Empty => new GetSqlServerRegistrationArgs();
     }
 
-    public sealed class GetSqlServerRegistrationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlServerRegistrationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.AzureData
         public GetSqlServerRegistrationInvokeArgs()
         {
         }
+        public static new GetSqlServerRegistrationInvokeArgs Empty => new GetSqlServerRegistrationInvokeArgs();
     }
 
 

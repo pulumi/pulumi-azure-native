@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
     [AzureNativeResourceType("azure-native:providerhub/v20201120:ProviderRegistration")]
-    public partial class ProviderRegistration : Pulumi.CustomResource
+    public partial class ProviderRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -52,10 +52,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:providerhub:ProviderRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:ProviderRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:ProviderRegistration"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:ProviderRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub:ProviderRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:ProviderRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:ProviderRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:ProviderRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         }
     }
 
-    public sealed class ProviderRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class ProviderRegistrationArgs : global::Pulumi.ResourceArgs
     {
         [Input("properties")]
         public Input<Inputs.ProviderRegistrationPropertiesArgs>? Properties { get; set; }
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         public ProviderRegistrationArgs()
         {
         }
+        public static new ProviderRegistrationArgs Empty => new ProviderRegistrationArgs();
     }
 }

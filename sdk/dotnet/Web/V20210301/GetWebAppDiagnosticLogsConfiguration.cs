@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20210301
     }
 
 
-    public sealed class GetWebAppDiagnosticLogsConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppDiagnosticLogsConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Web.V20210301
         public GetWebAppDiagnosticLogsConfigurationArgs()
         {
         }
+        public static new GetWebAppDiagnosticLogsConfigurationArgs Empty => new GetWebAppDiagnosticLogsConfigurationArgs();
     }
 
-    public sealed class GetWebAppDiagnosticLogsConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppDiagnosticLogsConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the app.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Web.V20210301
         public GetWebAppDiagnosticLogsConfigurationInvokeArgs()
         {
         }
+        public static new GetWebAppDiagnosticLogsConfigurationInvokeArgs Empty => new GetWebAppDiagnosticLogsConfigurationInvokeArgs();
     }
 
 

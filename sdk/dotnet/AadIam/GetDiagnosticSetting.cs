@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AadIam
     }
 
 
-    public sealed class GetDiagnosticSettingArgs : Pulumi.InvokeArgs
+    public sealed class GetDiagnosticSettingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the diagnostic setting.
@@ -38,9 +38,10 @@ namespace Pulumi.AzureNative.AadIam
         public GetDiagnosticSettingArgs()
         {
         }
+        public static new GetDiagnosticSettingArgs Empty => new GetDiagnosticSettingArgs();
     }
 
-    public sealed class GetDiagnosticSettingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDiagnosticSettingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the diagnostic setting.
@@ -51,6 +52,7 @@ namespace Pulumi.AzureNative.AadIam
         public GetDiagnosticSettingInvokeArgs()
         {
         }
+        public static new GetDiagnosticSettingInvokeArgs Empty => new GetDiagnosticSettingInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview.Inputs
     /// <summary>
     /// Client supplied parameters used to create a new attestation provider.
     /// </summary>
-    public sealed class AttestationServiceCreationSpecificParamsArgs : Pulumi.ResourceArgs
+    public sealed class AttestationServiceCreationSpecificParamsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview.Inputs
         public AttestationServiceCreationSpecificParamsArgs()
         {
         }
+        public static new AttestationServiceCreationSpecificParamsArgs Empty => new AttestationServiceCreationSpecificParamsArgs();
     }
 }

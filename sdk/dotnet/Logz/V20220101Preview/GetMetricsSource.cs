@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
     }
 
 
-    public sealed class GetMetricsSourceArgs : Pulumi.InvokeArgs
+    public sealed class GetMetricsSourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Metrics Account resource name
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         public GetMetricsSourceArgs()
         {
         }
+        public static new GetMetricsSourceArgs Empty => new GetMetricsSourceArgs();
     }
 
-    public sealed class GetMetricsSourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMetricsSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Metrics Account resource name
@@ -67,6 +68,7 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         public GetMetricsSourceInvokeArgs()
         {
         }
+        public static new GetMetricsSourceInvokeArgs Empty => new GetMetricsSourceInvokeArgs();
     }
 
 

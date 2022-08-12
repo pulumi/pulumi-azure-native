@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// Represents a policy option.
     /// </summary>
-    public sealed class ContentKeyPolicyOptionArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key delivery configuration.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public ContentKeyPolicyOptionArgs()
         {
         }
+        public static new ContentKeyPolicyOptionArgs Empty => new ContentKeyPolicyOptionArgs();
     }
 }

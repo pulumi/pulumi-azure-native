@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity DelimitedText source.
     /// </summary>
-    public sealed class DelimitedTextSourceArgs : Pulumi.ResourceArgs
+    public sealed class DelimitedTextSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public DelimitedTextSourceArgs()
         {
         }
+        public static new DelimitedTextSourceArgs Empty => new DelimitedTextSourceArgs();
     }
 }

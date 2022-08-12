@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Azure Search Index sink.
     /// </summary>
-    public sealed class AzureSearchIndexSinkArgs : Pulumi.ResourceArgs
+    public sealed class AzureSearchIndexSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sink retry count. Type: integer (or Expression with resultType integer).
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureSearchIndexSinkArgs()
         {
         }
+        public static new AzureSearchIndexSinkArgs Empty => new AzureSearchIndexSinkArgs();
     }
 }

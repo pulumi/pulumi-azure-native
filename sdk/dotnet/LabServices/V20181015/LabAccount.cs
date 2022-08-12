@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     /// Represents a lab account.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices/v20181015:LabAccount")]
-    public partial class LabAccount : Pulumi.CustomResource
+    public partial class LabAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Represents if region selection is enabled
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:labservices:LabAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices:LabAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         }
     }
 
-    public sealed class LabAccountArgs : Pulumi.ResourceArgs
+    public sealed class LabAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents if region selection is enabled
@@ -169,5 +169,6 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public LabAccountArgs()
         {
         }
+        public static new LabAccountArgs Empty => new LabAccountArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Enables or disables a capability on the dedicated host group.&lt;br&gt;&lt;br&gt;Minimum api-version: 2022-03-01.
     /// </summary>
-    public sealed class DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs : Pulumi.ResourceArgs
+    public sealed class DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flag that enables or disables a capability to have UltraSSD Enabled Virtual Machines on Dedicated Hosts of the Dedicated Host Group. For the Virtual Machines to be UltraSSD Enabled, UltraSSDEnabled flag for the resource needs to be set true as well. The value is defaulted to 'false' when not provided. Please refer to https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd for more details on Ultra SSD feature. &lt;br&gt;&lt;br&gt;NOTE: The ultraSSDEnabled setting can only be enabled for Host Groups that are created as zonal. &lt;br&gt;&lt;br&gt;Minimum api-version: 2022-03-01.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs()
         {
         }
+        public static new DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs Empty => new DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs();
     }
 }

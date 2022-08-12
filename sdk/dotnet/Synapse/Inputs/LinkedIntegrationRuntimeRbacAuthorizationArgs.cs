@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.Inputs
     /// <summary>
     /// The role based access control (RBAC) authorization type integration runtime.
     /// </summary>
-    public sealed class LinkedIntegrationRuntimeRbacAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class LinkedIntegrationRuntimeRbacAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization type for integration runtime sharing.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Synapse.Inputs
         public LinkedIntegrationRuntimeRbacAuthorizationArgs()
         {
         }
+        public static new LinkedIntegrationRuntimeRbacAuthorizationArgs Empty => new LinkedIntegrationRuntimeRbacAuthorizationArgs();
     }
 }

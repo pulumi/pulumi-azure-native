@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetInboundEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetInboundEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DNS resolver.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Network
         public GetInboundEndpointArgs()
         {
         }
+        public static new GetInboundEndpointArgs Empty => new GetInboundEndpointArgs();
     }
 
-    public sealed class GetInboundEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInboundEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DNS resolver.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Network
         public GetInboundEndpointInvokeArgs()
         {
         }
+        public static new GetInboundEndpointInvokeArgs Empty => new GetInboundEndpointInvokeArgs();
     }
 
 

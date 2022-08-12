@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Databricks
     }
 
 
-    public sealed class GetAccessConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the azure databricks accessConnector.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Databricks
         public GetAccessConnectorArgs()
         {
         }
+        public static new GetAccessConnectorArgs Empty => new GetAccessConnectorArgs();
     }
 
-    public sealed class GetAccessConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the azure databricks accessConnector.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Databricks
         public GetAccessConnectorInvokeArgs()
         {
         }
+        public static new GetAccessConnectorInvokeArgs Empty => new GetAccessConnectorInvokeArgs();
     }
 
 

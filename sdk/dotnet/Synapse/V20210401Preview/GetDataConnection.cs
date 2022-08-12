@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     }
 
 
-    public sealed class GetDataConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetDataConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data connection.
@@ -61,9 +61,10 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         public GetDataConnectionArgs()
         {
         }
+        public static new GetDataConnectionArgs Empty => new GetDataConnectionArgs();
     }
 
-    public sealed class GetDataConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data connection.
@@ -98,6 +99,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         public GetDataConnectionInvokeArgs()
         {
         }
+        public static new GetDataConnectionInvokeArgs Empty => new GetDataConnectionInvokeArgs();
     }
 
 

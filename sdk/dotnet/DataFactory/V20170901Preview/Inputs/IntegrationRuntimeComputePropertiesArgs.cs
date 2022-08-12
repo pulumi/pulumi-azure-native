@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The compute resource properties for managed integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeComputePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeComputePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public IntegrationRuntimeComputePropertiesArgs()
         {
         }
+        public static new IntegrationRuntimeComputePropertiesArgs Empty => new IntegrationRuntimeComputePropertiesArgs();
     }
 }

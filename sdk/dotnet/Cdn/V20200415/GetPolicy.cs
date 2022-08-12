@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415
     }
 
 
-    public sealed class GetPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the CdnWebApplicationFirewallPolicy.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Cdn.V20200415
         public GetPolicyArgs()
         {
         }
+        public static new GetPolicyArgs Empty => new GetPolicyArgs();
     }
 
-    public sealed class GetPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the CdnWebApplicationFirewallPolicy.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415
         public GetPolicyInvokeArgs()
         {
         }
+        public static new GetPolicyInvokeArgs Empty => new GetPolicyInvokeArgs();
     }
 
 

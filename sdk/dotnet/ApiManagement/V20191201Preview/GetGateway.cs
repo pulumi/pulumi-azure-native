@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
     }
 
 
-    public sealed class GetGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public GetGatewayArgs()
         {
         }
+        public static new GetGatewayArgs Empty => new GetGatewayArgs();
     }
 
-    public sealed class GetGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public GetGatewayInvokeArgs()
         {
         }
+        public static new GetGatewayInvokeArgs Empty => new GetGatewayInvokeArgs();
     }
 
 

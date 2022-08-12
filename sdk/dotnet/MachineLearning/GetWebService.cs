@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearning
     }
 
 
-    public sealed class GetWebServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetWebServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The region for which encrypted credential parameters are valid.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.MachineLearning
         public GetWebServiceArgs()
         {
         }
+        public static new GetWebServiceArgs Empty => new GetWebServiceArgs();
     }
 
-    public sealed class GetWebServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The region for which encrypted credential parameters are valid.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.MachineLearning
         public GetWebServiceInvokeArgs()
         {
         }
+        public static new GetWebServiceInvokeArgs Empty => new GetWebServiceInvokeArgs();
     }
 
 

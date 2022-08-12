@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
     /// <summary>
     /// SKU of nat gateway
     /// </summary>
-    public sealed class NatGatewaySkuArgs : Pulumi.ResourceArgs
+    public sealed class NatGatewaySkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of Nat Gateway SKU.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20190201.Inputs
         public NatGatewaySkuArgs()
         {
         }
+        public static new NatGatewaySkuArgs Empty => new NatGatewaySkuArgs();
     }
 }

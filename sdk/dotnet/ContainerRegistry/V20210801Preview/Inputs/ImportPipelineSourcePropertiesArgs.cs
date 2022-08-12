@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview.Inputs
     /// <summary>
     /// The properties of the import pipeline source.
     /// </summary>
-    public sealed class ImportPipelineSourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ImportPipelineSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// They key vault secret uri to obtain the source storage SAS token.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview.Inputs
         {
             Type = "AzureStorageBlobContainer";
         }
+        public static new ImportPipelineSourcePropertiesArgs Empty => new ImportPipelineSourcePropertiesArgs();
     }
 }

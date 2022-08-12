@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The AS2 agreement envelope settings.
     /// </summary>
-    public sealed class AS2EnvelopeSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AS2EnvelopeSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value indicating whether to auto generate file name.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public AS2EnvelopeSettingsArgs()
         {
         }
+        public static new AS2EnvelopeSettingsArgs Empty => new AS2EnvelopeSettingsArgs();
     }
 }

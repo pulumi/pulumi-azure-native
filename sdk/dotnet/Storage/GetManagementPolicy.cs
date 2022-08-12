@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Storage
     }
 
 
-    public sealed class GetManagementPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Storage
         public GetManagementPolicyArgs()
         {
         }
+        public static new GetManagementPolicyArgs Empty => new GetManagementPolicyArgs();
     }
 
-    public sealed class GetManagementPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Storage
         public GetManagementPolicyInvokeArgs()
         {
         }
+        public static new GetManagementPolicyInvokeArgs Empty => new GetManagementPolicyInvokeArgs();
     }
 
 

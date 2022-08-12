@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
     /// <summary>
     /// The Edifact schema reference.
     /// </summary>
-    public sealed class EdifactSchemaReferenceArgs : Pulumi.ResourceArgs
+    public sealed class EdifactSchemaReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The association assigned code.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Logic.V20160601.Inputs
         public EdifactSchemaReferenceArgs()
         {
         }
+        public static new EdifactSchemaReferenceArgs Empty => new EdifactSchemaReferenceArgs();
     }
 }

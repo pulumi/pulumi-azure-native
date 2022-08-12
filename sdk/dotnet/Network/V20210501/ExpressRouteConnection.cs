@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210501
     /// ExpressRouteConnection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210501:ExpressRouteConnection")]
-    public partial class ExpressRouteConnection : Pulumi.CustomResource
+    public partial class ExpressRouteConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Authorization key to establish the connection.
@@ -88,30 +88,30 @@ namespace Pulumi.AzureNative.Network.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRouteConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.Network.V20210501
         }
     }
 
-    public sealed class ExpressRouteConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authorization key to establish the connection.
@@ -204,5 +204,6 @@ namespace Pulumi.AzureNative.Network.V20210501
         public ExpressRouteConnectionArgs()
         {
         }
+        public static new ExpressRouteConnectionArgs Empty => new ExpressRouteConnectionArgs();
     }
 }

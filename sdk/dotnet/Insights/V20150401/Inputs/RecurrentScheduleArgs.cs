@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20150401.Inputs
     /// <summary>
     /// The scheduling constraints for when the profile begins.
     /// </summary>
-    public sealed class RecurrentScheduleArgs : Pulumi.ResourceArgs
+    public sealed class RecurrentScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("days", required: true)]
         private InputList<string>? _days;
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Insights.V20150401.Inputs
         public RecurrentScheduleArgs()
         {
         }
+        public static new RecurrentScheduleArgs Empty => new RecurrentScheduleArgs();
     }
 }

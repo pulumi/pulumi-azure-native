@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Inputs
     /// <summary>
     /// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
     /// </summary>
-    public sealed class OpenShiftManagedClusterMasterPoolProfileArgs : Pulumi.ResourceArgs
+    public sealed class OpenShiftManagedClusterMasterPoolProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines further properties on the API.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Inputs
         public OpenShiftManagedClusterMasterPoolProfileArgs()
         {
         }
+        public static new OpenShiftManagedClusterMasterPoolProfileArgs Empty => new OpenShiftManagedClusterMasterPoolProfileArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
 
-    public sealed class GetSAPVirtualInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPVirtualInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPVirtualInstanceArgs()
         {
         }
+        public static new GetSAPVirtualInstanceArgs Empty => new GetSAPVirtualInstanceArgs();
     }
 
-    public sealed class GetSAPVirtualInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSAPVirtualInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Workloads
         public GetSAPVirtualInstanceInvokeArgs()
         {
         }
+        public static new GetSAPVirtualInstanceInvokeArgs Empty => new GetSAPVirtualInstanceInvokeArgs();
     }
 
 

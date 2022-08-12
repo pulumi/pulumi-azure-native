@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
     /// <summary>
     /// Url configuration of the Actions set in Application Gateway.
     /// </summary>
-    public sealed class ApplicationGatewayUrlConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayUrlConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Url path which user has provided for url rewrite. Null means no path will be updated. Default value is null.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
         public ApplicationGatewayUrlConfigurationArgs()
         {
         }
+        public static new ApplicationGatewayUrlConfigurationArgs Empty => new ApplicationGatewayUrlConfigurationArgs();
     }
 }

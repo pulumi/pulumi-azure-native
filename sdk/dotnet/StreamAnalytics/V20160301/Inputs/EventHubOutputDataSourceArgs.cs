@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
     /// <summary>
     /// Describes an Event Hub output data source.
     /// </summary>
-    public sealed class EventHubOutputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class EventHubOutputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
         public EventHubOutputDataSourceArgs()
         {
         }
+        public static new EventHubOutputDataSourceArgs Empty => new EventHubOutputDataSourceArgs();
     }
 }

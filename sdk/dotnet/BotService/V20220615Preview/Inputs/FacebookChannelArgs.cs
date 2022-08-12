@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// Facebook channel definition
     /// </summary>
-    public sealed class FacebookChannelArgs : Pulumi.ResourceArgs
+    public sealed class FacebookChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The channel name
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         {
             Location = "global";
         }
+        public static new FacebookChannelArgs Empty => new FacebookChannelArgs();
     }
 }

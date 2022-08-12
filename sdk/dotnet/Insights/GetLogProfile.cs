@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetLogProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetLogProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the log profile.
@@ -38,9 +38,10 @@ namespace Pulumi.AzureNative.Insights
         public GetLogProfileArgs()
         {
         }
+        public static new GetLogProfileArgs Empty => new GetLogProfileArgs();
     }
 
-    public sealed class GetLogProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLogProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the log profile.
@@ -51,6 +52,7 @@ namespace Pulumi.AzureNative.Insights
         public GetLogProfileInvokeArgs()
         {
         }
+        public static new GetLogProfileInvokeArgs Empty => new GetLogProfileInvokeArgs();
     }
 
 

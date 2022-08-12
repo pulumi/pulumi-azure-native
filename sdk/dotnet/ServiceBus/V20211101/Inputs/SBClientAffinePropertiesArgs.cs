@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101.Inputs
     /// <summary>
     /// Properties specific to client affine subscriptions.
     /// </summary>
-    public sealed class SBClientAffinePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SBClientAffinePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the Client ID of the application that created the client-affine subscription.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101.Inputs
         public SBClientAffinePropertiesArgs()
         {
         }
+        public static new SBClientAffinePropertiesArgs Empty => new SBClientAffinePropertiesArgs();
     }
 }

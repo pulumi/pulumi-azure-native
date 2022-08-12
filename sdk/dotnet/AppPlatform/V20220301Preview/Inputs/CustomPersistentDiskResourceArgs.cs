@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
     /// <summary>
     /// Custom persistent disk resource payload.
     /// </summary>
-    public sealed class CustomPersistentDiskResourceArgs : Pulumi.ResourceArgs
+    public sealed class CustomPersistentDiskResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Properties of the custom persistent disk resource payload.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
         public CustomPersistentDiskResourceArgs()
         {
         }
+        public static new CustomPersistentDiskResourceArgs Empty => new CustomPersistentDiskResourceArgs();
     }
 }

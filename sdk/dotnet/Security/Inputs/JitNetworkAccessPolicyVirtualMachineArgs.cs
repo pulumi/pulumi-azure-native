@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Inputs
 {
 
-    public sealed class JitNetworkAccessPolicyVirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class JitNetworkAccessPolicyVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of the virtual machine that is linked to this policy
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public JitNetworkAccessPolicyVirtualMachineArgs()
         {
         }
+        public static new JitNetworkAccessPolicyVirtualMachineArgs Empty => new JitNetworkAccessPolicyVirtualMachineArgs();
     }
 }
