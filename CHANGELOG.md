@@ -2,7 +2,32 @@
 
 ## HEAD (Unreleased)
 
+## 1.68.0 (2022-08-12)
+
 - Memory usage for most programs is greatly reduced [#1689](https://github.com/pulumi/pulumi-azure-native/pull/1689)
+
+### Upstream breaking changes
+
+- Resource "azure-native:insights:ActionGroup" missing output "identity"
+- Resource "azure-native:insights:ActionGroup" missing output "kind"
+- Resource "azure-native:automation:HybridRunbookWorkerGroup" missing input "name"
+- Function "azure-native:app:listContainerAppCustomHostNameAnalysis" missing output "id"
+- Function "azure-native:app:listContainerAppCustomHostNameAnalysis" missing output "systemData"
+- Function "azure-native:app:listContainerAppCustomHostNameAnalysis" missing output "type"
+- Function "azure-native:app:listContainerAppCustomHostNameAnalysis" missing output "name"
+- Function "azure-native:insights:getActionGroup" missing output "identity"
+- Function "azure-native:insights:getActionGroup" missing output "kind"
+- Function "azure-native:app:listContainerAppCustomHostNameAnalysis" output "customDomainVerificationFailureInfo" type changed from "#/types/azure-native:app:DefaultErrorResponseResponse" to "#/types/azure-native:app:CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo"
+- Type "azure-native:security:ApplicationConditionOperator" missing
+- Type "azure-native:security:ApplicationCondition" missing
+- Type "azure-native:security:ApplicationConditionResponse" missing
+- Type "azure-native:app:DefaultErrorResponseResponse" missing
+- Type "azure-native:app:DefaultErrorResponseResponseError" missing
+- Type "azure-native:app:DefaultErrorResponseResponseDetails" missing
+
+#### New functions
+
+- `azure-native:solutions:listApplicationAllowedUpgradePlans`
 
 ## 1.67.0 (2022-07-12)
 
@@ -20,7 +45,7 @@
 - Function "azure-native:elasticsan:getVolumeGroup" missing output "location"
 - Type "azure-native:automation:HybridRunbookWorkerLegacyResponse" missing
 
-#### New resources:
+#### New resources
 
 - `azure-native:authorization:ScopeAccessReviewHistoryDefinitionById`
 - `azure-native:authorization:ScopeAccessReviewScheduleDefinitionById`
@@ -32,7 +57,7 @@
 - `azure-native:web:StaticSiteLinkedBackend`
 - `azure-native:web:StaticSiteLinkedBackendForBuild`
 
-#### New functions:
+#### New functions
 
 - `azure-native:authorization:getScopeAccessReviewHistoryDefinitionById`
 - `azure-native:authorization:getScopeAccessReviewScheduleDefinitionById`
@@ -53,15 +78,14 @@
 Resource "azure-native:iotcentral:App" changed from 2018-09-01 to 2021-06-01
 Resource "azure-native:iotcentral:getApp" changed from 2018-09-01 to 2021-06-01
 
-#### New resources:
+#### New resources
 
 - `azure-native:devhub:Workflow`
 - `azure-native:security:GovernanceAssignment`
 - `azure-native:security:GovernanceRule`
 - `azure-native:security:SecurityConnectorGovernanceRule`
 
-
-#### New functions:
+#### New functions
 
 - `azure-native:devhub:getGitHubOAuth`
 - `azure-native:devhub:getWorkflow`
@@ -69,7 +93,7 @@ Resource "azure-native:iotcentral:getApp" changed from 2018-09-01 to 2021-06-01
 - `azure-native:security:getGovernanceRule`
 - `azure-native:security:getSecurityConnectorGovernanceRule`
 
-#### Found API changes:
+#### Found API changes
 
 ```
 New resource "azure-native:devhub:Workflow"
@@ -485,12 +509,13 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 ## 1.63.0 (2022-04-22)
 
 ## Breaking changes from Microsoft
-- Notebooks namespace removed in https://github.com/Azure/azure-rest-api-specs/pull/18482. Service is still in private preview.
+
+- Notebooks namespace removed in <https://github.com/Azure/azure-rest-api-specs/pull/18482>. Service is still in private preview.
 - Type "azure-native:app:GithubActionConfiguration" missing property "dockerfilePath"
 - Type "azure-native:app:GithubActionConfigurationResponse" missing property "dockerfilePath"
 - Type "azure-native:network:OrderBy" input "order" type changed from "string" to "object"
 
-#### New resources:
+#### New resources
 
 - `azure-native:costmanagement:ScheduledAction`
 - `azure-native:costmanagement:ScheduledActionByScope`
@@ -509,7 +534,7 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 - `azure-native:scvmm:VirtualNetwork`
 - `azure-native:scvmm:VmmServer`
 
-#### New functions:
+#### New functions
 
 - `azure-native:costmanagement:getScheduledAction`
 - `azure-native:costmanagement:getScheduledActionByScope`
@@ -586,9 +611,9 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 
 ## 1.58.0 (2022-02-14)
 
-- Fix go module size issue introduced in v1.57.0 (https://github.com/pulumi/pulumi-azure-native/issues/1502)
+- Fix go module size issue introduced in v1.57.0 (<https://github.com/pulumi/pulumi-azure-native/issues/1502>)
 
-### New resources:
+### New resources
 
 - `azure-native:azureactivedirectory/v20210401:GuestUsage`
 - `azure-native:containerservice/v20220101:Snapshot`
@@ -730,7 +755,7 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 
 - Update to `pulumi/pulumi` 3.20.0
 - Go SDK improvements:
-  - Removed unused input types, see https://github.com/pulumi/pulumi/pull/7943
+  - Removed unused input types, see <https://github.com/pulumi/pulumi/pull/7943>
   - All comments for resources, types, and properties restored
   - SDK size reduced by 30%
 
@@ -1239,7 +1264,7 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 ### Updated API versions for top-level resources
 
 - `authorization:ManagementLock*` resources and functions updated from `2016-09-01` to `2017-04-01`
-- `aadiam.privateLinkForAzureAd" changed from `2020-03-01-preview`to`2020-03-01`
+- `aadiam.privateLinkForAzureAd" changed from`2020-03-01-preview`to`2020-03-01`
 
 ---
 
