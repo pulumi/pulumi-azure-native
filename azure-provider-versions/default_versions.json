@@ -340,39 +340,6 @@
         "listCommunicationServiceKeys": "2020-08-20",
         "listEmailServiceVerifiedExchangeOnlineDomains": "2021-10-01-preview"
     },
-    "Compute": {
-        "AvailabilitySet": "2020-12-01",
-        "CapacityReservation": "2021-04-01",
-        "CapacityReservationGroup": "2021-04-01",
-        "CloudService": "2021-03-01",
-        "DedicatedHost": "2020-12-01",
-        "DedicatedHostGroup": "2020-12-01",
-        "Disk": "2020-12-01",
-        "DiskAccess": "2020-12-01",
-        "DiskAccessAPrivateEndpointConnection": "2020-12-01",
-        "DiskEncryptionSet": "2020-12-01",
-        "Gallery": "2020-09-30",
-        "GalleryApplication": "2020-09-30",
-        "GalleryApplicationVersion": "2020-09-30",
-        "GalleryImage": "2020-09-30",
-        "GalleryImageVersion": "2020-09-30",
-        "Image": "2020-12-01",
-        "ProximityPlacementGroup": "2020-12-01",
-        "RestorePoint": "2021-03-01",
-        "RestorePointCollection": "2021-03-01",
-        "Snapshot": "2020-12-01",
-        "SshPublicKey": "2020-12-01",
-        "VirtualMachine": "2021-03-01",
-        "VirtualMachineExtension": "2021-03-01",
-        "VirtualMachineRunCommandByVirtualMachine": "2021-03-01",
-        "VirtualMachineScaleSet": "2021-03-01",
-        "VirtualMachineScaleSetExtension": "2021-03-01",
-        "VirtualMachineScaleSetVM": "2021-03-01",
-        "VirtualMachineScaleSetVMExtension": "2021-03-01",
-        "VirtualMachineScaleSetVMRunCommand": "2021-03-01",
-        "getLogAnalyticExportRequestRateByInterval": "2020-12-01",
-        "getLogAnalyticExportThrottledRequests": "2020-12-01"
-    },
     "ConfidentialLedger": {
         "Ledger": "2020-12-01-preview"
     },
@@ -640,6 +607,7 @@
         "ScalingPlanPooledSchedule": "2022-04-01-preview",
         "Workspace": "2021-02-01-preview"
     },
+    "DevCenter": {},
     "DevHub": {
         "Workflow": "2022-04-01-preview",
         "getGitHubOAuth": "2022-04-01-preview"
@@ -1825,6 +1793,7 @@
         "Cache": "2021-03-01",
         "StorageTarget": "2021-03-01"
     },
+    "StorageMover": {},
     "StoragePool": {
         "DiskPool": "2020-03-15-preview",
         "IscsiTarget": "2020-03-15-preview"
