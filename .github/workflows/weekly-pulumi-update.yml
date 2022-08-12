@@ -132,7 +132,7 @@ jobs:
     - name: Create PR
       id: create-pr
       if: steps.gomod.outputs.changes != 0
-      uses: repo-sync/pull-request@v2
+      uses: repo-sync/pull-request@v2.6.2
       with:
         source_branch: update-pulumi/${{ github.run_id }}-${{ github.run_number }}
         destination_branch: master
