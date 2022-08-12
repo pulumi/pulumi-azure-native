@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:TransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:TransparentDataEncryption"},
                 },

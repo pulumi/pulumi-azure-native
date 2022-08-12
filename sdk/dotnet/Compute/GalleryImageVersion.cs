@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Compute
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryImageVersion"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryImageVersion"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryImageVersion"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20220103:GalleryImageVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

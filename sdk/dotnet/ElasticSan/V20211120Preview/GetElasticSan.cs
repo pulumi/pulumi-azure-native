@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// <summary>
         /// resource sku
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Resource metadata required by ARM RPC
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuResponse sku,
 
             Outputs.SystemDataResponse systemData,
 

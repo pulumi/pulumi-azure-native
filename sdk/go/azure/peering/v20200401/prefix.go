@@ -75,6 +75,9 @@ func NewPrefix(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:peering/v20220101:Prefix"),
 		},
+		{
+			Type: pulumi.String("azure-native:peering/v20220601:Prefix"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Prefix

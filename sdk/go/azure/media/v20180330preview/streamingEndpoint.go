@@ -92,6 +92,9 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:media/v20211101:StreamingEndpoint"),
 		},
+		{
+			Type: pulumi.String("azure-native:media/v20220801:StreamingEndpoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StreamingEndpoint

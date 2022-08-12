@@ -62,6 +62,9 @@ func NewChannel(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:botservice/v20210501preview:Channel"),
 		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20220615preview:Channel"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Channel

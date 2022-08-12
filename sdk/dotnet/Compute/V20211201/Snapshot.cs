@@ -223,6 +223,7 @@ namespace Pulumi.AzureNative.Compute.V20211201
                     new Pulumi.Alias { Type = "azure-native:compute/v20201201:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210401:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210801:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20220302:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

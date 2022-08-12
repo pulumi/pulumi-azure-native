@@ -100,6 +100,12 @@ namespace Pulumi.AzureNative.Workloads
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+        /// </summary>
+        [Output("zoneRedundancyPreference")]
+        public Output<string?> ZoneRedundancyPreference { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Monitor resource with the given unique name, arguments, and options.
@@ -214,6 +220,12 @@ namespace Pulumi.AzureNative.Workloads
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+        /// </summary>
+        [Input("zoneRedundancyPreference")]
+        public Input<string>? ZoneRedundancyPreference { get; set; }
 
         public MonitorArgs()
         {

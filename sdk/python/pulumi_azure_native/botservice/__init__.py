@@ -34,10 +34,13 @@ if typing.TYPE_CHECKING:
     v20210301 = __v20210301
     import pulumi_azure_native.botservice.v20210501preview as __v20210501preview
     v20210501preview = __v20210501preview
+    import pulumi_azure_native.botservice.v20220615preview as __v20220615preview
+    v20220615preview = __v20220615preview
 else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.botservice.v20171201')
     v20180712 = _utilities.lazy_import('pulumi_azure_native.botservice.v20180712')
     v20200602 = _utilities.lazy_import('pulumi_azure_native.botservice.v20200602')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.botservice.v20210301')
     v20210501preview = _utilities.lazy_import('pulumi_azure_native.botservice.v20210501preview')
+    v20220615preview = _utilities.lazy_import('pulumi_azure_native.botservice.v20220615preview')
 

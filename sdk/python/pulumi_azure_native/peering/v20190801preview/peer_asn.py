@@ -177,7 +177,7 @@ class PeerAsn(pulumi.CustomResource):
             __props__.__dict__["validation_state"] = validation_state
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20190901preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200101preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200401:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20201001:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210101:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210601:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20220101:PeerAsn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20190901preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200101preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200401:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20201001:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210101:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210601:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20220101:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20220601:PeerAsn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PeerAsn, __self__).__init__(
             'azure-native:peering/v20190801preview:PeerAsn',

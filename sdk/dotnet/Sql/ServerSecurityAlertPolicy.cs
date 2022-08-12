@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.Sql
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerSecurityAlertPolicy"},
                 },

@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.ElasticSan.Inputs
         /// <summary>
         /// This enumerates the possible sources of a volume creation.
         /// </summary>
-        [Input("createSource", required: true)]
-        public Input<Pulumi.AzureNative.ElasticSan.VolumeCreateOption> CreateSource { get; set; } = null!;
+        [Input("createSource")]
+        public Input<Pulumi.AzureNative.ElasticSan.VolumeCreateOption>? CreateSource { get; set; }
 
         /// <summary>
         /// If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.

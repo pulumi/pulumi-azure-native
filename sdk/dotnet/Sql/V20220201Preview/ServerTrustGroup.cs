@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerTrustGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerTrustGroup"},
                 },
             };

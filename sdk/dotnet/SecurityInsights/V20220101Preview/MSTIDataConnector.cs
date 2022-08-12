@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MSTIDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MSTIDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MSTIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MSTIDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

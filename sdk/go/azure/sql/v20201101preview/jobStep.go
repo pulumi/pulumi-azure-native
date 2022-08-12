@@ -91,6 +91,9 @@ func NewJobStep(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210801preview:JobStep"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:JobStep"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:JobStep"),
 		},
 		{

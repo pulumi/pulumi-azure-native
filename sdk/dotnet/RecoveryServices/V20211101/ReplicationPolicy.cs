@@ -79,6 +79,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

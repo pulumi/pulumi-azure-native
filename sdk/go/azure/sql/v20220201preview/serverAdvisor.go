@@ -82,6 +82,9 @@ func NewServerAdvisor(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210801preview:ServerAdvisor"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:ServerAdvisor"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:ServerAdvisor"),
 		},
 	})

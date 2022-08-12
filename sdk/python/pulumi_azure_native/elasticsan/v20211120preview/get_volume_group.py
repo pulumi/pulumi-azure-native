@@ -52,7 +52,7 @@ class GetVolumeGroupResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> str:
+    def encryption(self) -> Optional[str]:
         """
         Type of encryption
         """
@@ -84,7 +84,7 @@ class GetVolumeGroupResult:
 
     @property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> str:
+    def protocol_type(self) -> Optional[str]:
         """
         Type of storage target
         """

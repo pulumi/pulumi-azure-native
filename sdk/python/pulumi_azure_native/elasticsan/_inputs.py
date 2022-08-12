@@ -43,28 +43,27 @@ class NetworkRuleSetArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[Union[str, 'Name']]] = None,
+                 name: pulumi.Input[Union[str, 'Name']],
                  tier: Optional[pulumi.Input[Union[str, 'Tier']]] = None):
         """
         The SKU name. Required for account creation; optional for update.
         :param pulumi.Input[Union[str, 'Name']] name: The sku name.
         :param pulumi.Input[Union[str, 'Tier']] tier: The sku tier.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "name", name)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[str, 'Name']]]:
+    def name(self) -> pulumi.Input[Union[str, 'Name']]:
         """
         The sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[str, 'Name']]]):
+    def name(self, value: pulumi.Input[Union[str, 'Name']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -83,27 +82,28 @@ class SkuArgs:
 @pulumi.input_type
 class SourceCreationDataArgs:
     def __init__(__self__, *,
-                 create_source: pulumi.Input['VolumeCreateOption'],
+                 create_source: Optional[pulumi.Input['VolumeCreateOption']] = None,
                  source_uri: Optional[pulumi.Input[str]] = None):
         """
         Data source used when creating the volume.
         :param pulumi.Input['VolumeCreateOption'] create_source: This enumerates the possible sources of a volume creation.
         :param pulumi.Input[str] source_uri: If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
         """
-        pulumi.set(__self__, "create_source", create_source)
+        if create_source is not None:
+            pulumi.set(__self__, "create_source", create_source)
         if source_uri is not None:
             pulumi.set(__self__, "source_uri", source_uri)
 
     @property
     @pulumi.getter(name="createSource")
-    def create_source(self) -> pulumi.Input['VolumeCreateOption']:
+    def create_source(self) -> Optional[pulumi.Input['VolumeCreateOption']]:
         """
         This enumerates the possible sources of a volume creation.
         """
         return pulumi.get(self, "create_source")
 
     @create_source.setter
-    def create_source(self, value: pulumi.Input['VolumeCreateOption']):
+    def create_source(self, value: Optional[pulumi.Input['VolumeCreateOption']]):
         pulumi.set(self, "create_source", value)
 
     @property

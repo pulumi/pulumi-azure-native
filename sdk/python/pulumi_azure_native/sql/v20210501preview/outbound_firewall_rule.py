@@ -126,7 +126,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:OutboundFirewallRule"), pulumi.Alias(type_="azure-native:sql/v20210201preview:OutboundFirewallRule"), pulumi.Alias(type_="azure-native:sql/v20210801preview:OutboundFirewallRule"), pulumi.Alias(type_="azure-native:sql/v20211101preview:OutboundFirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220201preview:OutboundFirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:OutboundFirewallRule"), pulumi.Alias(type_="azure-native:sql/v20210201preview:OutboundFirewallRule"), pulumi.Alias(type_="azure-native:sql/v20210801preview:OutboundFirewallRule"), pulumi.Alias(type_="azure-native:sql/v20211101:OutboundFirewallRule"), pulumi.Alias(type_="azure-native:sql/v20211101preview:OutboundFirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220201preview:OutboundFirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OutboundFirewallRule, __self__).__init__(
             'azure-native:sql/v20210501preview:OutboundFirewallRule',

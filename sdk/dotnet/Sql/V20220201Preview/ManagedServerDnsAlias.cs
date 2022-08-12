@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:sql:ManagedServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedServerDnsAlias"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedServerDnsAlias"},
                 },
             };

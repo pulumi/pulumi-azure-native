@@ -63,6 +63,9 @@ func NewTable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:storage/v20210801:Table"),
 		},
+		{
+			Type: pulumi.String("azure-native:storage/v20220501:Table"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Table

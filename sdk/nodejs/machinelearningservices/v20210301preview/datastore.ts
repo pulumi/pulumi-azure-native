@@ -86,7 +86,7 @@ export class Datastore extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:Datastore" }, { type: "azure-native:machinelearningservices/v20200501preview:Datastore" }, { type: "azure-native:machinelearningservices/v20220201preview:Datastore" }, { type: "azure-native:machinelearningservices/v20220501:Datastore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:Datastore" }, { type: "azure-native:machinelearningservices/v20200501preview:Datastore" }, { type: "azure-native:machinelearningservices/v20220201preview:Datastore" }, { type: "azure-native:machinelearningservices/v20220501:Datastore" }, { type: "azure-native:machinelearningservices/v20220601preview:Datastore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Datastore.__pulumiType, name, resourceInputs, opts);
     }

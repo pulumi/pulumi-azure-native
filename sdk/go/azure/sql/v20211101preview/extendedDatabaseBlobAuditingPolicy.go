@@ -157,6 +157,9 @@ func NewExtendedDatabaseBlobAuditingPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210801preview:ExtendedDatabaseBlobAuditingPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:ExtendedDatabaseBlobAuditingPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20220201preview:ExtendedDatabaseBlobAuditingPolicy"),
 		},
 	})

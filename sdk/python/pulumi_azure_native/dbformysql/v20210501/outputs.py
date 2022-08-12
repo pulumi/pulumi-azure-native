@@ -98,11 +98,11 @@ class DataEncryptionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "geoBackupKeyUri":
+        if key == "geoBackupKeyURI":
             suggest = "geo_backup_key_uri"
         elif key == "geoBackupUserAssignedIdentityId":
             suggest = "geo_backup_user_assigned_identity_id"
-        elif key == "primaryKeyUri":
+        elif key == "primaryKeyURI":
             suggest = "primary_key_uri"
         elif key == "primaryUserAssignedIdentityId":
             suggest = "primary_user_assigned_identity_id"
@@ -144,7 +144,7 @@ class DataEncryptionResponse(dict):
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="geoBackupKeyUri")
+    @pulumi.getter(name="geoBackupKeyURI")
     def geo_backup_key_uri(self) -> Optional[str]:
         """
         Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
@@ -160,7 +160,7 @@ class DataEncryptionResponse(dict):
         return pulumi.get(self, "geo_backup_user_assigned_identity_id")
 
     @property
-    @pulumi.getter(name="primaryKeyUri")
+    @pulumi.getter(name="primaryKeyURI")
     def primary_key_uri(self) -> Optional[str]:
         """
         Primary key uri

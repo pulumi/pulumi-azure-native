@@ -113,7 +113,7 @@ export class BatchEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20210301preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20220501:BatchEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20210301preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20220501:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20220601preview:BatchEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BatchEndpoint.__pulumiType, name, resourceInputs, opts);
     }

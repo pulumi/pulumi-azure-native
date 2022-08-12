@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Peering.V20220101
                 {
                     new Pulumi.Alias { Type = "azure-native:peering:ConnectionMonitorTest"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20210601:ConnectionMonitorTest"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20220601:ConnectionMonitorTest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

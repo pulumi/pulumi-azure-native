@@ -10,6 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Type of the sever administrator.
+type AdministratorType string
+
+const (
+	AdministratorTypeActiveDirectory = AdministratorType("ActiveDirectory")
+)
+
 // The mode to create a new MySQL server.
 type CreateMode string
 

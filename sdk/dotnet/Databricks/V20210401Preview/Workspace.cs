@@ -169,6 +169,7 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
                     new Pulumi.Alias { Type = "azure-native:databricks:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:databricks/v20180401:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:databricks/v20221001preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

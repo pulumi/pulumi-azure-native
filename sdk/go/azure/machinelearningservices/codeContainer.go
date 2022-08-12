@@ -52,6 +52,9 @@ func NewCodeContainer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20220501:CodeContainer"),
 		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20220601preview:CodeContainer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CodeContainer

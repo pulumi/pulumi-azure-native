@@ -85,7 +85,7 @@ export class ComponentContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220501:ComponentContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220501:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:ComponentContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ComponentContainer.__pulumiType, name, resourceInputs, opts);
     }

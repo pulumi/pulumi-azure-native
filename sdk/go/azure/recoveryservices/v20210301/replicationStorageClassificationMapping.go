@@ -90,6 +90,12 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20220301:ReplicationStorageClassificationMapping"),
 		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20220401:ReplicationStorageClassificationMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20220501:ReplicationStorageClassificationMapping"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationStorageClassificationMapping

@@ -71,6 +71,9 @@ func NewJobCredential(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210801preview:JobCredential"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:JobCredential"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:JobCredential"),
 		},
 	})

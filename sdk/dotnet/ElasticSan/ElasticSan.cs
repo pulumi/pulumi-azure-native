@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.ElasticSan
         /// resource sku
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource metadata required by ARM RPC
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.ElasticSan
 
     public sealed class ElasticSanArgs : Pulumi.ResourceArgs
     {
-        [Input("availabilityZones", required: true)]
+        [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
 
         /// <summary>
@@ -200,8 +200,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// resource sku
         /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
+        [Input("sku", required: true)]
+        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

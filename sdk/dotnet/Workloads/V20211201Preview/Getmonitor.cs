@@ -127,6 +127,10 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+        /// </summary>
+        public readonly string? ZoneRedundancyPreference;
 
         [OutputConstructor]
         private GetmonitorResult(
@@ -158,7 +162,9 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? zoneRedundancyPreference)
         {
             AppLocation = appLocation;
             Errors = errors;
@@ -175,6 +181,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            ZoneRedundancyPreference = zoneRedundancyPreference;
         }
     }
 }

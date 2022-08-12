@@ -55,6 +55,9 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:sql/v20140401:GeoBackupPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20211101:GeoBackupPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GeoBackupPolicy

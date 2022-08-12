@@ -158,7 +158,7 @@ export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSetVMRunCommand" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20220301:VirtualMachineScaleSetVMRunCommand" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineScaleSetVMRunCommand.__pulumiType, name, resourceInputs, opts);
     }

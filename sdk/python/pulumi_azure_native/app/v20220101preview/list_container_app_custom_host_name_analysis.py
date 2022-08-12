@@ -98,7 +98,7 @@ class ListContainerAppCustomHostNameAnalysisResult:
 
     @property
     @pulumi.getter(name="customDomainVerificationFailureInfo")
-    def custom_domain_verification_failure_info(self) -> 'outputs.DefaultErrorResponseResponse':
+    def custom_domain_verification_failure_info(self) -> 'outputs.CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo':
         """
         Raw failure information if DNS verification fails.
         """

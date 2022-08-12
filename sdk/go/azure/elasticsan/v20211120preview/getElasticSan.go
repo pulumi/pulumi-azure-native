@@ -44,7 +44,7 @@ type LookupElasticSanResult struct {
 	// State of the operation on the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// resource sku
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku SkuResponse `pulumi:"sku"`
 	// Resource metadata required by ARM RPC
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
@@ -138,8 +138,8 @@ func (o LookupElasticSanResultOutput) ProvisioningState() pulumi.StringOutput {
 }
 
 // resource sku
-func (o LookupElasticSanResultOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v LookupElasticSanResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+func (o LookupElasticSanResultOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v LookupElasticSanResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
 }
 
 // Resource metadata required by ARM RPC

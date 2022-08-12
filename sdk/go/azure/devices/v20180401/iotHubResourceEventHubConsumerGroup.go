@@ -116,6 +116,9 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devices/v20210702preview:IotHubResourceEventHubConsumerGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IotHubResourceEventHubConsumerGroup

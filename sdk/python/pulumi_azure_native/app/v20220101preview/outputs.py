@@ -38,14 +38,13 @@ __all__ = [
     'ContainerResponse',
     'CookieExpirationResponse',
     'CustomDomainResponse',
+    'CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo',
+    'CustomHostnameAnalysisResultResponseDetails',
     'CustomOpenIdConnectProviderResponse',
     'CustomScaleRuleResponse',
     'DaprMetadataResponse',
     'DaprResponse',
     'DefaultAuthorizationPolicyResponse',
-    'DefaultErrorResponseResponse',
-    'DefaultErrorResponseResponseDetails',
-    'DefaultErrorResponseResponseError',
     'EnvironmentVarResponse',
     'FacebookResponse',
     'ForwardProxyResponse',
@@ -1874,6 +1873,106 @@ class CustomDomainResponse(dict):
 
 
 @pulumi.output_type
+class CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo(dict):
+    """
+    Raw failure information if DNS verification fails.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 message: str,
+                 target: str,
+                 details: Optional[Sequence['outputs.CustomHostnameAnalysisResultResponseDetails']] = None):
+        """
+        Raw failure information if DNS verification fails.
+        :param str code: Standardized string to programmatically identify the error.
+        :param str message: Detailed error description and debugging information.
+        :param str target: Detailed error description and debugging information.
+        :param Sequence['CustomHostnameAnalysisResultResponseDetails'] details: Details or the error
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Standardized string to programmatically identify the error.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Detailed error description and debugging information.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        Detailed error description and debugging information.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[Sequence['outputs.CustomHostnameAnalysisResultResponseDetails']]:
+        """
+        Details or the error
+        """
+        return pulumi.get(self, "details")
+
+
+@pulumi.output_type
+class CustomHostnameAnalysisResultResponseDetails(dict):
+    """
+    Detailed errors.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 message: str,
+                 target: str):
+        """
+        Detailed errors.
+        :param str code: Standardized string to programmatically identify the error.
+        :param str message: Detailed error description and debugging information.
+        :param str target: Detailed error description and debugging information.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Standardized string to programmatically identify the error.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Detailed error description and debugging information.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        Detailed error description and debugging information.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
 class CustomOpenIdConnectProviderResponse(dict):
     """
     The configuration settings of the custom Open ID Connect provider.
@@ -2165,139 +2264,6 @@ class DefaultAuthorizationPolicyResponse(dict):
         The configuration settings of the Azure Active Directory allowed principals.
         """
         return pulumi.get(self, "allowed_principals")
-
-
-@pulumi.output_type
-class DefaultErrorResponseResponse(dict):
-    """
-    App Service error response.
-    """
-    def __init__(__self__, *,
-                 error: 'outputs.DefaultErrorResponseResponseError'):
-        """
-        App Service error response.
-        :param 'DefaultErrorResponseResponseError' error: Error model.
-        """
-        pulumi.set(__self__, "error", error)
-
-    @property
-    @pulumi.getter
-    def error(self) -> 'outputs.DefaultErrorResponseResponseError':
-        """
-        Error model.
-        """
-        return pulumi.get(self, "error")
-
-
-@pulumi.output_type
-class DefaultErrorResponseResponseDetails(dict):
-    """
-    Detailed errors.
-    """
-    def __init__(__self__, *,
-                 code: str,
-                 message: str,
-                 target: str):
-        """
-        Detailed errors.
-        :param str code: Standardized string to programmatically identify the error.
-        :param str message: Detailed error description and debugging information.
-        :param str target: Detailed error description and debugging information.
-        """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
-
-    @property
-    @pulumi.getter
-    def code(self) -> str:
-        """
-        Standardized string to programmatically identify the error.
-        """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter
-    def message(self) -> str:
-        """
-        Detailed error description and debugging information.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def target(self) -> str:
-        """
-        Detailed error description and debugging information.
-        """
-        return pulumi.get(self, "target")
-
-
-@pulumi.output_type
-class DefaultErrorResponseResponseError(dict):
-    """
-    Error model.
-    """
-    def __init__(__self__, *,
-                 code: str,
-                 innererror: str,
-                 message: str,
-                 target: str,
-                 details: Optional[Sequence['outputs.DefaultErrorResponseResponseDetails']] = None):
-        """
-        Error model.
-        :param str code: Standardized string to programmatically identify the error.
-        :param str innererror: More information to debug error.
-        :param str message: Detailed error description and debugging information.
-        :param str target: Detailed error description and debugging information.
-        :param Sequence['DefaultErrorResponseResponseDetails'] details: Details or the error
-        """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "innererror", innererror)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
-        if details is not None:
-            pulumi.set(__self__, "details", details)
-
-    @property
-    @pulumi.getter
-    def code(self) -> str:
-        """
-        Standardized string to programmatically identify the error.
-        """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter
-    def innererror(self) -> str:
-        """
-        More information to debug error.
-        """
-        return pulumi.get(self, "innererror")
-
-    @property
-    @pulumi.getter
-    def message(self) -> str:
-        """
-        Detailed error description and debugging information.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def target(self) -> str:
-        """
-        Detailed error description and debugging information.
-        """
-        return pulumi.get(self, "target")
-
-    @property
-    @pulumi.getter
-    def details(self) -> Optional[Sequence['outputs.DefaultErrorResponseResponseDetails']]:
-        """
-        Details or the error
-        """
-        return pulumi.get(self, "details")
 
 
 @pulumi.output_type

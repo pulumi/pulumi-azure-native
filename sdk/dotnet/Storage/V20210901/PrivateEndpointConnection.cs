@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.Storage.V20210901
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210801:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20220501:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

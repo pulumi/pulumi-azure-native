@@ -266,11 +266,11 @@ func (o BackupResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 // The date encryption for cmk.
 type DataEncryption struct {
 	// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
-	GeoBackupKeyUri *string `pulumi:"geoBackupKeyUri"`
+	GeoBackupKeyURI *string `pulumi:"geoBackupKeyURI"`
 	// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
 	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
 	// Primary key uri
-	PrimaryKeyUri *string `pulumi:"primaryKeyUri"`
+	PrimaryKeyURI *string `pulumi:"primaryKeyURI"`
 	// Primary user identity resource id
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
@@ -291,11 +291,11 @@ type DataEncryptionInput interface {
 // The date encryption for cmk.
 type DataEncryptionArgs struct {
 	// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
-	GeoBackupKeyUri pulumi.StringPtrInput `pulumi:"geoBackupKeyUri"`
+	GeoBackupKeyURI pulumi.StringPtrInput `pulumi:"geoBackupKeyURI"`
 	// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
 	GeoBackupUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"geoBackupUserAssignedIdentityId"`
 	// Primary key uri
-	PrimaryKeyUri pulumi.StringPtrInput `pulumi:"primaryKeyUri"`
+	PrimaryKeyURI pulumi.StringPtrInput `pulumi:"primaryKeyURI"`
 	// Primary user identity resource id
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"primaryUserAssignedIdentityId"`
 	// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
@@ -381,8 +381,8 @@ func (o DataEncryptionOutput) ToDataEncryptionPtrOutputWithContext(ctx context.C
 }
 
 // Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
-func (o DataEncryptionOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataEncryption) *string { return v.GeoBackupKeyUri }).(pulumi.StringPtrOutput)
+func (o DataEncryptionOutput) GeoBackupKeyURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryption) *string { return v.GeoBackupKeyURI }).(pulumi.StringPtrOutput)
 }
 
 // Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
@@ -391,8 +391,8 @@ func (o DataEncryptionOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtr
 }
 
 // Primary key uri
-func (o DataEncryptionOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataEncryption) *string { return v.PrimaryKeyUri }).(pulumi.StringPtrOutput)
+func (o DataEncryptionOutput) PrimaryKeyURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryption) *string { return v.PrimaryKeyURI }).(pulumi.StringPtrOutput)
 }
 
 // Primary user identity resource id
@@ -430,12 +430,12 @@ func (o DataEncryptionPtrOutput) Elem() DataEncryptionOutput {
 }
 
 // Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
-func (o DataEncryptionPtrOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
+func (o DataEncryptionPtrOutput) GeoBackupKeyURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataEncryption) *string {
 		if v == nil {
 			return nil
 		}
-		return v.GeoBackupKeyUri
+		return v.GeoBackupKeyURI
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -450,12 +450,12 @@ func (o DataEncryptionPtrOutput) GeoBackupUserAssignedIdentityId() pulumi.String
 }
 
 // Primary key uri
-func (o DataEncryptionPtrOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
+func (o DataEncryptionPtrOutput) PrimaryKeyURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataEncryption) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PrimaryKeyUri
+		return v.PrimaryKeyURI
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -482,11 +482,11 @@ func (o DataEncryptionPtrOutput) Type() DataEncryptionTypePtrOutput {
 // The date encryption for cmk.
 type DataEncryptionResponse struct {
 	// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
-	GeoBackupKeyUri *string `pulumi:"geoBackupKeyUri"`
+	GeoBackupKeyURI *string `pulumi:"geoBackupKeyURI"`
 	// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
 	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
 	// Primary key uri
-	PrimaryKeyUri *string `pulumi:"primaryKeyUri"`
+	PrimaryKeyURI *string `pulumi:"primaryKeyURI"`
 	// Primary user identity resource id
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
@@ -509,8 +509,8 @@ func (o DataEncryptionResponseOutput) ToDataEncryptionResponseOutputWithContext(
 }
 
 // Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
-func (o DataEncryptionResponseOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.GeoBackupKeyUri }).(pulumi.StringPtrOutput)
+func (o DataEncryptionResponseOutput) GeoBackupKeyURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.GeoBackupKeyURI }).(pulumi.StringPtrOutput)
 }
 
 // Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
@@ -519,8 +519,8 @@ func (o DataEncryptionResponseOutput) GeoBackupUserAssignedIdentityId() pulumi.S
 }
 
 // Primary key uri
-func (o DataEncryptionResponseOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.PrimaryKeyUri }).(pulumi.StringPtrOutput)
+func (o DataEncryptionResponseOutput) PrimaryKeyURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.PrimaryKeyURI }).(pulumi.StringPtrOutput)
 }
 
 // Primary user identity resource id
@@ -558,12 +558,12 @@ func (o DataEncryptionResponsePtrOutput) Elem() DataEncryptionResponseOutput {
 }
 
 // Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
-func (o DataEncryptionResponsePtrOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
+func (o DataEncryptionResponsePtrOutput) GeoBackupKeyURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataEncryptionResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.GeoBackupKeyUri
+		return v.GeoBackupKeyURI
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -578,12 +578,12 @@ func (o DataEncryptionResponsePtrOutput) GeoBackupUserAssignedIdentityId() pulum
 }
 
 // Primary key uri
-func (o DataEncryptionResponsePtrOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
+func (o DataEncryptionResponsePtrOutput) PrimaryKeyURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataEncryptionResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PrimaryKeyUri
+		return v.PrimaryKeyURI
 	}).(pulumi.StringPtrOutput)
 }
 

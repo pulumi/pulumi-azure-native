@@ -173,7 +173,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20210401:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20211101:CapacityReservationGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20210401:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20211101:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20220301:CapacityReservationGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CapacityReservationGroup, __self__).__init__(
             'azure-native:compute/v20210701:CapacityReservationGroup',

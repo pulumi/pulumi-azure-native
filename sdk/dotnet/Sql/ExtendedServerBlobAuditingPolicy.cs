@@ -196,6 +196,7 @@ namespace Pulumi.AzureNative.Sql
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ExtendedServerBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ExtendedServerBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ExtendedServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ExtendedServerBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ExtendedServerBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ExtendedServerBlobAuditingPolicy"},
                 },

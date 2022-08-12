@@ -17,28 +17,30 @@ __all__ = ['VolumeGroupArgs', 'VolumeGroup']
 class VolumeGroupArgs:
     def __init__(__self__, *,
                  elastic_san_name: pulumi.Input[str],
-                 encryption: pulumi.Input[Union[str, 'EncryptionType']],
-                 protocol_type: pulumi.Input[Union[str, 'StorageTargetType']],
                  resource_group_name: pulumi.Input[str],
+                 encryption: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
                  network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+                 protocol_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_group_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VolumeGroup resource.
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
-        :param pulumi.Input[Union[str, 'EncryptionType']] encryption: Type of encryption
-        :param pulumi.Input[Union[str, 'StorageTargetType']] protocol_type: Type of storage target
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union[str, 'EncryptionType']] encryption: Type of encryption
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: A collection of rules governing the accessibility from specific network locations.
+        :param pulumi.Input[Union[str, 'StorageTargetType']] protocol_type: Type of storage target
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] volume_group_name: The name of the VolumeGroup.
         """
         pulumi.set(__self__, "elastic_san_name", elastic_san_name)
-        pulumi.set(__self__, "encryption", encryption)
-        pulumi.set(__self__, "protocol_type", protocol_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
+        if protocol_type is not None:
+            pulumi.set(__self__, "protocol_type", protocol_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if volume_group_name is not None:
@@ -57,30 +59,6 @@ class VolumeGroupArgs:
         pulumi.set(self, "elastic_san_name", value)
 
     @property
-    @pulumi.getter
-    def encryption(self) -> pulumi.Input[Union[str, 'EncryptionType']]:
-        """
-        Type of encryption
-        """
-        return pulumi.get(self, "encryption")
-
-    @encryption.setter
-    def encryption(self, value: pulumi.Input[Union[str, 'EncryptionType']]):
-        pulumi.set(self, "encryption", value)
-
-    @property
-    @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> pulumi.Input[Union[str, 'StorageTargetType']]:
-        """
-        Type of storage target
-        """
-        return pulumi.get(self, "protocol_type")
-
-    @protocol_type.setter
-    def protocol_type(self, value: pulumi.Input[Union[str, 'StorageTargetType']]):
-        pulumi.set(self, "protocol_type", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -93,6 +71,18 @@ class VolumeGroupArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input[Union[str, 'EncryptionType']]]:
+        """
+        Type of encryption
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input[Union[str, 'EncryptionType']]]):
+        pulumi.set(self, "encryption", value)
+
+    @property
     @pulumi.getter(name="networkAcls")
     def network_acls(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
         """
@@ -103,6 +93,18 @@ class VolumeGroupArgs:
     @network_acls.setter
     def network_acls(self, value: Optional[pulumi.Input['NetworkRuleSetArgs']]):
         pulumi.set(self, "network_acls", value)
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> Optional[pulumi.Input[Union[str, 'StorageTargetType']]]:
+        """
+        Type of storage target
+        """
+        return pulumi.get(self, "protocol_type")
+
+    @protocol_type.setter
+    def protocol_type(self, value: Optional[pulumi.Input[Union[str, 'StorageTargetType']]]):
+        pulumi.set(self, "protocol_type", value)
 
     @property
     @pulumi.getter
@@ -203,12 +205,8 @@ class VolumeGroup(pulumi.CustomResource):
             if elastic_san_name is None and not opts.urn:
                 raise TypeError("Missing required property 'elastic_san_name'")
             __props__.__dict__["elastic_san_name"] = elastic_san_name
-            if encryption is None and not opts.urn:
-                raise TypeError("Missing required property 'encryption'")
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["network_acls"] = network_acls
-            if protocol_type is None and not opts.urn:
-                raise TypeError("Missing required property 'protocol_type'")
             __props__.__dict__["protocol_type"] = protocol_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -255,7 +253,7 @@ class VolumeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encryption(self) -> pulumi.Output[str]:
+    def encryption(self) -> pulumi.Output[Optional[str]]:
         """
         Type of encryption
         """
@@ -279,7 +277,7 @@ class VolumeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> pulumi.Output[str]:
+    def protocol_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of storage target
         """

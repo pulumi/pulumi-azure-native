@@ -45,7 +45,7 @@ class RedisArgs:
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         :param pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs'] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-        :param pulumi.Input[str] redis_version: Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        :param pulumi.Input[str] redis_version: Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
         :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per primary.
         :param pulumi.Input[int] replicas_per_primary: The number of replicas to be created per primary.
         :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
@@ -206,7 +206,7 @@ class RedisArgs:
     @pulumi.getter(name="redisVersion")
     def redis_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
         """
         return pulumi.get(self, "redis_version")
 
@@ -347,7 +347,7 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         :param pulumi.Input[pulumi.InputType['RedisCommonPropertiesRedisConfigurationArgs']] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-        :param pulumi.Input[str] redis_version: Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        :param pulumi.Input[str] redis_version: Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
         :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per primary.
         :param pulumi.Input[int] replicas_per_primary: The number of replicas to be created per primary.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -448,7 +448,7 @@ class Redis(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["ssl_port"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:Redis"), pulumi.Alias(type_="azure-native:cache/v20150801:Redis"), pulumi.Alias(type_="azure-native:cache/v20160401:Redis"), pulumi.Alias(type_="azure-native:cache/v20170201:Redis"), pulumi.Alias(type_="azure-native:cache/v20171001:Redis"), pulumi.Alias(type_="azure-native:cache/v20180301:Redis"), pulumi.Alias(type_="azure-native:cache/v20190701:Redis"), pulumi.Alias(type_="azure-native:cache/v20200601:Redis"), pulumi.Alias(type_="azure-native:cache/v20201201:Redis")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:Redis"), pulumi.Alias(type_="azure-native:cache/v20150801:Redis"), pulumi.Alias(type_="azure-native:cache/v20160401:Redis"), pulumi.Alias(type_="azure-native:cache/v20170201:Redis"), pulumi.Alias(type_="azure-native:cache/v20171001:Redis"), pulumi.Alias(type_="azure-native:cache/v20180301:Redis"), pulumi.Alias(type_="azure-native:cache/v20190701:Redis"), pulumi.Alias(type_="azure-native:cache/v20200601:Redis"), pulumi.Alias(type_="azure-native:cache/v20201201:Redis"), pulumi.Alias(type_="azure-native:cache/v20220501:Redis")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Redis, __self__).__init__(
             'azure-native:cache/v20210601:Redis',
@@ -616,7 +616,7 @@ class Redis(pulumi.CustomResource):
     @pulumi.getter(name="redisVersion")
     def redis_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
         """
         return pulumi.get(self, "redis_version")
 

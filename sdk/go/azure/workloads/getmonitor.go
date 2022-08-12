@@ -60,6 +60,8 @@ type GetmonitorResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+	// Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+	ZoneRedundancyPreference *string `pulumi:"zoneRedundancyPreference"`
 }
 
 func GetmonitorOutput(ctx *pulumi.Context, args GetmonitorOutputArgs, opts ...pulumi.InvokeOption) GetmonitorResultOutput {
@@ -174,6 +176,11 @@ func (o GetmonitorResultOutput) Tags() pulumi.StringMapOutput {
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o GetmonitorResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetmonitorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+func (o GetmonitorResultOutput) ZoneRedundancyPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetmonitorResult) *string { return v.ZoneRedundancyPreference }).(pulumi.StringPtrOutput)
 }
 
 func init() {

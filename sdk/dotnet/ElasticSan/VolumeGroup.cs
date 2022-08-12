@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.ElasticSan
         /// Type of encryption
         /// </summary>
         [Output("encryption")]
-        public Output<string> Encryption { get; private set; } = null!;
+        public Output<string?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name.
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.ElasticSan
         /// Type of storage target
         /// </summary>
         [Output("protocolType")]
-        public Output<string> ProtocolType { get; private set; } = null!;
+        public Output<string?> ProtocolType { get; private set; } = null!;
 
         /// <summary>
         /// State of the operation on the resource.
@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Type of encryption
         /// </summary>
-        [Input("encryption", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ElasticSan.EncryptionType> Encryption { get; set; } = null!;
+        [Input("encryption")]
+        public InputUnion<string, Pulumi.AzureNative.ElasticSan.EncryptionType>? Encryption { get; set; }
 
         /// <summary>
         /// A collection of rules governing the accessibility from specific network locations.
@@ -134,8 +134,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Type of storage target
         /// </summary>
-        [Input("protocolType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ElasticSan.StorageTargetType> ProtocolType { get; set; } = null!;
+        [Input("protocolType")]
+        public InputUnion<string, Pulumi.AzureNative.ElasticSan.StorageTargetType>? ProtocolType { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -126,6 +126,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SyncMember"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SyncMember"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SyncMember"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:SyncMember"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:SyncMember"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:SyncMember"},
                 },

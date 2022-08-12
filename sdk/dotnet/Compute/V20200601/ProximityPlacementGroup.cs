@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.Compute.V20200601
                     new Pulumi.Alias { Type = "azure-native:compute/v20210401:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210701:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20211101:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:ProximityPlacementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

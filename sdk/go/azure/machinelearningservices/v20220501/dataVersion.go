@@ -54,6 +54,9 @@ func NewDataVersion(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20220201preview:DataVersion"),
 		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20220601preview:DataVersion"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DataVersion

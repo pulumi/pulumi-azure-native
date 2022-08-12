@@ -16,49 +16,37 @@ __all__ = ['ElasticSanArgs', 'ElasticSan']
 @pulumi.input_type
 class ElasticSanArgs:
     def __init__(__self__, *,
-                 availability_zones: pulumi.Input[Sequence[pulumi.Input[str]]],
                  base_size_ti_b: pulumi.Input[float],
                  extended_capacity_size_ti_b: pulumi.Input[float],
                  resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input['SkuArgs'],
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ElasticSan resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Elastic San resource; example: ["1"].
         :param pulumi.Input[float] base_size_ti_b: Base size of the Elastic San appliance in TiB.
         :param pulumi.Input[float] extended_capacity_size_ti_b: Extended size of the Elastic San appliance in TiB.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['SkuArgs'] sku: resource sku
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Elastic San resource; example: ["1"].
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[str] location: The geo-location where the resource lives.
-        :param pulumi.Input['SkuArgs'] sku: resource sku
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         """
-        pulumi.set(__self__, "availability_zones", availability_zones)
         pulumi.set(__self__, "base_size_ti_b", base_size_ti_b)
         pulumi.set(__self__, "extended_capacity_size_ti_b", extended_capacity_size_ti_b)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if elastic_san_name is not None:
             pulumi.set(__self__, "elastic_san_name", elastic_san_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Logical zone for Elastic San resource; example: ["1"].
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @availability_zones.setter
-    def availability_zones(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "availability_zones", value)
 
     @property
     @pulumi.getter(name="baseSizeTiB")
@@ -97,6 +85,30 @@ class ElasticSanArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        resource sku
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Logical zone for Elastic San resource; example: ["1"].
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
     @pulumi.getter(name="elasticSanName")
     def elastic_san_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -119,18 +131,6 @@ class ElasticSanArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
-        """
-        resource sku
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
-        pulumi.set(self, "sku", value)
 
     @property
     @pulumi.getter
@@ -217,8 +217,6 @@ class ElasticSan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ElasticSanArgs.__new__(ElasticSanArgs)
 
-            if availability_zones is None and not opts.urn:
-                raise TypeError("Missing required property 'availability_zones'")
             __props__.__dict__["availability_zones"] = availability_zones
             if base_size_ti_b is None and not opts.urn:
                 raise TypeError("Missing required property 'base_size_ti_b'")
@@ -231,6 +229,8 @@ class ElasticSan(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is None and not opts.urn:
+                raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
@@ -285,7 +285,7 @@ class ElasticSan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Sequence[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Logical zone for Elastic San resource; example: ["1"].
         """
@@ -333,7 +333,7 @@ class ElasticSan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         resource sku
         """

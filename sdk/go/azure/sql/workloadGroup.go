@@ -82,6 +82,9 @@ func NewWorkloadGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210801preview:WorkloadGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:WorkloadGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:WorkloadGroup"),
 		},
 		{

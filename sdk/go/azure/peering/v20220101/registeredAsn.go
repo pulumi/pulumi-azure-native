@@ -59,6 +59,9 @@ func NewRegisteredAsn(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:peering/v20210601:RegisteredAsn"),
 		},
+		{
+			Type: pulumi.String("azure-native:peering/v20220601:RegisteredAsn"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RegisteredAsn

@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Cache.V20201201
         public Output<Outputs.RedisCommonPropertiesResponseRedisConfiguration?> RedisConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        /// Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
         /// </summary>
         [Output("redisVersion")]
         public Output<string?> RedisVersion { get; private set; } = null!;
@@ -199,6 +199,7 @@ namespace Pulumi.AzureNative.Cache.V20201201
                     new Pulumi.Alias { Type = "azure-native:cache/v20190701:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20200601:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20210601:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20220501:Redis"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -259,7 +260,7 @@ namespace Pulumi.AzureNative.Cache.V20201201
         public Input<Inputs.RedisCommonPropertiesRedisConfigurationArgs>? RedisConfiguration { get; set; }
 
         /// <summary>
-        /// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        /// Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
         /// </summary>
         [Input("redisVersion")]
         public Input<string>? RedisVersion { get; set; }
