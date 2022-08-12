@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Inputs
 {
 
-    public sealed class ImportCollectorPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ImportCollectorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("discoverySiteId")]
         public Input<string>? DiscoverySiteId { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public ImportCollectorPropertiesArgs()
         {
         }
+        public static new ImportCollectorPropertiesArgs Empty => new ImportCollectorPropertiesArgs();
     }
 }

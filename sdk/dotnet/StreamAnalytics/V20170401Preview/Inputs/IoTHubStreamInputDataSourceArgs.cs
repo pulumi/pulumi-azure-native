@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// Describes an IoT Hub input data source that contains stream data.
     /// </summary>
-    public sealed class IoTHubStreamInputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubStreamInputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public IoTHubStreamInputDataSourceArgs()
         {
         }
+        public static new IoTHubStreamInputDataSourceArgs Empty => new IoTHubStreamInputDataSourceArgs();
     }
 }

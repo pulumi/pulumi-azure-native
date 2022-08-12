@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
 
-    public sealed class GetReplicationNetworkMappingArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationNetworkMappingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Primary fabric name.
@@ -62,9 +62,10 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetReplicationNetworkMappingArgs()
         {
         }
+        public static new GetReplicationNetworkMappingArgs Empty => new GetReplicationNetworkMappingArgs();
     }
 
-    public sealed class GetReplicationNetworkMappingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationNetworkMappingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Primary fabric name.
@@ -99,6 +100,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public GetReplicationNetworkMappingInvokeArgs()
         {
         }
+        public static new GetReplicationNetworkMappingInvokeArgs Empty => new GetReplicationNetworkMappingInvokeArgs();
     }
 
 

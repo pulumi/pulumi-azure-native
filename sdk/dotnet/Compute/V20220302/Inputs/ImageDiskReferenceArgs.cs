@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220302.Inputs
     /// <summary>
     /// The source image used for creating the disk.
     /// </summary>
-    public sealed class ImageDiskReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ImageDiskReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A relative uri containing a community Azure Compute Gallery image reference.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Compute.V20220302.Inputs
         public ImageDiskReferenceArgs()
         {
         }
+        public static new ImageDiskReferenceArgs Empty => new ImageDiskReferenceArgs();
     }
 }

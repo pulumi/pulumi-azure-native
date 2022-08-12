@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Azure ML Execute Pipeline activity.
     /// </summary>
-    public sealed class AzureMLExecutePipelineActivityArgs : Pulumi.ResourceArgs
+    public sealed class AzureMLExecutePipelineActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to continue execution of other steps in the PipelineRun if a step fails. This information will be passed in the continueOnStepFailure property of the published pipeline execution request. Type: boolean (or Expression with resultType boolean).
@@ -121,5 +121,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AzureMLExecutePipelineActivityArgs()
         {
         }
+        public static new AzureMLExecutePipelineActivityArgs Empty => new AzureMLExecutePipelineActivityArgs();
     }
 }

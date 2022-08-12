@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
     }
 
 
-    public sealed class GetLogAnalyticExportRequestRateByIntervalArgs : Pulumi.InvokeArgs
+    public sealed class GetLogAnalyticExportRequestRateByIntervalArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
@@ -90,9 +90,10 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetLogAnalyticExportRequestRateByIntervalArgs()
         {
         }
+        public static new GetLogAnalyticExportRequestRateByIntervalArgs Empty => new GetLogAnalyticExportRequestRateByIntervalArgs();
     }
 
-    public sealed class GetLogAnalyticExportRequestRateByIntervalInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLogAnalyticExportRequestRateByIntervalInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
@@ -157,6 +158,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetLogAnalyticExportRequestRateByIntervalInvokeArgs()
         {
         }
+        public static new GetLogAnalyticExportRequestRateByIntervalInvokeArgs Empty => new GetLogAnalyticExportRequestRateByIntervalInvokeArgs();
     }
 
 

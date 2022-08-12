@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// The recurrence schedule occurrence.
     /// </summary>
-    public sealed class RecurrenceScheduleOccurrenceArgs : Pulumi.ResourceArgs
+    public sealed class RecurrenceScheduleOccurrenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The day of the week.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public RecurrenceScheduleOccurrenceArgs()
         {
         }
+        public static new RecurrenceScheduleOccurrenceArgs Empty => new RecurrenceScheduleOccurrenceArgs();
     }
 }

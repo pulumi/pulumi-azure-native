@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppHostNameBinding")]
-    public partial class WebAppHostNameBinding : Pulumi.CustomResource
+    public partial class WebAppHostNameBinding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Azure resource name.
@@ -113,20 +113,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHostNameBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class WebAppHostNameBindingArgs : Pulumi.ResourceArgs
+    public sealed class WebAppHostNameBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure resource name.
@@ -225,5 +225,6 @@ namespace Pulumi.AzureNative.Web
         public WebAppHostNameBindingArgs()
         {
         }
+        public static new WebAppHostNameBindingArgs Empty => new WebAppHostNameBindingArgs();
     }
 }

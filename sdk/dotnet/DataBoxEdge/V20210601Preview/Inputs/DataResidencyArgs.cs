@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview.Inputs
     /// <summary>
     /// Wraps data-residency related information for edge-resource and this should be used with ARM layer.
     /// </summary>
-    public sealed class DataResidencyArgs : Pulumi.ResourceArgs
+    public sealed class DataResidencyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DataResidencyType enum
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview.Inputs
         public DataResidencyArgs()
         {
         }
+        public static new DataResidencyArgs Empty => new DataResidencyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
     /// Defines binding between a resource and role
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding")]
-    public partial class TrustedAccessRoleBinding : Pulumi.CustomResource
+    public partial class TrustedAccessRoleBinding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerservice:TrustedAccessRoleBinding"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:TrustedAccessRoleBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
         }
     }
 
-    public sealed class TrustedAccessRoleBindingArgs : Pulumi.ResourceArgs
+    public sealed class TrustedAccessRoleBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -141,5 +141,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
         public TrustedAccessRoleBindingArgs()
         {
         }
+        public static new TrustedAccessRoleBindingArgs Empty => new TrustedAccessRoleBindingArgs();
     }
 }

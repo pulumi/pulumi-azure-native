@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
-    public sealed class JobRecurrenceScheduleArgs : Pulumi.ResourceArgs
+    public sealed class JobRecurrenceScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("hours")]
         private InputList<int>? _hours;
@@ -75,5 +75,6 @@ namespace Pulumi.AzureNative.Scheduler.Inputs
         public JobRecurrenceScheduleArgs()
         {
         }
+        public static new JobRecurrenceScheduleArgs Empty => new JobRecurrenceScheduleArgs();
     }
 }

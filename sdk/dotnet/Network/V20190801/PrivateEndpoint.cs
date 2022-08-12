@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190801
     /// Private endpoint resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190801:PrivateEndpoint")]
-    public partial class PrivateEndpoint : Pulumi.CustomResource
+    public partial class PrivateEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -100,30 +100,30 @@ namespace Pulumi.AzureNative.Network.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:PrivateEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.Network.V20190801
         }
     }
 
-    public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -216,5 +216,6 @@ namespace Pulumi.AzureNative.Network.V20190801
         public PrivateEndpointArgs()
         {
         }
+        public static new PrivateEndpointArgs Empty => new PrivateEndpointArgs();
     }
 }

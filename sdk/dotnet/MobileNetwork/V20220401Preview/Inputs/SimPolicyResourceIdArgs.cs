@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
     /// <summary>
     /// Reference to a SIM policy resource.
     /// </summary>
-    public sealed class SimPolicyResourceIdArgs : Pulumi.ResourceArgs
+    public sealed class SimPolicyResourceIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SIM policy resource ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview.Inputs
         public SimPolicyResourceIdArgs()
         {
         }
+        public static new SimPolicyResourceIdArgs Empty => new SimPolicyResourceIdArgs();
     }
 }

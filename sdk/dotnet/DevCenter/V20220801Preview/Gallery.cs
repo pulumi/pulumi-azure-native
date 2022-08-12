@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// Represents a gallery.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:Gallery")]
-    public partial class Gallery : Pulumi.CustomResource
+    public partial class Gallery : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource ID of the backing Azure Compute Gallery.
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         }
     }
 
-    public sealed class GalleryArgs : Pulumi.ResourceArgs
+    public sealed class GalleryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the devcenter.
@@ -117,5 +117,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GalleryArgs()
         {
         }
+        public static new GalleryArgs Empty => new GalleryArgs();
     }
 }

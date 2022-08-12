@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Marketplace
     }
 
 
-    public sealed class GetPrivateStoreCollectionOfferArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateStoreCollectionOfferArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The collection ID
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Marketplace
         public GetPrivateStoreCollectionOfferArgs()
         {
         }
+        public static new GetPrivateStoreCollectionOfferArgs Empty => new GetPrivateStoreCollectionOfferArgs();
     }
 
-    public sealed class GetPrivateStoreCollectionOfferInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateStoreCollectionOfferInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The collection ID
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Marketplace
         public GetPrivateStoreCollectionOfferInvokeArgs()
         {
         }
+        public static new GetPrivateStoreCollectionOfferInvokeArgs Empty => new GetPrivateStoreCollectionOfferInvokeArgs();
     }
 
 

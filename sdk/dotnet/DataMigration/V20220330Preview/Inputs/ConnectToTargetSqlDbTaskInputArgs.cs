@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Input for the task that validates connection to SQL DB and target server requirements
     /// </summary>
-    public sealed class ConnectToTargetSqlDbTaskInputArgs : Pulumi.ResourceArgs
+    public sealed class ConnectToTargetSqlDbTaskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag indicating whether to query object counts for each database on the target server
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public ConnectToTargetSqlDbTaskInputArgs()
         {
         }
+        public static new ConnectToTargetSqlDbTaskInputArgs Empty => new ConnectToTargetSqlDbTaskInputArgs();
     }
 }

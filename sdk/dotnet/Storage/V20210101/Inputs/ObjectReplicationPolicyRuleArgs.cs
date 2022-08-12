@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210101.Inputs
     /// <summary>
     /// The replication policy rule between two containers.
     /// </summary>
-    public sealed class ObjectReplicationPolicyRuleArgs : Pulumi.ResourceArgs
+    public sealed class ObjectReplicationPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required. Destination container name.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Storage.V20210101.Inputs
         public ObjectReplicationPolicyRuleArgs()
         {
         }
+        public static new ObjectReplicationPolicyRuleArgs Empty => new ObjectReplicationPolicyRuleArgs();
     }
 }

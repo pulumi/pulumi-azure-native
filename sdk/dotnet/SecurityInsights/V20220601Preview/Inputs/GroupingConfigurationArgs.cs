@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
     /// <summary>
     /// Grouping configuration property bag.
     /// </summary>
-    public sealed class GroupingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class GroupingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Grouping enabled
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview.Inputs
         public GroupingConfigurationArgs()
         {
         }
+        public static new GroupingConfigurationArgs Empty => new GroupingConfigurationArgs();
     }
 }

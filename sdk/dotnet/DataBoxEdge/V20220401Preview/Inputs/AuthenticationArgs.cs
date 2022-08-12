@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview.Inputs
     /// <summary>
     /// Authentication mechanism for IoT devices.
     /// </summary>
-    public sealed class AuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class AuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Symmetric key for authentication.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview.Inputs
         public AuthenticationArgs()
         {
         }
+        public static new AuthenticationArgs Empty => new AuthenticationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
     /// <summary>
     /// The Environment, models and assets needed for inferencing.
     /// </summary>
-    public sealed class CreateServiceRequestEnvironmentImageRequestArgs : Pulumi.ResourceArgs
+    public sealed class CreateServiceRequestEnvironmentImageRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("assets")]
         private InputList<Inputs.ImageAssetArgs>? _assets;
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
         public CreateServiceRequestEnvironmentImageRequestArgs()
         {
         }
+        public static new CreateServiceRequestEnvironmentImageRequestArgs Empty => new CreateServiceRequestEnvironmentImageRequestArgs();
     }
 }

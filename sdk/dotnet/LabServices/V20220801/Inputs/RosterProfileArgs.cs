@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801.Inputs
     /// <summary>
     /// The lab user list management profile.
     /// </summary>
-    public sealed class RosterProfileArgs : Pulumi.ResourceArgs
+    public sealed class RosterProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.LabServices.V20220801.Inputs
         public RosterProfileArgs()
         {
         }
+        public static new RosterProfileArgs Empty => new RosterProfileArgs();
     }
 }

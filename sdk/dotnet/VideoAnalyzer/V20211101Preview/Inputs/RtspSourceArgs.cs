@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// RTSP source allows for media from an RTSP camera or generic RTSP server to be ingested into a pipeline.
     /// </summary>
-    public sealed class RtspSourceArgs : Pulumi.ResourceArgs
+    public sealed class RtspSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RTSP endpoint information for Video Analyzer to connect to. This contains the required information for Video Analyzer to connect to RTSP cameras and/or generic RTSP servers.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public RtspSourceArgs()
         {
         }
+        public static new RtspSourceArgs Empty => new RtspSourceArgs();
     }
 }

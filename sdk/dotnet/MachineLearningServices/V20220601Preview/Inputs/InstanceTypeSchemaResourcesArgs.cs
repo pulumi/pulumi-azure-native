@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Resource requests/limits for this instance type
     /// </summary>
-    public sealed class InstanceTypeSchemaResourcesArgs : Pulumi.ResourceArgs
+    public sealed class InstanceTypeSchemaResourcesArgs : global::Pulumi.ResourceArgs
     {
         [Input("limits")]
         private InputMap<string>? _limits;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public InstanceTypeSchemaResourcesArgs()
         {
         }
+        public static new InstanceTypeSchemaResourcesArgs Empty => new InstanceTypeSchemaResourcesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview.Inputs
     /// <summary>
     /// The platform properties against which the build has to happen.
     /// </summary>
-    public sealed class PlatformPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PlatformPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CPU configuration in terms of number of cores required for the build.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview.Inputs
         public PlatformPropertiesArgs()
         {
         }
+        public static new PlatformPropertiesArgs Empty => new PlatformPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview.Inputs
     /// <summary>
     /// Describes a node type sku.
     /// </summary>
-    public sealed class NodeTypeSkuArgs : Pulumi.ResourceArgs
+    public sealed class NodeTypeSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of nodes in the node type.&lt;br /&gt;&lt;br /&gt;If present in request it will override properties.vmInstanceCount.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview.Inputs
         public NodeTypeSkuArgs()
         {
         }
+        public static new NodeTypeSkuArgs Empty => new NodeTypeSkuArgs();
     }
 }

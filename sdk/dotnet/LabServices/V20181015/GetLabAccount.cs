@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     }
 
 
-    public sealed class GetLabAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetLabAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetLabAccountArgs()
         {
         }
+        public static new GetLabAccountArgs Empty => new GetLabAccountArgs();
     }
 
-    public sealed class GetLabAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLabAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public GetLabAccountInvokeArgs()
         {
         }
+        public static new GetLabAccountInvokeArgs Empty => new GetLabAccountInvokeArgs();
     }
 
 

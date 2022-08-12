@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20181101.Inputs
     /// <summary>
     /// Actions are applied to the filtered blobs when the execution condition is met.
     /// </summary>
-    public sealed class ManagementPolicyActionArgs : Pulumi.ResourceArgs
+    public sealed class ManagementPolicyActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The management policy action for base blob
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Storage.V20181101.Inputs
         public ManagementPolicyActionArgs()
         {
         }
+        public static new ManagementPolicyActionArgs Empty => new ManagementPolicyActionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
     /// <summary>
     /// The parameters of a managed disk.
     /// </summary>
-    public sealed class ManagedDiskParametersArgs : Pulumi.ResourceArgs
+    public sealed class ManagedDiskParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
         public ManagedDiskParametersArgs()
         {
         }
+        public static new ManagedDiskParametersArgs Empty => new ManagedDiskParametersArgs();
     }
 }

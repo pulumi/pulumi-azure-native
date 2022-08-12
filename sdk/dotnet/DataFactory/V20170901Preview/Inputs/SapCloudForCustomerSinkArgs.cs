@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity SAP Cloud for Customer sink.
     /// </summary>
-    public sealed class SapCloudForCustomerSinkArgs : Pulumi.ResourceArgs
+    public sealed class SapCloudForCustomerSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sink retry count. Type: integer (or Expression with resultType integer).
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public SapCloudForCustomerSinkArgs()
         {
         }
+        public static new SapCloudForCustomerSinkArgs Empty => new SapCloudForCustomerSinkArgs();
     }
 }

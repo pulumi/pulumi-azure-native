@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220101.Inputs
     /// <summary>
     /// See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
     /// </summary>
-    public sealed class LinuxOSConfigArgs : Pulumi.ResourceArgs
+    public sealed class LinuxOSConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The size in MB of a swap file that will be created on each node.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220101.Inputs
         public LinuxOSConfigArgs()
         {
         }
+        public static new LinuxOSConfigArgs Empty => new LinuxOSConfigArgs();
     }
 }

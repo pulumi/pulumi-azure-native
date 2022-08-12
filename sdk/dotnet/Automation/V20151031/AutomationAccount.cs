@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
     /// Definition of the automation account type.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20151031:AutomationAccount")]
-    public partial class AutomationAccount : Pulumi.CustomResource
+    public partial class AutomationAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the creation time.
@@ -106,10 +106,10 @@ namespace Pulumi.AzureNative.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation:AutomationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:AutomationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20210622:AutomationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:AutomationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:AutomationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20210622:AutomationAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
         }
     }
 
-    public sealed class AutomationAccountArgs : Pulumi.ResourceArgs
+    public sealed class AutomationAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -178,5 +178,6 @@ namespace Pulumi.AzureNative.Automation.V20151031
         public AutomationAccountArgs()
         {
         }
+        public static new AutomationAccountArgs Empty => new AutomationAccountArgs();
     }
 }

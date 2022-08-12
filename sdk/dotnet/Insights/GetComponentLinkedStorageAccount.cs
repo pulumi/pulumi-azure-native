@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetComponentLinkedStorageAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentLinkedStorageAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Insights
         public GetComponentLinkedStorageAccountArgs()
         {
         }
+        public static new GetComponentLinkedStorageAccountArgs Empty => new GetComponentLinkedStorageAccountArgs();
     }
 
-    public sealed class GetComponentLinkedStorageAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentLinkedStorageAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Insights
         public GetComponentLinkedStorageAccountInvokeArgs()
         {
         }
+        public static new GetComponentLinkedStorageAccountInvokeArgs Empty => new GetComponentLinkedStorageAccountInvokeArgs();
     }
 
 

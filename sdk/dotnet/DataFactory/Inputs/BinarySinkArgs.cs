@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A copy activity Binary sink.
     /// </summary>
-    public sealed class BinarySinkArgs : Pulumi.ResourceArgs
+    public sealed class BinarySinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public BinarySinkArgs()
         {
         }
+        public static new BinarySinkArgs Empty => new BinarySinkArgs();
     }
 }

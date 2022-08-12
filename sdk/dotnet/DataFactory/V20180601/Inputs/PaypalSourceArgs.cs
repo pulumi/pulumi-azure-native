@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity Paypal Service source.
     /// </summary>
-    public sealed class PaypalSourceArgs : Pulumi.ResourceArgs
+    public sealed class PaypalSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public PaypalSourceArgs()
         {
         }
+        public static new PaypalSourceArgs Empty => new PaypalSourceArgs();
     }
 }

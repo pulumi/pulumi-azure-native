@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     }
 
 
-    public sealed class GetVirtualNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($expand=externalSubnets)'
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetVirtualNetworkArgs()
         {
         }
+        public static new GetVirtualNetworkArgs Empty => new GetVirtualNetworkArgs();
     }
 
-    public sealed class GetVirtualNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the $expand query. Example: 'properties($expand=externalSubnets)'
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public GetVirtualNetworkInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkInvokeArgs Empty => new GetVirtualNetworkInvokeArgs();
     }
 
 

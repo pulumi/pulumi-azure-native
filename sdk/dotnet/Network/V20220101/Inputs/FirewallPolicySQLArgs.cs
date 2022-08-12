@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// SQL Settings in Firewall Policy.
     /// </summary>
-    public sealed class FirewallPolicySQLArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicySQLArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to indicate if SQL Redirect traffic filtering is enabled. Turning on the flag requires no rule using port 11000-11999.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public FirewallPolicySQLArgs()
         {
         }
+        public static new FirewallPolicySQLArgs Empty => new FirewallPolicySQLArgs();
     }
 }

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201
     }
 
 
-    public sealed class GetResourceGuardProxyArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceGuardProxyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.
@@ -39,9 +39,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201
         public GetResourceGuardProxyArgs()
         {
         }
+        public static new GetResourceGuardProxyArgs Empty => new GetResourceGuardProxyArgs();
     }
 
-    public sealed class GetResourceGuardProxyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceGuardProxyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201
         public GetResourceGuardProxyInvokeArgs()
         {
         }
+        public static new GetResourceGuardProxyInvokeArgs Empty => new GetResourceGuardProxyInvokeArgs();
     }
 
 

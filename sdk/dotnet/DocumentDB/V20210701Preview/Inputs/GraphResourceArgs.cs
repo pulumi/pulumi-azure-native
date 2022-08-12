@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
     /// <summary>
     /// Cosmos DB Graph resource object
     /// </summary>
-    public sealed class GraphResourceArgs : Pulumi.ResourceArgs
+    public sealed class GraphResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cosmos DB Graph
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Inputs
         public GraphResourceArgs()
         {
         }
+        public static new GraphResourceArgs Empty => new GraphResourceArgs();
     }
 }

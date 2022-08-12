@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20190801.Inputs
     /// <summary>
     /// In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
     /// </summary>
-    public sealed class StartTaskArgs : Pulumi.ResourceArgs
+    public sealed class StartTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
@@ -64,5 +64,6 @@ namespace Pulumi.AzureNative.Batch.V20190801.Inputs
         public StartTaskArgs()
         {
         }
+        public static new StartTaskArgs Empty => new StartTaskArgs();
     }
 }

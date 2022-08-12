@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
     }
 
 
-    public sealed class ListChannelWithKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListChannelWithKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Channel resource.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
         public ListChannelWithKeysArgs()
         {
         }
+        public static new ListChannelWithKeysArgs Empty => new ListChannelWithKeysArgs();
     }
 
-    public sealed class ListChannelWithKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListChannelWithKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Channel resource.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
         public ListChannelWithKeysInvokeArgs()
         {
         }
+        public static new ListChannelWithKeysInvokeArgs Empty => new ListChannelWithKeysInvokeArgs();
     }
 
 

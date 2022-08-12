@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// Class to represent configuration settings for Docker Build
     /// </summary>
-    public sealed class DockerImageArgs : Pulumi.ResourceArgs
+    public sealed class DockerImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Image name of a custom base image.
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public DockerImageArgs()
         {
         }
+        public static new DockerImageArgs Empty => new DockerImageArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
     /// <summary>
     /// Holds the available configuration options for an Azure ML web service endpoint.
     /// </summary>
-    public sealed class RealtimeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RealtimeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
         public RealtimeConfigurationArgs()
         {
         }
+        public static new RealtimeConfigurationArgs Empty => new RealtimeConfigurationArgs();
     }
 }

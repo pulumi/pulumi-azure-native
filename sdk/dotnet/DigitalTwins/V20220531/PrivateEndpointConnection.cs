@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
     /// The private endpoint connection of a Digital Twin.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins/v20220531:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource name.
@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:digitaltwins:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection.
@@ -117,5 +117,6 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

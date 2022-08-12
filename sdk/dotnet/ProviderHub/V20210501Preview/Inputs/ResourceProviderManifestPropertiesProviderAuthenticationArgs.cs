@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
 {
 
-    public sealed class ResourceProviderManifestPropertiesProviderAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class ResourceProviderManifestPropertiesProviderAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedAudiences", required: true)]
         private InputList<string>? _allowedAudiences;
@@ -23,5 +23,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         public ResourceProviderManifestPropertiesProviderAuthenticationArgs()
         {
         }
+        public static new ResourceProviderManifestPropertiesProviderAuthenticationArgs Empty => new ResourceProviderManifestPropertiesProviderAuthenticationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// The live event endpoint.
     /// </summary>
-    public sealed class LiveEventEndpointArgs : Pulumi.ResourceArgs
+    public sealed class LiveEventEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint protocol.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public LiveEventEndpointArgs()
         {
         }
+        public static new LiveEventEndpointArgs Empty => new LiveEventEndpointArgs();
     }
 }

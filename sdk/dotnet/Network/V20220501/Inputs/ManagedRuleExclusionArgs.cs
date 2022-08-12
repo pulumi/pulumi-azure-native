@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
     /// <summary>
     /// Exclude variables from managed rule evaluation.
     /// </summary>
-    public sealed class ManagedRuleExclusionArgs : Pulumi.ResourceArgs
+    public sealed class ManagedRuleExclusionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The variable type to be excluded.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
         public ManagedRuleExclusionArgs()
         {
         }
+        public static new ManagedRuleExclusionArgs Empty => new ManagedRuleExclusionArgs();
     }
 }

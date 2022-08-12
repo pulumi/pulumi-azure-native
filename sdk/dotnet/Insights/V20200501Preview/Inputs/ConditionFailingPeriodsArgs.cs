@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20200501Preview.Inputs
     /// <summary>
     /// The minimum number of violations required within the selected lookback time window required to raise an alert.
     /// </summary>
-    public sealed class ConditionFailingPeriodsArgs : Pulumi.ResourceArgs
+    public sealed class ConditionFailingPeriodsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.Insights.V20200501Preview.Inputs
             MinFailingPeriodsToAlert = 1;
             NumberOfEvaluationPeriods = 1;
         }
+        public static new ConditionFailingPeriodsArgs Empty => new ConditionFailingPeriodsArgs();
     }
 }

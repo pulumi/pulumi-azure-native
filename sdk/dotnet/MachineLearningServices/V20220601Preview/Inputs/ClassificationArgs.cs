@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Classification task in AutoML Table vertical.
     /// </summary>
-    public sealed class ClassificationArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cvSplitColumnNames")]
         private InputList<string>? _cvSplitColumnNames;
@@ -129,5 +129,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             LogVerbosity = "Info";
             PrimaryMetric = "AUCWeighted";
         }
+        public static new ClassificationArgs Empty => new ClassificationArgs();
     }
 }

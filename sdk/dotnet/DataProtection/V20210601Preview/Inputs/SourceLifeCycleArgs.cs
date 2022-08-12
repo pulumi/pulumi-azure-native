@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210601Preview.Inputs
     /// <summary>
     /// Source LifeCycle
     /// </summary>
-    public sealed class SourceLifeCycleArgs : Pulumi.ResourceArgs
+    public sealed class SourceLifeCycleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Delete Option
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.DataProtection.V20210601Preview.Inputs
         public SourceLifeCycleArgs()
         {
         }
+        public static new SourceLifeCycleArgs Empty => new SourceLifeCycleArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     }
 
 
-    public sealed class GetJobDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetJobDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Job Definition resource.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public GetJobDefinitionArgs()
         {
         }
+        public static new GetJobDefinitionArgs Empty => new GetJobDefinitionArgs();
     }
 
-    public sealed class GetJobDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetJobDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Job Definition resource.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public GetJobDefinitionInvokeArgs()
         {
         }
+        public static new GetJobDefinitionInvokeArgs Empty => new GetJobDefinitionInvokeArgs();
     }
 
 

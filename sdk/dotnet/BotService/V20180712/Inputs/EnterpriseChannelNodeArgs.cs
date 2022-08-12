@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20180712.Inputs
     /// <summary>
     /// The properties specific to an Enterprise Channel Node.
     /// </summary>
-    public sealed class EnterpriseChannelNodeArgs : Pulumi.ResourceArgs
+    public sealed class EnterpriseChannelNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the Enterprise Channel Node.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.BotService.V20180712.Inputs
         public EnterpriseChannelNodeArgs()
         {
         }
+        public static new EnterpriseChannelNodeArgs Empty => new EnterpriseChannelNodeArgs();
     }
 }

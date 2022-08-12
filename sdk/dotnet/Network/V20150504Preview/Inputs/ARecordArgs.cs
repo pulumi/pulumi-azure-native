@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150504Preview.Inputs
     /// <summary>
     /// An A record.
     /// </summary>
-    public sealed class ARecordArgs : Pulumi.ResourceArgs
+    public sealed class ARecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the IPv4 address of this A record in string notation.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20150504Preview.Inputs
         public ARecordArgs()
         {
         }
+        public static new ARecordArgs Empty => new ARecordArgs();
     }
 }

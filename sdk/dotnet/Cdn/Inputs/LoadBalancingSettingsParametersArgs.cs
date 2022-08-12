@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// <summary>
     /// Round-Robin load balancing settings for a backend pool
     /// </summary>
-    public sealed class LoadBalancingSettingsParametersArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancingSettingsParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The additional latency in milliseconds for probes to fall into the lowest latency bucket
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public LoadBalancingSettingsParametersArgs()
         {
         }
+        public static new LoadBalancingSettingsParametersArgs Empty => new LoadBalancingSettingsParametersArgs();
     }
 }

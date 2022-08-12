@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview.Inputs
     /// <summary>
     /// Spacecraft Link
     /// </summary>
-    public sealed class SpacecraftLinkArgs : Pulumi.ResourceArgs
+    public sealed class SpacecraftLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bandwidth in MHz
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview.Inputs
         public SpacecraftLinkArgs()
         {
         }
+        public static new SpacecraftLinkArgs Empty => new SpacecraftLinkArgs();
     }
 }

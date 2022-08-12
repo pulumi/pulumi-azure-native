@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Backend address pool settings of an application gateway.
     /// </summary>
-    public sealed class ApplicationGatewayBackendSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayBackendSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Server name indication to be sent to the backend servers for Tls protocol.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public ApplicationGatewayBackendSettingsArgs()
         {
         }
+        public static new ApplicationGatewayBackendSettingsArgs Empty => new ApplicationGatewayBackendSettingsArgs();
     }
 }

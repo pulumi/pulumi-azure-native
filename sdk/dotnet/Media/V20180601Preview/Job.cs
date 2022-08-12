@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20180601preview:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Customer provided correlation data that will be returned in Job completed events.
@@ -100,12 +100,12 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:media:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20180701:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20200501:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20210601:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/v20211101:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -198,5 +198,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 }

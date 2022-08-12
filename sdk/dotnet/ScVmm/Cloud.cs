@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ScVmm
     /// API Version: 2020-06-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:Cloud")]
-    public partial class Cloud : Pulumi.CustomResource
+    public partial class Cloud : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Capacity of the cloud.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:Cloud"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:Cloud"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.ScVmm
         }
     }
 
-    public sealed class CloudArgs : Pulumi.ResourceArgs
+    public sealed class CloudArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cloud.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.ScVmm
         public CloudArgs()
         {
         }
+        public static new CloudArgs Empty => new CloudArgs();
     }
 }

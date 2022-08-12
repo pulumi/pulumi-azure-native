@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
     /// <summary>
     /// Action rule with action group configuration
     /// </summary>
-    public sealed class ActionGroupArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action group to trigger if action rule matches
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         public ActionGroupArgs()
         {
         }
+        public static new ActionGroupArgs Empty => new ActionGroupArgs();
     }
 }

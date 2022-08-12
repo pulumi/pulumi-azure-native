@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
     /// <summary>
     /// Simple policy schedule.
     /// </summary>
-    public sealed class SimpleSchedulePolicyArgs : Pulumi.ResourceArgs
+    public sealed class SimpleSchedulePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
         public SimpleSchedulePolicyArgs()
         {
         }
+        public static new SimpleSchedulePolicyArgs Empty => new SimpleSchedulePolicyArgs();
     }
 }

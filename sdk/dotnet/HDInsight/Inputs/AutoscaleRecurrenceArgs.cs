@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
     /// <summary>
     /// Schedule-based autoscale request parameters
     /// </summary>
-    public sealed class AutoscaleRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("schedule")]
         private InputList<Inputs.AutoscaleScheduleArgs>? _schedule;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         public AutoscaleRecurrenceArgs()
         {
         }
+        public static new AutoscaleRecurrenceArgs Empty => new AutoscaleRecurrenceArgs();
     }
 }

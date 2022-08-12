@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
 
-    public sealed class GetEventChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetEventChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the event channel.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.EventGrid
         public GetEventChannelArgs()
         {
         }
+        public static new GetEventChannelArgs Empty => new GetEventChannelArgs();
     }
 
-    public sealed class GetEventChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the event channel.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.EventGrid
         public GetEventChannelInvokeArgs()
         {
         }
+        public static new GetEventChannelInvokeArgs Empty => new GetEventChannelInvokeArgs();
     }
 
 

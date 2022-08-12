@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501
     /// An object that represents a webhook for a container registry.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20190501:Webhook")]
-    public partial class Webhook : Pulumi.CustomResource
+    public partial class Webhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of actions that trigger the webhook to post notifications.
@@ -88,16 +88,16 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:Webhook"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Webhook"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Webhook"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Webhook"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Webhook"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Webhook"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Webhook"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Webhook"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Webhook"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Webhook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501
         }
     }
 
-    public sealed class WebhookArgs : Pulumi.ResourceArgs
+    public sealed class WebhookArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.V20190501.WebhookAction>>? _actions;
@@ -202,5 +202,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501
         public WebhookArgs()
         {
         }
+        public static new WebhookArgs Empty => new WebhookArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     /// </summary>
     [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20160515:GlobalSchedule")]
-    public partial class GlobalSchedule : Pulumi.CustomResource
+    public partial class GlobalSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the schedule.
@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab:GlobalSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:GlobalSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:GlobalSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:GlobalSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         }
     }
 
-    public sealed class GlobalScheduleArgs : Pulumi.ResourceArgs
+    public sealed class GlobalScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the schedule will occur once each day of the week, specify the daily recurrence.
@@ -249,5 +249,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public GlobalScheduleArgs()
         {
         }
+        public static new GlobalScheduleArgs Empty => new GlobalScheduleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
     /// <summary>
     /// The secret info when type is keyVaultSecretUri. It's for scenario that user provides a secret stored in user's keyvault and source is Web App, Spring Cloud or Container App.
     /// </summary>
-    public sealed class KeyVaultSecretUriSecretInfoArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultSecretUriSecretInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The secret type.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview.Inputs
         public KeyVaultSecretUriSecretInfoArgs()
         {
         }
+        public static new KeyVaultSecretUriSecretInfoArgs Empty => new KeyVaultSecretUriSecretInfoArgs();
     }
 }

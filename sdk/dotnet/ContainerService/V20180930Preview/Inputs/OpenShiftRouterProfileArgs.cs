@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20180930Preview.Inputs
     /// <summary>
     /// Represents an OpenShift router
     /// </summary>
-    public sealed class OpenShiftRouterProfileArgs : Pulumi.ResourceArgs
+    public sealed class OpenShiftRouterProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the router profile.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerService.V20180930Preview.Inputs
         public OpenShiftRouterProfileArgs()
         {
         }
+        public static new OpenShiftRouterProfileArgs Empty => new OpenShiftRouterProfileArgs();
     }
 }

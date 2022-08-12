@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:OnlineEndpoint")]
-    public partial class OnlineEndpoint : Pulumi.CustomResource
+    public partial class OnlineEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Service identity associated with a resource.
@@ -85,10 +85,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:OnlineEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:OnlineEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:OnlineEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         }
     }
 
-    public sealed class OnlineEndpointArgs : Pulumi.ResourceArgs
+    public sealed class OnlineEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Online Endpoint name.
@@ -169,5 +169,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public OnlineEndpointArgs()
         {
         }
+        public static new OnlineEndpointArgs Empty => new OnlineEndpointArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Properties of a labeling job for text data
     /// </summary>
-    public sealed class LabelingJobTextPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class LabelingJobTextPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Annotation type of text labeling job.
@@ -32,5 +32,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         {
             AnnotationType = "Classification";
         }
+        public static new LabelingJobTextPropertiesArgs Empty => new LabelingJobTextPropertiesArgs();
     }
 }

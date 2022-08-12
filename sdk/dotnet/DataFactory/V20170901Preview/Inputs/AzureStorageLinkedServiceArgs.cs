@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The storage account linked service.
     /// </summary>
-    public sealed class AzureStorageLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureStorageLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureStorageLinkedServiceArgs()
         {
         }
+        public static new AzureStorageLinkedServiceArgs Empty => new AzureStorageLinkedServiceArgs();
     }
 }

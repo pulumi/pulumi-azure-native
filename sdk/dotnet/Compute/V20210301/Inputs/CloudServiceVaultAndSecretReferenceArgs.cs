@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210301.Inputs
 {
 
-    public sealed class CloudServiceVaultAndSecretReferenceArgs : Pulumi.ResourceArgs
+    public sealed class CloudServiceVaultAndSecretReferenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("secretUrl")]
         public Input<string>? SecretUrl { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
         public CloudServiceVaultAndSecretReferenceArgs()
         {
         }
+        public static new CloudServiceVaultAndSecretReferenceArgs Empty => new CloudServiceVaultAndSecretReferenceArgs();
     }
 }

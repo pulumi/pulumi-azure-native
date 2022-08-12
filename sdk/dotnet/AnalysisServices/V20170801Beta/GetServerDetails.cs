@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta
     }
 
 
-    public sealed class GetServerDetailsArgs : Pulumi.InvokeArgs
+    public sealed class GetServerDetailsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta
         public GetServerDetailsArgs()
         {
         }
+        public static new GetServerDetailsArgs Empty => new GetServerDetailsArgs();
     }
 
-    public sealed class GetServerDetailsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerDetailsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta
         public GetServerDetailsInvokeArgs()
         {
         }
+        public static new GetServerDetailsInvokeArgs Empty => new GetServerDetailsInvokeArgs();
     }
 
 

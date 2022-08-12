@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20190601.Inputs
     /// <summary>
     /// Management policy action for base blob.
     /// </summary>
-    public sealed class ManagementPolicyBaseBlobArgs : Pulumi.ResourceArgs
+    public sealed class ManagementPolicyBaseBlobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The function to delete the blob
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Storage.V20190601.Inputs
         public ManagementPolicyBaseBlobArgs()
         {
         }
+        public static new ManagementPolicyBaseBlobArgs Empty => new ManagementPolicyBaseBlobArgs();
     }
 }

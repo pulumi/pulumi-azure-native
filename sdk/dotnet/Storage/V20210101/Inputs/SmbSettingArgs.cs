@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210101.Inputs
     /// <summary>
     /// Setting for SMB protocol
     /// </summary>
-    public sealed class SmbSettingArgs : Pulumi.ResourceArgs
+    public sealed class SmbSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Storage.V20210101.Inputs
         public SmbSettingArgs()
         {
         }
+        public static new SmbSettingArgs Empty => new SmbSettingArgs();
     }
 }

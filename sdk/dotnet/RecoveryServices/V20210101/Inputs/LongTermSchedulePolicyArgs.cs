@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
     /// <summary>
     /// Long term policy schedule.
     /// </summary>
-    public sealed class LongTermSchedulePolicyArgs : Pulumi.ResourceArgs
+    public sealed class LongTermSchedulePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
         public LongTermSchedulePolicyArgs()
         {
         }
+        public static new LongTermSchedulePolicyArgs Empty => new LongTermSchedulePolicyArgs();
     }
 }

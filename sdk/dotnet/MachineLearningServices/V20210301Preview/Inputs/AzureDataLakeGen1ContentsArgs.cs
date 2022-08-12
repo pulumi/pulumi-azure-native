@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Azure Data Lake Gen1 datastore configuration.
     /// </summary>
-    public sealed class AzureDataLakeGen1ContentsArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataLakeGen1ContentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the datastore contents type.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public AzureDataLakeGen1ContentsArgs()
         {
         }
+        public static new AzureDataLakeGen1ContentsArgs Empty => new AzureDataLakeGen1ContentsArgs();
     }
 }

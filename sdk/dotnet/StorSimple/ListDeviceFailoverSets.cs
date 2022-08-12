@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StorSimple
     }
 
 
-    public sealed class ListDeviceFailoverSetsArgs : Pulumi.InvokeArgs
+    public sealed class ListDeviceFailoverSetsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.StorSimple
         public ListDeviceFailoverSetsArgs()
         {
         }
+        public static new ListDeviceFailoverSetsArgs Empty => new ListDeviceFailoverSetsArgs();
     }
 
-    public sealed class ListDeviceFailoverSetsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListDeviceFailoverSetsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.StorSimple
         public ListDeviceFailoverSetsInvokeArgs()
         {
         }
+        public static new ListDeviceFailoverSetsInvokeArgs Empty => new ListDeviceFailoverSetsInvokeArgs();
     }
 
 

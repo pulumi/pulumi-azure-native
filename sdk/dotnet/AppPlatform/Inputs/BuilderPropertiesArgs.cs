@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// <summary>
     /// KPack Builder properties payload
     /// </summary>
-    public sealed class BuilderPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class BuilderPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("buildpackGroups")]
         private InputList<Inputs.BuildpacksGroupPropertiesArgs>? _buildpackGroups;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public BuilderPropertiesArgs()
         {
         }
+        public static new BuilderPropertiesArgs Empty => new BuilderPropertiesArgs();
     }
 }

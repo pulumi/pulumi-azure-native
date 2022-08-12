@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Describes a built-in preset for encoding the input content using the encoder processor.
     /// </summary>
-    public sealed class EncoderSystemPresetArgs : Pulumi.ResourceArgs
+    public sealed class EncoderSystemPresetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the built-in encoding preset.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public EncoderSystemPresetArgs()
         {
         }
+        public static new EncoderSystemPresetArgs Empty => new EncoderSystemPresetArgs();
     }
 }

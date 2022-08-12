@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20210601.Inputs
     /// <summary>
     /// Details of the Azure resource that was assessed
     /// </summary>
-    public sealed class AzureResourceDetailsArgs : Pulumi.ResourceArgs
+    public sealed class AzureResourceDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The platform where the assessed resource resides
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.Security.V20210601.Inputs
         public AzureResourceDetailsArgs()
         {
         }
+        public static new AzureResourceDetailsArgs Empty => new AzureResourceDetailsArgs();
     }
 }

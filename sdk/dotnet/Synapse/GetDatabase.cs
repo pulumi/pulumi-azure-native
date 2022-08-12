@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Synapse
     }
 
 
-    public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -57,9 +57,10 @@ namespace Pulumi.AzureNative.Synapse
         public GetDatabaseArgs()
         {
         }
+        public static new GetDatabaseArgs Empty => new GetDatabaseArgs();
     }
 
-    public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the database in the Kusto pool.
@@ -88,6 +89,7 @@ namespace Pulumi.AzureNative.Synapse
         public GetDatabaseInvokeArgs()
         {
         }
+        public static new GetDatabaseInvokeArgs Empty => new GetDatabaseInvokeArgs();
     }
 
 

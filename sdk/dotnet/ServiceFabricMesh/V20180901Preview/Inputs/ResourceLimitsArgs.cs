@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
     /// </summary>
-    public sealed class ResourceLimitsArgs : Pulumi.ResourceArgs
+    public sealed class ResourceLimitsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// CPU limits in cores. At present, only full cores are supported.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public ResourceLimitsArgs()
         {
         }
+        public static new ResourceLimitsArgs Empty => new ResourceLimitsArgs();
     }
 }

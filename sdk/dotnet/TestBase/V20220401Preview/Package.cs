@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
     /// The Test Base Package resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase/v20220401preview:Package")]
-    public partial class Package : Pulumi.CustomResource
+    public partial class Package : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Application name
@@ -148,8 +148,8 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:testbase:Package"},
-                    new Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:Package"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase:Package"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:Package"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -171,7 +171,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         }
     }
 
-    public sealed class PackageArgs : Pulumi.ResourceArgs
+    public sealed class PackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Application name
@@ -260,5 +260,6 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         public PackageArgs()
         {
         }
+        public static new PackageArgs Empty => new PackageArgs();
     }
 }

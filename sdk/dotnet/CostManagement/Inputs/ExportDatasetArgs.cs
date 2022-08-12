@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     /// <summary>
     /// The definition for data in the export.
     /// </summary>
-    public sealed class ExportDatasetArgs : Pulumi.ResourceArgs
+    public sealed class ExportDatasetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The export dataset configuration.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         public ExportDatasetArgs()
         {
         }
+        public static new ExportDatasetArgs Empty => new ExportDatasetArgs();
     }
 }

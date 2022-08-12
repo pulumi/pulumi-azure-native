@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211101
     /// Describes a Virtual Machine Extension.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20211101:VirtualMachineExtension")]
-    public partial class VirtualMachineExtension : Pulumi.CustomResource
+    public partial class VirtualMachineExtension : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -130,24 +130,24 @@ namespace Pulumi.AzureNative.Compute.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20150615:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160330:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineExtension"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20150615:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160330:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20170330:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -169,7 +169,7 @@ namespace Pulumi.AzureNative.Compute.V20211101
         }
     }
 
-    public sealed class VirtualMachineExtensionArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -276,5 +276,6 @@ namespace Pulumi.AzureNative.Compute.V20211101
         public VirtualMachineExtensionArgs()
         {
         }
+        public static new VirtualMachineExtensionArgs Empty => new VirtualMachineExtensionArgs();
     }
 }

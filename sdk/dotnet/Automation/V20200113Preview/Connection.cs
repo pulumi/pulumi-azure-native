@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     /// Definition of the connection.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20200113preview:Connection")]
-    public partial class Connection : Pulumi.CustomResource
+    public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the connectionType of the connection.
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation:Connection"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Connection"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Connection"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:Connection"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Connection"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Connection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         }
     }
 
-    public sealed class ConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -159,5 +159,6 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         public ConnectionArgs()
         {
         }
+        public static new ConnectionArgs Empty => new ConnectionArgs();
     }
 }

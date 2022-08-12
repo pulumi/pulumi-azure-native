@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
     }
 
 
-    public sealed class GetFavoriteArgs : Pulumi.InvokeArgs
+    public sealed class GetFavoriteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Id of a specific favorite defined in the Application Insights component
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public GetFavoriteArgs()
         {
         }
+        public static new GetFavoriteArgs Empty => new GetFavoriteArgs();
     }
 
-    public sealed class GetFavoriteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFavoriteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Id of a specific favorite defined in the Application Insights component
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public GetFavoriteInvokeArgs()
         {
         }
+        public static new GetFavoriteInvokeArgs Empty => new GetFavoriteInvokeArgs();
     }
 
 

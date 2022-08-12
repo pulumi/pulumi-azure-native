@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
     /// </summary>
     [Obsolete(@"Version 2016-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20160901preview:Appliance")]
-    public partial class Appliance : Pulumi.CustomResource
+    public partial class Appliance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The fully qualified path of appliance definition Id.
@@ -131,17 +131,17 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:solutions:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20171201:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20180201:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20180301:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:Appliance"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/v20210701:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20170901:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20171201:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180201:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180301:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180601:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:Appliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:Appliance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         }
     }
 
-    public sealed class ApplianceArgs : Pulumi.ResourceArgs
+    public sealed class ApplianceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fully qualified path of appliance definition Id.
@@ -252,5 +252,6 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         public ApplianceArgs()
         {
         }
+        public static new ApplianceArgs Empty => new ApplianceArgs();
     }
 }

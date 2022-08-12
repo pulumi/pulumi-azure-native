@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Class to specify configurations of FairPlay in Streaming Policy
     /// </summary>
-    public sealed class StreamingPolicyFairPlayConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyFairPlayConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// All license to be persistent or not
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public StreamingPolicyFairPlayConfigurationArgs()
         {
         }
+        public static new StreamingPolicyFairPlayConfigurationArgs Empty => new StreamingPolicyFairPlayConfigurationArgs();
     }
 }

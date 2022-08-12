@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20200601
     }
 
 
-    public sealed class GetWebAppDomainOwnershipIdentifierSlotArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppDomainOwnershipIdentifierSlotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of domain ownership identifier.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Web.V20200601
         public GetWebAppDomainOwnershipIdentifierSlotArgs()
         {
         }
+        public static new GetWebAppDomainOwnershipIdentifierSlotArgs Empty => new GetWebAppDomainOwnershipIdentifierSlotArgs();
     }
 
-    public sealed class GetWebAppDomainOwnershipIdentifierSlotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppDomainOwnershipIdentifierSlotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of domain ownership identifier.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Web.V20200601
         public GetWebAppDomainOwnershipIdentifierSlotInvokeArgs()
         {
         }
+        public static new GetWebAppDomainOwnershipIdentifierSlotInvokeArgs Empty => new GetWebAppDomainOwnershipIdentifierSlotInvokeArgs();
     }
 
 

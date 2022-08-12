@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetActivityLogAlertArgs : Pulumi.InvokeArgs
+    public sealed class GetActivityLogAlertArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Activity Log Alert rule.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Insights
         public GetActivityLogAlertArgs()
         {
         }
+        public static new GetActivityLogAlertArgs Empty => new GetActivityLogAlertArgs();
     }
 
-    public sealed class GetActivityLogAlertInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetActivityLogAlertInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Activity Log Alert rule.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Insights
         public GetActivityLogAlertInvokeArgs()
         {
         }
+        public static new GetActivityLogAlertInvokeArgs Empty => new GetActivityLogAlertInvokeArgs();
     }
 
 

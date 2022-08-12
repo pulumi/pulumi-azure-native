@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
     /// <summary>
     /// The details for the Managed Services offer’s plan in Azure Marketplace.
     /// </summary>
-    public sealed class PlanArgs : Pulumi.ResourceArgs
+    public sealed class PlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Marketplace plan name.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
         public PlanArgs()
         {
         }
+        public static new PlanArgs Empty => new PlanArgs();
     }
 }

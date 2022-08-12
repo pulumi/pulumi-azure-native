@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Dataset reference type.
     /// </summary>
-    public sealed class DatasetReferenceArgs : Pulumi.ResourceArgs
+    public sealed class DatasetReferenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameters")]
         private InputMap<object>? _parameters;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public DatasetReferenceArgs()
         {
         }
+        public static new DatasetReferenceArgs Empty => new DatasetReferenceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
     /// <summary>
     /// Defines the SQL Server resource settings.
     /// </summary>
-    public sealed class SqlServerResourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class SqlServerResourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
         public SqlServerResourceSettingsArgs()
         {
         }
+        public static new SqlServerResourceSettingsArgs Empty => new SqlServerResourceSettingsArgs();
     }
 }

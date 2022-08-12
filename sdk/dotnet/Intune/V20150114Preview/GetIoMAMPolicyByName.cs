@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Intune.V20150114Preview
     }
 
 
-    public sealed class GetIoMAMPolicyByNameArgs : Pulumi.InvokeArgs
+    public sealed class GetIoMAMPolicyByNameArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Location hostName for the tenant
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Intune.V20150114Preview
         public GetIoMAMPolicyByNameArgs()
         {
         }
+        public static new GetIoMAMPolicyByNameArgs Empty => new GetIoMAMPolicyByNameArgs();
     }
 
-    public sealed class GetIoMAMPolicyByNameInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIoMAMPolicyByNameInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Location hostName for the tenant
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Intune.V20150114Preview
         public GetIoMAMPolicyByNameInvokeArgs()
         {
         }
+        public static new GetIoMAMPolicyByNameInvokeArgs Empty => new GetIoMAMPolicyByNameInvokeArgs();
     }
 
 

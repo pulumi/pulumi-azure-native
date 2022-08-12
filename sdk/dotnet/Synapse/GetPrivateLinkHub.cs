@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Synapse
     }
 
 
-    public sealed class GetPrivateLinkHubArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkHubArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the privateLinkHub
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Synapse
         public GetPrivateLinkHubArgs()
         {
         }
+        public static new GetPrivateLinkHubArgs Empty => new GetPrivateLinkHubArgs();
     }
 
-    public sealed class GetPrivateLinkHubInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkHubInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the privateLinkHub
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Synapse
         public GetPrivateLinkHubInvokeArgs()
         {
         }
+        public static new GetPrivateLinkHubInvokeArgs Empty => new GetPrivateLinkHubInvokeArgs();
     }
 
 

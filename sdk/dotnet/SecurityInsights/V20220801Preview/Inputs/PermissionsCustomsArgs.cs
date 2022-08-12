@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
 {
 
-    public sealed class PermissionsCustomsArgs : Pulumi.ResourceArgs
+    public sealed class PermissionsCustomsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Customs permissions description
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview.Inputs
         public PermissionsCustomsArgs()
         {
         }
+        public static new PermissionsCustomsArgs Empty => new PermissionsCustomsArgs();
     }
 }

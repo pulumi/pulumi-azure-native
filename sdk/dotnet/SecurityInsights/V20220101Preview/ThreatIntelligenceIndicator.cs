@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
     /// Threat intelligence information object.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator")]
-    public partial class ThreatIntelligenceIndicator : Pulumi.CustomResource
+    public partial class ThreatIntelligenceIndicator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -77,17 +77,17 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:ThreatIntelligenceIndicator"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:ThreatIntelligenceIndicator"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ThreatIntelligenceIndicator"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ThreatIntelligenceIndicator"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ThreatIntelligenceIndicator"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ThreatIntelligenceIndicator"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ThreatIntelligenceIndicator"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:ThreatIntelligenceIndicator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         }
     }
 
-    public sealed class ThreatIntelligenceIndicatorArgs : Pulumi.ResourceArgs
+    public sealed class ThreatIntelligenceIndicatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Confidence of threat intelligence entity
@@ -361,5 +361,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
         public ThreatIntelligenceIndicatorArgs()
         {
         }
+        public static new ThreatIntelligenceIndicatorArgs Empty => new ThreatIntelligenceIndicatorArgs();
     }
 }

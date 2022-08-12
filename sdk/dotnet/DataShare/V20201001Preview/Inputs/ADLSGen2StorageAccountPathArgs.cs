@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview.Inputs
     /// <summary>
     /// Defines a single ADLS Gen2 storage account path.
     /// </summary>
-    public sealed class ADLSGen2StorageAccountPathArgs : Pulumi.ResourceArgs
+    public sealed class ADLSGen2StorageAccountPathArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the path on the consumer side where the dataset is to be mapped.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview.Inputs
         public ADLSGen2StorageAccountPathArgs()
         {
         }
+        public static new ADLSGen2StorageAccountPathArgs Empty => new ADLSGen2StorageAccountPathArgs();
     }
 }

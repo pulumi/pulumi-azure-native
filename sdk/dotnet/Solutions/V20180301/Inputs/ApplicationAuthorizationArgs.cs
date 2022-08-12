@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20180301.Inputs
     /// <summary>
     /// The managed application provider authorization.
     /// </summary>
-    public sealed class ApplicationAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Solutions.V20180301.Inputs
         public ApplicationAuthorizationArgs()
         {
         }
+        public static new ApplicationAuthorizationArgs Empty => new ApplicationAuthorizationArgs();
     }
 }

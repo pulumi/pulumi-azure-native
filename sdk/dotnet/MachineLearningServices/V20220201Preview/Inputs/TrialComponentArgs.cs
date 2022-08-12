@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Trial component definition.
     /// </summary>
-    public sealed class TrialComponentArgs : Pulumi.ResourceArgs
+    public sealed class TrialComponentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the code asset.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public TrialComponentArgs()
         {
         }
+        public static new TrialComponentArgs Empty => new TrialComponentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SoftwarePlan.Inputs
     /// <summary>
     /// The SKU to be applied for this resource
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the SKU to be applied
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.SoftwarePlan.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

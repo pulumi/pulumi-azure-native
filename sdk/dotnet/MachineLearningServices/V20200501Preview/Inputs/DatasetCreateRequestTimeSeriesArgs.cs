@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
 {
 
-    public sealed class DatasetCreateRequestTimeSeriesArgs : Pulumi.ResourceArgs
+    public sealed class DatasetCreateRequestTimeSeriesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Inputs
         public DatasetCreateRequestTimeSeriesArgs()
         {
         }
+        public static new DatasetCreateRequestTimeSeriesArgs Empty => new DatasetCreateRequestTimeSeriesArgs();
     }
 }

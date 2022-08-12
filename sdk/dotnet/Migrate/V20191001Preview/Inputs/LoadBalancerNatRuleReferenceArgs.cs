@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
     /// <summary>
     /// Defines reference to load balancer NAT rules.
     /// </summary>
-    public sealed class LoadBalancerNatRuleReferenceArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerNatRuleReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the name of the proxy resource on the target side.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
         public LoadBalancerNatRuleReferenceArgs()
         {
         }
+        public static new LoadBalancerNatRuleReferenceArgs Empty => new LoadBalancerNatRuleReferenceArgs();
     }
 }

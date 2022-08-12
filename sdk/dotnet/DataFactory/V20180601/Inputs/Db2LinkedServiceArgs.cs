@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Linked service for DB2 data source.
     /// </summary>
-    public sealed class Db2LinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class Db2LinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -115,5 +115,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Db2LinkedServiceArgs()
         {
         }
+        public static new Db2LinkedServiceArgs Empty => new Db2LinkedServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515.Inputs
     /// <summary>
     /// Connection State of the Private Endpoint Connection.
     /// </summary>
-    public sealed class PrivateLinkServiceConnectionStatePropertyArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceConnectionStatePropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private link service connection description.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515.Inputs
         public PrivateLinkServiceConnectionStatePropertyArgs()
         {
         }
+        public static new PrivateLinkServiceConnectionStatePropertyArgs Empty => new PrivateLinkServiceConnectionStatePropertyArgs();
     }
 }

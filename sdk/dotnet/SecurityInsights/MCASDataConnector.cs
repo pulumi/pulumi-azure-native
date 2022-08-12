@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// API Version: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:MCASDataConnector")]
-    public partial class MCASDataConnector : Pulumi.CustomResource
+    public partial class MCASDataConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The available data types for the connector.
@@ -85,18 +85,18 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MCASDataConnector"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MCASDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:MCASDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class MCASDataConnectorArgs : Pulumi.ResourceArgs
+    public sealed class MCASDataConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector ID
@@ -160,5 +160,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public MCASDataConnectorArgs()
         {
         }
+        public static new MCASDataConnectorArgs Empty => new MCASDataConnectorArgs();
     }
 }

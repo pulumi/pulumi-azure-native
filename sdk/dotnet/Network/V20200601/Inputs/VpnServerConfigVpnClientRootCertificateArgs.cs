@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
     /// <summary>
     /// Properties of VPN client root certificate of VpnServerConfiguration.
     /// </summary>
-    public sealed class VpnServerConfigVpnClientRootCertificateArgs : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigVpnClientRootCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
         public VpnServerConfigVpnClientRootCertificateArgs()
         {
         }
+        public static new VpnServerConfigVpnClientRootCertificateArgs Empty => new VpnServerConfigVpnClientRootCertificateArgs();
     }
 }

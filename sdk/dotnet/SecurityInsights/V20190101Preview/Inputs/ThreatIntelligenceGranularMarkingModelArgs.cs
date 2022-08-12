@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
     /// <summary>
     /// Describes threat granular marking model entity
     /// </summary>
-    public sealed class ThreatIntelligenceGranularMarkingModelArgs : Pulumi.ResourceArgs
+    public sealed class ThreatIntelligenceGranularMarkingModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language granular marking model
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
         public ThreatIntelligenceGranularMarkingModelArgs()
         {
         }
+        public static new ThreatIntelligenceGranularMarkingModelArgs Empty => new ThreatIntelligenceGranularMarkingModelArgs();
     }
 }

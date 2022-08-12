@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Specifies additional settings to be applied when patch mode AutomaticByPlatform is selected in Linux patch settings.
     /// </summary>
-    public sealed class LinuxVMGuestPatchAutomaticByPlatformSettingsArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVMGuestPatchAutomaticByPlatformSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public LinuxVMGuestPatchAutomaticByPlatformSettingsArgs()
         {
         }
+        public static new LinuxVMGuestPatchAutomaticByPlatformSettingsArgs Empty => new LinuxVMGuestPatchAutomaticByPlatformSettingsArgs();
     }
 }

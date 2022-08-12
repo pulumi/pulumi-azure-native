@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
     }
 
 
-    public sealed class GetNetworkInterfaceArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network interface.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public GetNetworkInterfaceArgs()
         {
         }
+        public static new GetNetworkInterfaceArgs Empty => new GetNetworkInterfaceArgs();
     }
 
-    public sealed class GetNetworkInterfaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network interface.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public GetNetworkInterfaceInvokeArgs()
         {
         }
+        public static new GetNetworkInterfaceInvokeArgs Empty => new GetNetworkInterfaceInvokeArgs();
     }
 
 

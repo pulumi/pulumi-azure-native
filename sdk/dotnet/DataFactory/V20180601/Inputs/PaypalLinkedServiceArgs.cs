@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Paypal Service linked service.
     /// </summary>
-    public sealed class PaypalLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class PaypalLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -103,5 +103,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public PaypalLinkedServiceArgs()
         {
         }
+        public static new PaypalLinkedServiceArgs Empty => new PaypalLinkedServiceArgs();
     }
 }

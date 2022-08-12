@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.LabServices
     /// API Version: 2021-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:Schedule")]
-    public partial class Schedule : Pulumi.CustomResource
+    public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -95,9 +95,9 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Schedule"},
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Schedule"},
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20220801:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20220801:Schedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.LabServices
         }
     }
 
-    public sealed class ScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
@@ -172,5 +172,6 @@ namespace Pulumi.AzureNative.LabServices
         public ScheduleArgs()
         {
         }
+        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 }

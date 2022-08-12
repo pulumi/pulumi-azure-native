@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
-    public sealed class AzureBlobFileSystemConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AzureBlobFileSystemConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property is mutually exclusive with sasKey and one must be specified.
@@ -45,5 +45,6 @@ namespace Pulumi.AzureNative.Batch.Inputs
         public AzureBlobFileSystemConfigurationArgs()
         {
         }
+        public static new AzureBlobFileSystemConfigurationArgs Empty => new AzureBlobFileSystemConfigurationArgs();
     }
 }

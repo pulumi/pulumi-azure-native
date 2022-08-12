@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
     }
 
 
-    public sealed class GetDedicatedHostGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetDedicatedHostGroupArgs()
         {
         }
+        public static new GetDedicatedHostGroupArgs Empty => new GetDedicatedHostGroupArgs();
     }
 
-    public sealed class GetDedicatedHostGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public GetDedicatedHostGroupInvokeArgs()
         {
         }
+        public static new GetDedicatedHostGroupInvokeArgs Empty => new GetDedicatedHostGroupInvokeArgs();
     }
 
 

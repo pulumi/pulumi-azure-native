@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180416.Inputs
     /// <summary>
     /// A log metrics trigger descriptor.
     /// </summary>
-    public sealed class LogMetricTriggerArgs : Pulumi.ResourceArgs
+    public sealed class LogMetricTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Evaluation of metric on a particular column
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Insights.V20180416.Inputs
         public LogMetricTriggerArgs()
         {
         }
+        public static new LogMetricTriggerArgs Empty => new LogMetricTriggerArgs();
     }
 }

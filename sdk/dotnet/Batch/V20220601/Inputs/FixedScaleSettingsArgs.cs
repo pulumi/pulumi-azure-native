@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20220601.Inputs
 {
 
-    public sealed class FixedScaleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class FixedScaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If omitted, the default value is Requeue.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.Batch.V20220601.Inputs
         public FixedScaleSettingsArgs()
         {
         }
+        public static new FixedScaleSettingsArgs Empty => new FixedScaleSettingsArgs();
     }
 }

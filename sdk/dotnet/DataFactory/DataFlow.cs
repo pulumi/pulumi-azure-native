@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataFactory
     /// API Version: 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:DataFlow")]
-    public partial class DataFlow : Pulumi.CustomResource
+    public partial class DataFlow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag identifies change in the resource.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:DataFlow"},
+                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20180601:DataFlow"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.DataFactory
         }
     }
 
-    public sealed class DataFlowArgs : Pulumi.ResourceArgs
+    public sealed class DataFlowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data flow name.
@@ -116,5 +116,6 @@ namespace Pulumi.AzureNative.DataFactory
         public DataFlowArgs()
         {
         }
+        public static new DataFlowArgs Empty => new DataFlowArgs();
     }
 }

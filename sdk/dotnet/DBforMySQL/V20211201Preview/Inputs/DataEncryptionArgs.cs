@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
     /// <summary>
     /// The date encryption for cmk.
     /// </summary>
-    public sealed class DataEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class DataEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
         public DataEncryptionArgs()
         {
         }
+        public static new DataEncryptionArgs Empty => new DataEncryptionArgs();
     }
 }

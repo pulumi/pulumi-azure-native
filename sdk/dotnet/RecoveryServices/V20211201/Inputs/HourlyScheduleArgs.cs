@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
 {
 
-    public sealed class HourlyScheduleArgs : Pulumi.ResourceArgs
+    public sealed class HourlyScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Interval at which backup needs to be triggered. For hourly the value
@@ -34,5 +34,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public HourlyScheduleArgs()
         {
         }
+        public static new HourlyScheduleArgs Empty => new HourlyScheduleArgs();
     }
 }

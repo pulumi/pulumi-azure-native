@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Communication
     }
 
 
-    public sealed class GetEmailServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetEmailServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the EmailService resource.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Communication
         public GetEmailServiceArgs()
         {
         }
+        public static new GetEmailServiceArgs Empty => new GetEmailServiceArgs();
     }
 
-    public sealed class GetEmailServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEmailServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the EmailService resource.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Communication
         public GetEmailServiceInvokeArgs()
         {
         }
+        public static new GetEmailServiceInvokeArgs Empty => new GetEmailServiceInvokeArgs();
     }
 
 

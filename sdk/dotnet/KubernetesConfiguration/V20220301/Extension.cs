@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301
     /// The Extension object.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration/v20220301:Extension")]
-    public partial class Extension : Pulumi.CustomResource
+    public partial class Extension : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identity of the Extension resource in an AKS cluster
@@ -148,14 +148,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:Extension"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:Extension"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210501preview:Extension"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210901:Extension"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:Extension"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:Extension"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220402preview:Extension"},
-                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210501preview:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210901:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220402preview:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:Extension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301
         }
     }
 
-    public sealed class ExtensionArgs : Pulumi.ResourceArgs
+    public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity of the Extension resource in an AKS cluster
@@ -292,5 +292,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301
             AutoUpgradeMinorVersion = true;
             ReleaseTrain = "Stable";
         }
+        public static new ExtensionArgs Empty => new ExtensionArgs();
     }
 }

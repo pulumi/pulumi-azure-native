@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211201.Inputs
     /// <summary>
     /// Data used when creating a disk.
     /// </summary>
-    public sealed class CreationDataArgs : Pulumi.ResourceArgs
+    public sealed class CreationDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This enumerates the possible sources of a disk's creation.
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.Compute.V20211201.Inputs
         public CreationDataArgs()
         {
         }
+        public static new CreationDataArgs Empty => new CreationDataArgs();
     }
 }

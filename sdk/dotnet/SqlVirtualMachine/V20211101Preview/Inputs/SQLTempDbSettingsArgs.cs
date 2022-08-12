@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
 {
 
-    public sealed class SQLTempDbSettingsArgs : Pulumi.ResourceArgs
+    public sealed class SQLTempDbSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SQL Server default file count
@@ -63,5 +63,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
         public SQLTempDbSettingsArgs()
         {
         }
+        public static new SQLTempDbSettingsArgs Empty => new SQLTempDbSettingsArgs();
     }
 }

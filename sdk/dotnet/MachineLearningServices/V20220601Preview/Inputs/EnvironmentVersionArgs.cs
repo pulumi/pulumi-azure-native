@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Environment version details.
     /// </summary>
-    public sealed class EnvironmentVersionArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration settings for Docker build context.
@@ -95,5 +95,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             IsArchived = false;
             OsType = "Linux";
         }
+        public static new EnvironmentVersionArgs Empty => new EnvironmentVersionArgs();
     }
 }

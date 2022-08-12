@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601.Inputs
     /// <summary>
     /// The metric counter set
     /// </summary>
-    public sealed class MetricCounterSetArgs : Pulumi.ResourceArgs
+    public sealed class MetricCounterSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("counters", required: true)]
         private InputList<Inputs.MetricCounterArgs>? _counters;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601.Inputs
         public MetricCounterSetArgs()
         {
         }
+        public static new MetricCounterSetArgs Empty => new MetricCounterSetArgs();
     }
 }

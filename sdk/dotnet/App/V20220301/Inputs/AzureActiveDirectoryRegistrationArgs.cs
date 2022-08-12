@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     /// <summary>
     /// The configuration settings of the Azure Active Directory app registration.
     /// </summary>
-    public sealed class AzureActiveDirectoryRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class AzureActiveDirectoryRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Client ID of this relying party application, known as the client_id.
@@ -63,5 +63,6 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         public AzureActiveDirectoryRegistrationArgs()
         {
         }
+        public static new AzureActiveDirectoryRegistrationArgs Empty => new AzureActiveDirectoryRegistrationArgs();
     }
 }

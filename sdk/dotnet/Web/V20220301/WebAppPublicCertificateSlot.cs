@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     /// Public certificate object
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220301:WebAppPublicCertificateSlot")]
-    public partial class WebAppPublicCertificateSlot : Pulumi.CustomResource
+    public partial class WebAppPublicCertificateSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Public Certificate byte array
@@ -76,19 +76,19 @@ namespace Pulumi.AzureNative.Web.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPublicCertificateSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPublicCertificateSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         }
     }
 
-    public sealed class WebAppPublicCertificateSlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppPublicCertificateSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public Certificate byte array
@@ -157,5 +157,6 @@ namespace Pulumi.AzureNative.Web.V20220301
         public WebAppPublicCertificateSlotArgs()
         {
         }
+        public static new WebAppPublicCertificateSlotArgs Empty => new WebAppPublicCertificateSlotArgs();
     }
 }

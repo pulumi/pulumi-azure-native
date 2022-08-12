@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// GlusterFs datastore configuration.
     /// </summary>
-    public sealed class GlusterFsContentsArgs : Pulumi.ResourceArgs
+    public sealed class GlusterFsContentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enum to determine the datastore contents type.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public GlusterFsContentsArgs()
         {
         }
+        public static new GlusterFsContentsArgs Empty => new GlusterFsContentsArgs();
     }
 }

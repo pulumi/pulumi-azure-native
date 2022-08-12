@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Inputs
     /// <summary>
     /// Definition of the content source.
     /// </summary>
-    public sealed class ContentSourceArgs : Pulumi.ResourceArgs
+    public sealed class ContentSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the hash.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Inputs
         public ContentSourceArgs()
         {
         }
+        public static new ContentSourceArgs Empty => new ContentSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
     /// Properties for the database account.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20220515:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database account.
@@ -58,13 +58,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:documentdb:Service"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cosmos DB database account name.
@@ -127,5 +127,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

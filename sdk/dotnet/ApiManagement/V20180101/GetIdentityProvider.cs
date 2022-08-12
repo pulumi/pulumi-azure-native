@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
     }
 
 
-    public sealed class GetIdentityProviderArgs : Pulumi.InvokeArgs
+    public sealed class GetIdentityProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identity Provider Type identifier.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         public GetIdentityProviderArgs()
         {
         }
+        public static new GetIdentityProviderArgs Empty => new GetIdentityProviderArgs();
     }
 
-    public sealed class GetIdentityProviderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIdentityProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identity Provider Type identifier.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         public GetIdentityProviderInvokeArgs()
         {
         }
+        public static new GetIdentityProviderInvokeArgs Empty => new GetIdentityProviderInvokeArgs();
     }
 
 

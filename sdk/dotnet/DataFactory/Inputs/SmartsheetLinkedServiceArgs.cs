@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Linked service for Smartsheet.
     /// </summary>
-    public sealed class SmartsheetLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class SmartsheetLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SmartsheetLinkedServiceArgs()
         {
         }
+        public static new SmartsheetLinkedServiceArgs Empty => new SmartsheetLinkedServiceArgs();
     }
 }

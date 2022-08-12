@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
     /// <summary>
     /// Service End point policy resource.
     /// </summary>
-    public sealed class ServiceEndpointPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("contextualServiceEndpointPolicies")]
         private InputList<string>? _contextualServiceEndpointPolicies;
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
         public ServiceEndpointPolicyArgs()
         {
         }
+        public static new ServiceEndpointPolicyArgs Empty => new ServiceEndpointPolicyArgs();
     }
 }

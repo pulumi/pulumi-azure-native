@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801
     /// The lab resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices/v20220801:Lab")]
-    public partial class Lab : Pulumi.CustomResource
+    public partial class Lab : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
@@ -136,8 +136,8 @@ namespace Pulumi.AzureNative.LabServices.V20220801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Lab"},
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Lab"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Lab"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Lab"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801
         }
     }
 
-    public sealed class LabArgs : Pulumi.ResourceArgs
+    public sealed class LabArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
@@ -248,5 +248,6 @@ namespace Pulumi.AzureNative.LabServices.V20220801
         public LabArgs()
         {
         }
+        public static new LabArgs Empty => new LabArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Criterion for dynamic threshold.
     /// </summary>
-    public sealed class DynamicMetricCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class DynamicMetricCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public DynamicMetricCriteriaArgs()
         {
         }
+        public static new DynamicMetricCriteriaArgs Empty => new DynamicMetricCriteriaArgs();
     }
 }

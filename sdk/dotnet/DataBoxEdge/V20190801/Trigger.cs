@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
     /// </summary>
     [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20190801:Trigger")]
-    public partial class Trigger : Pulumi.CustomResource
+    public partial class Trigger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Trigger Kind.
@@ -59,19 +59,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:databoxedge:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Trigger"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Trigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         }
     }
 
-    public sealed class TriggerArgs : Pulumi.ResourceArgs
+    public sealed class TriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Creates or updates a trigger
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         public TriggerArgs()
         {
         }
+        public static new TriggerArgs Empty => new TriggerArgs();
     }
 }

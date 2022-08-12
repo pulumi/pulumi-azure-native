@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Describes a virtual machine scale set extension profile.
     /// </summary>
-    public sealed class VirtualMachineScaleSetExtensionProfileArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetExtensionProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("extensions")]
         private InputList<Inputs.VirtualMachineScaleSetExtensionArgs>? _extensions;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public VirtualMachineScaleSetExtensionProfileArgs()
         {
         }
+        public static new VirtualMachineScaleSetExtensionProfileArgs Empty => new VirtualMachineScaleSetExtensionProfileArgs();
     }
 }

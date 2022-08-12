@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190801.Inputs
     /// <summary>
     /// AADProfile specifies attributes for Azure Active Directory integration.
     /// </summary>
-    public sealed class ManagedClusterAADProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterAADProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client AAD application ID.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ContainerService.V20190801.Inputs
         public ManagedClusterAADProfileArgs()
         {
         }
+        public static new ManagedClusterAADProfileArgs Empty => new ManagedClusterAADProfileArgs();
     }
 }

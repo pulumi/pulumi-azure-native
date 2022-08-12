@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiPolicy")]
-    public partial class ApiPolicy : Pulumi.CustomResource
+    public partial class ApiPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Format of the policyContent.
@@ -65,18 +65,18 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
     }
 
-    public sealed class ApiPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ApiPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -140,5 +140,6 @@ namespace Pulumi.AzureNative.ApiManagement
         {
             Format = "xml";
         }
+        public static new ApiPolicyArgs Empty => new ApiPolicyArgs();
     }
 }

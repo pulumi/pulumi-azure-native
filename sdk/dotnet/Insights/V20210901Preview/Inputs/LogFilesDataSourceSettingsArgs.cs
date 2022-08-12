@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
     /// <summary>
     /// The log files specific settings.
     /// </summary>
-    public sealed class LogFilesDataSourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class LogFilesDataSourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Text settings
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview.Inputs
         public LogFilesDataSourceSettingsArgs()
         {
         }
+        public static new LogFilesDataSourceSettingsArgs Empty => new LogFilesDataSourceSettingsArgs();
     }
 }

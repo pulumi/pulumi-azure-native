@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Specifies the security profile settings for the managed disk. &lt;br&gt;&lt;br&gt; NOTE: It can only be set for Confidential VMs
     /// </summary>
-    public sealed class VMDiskSecurityProfileArgs : Pulumi.ResourceArgs
+    public sealed class VMDiskSecurityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the customer managed disk encryption set resource id for the managed disk that is used for Customer Managed Key encrypted ConfidentialVM OS Disk and VMGuest blob.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public VMDiskSecurityProfileArgs()
         {
         }
+        public static new VMDiskSecurityProfileArgs Empty => new VMDiskSecurityProfileArgs();
     }
 }

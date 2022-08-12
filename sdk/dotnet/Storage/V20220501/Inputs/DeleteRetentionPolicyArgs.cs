@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
     /// <summary>
     /// The service properties for soft delete.
     /// </summary>
-    public sealed class DeleteRetentionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class DeleteRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
         public DeleteRetentionPolicyArgs()
         {
         }
+        public static new DeleteRetentionPolicyArgs Empty => new DeleteRetentionPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20201001
     /// Object model for the Azure CLI script.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20201001:AzureCliScript")]
-    public partial class AzureCliScript : Pulumi.CustomResource
+    public partial class AzureCliScript : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
@@ -180,8 +180,8 @@ namespace Pulumi.AzureNative.Resources.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:resources:AzureCliScript"},
-                    new Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzureCliScript"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources:AzureCliScript"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzureCliScript"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -203,7 +203,7 @@ namespace Pulumi.AzureNative.Resources.V20201001
         }
     }
 
-    public sealed class AzureCliScriptArgs : Pulumi.ResourceArgs
+    public sealed class AzureCliScriptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
@@ -337,5 +337,6 @@ namespace Pulumi.AzureNative.Resources.V20201001
             CleanupPreference = "Always";
             Timeout = "P1D";
         }
+        public static new AzureCliScriptArgs Empty => new AzureCliScriptArgs();
     }
 }

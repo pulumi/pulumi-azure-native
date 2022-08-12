@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
     /// IoT Connector FHIR destination definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination")]
-    public partial class IotConnectorFhirDestination : Pulumi.CustomResource
+    public partial class IotConnectorFhirDestination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis:IotConnectorFhirDestination"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnectorFhirDestination"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnectorFhirDestination"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:IotConnectorFhirDestination"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:IotConnectorFhirDestination"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnectorFhirDestination"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnectorFhirDestination"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:IotConnectorFhirDestination"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         }
     }
 
-    public sealed class IotConnectorFhirDestinationArgs : Pulumi.ResourceArgs
+    public sealed class IotConnectorFhirDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of IoT Connector FHIR destination resource.
@@ -167,5 +167,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public IotConnectorFhirDestinationArgs()
         {
         }
+        public static new IotConnectorFhirDestinationArgs Empty => new IotConnectorFhirDestinationArgs();
     }
 }

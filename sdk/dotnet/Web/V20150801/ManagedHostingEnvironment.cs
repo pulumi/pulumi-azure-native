@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:ManagedHostingEnvironment")]
-    public partial class ManagedHostingEnvironment : Pulumi.CustomResource
+    public partial class ManagedHostingEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of comma separated strings describing which VM sizes are allowed for front-ends
@@ -252,19 +252,19 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160901:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:ManagedHostingEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160901:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:ManagedHostingEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:ManagedHostingEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -286,7 +286,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class ManagedHostingEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class ManagedHostingEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// List of comma separated strings describing which VM sizes are allowed for front-ends
@@ -550,5 +550,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public ManagedHostingEnvironmentArgs()
         {
         }
+        public static new ManagedHostingEnvironmentArgs Empty => new ManagedHostingEnvironmentArgs();
     }
 }

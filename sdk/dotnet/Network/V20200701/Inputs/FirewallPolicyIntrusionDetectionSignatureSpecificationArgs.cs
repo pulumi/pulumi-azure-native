@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
     /// <summary>
     /// Intrusion detection signatures specification states.
     /// </summary>
-    public sealed class FirewallPolicyIntrusionDetectionSignatureSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyIntrusionDetectionSignatureSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Signature id.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
         public FirewallPolicyIntrusionDetectionSignatureSpecificationArgs()
         {
         }
+        public static new FirewallPolicyIntrusionDetectionSignatureSpecificationArgs Empty => new FirewallPolicyIntrusionDetectionSignatureSpecificationArgs();
     }
 }

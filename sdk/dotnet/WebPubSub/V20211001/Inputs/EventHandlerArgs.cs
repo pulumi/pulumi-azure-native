@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
     /// <summary>
     /// Properties of event handler.
     /// </summary>
-    public sealed class EventHandlerArgs : Pulumi.ResourceArgs
+    public sealed class EventHandlerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Upstream auth settings. If not set, no auth is used for upstream messages.
@@ -53,5 +53,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
         public EventHandlerArgs()
         {
         }
+        public static new EventHandlerArgs Empty => new EventHandlerArgs();
     }
 }

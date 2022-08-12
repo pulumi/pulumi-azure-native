@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
 
-    public sealed class GetPhpWorkloadArgs : Pulumi.InvokeArgs
+    public sealed class GetPhpWorkloadArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Php workload name
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Workloads
         public GetPhpWorkloadArgs()
         {
         }
+        public static new GetPhpWorkloadArgs Empty => new GetPhpWorkloadArgs();
     }
 
-    public sealed class GetPhpWorkloadInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPhpWorkloadInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Php workload name
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Workloads
         public GetPhpWorkloadInvokeArgs()
         {
         }
+        public static new GetPhpWorkloadInvokeArgs Empty => new GetPhpWorkloadInvokeArgs();
     }
 
 

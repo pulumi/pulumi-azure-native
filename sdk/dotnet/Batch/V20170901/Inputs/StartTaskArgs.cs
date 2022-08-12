@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20170901.Inputs
 {
 
-    public sealed class StartTaskArgs : Pulumi.ResourceArgs
+    public sealed class StartTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.Batch.V20170901.Inputs
         public StartTaskArgs()
         {
         }
+        public static new StartTaskArgs Empty => new StartTaskArgs();
     }
 }

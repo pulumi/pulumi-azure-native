@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
     /// Buildpack Binding Resource object
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220501preview:BuildpackBinding")]
-    public partial class BuildpackBinding : Pulumi.CustomResource
+    public partial class BuildpackBinding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform:BuildpackBinding"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:BuildpackBinding"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:BuildpackBinding"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220401:BuildpackBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:BuildpackBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:BuildpackBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:BuildpackBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:BuildpackBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         }
     }
 
-    public sealed class BuildpackBindingArgs : Pulumi.ResourceArgs
+    public sealed class BuildpackBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the build service resource.
@@ -130,5 +130,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
         public BuildpackBindingArgs()
         {
         }
+        public static new BuildpackBindingArgs Empty => new BuildpackBindingArgs();
     }
 }

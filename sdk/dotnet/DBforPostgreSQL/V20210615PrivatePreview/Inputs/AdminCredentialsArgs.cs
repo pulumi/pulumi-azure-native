@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs
     /// <summary>
     /// Server admin credentials.
     /// </summary>
-    public sealed class AdminCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class AdminCredentialsArgs : global::Pulumi.ResourceArgs
     {
         [Input("sourceServerPassword", required: true)]
         public Input<string> SourceServerPassword { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs
         public AdminCredentialsArgs()
         {
         }
+        public static new AdminCredentialsArgs Empty => new AdminCredentialsArgs();
     }
 }

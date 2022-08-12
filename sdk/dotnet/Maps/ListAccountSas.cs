@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Maps
     }
 
 
-    public sealed class ListAccountSasArgs : Pulumi.InvokeArgs
+    public sealed class ListAccountSasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -87,9 +87,10 @@ namespace Pulumi.AzureNative.Maps
         {
             MaxRatePerSecond = 500;
         }
+        public static new ListAccountSasArgs Empty => new ListAccountSasArgs();
     }
 
-    public sealed class ListAccountSasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListAccountSasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Maps Account.
@@ -149,6 +150,7 @@ namespace Pulumi.AzureNative.Maps
         {
             MaxRatePerSecond = 500;
         }
+        public static new ListAccountSasInvokeArgs Empty => new ListAccountSasInvokeArgs();
     }
 
 

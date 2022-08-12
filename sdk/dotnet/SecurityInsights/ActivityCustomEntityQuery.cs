@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:ActivityCustomEntityQuery")]
-    public partial class ActivityCustomEntityQuery : Pulumi.CustomResource
+    public partial class ActivityCustomEntityQuery : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The entity query content to display in timeline
@@ -145,15 +145,15 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ActivityCustomEntityQuery"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ActivityCustomEntityQuery"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ActivityCustomEntityQuery"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ActivityCustomEntityQuery"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ActivityCustomEntityQuery"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ActivityCustomEntityQuery"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:ActivityCustomEntityQuery"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ActivityCustomEntityQuery"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ActivityCustomEntityQuery"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ActivityCustomEntityQuery"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ActivityCustomEntityQuery"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:ActivityCustomEntityQuery"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ActivityCustomEntityQuery"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:ActivityCustomEntityQuery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
     }
 
-    public sealed class ActivityCustomEntityQueryArgs : Pulumi.ResourceArgs
+    public sealed class ActivityCustomEntityQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The entity query content to display in timeline
@@ -277,5 +277,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public ActivityCustomEntityQueryArgs()
         {
         }
+        public static new ActivityCustomEntityQueryArgs Empty => new ActivityCustomEntityQueryArgs();
     }
 }

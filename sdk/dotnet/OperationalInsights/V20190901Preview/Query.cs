@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
     /// A Log Analytics QueryPack-Query definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20190901preview:Query")]
-    public partial class Query : Pulumi.CustomResource
+    public partial class Query : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Object Id of user creating the query.
@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Query"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190901:Query"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Query"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190901:Query"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
         }
     }
 
-    public sealed class QueryArgs : Pulumi.ResourceArgs
+    public sealed class QueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Body of the query.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
         public QueryArgs()
         {
         }
+        public static new QueryArgs Empty => new QueryArgs();
     }
 }

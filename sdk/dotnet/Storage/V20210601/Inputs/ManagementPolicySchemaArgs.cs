@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20210601.Inputs
     /// <summary>
     /// The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
     /// </summary>
-    public sealed class ManagementPolicySchemaArgs : Pulumi.ResourceArgs
+    public sealed class ManagementPolicySchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules", required: true)]
         private InputList<Inputs.ManagementPolicyRuleArgs>? _rules;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Storage.V20210601.Inputs
         public ManagementPolicySchemaArgs()
         {
         }
+        public static new ManagementPolicySchemaArgs Empty => new ManagementPolicySchemaArgs();
     }
 }

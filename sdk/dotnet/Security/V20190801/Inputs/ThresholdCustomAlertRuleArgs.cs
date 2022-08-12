@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20190801.Inputs
     /// <summary>
     /// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
     /// </summary>
-    public sealed class ThresholdCustomAlertRuleArgs : Pulumi.ResourceArgs
+    public sealed class ThresholdCustomAlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Status of the custom alert.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Security.V20190801.Inputs
         public ThresholdCustomAlertRuleArgs()
         {
         }
+        public static new ThresholdCustomAlertRuleArgs Empty => new ThresholdCustomAlertRuleArgs();
     }
 }

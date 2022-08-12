@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// Reference to a build result
     /// </summary>
-    public sealed class BuildResultUserSourceInfoArgs : Pulumi.ResourceArgs
+    public sealed class BuildResultUserSourceInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource id of an existing succeeded build result under the same Spring instance.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
         public BuildResultUserSourceInfoArgs()
         {
         }
+        public static new BuildResultUserSourceInfoArgs Empty => new BuildResultUserSourceInfoArgs();
     }
 }

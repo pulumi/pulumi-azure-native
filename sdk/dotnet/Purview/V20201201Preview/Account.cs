@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
     /// Account resource
     /// </summary>
     [AzureNativeResourceType("azure-native:purview/v20201201preview:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Cloud connectors.
@@ -149,8 +149,8 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:purview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:purview/v20210701:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:purview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:purview/v20210701:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the account.
@@ -226,5 +226,6 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
         {
             PublicNetworkAccess = "Enabled";
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     /// Enables the static website feature of a storage account.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:StorageAccountStaticWebsite")]
-    public partial class StorageAccountStaticWebsite : Pulumi.CustomResource
+    public partial class StorageAccountStaticWebsite : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the container to upload blobs to.
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Storage
         }
     }
 
-    public sealed class StorageAccountStaticWebsiteArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountStaticWebsiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group.
@@ -105,5 +105,6 @@ namespace Pulumi.AzureNative.Storage
         public StorageAccountStaticWebsiteArgs()
         {
         }
+        public static new StorageAccountStaticWebsiteArgs Empty => new StorageAccountStaticWebsiteArgs();
     }
 }

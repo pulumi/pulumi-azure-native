@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// An NS record.
     /// </summary>
-    public sealed class NsRecordArgs : Pulumi.ResourceArgs
+    public sealed class NsRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name server name for this NS record.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public NsRecordArgs()
         {
         }
+        public static new NsRecordArgs Empty => new NsRecordArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20180401
     /// </summary>
     [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20180401:VirtualMachineScaleSetVM")]
-    public partial class VirtualMachineScaleSetVM : Pulumi.CustomResource
+    public partial class VirtualMachineScaleSetVM : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
@@ -161,20 +161,20 @@ namespace Pulumi.AzureNative.Compute.V20180401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineScaleSetVM"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineScaleSetVM"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNative.Compute.V20180401
         }
     }
 
-    public sealed class VirtualMachineScaleSetVMArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetVMArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
@@ -285,5 +285,6 @@ namespace Pulumi.AzureNative.Compute.V20180401
         public VirtualMachineScaleSetVMArgs()
         {
         }
+        public static new VirtualMachineScaleSetVMArgs Empty => new VirtualMachineScaleSetVMArgs();
     }
 }

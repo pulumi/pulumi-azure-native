@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
-    public sealed class LoginArgs : Pulumi.ResourceArgs
+    public sealed class LoginArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedExternalRedirectUrls")]
         private InputList<string>? _allowedExternalRedirectUrls;
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
         public LoginArgs()
         {
         }
+        public static new LoginArgs Empty => new LoginArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// <summary>
     /// Properties of the IoT Security solution's user defined resources.
     /// </summary>
-    public sealed class UserDefinedResourcesPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class UserDefinedResourcesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public UserDefinedResourcesPropertiesArgs()
         {
         }
+        public static new UserDefinedResourcesPropertiesArgs Empty => new UserDefinedResourcesPropertiesArgs();
     }
 }

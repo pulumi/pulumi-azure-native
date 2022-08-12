@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     }
 
 
-    public sealed class GetDatabaseAdvisorArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseAdvisorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Database Advisor.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public GetDatabaseAdvisorArgs()
         {
         }
+        public static new GetDatabaseAdvisorArgs Empty => new GetDatabaseAdvisorArgs();
     }
 
-    public sealed class GetDatabaseAdvisorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseAdvisorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Database Advisor.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public GetDatabaseAdvisorInvokeArgs()
         {
         }
+        public static new GetDatabaseAdvisorInvokeArgs Empty => new GetDatabaseAdvisorInvokeArgs();
     }
 
 

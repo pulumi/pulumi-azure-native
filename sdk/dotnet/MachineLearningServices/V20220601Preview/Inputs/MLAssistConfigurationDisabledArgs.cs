@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Labeling MLAssist configuration definition when MLAssist is disabled
     /// </summary>
-    public sealed class MLAssistConfigurationDisabledArgs : Pulumi.ResourceArgs
+    public sealed class MLAssistConfigurationDisabledArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// 
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public MLAssistConfigurationDisabledArgs()
         {
         }
+        public static new MLAssistConfigurationDisabledArgs Empty => new MLAssistConfigurationDisabledArgs();
     }
 }

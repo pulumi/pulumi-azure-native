@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Describes the output of a function.
     /// </summary>
-    public sealed class FunctionOutputArgs : Pulumi.ResourceArgs
+    public sealed class FunctionOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public FunctionOutputArgs()
         {
         }
+        public static new FunctionOutputArgs Empty => new FunctionOutputArgs();
     }
 }

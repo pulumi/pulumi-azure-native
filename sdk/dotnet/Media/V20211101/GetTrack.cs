@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Media.V20211101
     }
 
 
-    public sealed class GetTrackArgs : Pulumi.InvokeArgs
+    public sealed class GetTrackArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.Media.V20211101
         public GetTrackArgs()
         {
         }
+        public static new GetTrackArgs Empty => new GetTrackArgs();
     }
 
-    public sealed class GetTrackInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTrackInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Media.V20211101
         public GetTrackInvokeArgs()
         {
         }
+        public static new GetTrackInvokeArgs Empty => new GetTrackInvokeArgs();
     }
 
 

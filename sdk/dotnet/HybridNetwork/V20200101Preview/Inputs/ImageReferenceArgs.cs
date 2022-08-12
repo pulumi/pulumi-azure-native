@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview.Inputs
     /// <summary>
     /// The image reference properties.
     /// </summary>
-    public sealed class ImageReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ImageReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview.Inputs
         public ImageReferenceArgs()
         {
         }
+        public static new ImageReferenceArgs Empty => new ImageReferenceArgs();
     }
 }

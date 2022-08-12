@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
     /// Response for Volume Group request.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan/v20211120preview:VolumeGroup")]
-    public partial class VolumeGroup : Pulumi.CustomResource
+    public partial class VolumeGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type of encryption
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:elasticsan:VolumeGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan:VolumeGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         }
     }
 
-    public sealed class VolumeGroupArgs : Pulumi.ResourceArgs
+    public sealed class VolumeGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ElasticSan.
@@ -163,5 +163,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public VolumeGroupArgs()
         {
         }
+        public static new VolumeGroupArgs Empty => new VolumeGroupArgs();
     }
 }

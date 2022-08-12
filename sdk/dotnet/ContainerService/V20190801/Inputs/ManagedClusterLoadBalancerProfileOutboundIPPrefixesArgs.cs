@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190801.Inputs
     /// <summary>
     /// Desired outbound IP Prefix resources for the cluster load balancer.
     /// </summary>
-    public sealed class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs : global::Pulumi.ResourceArgs
     {
         [Input("publicIPPrefixes")]
         private InputList<Inputs.ResourceReferenceArgs>? _publicIPPrefixes;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerService.V20190801.Inputs
         public ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs()
         {
         }
+        public static new ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs Empty => new ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs();
     }
 }

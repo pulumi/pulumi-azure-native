@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// Settings with single toggle.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:EyesOn")]
-    public partial class EyesOn : Pulumi.CustomResource
+    public partial class EyesOn : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Etag of the azure resource
@@ -78,16 +78,16 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:EyesOn"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:EyesOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         }
     }
 
-    public sealed class EyesOnArgs : Pulumi.ResourceArgs
+    public sealed class EyesOnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// 
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public EyesOnArgs()
         {
         }
+        public static new EyesOnArgs Empty => new EyesOnArgs();
     }
 }

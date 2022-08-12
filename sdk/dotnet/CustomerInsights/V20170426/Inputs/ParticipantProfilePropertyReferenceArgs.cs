@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426.Inputs
     /// <summary>
     /// The participant profile property reference.
     /// </summary>
-    public sealed class ParticipantProfilePropertyReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ParticipantProfilePropertyReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The source interaction property that maps to the target profile property.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426.Inputs
         public ParticipantProfilePropertyReferenceArgs()
         {
         }
+        public static new ParticipantProfilePropertyReferenceArgs Empty => new ParticipantProfilePropertyReferenceArgs();
     }
 }

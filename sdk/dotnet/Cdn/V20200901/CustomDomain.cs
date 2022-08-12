@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:CustomDomain")]
-    public partial class CustomDomain : Pulumi.CustomResource
+    public partial class CustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Certificate parameters for securing custom HTTPS
@@ -100,19 +100,19 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cdn:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20150601:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20160402:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20161002:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20170402:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20171012:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20190415:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20161002:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20170402:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20171012:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190415:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         }
     }
 
-    public sealed class CustomDomainArgs : Pulumi.ResourceArgs
+    public sealed class CustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the custom domain within an endpoint.
@@ -169,5 +169,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public CustomDomainArgs()
         {
         }
+        public static new CustomDomainArgs Empty => new CustomDomainArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     /// </summary>
     [Obsolete(@"Version 2015-05-21-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:FormulaResource")]
-    public partial class FormulaResource : Pulumi.CustomResource
+    public partial class FormulaResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The author of the formula.
@@ -107,9 +107,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab:FormulaResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:FormulaResource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:FormulaResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:FormulaResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:FormulaResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:FormulaResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         }
     }
 
-    public sealed class FormulaResourceArgs : Pulumi.ResourceArgs
+    public sealed class FormulaResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The author of the formula.
@@ -226,5 +226,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public FormulaResourceArgs()
         {
         }
+        public static new FormulaResourceArgs Empty => new FormulaResourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
     /// <summary>
     /// The policies for a container registry.
     /// </summary>
-    public sealed class PoliciesArgs : Pulumi.ResourceArgs
+    public sealed class PoliciesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The export policy for a container registry.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Inputs
         public PoliciesArgs()
         {
         }
+        public static new PoliciesArgs Empty => new PoliciesArgs();
     }
 }

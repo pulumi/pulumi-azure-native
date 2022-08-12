@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     }
 
 
-    public sealed class ListShareSynchronizationsArgs : Pulumi.InvokeArgs
+    public sealed class ListShareSynchronizationsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -66,9 +66,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public ListShareSynchronizationsArgs()
         {
         }
+        public static new ListShareSynchronizationsArgs Empty => new ListShareSynchronizationsArgs();
     }
 
-    public sealed class ListShareSynchronizationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListShareSynchronizationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -109,6 +110,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public ListShareSynchronizationsInvokeArgs()
         {
         }
+        public static new ListShareSynchronizationsInvokeArgs Empty => new ListShareSynchronizationsInvokeArgs();
     }
 
 

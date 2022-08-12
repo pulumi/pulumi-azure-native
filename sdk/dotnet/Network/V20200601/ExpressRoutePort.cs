@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     /// ExpressRoutePort resource definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200601:ExpressRoutePort")]
-    public partial class ExpressRoutePort : Pulumi.CustomResource
+    public partial class ExpressRoutePort : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date of the physical port allocation to be used in Letter of Authorization.
@@ -142,30 +142,30 @@ namespace Pulumi.AzureNative.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRoutePort"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRoutePort"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRoutePort"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -187,7 +187,7 @@ namespace Pulumi.AzureNative.Network.V20200601
         }
     }
 
-    public sealed class ExpressRoutePortArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRoutePortArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bandwidth of procured ports in Gbps.
@@ -264,5 +264,6 @@ namespace Pulumi.AzureNative.Network.V20200601
         public ExpressRoutePortArgs()
         {
         }
+        public static new ExpressRoutePortArgs Empty => new ExpressRoutePortArgs();
     }
 }

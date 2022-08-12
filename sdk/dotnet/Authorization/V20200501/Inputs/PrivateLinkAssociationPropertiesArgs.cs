@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20200501.Inputs
 {
 
-    public sealed class PrivateLinkAssociationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkAssociationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The rmpl Resource ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Authorization.V20200501.Inputs
         public PrivateLinkAssociationPropertiesArgs()
         {
         }
+        public static new PrivateLinkAssociationPropertiesArgs Empty => new PrivateLinkAssociationPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531.Inputs
     /// <summary>
     /// Properties related to ServiceBus.
     /// </summary>
-    public sealed class ServiceBusArgs : Pulumi.ResourceArgs
+    public sealed class ServiceBusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531.Inputs
         public ServiceBusArgs()
         {
         }
+        public static new ServiceBusArgs Empty => new ServiceBusArgs();
     }
 }

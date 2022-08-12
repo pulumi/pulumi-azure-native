@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity SQL Data Warehouse source.
     /// </summary>
-    public sealed class SqlDWSourceArgs : Pulumi.ResourceArgs
+    public sealed class SqlDWSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -91,5 +91,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SqlDWSourceArgs()
         {
         }
+        public static new SqlDWSourceArgs Empty => new SqlDWSourceArgs();
     }
 }

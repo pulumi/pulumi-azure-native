@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
     /// <summary>
     /// Probe of application gateway
     /// </summary>
-    public sealed class ApplicationGatewayProbeArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayProbeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.Network.V20160601.Inputs
         public ApplicationGatewayProbeArgs()
         {
         }
+        public static new ApplicationGatewayProbeArgs Empty => new ApplicationGatewayProbeArgs();
     }
 }

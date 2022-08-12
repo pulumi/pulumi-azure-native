@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
     /// <summary>
     /// The KPI alias.
     /// </summary>
-    public sealed class KpiAliasArgs : Pulumi.ResourceArgs
+    public sealed class KpiAliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// KPI alias name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101.Inputs
         public KpiAliasArgs()
         {
         }
+        public static new KpiAliasArgs Empty => new KpiAliasArgs();
     }
 }

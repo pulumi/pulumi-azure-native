@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     /// <summary>
     /// The Edifact agreement content.
     /// </summary>
-    public sealed class EdifactAgreementContentArgs : Pulumi.ResourceArgs
+    public sealed class EdifactAgreementContentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The EDIFACT one-way receive agreement.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
         public EdifactAgreementContentArgs()
         {
         }
+        public static new EdifactAgreementContentArgs Empty => new EdifactAgreementContentArgs();
     }
 }

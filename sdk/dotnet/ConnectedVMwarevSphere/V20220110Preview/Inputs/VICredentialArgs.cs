@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
     /// <summary>
     /// Username / Password Credentials to connect to vcenter.
     /// </summary>
-    public sealed class VICredentialArgs : Pulumi.ResourceArgs
+    public sealed class VICredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the password to connect with the vCenter.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.Inputs
         public VICredentialArgs()
         {
         }
+        public static new VICredentialArgs Empty => new VICredentialArgs();
     }
 }

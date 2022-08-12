@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180201.Inputs
     /// <summary>
     /// An IPSec Policy configuration for a virtual network gateway connection
     /// </summary>
-    public sealed class IpsecPolicyArgs : Pulumi.ResourceArgs
+    public sealed class IpsecPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DH Groups used in IKE Phase 1 for initial SA.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Network.V20180201.Inputs
         public IpsecPolicyArgs()
         {
         }
+        public static new IpsecPolicyArgs Empty => new IpsecPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20220301.Inputs
     /// <summary>
     /// Container App Ingress configuration.
     /// </summary>
-    public sealed class IngressArgs : Pulumi.ResourceArgs
+    public sealed class IngressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
@@ -51,5 +51,6 @@ namespace Pulumi.AzureNative.Web.V20220301.Inputs
         {
             External = false;
         }
+        public static new IngressArgs Empty => new IngressArgs();
     }
 }

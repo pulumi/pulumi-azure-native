@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
     /// The Connector model definition
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20190301preview:CloudConnector")]
-    public partial class CloudConnector : Pulumi.CustomResource
+    public partial class CloudConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Connector billing model
@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:costmanagement:CloudConnector"},
-                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20180801preview:CloudConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:CloudConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20180801preview:CloudConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
         }
     }
 
-    public sealed class CloudConnectorArgs : Pulumi.ResourceArgs
+    public sealed class CloudConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Connector billing model
@@ -224,5 +224,6 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
         public CloudConnectorArgs()
         {
         }
+        public static new CloudConnectorArgs Empty => new CloudConnectorArgs();
     }
 }

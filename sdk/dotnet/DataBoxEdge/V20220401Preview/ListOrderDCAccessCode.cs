@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
     }
 
 
-    public sealed class ListOrderDCAccessCodeArgs : Pulumi.InvokeArgs
+    public sealed class ListOrderDCAccessCodeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         public ListOrderDCAccessCodeArgs()
         {
         }
+        public static new ListOrderDCAccessCodeArgs Empty => new ListOrderDCAccessCodeArgs();
     }
 
-    public sealed class ListOrderDCAccessCodeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListOrderDCAccessCodeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The device name
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         public ListOrderDCAccessCodeInvokeArgs()
         {
         }
+        public static new ListOrderDCAccessCodeInvokeArgs Empty => new ListOrderDCAccessCodeInvokeArgs();
     }
 
 

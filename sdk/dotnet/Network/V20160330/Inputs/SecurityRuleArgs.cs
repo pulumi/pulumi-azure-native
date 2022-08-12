@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
     /// <summary>
     /// Network security rule
     /// </summary>
-    public sealed class SecurityRuleArgs : Pulumi.ResourceArgs
+    public sealed class SecurityRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.Network.V20160330.Inputs
         public SecurityRuleArgs()
         {
         }
+        public static new SecurityRuleArgs Empty => new SecurityRuleArgs();
     }
 }

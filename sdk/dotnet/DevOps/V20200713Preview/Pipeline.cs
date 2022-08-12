@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevOps.V20200713Preview
     /// Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
     /// </summary>
     [AzureNativeResourceType("azure-native:devops/v20200713preview:Pipeline")]
-    public partial class Pipeline : Pulumi.CustomResource
+    public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration used to bootstrap the Pipeline.
@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.DevOps.V20200713Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devops:Pipeline"},
-                    new Pulumi.Alias { Type = "azure-native:devops/v20190701preview:Pipeline"},
+                    new global::Pulumi.Alias { Type = "azure-native:devops:Pipeline"},
+                    new global::Pulumi.Alias { Type = "azure-native:devops/v20190701preview:Pipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.DevOps.V20200713Preview
         }
     }
 
-    public sealed class PipelineArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration used to bootstrap the Pipeline.
@@ -158,5 +158,6 @@ namespace Pulumi.AzureNative.DevOps.V20200713Preview
         public PipelineArgs()
         {
         }
+        public static new PipelineArgs Empty => new PipelineArgs();
     }
 }

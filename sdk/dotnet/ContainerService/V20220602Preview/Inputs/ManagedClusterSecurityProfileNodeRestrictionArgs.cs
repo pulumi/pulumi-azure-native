@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
     /// <summary>
     /// Node Restriction settings for the security profile.
     /// </summary>
-    public sealed class ManagedClusterSecurityProfileNodeRestrictionArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterSecurityProfileNodeRestrictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable Node Restriction
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
         public ManagedClusterSecurityProfileNodeRestrictionArgs()
         {
         }
+        public static new ManagedClusterSecurityProfileNodeRestrictionArgs Empty => new ManagedClusterSecurityProfileNodeRestrictionArgs();
     }
 }

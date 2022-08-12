@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
 {
     [AzureNativeResourceType("azure-native:recoveryservices/v20220601preview:ResourceGuardProxy")]
-    public partial class ResourceGuardProxy : Pulumi.CustomResource
+    public partial class ResourceGuardProxy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optional ETag.
@@ -73,15 +73,15 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ResourceGuardProxy"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201preview:ResourceGuardProxy"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ResourceGuardProxy"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ResourceGuardProxy"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ResourceGuardProxy"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ResourceGuardProxy"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ResourceGuardProxy"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ResourceGuardProxy"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201preview:ResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:ResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ResourceGuardProxy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
         }
     }
 
-    public sealed class ResourceGuardProxyArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGuardProxyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional ETag.
@@ -153,5 +153,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
         public ResourceGuardProxyArgs()
         {
         }
+        public static new ResourceGuardProxyArgs Empty => new ResourceGuardProxyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
     /// <summary>
     /// Specifies a metric dimension.
     /// </summary>
-    public sealed class MetricDimensionArgs : Pulumi.ResourceArgs
+    public sealed class MetricDimensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the dimension.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Insights.V20180301.Inputs
         public MetricDimensionArgs()
         {
         }
+        public static new MetricDimensionArgs Empty => new MetricDimensionArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
 
-    public sealed class GetAuthorizationServerArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizationServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the authorization server.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetAuthorizationServerArgs()
         {
         }
+        public static new GetAuthorizationServerArgs Empty => new GetAuthorizationServerArgs();
     }
 
-    public sealed class GetAuthorizationServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizationServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the authorization server.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public GetAuthorizationServerInvokeArgs()
         {
         }
+        public static new GetAuthorizationServerInvokeArgs Empty => new GetAuthorizationServerInvokeArgs();
     }
 
 

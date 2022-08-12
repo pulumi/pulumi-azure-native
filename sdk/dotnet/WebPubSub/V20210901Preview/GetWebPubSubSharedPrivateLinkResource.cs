@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
     }
 
 
-    public sealed class GetWebPubSubSharedPrivateLinkResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetWebPubSubSharedPrivateLinkResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
         public GetWebPubSubSharedPrivateLinkResourceArgs()
         {
         }
+        public static new GetWebPubSubSharedPrivateLinkResourceArgs Empty => new GetWebPubSubSharedPrivateLinkResourceArgs();
     }
 
-    public sealed class GetWebPubSubSharedPrivateLinkResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebPubSubSharedPrivateLinkResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
         public GetWebPubSubSharedPrivateLinkResourceInvokeArgs()
         {
         }
+        public static new GetWebPubSubSharedPrivateLinkResourceInvokeArgs Empty => new GetWebPubSubSharedPrivateLinkResourceInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Xero Service dataset.
     /// </summary>
-    public sealed class XeroObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class XeroObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public XeroObjectDatasetArgs()
         {
         }
+        public static new XeroObjectDatasetArgs Empty => new XeroObjectDatasetArgs();
     }
 }

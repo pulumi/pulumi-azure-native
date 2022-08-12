@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
     /// <summary>
     /// Public IP Address associated with azure firewall.
     /// </summary>
-    public sealed class AzureFirewallPublicIPAddressArgs : Pulumi.ResourceArgs
+    public sealed class AzureFirewallPublicIPAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public IP Address value.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Network.V20200501.Inputs
         public AzureFirewallPublicIPAddressArgs()
         {
         }
+        public static new AzureFirewallPublicIPAddressArgs Empty => new AzureFirewallPublicIPAddressArgs();
     }
 }

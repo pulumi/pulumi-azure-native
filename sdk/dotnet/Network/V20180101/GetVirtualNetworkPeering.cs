@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network.V20180101
     }
 
 
-    public sealed class GetVirtualNetworkPeeringArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkPeeringArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Network.V20180101
         public GetVirtualNetworkPeeringArgs()
         {
         }
+        public static new GetVirtualNetworkPeeringArgs Empty => new GetVirtualNetworkPeeringArgs();
     }
 
-    public sealed class GetVirtualNetworkPeeringInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkPeeringInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Network.V20180101
         public GetVirtualNetworkPeeringInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkPeeringInvokeArgs Empty => new GetVirtualNetworkPeeringInvokeArgs();
     }
 
 

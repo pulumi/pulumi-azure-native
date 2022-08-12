@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Properties of a managed identity
     /// </summary>
-    public sealed class IdentityPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client secret URL of the identity.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public IdentityPropertiesArgs()
         {
         }
+        public static new IdentityPropertiesArgs Empty => new IdentityPropertiesArgs();
     }
 }

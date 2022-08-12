@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
     /// <summary>
     /// Metadata for a Link's property mapping.
     /// </summary>
-    public sealed class TypePropertiesMappingArgs : Pulumi.ResourceArgs
+    public sealed class TypePropertiesMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Link type.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
         public TypePropertiesMappingArgs()
         {
         }
+        public static new TypePropertiesMappingArgs Empty => new TypePropertiesMappingArgs();
     }
 }

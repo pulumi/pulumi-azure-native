@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetServerSecurityAlertPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetServerSecurityAlertPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Sql
         public GetServerSecurityAlertPolicyArgs()
         {
         }
+        public static new GetServerSecurityAlertPolicyArgs Empty => new GetServerSecurityAlertPolicyArgs();
     }
 
-    public sealed class GetServerSecurityAlertPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerSecurityAlertPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Sql
         public GetServerSecurityAlertPolicyInvokeArgs()
         {
         }
+        public static new GetServerSecurityAlertPolicyInvokeArgs Empty => new GetServerSecurityAlertPolicyInvokeArgs();
     }
 
 

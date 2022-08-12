@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
     /// Machine Learning service object wrapped into ARM resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200515preview:AKSService")]
-    public partial class AKSService : Pulumi.CustomResource
+    public partial class AKSService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -89,11 +89,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:AKSService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:AKSService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:AKSService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:AKSService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:AKSService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:AKSService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:AKSService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:AKSService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:AKSService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:AKSService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
         }
     }
 
-    public sealed class AKSServiceArgs : Pulumi.ResourceArgs
+    public sealed class AKSServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not AAD authentication is enabled.
@@ -289,5 +289,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
         public AKSServiceArgs()
         {
         }
+        public static new AKSServiceArgs Empty => new AKSServiceArgs();
     }
 }

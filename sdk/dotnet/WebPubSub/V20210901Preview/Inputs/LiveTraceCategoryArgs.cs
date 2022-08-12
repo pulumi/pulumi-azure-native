@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview.Inputs
     /// <summary>
     /// live trace category configuration of a Microsoft.SignalRService resource.
     /// </summary>
-    public sealed class LiveTraceCategoryArgs : Pulumi.ResourceArgs
+    public sealed class LiveTraceCategoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether or the log category is enabled.
@@ -34,5 +34,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview.Inputs
         public LiveTraceCategoryArgs()
         {
         }
+        public static new LiveTraceCategoryArgs Empty => new LiveTraceCategoryArgs();
     }
 }

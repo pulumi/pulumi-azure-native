@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// API Version: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:ArtifactSource")]
-    public partial class ArtifactSource : Pulumi.CustomResource
+    public partial class ArtifactSource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The folder containing Azure Resource Manager templates.
@@ -131,9 +131,9 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:ArtifactSource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ArtifactSource"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ArtifactSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:ArtifactSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ArtifactSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ArtifactSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.DevTestLab
         }
     }
 
-    public sealed class ArtifactSourceArgs : Pulumi.ResourceArgs
+    public sealed class ArtifactSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The folder containing Azure Resource Manager templates.
@@ -244,5 +244,6 @@ namespace Pulumi.AzureNative.DevTestLab
         public ArtifactSourceArgs()
         {
         }
+        public static new ArtifactSourceArgs Empty => new ArtifactSourceArgs();
     }
 }

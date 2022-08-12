@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
     }
 
 
-    public sealed class GetVendorSkusArgs : Pulumi.InvokeArgs
+    public sealed class GetVendorSkusArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the sku.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         public GetVendorSkusArgs()
         {
         }
+        public static new GetVendorSkusArgs Empty => new GetVendorSkusArgs();
     }
 
-    public sealed class GetVendorSkusInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVendorSkusInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the sku.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         public GetVendorSkusInvokeArgs()
         {
         }
+        public static new GetVendorSkusInvokeArgs Empty => new GetVendorSkusInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
     }
 
 
-    public sealed class GetAKSServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetAKSServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Set to True to include Model details.
@@ -54,9 +54,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
         public GetAKSServiceArgs()
         {
         }
+        public static new GetAKSServiceArgs Empty => new GetAKSServiceArgs();
     }
 
-    public sealed class GetAKSServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAKSServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Set to True to include Model details.
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
         public GetAKSServiceInvokeArgs()
         {
         }
+        public static new GetAKSServiceInvokeArgs Empty => new GetAKSServiceInvokeArgs();
     }
 
 

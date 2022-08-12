@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
     /// <summary>
     /// Recovery plan manual action details.
     /// </summary>
-    public sealed class RecoveryPlanManualActionDetailsArgs : Pulumi.ResourceArgs
+    public sealed class RecoveryPlanManualActionDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The manual action description.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101.Inputs
         public RecoveryPlanManualActionDetailsArgs()
         {
         }
+        public static new RecoveryPlanManualActionDetailsArgs Empty => new RecoveryPlanManualActionDetailsArgs();
     }
 }

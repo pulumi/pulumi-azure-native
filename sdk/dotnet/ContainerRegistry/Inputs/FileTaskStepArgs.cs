@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// The properties of a task step.
     /// </summary>
-    public sealed class FileTaskStepArgs : Pulumi.ResourceArgs
+    public sealed class FileTaskStepArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         public FileTaskStepArgs()
         {
         }
+        public static new FileTaskStepArgs Empty => new FileTaskStepArgs();
     }
 }

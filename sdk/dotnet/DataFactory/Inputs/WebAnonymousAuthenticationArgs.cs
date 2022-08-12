@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
     /// </summary>
-    public sealed class WebAnonymousAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class WebAnonymousAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of authentication used to connect to the web table source.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public WebAnonymousAuthenticationArgs()
         {
         }
+        public static new WebAnonymousAuthenticationArgs Empty => new WebAnonymousAuthenticationArgs();
     }
 }

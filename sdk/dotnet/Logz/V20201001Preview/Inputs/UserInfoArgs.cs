@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.V20201001Preview.Inputs
 {
 
-    public sealed class UserInfoArgs : Pulumi.ResourceArgs
+    public sealed class UserInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email of the user used by Logz for contacting them if needed
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview.Inputs
         public UserInfoArgs()
         {
         }
+        public static new UserInfoArgs Empty => new UserInfoArgs();
     }
 }

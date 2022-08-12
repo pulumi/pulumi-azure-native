@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// The location of Google Cloud Storage dataset.
     /// </summary>
-    public sealed class GoogleCloudStorageLocationArgs : Pulumi.ResourceArgs
+    public sealed class GoogleCloudStorageLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the bucketName of Google Cloud Storage. Type: string (or Expression with resultType string)
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public GoogleCloudStorageLocationArgs()
         {
         }
+        public static new GoogleCloudStorageLocationArgs Empty => new GoogleCloudStorageLocationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
     /// <summary>
     /// Web App Routing settings for the ingress profile.
     /// </summary>
-    public sealed class ManagedClusterIngressProfileWebAppRoutingArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterIngressProfileWebAppRoutingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of the DNS Zone to be associated with the web app. Used only when Web App Routing is enabled.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
         public ManagedClusterIngressProfileWebAppRoutingArgs()
         {
         }
+        public static new ManagedClusterIngressProfileWebAppRoutingArgs Empty => new ManagedClusterIngressProfileWebAppRoutingArgs();
     }
 }

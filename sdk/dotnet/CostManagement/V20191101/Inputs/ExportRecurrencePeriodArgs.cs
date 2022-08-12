@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191101.Inputs
     /// <summary>
     /// The start and end date for recurrence schedule.
     /// </summary>
-    public sealed class ExportRecurrencePeriodArgs : Pulumi.ResourceArgs
+    public sealed class ExportRecurrencePeriodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The start date of recurrence.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.V20191101.Inputs
         public ExportRecurrencePeriodArgs()
         {
         }
+        public static new ExportRecurrencePeriodArgs Empty => new ExportRecurrencePeriodArgs();
     }
 }

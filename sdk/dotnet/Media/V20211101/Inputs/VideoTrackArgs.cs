@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// Represents a video track in the asset.
     /// </summary>
-    public sealed class VideoTrackArgs : Pulumi.ResourceArgs
+    public sealed class VideoTrackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The discriminator for derived types.
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public VideoTrackArgs()
         {
         }
+        public static new VideoTrackArgs Empty => new VideoTrackArgs();
     }
 }

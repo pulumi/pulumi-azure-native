@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Select audio tracks from the input by specifying a track identifier.
     /// </summary>
-    public sealed class SelectAudioTrackByIdArgs : Pulumi.ResourceArgs
+    public sealed class SelectAudioTrackByIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public SelectAudioTrackByIdArgs()
         {
         }
+        public static new SelectAudioTrackByIdArgs Empty => new SelectAudioTrackByIdArgs();
     }
 }

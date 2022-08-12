@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.Inputs
     /// <summary>
     /// The structure of the property that a time series id can have. An environment can have multiple such properties.
     /// </summary>
-    public sealed class TimeSeriesIdPropertyArgs : Pulumi.ResourceArgs
+    public sealed class TimeSeriesIdPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the property.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.Inputs
         public TimeSeriesIdPropertyArgs()
         {
         }
+        public static new TimeSeriesIdPropertyArgs Empty => new TimeSeriesIdPropertyArgs();
     }
 }

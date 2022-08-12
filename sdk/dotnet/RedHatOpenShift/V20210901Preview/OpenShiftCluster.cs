@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift/v20210901preview:OpenShiftCluster")]
-    public partial class OpenShiftCluster : Pulumi.CustomResource
+    public partial class OpenShiftCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The cluster API server profile.
@@ -124,9 +124,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:redhatopenshift:OpenShiftCluster"},
-                    new Pulumi.Alias { Type = "azure-native:redhatopenshift/v20200430:OpenShiftCluster"},
-                    new Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220401:OpenShiftCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift:OpenShiftCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20200430:OpenShiftCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220401:OpenShiftCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview
         }
     }
 
-    public sealed class OpenShiftClusterArgs : Pulumi.ResourceArgs
+    public sealed class OpenShiftClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cluster API server profile.
@@ -249,5 +249,6 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview
         public OpenShiftClusterArgs()
         {
         }
+        public static new OpenShiftClusterArgs Empty => new OpenShiftClusterArgs();
     }
 }

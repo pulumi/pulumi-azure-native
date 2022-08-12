@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Identity properties of the factory resource.
     /// </summary>
-    public sealed class FactoryIdentityArgs : Pulumi.ResourceArgs
+    public sealed class FactoryIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public FactoryIdentityArgs()
         {
         }
+        public static new FactoryIdentityArgs Empty => new FactoryIdentityArgs();
     }
 }

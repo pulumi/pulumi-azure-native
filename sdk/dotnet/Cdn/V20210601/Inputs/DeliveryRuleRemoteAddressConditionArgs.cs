@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the RemoteAddress condition for the delivery rule.
     /// </summary>
-    public sealed class DeliveryRuleRemoteAddressConditionArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleRemoteAddressConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the condition for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public DeliveryRuleRemoteAddressConditionArgs()
         {
         }
+        public static new DeliveryRuleRemoteAddressConditionArgs Empty => new DeliveryRuleRemoteAddressConditionArgs();
     }
 }

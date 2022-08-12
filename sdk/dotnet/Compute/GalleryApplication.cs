@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// API Version: 2020-09-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryApplication")]
-    public partial class GalleryApplication : Pulumi.CustomResource
+    public partial class GalleryApplication : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of this gallery Application Definition resource. This property is updatable.
@@ -101,13 +101,13 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryApplication"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryApplication"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryApplication"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryApplication"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryApplication"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryApplication"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20220103:GalleryApplication"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryApplication"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryApplication"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryApplication"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryApplication"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryApplication"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryApplication"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220103:GalleryApplication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Compute
         }
     }
 
-    public sealed class GalleryApplicationArgs : Pulumi.ResourceArgs
+    public sealed class GalleryApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of this gallery Application Definition resource. This property is updatable.
@@ -206,5 +206,6 @@ namespace Pulumi.AzureNative.Compute
         public GalleryApplicationArgs()
         {
         }
+        public static new GalleryApplicationArgs Empty => new GalleryApplicationArgs();
     }
 }

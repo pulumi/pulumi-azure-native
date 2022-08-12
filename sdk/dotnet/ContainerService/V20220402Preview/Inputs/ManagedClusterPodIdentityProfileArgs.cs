@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220402Preview.Inputs
     /// <summary>
     /// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
     /// </summary>
-    public sealed class ManagedClusterPodIdentityProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterPodIdentityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220402Preview.Inputs
         public ManagedClusterPodIdentityProfileArgs()
         {
         }
+        public static new ManagedClusterPodIdentityProfileArgs Empty => new ManagedClusterPodIdentityProfileArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Logz
     }
 
 
-    public sealed class ListMonitorVMHostsArgs : Pulumi.InvokeArgs
+    public sealed class ListMonitorVMHostsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Logz
         public ListMonitorVMHostsArgs()
         {
         }
+        public static new ListMonitorVMHostsArgs Empty => new ListMonitorVMHostsArgs();
     }
 
-    public sealed class ListMonitorVMHostsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListMonitorVMHostsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Logz
         public ListMonitorVMHostsInvokeArgs()
         {
         }
+        public static new ListMonitorVMHostsInvokeArgs Empty => new ListMonitorVMHostsInvokeArgs();
     }
 
 

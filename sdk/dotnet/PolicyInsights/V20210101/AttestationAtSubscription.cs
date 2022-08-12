@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
     /// An attestation resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights/v20210101:AttestationAtSubscription")]
-    public partial class AttestationAtSubscription : Pulumi.CustomResource
+    public partial class AttestationAtSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Comments describing why this attestation was created.
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:policyinsights:AttestationAtSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights:AttestationAtSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         }
     }
 
-    public sealed class AttestationAtSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class AttestationAtSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the attestation.
@@ -193,5 +193,6 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         public AttestationAtSubscriptionArgs()
         {
         }
+        public static new AttestationAtSubscriptionArgs Empty => new AttestationAtSubscriptionArgs();
     }
 }

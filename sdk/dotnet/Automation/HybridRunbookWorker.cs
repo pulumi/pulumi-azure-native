@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Automation
     /// API Version: 2021-06-22.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:HybridRunbookWorker")]
-    public partial class HybridRunbookWorker : Pulumi.CustomResource
+    public partial class HybridRunbookWorker : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the assigned machine IP address.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation/v20210622:HybridRunbookWorker"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20210622:HybridRunbookWorker"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.Automation
         }
     }
 
-    public sealed class HybridRunbookWorkerArgs : Pulumi.ResourceArgs
+    public sealed class HybridRunbookWorkerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -158,5 +158,6 @@ namespace Pulumi.AzureNative.Automation
         public HybridRunbookWorkerArgs()
         {
         }
+        public static new HybridRunbookWorkerArgs Empty => new HybridRunbookWorkerArgs();
     }
 }

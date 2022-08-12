@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     }
 
 
-    public sealed class GetNotificationHubAuthorizationRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationHubAuthorizationRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// authorization rule name.
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.NotificationHubs
         public GetNotificationHubAuthorizationRuleArgs()
         {
         }
+        public static new GetNotificationHubAuthorizationRuleArgs Empty => new GetNotificationHubAuthorizationRuleArgs();
     }
 
-    public sealed class GetNotificationHubAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationHubAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// authorization rule name.
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         public GetNotificationHubAuthorizationRuleInvokeArgs()
         {
         }
+        public static new GetNotificationHubAuthorizationRuleInvokeArgs Empty => new GetNotificationHubAuthorizationRuleInvokeArgs();
     }
 
 

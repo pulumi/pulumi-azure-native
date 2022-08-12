@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
     /// <summary>
     /// Properties of certificate imported from key vault.
     /// </summary>
-    public sealed class KeyVaultCertificatePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultCertificatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate version of key vault.
@@ -50,5 +50,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
         {
             ExcludePrivateKey = false;
         }
+        public static new KeyVaultCertificatePropertiesArgs Empty => new KeyVaultCertificatePropertiesArgs();
     }
 }

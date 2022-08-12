@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
     /// <summary>
     /// Profile for gallery sharing to subscription or tenant
     /// </summary>
-    public sealed class SharingProfileArgs : Pulumi.ResourceArgs
+    public sealed class SharingProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups**
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20210701.Inputs
         public SharingProfileArgs()
         {
         }
+        public static new SharingProfileArgs Empty => new SharingProfileArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
     /// <summary>
     /// Microsoft Defender settings for the security profile threat detection.
     /// </summary>
-    public sealed class ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable Defender threat detection
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220602Preview.Inputs
         public ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs()
         {
         }
+        public static new ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs Empty => new ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs();
     }
 }

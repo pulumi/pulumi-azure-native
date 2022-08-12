@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     /// An ADLSGen2 storage account data set.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSet")]
-    public partial class ADLSGen2StorageAccountDataSet : Pulumi.CustomResource
+    public partial class ADLSGen2StorageAccountDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Unique id for identifying a data set resource
@@ -96,11 +96,11 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2StorageAccountDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ADLSGen2StorageAccountDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2StorageAccountDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2StorageAccountDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2StorageAccountDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ADLSGen2StorageAccountDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2StorageAccountDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2StorageAccountDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         }
     }
 
-    public sealed class ADLSGen2StorageAccountDataSetArgs : Pulumi.ResourceArgs
+    public sealed class ADLSGen2StorageAccountDataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -176,5 +176,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public ADLSGen2StorageAccountDataSetArgs()
         {
         }
+        public static new ADLSGen2StorageAccountDataSetArgs Empty => new ADLSGen2StorageAccountDataSetArgs();
     }
 }

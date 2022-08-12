@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// SAP HANA Table properties.
     /// </summary>
-    public sealed class SapHanaTableDatasetArgs : Pulumi.ResourceArgs
+    public sealed class SapHanaTableDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public SapHanaTableDatasetArgs()
         {
         }
+        public static new SapHanaTableDatasetArgs Empty => new SapHanaTableDatasetArgs();
     }
 }

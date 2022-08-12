@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20220101.Inputs
 {
 
-    public sealed class AzureFileShareConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AzureFileShareConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountKey", required: true)]
         public Input<string> AccountKey { get; set; } = null!;
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.Batch.V20220101.Inputs
         public AzureFileShareConfigurationArgs()
         {
         }
+        public static new AzureFileShareConfigurationArgs Empty => new AzureFileShareConfigurationArgs();
     }
 }

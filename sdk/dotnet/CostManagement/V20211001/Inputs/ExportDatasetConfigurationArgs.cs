@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20211001.Inputs
     /// <summary>
     /// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
     /// </summary>
-    public sealed class ExportDatasetConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ExportDatasetConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("columns")]
         private InputList<string>? _columns;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CostManagement.V20211001.Inputs
         public ExportDatasetConfigurationArgs()
         {
         }
+        public static new ExportDatasetConfigurationArgs Empty => new ExportDatasetConfigurationArgs();
     }
 }

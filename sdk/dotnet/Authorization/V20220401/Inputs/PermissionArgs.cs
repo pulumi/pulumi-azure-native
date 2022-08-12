@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20220401.Inputs
     /// <summary>
     /// Role definition permissions.
     /// </summary>
-    public sealed class PermissionArgs : Pulumi.ResourceArgs
+    public sealed class PermissionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<string>? _actions;
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Authorization.V20220401.Inputs
         public PermissionArgs()
         {
         }
+        public static new PermissionArgs Empty => new PermissionArgs();
     }
 }

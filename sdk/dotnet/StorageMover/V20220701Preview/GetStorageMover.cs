@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     }
 
 
-    public sealed class GetStorageMoverArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageMoverArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public GetStorageMoverArgs()
         {
         }
+        public static new GetStorageMoverArgs Empty => new GetStorageMoverArgs();
     }
 
-    public sealed class GetStorageMoverInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageMoverInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public GetStorageMoverInvokeArgs()
         {
         }
+        public static new GetStorageMoverInvokeArgs Empty => new GetStorageMoverInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.V20201001
 {
     [AzureNativeResourceType("azure-native:logz/v20201001:SubAccount")]
-    public partial class SubAccount : Pulumi.CustomResource
+    public partial class SubAccount : global::Pulumi.CustomResource
     {
         [Output("identity")]
         public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.Logz.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:logz:SubAccount"},
-                    new Pulumi.Alias { Type = "azure-native:logz/v20201001preview:SubAccount"},
-                    new Pulumi.Alias { Type = "azure-native:logz/v20220101preview:SubAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logz:SubAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001preview:SubAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logz/v20220101preview:SubAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Logz.V20201001
         }
     }
 
-    public sealed class SubAccountArgs : Pulumi.ResourceArgs
+    public sealed class SubAccountArgs : global::Pulumi.ResourceArgs
     {
         [Input("identity")]
         public Input<Inputs.IdentityPropertiesArgs>? Identity { get; set; }
@@ -137,5 +137,6 @@ namespace Pulumi.AzureNative.Logz.V20201001
         public SubAccountArgs()
         {
         }
+        public static new SubAccountArgs Empty => new SubAccountArgs();
     }
 }

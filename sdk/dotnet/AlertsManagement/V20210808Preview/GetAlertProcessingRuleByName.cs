@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
     }
 
 
-    public sealed class GetAlertProcessingRuleByNameArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertProcessingRuleByNameArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the alert processing rule that needs to be fetched.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
         public GetAlertProcessingRuleByNameArgs()
         {
         }
+        public static new GetAlertProcessingRuleByNameArgs Empty => new GetAlertProcessingRuleByNameArgs();
     }
 
-    public sealed class GetAlertProcessingRuleByNameInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertProcessingRuleByNameInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the alert processing rule that needs to be fetched.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
         public GetAlertProcessingRuleByNameInvokeArgs()
         {
         }
+        public static new GetAlertProcessingRuleByNameInvokeArgs Empty => new GetAlertProcessingRuleByNameInvokeArgs();
     }
 
 

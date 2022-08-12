@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
     /// <summary>
     /// Properties of a managed Cassandra cluster.
     /// </summary>
-    public sealed class ClusterResourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'. 'Ldap' is in preview.
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview.Inputs
         public ClusterResourcePropertiesArgs()
         {
         }
+        public static new ClusterResourcePropertiesArgs Empty => new ClusterResourcePropertiesArgs();
     }
 }

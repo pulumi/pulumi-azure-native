@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
     }
 
 
-    public sealed class GetOffice365ProjectDataConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetOffice365ProjectDataConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         public GetOffice365ProjectDataConnectorArgs()
         {
         }
+        public static new GetOffice365ProjectDataConnectorArgs Empty => new GetOffice365ProjectDataConnectorArgs();
     }
 
-    public sealed class GetOffice365ProjectDataConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOffice365ProjectDataConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Connector ID
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
         public GetOffice365ProjectDataConnectorInvokeArgs()
         {
         }
+        public static new GetOffice365ProjectDataConnectorInvokeArgs Empty => new GetOffice365ProjectDataConnectorInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview.Inputs
     /// <summary>
     /// User-assigned managed identity.
     /// </summary>
-    public sealed class UserAssignedIdentityArgs : Pulumi.ResourceArgs
+    public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Client App Id associated with this identity.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview.Inputs
         public UserAssignedIdentityArgs()
         {
         }
+        public static new UserAssignedIdentityArgs Empty => new UserAssignedIdentityArgs();
     }
 }

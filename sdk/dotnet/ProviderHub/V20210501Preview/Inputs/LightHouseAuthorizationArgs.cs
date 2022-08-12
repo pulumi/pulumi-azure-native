@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
 {
 
-    public sealed class LightHouseAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class LightHouseAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         public LightHouseAuthorizationArgs()
         {
         }
+        public static new LightHouseAuthorizationArgs Empty => new LightHouseAuthorizationArgs();
     }
 }

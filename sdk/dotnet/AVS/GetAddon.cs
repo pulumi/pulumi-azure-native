@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
 
-    public sealed class GetAddonArgs : Pulumi.InvokeArgs
+    public sealed class GetAddonArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the addon for the private cloud
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.AVS
         public GetAddonArgs()
         {
         }
+        public static new GetAddonArgs Empty => new GetAddonArgs();
     }
 
-    public sealed class GetAddonInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAddonInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the addon for the private cloud
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.AVS
         public GetAddonInvokeArgs()
         {
         }
+        public static new GetAddonInvokeArgs Empty => new GetAddonInvokeArgs();
     }
 
 

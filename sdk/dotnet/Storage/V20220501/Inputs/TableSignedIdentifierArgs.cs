@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
     /// <summary>
     /// Object to set Table Access Policy.
     /// </summary>
-    public sealed class TableSignedIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class TableSignedIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access policy
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Storage.V20220501.Inputs
         public TableSignedIdentifierArgs()
         {
         }
+        public static new TableSignedIdentifierArgs Empty => new TableSignedIdentifierArgs();
     }
 }

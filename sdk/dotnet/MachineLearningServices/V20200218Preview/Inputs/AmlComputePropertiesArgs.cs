@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200218Preview.Inputs
     /// <summary>
     /// AML Compute properties
     /// </summary>
-    public sealed class AmlComputePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AmlComputePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// OS Type.
@@ -68,5 +68,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200218Preview.Inputs
             OsType = "Linux";
             RemoteLoginPortPublicAccess = "NotSpecified";
         }
+        public static new AmlComputePropertiesArgs Empty => new AmlComputePropertiesArgs();
     }
 }

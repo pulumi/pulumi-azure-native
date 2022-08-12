@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Job endpoint definition
     /// </summary>
-    public sealed class JobServiceArgs : Pulumi.ResourceArgs
+    public sealed class JobServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Url for endpoint.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public JobServiceArgs()
         {
         }
+        public static new JobServiceArgs Empty => new JobServiceArgs();
     }
 }

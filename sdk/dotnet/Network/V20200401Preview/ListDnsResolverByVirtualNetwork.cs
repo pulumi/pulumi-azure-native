@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
     }
 
 
-    public sealed class ListDnsResolverByVirtualNetworkArgs : Pulumi.InvokeArgs
+    public sealed class ListDnsResolverByVirtualNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         public ListDnsResolverByVirtualNetworkArgs()
         {
         }
+        public static new ListDnsResolverByVirtualNetworkArgs Empty => new ListDnsResolverByVirtualNetworkArgs();
     }
 
-    public sealed class ListDnsResolverByVirtualNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListDnsResolverByVirtualNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
         public ListDnsResolverByVirtualNetworkInvokeArgs()
         {
         }
+        public static new ListDnsResolverByVirtualNetworkInvokeArgs Empty => new ListDnsResolverByVirtualNetworkInvokeArgs();
     }
 
 

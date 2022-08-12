@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// <summary>
     /// Defines the parameters for SocketAddress match conditions
     /// </summary>
-    public sealed class SocketAddrMatchConditionParametersArgs : Pulumi.ResourceArgs
+    public sealed class SocketAddrMatchConditionParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchValues")]
         private InputList<string>? _matchValues;
@@ -57,5 +57,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         public SocketAddrMatchConditionParametersArgs()
         {
         }
+        public static new SocketAddrMatchConditionParametersArgs Empty => new SocketAddrMatchConditionParametersArgs();
     }
 }

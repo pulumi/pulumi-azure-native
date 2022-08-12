@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
     /// The KPI resource format.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:Kpi")]
-    public partial class Kpi : Pulumi.CustomResource
+    public partial class Kpi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The aliases.
@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:customerinsights:Kpi"},
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Kpi"},
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:Kpi"},
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Kpi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,7 +189,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         }
     }
 
-    public sealed class KpiArgs : Pulumi.ResourceArgs
+    public sealed class KpiArgs : global::Pulumi.ResourceArgs
     {
         [Input("aliases")]
         private InputList<Inputs.KpiAliasArgs>? _aliases;
@@ -326,5 +326,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public KpiArgs()
         {
         }
+        public static new KpiArgs Empty => new KpiArgs();
     }
 }

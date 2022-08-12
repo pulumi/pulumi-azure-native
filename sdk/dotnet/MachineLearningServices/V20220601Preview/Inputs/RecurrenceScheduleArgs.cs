@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class RecurrenceScheduleArgs : Pulumi.ResourceArgs
+    public sealed class RecurrenceScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("hours", required: true)]
         private InputList<int>? _hours;
@@ -51,5 +51,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public RecurrenceScheduleArgs()
         {
         }
+        public static new RecurrenceScheduleArgs Empty => new RecurrenceScheduleArgs();
     }
 }

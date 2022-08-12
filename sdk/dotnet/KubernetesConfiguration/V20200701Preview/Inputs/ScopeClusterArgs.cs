@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview.Inputs
     /// <summary>
     /// Specifies that the scope of the extensionInstance is Cluster
     /// </summary>
-    public sealed class ScopeClusterArgs : Pulumi.ResourceArgs
+    public sealed class ScopeClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview.Inputs
         public ScopeClusterArgs()
         {
         }
+        public static new ScopeClusterArgs Empty => new ScopeClusterArgs();
     }
 }

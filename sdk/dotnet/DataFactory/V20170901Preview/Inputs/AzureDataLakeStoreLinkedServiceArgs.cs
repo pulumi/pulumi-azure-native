@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Azure Data Lake Store linked service.
     /// </summary>
-    public sealed class AzureDataLakeStoreLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class AzureDataLakeStoreLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data Lake Store account name. Type: string (or Expression with resultType string).
@@ -109,5 +109,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AzureDataLakeStoreLinkedServiceArgs()
         {
         }
+        public static new AzureDataLakeStoreLinkedServiceArgs Empty => new AzureDataLakeStoreLinkedServiceArgs();
     }
 }

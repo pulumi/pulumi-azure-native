@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
     /// Registered Server resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync/v20200301:RegisteredServer")]
-    public partial class RegisteredServer : Pulumi.CustomResource
+    public partial class RegisteredServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Registered Server Agent Version
@@ -184,16 +184,16 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storagesync:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180701:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190201:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:RegisteredServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync:RegisteredServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:RegisteredServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180402:RegisteredServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180701:RegisteredServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20181001:RegisteredServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190201:RegisteredServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190301:RegisteredServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190601:RegisteredServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:RegisteredServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:RegisteredServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -215,7 +215,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
         }
     }
 
-    public sealed class RegisteredServerArgs : Pulumi.ResourceArgs
+    public sealed class RegisteredServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Registered Server Agent Version
@@ -286,5 +286,6 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
         public RegisteredServerArgs()
         {
         }
+        public static new RegisteredServerArgs Empty => new RegisteredServerArgs();
     }
 }

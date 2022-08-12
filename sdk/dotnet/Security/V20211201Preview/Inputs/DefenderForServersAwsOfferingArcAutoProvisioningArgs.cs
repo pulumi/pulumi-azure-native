@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// The ARC autoprovisioning configuration
     /// </summary>
-    public sealed class DefenderForServersAwsOfferingArcAutoProvisioningArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForServersAwsOfferingArcAutoProvisioningArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is arc auto provisioning enabled
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public DefenderForServersAwsOfferingArcAutoProvisioningArgs()
         {
         }
+        public static new DefenderForServersAwsOfferingArcAutoProvisioningArgs Empty => new DefenderForServersAwsOfferingArcAutoProvisioningArgs();
     }
 }

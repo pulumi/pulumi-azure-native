@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180801
     /// Public IP address resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180801:PublicIPAddress")]
-    public partial class PublicIPAddress : Pulumi.CustomResource
+    public partial class PublicIPAddress : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
@@ -142,47 +142,47 @@ namespace Pulumi.AzureNative.Network.V20180801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20150615:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160330:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160601:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160901:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20161201:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170601:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170801:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171101:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180101:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180601:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180701:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:PublicIPAddress"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20150615:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160330:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160601:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:PublicIPAddress"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:PublicIPAddress"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.Network.V20180801
         }
     }
 
-    public sealed class PublicIPAddressArgs : Pulumi.ResourceArgs
+    public sealed class PublicIPAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
@@ -323,5 +323,6 @@ namespace Pulumi.AzureNative.Network.V20180801
         public PublicIPAddressArgs()
         {
         }
+        public static new PublicIPAddressArgs Empty => new PublicIPAddressArgs();
     }
 }

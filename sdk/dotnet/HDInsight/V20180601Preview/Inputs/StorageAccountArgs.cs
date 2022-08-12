@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
     /// <summary>
     /// The storage Account.
     /// </summary>
-    public sealed class StorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class StorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The container in the storage account, only to be specified for WASB storage accounts.
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
         public StorageAccountArgs()
         {
         }
+        public static new StorageAccountArgs Empty => new StorageAccountArgs();
     }
 }

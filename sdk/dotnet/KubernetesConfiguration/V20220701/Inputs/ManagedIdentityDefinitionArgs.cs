@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701.Inputs
     /// <summary>
     /// Parameters to authenticate using a Managed Identity.
     /// </summary>
-    public sealed class ManagedIdentityDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ManagedIdentityDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client Id for authenticating a Managed Identity.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701.Inputs
         public ManagedIdentityDefinitionArgs()
         {
         }
+        public static new ManagedIdentityDefinitionArgs Empty => new ManagedIdentityDefinitionArgs();
     }
 }

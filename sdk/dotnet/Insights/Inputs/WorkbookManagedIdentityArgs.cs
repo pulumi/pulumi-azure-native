@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Customer Managed Identity
     /// </summary>
-    public sealed class WorkbookManagedIdentityArgs : Pulumi.ResourceArgs
+    public sealed class WorkbookManagedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity type.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public WorkbookManagedIdentityArgs()
         {
         }
+        public static new WorkbookManagedIdentityArgs Empty => new WorkbookManagedIdentityArgs();
     }
 }

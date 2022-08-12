@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview
     /// A class represent a resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub/v20210401preview:WebPubSub")]
-    public partial class WebPubSub : Pulumi.CustomResource
+    public partial class WebPubSub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The settings for event handler in webpubsub service.
@@ -167,10 +167,10 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSub"},
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSub"},
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSub"},
-                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -192,7 +192,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview
         }
     }
 
-    public sealed class WebPubSubArgs : Pulumi.ResourceArgs
+    public sealed class WebPubSubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The settings for event handler in webpubsub service.
@@ -283,5 +283,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview
         {
             PublicNetworkAccess = "Enabled";
         }
+        public static new WebPubSubArgs Empty => new WebPubSubArgs();
     }
 }

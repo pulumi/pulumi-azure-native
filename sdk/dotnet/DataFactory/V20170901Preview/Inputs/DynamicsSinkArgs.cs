@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Dynamics sink.
     /// </summary>
-    public sealed class DynamicsSinkArgs : Pulumi.ResourceArgs
+    public sealed class DynamicsSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flag indicating whether ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public DynamicsSinkArgs()
         {
         }
+        public static new DynamicsSinkArgs Empty => new DynamicsSinkArgs();
     }
 }

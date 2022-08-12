@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
     /// <summary>
     /// The Edifact agreement envelope settings.
     /// </summary>
-    public sealed class EdifactEnvelopeSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EdifactEnvelopeSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application reference id.
@@ -264,5 +264,6 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
         public EdifactEnvelopeSettingsArgs()
         {
         }
+        public static new EdifactEnvelopeSettingsArgs Empty => new EdifactEnvelopeSettingsArgs();
     }
 }

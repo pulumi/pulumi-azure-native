@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// The parameters to provide for the Microsoft Teams channel.
     /// </summary>
-    public sealed class SkypeChannelPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SkypeChannelPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Calling web hook for Skype channel
@@ -79,5 +79,6 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         {
             EnableCalling = false;
         }
+        public static new SkypeChannelPropertiesArgs Empty => new SkypeChannelPropertiesArgs();
     }
 }

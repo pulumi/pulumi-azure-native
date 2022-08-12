@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
     /// <summary>
     /// Storage information about the data disks present in the custom image
     /// </summary>
-    public sealed class DataDiskStorageTypeInfoArgs : Pulumi.ResourceArgs
+    public sealed class DataDiskStorageTypeInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Disk Lun
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
         public DataDiskStorageTypeInfoArgs()
         {
         }
+        public static new DataDiskStorageTypeInfoArgs Empty => new DataDiskStorageTypeInfoArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Azure Blob datastore configuration.
     /// </summary>
-    public sealed class AzureBlobContentsArgs : Pulumi.ResourceArgs
+    public sealed class AzureBlobContentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Storage account name.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public AzureBlobContentsArgs()
         {
         }
+        public static new AzureBlobContentsArgs Empty => new AzureBlobContentsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
     /// <summary>
     /// Public IP address resource.
     /// </summary>
-    public sealed class PublicIPAddressArgs : Pulumi.ResourceArgs
+    public sealed class PublicIPAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DDoS protection custom policy associated with the public IP address.
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
         public PublicIPAddressArgs()
         {
         }
+        public static new PublicIPAddressArgs Empty => new PublicIPAddressArgs();
     }
 }

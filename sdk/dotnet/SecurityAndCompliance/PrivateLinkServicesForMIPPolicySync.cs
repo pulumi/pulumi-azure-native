@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     /// API Version: 2021-03-08.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance:privateLinkServicesForMIPPolicySync")]
-    public partial class PrivateLinkServicesForMIPPolicySync : Pulumi.CustomResource
+    public partial class PrivateLinkServicesForMIPPolicySync : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         }
     }
 
-    public sealed class PrivateLinkServicesForMIPPolicySyncArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServicesForMIPPolicySyncArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
@@ -170,5 +170,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         public PrivateLinkServicesForMIPPolicySyncArgs()
         {
         }
+        public static new PrivateLinkServicesForMIPPolicySyncArgs Empty => new PrivateLinkServicesForMIPPolicySyncArgs();
     }
 }

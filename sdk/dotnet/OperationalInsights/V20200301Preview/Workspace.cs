@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     /// The top level Workspace resource container.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// This is a read-only property. Represents the ID associated with the workspace.
@@ -118,12 +118,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ETag of the workspace.
@@ -222,5 +222,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

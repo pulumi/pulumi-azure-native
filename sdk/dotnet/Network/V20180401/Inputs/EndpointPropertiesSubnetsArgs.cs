@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180401.Inputs
     /// <summary>
     /// Subnet first address, scope, and/or last address.
     /// </summary>
-    public sealed class EndpointPropertiesSubnetsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointPropertiesSubnetsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// First address in the subnet.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Network.V20180401.Inputs
         public EndpointPropertiesSubnetsArgs()
         {
         }
+        public static new EndpointPropertiesSubnetsArgs Empty => new EndpointPropertiesSubnetsArgs();
     }
 }

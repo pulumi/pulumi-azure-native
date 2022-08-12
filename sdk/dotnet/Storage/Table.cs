@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage
     /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Table")]
-    public partial class Table : Pulumi.CustomResource
+    public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:Table"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:Table"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:Table"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:Table"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:Table"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210601:Table"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:Table"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:Table"},
-                    new Pulumi.Alias { Type = "azure-native:storage/v20220501:Table"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:Table"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:Table"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:Table"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:Table"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:Table"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:Table"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:Table"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:Table"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:Table"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Storage
         }
     }
 
-    public sealed class TableArgs : Pulumi.ResourceArgs
+    public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -112,5 +112,6 @@ namespace Pulumi.AzureNative.Storage
         public TableArgs()
         {
         }
+        public static new TableArgs Empty => new TableArgs();
     }
 }

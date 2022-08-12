@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview.Inputs
     /// <summary>
     /// The SKU that defines the type of the peering service.
     /// </summary>
-    public sealed class PeeringServiceSkuArgs : Pulumi.ResourceArgs
+    public sealed class PeeringServiceSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the peering service SKU.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview.Inputs
         public PeeringServiceSkuArgs()
         {
         }
+        public static new PeeringServiceSkuArgs Empty => new PeeringServiceSkuArgs();
     }
 }

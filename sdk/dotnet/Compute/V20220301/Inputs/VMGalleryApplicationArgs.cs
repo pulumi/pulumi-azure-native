@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Specifies the required information to reference a compute gallery application version
     /// </summary>
-    public sealed class VMGalleryApplicationArgs : Pulumi.ResourceArgs
+    public sealed class VMGalleryApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional, Specifies the uri to an azure blob that will replace the default configuration for the package if provided
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public VMGalleryApplicationArgs()
         {
         }
+        public static new VMGalleryApplicationArgs Empty => new VMGalleryApplicationArgs();
     }
 }

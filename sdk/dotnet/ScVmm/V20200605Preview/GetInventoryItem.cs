@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     }
 
 
-    public sealed class GetInventoryItemArgs : Pulumi.InvokeArgs
+    public sealed class GetInventoryItemArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the inventoryItem.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         public GetInventoryItemArgs()
         {
         }
+        public static new GetInventoryItemArgs Empty => new GetInventoryItemArgs();
     }
 
-    public sealed class GetInventoryItemInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInventoryItemInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the inventoryItem.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         public GetInventoryItemInvokeArgs()
         {
         }
+        public static new GetInventoryItemInvokeArgs Empty => new GetInventoryItemInvokeArgs();
     }
 
 

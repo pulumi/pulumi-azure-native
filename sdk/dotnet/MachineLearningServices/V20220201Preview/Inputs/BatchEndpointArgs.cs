@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// <summary>
     /// Batch endpoint configuration.
     /// </summary>
-    public sealed class BatchEndpointArgs : Pulumi.ResourceArgs
+    public sealed class BatchEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
         public BatchEndpointArgs()
         {
         }
+        public static new BatchEndpointArgs Empty => new BatchEndpointArgs();
     }
 }

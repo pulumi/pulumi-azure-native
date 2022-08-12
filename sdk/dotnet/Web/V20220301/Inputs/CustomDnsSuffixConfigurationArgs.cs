@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20220301.Inputs
     /// <summary>
     /// Full view of the custom domain suffix configuration for ASEv3.
     /// </summary>
-    public sealed class CustomDnsSuffixConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CustomDnsSuffixConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Web.V20220301.Inputs
         public CustomDnsSuffixConfigurationArgs()
         {
         }
+        public static new CustomDnsSuffixConfigurationArgs Empty => new CustomDnsSuffixConfigurationArgs();
     }
 }

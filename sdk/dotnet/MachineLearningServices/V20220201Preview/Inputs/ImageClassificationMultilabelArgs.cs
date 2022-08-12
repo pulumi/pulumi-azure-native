@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
     /// Image Classification Multilabel. Multi-label image classification is used when an image could have one or more labels
     /// from a set of labels - e.g. an image could be labeled with both 'cat' and 'dog'.
     /// </summary>
-    public sealed class ImageClassificationMultilabelArgs : Pulumi.ResourceArgs
+    public sealed class ImageClassificationMultilabelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Collection of registered Tabular Dataset Ids and other data settings required for training and validating models.
@@ -76,5 +76,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview.Inputs
             LogVerbosity = "Info";
             PrimaryMetric = "IOU";
         }
+        public static new ImageClassificationMultilabelArgs Empty => new ImageClassificationMultilabelArgs();
     }
 }

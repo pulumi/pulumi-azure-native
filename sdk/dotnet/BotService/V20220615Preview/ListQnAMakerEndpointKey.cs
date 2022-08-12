@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
     }
 
 
-    public sealed class ListQnAMakerEndpointKeyArgs : Pulumi.InvokeArgs
+    public sealed class ListQnAMakerEndpointKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Subscription key which provides access to this API.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
         public ListQnAMakerEndpointKeyArgs()
         {
         }
+        public static new ListQnAMakerEndpointKeyArgs Empty => new ListQnAMakerEndpointKeyArgs();
     }
 
-    public sealed class ListQnAMakerEndpointKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListQnAMakerEndpointKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Subscription key which provides access to this API.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
         public ListQnAMakerEndpointKeyInvokeArgs()
         {
         }
+        public static new ListQnAMakerEndpointKeyInvokeArgs Empty => new ListQnAMakerEndpointKeyInvokeArgs();
     }
 
 

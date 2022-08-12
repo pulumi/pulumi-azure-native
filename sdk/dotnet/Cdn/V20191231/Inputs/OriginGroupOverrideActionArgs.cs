@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20191231.Inputs
     /// <summary>
     /// Defines the Origin Group override action for the delivery rule.
     /// </summary>
-    public sealed class OriginGroupOverrideActionArgs : Pulumi.ResourceArgs
+    public sealed class OriginGroupOverrideActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20191231.Inputs
         public OriginGroupOverrideActionArgs()
         {
         }
+        public static new OriginGroupOverrideActionArgs Empty => new OriginGroupOverrideActionArgs();
     }
 }

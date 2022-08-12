@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220201
     /// A node pool snapshot resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20220201:Snapshot")]
-    public partial class Snapshot : Pulumi.CustomResource
+    public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
@@ -118,21 +118,21 @@ namespace Pulumi.AzureNative.ContainerService.V20220201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerservice:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210801:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210901:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20211001:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20211101preview:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220101:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220102preview:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220301:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220401:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220601:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210801:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210901:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20211001:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20211101preview:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220101:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220102preview:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220301:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220401:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220502preview:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220601:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220201
         }
     }
 
-    public sealed class SnapshotArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
@@ -201,5 +201,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220201
         public SnapshotArgs()
         {
         }
+        public static new SnapshotArgs Empty => new SnapshotArgs();
     }
 }

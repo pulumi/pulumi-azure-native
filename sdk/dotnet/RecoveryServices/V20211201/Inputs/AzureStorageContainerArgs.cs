@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// <summary>
     /// Azure Storage Account workload-specific container.
     /// </summary>
-    public sealed class AzureStorageContainerArgs : Pulumi.ResourceArgs
+    public sealed class AzureStorageContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether storage account lock is to be acquired for this container or not.
@@ -88,5 +88,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public AzureStorageContainerArgs()
         {
         }
+        public static new AzureStorageContainerArgs Empty => new AzureStorageContainerArgs();
     }
 }

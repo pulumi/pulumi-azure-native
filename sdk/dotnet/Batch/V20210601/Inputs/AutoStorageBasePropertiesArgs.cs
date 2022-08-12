@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20210601.Inputs
     /// <summary>
     /// The properties related to the auto-storage account.
     /// </summary>
-    public sealed class AutoStorageBasePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AutoStorageBasePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authentication mode which the Batch service will use to manage the auto-storage account.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Batch.V20210601.Inputs
         {
             AuthenticationMode = Pulumi.AzureNative.Batch.V20210601.AutoStorageAuthenticationMode.StorageKeys;
         }
+        public static new AutoStorageBasePropertiesArgs Empty => new AutoStorageBasePropertiesArgs();
     }
 }

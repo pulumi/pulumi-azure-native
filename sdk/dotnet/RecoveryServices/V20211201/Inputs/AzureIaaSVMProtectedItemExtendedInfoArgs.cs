@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
     /// <summary>
     /// Additional information on Azure IaaS VM specific backup item.
     /// </summary>
-    public sealed class AzureIaaSVMProtectedItemExtendedInfoArgs : Pulumi.ResourceArgs
+    public sealed class AzureIaaSVMProtectedItemExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The latest backup copy available for this backup item in archive tier
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         public AzureIaaSVMProtectedItemExtendedInfoArgs()
         {
         }
+        public static new AzureIaaSVMProtectedItemExtendedInfoArgs Empty => new AzureIaaSVMProtectedItemExtendedInfoArgs();
     }
 }

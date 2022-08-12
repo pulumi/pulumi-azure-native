@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// The JSON object that represents the range for http status codes
     /// </summary>
-    public sealed class HttpErrorRangeParametersArgs : Pulumi.ResourceArgs
+    public sealed class HttpErrorRangeParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The inclusive start of the http status code range.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public HttpErrorRangeParametersArgs()
         {
         }
+        public static new HttpErrorRangeParametersArgs Empty => new HttpErrorRangeParametersArgs();
     }
 }

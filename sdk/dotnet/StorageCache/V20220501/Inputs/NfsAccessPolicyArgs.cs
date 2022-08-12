@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20220501.Inputs
     /// <summary>
     /// A set of rules describing access policies applied to NFSv3 clients of the cache.
     /// </summary>
-    public sealed class NfsAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class NfsAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessRules", required: true)]
         private InputList<Inputs.NfsAccessRuleArgs>? _accessRules;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.StorageCache.V20220501.Inputs
         public NfsAccessPolicyArgs()
         {
         }
+        public static new NfsAccessPolicyArgs Empty => new NfsAccessPolicyArgs();
     }
 }

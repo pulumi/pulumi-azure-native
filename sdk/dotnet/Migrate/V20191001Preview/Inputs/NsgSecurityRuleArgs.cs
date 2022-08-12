@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
     /// <summary>
     /// Security Rule data model for Network Security Groups.
     /// </summary>
-    public sealed class NsgSecurityRuleArgs : Pulumi.ResourceArgs
+    public sealed class NsgSecurityRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets whether network traffic is allowed or denied.
@@ -89,5 +89,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
         public NsgSecurityRuleArgs()
         {
         }
+        public static new NsgSecurityRuleArgs Empty => new NsgSecurityRuleArgs();
     }
 }

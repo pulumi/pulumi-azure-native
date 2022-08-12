@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
     /// <summary>
     /// The Microsoft Defender for Endpoint autoprovisioning configuration
     /// </summary>
-    public sealed class DefenderForServersAwsOfferingMdeAutoProvisioningArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForServersAwsOfferingMdeAutoProvisioningArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// configuration for Microsoft Defender for Endpoint autoprovisioning
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20211201Preview.Inputs
         public DefenderForServersAwsOfferingMdeAutoProvisioningArgs()
         {
         }
+        public static new DefenderForServersAwsOfferingMdeAutoProvisioningArgs Empty => new DefenderForServersAwsOfferingMdeAutoProvisioningArgs();
     }
 }

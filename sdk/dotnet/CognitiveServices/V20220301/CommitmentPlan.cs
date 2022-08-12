@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20220301
     /// Cognitive Services account commitment plan.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices/v20220301:CommitmentPlan")]
-    public partial class CommitmentPlan : Pulumi.CustomResource
+    public partial class CommitmentPlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Etag.
@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.CognitiveServices.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices:CommitmentPlan"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:CommitmentPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:CommitmentPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:CommitmentPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20220301
         }
     }
 
-    public sealed class CommitmentPlanArgs : Pulumi.ResourceArgs
+    public sealed class CommitmentPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Cognitive Services account.
@@ -122,5 +122,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20220301
         public CommitmentPlanArgs()
         {
         }
+        public static new CommitmentPlanArgs Empty => new CommitmentPlanArgs();
     }
 }

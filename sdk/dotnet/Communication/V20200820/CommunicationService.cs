@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Communication.V20200820
     /// A class representing a CommunicationService resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication/v20200820:CommunicationService")]
-    public partial class CommunicationService : Pulumi.CustomResource
+    public partial class CommunicationService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location where the communication service stores its data at rest.
@@ -106,10 +106,10 @@ namespace Pulumi.AzureNative.Communication.V20200820
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:communication:CommunicationService"},
-                    new Pulumi.Alias { Type = "azure-native:communication/v20200820preview:CommunicationService"},
-                    new Pulumi.Alias { Type = "azure-native:communication/v20211001preview:CommunicationService"},
-                    new Pulumi.Alias { Type = "azure-native:communication/v20220701preview:CommunicationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication:CommunicationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20200820preview:CommunicationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:CommunicationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:CommunicationService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Communication.V20200820
         }
     }
 
-    public sealed class CommunicationServiceArgs : Pulumi.ResourceArgs
+    public sealed class CommunicationServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CommunicationService resource.
@@ -172,5 +172,6 @@ namespace Pulumi.AzureNative.Communication.V20200820
         public CommunicationServiceArgs()
         {
         }
+        public static new CommunicationServiceArgs Empty => new CommunicationServiceArgs();
     }
 }

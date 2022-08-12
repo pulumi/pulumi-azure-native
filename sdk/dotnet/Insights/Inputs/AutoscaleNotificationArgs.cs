@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// Autoscale notification.
     /// </summary>
-    public sealed class AutoscaleNotificationArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleNotificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the email notification.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public AutoscaleNotificationArgs()
         {
         }
+        public static new AutoscaleNotificationArgs Empty => new AutoscaleNotificationArgs();
     }
 }

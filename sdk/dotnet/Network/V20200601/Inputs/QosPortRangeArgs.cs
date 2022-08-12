@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
     /// <summary>
     /// Qos Traffic Profiler Port range properties.
     /// </summary>
-    public sealed class QosPortRangeArgs : Pulumi.ResourceArgs
+    public sealed class QosPortRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Qos Port Range end.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Network.V20200601.Inputs
         public QosPortRangeArgs()
         {
         }
+        public static new QosPortRangeArgs Empty => new QosPortRangeArgs();
     }
 }

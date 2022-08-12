@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App.Inputs
     /// <summary>
     /// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
     /// </summary>
-    public sealed class IdentityProvidersArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProvidersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration settings of the Apple provider.
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.App.Inputs
         public IdentityProvidersArgs()
         {
         }
+        public static new IdentityProvidersArgs Empty => new IdentityProvidersArgs();
     }
 }

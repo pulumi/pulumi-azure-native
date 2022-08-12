@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CostManagement
     /// API Version: 2019-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:ViewByScope")]
-    public partial class ViewByScope : Pulumi.CustomResource
+    public partial class ViewByScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Show costs accumulated over time.
@@ -149,10 +149,10 @@ namespace Pulumi.AzureNative.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20190401preview:ViewByScope"},
-                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20191101:ViewByScope"},
-                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20200601:ViewByScope"},
-                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:ViewByScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20190401preview:ViewByScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20191101:ViewByScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20200601:ViewByScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:ViewByScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.CostManagement
         }
     }
 
-    public sealed class ViewByScopeArgs : Pulumi.ResourceArgs
+    public sealed class ViewByScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Show costs accumulated over time.
@@ -269,5 +269,6 @@ namespace Pulumi.AzureNative.CostManagement
         public ViewByScopeArgs()
         {
         }
+        public static new ViewByScopeArgs Empty => new ViewByScopeArgs();
     }
 }

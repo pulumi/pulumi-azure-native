@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class WorkspaceConnectionSharedAccessSignatureArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceConnectionSharedAccessSignatureArgs : global::Pulumi.ResourceArgs
     {
         [Input("sas")]
         public Input<string>? Sas { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public WorkspaceConnectionSharedAccessSignatureArgs()
         {
         }
+        public static new WorkspaceConnectionSharedAccessSignatureArgs Empty => new WorkspaceConnectionSharedAccessSignatureArgs();
     }
 }

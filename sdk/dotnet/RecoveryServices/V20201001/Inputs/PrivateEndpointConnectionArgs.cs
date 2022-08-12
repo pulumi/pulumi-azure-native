@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20201001.Inputs
     /// <summary>
     /// Private Endpoint Connection Response Properties
     /// </summary>
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets private endpoint associated with the private endpoint connection
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20201001.Inputs
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

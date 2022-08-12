@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Inputs
     /// <summary>
     /// Metadata pertaining to creation and last modification of the resource.
     /// </summary>
-    public sealed class SystemDataArgs : Pulumi.ResourceArgs
+    public sealed class SystemDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp of resource creation (UTC)
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Inputs
         public SystemDataArgs()
         {
         }
+        public static new SystemDataArgs Empty => new SystemDataArgs();
     }
 }

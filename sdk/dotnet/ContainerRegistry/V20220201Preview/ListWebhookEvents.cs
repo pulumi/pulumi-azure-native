@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview
     }
 
 
-    public sealed class ListWebhookEventsArgs : Pulumi.InvokeArgs
+    public sealed class ListWebhookEventsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview
         public ListWebhookEventsArgs()
         {
         }
+        public static new ListWebhookEventsArgs Empty => new ListWebhookEventsArgs();
     }
 
-    public sealed class ListWebhookEventsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListWebhookEventsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the container registry.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview
         public ListWebhookEventsInvokeArgs()
         {
         }
+        public static new ListWebhookEventsInvokeArgs Empty => new ListWebhookEventsInvokeArgs();
     }
 
 

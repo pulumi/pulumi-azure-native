@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// API Version: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:PipelineJob")]
-    public partial class PipelineJob : Pulumi.CustomResource
+    public partial class PipelineJob : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An optional description for the pipeline.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:PipelineJob"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:PipelineJob"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         }
     }
 
-    public sealed class PipelineJobArgs : Pulumi.ResourceArgs
+    public sealed class PipelineJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Video Analyzer account name.
@@ -164,5 +164,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public PipelineJobArgs()
         {
         }
+        public static new PipelineJobArgs Empty => new PipelineJobArgs();
     }
 }

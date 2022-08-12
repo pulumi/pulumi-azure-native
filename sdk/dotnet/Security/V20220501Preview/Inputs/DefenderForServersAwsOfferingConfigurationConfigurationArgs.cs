@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// configuration for Microsoft Defender for Server VM scanning
     /// </summary>
-    public sealed class DefenderForServersAwsOfferingConfigurationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DefenderForServersAwsOfferingConfigurationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cloud role ARN in AWS for this feature
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public DefenderForServersAwsOfferingConfigurationConfigurationArgs()
         {
         }
+        public static new DefenderForServersAwsOfferingConfigurationConfigurationArgs Empty => new DefenderForServersAwsOfferingConfigurationConfigurationArgs();
     }
 }

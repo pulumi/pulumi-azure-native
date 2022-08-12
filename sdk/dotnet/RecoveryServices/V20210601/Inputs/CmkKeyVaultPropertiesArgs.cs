@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601.Inputs
     /// <summary>
     /// The properties of the Key Vault which hosts CMK
     /// </summary>
-    public sealed class CmkKeyVaultPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CmkKeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key uri of the Customer Managed Key
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601.Inputs
         public CmkKeyVaultPropertiesArgs()
         {
         }
+        public static new CmkKeyVaultPropertiesArgs Empty => new CmkKeyVaultPropertiesArgs();
     }
 }

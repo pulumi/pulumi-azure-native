@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210415.Inputs
     /// <summary>
     /// The paths that are included in indexing
     /// </summary>
-    public sealed class IncludedPathArgs : Pulumi.ResourceArgs
+    public sealed class IncludedPathArgs : global::Pulumi.ResourceArgs
     {
         [Input("indexes")]
         private InputList<Inputs.IndexesArgs>? _indexes;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210415.Inputs
         public IncludedPathArgs()
         {
         }
+        public static new IncludedPathArgs Empty => new IncludedPathArgs();
     }
 }

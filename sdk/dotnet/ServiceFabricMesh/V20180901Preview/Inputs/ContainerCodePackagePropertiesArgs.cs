@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     /// <summary>
     /// Describes a container and its runtime properties.
     /// </summary>
-    public sealed class ContainerCodePackagePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ContainerCodePackagePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("commands")]
         private InputList<string>? _commands;
@@ -150,5 +150,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
         public ContainerCodePackagePropertiesArgs()
         {
         }
+        public static new ContainerCodePackagePropertiesArgs Empty => new ContainerCodePackagePropertiesArgs();
     }
 }

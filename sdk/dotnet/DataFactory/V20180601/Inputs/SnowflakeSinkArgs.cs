@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A copy activity snowflake sink.
     /// </summary>
-    public sealed class SnowflakeSinkArgs : Pulumi.ResourceArgs
+    public sealed class SnowflakeSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -73,5 +73,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SnowflakeSinkArgs()
         {
         }
+        public static new SnowflakeSinkArgs Empty => new SnowflakeSinkArgs();
     }
 }

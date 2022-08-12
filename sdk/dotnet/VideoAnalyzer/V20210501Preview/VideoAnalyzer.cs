@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
     /// A Video Analyzer account.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20210501preview:VideoAnalyzer")]
-    public partial class VideoAnalyzer : Pulumi.CustomResource
+    public partial class VideoAnalyzer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account encryption properties.
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:videoanalyzer:VideoAnalyzer"},
-                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:VideoAnalyzer"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer:VideoAnalyzer"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:VideoAnalyzer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         }
     }
 
-    public sealed class VideoAnalyzerArgs : Pulumi.ResourceArgs
+    public sealed class VideoAnalyzerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Video Analyzer account name.
@@ -176,5 +176,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         public VideoAnalyzerArgs()
         {
         }
+        public static new VideoAnalyzerArgs Empty => new VideoAnalyzerArgs();
     }
 }

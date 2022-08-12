@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
     }
 
 
-    public sealed class GetConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the server configuration.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
         public GetConfigurationArgs()
         {
         }
+        public static new GetConfigurationArgs Empty => new GetConfigurationArgs();
     }
 
-    public sealed class GetConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the server configuration.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
         public GetConfigurationInvokeArgs()
         {
         }
+        public static new GetConfigurationInvokeArgs Empty => new GetConfigurationInvokeArgs();
     }
 
 

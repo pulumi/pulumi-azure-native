@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
     /// FarmBeats ARM Resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform/v20200512preview:FarmBeatsModel")]
-    public partial class FarmBeatsModel : Pulumi.CustomResource
+    public partial class FarmBeatsModel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Uri of the FarmBeats instance.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:agfoodplatform:FarmBeatsModel"},
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform:FarmBeatsModel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         }
     }
 
-    public sealed class FarmBeatsModelArgs : Pulumi.ResourceArgs
+    public sealed class FarmBeatsModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// FarmBeats resource name.
@@ -139,5 +139,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         public FarmBeatsModelArgs()
         {
         }
+        public static new FarmBeatsModelArgs Empty => new FarmBeatsModelArgs();
     }
 }

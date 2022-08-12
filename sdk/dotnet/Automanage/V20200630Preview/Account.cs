@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
     /// Definition of the Automanage account.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage/v20200630preview:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the Automanage account.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automanage:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Automanage account.
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

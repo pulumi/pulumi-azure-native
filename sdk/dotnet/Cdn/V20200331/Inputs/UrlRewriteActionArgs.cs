@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
     /// <summary>
     /// Defines the url rewrite action for the delivery rule.
     /// </summary>
-    public sealed class UrlRewriteActionArgs : Pulumi.ResourceArgs
+    public sealed class UrlRewriteActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the action for the delivery rule.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
         public UrlRewriteActionArgs()
         {
         }
+        public static new UrlRewriteActionArgs Empty => new UrlRewriteActionArgs();
     }
 }

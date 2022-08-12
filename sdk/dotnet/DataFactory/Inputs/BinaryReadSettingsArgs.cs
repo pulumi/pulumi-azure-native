@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Binary read settings.
     /// </summary>
-    public sealed class BinaryReadSettingsArgs : Pulumi.ResourceArgs
+    public sealed class BinaryReadSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compression settings.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public BinaryReadSettingsArgs()
         {
         }
+        public static new BinaryReadSettingsArgs Empty => new BinaryReadSettingsArgs();
     }
 }

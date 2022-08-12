@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection.V20210201Preview.Inputs
     /// <summary>
     /// An array of administrator user identities
     /// </summary>
-    public sealed class DFPInstanceAdministratorsArgs : Pulumi.ResourceArgs
+    public sealed class DFPInstanceAdministratorsArgs : global::Pulumi.ResourceArgs
     {
         [Input("members")]
         private InputList<string>? _members;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection.V20210201Preview.Inputs
         public DFPInstanceAdministratorsArgs()
         {
         }
+        public static new DFPInstanceAdministratorsArgs Empty => new DFPInstanceAdministratorsArgs();
     }
 }

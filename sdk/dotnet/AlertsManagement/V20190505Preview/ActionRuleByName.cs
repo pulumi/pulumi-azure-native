@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview
     /// Action rule object containing target scope, conditions and suppression logic
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement/v20190505preview:ActionRuleByName")]
-    public partial class ActionRuleByName : Pulumi.CustomResource
+    public partial class ActionRuleByName : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location
@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement:ActionRuleByName"},
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName"},
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:ActionRuleByName"},
-                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:ActionRuleByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement:ActionRuleByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:ActionRuleByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:ActionRuleByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview
         }
     }
 
-    public sealed class ActionRuleByNameArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleByNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of action rule that needs to be created/updated
@@ -136,5 +136,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview
         public ActionRuleByNameArgs()
         {
         }
+        public static new ActionRuleByNameArgs Empty => new ActionRuleByNameArgs();
     }
 }

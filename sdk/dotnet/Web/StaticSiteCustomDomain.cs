@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSiteCustomDomain")]
-    public partial class StaticSiteCustomDomain : Pulumi.CustomResource
+    public partial class StaticSiteCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date and time on which the custom domain was created for the static site.
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSiteCustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSiteCustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSiteCustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSiteCustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSiteCustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSiteCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSiteCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSiteCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSiteCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSiteCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.Web
         }
     }
 
-    public sealed class StaticSiteCustomDomainArgs : Pulumi.ResourceArgs
+    public sealed class StaticSiteCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The custom domain to create.
@@ -149,5 +149,6 @@ namespace Pulumi.AzureNative.Web
         {
             ValidationMethod = "cname-delegation";
         }
+        public static new StaticSiteCustomDomainArgs Empty => new StaticSiteCustomDomainArgs();
     }
 }

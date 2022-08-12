@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
     /// <summary>
     /// The delivery information associated with a export.
     /// </summary>
-    public sealed class ExportDeliveryInfoArgs : Pulumi.ResourceArgs
+    public sealed class ExportDeliveryInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Has destination for the export being delivered.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
         public ExportDeliveryInfoArgs()
         {
         }
+        public static new ExportDeliveryInfoArgs Empty => new ExportDeliveryInfoArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20180201Preview.Inputs
     /// <summary>
     /// Runs a shell script during the customization phase
     /// </summary>
-    public sealed class ImageTemplateShellCustomizerArgs : Pulumi.ResourceArgs
+    public sealed class ImageTemplateShellCustomizerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Friendly Name to provide context on what this customization step does
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20180201Preview.Inputs
         public ImageTemplateShellCustomizerArgs()
         {
         }
+        public static new ImageTemplateShellCustomizerArgs Empty => new ImageTemplateShellCustomizerArgs();
     }
 }

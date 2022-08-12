@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview.Inputs
     /// <summary>
     /// Server info for the server trust group.
     /// </summary>
-    public sealed class ServerInfoArgs : Pulumi.ResourceArgs
+    public sealed class ServerInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Server Id.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview.Inputs
         public ServerInfoArgs()
         {
         }
+        public static new ServerInfoArgs Empty => new ServerInfoArgs();
     }
 }

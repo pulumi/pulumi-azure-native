@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteHostNameBinding")]
-    public partial class SiteHostNameBinding : Pulumi.CustomResource
+    public partial class SiteHostNameBinding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Azure resource name
@@ -107,20 +107,20 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteHostNameBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         }
     }
 
-    public sealed class SiteHostNameBindingArgs : Pulumi.ResourceArgs
+    public sealed class SiteHostNameBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure resource name
@@ -237,5 +237,6 @@ namespace Pulumi.AzureNative.Web.V20150801
         public SiteHostNameBindingArgs()
         {
         }
+        public static new SiteHostNameBindingArgs Empty => new SiteHostNameBindingArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
     }
 
 
-    public sealed class GetGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of Spring Cloud Gateway.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         public GetGatewayArgs()
         {
         }
+        public static new GetGatewayArgs Empty => new GetGatewayArgs();
     }
 
-    public sealed class GetGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of Spring Cloud Gateway.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
         public GetGatewayInvokeArgs()
         {
         }
+        public static new GetGatewayInvokeArgs Empty => new GetGatewayInvokeArgs();
     }
 
 

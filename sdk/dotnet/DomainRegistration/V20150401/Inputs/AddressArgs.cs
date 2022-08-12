@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20150401.Inputs
     /// <summary>
     /// Address information for domain registration.
     /// </summary>
-    public sealed class AddressArgs : Pulumi.ResourceArgs
+    public sealed class AddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// First line of an Address.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20150401.Inputs
         public AddressArgs()
         {
         }
+        public static new AddressArgs Empty => new AddressArgs();
     }
 }

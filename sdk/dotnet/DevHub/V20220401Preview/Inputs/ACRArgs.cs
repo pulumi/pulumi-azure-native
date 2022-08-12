@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview.Inputs
     /// <summary>
     /// Information on the azure container registry
     /// </summary>
-    public sealed class ACRArgs : Pulumi.ResourceArgs
+    public sealed class ACRArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ACR registry
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview.Inputs
         public ACRArgs()
         {
         }
+        public static new ACRArgs Empty => new ACRArgs();
     }
 }

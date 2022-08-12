@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// <summary>
     /// Describes a data disk.
     /// </summary>
-    public sealed class ImageDataDiskArgs : Pulumi.ResourceArgs
+    public sealed class ImageDataDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Virtual Hard Disk.
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public ImageDataDiskArgs()
         {
         }
+        public static new ImageDataDiskArgs Empty => new ImageDataDiskArgs();
     }
 }

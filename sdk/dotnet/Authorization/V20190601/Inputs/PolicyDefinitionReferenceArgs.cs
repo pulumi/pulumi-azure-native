@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20190601.Inputs
     /// <summary>
     /// The policy definition reference.
     /// </summary>
-    public sealed class PolicyDefinitionReferenceArgs : Pulumi.ResourceArgs
+    public sealed class PolicyDefinitionReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Required if a parameter is used in policy rule.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Authorization.V20190601.Inputs
         public PolicyDefinitionReferenceArgs()
         {
         }
+        public static new PolicyDefinitionReferenceArgs Empty => new PolicyDefinitionReferenceArgs();
     }
 }

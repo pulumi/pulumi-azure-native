@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Inputs
 {
 
-    public sealed class SuppressionAlertsScopeArgs : Pulumi.ResourceArgs
+    public sealed class SuppressionAlertsScopeArgs : global::Pulumi.ResourceArgs
     {
         [Input("allOf", required: true)]
         private InputList<Inputs.ScopeElementArgs>? _allOf;
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Security.Inputs
         public SuppressionAlertsScopeArgs()
         {
         }
+        public static new SuppressionAlertsScopeArgs Empty => new SuppressionAlertsScopeArgs();
     }
 }

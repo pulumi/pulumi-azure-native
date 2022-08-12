@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.App
     /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:DaprComponent")]
-    public partial class DaprComponent : Pulumi.CustomResource
+    public partial class DaprComponent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Component type
@@ -101,8 +101,8 @@ namespace Pulumi.AzureNative.App
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:app/v20220101preview:DaprComponent"},
-                    new Pulumi.Alias { Type = "azure-native:app/v20220301:DaprComponent"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:DaprComponent"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:DaprComponent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.App
         }
     }
 
-    public sealed class DaprComponentArgs : Pulumi.ResourceArgs
+    public sealed class DaprComponentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Dapr Component.
@@ -207,5 +207,6 @@ namespace Pulumi.AzureNative.App
         public DaprComponentArgs()
         {
         }
+        public static new DaprComponentArgs Empty => new DaprComponentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Specifies Windows operating system settings on the virtual machine.
     /// </summary>
-    public sealed class WindowsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WindowsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OS Type
@@ -25,5 +25,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public WindowsConfigurationArgs()
         {
         }
+        public static new WindowsConfigurationArgs Empty => new WindowsConfigurationArgs();
     }
 }

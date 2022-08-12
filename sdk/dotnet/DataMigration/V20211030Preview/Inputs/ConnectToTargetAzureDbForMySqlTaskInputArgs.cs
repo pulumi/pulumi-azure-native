@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Input for the task that validates connection to Azure Database for MySQL and target server requirements
     /// </summary>
-    public sealed class ConnectToTargetAzureDbForMySqlTaskInputArgs : Pulumi.ResourceArgs
+    public sealed class ConnectToTargetAzureDbForMySqlTaskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag for whether or not the migration is offline
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         {
             IsOfflineMigration = false;
         }
+        public static new ConnectToTargetAzureDbForMySqlTaskInputArgs Empty => new ConnectToTargetAzureDbForMySqlTaskInputArgs();
     }
 }

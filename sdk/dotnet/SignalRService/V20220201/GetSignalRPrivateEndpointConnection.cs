@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
     }
 
 
-    public sealed class GetSignalRPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetSignalRPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
         public GetSignalRPrivateEndpointConnectionArgs()
         {
         }
+        public static new GetSignalRPrivateEndpointConnectionArgs Empty => new GetSignalRPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetSignalRPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSignalRPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
         public GetSignalRPrivateEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetSignalRPrivateEndpointConnectionInvokeArgs Empty => new GetSignalRPrivateEndpointConnectionInvokeArgs();
     }
 
 

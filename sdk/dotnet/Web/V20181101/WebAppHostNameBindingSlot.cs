@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20181101
     /// A hostname binding object.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20181101:WebAppHostNameBindingSlot")]
-    public partial class WebAppHostNameBindingSlot : Pulumi.CustomResource
+    public partial class WebAppHostNameBindingSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Azure resource name.
@@ -112,20 +112,20 @@ namespace Pulumi.AzureNative.Web.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHostNameBindingSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHostNameBindingSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.Web.V20181101
         }
     }
 
-    public sealed class WebAppHostNameBindingSlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppHostNameBindingSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure resource name.
@@ -230,5 +230,6 @@ namespace Pulumi.AzureNative.Web.V20181101
         public WebAppHostNameBindingSlotArgs()
         {
         }
+        public static new WebAppHostNameBindingSlotArgs Empty => new WebAppHostNameBindingSlotArgs();
     }
 }

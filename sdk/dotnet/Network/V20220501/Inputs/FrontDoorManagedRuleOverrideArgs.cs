@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
     /// <summary>
     /// Defines a managed rule group override setting.
     /// </summary>
-    public sealed class FrontDoorManagedRuleOverrideArgs : Pulumi.ResourceArgs
+    public sealed class FrontDoorManagedRuleOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the override action to be applied when rule matches.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
         public FrontDoorManagedRuleOverrideArgs()
         {
         }
+        public static new FrontDoorManagedRuleOverrideArgs Empty => new FrontDoorManagedRuleOverrideArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     }
 
 
-    public sealed class GetPrivateLinkScopeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkScopeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public GetPrivateLinkScopeArgs()
         {
         }
+        public static new GetPrivateLinkScopeArgs Empty => new GetPrivateLinkScopeArgs();
     }
 
-    public sealed class GetPrivateLinkScopeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkScopeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public GetPrivateLinkScopeInvokeArgs()
         {
         }
+        public static new GetPrivateLinkScopeInvokeArgs Empty => new GetPrivateLinkScopeInvokeArgs();
     }
 
 

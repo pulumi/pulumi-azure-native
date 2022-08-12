@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
     /// </summary>
-    public sealed class AmazonS3DatasetArgs : Pulumi.ResourceArgs
+    public sealed class AmazonS3DatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -127,5 +127,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public AmazonS3DatasetArgs()
         {
         }
+        public static new AmazonS3DatasetArgs Empty => new AmazonS3DatasetArgs();
     }
 }

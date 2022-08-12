@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     /// Diagnostic details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210401preview:ApiDiagnostic")]
-    public partial class ApiDiagnostic : Pulumi.CustomResource
+    public partial class ApiDiagnostic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies for what type of messages sampling settings should not apply.
@@ -112,18 +112,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiDiagnostic"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiDiagnostic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         }
     }
 
-    public sealed class ApiDiagnosticArgs : Pulumi.ResourceArgs
+    public sealed class ApiDiagnosticArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies for what type of messages sampling settings should not apply.
@@ -234,5 +234,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public ApiDiagnosticArgs()
         {
         }
+        public static new ApiDiagnosticArgs Empty => new ApiDiagnosticArgs();
     }
 }

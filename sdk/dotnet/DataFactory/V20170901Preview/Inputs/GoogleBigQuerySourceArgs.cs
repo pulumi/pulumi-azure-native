@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// A copy activity Google BigQuery service source.
     /// </summary>
-    public sealed class GoogleBigQuerySourceArgs : Pulumi.ResourceArgs
+    public sealed class GoogleBigQuerySourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public GoogleBigQuerySourceArgs()
         {
         }
+        public static new GoogleBigQuerySourceArgs Empty => new GoogleBigQuerySourceArgs();
     }
 }

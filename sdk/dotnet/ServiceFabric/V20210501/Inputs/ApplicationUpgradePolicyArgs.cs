@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501.Inputs
     /// <summary>
     /// Describes the policy for a monitored application upgrade.
     /// </summary>
-    public sealed class ApplicationUpgradePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationUpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines a health policy used to evaluate the health of an application or one of its children entities.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501.Inputs
         public ApplicationUpgradePolicyArgs()
         {
         }
+        public static new ApplicationUpgradePolicyArgs Empty => new ApplicationUpgradePolicyArgs();
     }
 }

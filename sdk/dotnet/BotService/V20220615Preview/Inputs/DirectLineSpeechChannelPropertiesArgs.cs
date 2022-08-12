@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
     /// <summary>
     /// The parameters to provide for the DirectLine Speech channel.
     /// </summary>
-    public sealed class DirectLineSpeechChannelPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DirectLineSpeechChannelPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cognitive service region with this channel registration.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         public DirectLineSpeechChannelPropertiesArgs()
         {
         }
+        public static new DirectLineSpeechChannelPropertiesArgs Empty => new DirectLineSpeechChannelPropertiesArgs();
     }
 }

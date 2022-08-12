@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
     /// <summary>
     /// The properties related to a cosmos DB sql collection endpoint.
     /// </summary>
-    public sealed class RoutingCosmosDBSqlApiPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RoutingCosmosDBSqlApiPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Method used to authenticate against the cosmos DB sql collection endpoint
@@ -96,5 +96,6 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
         public RoutingCosmosDBSqlApiPropertiesArgs()
         {
         }
+        public static new RoutingCosmosDBSqlApiPropertiesArgs Empty => new RoutingCosmosDBSqlApiPropertiesArgs();
     }
 }

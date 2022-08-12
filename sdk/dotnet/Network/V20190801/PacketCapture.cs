@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190801
     /// Information about packet capture session.
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190801:PacketCapture")]
-    public partial class PacketCapture : Pulumi.CustomResource
+    public partial class PacketCapture : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Number of bytes captured per packet, the remaining bytes are truncated.
@@ -94,43 +94,43 @@ namespace Pulumi.AzureNative.Network.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20160901:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20161201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170301:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170601:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170801:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20170901:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180601:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180701:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:PacketCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:PacketCapture"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.Network.V20190801
         }
     }
 
-    public sealed class PacketCaptureArgs : Pulumi.ResourceArgs
+    public sealed class PacketCaptureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of bytes captured per packet, the remaining bytes are truncated.
@@ -220,5 +220,6 @@ namespace Pulumi.AzureNative.Network.V20190801
             TimeLimitInSeconds = 18000;
             TotalBytesPerSession = 1073741824;
         }
+        public static new PacketCaptureArgs Empty => new PacketCaptureArgs();
     }
 }

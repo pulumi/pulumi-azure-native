@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20190301.Inputs
     /// <summary>
     /// An email receiver.
     /// </summary>
-    public sealed class EmailReceiverArgs : Pulumi.ResourceArgs
+    public sealed class EmailReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email address of this receiver.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Insights.V20190301.Inputs
         {
             UseCommonAlertSchema = false;
         }
+        public static new EmailReceiverArgs Empty => new EmailReceiverArgs();
     }
 }

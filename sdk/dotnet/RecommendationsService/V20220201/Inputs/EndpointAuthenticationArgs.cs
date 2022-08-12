@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201.Inputs
     /// <summary>
     /// Service endpoints authentication details.
     /// </summary>
-    public sealed class EndpointAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class EndpointAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AAD tenant ID.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201.Inputs
         public EndpointAuthenticationArgs()
         {
         }
+        public static new EndpointAuthenticationArgs Empty => new EndpointAuthenticationArgs();
     }
 }

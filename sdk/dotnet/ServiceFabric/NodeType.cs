@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// API Version: 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:NodeType")]
-    public partial class NodeType : Pulumi.CustomResource
+    public partial class NodeType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The range of ports from which cluster assigned port to Service Fabric applications.
@@ -149,15 +149,15 @@ namespace Pulumi.AzureNative.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20200101preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20200101preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:NodeType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -179,7 +179,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
     }
 
-    public sealed class NodeTypeArgs : Pulumi.ResourceArgs
+    public sealed class NodeTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The range of ports from which cluster assigned port to Service Fabric applications.
@@ -322,5 +322,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         public NodeTypeArgs()
         {
         }
+        public static new NodeTypeArgs Empty => new NodeTypeArgs();
     }
 }

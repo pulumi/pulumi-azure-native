@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview.Inputs
     /// <summary>
     /// Data source used when creating the volume.
     /// </summary>
-    public sealed class SourceCreationDataArgs : Pulumi.ResourceArgs
+    public sealed class SourceCreationDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This enumerates the possible sources of a volume creation.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview.Inputs
         public SourceCreationDataArgs()
         {
         }
+        public static new SourceCreationDataArgs Empty => new SourceCreationDataArgs();
     }
 }

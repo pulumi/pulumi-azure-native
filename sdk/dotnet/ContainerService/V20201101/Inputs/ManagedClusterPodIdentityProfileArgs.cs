@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20201101.Inputs
 {
 
-    public sealed class ManagedClusterPodIdentityProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterPodIdentityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the pod identity addon is enabled.
@@ -45,5 +45,6 @@ namespace Pulumi.AzureNative.ContainerService.V20201101.Inputs
         public ManagedClusterPodIdentityProfileArgs()
         {
         }
+        public static new ManagedClusterPodIdentityProfileArgs Empty => new ManagedClusterPodIdentityProfileArgs();
     }
 }

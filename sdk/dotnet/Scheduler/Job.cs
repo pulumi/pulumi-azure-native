@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Scheduler
     /// API Version: 2016-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:scheduler:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets the job resource name.
@@ -58,9 +58,9 @@ namespace Pulumi.AzureNative.Scheduler
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:scheduler/v20140801preview:Job"},
-                    new Pulumi.Alias { Type = "azure-native:scheduler/v20160101:Job"},
-                    new Pulumi.Alias { Type = "azure-native:scheduler/v20160301:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20140801preview:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20160101:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20160301:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Scheduler
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The job collection name.
@@ -111,5 +111,6 @@ namespace Pulumi.AzureNative.Scheduler
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 }

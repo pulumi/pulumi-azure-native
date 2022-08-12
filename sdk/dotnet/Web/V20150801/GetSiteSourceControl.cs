@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     }
 
 
-    public sealed class GetSiteSourceControlArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteSourceControlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of web app
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetSiteSourceControlArgs()
         {
         }
+        public static new GetSiteSourceControlArgs Empty => new GetSiteSourceControlArgs();
     }
 
-    public sealed class GetSiteSourceControlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteSourceControlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of web app
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         public GetSiteSourceControlInvokeArgs()
         {
         }
+        public static new GetSiteSourceControlInvokeArgs Empty => new GetSiteSourceControlInvokeArgs();
     }
 
 

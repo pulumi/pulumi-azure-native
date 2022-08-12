@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
     /// <summary>
     /// Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. &lt;br&gt;&lt;br&gt; NOTE: The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
     /// </summary>
-    public sealed class DiskEncryptionSetParametersArgs : Pulumi.ResourceArgs
+    public sealed class DiskEncryptionSetParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
         public DiskEncryptionSetParametersArgs()
         {
         }
+        public static new DiskEncryptionSetParametersArgs Empty => new DiskEncryptionSetParametersArgs();
     }
 }

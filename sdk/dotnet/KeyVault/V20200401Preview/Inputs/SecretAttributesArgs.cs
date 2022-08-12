@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview.Inputs
     /// <summary>
     /// The secret management attributes.
     /// </summary>
-    public sealed class SecretAttributesArgs : Pulumi.ResourceArgs
+    public sealed class SecretAttributesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether the object is enabled.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview.Inputs
         public SecretAttributesArgs()
         {
         }
+        public static new SecretAttributesArgs Empty => new SecretAttributesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
     /// <summary>
     /// Error response of an operation failure
     /// </summary>
-    public sealed class ErrorResponseArgs : Pulumi.ResourceArgs
+    public sealed class ErrorResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Error code
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Automation.V20190601.Inputs
         public ErrorResponseArgs()
         {
         }
+        public static new ErrorResponseArgs Empty => new ErrorResponseArgs();
     }
 }

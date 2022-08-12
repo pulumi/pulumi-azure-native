@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Inputs
     /// <summary>
     /// Required validation properties for tokens generated with RSA algorithm.
     /// </summary>
-    public sealed class RsaTokenKeyArgs : Pulumi.ResourceArgs
+    public sealed class RsaTokenKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// RSA algorithm to be used: RS256, RS384 or RS512.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Inputs
         public RsaTokenKeyArgs()
         {
         }
+        public static new RsaTokenKeyArgs Empty => new RsaTokenKeyArgs();
     }
 }

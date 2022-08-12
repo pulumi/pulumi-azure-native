@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Inputs
     /// Definition of which performance counters will be collected and how they will be collected by this data collection rule.
     /// Collected from both Windows and Linux machines where the counter is present.
     /// </summary>
-    public sealed class PerfCounterDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class PerfCounterDataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("counterSpecifiers")]
         private InputList<string>? _counterSpecifiers;
@@ -59,5 +59,6 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Inputs
         public PerfCounterDataSourceArgs()
         {
         }
+        public static new PerfCounterDataSourceArgs Empty => new PerfCounterDataSourceArgs();
     }
 }

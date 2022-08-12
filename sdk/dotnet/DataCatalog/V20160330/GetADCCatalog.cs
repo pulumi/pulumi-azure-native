@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
     }
 
 
-    public sealed class GetADCCatalogArgs : Pulumi.InvokeArgs
+    public sealed class GetADCCatalogArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data catalog in the specified subscription and resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
         public GetADCCatalogArgs()
         {
         }
+        public static new GetADCCatalogArgs Empty => new GetADCCatalogArgs();
     }
 
-    public sealed class GetADCCatalogInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetADCCatalogInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data catalog in the specified subscription and resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
         public GetADCCatalogInvokeArgs()
         {
         }
+        public static new GetADCCatalogInvokeArgs Empty => new GetADCCatalogInvokeArgs();
     }
 
 

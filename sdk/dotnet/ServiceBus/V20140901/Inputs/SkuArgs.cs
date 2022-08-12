@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901.Inputs
     /// <summary>
     /// SKU of the namespace.
     /// </summary>
-    public sealed class SkuArgs : Pulumi.ResourceArgs
+    public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The specified messaging units for the tier.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901.Inputs
         public SkuArgs()
         {
         }
+        public static new SkuArgs Empty => new SkuArgs();
     }
 }

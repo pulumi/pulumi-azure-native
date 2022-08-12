@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview.Inputs
     /// <summary>
     /// Additional information about every inline event.
     /// </summary>
-    public sealed class InlineEventPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class InlineEventPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dataSchemaUrl for the inline event.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview.Inputs
         public InlineEventPropertiesArgs()
         {
         }
+        public static new InlineEventPropertiesArgs Empty => new InlineEventPropertiesArgs();
     }
 }

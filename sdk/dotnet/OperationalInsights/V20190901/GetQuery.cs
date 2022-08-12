@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901
     }
 
 
-    public sealed class GetQueryArgs : Pulumi.InvokeArgs
+    public sealed class GetQueryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of a specific query defined in the Log Analytics QueryPack
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901
         public GetQueryArgs()
         {
         }
+        public static new GetQueryArgs Empty => new GetQueryArgs();
     }
 
-    public sealed class GetQueryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetQueryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of a specific query defined in the Log Analytics QueryPack
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901
         public GetQueryInvokeArgs()
         {
         }
+        public static new GetQueryInvokeArgs Empty => new GetQueryInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101.Inputs
     /// <summary>
     /// Client certificate definition.
     /// </summary>
-    public sealed class ClientCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ClientCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate common name.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101.Inputs
         public ClientCertificateArgs()
         {
         }
+        public static new ClientCertificateArgs Empty => new ClientCertificateArgs();
     }
 }

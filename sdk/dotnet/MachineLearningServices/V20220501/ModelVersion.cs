@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     /// Azure Resource Manager resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220501:ModelVersion")]
-    public partial class ModelVersion : Pulumi.CustomResource
+    public partial class ModelVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:ModelVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:ModelVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:ModelVersion"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:ModelVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ModelVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:ModelVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:ModelVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:ModelVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         }
     }
 
-    public sealed class ModelVersionArgs : Pulumi.ResourceArgs
+    public sealed class ModelVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -124,5 +124,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public ModelVersionArgs()
         {
         }
+        public static new ModelVersionArgs Empty => new ModelVersionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// Describes the properties for producing a series of JPEG images from the input video.
     /// </summary>
-    public sealed class JpgImageArgs : Pulumi.ResourceArgs
+    public sealed class JpgImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public JpgImageArgs()
         {
         }
+        public static new JpgImageArgs Empty => new JpgImageArgs();
     }
 }

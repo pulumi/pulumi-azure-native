@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20190801.Inputs
 {
 
-    public sealed class TaskContainerSettingsArgs : Pulumi.ResourceArgs
+    public sealed class TaskContainerSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Batch.V20190801.Inputs
         public TaskContainerSettingsArgs()
         {
         }
+        public static new TaskContainerSettingsArgs Empty => new TaskContainerSettingsArgs();
     }
 }

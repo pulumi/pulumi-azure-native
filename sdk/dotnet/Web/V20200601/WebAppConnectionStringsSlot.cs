@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200601
     /// String dictionary resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20200601:WebAppConnectionStringsSlot")]
-    public partial class WebAppConnectionStringsSlot : Pulumi.CustomResource
+    public partial class WebAppConnectionStringsSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Kind of resource.
@@ -64,20 +64,20 @@ namespace Pulumi.AzureNative.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppConnectionStringsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppConnectionStringsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Web.V20200601
         }
     }
 
-    public sealed class WebAppConnectionStringsSlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppConnectionStringsSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Kind of resource.
@@ -140,5 +140,6 @@ namespace Pulumi.AzureNative.Web.V20200601
         public WebAppConnectionStringsSlotArgs()
         {
         }
+        public static new WebAppConnectionStringsSlotArgs Empty => new WebAppConnectionStringsSlotArgs();
     }
 }

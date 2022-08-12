@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     }
 
 
-    public sealed class ListDelegationSettingSecretsArgs : Pulumi.InvokeArgs
+    public sealed class ListDelegationSettingSecretsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public ListDelegationSettingSecretsArgs()
         {
         }
+        public static new ListDelegationSettingSecretsArgs Empty => new ListDelegationSettingSecretsArgs();
     }
 
-    public sealed class ListDelegationSettingSecretsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListDelegationSettingSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public ListDelegationSettingSecretsInvokeArgs()
         {
         }
+        public static new ListDelegationSettingSecretsInvokeArgs Empty => new ListDelegationSettingSecretsInvokeArgs();
     }
 
 

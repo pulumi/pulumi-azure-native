@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// API Version: 2021-10-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerTopic")]
-    public partial class PartnerTopic : Pulumi.CustomResource
+    public partial class PartnerTopic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Activation state of the partner topic.
@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerTopic"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerTopic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
     }
 
-    public sealed class PartnerTopicArgs : Pulumi.ResourceArgs
+    public sealed class PartnerTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Activation state of the partner topic.
@@ -235,5 +235,6 @@ namespace Pulumi.AzureNative.EventGrid
         public PartnerTopicArgs()
         {
         }
+        public static new PartnerTopicArgs Empty => new PartnerTopicArgs();
     }
 }

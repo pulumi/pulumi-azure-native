@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20160330.Inputs
     /// <summary>
     /// Profile for Windows VMs in the container service cluster.
     /// </summary>
-    public sealed class ContainerServiceWindowsProfileArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceWindowsProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator password to use for Windows VMs
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ContainerService.V20160330.Inputs
         public ContainerServiceWindowsProfileArgs()
         {
         }
+        public static new ContainerServiceWindowsProfileArgs Empty => new ContainerServiceWindowsProfileArgs();
     }
 }

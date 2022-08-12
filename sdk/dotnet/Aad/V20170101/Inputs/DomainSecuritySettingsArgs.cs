@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad.V20170101.Inputs
     /// <summary>
     /// Domain Security Settings
     /// </summary>
-    public sealed class DomainSecuritySettingsArgs : Pulumi.ResourceArgs
+    public sealed class DomainSecuritySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to determine whether or not NtlmV1 is enabled or disabled.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Aad.V20170101.Inputs
         public DomainSecuritySettingsArgs()
         {
         }
+        public static new DomainSecuritySettingsArgs Empty => new DomainSecuritySettingsArgs();
     }
 }

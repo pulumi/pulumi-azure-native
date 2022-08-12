@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220101.Inputs
     /// <summary>
     /// Adhoc backup tagging criteria
     /// </summary>
-    public sealed class AdhocBasedTaggingCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class AdhocBasedTaggingCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Retention tag information
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.DataProtection.V20220101.Inputs
         public AdhocBasedTaggingCriteriaArgs()
         {
         }
+        public static new AdhocBasedTaggingCriteriaArgs Empty => new AdhocBasedTaggingCriteriaArgs();
     }
 }

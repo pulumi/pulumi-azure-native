@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
     }
 
 
-    public sealed class GetCustomLocationArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.ExtendedLocation
         public GetCustomLocationArgs()
         {
         }
+        public static new GetCustomLocationArgs Empty => new GetCustomLocationArgs();
     }
 
-    public sealed class GetCustomLocationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomLocationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
         public GetCustomLocationInvokeArgs()
         {
         }
+        public static new GetCustomLocationInvokeArgs Empty => new GetCustomLocationInvokeArgs();
     }
 
 

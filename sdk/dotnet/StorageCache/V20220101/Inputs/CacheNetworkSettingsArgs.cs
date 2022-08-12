@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20220101.Inputs
     /// <summary>
     /// Cache network settings.
     /// </summary>
-    public sealed class CacheNetworkSettingsArgs : Pulumi.ResourceArgs
+    public sealed class CacheNetworkSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DNS search domain
@@ -50,5 +50,6 @@ namespace Pulumi.AzureNative.StorageCache.V20220101.Inputs
             Mtu = 1500;
             NtpServer = "time.windows.com";
         }
+        public static new CacheNetworkSettingsArgs Empty => new CacheNetworkSettingsArgs();
     }
 }

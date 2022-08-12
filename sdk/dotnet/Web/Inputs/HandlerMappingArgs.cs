@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
     /// For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
     /// </summary>
-    public sealed class HandlerMappingArgs : Pulumi.ResourceArgs
+    public sealed class HandlerMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Command-line arguments to be passed to the script processor.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         public HandlerMappingArgs()
         {
         }
+        public static new HandlerMappingArgs Empty => new HandlerMappingArgs();
     }
 }

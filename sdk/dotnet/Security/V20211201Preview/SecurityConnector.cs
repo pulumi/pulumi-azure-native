@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview
     /// The security connector resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20211201preview:SecurityConnector")]
-    public partial class SecurityConnector : Pulumi.CustomResource
+    public partial class SecurityConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The security connector environment data.
@@ -106,9 +106,9 @@ namespace Pulumi.AzureNative.Security.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:security:SecurityConnector"},
-                    new Pulumi.Alias { Type = "azure-native:security/v20210701preview:SecurityConnector"},
-                    new Pulumi.Alias { Type = "azure-native:security/v20220501preview:SecurityConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:SecurityConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20210701preview:SecurityConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20220501preview:SecurityConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Security.V20211201Preview
         }
     }
 
-    public sealed class SecurityConnectorArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The security connector environment data.
@@ -201,5 +201,6 @@ namespace Pulumi.AzureNative.Security.V20211201Preview
         public SecurityConnectorArgs()
         {
         }
+        public static new SecurityConnectorArgs Empty => new SecurityConnectorArgs();
     }
 }

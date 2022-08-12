@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetworkFunction
     /// API Version: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkfunction:CollectorPolicy")]
-    public partial class CollectorPolicy : Pulumi.CustomResource
+    public partial class CollectorPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Emission policies.
@@ -83,9 +83,9 @@ namespace Pulumi.AzureNative.NetworkFunction
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:networkfunction/v20210901preview:CollectorPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:networkfunction/v20220501:CollectorPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:networkfunction/v20220801:CollectorPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkfunction/v20210901preview:CollectorPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkfunction/v20220501:CollectorPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkfunction/v20220801:CollectorPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.NetworkFunction
         }
     }
 
-    public sealed class CollectorPolicyArgs : Pulumi.ResourceArgs
+    public sealed class CollectorPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure Traffic Collector name
@@ -148,5 +148,6 @@ namespace Pulumi.AzureNative.NetworkFunction
         public CollectorPolicyArgs()
         {
         }
+        public static new CollectorPolicyArgs Empty => new CollectorPolicyArgs();
     }
 }

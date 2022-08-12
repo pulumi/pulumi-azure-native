@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Base class for all triggers that support one to many model for trigger to pipeline.
     /// </summary>
-    public sealed class MultiplePipelineTriggerArgs : Pulumi.ResourceArgs
+    public sealed class MultiplePipelineTriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public MultiplePipelineTriggerArgs()
         {
         }
+        public static new MultiplePipelineTriggerArgs Empty => new MultiplePipelineTriggerArgs();
     }
 }

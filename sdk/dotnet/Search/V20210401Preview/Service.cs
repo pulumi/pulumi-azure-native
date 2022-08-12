@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
     /// Describes an Azure Cognitive Search service and its current state.
     /// </summary>
     [AzureNativeResourceType("azure-native:search/v20210401preview:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
@@ -172,12 +172,12 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:search:Service"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20150819:Service"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20191001preview:Service"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20200313:Service"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20200801:Service"},
-                    new Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:search:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20150819:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20191001preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20200313:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
@@ -316,5 +316,6 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
             PublicNetworkAccess = "enabled";
             ReplicaCount = 1;
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

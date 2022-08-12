@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
     /// Event Grid Partner Destination.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20211015preview:PartnerDestination")]
-    public partial class PartnerDestination : Pulumi.CustomResource
+    public partial class PartnerDestination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Activation state of the partner destination.
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:eventgrid:PartnerDestination"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:PartnerDestination"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         }
     }
 
-    public sealed class PartnerDestinationArgs : Pulumi.ResourceArgs
+    public sealed class PartnerDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Activation state of the partner destination.
@@ -213,5 +213,6 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         public PartnerDestinationArgs()
         {
         }
+        public static new PartnerDestinationArgs Empty => new PartnerDestinationArgs();
     }
 }

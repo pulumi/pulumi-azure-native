@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
     /// <summary>
     /// Properties for the task that migrates data between MongoDB data sources
     /// </summary>
-    public sealed class MigrateMongoDbTaskPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MigrateMongoDbTaskPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientData")]
         private InputMap<string>? _clientData;
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Inputs
         public MigrateMongoDbTaskPropertiesArgs()
         {
         }
+        public static new MigrateMongoDbTaskPropertiesArgs Empty => new MigrateMongoDbTaskPropertiesArgs();
     }
 }

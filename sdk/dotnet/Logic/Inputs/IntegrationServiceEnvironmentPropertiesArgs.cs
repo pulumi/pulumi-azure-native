@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The integration service environment properties.
     /// </summary>
-    public sealed class IntegrationServiceEnvironmentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationServiceEnvironmentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption configuration.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public IntegrationServiceEnvironmentPropertiesArgs()
         {
         }
+        public static new IntegrationServiceEnvironmentPropertiesArgs Empty => new IntegrationServiceEnvironmentPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
     /// Device Update account details.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate/v20200301preview:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// API host name.
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:deviceupdate:Account"},
-                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account name.
@@ -184,5 +184,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         {
             PublicNetworkAccess = "Enabled";
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

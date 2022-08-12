@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
     }
 
 
-    public sealed class GetSchemaRegistryArgs : Pulumi.InvokeArgs
+    public sealed class GetSchemaRegistryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Namespace name
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         public GetSchemaRegistryArgs()
         {
         }
+        public static new GetSchemaRegistryArgs Empty => new GetSchemaRegistryArgs();
     }
 
-    public sealed class GetSchemaRegistryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSchemaRegistryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Namespace name
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
         public GetSchemaRegistryInvokeArgs()
         {
         }
+        public static new GetSchemaRegistryInvokeArgs Empty => new GetSchemaRegistryInvokeArgs();
     }
 
 

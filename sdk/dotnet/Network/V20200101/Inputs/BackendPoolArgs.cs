@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20200101.Inputs
     /// <summary>
     /// A backend pool is a collection of backends that can be routed to.
     /// </summary>
-    public sealed class BackendPoolArgs : Pulumi.ResourceArgs
+    public sealed class BackendPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("backends")]
         private InputList<Inputs.BackendArgs>? _backends;
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20200101.Inputs
         public BackendPoolArgs()
         {
         }
+        public static new BackendPoolArgs Empty => new BackendPoolArgs();
     }
 }

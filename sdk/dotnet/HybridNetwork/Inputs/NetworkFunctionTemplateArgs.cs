@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork.Inputs
     /// <summary>
     /// The network function template.
     /// </summary>
-    public sealed class NetworkFunctionTemplateArgs : Pulumi.ResourceArgs
+    public sealed class NetworkFunctionTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("networkFunctionRoleConfigurations")]
         private InputList<Inputs.NetworkFunctionRoleConfigurationArgs>? _networkFunctionRoleConfigurations;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HybridNetwork.Inputs
         public NetworkFunctionTemplateArgs()
         {
         }
+        public static new NetworkFunctionTemplateArgs Empty => new NetworkFunctionTemplateArgs();
     }
 }

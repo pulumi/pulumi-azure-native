@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
     /// <summary>
     /// Namespace properties.
     /// </summary>
-    public sealed class NamespacePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class NamespacePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time the namespace was created.
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
         public NamespacePropertiesArgs()
         {
         }
+        public static new NamespacePropertiesArgs Empty => new NamespacePropertiesArgs();
     }
 }

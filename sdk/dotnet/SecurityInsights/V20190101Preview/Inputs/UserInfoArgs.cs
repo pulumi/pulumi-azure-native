@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
     /// <summary>
     /// User information that made some action
     /// </summary>
-    public sealed class UserInfoArgs : Pulumi.ResourceArgs
+    public sealed class UserInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The object id of the user.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Inputs
         public UserInfoArgs()
         {
         }
+        public static new UserInfoArgs Empty => new UserInfoArgs();
     }
 }

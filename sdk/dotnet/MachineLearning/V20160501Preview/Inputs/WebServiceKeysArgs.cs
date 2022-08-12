@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
     /// <summary>
     /// Access keys for the web service calls.
     /// </summary>
-    public sealed class WebServiceKeysArgs : Pulumi.ResourceArgs
+    public sealed class WebServiceKeysArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The primary access key.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
         public WebServiceKeysArgs()
         {
         }
+        public static new WebServiceKeysArgs Empty => new WebServiceKeysArgs();
     }
 }

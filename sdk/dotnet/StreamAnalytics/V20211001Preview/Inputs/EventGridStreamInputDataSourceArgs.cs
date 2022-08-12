@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// <summary>
     /// Describes an event grid input data source that contains stream data.
     /// </summary>
-    public sealed class EventGridStreamInputDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class EventGridStreamInputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventTypes")]
         private InputList<string>? _eventTypes;
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public EventGridStreamInputDataSourceArgs()
         {
         }
+        public static new EventGridStreamInputDataSourceArgs Empty => new EventGridStreamInputDataSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
     /// <summary>
     /// Permissions required for the connector
     /// </summary>
-    public sealed class PermissionsArgs : Pulumi.ResourceArgs
+    public sealed class PermissionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("customs")]
         private InputList<Inputs.PermissionsCustomsArgs>? _customs;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
         public PermissionsArgs()
         {
         }
+        public static new PermissionsArgs Empty => new PermissionsArgs();
     }
 }

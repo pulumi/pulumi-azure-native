@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForMIPPolicySync")]
-    public partial class PrivateEndpointConnectionsForMIPPolicySync : Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionsForMIPPolicySync : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         }
     }
 
-    public sealed class PrivateEndpointConnectionsForMIPPolicySyncArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionsForMIPPolicySyncArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -127,5 +127,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         public PrivateEndpointConnectionsForMIPPolicySyncArgs()
         {
         }
+        public static new PrivateEndpointConnectionsForMIPPolicySyncArgs Empty => new PrivateEndpointConnectionsForMIPPolicySyncArgs();
     }
 }

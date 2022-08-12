@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
     /// Recipient User details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20191201preview:NotificationRecipientUser")]
-    public partial class NotificationRecipientUser : Pulumi.CustomResource
+    public partial class NotificationRecipientUser : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -58,18 +58,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:apimanagement:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:NotificationRecipientUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:NotificationRecipientUser"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         }
     }
 
-    public sealed class NotificationRecipientUserArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRecipientUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Notification Name Identifier.
@@ -120,5 +120,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public NotificationRecipientUserArgs()
         {
         }
+        public static new NotificationRecipientUserArgs Empty => new NotificationRecipientUserArgs();
     }
 }

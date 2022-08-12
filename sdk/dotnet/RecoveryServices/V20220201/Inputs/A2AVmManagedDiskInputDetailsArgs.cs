@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
     /// <summary>
     /// A2A managed disk input details.
     /// </summary>
-    public sealed class A2AVmManagedDiskInputDetailsArgs : Pulumi.ResourceArgs
+    public sealed class A2AVmManagedDiskInputDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The recovery disk encryption information (for one / single pass flows).
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201.Inputs
         public A2AVmManagedDiskInputDetailsArgs()
         {
         }
+        public static new A2AVmManagedDiskInputDetailsArgs Empty => new A2AVmManagedDiskInputDetailsArgs();
     }
 }

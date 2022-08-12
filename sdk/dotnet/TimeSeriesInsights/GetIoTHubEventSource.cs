@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     }
 
 
-    public sealed class GetIoTHubEventSourceArgs : Pulumi.InvokeArgs
+    public sealed class GetIoTHubEventSourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         public GetIoTHubEventSourceArgs()
         {
         }
+        public static new GetIoTHubEventSourceArgs Empty => new GetIoTHubEventSourceArgs();
     }
 
-    public sealed class GetIoTHubEventSourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIoTHubEventSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         public GetIoTHubEventSourceInvokeArgs()
         {
         }
+        public static new GetIoTHubEventSourceInvokeArgs Empty => new GetIoTHubEventSourceInvokeArgs();
     }
 
 

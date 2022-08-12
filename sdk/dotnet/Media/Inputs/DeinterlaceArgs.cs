@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// <summary>
     /// Describes the de-interlacing settings.
     /// </summary>
-    public sealed class DeinterlaceArgs : Pulumi.ResourceArgs
+    public sealed class DeinterlaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The deinterlacing mode. Defaults to AutoPixelAdaptive.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public DeinterlaceArgs()
         {
         }
+        public static new DeinterlaceArgs Empty => new DeinterlaceArgs();
     }
 }

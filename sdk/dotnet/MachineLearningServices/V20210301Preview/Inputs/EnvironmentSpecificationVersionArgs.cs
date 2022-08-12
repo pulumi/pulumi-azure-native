@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// Environment specification version details.
     /// &lt;see href="https://repo2docker.readthedocs.io/en/latest/specification.html" /&gt;
     /// </summary>
-    public sealed class EnvironmentSpecificationVersionArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentSpecificationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
@@ -74,5 +74,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public EnvironmentSpecificationVersionArgs()
         {
         }
+        public static new EnvironmentSpecificationVersionArgs Empty => new EnvironmentSpecificationVersionArgs();
     }
 }

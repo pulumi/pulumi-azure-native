@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview
     }
 
 
-    public sealed class GetExperimentArgs : Pulumi.InvokeArgs
+    public sealed class GetExperimentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// String that represents a Experiment resource name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview
         public GetExperimentArgs()
         {
         }
+        public static new GetExperimentArgs Empty => new GetExperimentArgs();
     }
 
-    public sealed class GetExperimentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExperimentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// String that represents a Experiment resource name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview
         public GetExperimentInvokeArgs()
         {
         }
+        public static new GetExperimentInvokeArgs Empty => new GetExperimentInvokeArgs();
     }
 
 

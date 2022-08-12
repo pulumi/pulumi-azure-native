@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview.Inputs
     /// <summary>
     /// The object that contains details of encryption used on the workspace.
     /// </summary>
-    public sealed class EncryptionArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of KeyVault key.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview.Inputs
         {
             KeySource = "Default";
         }
+        public static new EncryptionArgs Empty => new EncryptionArgs();
     }
 }

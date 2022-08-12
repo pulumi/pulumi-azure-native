@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Column transformer parameters.
     /// </summary>
-    public sealed class ColumnTransformerArgs : Pulumi.ResourceArgs
+    public sealed class ColumnTransformerArgs : global::Pulumi.ResourceArgs
     {
         [Input("fields")]
         private InputList<string>? _fields;
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public ColumnTransformerArgs()
         {
         }
+        public static new ColumnTransformerArgs Empty => new ColumnTransformerArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
     /// </summary>
     [Obsolete(@"Version 2017-11-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20171115:AccessPolicy")]
-    public partial class AccessPolicy : Pulumi.CustomResource
+    public partial class AccessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An description of the access policy.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:AccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:AccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:AccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:AccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:AccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:AccessPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:AccessPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:AccessPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:AccessPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:AccessPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:AccessPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:AccessPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
         }
     }
 
-    public sealed class AccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the access policy.
@@ -145,5 +145,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
         public AccessPolicyArgs()
         {
         }
+        public static new AccessPolicyArgs Empty => new AccessPolicyArgs();
     }
 }

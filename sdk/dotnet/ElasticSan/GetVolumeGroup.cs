@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ElasticSan
     }
 
 
-    public sealed class GetVolumeGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ElasticSan.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ElasticSan
         public GetVolumeGroupArgs()
         {
         }
+        public static new GetVolumeGroupArgs Empty => new GetVolumeGroupArgs();
     }
 
-    public sealed class GetVolumeGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ElasticSan.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.ElasticSan
         public GetVolumeGroupInvokeArgs()
         {
         }
+        public static new GetVolumeGroupInvokeArgs Empty => new GetVolumeGroupInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
     /// <summary>
     /// Describes a network interface reference.
     /// </summary>
-    public sealed class NetworkInterfaceReferenceArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify what happens to the network interface when the VM is deleted
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.V20211101.Inputs
         public NetworkInterfaceReferenceArgs()
         {
         }
+        public static new NetworkInterfaceReferenceArgs Empty => new NetworkInterfaceReferenceArgs();
     }
 }

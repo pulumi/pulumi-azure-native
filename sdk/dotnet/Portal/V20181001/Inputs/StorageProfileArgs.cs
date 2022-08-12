@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.V20181001.Inputs
     /// <summary>
     /// The storage profile of the user settings.
     /// </summary>
-    public sealed class StorageProfileArgs : Pulumi.ResourceArgs
+    public sealed class StorageProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Size of file share
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Portal.V20181001.Inputs
         public StorageProfileArgs()
         {
         }
+        public static new StorageProfileArgs Empty => new StorageProfileArgs();
     }
 }

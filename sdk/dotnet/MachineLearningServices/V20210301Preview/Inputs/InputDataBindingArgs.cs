@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
 {
 
-    public sealed class InputDataBindingArgs : Pulumi.ResourceArgs
+    public sealed class InputDataBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARM resource ID of the registered dataVersion.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public InputDataBindingArgs()
         {
         }
+        public static new InputDataBindingArgs Empty => new InputDataBindingArgs();
     }
 }

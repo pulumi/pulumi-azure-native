@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
     /// <summary>
     /// Private endpoint
     /// </summary>
-    public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Full qualified Id of the private endpoint
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
         public PrivateEndpointArgs()
         {
         }
+        public static new PrivateEndpointArgs Empty => new PrivateEndpointArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20171001.Inputs
     /// <summary>
     /// The service endpoint properties.
     /// </summary>
-    public sealed class ServiceEndpointPropertiesFormatArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointPropertiesFormatArgs : global::Pulumi.ResourceArgs
     {
         [Input("locations")]
         private InputList<string>? _locations;
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Network.V20171001.Inputs
         public ServiceEndpointPropertiesFormatArgs()
         {
         }
+        public static new ServiceEndpointPropertiesFormatArgs Empty => new ServiceEndpointPropertiesFormatArgs();
     }
 }

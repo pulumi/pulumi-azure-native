@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301.Inputs
     /// <summary>
     /// Sampling settings contract.
     /// </summary>
-    public sealed class LoggerSamplingContractArgs : Pulumi.ResourceArgs
+    public sealed class LoggerSamplingContractArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Rate re-evaluation interval in ISO8601 format.
@@ -78,5 +78,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301.Inputs
         public LoggerSamplingContractArgs()
         {
         }
+        public static new LoggerSamplingContractArgs Empty => new LoggerSamplingContractArgs();
     }
 }

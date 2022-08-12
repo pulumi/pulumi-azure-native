@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// Class to specify properties of content key
     /// </summary>
-    public sealed class StreamingPolicyContentKeyArgs : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyContentKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Label can be used to specify Content Key when creating a Streaming Locator
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public StreamingPolicyContentKeyArgs()
         {
         }
+        public static new StreamingPolicyContentKeyArgs Empty => new StreamingPolicyContentKeyArgs();
     }
 }

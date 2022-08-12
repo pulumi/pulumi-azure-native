@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20200401.Inputs
     /// <summary>
     /// Identity for the managed cluster.
     /// </summary>
-    public sealed class ManagedClusterIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.ContainerService.V20200401.Inputs
         public ManagedClusterIdentityArgs()
         {
         }
+        public static new ManagedClusterIdentityArgs Empty => new ManagedClusterIdentityArgs();
     }
 }

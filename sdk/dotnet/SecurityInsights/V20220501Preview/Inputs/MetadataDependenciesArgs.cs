@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
     /// <summary>
     /// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
     /// </summary>
-    public sealed class MetadataDependenciesArgs : Pulumi.ResourceArgs
+    public sealed class MetadataDependenciesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of the content item we depend on
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview.Inputs
         public MetadataDependenciesArgs()
         {
         }
+        public static new MetadataDependenciesArgs Empty => new MetadataDependenciesArgs();
     }
 }

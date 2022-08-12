@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cache
     /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:FirewallRule")]
-    public partial class FirewallRule : Pulumi.CustomResource
+    public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// highest IP address included in the range
@@ -65,15 +65,15 @@ namespace Pulumi.AzureNative.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cache/v20160401:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20170201:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20171001:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20180301:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20190701:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20200601:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20201201:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20210601:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:cache/v20220501:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20160401:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20170201:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20171001:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20180301:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20190701:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20200601:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Cache
         }
     }
 
-    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Redis cache.
@@ -130,5 +130,6 @@ namespace Pulumi.AzureNative.Cache
         public FirewallRuleArgs()
         {
         }
+        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview
     }
 
 
-    public sealed class ListIotHubResourceKeysForKeyNameArgs : Pulumi.InvokeArgs
+    public sealed class ListIotHubResourceKeysForKeyNameArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the shared access policy.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview
         public ListIotHubResourceKeysForKeyNameArgs()
         {
         }
+        public static new ListIotHubResourceKeysForKeyNameArgs Empty => new ListIotHubResourceKeysForKeyNameArgs();
     }
 
-    public sealed class ListIotHubResourceKeysForKeyNameInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListIotHubResourceKeysForKeyNameInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the shared access policy.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview
         public ListIotHubResourceKeysForKeyNameInvokeArgs()
         {
         }
+        public static new ListIotHubResourceKeysForKeyNameInvokeArgs Empty => new ListIotHubResourceKeysForKeyNameInvokeArgs();
     }
 
 

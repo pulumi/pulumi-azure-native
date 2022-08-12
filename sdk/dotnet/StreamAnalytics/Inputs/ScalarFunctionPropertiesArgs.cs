@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     /// <summary>
     /// The properties that are associated with a scalar function.
     /// </summary>
-    public sealed class ScalarFunctionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ScalarFunctionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         public ScalarFunctionPropertiesArgs()
         {
         }
+        public static new ScalarFunctionPropertiesArgs Empty => new ScalarFunctionPropertiesArgs();
     }
 }

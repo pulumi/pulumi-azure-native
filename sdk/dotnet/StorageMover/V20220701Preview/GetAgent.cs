@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     }
 
 
-    public sealed class GetAgentArgs : Pulumi.InvokeArgs
+    public sealed class GetAgentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Agent resource.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public GetAgentArgs()
         {
         }
+        public static new GetAgentArgs Empty => new GetAgentArgs();
     }
 
-    public sealed class GetAgentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAgentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Agent resource.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
         public GetAgentInvokeArgs()
         {
         }
+        public static new GetAgentInvokeArgs Empty => new GetAgentInvokeArgs();
     }
 
 

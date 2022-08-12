@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     /// <summary>
     /// Configuration for public IP address sharing.
     /// </summary>
-    public sealed class SubnetSharedPublicIpAddressConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SubnetSharedPublicIpAddressConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedPorts")]
         private InputList<Inputs.PortArgs>? _allowedPorts;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
         public SubnetSharedPublicIpAddressConfigurationArgs()
         {
         }
+        public static new SubnetSharedPublicIpAddressConfigurationArgs Empty => new SubnetSharedPublicIpAddressConfigurationArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     }
 
 
-    public sealed class GetNetworkConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Network Connection that can be applied to a Pool.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetNetworkConnectionArgs()
         {
         }
+        public static new GetNetworkConnectionArgs Empty => new GetNetworkConnectionArgs();
     }
 
-    public sealed class GetNetworkConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Network Connection that can be applied to a Pool.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetNetworkConnectionInvokeArgs()
         {
         }
+        public static new GetNetworkConnectionInvokeArgs Empty => new GetNetworkConnectionInvokeArgs();
     }
 
 

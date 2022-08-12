@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearning
     /// API Version: 2016-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning:CommitmentPlan")]
-    public partial class CommitmentPlan : Pulumi.CustomResource
+    public partial class CommitmentPlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An entity tag used to enforce optimistic concurrency.
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.MachineLearning
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:CommitmentPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:CommitmentPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.MachineLearning
         }
     }
 
-    public sealed class CommitmentPlanArgs : Pulumi.ResourceArgs
+    public sealed class CommitmentPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure ML commitment plan name.
@@ -146,5 +146,6 @@ namespace Pulumi.AzureNative.MachineLearning
         public CommitmentPlanArgs()
         {
         }
+        public static new CommitmentPlanArgs Empty => new CommitmentPlanArgs();
     }
 }

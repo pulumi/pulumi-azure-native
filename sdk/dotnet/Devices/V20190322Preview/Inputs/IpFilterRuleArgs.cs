@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20190322Preview.Inputs
     /// <summary>
     /// The IP filter rules for the IoT hub.
     /// </summary>
-    public sealed class IpFilterRuleArgs : Pulumi.ResourceArgs
+    public sealed class IpFilterRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The desired action for requests captured by this rule.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Devices.V20190322Preview.Inputs
         public IpFilterRuleArgs()
         {
         }
+        public static new IpFilterRuleArgs Empty => new IpFilterRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210901
     /// An object that represents a private endpoint connection for a container registry.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20210901:PrivateEndpointConnection")]
-    public partial class PrivateEndpointConnection : Pulumi.CustomResource
+    public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource.
@@ -76,13 +76,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210901
         }
     }
 
-    public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource of private endpoint.
@@ -139,5 +139,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210901
         public PrivateEndpointConnectionArgs()
         {
         }
+        public static new PrivateEndpointConnectionArgs Empty => new PrivateEndpointConnectionArgs();
     }
 }

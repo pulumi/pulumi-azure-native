@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
     /// </summary>
     [Obsolete(@"Version 2016-04-30-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20160430preview:Snapshot")]
-    public partial class Snapshot : Pulumi.CustomResource
+    public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the storage account type of the disk.
@@ -113,22 +113,22 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180930:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191101:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200501:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200630:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210801:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211201:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20220302:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20170330:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180930:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191101:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200501:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200630:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
         }
     }
 
-    public sealed class SnapshotArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the storage account type of the disk.
@@ -215,5 +215,6 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
         public SnapshotArgs()
         {
         }
+        public static new SnapshotArgs Empty => new SnapshotArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ConnectionMonitor")]
-    public partial class ConnectionMonitor : Pulumi.CustomResource
+    public partial class ConnectionMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Determines if the connection monitor will start automatically once created.
@@ -149,37 +149,37 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20171001:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20171101:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180101:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180201:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180401:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180601:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180701:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181001:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181101:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20181201:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190201:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190401:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190601:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190701:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190801:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20190901:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191101:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20191201:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200301:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200401:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:ConnectionMonitor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180601:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180701:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20181201:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190601:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190701:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190801:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190901:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191101:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ConnectionMonitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class ConnectionMonitorArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines if the connection monitor will start automatically once created.
@@ -328,5 +328,6 @@ namespace Pulumi.AzureNative.Network
             AutoStart = true;
             MonitoringIntervalInSeconds = 60;
         }
+        public static new ConnectionMonitorArgs Empty => new ConnectionMonitorArgs();
     }
 }

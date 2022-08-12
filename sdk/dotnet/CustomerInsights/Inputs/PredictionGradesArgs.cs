@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
     /// <summary>
     /// The definition of a prediction grade.
     /// </summary>
-    public sealed class PredictionGradesArgs : Pulumi.ResourceArgs
+    public sealed class PredictionGradesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the grade.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
         public PredictionGradesArgs()
         {
         }
+        public static new PredictionGradesArgs Empty => new PredictionGradesArgs();
     }
 }

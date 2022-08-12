@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     /// <summary>
     /// Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance
     /// </summary>
-    public sealed class RampUpRuleArgs : Pulumi.ResourceArgs
+    public sealed class RampUpRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Hostname of a slot to which the traffic will be redirected if decided to. E.g. mysite-stage.azurewebsites.net
@@ -69,5 +69,6 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
         public RampUpRuleArgs()
         {
         }
+        public static new RampUpRuleArgs Empty => new RampUpRuleArgs();
     }
 }

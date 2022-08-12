@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Definition of a single variable for a Pipeline.
     /// </summary>
-    public sealed class VariableSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class VariableSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default value of variable.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public VariableSpecificationArgs()
         {
         }
+        public static new VariableSpecificationArgs Empty => new VariableSpecificationArgs();
     }
 }

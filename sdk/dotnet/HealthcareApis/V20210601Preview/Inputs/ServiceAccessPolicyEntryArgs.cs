@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview.Inputs
     /// <summary>
     /// An access policy entry.
     /// </summary>
-    public sealed class ServiceAccessPolicyEntryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAccessPolicyEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview.Inputs
         public ServiceAccessPolicyEntryArgs()
         {
         }
+        public static new ServiceAccessPolicyEntryArgs Empty => new ServiceAccessPolicyEntryArgs();
     }
 }

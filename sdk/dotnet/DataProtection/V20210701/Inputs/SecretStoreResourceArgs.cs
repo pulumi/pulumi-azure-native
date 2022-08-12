@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210701.Inputs
     /// <summary>
     /// Class representing a secret store resource.
     /// </summary>
-    public sealed class SecretStoreResourceArgs : Pulumi.ResourceArgs
+    public sealed class SecretStoreResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the type of secret store
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataProtection.V20210701.Inputs
         public SecretStoreResourceArgs()
         {
         }
+        public static new SecretStoreResourceArgs Empty => new SecretStoreResourceArgs();
     }
 }

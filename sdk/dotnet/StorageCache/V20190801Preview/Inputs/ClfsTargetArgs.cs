@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Inputs
     /// <summary>
     /// Storage container for use as a CLFS StorageTarget.
     /// </summary>
-    public sealed class ClfsTargetArgs : Pulumi.ResourceArgs
+    public sealed class ClfsTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// URL of storage container.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Inputs
         public ClfsTargetArgs()
         {
         }
+        public static new ClfsTargetArgs Empty => new ClfsTargetArgs();
     }
 }

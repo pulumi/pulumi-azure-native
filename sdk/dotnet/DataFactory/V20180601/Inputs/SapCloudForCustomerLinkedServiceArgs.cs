@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Linked service for SAP Cloud for Customer.
     /// </summary>
-    public sealed class SapCloudForCustomerLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class SapCloudForCustomerLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -85,5 +85,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public SapCloudForCustomerLinkedServiceArgs()
         {
         }
+        public static new SapCloudForCustomerLinkedServiceArgs Empty => new SapCloudForCustomerLinkedServiceArgs();
     }
 }

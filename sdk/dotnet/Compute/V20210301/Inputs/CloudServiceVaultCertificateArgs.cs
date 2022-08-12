@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
     /// <summary>
     /// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
     /// </summary>
-    public sealed class CloudServiceVaultCertificateArgs : Pulumi.ResourceArgs
+    public sealed class CloudServiceVaultCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20210301.Inputs
         public CloudServiceVaultCertificateArgs()
         {
         }
+        public static new CloudServiceVaultCertificateArgs Empty => new CloudServiceVaultCertificateArgs();
     }
 }

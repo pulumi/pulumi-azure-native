@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview
     }
 
 
-    public sealed class GetTimeSeriesDatabaseConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetTimeSeriesDatabaseConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview
         public GetTimeSeriesDatabaseConnectionArgs()
         {
         }
+        public static new GetTimeSeriesDatabaseConnectionArgs Empty => new GetTimeSeriesDatabaseConnectionArgs();
     }
 
-    public sealed class GetTimeSeriesDatabaseConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTimeSeriesDatabaseConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview
         public GetTimeSeriesDatabaseConnectionInvokeArgs()
         {
         }
+        public static new GetTimeSeriesDatabaseConnectionInvokeArgs Empty => new GetTimeSeriesDatabaseConnectionInvokeArgs();
     }
 
 

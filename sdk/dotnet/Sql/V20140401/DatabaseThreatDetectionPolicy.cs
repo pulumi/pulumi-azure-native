@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
     /// Contains information about a database Threat Detection policy.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20140401:DatabaseThreatDetectionPolicy")]
-    public partial class DatabaseThreatDetectionPolicy : Pulumi.CustomResource
+    public partial class DatabaseThreatDetectionPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
@@ -106,17 +106,17 @@ namespace Pulumi.AzureNative.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DatabaseThreatDetectionPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DatabaseThreatDetectionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DatabaseThreatDetectionPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
         }
     }
 
-    public sealed class DatabaseThreatDetectionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseThreatDetectionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database for which database Threat Detection policy is defined.
@@ -221,5 +221,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public DatabaseThreatDetectionPolicyArgs()
         {
         }
+        public static new DatabaseThreatDetectionPolicyArgs Empty => new DatabaseThreatDetectionPolicyArgs();
     }
 }

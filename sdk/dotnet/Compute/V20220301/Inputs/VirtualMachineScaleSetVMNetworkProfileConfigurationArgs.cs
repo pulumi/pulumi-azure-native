@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Describes a virtual machine scale set VM network profile.
     /// </summary>
-    public sealed class VirtualMachineScaleSetVMNetworkProfileConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetVMNetworkProfileConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("networkInterfaceConfigurations")]
         private InputList<Inputs.VirtualMachineScaleSetNetworkConfigurationArgs>? _networkInterfaceConfigurations;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public VirtualMachineScaleSetVMNetworkProfileConfigurationArgs()
         {
         }
+        public static new VirtualMachineScaleSetVMNetworkProfileConfigurationArgs Empty => new VirtualMachineScaleSetVMNetworkProfileConfigurationArgs();
     }
 }

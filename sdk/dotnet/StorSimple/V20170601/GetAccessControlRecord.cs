@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     }
 
 
-    public sealed class GetAccessControlRecordArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessControlRecordArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of access control record to be fetched.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public GetAccessControlRecordArgs()
         {
         }
+        public static new GetAccessControlRecordArgs Empty => new GetAccessControlRecordArgs();
     }
 
-    public sealed class GetAccessControlRecordInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessControlRecordInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of access control record to be fetched.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public GetAccessControlRecordInvokeArgs()
         {
         }
+        public static new GetAccessControlRecordInvokeArgs Empty => new GetAccessControlRecordInvokeArgs();
     }
 
 

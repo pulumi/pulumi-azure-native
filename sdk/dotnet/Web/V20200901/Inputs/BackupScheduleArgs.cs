@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
     /// <summary>
     /// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
     /// </summary>
-    public sealed class BackupScheduleArgs : Pulumi.ResourceArgs
+    public sealed class BackupScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
@@ -52,5 +52,6 @@ namespace Pulumi.AzureNative.Web.V20200901.Inputs
             KeepAtLeastOneBackup = true;
             RetentionPeriodInDays = 30;
         }
+        public static new BackupScheduleArgs Empty => new BackupScheduleArgs();
     }
 }

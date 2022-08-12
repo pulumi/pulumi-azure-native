@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web
     }
 
 
-    public sealed class GetWebAppFunctionArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppFunctionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Function name.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Web
         public GetWebAppFunctionArgs()
         {
         }
+        public static new GetWebAppFunctionArgs Empty => new GetWebAppFunctionArgs();
     }
 
-    public sealed class GetWebAppFunctionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAppFunctionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Function name.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Web
         public GetWebAppFunctionInvokeArgs()
         {
         }
+        public static new GetWebAppFunctionInvokeArgs Empty => new GetWebAppFunctionInvokeArgs();
     }
 
 

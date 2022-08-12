@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20220301.Inputs
 {
 
-    public sealed class TerminateNotificationProfileArgs : Pulumi.ResourceArgs
+    public sealed class TerminateNotificationProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the Terminate Scheduled event is enabled or disabled.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public TerminateNotificationProfileArgs()
         {
         }
+        public static new TerminateNotificationProfileArgs Empty => new TerminateNotificationProfileArgs();
     }
 }

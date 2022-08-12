@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Devices.V20170821Preview
     }
 
 
-    public sealed class GetDpsCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetDpsCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the certificate to retrieve.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.Devices.V20170821Preview
         public GetDpsCertificateArgs()
         {
         }
+        public static new GetDpsCertificateArgs Empty => new GetDpsCertificateArgs();
     }
 
-    public sealed class GetDpsCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDpsCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the certificate to retrieve.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.Devices.V20170821Preview
         public GetDpsCertificateInvokeArgs()
         {
         }
+        public static new GetDpsCertificateInvokeArgs Empty => new GetDpsCertificateInvokeArgs();
     }
 
 

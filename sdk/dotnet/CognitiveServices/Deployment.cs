@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// API Version: 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Deployment")]
-    public partial class Deployment : Pulumi.CustomResource
+    public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Etag.
@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Deployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         }
     }
 
-    public sealed class DeploymentArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Cognitive Services account.
@@ -123,5 +123,6 @@ namespace Pulumi.AzureNative.CognitiveServices
         public DeploymentArgs()
         {
         }
+        public static new DeploymentArgs Empty => new DeploymentArgs();
     }
 }

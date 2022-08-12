@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StoragePool.Inputs
     /// <summary>
     /// Attributes of a iSCSI target portal group.
     /// </summary>
-    public sealed class AttributesArgs : Pulumi.ResourceArgs
+    public sealed class AttributesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether or not authentication is enabled on the ACL.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.StoragePool.Inputs
         public AttributesArgs()
         {
         }
+        public static new AttributesArgs Empty => new AttributesArgs();
     }
 }

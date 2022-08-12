@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
     /// <summary>
     /// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
     /// </summary>
-    public sealed class VideoAnalyzerPresetArgs : Pulumi.ResourceArgs
+    public sealed class VideoAnalyzerPresetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to only extract audio insights when processing a video file.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         public VideoAnalyzerPresetArgs()
         {
         }
+        public static new VideoAnalyzerPresetArgs Empty => new VideoAnalyzerPresetArgs();
     }
 }

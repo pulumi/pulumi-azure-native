@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// The data stored in Avro format.
     /// </summary>
-    public sealed class AvroFormatArgs : Pulumi.ResourceArgs
+    public sealed class AvroFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Deserializer. Type: string (or Expression with resultType string).
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public AvroFormatArgs()
         {
         }
+        public static new AvroFormatArgs Empty => new AvroFormatArgs();
     }
 }

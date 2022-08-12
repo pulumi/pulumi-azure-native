@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Orbital
     }
 
 
-    public sealed class ListSpacecraftAvailableContactsArgs : Pulumi.InvokeArgs
+    public sealed class ListSpacecraftAvailableContactsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The reference to the contact profile resource.
@@ -68,9 +68,10 @@ namespace Pulumi.AzureNative.Orbital
         public ListSpacecraftAvailableContactsArgs()
         {
         }
+        public static new ListSpacecraftAvailableContactsArgs Empty => new ListSpacecraftAvailableContactsArgs();
     }
 
-    public sealed class ListSpacecraftAvailableContactsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListSpacecraftAvailableContactsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The reference to the contact profile resource.
@@ -111,6 +112,7 @@ namespace Pulumi.AzureNative.Orbital
         public ListSpacecraftAvailableContactsInvokeArgs()
         {
         }
+        public static new ListSpacecraftAvailableContactsInvokeArgs Empty => new ListSpacecraftAvailableContactsInvokeArgs();
     }
 
 

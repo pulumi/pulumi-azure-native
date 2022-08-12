@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// (Deprecated. Please use LogSettings) Log storage settings.
     /// </summary>
-    public sealed class LogStorageSettingsArgs : Pulumi.ResourceArgs
+    public sealed class LogStorageSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to enable reliable logging. Type: boolean (or Expression with resultType boolean).
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public LogStorageSettingsArgs()
         {
         }
+        public static new LogStorageSettingsArgs Empty => new LogStorageSettingsArgs();
     }
 }

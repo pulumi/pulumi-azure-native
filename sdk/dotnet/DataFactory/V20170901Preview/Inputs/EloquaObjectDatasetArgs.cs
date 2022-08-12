@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// <summary>
     /// Eloqua server dataset.
     /// </summary>
-    public sealed class EloquaObjectDatasetArgs : Pulumi.ResourceArgs
+    public sealed class EloquaObjectDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -67,5 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public EloquaObjectDatasetArgs()
         {
         }
+        public static new EloquaObjectDatasetArgs Empty => new EloquaObjectDatasetArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
 
-    public sealed class GetFailoverGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetFailoverGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the failover group.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Sql
         public GetFailoverGroupArgs()
         {
         }
+        public static new GetFailoverGroupArgs Empty => new GetFailoverGroupArgs();
     }
 
-    public sealed class GetFailoverGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFailoverGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the failover group.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Sql
         public GetFailoverGroupInvokeArgs()
         {
         }
+        public static new GetFailoverGroupInvokeArgs Empty => new GetFailoverGroupInvokeArgs();
     }
 
 

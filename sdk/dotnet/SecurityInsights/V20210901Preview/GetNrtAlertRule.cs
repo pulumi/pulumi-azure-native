@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     }
 
 
-    public sealed class GetNrtAlertRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetNrtAlertRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public GetNrtAlertRuleArgs()
         {
         }
+        public static new GetNrtAlertRuleArgs Empty => new GetNrtAlertRuleArgs();
     }
 
-    public sealed class GetNrtAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNrtAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public GetNrtAlertRuleInvokeArgs()
         {
         }
+        public static new GetNrtAlertRuleInvokeArgs Empty => new GetNrtAlertRuleInvokeArgs();
     }
 
 

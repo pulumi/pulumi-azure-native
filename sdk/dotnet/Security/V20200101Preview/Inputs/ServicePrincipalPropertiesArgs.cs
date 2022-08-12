@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
     /// <summary>
     /// Details of the service principal.
     /// </summary>
-    public sealed class ServicePrincipalPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ServicePrincipalPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Application ID of service principal.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
         public ServicePrincipalPropertiesArgs()
         {
         }
+        public static new ServicePrincipalPropertiesArgs Empty => new ServicePrincipalPropertiesArgs();
     }
 }

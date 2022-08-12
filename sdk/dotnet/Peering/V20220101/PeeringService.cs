@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.V20220101
     /// Peering Service
     /// </summary>
     [AzureNativeResourceType("azure-native:peering/v20220101:PeeringService")]
-    public partial class PeeringService : Pulumi.CustomResource
+    public partial class PeeringService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the resource.
@@ -106,15 +106,15 @@ namespace Pulumi.AzureNative.Peering.V20220101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:peering:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20190801preview:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20210101:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20210601:PeeringService"},
-                    new Pulumi.Alias { Type = "azure-native:peering/v20220601:PeeringService"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering:PeeringService"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190801preview:PeeringService"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190901preview:PeeringService"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200101preview:PeeringService"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200401:PeeringService"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20201001:PeeringService"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210101:PeeringService"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:PeeringService"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:PeeringService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Peering.V20220101
         }
     }
 
-    public sealed class PeeringServiceArgs : Pulumi.ResourceArgs
+    public sealed class PeeringServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the resource.
@@ -201,5 +201,6 @@ namespace Pulumi.AzureNative.Peering.V20220101
         public PeeringServiceArgs()
         {
         }
+        public static new PeeringServiceArgs Empty => new PeeringServiceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
     /// <summary>
     /// Encoder processor allows for encoding of the input content. For example, it can used to change the resolution from 4K to 1280x720.
     /// </summary>
-    public sealed class EncoderProcessorArgs : Pulumi.ResourceArgs
+    public sealed class EncoderProcessorArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputs", required: true)]
         private InputList<Inputs.NodeInputArgs>? _inputs;
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         public EncoderProcessorArgs()
         {
         }
+        public static new EncoderProcessorArgs Empty => new EncoderProcessorArgs();
     }
 }

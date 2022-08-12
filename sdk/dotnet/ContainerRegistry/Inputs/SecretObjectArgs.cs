@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     /// <summary>
     /// Describes the properties of a secret object value.
     /// </summary>
-    public sealed class SecretObjectArgs : Pulumi.ResourceArgs
+    public sealed class SecretObjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the secret object which determines how the value of the secret object has to be
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         public SecretObjectArgs()
         {
         }
+        public static new SecretObjectArgs Empty => new SecretObjectArgs();
     }
 }

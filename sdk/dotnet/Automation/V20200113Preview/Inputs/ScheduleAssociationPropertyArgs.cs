@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Inputs
     /// <summary>
     /// The schedule property associated with the entity.
     /// </summary>
-    public sealed class ScheduleAssociationPropertyArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleAssociationPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the name of the Schedule.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Inputs
         public ScheduleAssociationPropertyArgs()
         {
         }
+        public static new ScheduleAssociationPropertyArgs Empty => new ScheduleAssociationPropertyArgs();
     }
 }

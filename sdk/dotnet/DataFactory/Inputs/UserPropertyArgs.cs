@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// User property.
     /// </summary>
-    public sealed class UserPropertyArgs : Pulumi.ResourceArgs
+    public sealed class UserPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// User property name.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public UserPropertyArgs()
         {
         }
+        public static new UserPropertyArgs Empty => new UserPropertyArgs();
     }
 }

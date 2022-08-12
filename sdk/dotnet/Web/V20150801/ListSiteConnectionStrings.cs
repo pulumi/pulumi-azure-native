@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     }
 
 
-    public sealed class ListSiteConnectionStringsArgs : Pulumi.InvokeArgs
+    public sealed class ListSiteConnectionStringsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of web app
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Web.V20150801
         public ListSiteConnectionStringsArgs()
         {
         }
+        public static new ListSiteConnectionStringsArgs Empty => new ListSiteConnectionStringsArgs();
     }
 
-    public sealed class ListSiteConnectionStringsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListSiteConnectionStringsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of web app
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Web.V20150801
         public ListSiteConnectionStringsInvokeArgs()
         {
         }
+        public static new ListSiteConnectionStringsInvokeArgs Empty => new ListSiteConnectionStringsInvokeArgs();
     }
 
 

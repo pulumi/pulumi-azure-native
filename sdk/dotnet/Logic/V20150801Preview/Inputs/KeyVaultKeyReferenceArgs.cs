@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
-    public sealed class KeyVaultKeyReferenceArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultKeyReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private key name in key vault.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
         public KeyVaultKeyReferenceArgs()
         {
         }
+        public static new KeyVaultKeyReferenceArgs Empty => new KeyVaultKeyReferenceArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
     }
 
 
-    public sealed class GetSettingArgs : Pulumi.InvokeArgs
+    public sealed class GetSettingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the setting. Allowed values: myscope
@@ -36,9 +36,10 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
         public GetSettingArgs()
         {
         }
+        public static new GetSettingArgs Empty => new GetSettingArgs();
     }
 
-    public sealed class GetSettingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSettingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the setting. Allowed values: myscope
@@ -49,6 +50,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
         public GetSettingInvokeArgs()
         {
         }
+        public static new GetSettingInvokeArgs Empty => new GetSettingInvokeArgs();
     }
 
 

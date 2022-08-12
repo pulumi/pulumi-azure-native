@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Magento server linked service.
     /// </summary>
-    public sealed class MagentoLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class MagentoLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access token from Magento.
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public MagentoLinkedServiceArgs()
         {
         }
+        public static new MagentoLinkedServiceArgs Empty => new MagentoLinkedServiceArgs();
     }
 }

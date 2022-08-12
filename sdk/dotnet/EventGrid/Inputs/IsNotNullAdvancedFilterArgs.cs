@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// <summary>
     /// IsNotNull Advanced Filter.
     /// </summary>
-    public sealed class IsNotNullAdvancedFilterArgs : Pulumi.ResourceArgs
+    public sealed class IsNotNullAdvancedFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The field/property in the event based on which you want to filter.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public IsNotNullAdvancedFilterArgs()
         {
         }
+        public static new IsNotNullAdvancedFilterArgs Empty => new IsNotNullAdvancedFilterArgs();
     }
 }

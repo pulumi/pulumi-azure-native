@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
     }
 
 
-    public sealed class GetWebPubSubPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetWebPubSubPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public GetWebPubSubPrivateEndpointConnectionArgs()
         {
         }
+        public static new GetWebPubSubPrivateEndpointConnectionArgs Empty => new GetWebPubSubPrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetWebPubSubPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebPubSubPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private endpoint connection
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public GetWebPubSubPrivateEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetWebPubSubPrivateEndpointConnectionInvokeArgs Empty => new GetWebPubSubPrivateEndpointConnectionInvokeArgs();
     }
 
 

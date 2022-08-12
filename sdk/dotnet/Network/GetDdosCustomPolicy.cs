@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetDdosCustomPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetDdosCustomPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DDoS custom policy.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Network
         public GetDdosCustomPolicyArgs()
         {
         }
+        public static new GetDdosCustomPolicyArgs Empty => new GetDdosCustomPolicyArgs();
     }
 
-    public sealed class GetDdosCustomPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDdosCustomPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DDoS custom policy.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Network
         public GetDdosCustomPolicyInvokeArgs()
         {
         }
+        public static new GetDdosCustomPolicyInvokeArgs Empty => new GetDdosCustomPolicyInvokeArgs();
     }
 
 

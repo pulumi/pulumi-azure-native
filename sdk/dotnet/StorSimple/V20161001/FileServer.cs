@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:FileServer")]
-    public partial class FileServer : Pulumi.CustomResource
+    public partial class FileServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The backup policy id.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         }
     }
 
-    public sealed class FileServerArgs : Pulumi.ResourceArgs
+    public sealed class FileServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The backup policy id.
@@ -148,5 +148,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public FileServerArgs()
         {
         }
+        public static new FileServerArgs Empty => new FileServerArgs();
     }
 }

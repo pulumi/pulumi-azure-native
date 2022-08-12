@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20220501
     /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache/v20220501:Cache")]
-    public partial class Cache : Pulumi.CustomResource
+    public partial class Cache : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The size of this Cache, in GB.
@@ -166,15 +166,15 @@ namespace Pulumi.AzureNative.StorageCache.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:storagecache:Cache"},
-                    new Pulumi.Alias { Type = "azure-native:storagecache/v20190801preview:Cache"},
-                    new Pulumi.Alias { Type = "azure-native:storagecache/v20191101:Cache"},
-                    new Pulumi.Alias { Type = "azure-native:storagecache/v20200301:Cache"},
-                    new Pulumi.Alias { Type = "azure-native:storagecache/v20201001:Cache"},
-                    new Pulumi.Alias { Type = "azure-native:storagecache/v20210301:Cache"},
-                    new Pulumi.Alias { Type = "azure-native:storagecache/v20210501:Cache"},
-                    new Pulumi.Alias { Type = "azure-native:storagecache/v20210901:Cache"},
-                    new Pulumi.Alias { Type = "azure-native:storagecache/v20220101:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20190801preview:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20191101:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20200301:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20201001:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20210301:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20210501:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20210901:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20220101:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNative.StorageCache.V20220501
         }
     }
 
-    public sealed class CacheArgs : Pulumi.ResourceArgs
+    public sealed class CacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
@@ -297,5 +297,6 @@ namespace Pulumi.AzureNative.StorageCache.V20220501
         public CacheArgs()
         {
         }
+        public static new CacheArgs Empty => new CacheArgs();
     }
 }

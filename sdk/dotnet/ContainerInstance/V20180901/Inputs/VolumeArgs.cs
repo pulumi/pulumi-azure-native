@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20180901.Inputs
     /// <summary>
     /// The properties of the volume.
     /// </summary>
-    public sealed class VolumeArgs : Pulumi.ResourceArgs
+    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure File volume.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20180901.Inputs
         public VolumeArgs()
         {
         }
+        public static new VolumeArgs Empty => new VolumeArgs();
     }
 }

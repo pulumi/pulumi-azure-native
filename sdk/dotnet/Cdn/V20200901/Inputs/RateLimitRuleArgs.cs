@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
     /// <summary>
     /// Defines a rate limiting rule that can be included in a waf policy
     /// </summary>
-    public sealed class RateLimitRuleArgs : Pulumi.ResourceArgs
+    public sealed class RateLimitRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes what action to be applied when rule matches
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
         public RateLimitRuleArgs()
         {
         }
+        public static new RateLimitRuleArgs Empty => new RateLimitRuleArgs();
     }
 }

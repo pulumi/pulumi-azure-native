@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
     /// <summary>
     /// The details about the project represented by the security connector
     /// </summary>
-    public sealed class GcpProjectDetailsArgs : Pulumi.ResourceArgs
+    public sealed class GcpProjectDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The GCP Project id
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview.Inputs
         public GcpProjectDetailsArgs()
         {
         }
+        public static new GcpProjectDetailsArgs Empty => new GcpProjectDetailsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Common Data Service for Apps linked service.
     /// </summary>
-    public sealed class CommonDataServiceForAppsLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class CommonDataServiceForAppsLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -133,5 +133,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public CommonDataServiceForAppsLinkedServiceArgs()
         {
         }
+        public static new CommonDataServiceForAppsLinkedServiceArgs Empty => new CommonDataServiceForAppsLinkedServiceArgs();
     }
 }

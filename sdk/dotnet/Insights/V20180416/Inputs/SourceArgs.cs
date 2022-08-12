@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20180416.Inputs
     /// <summary>
     /// Specifies the log search query.
     /// </summary>
-    public sealed class SourceArgs : Pulumi.ResourceArgs
+    public sealed class SourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizedResources")]
         private InputList<string>? _authorizedResources;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Insights.V20180416.Inputs
         public SourceArgs()
         {
         }
+        public static new SourceArgs Empty => new SourceArgs();
     }
 }

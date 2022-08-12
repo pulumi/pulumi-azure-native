@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Inputs
     /// <summary>
     /// Storage container for use as a Unknown StorageTarget.
     /// </summary>
-    public sealed class UnknownTargetArgs : Pulumi.ResourceArgs
+    public sealed class UnknownTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("unknownMap")]
         private InputMap<string>? _unknownMap;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Inputs
         public UnknownTargetArgs()
         {
         }
+        public static new UnknownTargetArgs Empty => new UnknownTargetArgs();
     }
 }

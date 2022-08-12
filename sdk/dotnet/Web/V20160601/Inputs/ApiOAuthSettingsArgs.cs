@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
     /// <summary>
     /// OAuth settings for the connection provider
     /// </summary>
-    public sealed class ApiOAuthSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ApiOAuthSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource provider client id
@@ -72,5 +72,6 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
         public ApiOAuthSettingsArgs()
         {
         }
+        public static new ApiOAuthSettingsArgs Empty => new ApiOAuthSettingsArgs();
     }
 }

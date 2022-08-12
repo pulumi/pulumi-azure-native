@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20221001.Inputs
     /// <summary>
     /// Email notification of an autoscale event.
     /// </summary>
-    public sealed class EmailNotificationArgs : Pulumi.ResourceArgs
+    public sealed class EmailNotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("customEmails")]
         private InputList<string>? _customEmails;
@@ -44,5 +44,6 @@ namespace Pulumi.AzureNative.Insights.V20221001.Inputs
             SendToSubscriptionAdministrator = false;
             SendToSubscriptionCoAdministrators = false;
         }
+        public static new EmailNotificationArgs Empty => new EmailNotificationArgs();
     }
 }

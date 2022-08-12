@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid.V20180501Preview.Inputs
     /// <summary>
     /// This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'subject','eventType' and 'dataVersion' properties. This represents a field in the input event schema along with a default value to be used, and at least one of these two properties should be provided.
     /// </summary>
-    public sealed class JsonFieldWithDefaultArgs : Pulumi.ResourceArgs
+    public sealed class JsonFieldWithDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.EventGrid.V20180501Preview.Inputs
         public JsonFieldWithDefaultArgs()
         {
         }
+        public static new JsonFieldWithDefaultArgs Empty => new JsonFieldWithDefaultArgs();
     }
 }

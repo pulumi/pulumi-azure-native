@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto.V20200614
     /// Class representing an attached database configuration.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20200614:AttachedDatabaseConfiguration")]
-    public partial class AttachedDatabaseConfiguration : Pulumi.CustomResource
+    public partial class AttachedDatabaseConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of databases from the clusterResourceId which are currently attached to the cluster.
@@ -88,14 +88,14 @@ namespace Pulumi.AzureNative.Kusto.V20200614
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:kusto:AttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:AttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:AttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:AttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:AttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:AttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:AttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:AttachedDatabaseConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:AttachedDatabaseConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:AttachedDatabaseConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:AttachedDatabaseConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:AttachedDatabaseConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:AttachedDatabaseConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:AttachedDatabaseConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:AttachedDatabaseConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:AttachedDatabaseConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.Kusto.V20200614
         }
     }
 
-    public sealed class AttachedDatabaseConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AttachedDatabaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the attached database configuration.
@@ -164,5 +164,6 @@ namespace Pulumi.AzureNative.Kusto.V20200614
         public AttachedDatabaseConfigurationArgs()
         {
         }
+        public static new AttachedDatabaseConfigurationArgs Empty => new AttachedDatabaseConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
     /// <summary>
     /// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
     /// </summary>
-    public sealed class CopyVideoArgs : Pulumi.ResourceArgs
+    public sealed class CopyVideoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional label for the codec. The label can be used to control muxing behavior.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         public CopyVideoArgs()
         {
         }
+        public static new CopyVideoArgs Empty => new CopyVideoArgs();
     }
 }

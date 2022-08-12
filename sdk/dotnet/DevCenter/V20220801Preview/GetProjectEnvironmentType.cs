@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     }
 
 
-    public sealed class GetProjectEnvironmentTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetProjectEnvironmentTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the environment type.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetProjectEnvironmentTypeArgs()
         {
         }
+        public static new GetProjectEnvironmentTypeArgs Empty => new GetProjectEnvironmentTypeArgs();
     }
 
-    public sealed class GetProjectEnvironmentTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProjectEnvironmentTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the environment type.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
         public GetProjectEnvironmentTypeInvokeArgs()
         {
         }
+        public static new GetProjectEnvironmentTypeInvokeArgs Empty => new GetProjectEnvironmentTypeInvokeArgs();
     }
 
 

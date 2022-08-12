@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
 {
 
-    public sealed class DefaultRolloutSpecificationCanaryArgs : Pulumi.ResourceArgs
+    public sealed class DefaultRolloutSpecificationCanaryArgs : global::Pulumi.ResourceArgs
     {
         [Input("regions")]
         private InputList<string>? _regions;
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         public DefaultRolloutSpecificationCanaryArgs()
         {
         }
+        public static new DefaultRolloutSpecificationCanaryArgs Empty => new DefaultRolloutSpecificationCanaryArgs();
     }
 }

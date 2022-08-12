@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Load balancer backend addresses.
     /// </summary>
-    public sealed class LoadBalancerBackendAddressArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerBackendAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public LoadBalancerBackendAddressArgs()
         {
         }
+        public static new LoadBalancerBackendAddressArgs Empty => new LoadBalancerBackendAddressArgs();
     }
 }

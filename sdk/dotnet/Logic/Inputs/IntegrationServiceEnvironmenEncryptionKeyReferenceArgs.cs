@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The encryption key details for the integration service environment.
     /// </summary>
-    public sealed class IntegrationServiceEnvironmenEncryptionKeyReferenceArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationServiceEnvironmenEncryptionKeyReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the key name in the Key Vault.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public IntegrationServiceEnvironmenEncryptionKeyReferenceArgs()
         {
         }
+        public static new IntegrationServiceEnvironmenEncryptionKeyReferenceArgs Empty => new IntegrationServiceEnvironmenEncryptionKeyReferenceArgs();
     }
 }

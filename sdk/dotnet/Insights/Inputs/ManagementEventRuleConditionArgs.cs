@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// <summary>
     /// A management event rule condition.
     /// </summary>
-    public sealed class ManagementEventRuleConditionArgs : Pulumi.ResourceArgs
+    public sealed class ManagementEventRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
@@ -37,5 +37,6 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public ManagementEventRuleConditionArgs()
         {
         }
+        public static new ManagementEventRuleConditionArgs Empty => new ManagementEventRuleConditionArgs();
     }
 }

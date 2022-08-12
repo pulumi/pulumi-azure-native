@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
     /// <summary>
     /// Defines the properties of a health check step.
     /// </summary>
-    public sealed class HealthCheckStepPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class HealthCheckStepPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The health check step attributes
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.DeploymentManager.Inputs
         public HealthCheckStepPropertiesArgs()
         {
         }
+        public static new HealthCheckStepPropertiesArgs Empty => new HealthCheckStepPropertiesArgs();
     }
 }

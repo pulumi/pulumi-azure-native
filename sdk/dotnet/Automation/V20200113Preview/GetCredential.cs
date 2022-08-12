@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     }
 
 
-    public sealed class GetCredentialArgs : Pulumi.InvokeArgs
+    public sealed class GetCredentialArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         public GetCredentialArgs()
         {
         }
+        public static new GetCredentialArgs Empty => new GetCredentialArgs();
     }
 
-    public sealed class GetCredentialInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCredentialInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         public GetCredentialInvokeArgs()
         {
         }
+        public static new GetCredentialInvokeArgs Empty => new GetCredentialInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// <summary>
     /// The binding to a CSharp function.
     /// </summary>
-    public sealed class CSharpFunctionBindingArgs : Pulumi.ResourceArgs
+    public sealed class CSharpFunctionBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Csharp code containing a single function definition.
@@ -49,5 +49,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         public CSharpFunctionBindingArgs()
         {
         }
+        public static new CSharpFunctionBindingArgs Empty => new CSharpFunctionBindingArgs();
     }
 }

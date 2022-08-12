@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201001.Inputs
 {
 
-    public sealed class AppRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class AppRegistrationArgs : global::Pulumi.ResourceArgs
     {
         [Input("appId")]
         public Input<string>? AppId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AzureNative.Web.V20201001.Inputs
         public AppRegistrationArgs()
         {
         }
+        public static new AppRegistrationArgs Empty => new AppRegistrationArgs();
     }
 }

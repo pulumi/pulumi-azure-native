@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataShare
     /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:KustoClusterDataSetMapping")]
-    public partial class KustoClusterDataSetMapping : Pulumi.CustomResource
+    public partial class KustoClusterDataSetMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The id of the source data set.
@@ -103,11 +103,11 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:KustoClusterDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:KustoClusterDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:KustoClusterDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoClusterDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/v20210801:KustoClusterDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:KustoClusterDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:KustoClusterDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:KustoClusterDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoClusterDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:KustoClusterDataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.DataShare
         }
     }
 
-    public sealed class KustoClusterDataSetMappingArgs : Pulumi.ResourceArgs
+    public sealed class KustoClusterDataSetMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the share account.
@@ -177,5 +177,6 @@ namespace Pulumi.AzureNative.DataShare
         public KustoClusterDataSetMappingArgs()
         {
         }
+        public static new KustoClusterDataSetMappingArgs Empty => new KustoClusterDataSetMappingArgs();
     }
 }

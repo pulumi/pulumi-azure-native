@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network
     }
 
 
-    public sealed class GetHubVirtualNetworkConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetHubVirtualNetworkConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the vpn connection.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Network
         public GetHubVirtualNetworkConnectionArgs()
         {
         }
+        public static new GetHubVirtualNetworkConnectionArgs Empty => new GetHubVirtualNetworkConnectionArgs();
     }
 
-    public sealed class GetHubVirtualNetworkConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHubVirtualNetworkConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the vpn connection.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Network
         public GetHubVirtualNetworkConnectionInvokeArgs()
         {
         }
+        public static new GetHubVirtualNetworkConnectionInvokeArgs Empty => new GetHubVirtualNetworkConnectionInvokeArgs();
     }
 
 

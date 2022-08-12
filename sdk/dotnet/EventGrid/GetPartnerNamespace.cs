@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
 
-    public sealed class GetPartnerNamespaceArgs : Pulumi.InvokeArgs
+    public sealed class GetPartnerNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the partner namespace.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.EventGrid
         public GetPartnerNamespaceArgs()
         {
         }
+        public static new GetPartnerNamespaceArgs Empty => new GetPartnerNamespaceArgs();
     }
 
-    public sealed class GetPartnerNamespaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPartnerNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the partner namespace.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.EventGrid
         public GetPartnerNamespaceInvokeArgs()
         {
         }
+        public static new GetPartnerNamespaceInvokeArgs Empty => new GetPartnerNamespaceInvokeArgs();
     }
 
 

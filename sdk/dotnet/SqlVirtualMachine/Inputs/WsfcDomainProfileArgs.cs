@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
     /// <summary>
     /// Active Directory account details to operate Windows Server Failover Cluster.
     /// </summary>
-    public sealed class WsfcDomainProfileArgs : Pulumi.ResourceArgs
+    public sealed class WsfcDomainProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public WsfcDomainProfileArgs()
         {
         }
+        public static new WsfcDomainProfileArgs Empty => new WsfcDomainProfileArgs();
     }
 }

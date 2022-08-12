@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSet")]
-    public partial class VirtualMachineScaleSet : Pulumi.CustomResource
+    public partial class VirtualMachineScaleSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
@@ -185,24 +185,24 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute/v20150615:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160330:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineScaleSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20150615:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160330:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20170330:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineScaleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -224,7 +224,7 @@ namespace Pulumi.AzureNative.Compute
         }
     }
 
-    public sealed class VirtualMachineScaleSetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
@@ -373,5 +373,6 @@ namespace Pulumi.AzureNative.Compute
         public VirtualMachineScaleSetArgs()
         {
         }
+        public static new VirtualMachineScaleSetArgs Empty => new VirtualMachineScaleSetArgs();
     }
 }

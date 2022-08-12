@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthBot.V20210824.Inputs
     /// <summary>
     /// The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
     /// </summary>
-    public sealed class HealthBotPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class HealthBotPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// KeyVault properties for the resource encryption.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.HealthBot.V20210824.Inputs
         public HealthBotPropertiesArgs()
         {
         }
+        public static new HealthBotPropertiesArgs Empty => new HealthBotPropertiesArgs();
     }
 }

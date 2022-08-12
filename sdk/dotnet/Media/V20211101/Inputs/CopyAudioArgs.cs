@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
     /// <summary>
     /// A codec flag, which tells the encoder to copy the input audio bitstream.
     /// </summary>
-    public sealed class CopyAudioArgs : Pulumi.ResourceArgs
+    public sealed class CopyAudioArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional label for the codec. The label can be used to control muxing behavior.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.Media.V20211101.Inputs
         public CopyAudioArgs()
         {
         }
+        public static new CopyAudioArgs Empty => new CopyAudioArgs();
     }
 }

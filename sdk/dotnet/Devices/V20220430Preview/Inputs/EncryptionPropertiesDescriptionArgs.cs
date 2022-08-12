@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
     /// <summary>
     /// The encryption properties for the IoT hub.
     /// </summary>
-    public sealed class EncryptionPropertiesDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionPropertiesDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The source of the key.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview.Inputs
         public EncryptionPropertiesDescriptionArgs()
         {
         }
+        public static new EncryptionPropertiesDescriptionArgs Empty => new EncryptionPropertiesDescriptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20200901
     /// Description of a backup which will be performed.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20200901:WebAppBackupConfigurationSlot")]
-    public partial class WebAppBackupConfigurationSlot : Pulumi.CustomResource
+    public partial class WebAppBackupConfigurationSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the backup.
@@ -94,20 +94,20 @@ namespace Pulumi.AzureNative.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppBackupConfigurationSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppBackupConfigurationSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppBackupConfigurationSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Web.V20200901
         }
     }
 
-    public sealed class WebAppBackupConfigurationSlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppBackupConfigurationSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the backup.
@@ -194,5 +194,6 @@ namespace Pulumi.AzureNative.Web.V20200901
         public WebAppBackupConfigurationSlotArgs()
         {
         }
+        public static new WebAppBackupConfigurationSlotArgs Empty => new WebAppBackupConfigurationSlotArgs();
     }
 }

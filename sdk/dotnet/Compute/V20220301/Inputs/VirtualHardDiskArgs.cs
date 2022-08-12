@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
     /// <summary>
     /// Describes the uri of a disk.
     /// </summary>
-    public sealed class VirtualHardDiskArgs : Pulumi.ResourceArgs
+    public sealed class VirtualHardDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the virtual hard disk's uri.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Compute.V20220301.Inputs
         public VirtualHardDiskArgs()
         {
         }
+        public static new VirtualHardDiskArgs Empty => new VirtualHardDiskArgs();
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.EventHub
     }
 
 
-    public sealed class ListDisasterRecoveryConfigKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListDisasterRecoveryConfigKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Disaster Recovery configuration name
@@ -56,9 +56,10 @@ namespace Pulumi.AzureNative.EventHub
         public ListDisasterRecoveryConfigKeysArgs()
         {
         }
+        public static new ListDisasterRecoveryConfigKeysArgs Empty => new ListDisasterRecoveryConfigKeysArgs();
     }
 
-    public sealed class ListDisasterRecoveryConfigKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListDisasterRecoveryConfigKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Disaster Recovery configuration name
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.EventHub
         public ListDisasterRecoveryConfigKeysInvokeArgs()
         {
         }
+        public static new ListDisasterRecoveryConfigKeysInvokeArgs Empty => new ListDisasterRecoveryConfigKeysInvokeArgs();
     }
 
 

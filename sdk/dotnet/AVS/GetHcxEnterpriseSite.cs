@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
 
-    public sealed class GetHcxEnterpriseSiteArgs : Pulumi.InvokeArgs
+    public sealed class GetHcxEnterpriseSiteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the HCX Enterprise Site in the private cloud
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.AVS
         public GetHcxEnterpriseSiteArgs()
         {
         }
+        public static new GetHcxEnterpriseSiteArgs Empty => new GetHcxEnterpriseSiteArgs();
     }
 
-    public sealed class GetHcxEnterpriseSiteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHcxEnterpriseSiteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the HCX Enterprise Site in the private cloud
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.AVS
         public GetHcxEnterpriseSiteInvokeArgs()
         {
         }
+        public static new GetHcxEnterpriseSiteInvokeArgs Empty => new GetHcxEnterpriseSiteInvokeArgs();
     }
 
 

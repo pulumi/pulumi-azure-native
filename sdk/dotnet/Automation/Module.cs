@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Automation
     /// API Version: 2019-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Module")]
-    public partial class Module : Pulumi.CustomResource
+    public partial class Module : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Gets or sets the activity count of the module.
@@ -137,9 +137,9 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Module"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Module"},
-                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Module"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Module"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Module"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Module"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -161,7 +161,7 @@ namespace Pulumi.AzureNative.Automation
         }
     }
 
-    public sealed class ModuleArgs : Pulumi.ResourceArgs
+    public sealed class ModuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account.
@@ -214,5 +214,6 @@ namespace Pulumi.AzureNative.Automation
         public ModuleArgs()
         {
         }
+        public static new ModuleArgs Empty => new ModuleArgs();
     }
 }

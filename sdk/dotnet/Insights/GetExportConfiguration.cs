@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetExportConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetExportConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Continuous Export configuration ID. This is unique within a Application Insights component.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Insights
         public GetExportConfigurationArgs()
         {
         }
+        public static new GetExportConfigurationArgs Empty => new GetExportConfigurationArgs();
     }
 
-    public sealed class GetExportConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExportConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Continuous Export configuration ID. This is unique within a Application Insights component.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Insights
         public GetExportConfigurationInvokeArgs()
         {
         }
+        public static new GetExportConfigurationInvokeArgs Empty => new GetExportConfigurationInvokeArgs();
     }
 
 

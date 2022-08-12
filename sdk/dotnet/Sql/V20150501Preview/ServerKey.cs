@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
     /// A server key.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20150501preview:ServerKey")]
-    public partial class ServerKey : Pulumi.CustomResource
+    public partial class ServerKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The server key creation date.
@@ -94,16 +94,16 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         }
     }
 
-    public sealed class ServerKeyArgs : Pulumi.ResourceArgs
+    public sealed class ServerKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The server key creation date.
@@ -178,5 +178,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         public ServerKeyArgs()
         {
         }
+        public static new ServerKeyArgs Empty => new ServerKeyArgs();
     }
 }

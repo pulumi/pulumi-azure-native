@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.Inputs
     /// <summary>
     /// Data flow properties for managed integration runtime.
     /// </summary>
-    public sealed class IntegrationRuntimeDataFlowPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeDataFlowPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compute type of the cluster which will execute data flow job.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Synapse.Inputs
         public IntegrationRuntimeDataFlowPropertiesArgs()
         {
         }
+        public static new IntegrationRuntimeDataFlowPropertiesArgs Empty => new IntegrationRuntimeDataFlowPropertiesArgs();
     }
 }

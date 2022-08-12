@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210701
     /// BackupInstance Resource
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection/v20210701:BackupInstance")]
-    public partial class BackupInstance : Pulumi.CustomResource
+    public partial class BackupInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name associated with the resource.
@@ -64,18 +64,18 @@ namespace Pulumi.AzureNative.DataProtection.V20210701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dataprotection:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210101:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210201preview:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210601preview:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20211001preview:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20211201preview:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220101:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220201preview:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220301:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220331preview:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220401:BackupInstance"},
-                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220501:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210101:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210201preview:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210601preview:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20211001preview:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20211201preview:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220101:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220201preview:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220301:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220331preview:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220401:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220501:BackupInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210701
         }
     }
 
-    public sealed class BackupInstanceArgs : Pulumi.ResourceArgs
+    public sealed class BackupInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the backup instance
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.DataProtection.V20210701
         public BackupInstanceArgs()
         {
         }
+        public static new BackupInstanceArgs Empty => new BackupInstanceArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20181201.Inputs
 {
 
-    public sealed class VirtualMachineConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
@@ -57,5 +57,6 @@ namespace Pulumi.AzureNative.Batch.V20181201.Inputs
         public VirtualMachineConfigurationArgs()
         {
         }
+        public static new VirtualMachineConfigurationArgs Empty => new VirtualMachineConfigurationArgs();
     }
 }

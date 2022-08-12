@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201019Preview
     /// </summary>
     [Obsolete(@"Version 2020-10-19-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20201019preview:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource Type of Application.
@@ -131,21 +131,21 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201019Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190123preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:Application"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190123preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -167,7 +167,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201019Preview
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the application group
@@ -256,5 +256,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201019Preview
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

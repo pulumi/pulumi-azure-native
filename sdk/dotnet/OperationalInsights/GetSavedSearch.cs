@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     }
 
 
-    public sealed class GetSavedSearchArgs : Pulumi.InvokeArgs
+    public sealed class GetSavedSearchArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         public GetSavedSearchArgs()
         {
         }
+        public static new GetSavedSearchArgs Empty => new GetSavedSearchArgs();
     }
 
-    public sealed class GetSavedSearchInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSavedSearchInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public GetSavedSearchInvokeArgs()
         {
         }
+        public static new GetSavedSearchInvokeArgs Empty => new GetSavedSearchInvokeArgs();
     }
 
 

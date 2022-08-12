@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.OperationsManagement
     }
 
 
-    public sealed class GetManagementAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// User ManagementAssociation Name.
@@ -62,9 +62,10 @@ namespace Pulumi.AzureNative.OperationsManagement
         public GetManagementAssociationArgs()
         {
         }
+        public static new GetManagementAssociationArgs Empty => new GetManagementAssociationArgs();
     }
 
-    public sealed class GetManagementAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// User ManagementAssociation Name.
@@ -99,6 +100,7 @@ namespace Pulumi.AzureNative.OperationsManagement
         public GetManagementAssociationInvokeArgs()
         {
         }
+        public static new GetManagementAssociationInvokeArgs Empty => new GetManagementAssociationInvokeArgs();
     }
 
 

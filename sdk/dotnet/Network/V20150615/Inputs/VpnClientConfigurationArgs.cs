@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
     /// <summary>
     /// VpnClientConfiguration for P2S client
     /// </summary>
-    public sealed class VpnClientConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VpnClientConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the reference of the Address space resource which represents Address space for P2S VpnClient.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Network.V20150615.Inputs
         public VpnClientConfigurationArgs()
         {
         }
+        public static new VpnClientConfigurationArgs Empty => new VpnClientConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20210301
     /// Static Site User Provided Function App ARM resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSite")]
-    public partial class StaticSiteUserProvidedFunctionAppForStaticSite : Pulumi.CustomResource
+    public partial class StaticSiteUserProvidedFunctionAppForStaticSite : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date and time on which the function app was registered with the static site.
@@ -76,12 +76,12 @@ namespace Pulumi.AzureNative.Web.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSiteUserProvidedFunctionAppForStaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteUserProvidedFunctionAppForStaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSiteUserProvidedFunctionAppForStaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteUserProvidedFunctionAppForStaticSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.Web.V20210301
         }
     }
 
-    public sealed class StaticSiteUserProvidedFunctionAppForStaticSiteArgs : Pulumi.ResourceArgs
+    public sealed class StaticSiteUserProvidedFunctionAppForStaticSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the function app to register with the static site.
@@ -150,5 +150,6 @@ namespace Pulumi.AzureNative.Web.V20210301
         public StaticSiteUserProvidedFunctionAppForStaticSiteArgs()
         {
         }
+        public static new StaticSiteUserProvidedFunctionAppForStaticSiteArgs Empty => new StaticSiteUserProvidedFunctionAppForStaticSiteArgs();
     }
 }

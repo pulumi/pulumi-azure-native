@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
     /// <summary>
     /// Gets or sets the central server configuration.
     /// </summary>
-    public sealed class CentralServerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CentralServerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of central server VMs.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public CentralServerConfigurationArgs()
         {
         }
+        public static new CentralServerConfigurationArgs Empty => new CentralServerConfigurationArgs();
     }
 }

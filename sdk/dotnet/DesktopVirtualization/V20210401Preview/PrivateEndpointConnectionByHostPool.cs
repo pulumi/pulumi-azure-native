@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByHostPool")]
-    public partial class PrivateEndpointConnectionByHostPool : Pulumi.CustomResource
+    public partial class PrivateEndpointConnectionByHostPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -76,10 +76,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
         }
     }
 
-    public sealed class PrivateEndpointConnectionByHostPoolArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionByHostPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the host pool within the specified resource group
@@ -130,5 +130,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
         public PrivateEndpointConnectionByHostPoolArgs()
         {
         }
+        public static new PrivateEndpointConnectionByHostPoolArgs Empty => new PrivateEndpointConnectionByHostPoolArgs();
     }
 }

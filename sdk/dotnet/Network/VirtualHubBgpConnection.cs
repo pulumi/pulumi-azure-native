@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
     /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualHubBgpConnection")]
-    public partial class VirtualHubBgpConnection : Pulumi.CustomResource
+    public partial class VirtualHubBgpConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The current state of the VirtualHub to Peer.
@@ -83,16 +83,16 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualHubBgpConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Network
         }
     }
 
-    public sealed class VirtualHubBgpConnectionArgs : Pulumi.ResourceArgs
+    public sealed class VirtualHubBgpConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the connection.
@@ -161,5 +161,6 @@ namespace Pulumi.AzureNative.Network
         public VirtualHubBgpConnectionArgs()
         {
         }
+        public static new VirtualHubBgpConnectionArgs Empty => new VirtualHubBgpConnectionArgs();
     }
 }

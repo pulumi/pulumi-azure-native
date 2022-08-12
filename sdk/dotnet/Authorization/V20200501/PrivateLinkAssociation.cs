@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20200501
 {
     [AzureNativeResourceType("azure-native:authorization/v20200501:PrivateLinkAssociation")]
-    public partial class PrivateLinkAssociation : Pulumi.CustomResource
+    public partial class PrivateLinkAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The pla name.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Authorization.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization:PrivateLinkAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization:PrivateLinkAssociation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         }
     }
 
-    public sealed class PrivateLinkAssociationArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The management group ID.
@@ -100,5 +100,6 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         public PrivateLinkAssociationArgs()
         {
         }
+        public static new PrivateLinkAssociationArgs Empty => new PrivateLinkAssociationArgs();
     }
 }

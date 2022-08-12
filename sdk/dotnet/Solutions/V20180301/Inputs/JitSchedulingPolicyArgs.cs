@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.V20180301.Inputs
     /// <summary>
     /// The JIT scheduling policies.
     /// </summary>
-    public sealed class JitSchedulingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class JitSchedulingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("duration", required: true)]
         public Input<string> Duration { get; set; } = null!;
@@ -33,5 +33,6 @@ namespace Pulumi.AzureNative.Solutions.V20180301.Inputs
         public JitSchedulingPolicyArgs()
         {
         }
+        public static new JitSchedulingPolicyArgs Empty => new JitSchedulingPolicyArgs();
     }
 }

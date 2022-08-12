@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20151101.Inputs
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
     /// </summary>
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
@@ -84,5 +84,6 @@ namespace Pulumi.AzureNative.Network.V20151101.Inputs
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

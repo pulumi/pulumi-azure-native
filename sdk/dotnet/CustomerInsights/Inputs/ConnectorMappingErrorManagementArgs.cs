@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
     /// <summary>
     /// The error management.
     /// </summary>
-    public sealed class ConnectorMappingErrorManagementArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorMappingErrorManagementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The error limit allowed while importing data.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.CustomerInsights.Inputs
         public ConnectorMappingErrorManagementArgs()
         {
         }
+        public static new ConnectorMappingErrorManagementArgs Empty => new ConnectorMappingErrorManagementArgs();
     }
 }

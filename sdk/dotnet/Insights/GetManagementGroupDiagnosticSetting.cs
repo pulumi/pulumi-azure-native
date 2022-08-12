@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights
     }
 
 
-    public sealed class GetManagementGroupDiagnosticSettingArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementGroupDiagnosticSettingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The management group id.
@@ -44,9 +44,10 @@ namespace Pulumi.AzureNative.Insights
         public GetManagementGroupDiagnosticSettingArgs()
         {
         }
+        public static new GetManagementGroupDiagnosticSettingArgs Empty => new GetManagementGroupDiagnosticSettingArgs();
     }
 
-    public sealed class GetManagementGroupDiagnosticSettingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementGroupDiagnosticSettingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The management group id.
@@ -63,6 +64,7 @@ namespace Pulumi.AzureNative.Insights
         public GetManagementGroupDiagnosticSettingInvokeArgs()
         {
         }
+        public static new GetManagementGroupDiagnosticSettingInvokeArgs Empty => new GetManagementGroupDiagnosticSettingInvokeArgs();
     }
 
 

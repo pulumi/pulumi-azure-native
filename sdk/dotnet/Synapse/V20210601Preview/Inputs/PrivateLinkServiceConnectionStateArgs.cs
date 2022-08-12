@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
     /// <summary>
     /// Connection state details of the private endpoint
     /// </summary>
-    public sealed class PrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private link service connection description.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
         public PrivateLinkServiceConnectionStateArgs()
         {
         }
+        public static new PrivateLinkServiceConnectionStateArgs Empty => new PrivateLinkServiceConnectionStateArgs();
     }
 }

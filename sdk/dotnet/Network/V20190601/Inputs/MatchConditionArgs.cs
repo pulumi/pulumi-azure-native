@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
     /// <summary>
     /// Define match conditions.
     /// </summary>
-    public sealed class MatchConditionArgs : Pulumi.ResourceArgs
+    public sealed class MatchConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchValues", required: true)]
         private InputList<string>? _matchValues;
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.Network.V20190601.Inputs
         public MatchConditionArgs()
         {
         }
+        public static new MatchConditionArgs Empty => new MatchConditionArgs();
     }
 }

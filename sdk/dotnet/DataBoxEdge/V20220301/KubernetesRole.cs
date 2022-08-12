@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
     ///     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20220301:KubernetesRole")]
-    public partial class KubernetesRole : Pulumi.CustomResource
+    public partial class KubernetesRole : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Host OS supported by the Kubernetes role.
@@ -115,19 +115,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:databoxedge:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:KubernetesRole"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:KubernetesRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:KubernetesRole"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
         }
     }
 
-    public sealed class KubernetesRoleArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device name.
@@ -203,5 +203,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
         public KubernetesRoleArgs()
         {
         }
+        public static new KubernetesRoleArgs Empty => new KubernetesRoleArgs();
     }
 }

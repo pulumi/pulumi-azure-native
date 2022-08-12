@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:SyncAgent")]
-    public partial class SyncAgent : Pulumi.CustomResource
+    public partial class SyncAgent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Expiration time of the sync agent version.
@@ -89,16 +89,16 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SyncAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SyncAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SyncAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SyncAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SyncAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:SyncAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:SyncAgent"},
-                    new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:SyncAgent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Sql
         }
     }
 
-    public sealed class SyncAgentArgs : Pulumi.ResourceArgs
+    public sealed class SyncAgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -149,5 +149,6 @@ namespace Pulumi.AzureNative.Sql
         public SyncAgentArgs()
         {
         }
+        public static new SyncAgentArgs Empty => new SyncAgentArgs();
     }
 }

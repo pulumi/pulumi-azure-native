@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview
     }
 
 
-    public sealed class GetClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -43,9 +43,10 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview
         public GetClusterArgs()
         {
         }
+        public static new GetClusterArgs Empty => new GetClusterArgs();
     }
 
-    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview
         public GetClusterInvokeArgs()
         {
         }
+        public static new GetClusterInvokeArgs Empty => new GetClusterInvokeArgs();
     }
 
 

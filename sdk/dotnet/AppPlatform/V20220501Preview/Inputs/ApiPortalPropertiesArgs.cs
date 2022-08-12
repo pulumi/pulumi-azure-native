@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
     /// <summary>
     /// API portal properties payload
     /// </summary>
-    public sealed class ApiPortalPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ApiPortalPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("gatewayIds")]
         private InputList<string>? _gatewayIds;
@@ -62,5 +62,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview.Inputs
             HttpsOnly = false;
             Public = false;
         }
+        public static new ApiPortalPropertiesArgs Empty => new ApiPortalPropertiesArgs();
     }
 }

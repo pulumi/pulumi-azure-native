@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
 {
 
-    public sealed class WorkspaceConnectionManagedIdentityArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceConnectionManagedIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
         public WorkspaceConnectionManagedIdentityArgs()
         {
         }
+        public static new WorkspaceConnectionManagedIdentityArgs Empty => new WorkspaceConnectionManagedIdentityArgs();
     }
 }

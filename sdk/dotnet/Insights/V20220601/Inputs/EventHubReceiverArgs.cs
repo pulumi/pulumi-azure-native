@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights.V20220601.Inputs
     /// <summary>
     /// An Event hub receiver.
     /// </summary>
-    public sealed class EventHubReceiverArgs : Pulumi.ResourceArgs
+    public sealed class EventHubReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the specific Event Hub queue
@@ -55,5 +55,6 @@ namespace Pulumi.AzureNative.Insights.V20220601.Inputs
         {
             UseCommonAlertSchema = false;
         }
+        public static new EventHubReceiverArgs Empty => new EventHubReceiverArgs();
     }
 }

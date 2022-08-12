@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
     }
 
 
-    public sealed class GetManagementConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// User Management Configuration Name.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         public GetManagementConfigurationArgs()
         {
         }
+        public static new GetManagementConfigurationArgs Empty => new GetManagementConfigurationArgs();
     }
 
-    public sealed class GetManagementConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// User Management Configuration Name.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         public GetManagementConfigurationInvokeArgs()
         {
         }
+        public static new GetManagementConfigurationInvokeArgs Empty => new GetManagementConfigurationInvokeArgs();
     }
 
 

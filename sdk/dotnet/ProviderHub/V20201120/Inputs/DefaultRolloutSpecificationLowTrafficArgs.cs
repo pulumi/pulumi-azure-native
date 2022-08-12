@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
-    public sealed class DefaultRolloutSpecificationLowTrafficArgs : Pulumi.ResourceArgs
+    public sealed class DefaultRolloutSpecificationLowTrafficArgs : global::Pulumi.ResourceArgs
     {
         [Input("regions")]
         private InputList<string>? _regions;
@@ -26,5 +26,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public DefaultRolloutSpecificationLowTrafficArgs()
         {
         }
+        public static new DefaultRolloutSpecificationLowTrafficArgs Empty => new DefaultRolloutSpecificationLowTrafficArgs();
     }
 }

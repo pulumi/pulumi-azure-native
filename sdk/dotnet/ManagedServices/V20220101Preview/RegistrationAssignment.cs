@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20220101Preview
     /// The registration assignment.
     /// </summary>
     [AzureNativeResourceType("azure-native:managedservices/v20220101preview:RegistrationAssignment")]
-    public partial class RegistrationAssignment : Pulumi.CustomResource
+    public partial class RegistrationAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the registration assignment.
@@ -64,12 +64,12 @@ namespace Pulumi.AzureNative.ManagedServices.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:managedservices:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices:RegistrationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20220101Preview
         }
     }
 
-    public sealed class RegistrationAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class RegistrationAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The properties of a registration assignment.
@@ -114,5 +114,6 @@ namespace Pulumi.AzureNative.ManagedServices.V20220101Preview
         public RegistrationAssignmentArgs()
         {
         }
+        public static new RegistrationAssignmentArgs Empty => new RegistrationAssignmentArgs();
     }
 }

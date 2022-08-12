@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview.Inputs
     /// <summary>
     /// Kubernetes cluster specific properties
     /// </summary>
-    public sealed class KubernetesClusterPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Service Principal used by Kubernetes
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview.Inputs
         public KubernetesClusterPropertiesArgs()
         {
         }
+        public static new KubernetesClusterPropertiesArgs Empty => new KubernetesClusterPropertiesArgs();
     }
 }

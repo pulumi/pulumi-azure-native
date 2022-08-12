@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedNetwork.Inputs
     /// <summary>
     /// Properties of a Managed Network Peering Policy
     /// </summary>
-    public sealed class ManagedNetworkPeeringPolicyPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ManagedNetworkPeeringPolicyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the hub virtual network ID
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.ManagedNetwork.Inputs
         public ManagedNetworkPeeringPolicyPropertiesArgs()
         {
         }
+        public static new ManagedNetworkPeeringPolicyPropertiesArgs Empty => new ManagedNetworkPeeringPolicyPropertiesArgs();
     }
 }

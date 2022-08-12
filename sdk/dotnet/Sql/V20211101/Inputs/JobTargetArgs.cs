@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql.V20211101.Inputs
     /// <summary>
     /// A job target, for example a specific database or a container of databases that is evaluated during job execution.
     /// </summary>
-    public sealed class JobTargetArgs : Pulumi.ResourceArgs
+    public sealed class JobTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The target database name.
@@ -61,5 +61,6 @@ namespace Pulumi.AzureNative.Sql.V20211101.Inputs
         {
             MembershipType = Pulumi.AzureNative.Sql.V20211101.JobTargetGroupMembershipType.Include;
         }
+        public static new JobTargetArgs Empty => new JobTargetArgs();
     }
 }

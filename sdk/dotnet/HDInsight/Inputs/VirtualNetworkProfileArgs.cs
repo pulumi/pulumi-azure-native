@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
     /// <summary>
     /// The virtual network properties.
     /// </summary>
-    public sealed class VirtualNetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the virtual network.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         public VirtualNetworkProfileArgs()
         {
         }
+        public static new VirtualNetworkProfileArgs Empty => new VirtualNetworkProfileArgs();
     }
 }

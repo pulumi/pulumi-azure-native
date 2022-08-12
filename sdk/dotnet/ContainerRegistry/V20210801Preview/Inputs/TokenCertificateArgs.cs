@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview.Inputs
     /// <summary>
     /// The properties of a certificate used for authenticating a token.
     /// </summary>
-    public sealed class TokenCertificateArgs : Pulumi.ResourceArgs
+    public sealed class TokenCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview.Inputs
         public TokenCertificateArgs()
         {
         }
+        public static new TokenCertificateArgs Empty => new TokenCertificateArgs();
     }
 }

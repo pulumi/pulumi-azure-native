@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801
     /// User of a lab that can register for and use virtual machines within the lab.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices/v20220801:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The amount of usage quota time the user gets in addition to the lab usage quota.
@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.LabServices.V20220801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:User"},
-                    new Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of usage quota time the user gets in addition to the lab usage quota.
@@ -164,5 +164,6 @@ namespace Pulumi.AzureNative.LabServices.V20220801
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 }

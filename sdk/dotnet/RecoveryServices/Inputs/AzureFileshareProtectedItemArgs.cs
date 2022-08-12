@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// <summary>
     /// Azure File Share workload-specific backup item.
     /// </summary>
-    public sealed class AzureFileshareProtectedItemArgs : Pulumi.ResourceArgs
+    public sealed class AzureFileshareProtectedItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of backup management for the backed up item.
@@ -151,5 +151,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public AzureFileshareProtectedItemArgs()
         {
         }
+        public static new AzureFileshareProtectedItemArgs Empty => new AzureFileshareProtectedItemArgs();
     }
 }

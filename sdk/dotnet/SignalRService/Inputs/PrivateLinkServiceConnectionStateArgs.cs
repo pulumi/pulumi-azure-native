@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
     /// <summary>
     /// Connection state of the private endpoint connection
     /// </summary>
-    public sealed class PrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A message indicating if changes on the service provider require any updates on the consumer.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
         public PrivateLinkServiceConnectionStateArgs()
         {
         }
+        public static new PrivateLinkServiceConnectionStateArgs Empty => new PrivateLinkServiceConnectionStateArgs();
     }
 }

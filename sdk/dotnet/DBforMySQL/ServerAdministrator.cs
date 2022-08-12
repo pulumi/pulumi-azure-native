@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// API Version: 2017-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:ServerAdministrator")]
-    public partial class ServerAdministrator : Pulumi.CustomResource
+    public partial class ServerAdministrator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The type of administrator.
@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:ServerAdministrator"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:ServerAdministrator"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:ServerAdministrator"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:ServerAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         }
     }
 
-    public sealed class ServerAdministratorArgs : Pulumi.ResourceArgs
+    public sealed class ServerAdministratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of administrator.
@@ -141,5 +141,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         public ServerAdministratorArgs()
         {
         }
+        public static new ServerAdministratorArgs Empty => new ServerAdministratorArgs();
     }
 }

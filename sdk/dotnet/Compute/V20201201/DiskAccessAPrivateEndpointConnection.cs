@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20201201
     /// The Private Endpoint Connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection")]
-    public partial class DiskAccessAPrivateEndpointConnection : Pulumi.CustomResource
+    public partial class DiskAccessAPrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// private endpoint connection name
@@ -70,12 +70,12 @@ namespace Pulumi.AzureNative.Compute.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:compute:DiskAccessAPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:DiskAccessAPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.Compute.V20201201
         }
     }
 
-    public sealed class DiskAccessAPrivateEndpointConnectionArgs : Pulumi.ResourceArgs
+    public sealed class DiskAccessAPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -126,5 +126,6 @@ namespace Pulumi.AzureNative.Compute.V20201201
         public DiskAccessAPrivateEndpointConnectionArgs()
         {
         }
+        public static new DiskAccessAPrivateEndpointConnectionArgs Empty => new DiskAccessAPrivateEndpointConnectionArgs();
     }
 }

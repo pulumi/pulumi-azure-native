@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
     /// <summary>
     /// Describes a field reference within a MongoDB shard key
     /// </summary>
-    public sealed class MongoDbShardKeyFieldArgs : Pulumi.ResourceArgs
+    public sealed class MongoDbShardKeyFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the field
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview.Inputs
         public MongoDbShardKeyFieldArgs()
         {
         }
+        public static new MongoDbShardKeyFieldArgs Empty => new MongoDbShardKeyFieldArgs();
     }
 }

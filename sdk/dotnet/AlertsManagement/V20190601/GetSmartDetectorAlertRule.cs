@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190601
     }
 
 
-    public sealed class GetSmartDetectorAlertRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetSmartDetectorAlertRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the alert rule.
@@ -48,9 +48,10 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190601
         public GetSmartDetectorAlertRuleArgs()
         {
         }
+        public static new GetSmartDetectorAlertRuleArgs Empty => new GetSmartDetectorAlertRuleArgs();
     }
 
-    public sealed class GetSmartDetectorAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSmartDetectorAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the alert rule.
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190601
         public GetSmartDetectorAlertRuleInvokeArgs()
         {
         }
+        public static new GetSmartDetectorAlertRuleInvokeArgs Empty => new GetSmartDetectorAlertRuleInvokeArgs();
     }
 
 

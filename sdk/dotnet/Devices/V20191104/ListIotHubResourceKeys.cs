@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Devices.V20191104
     }
 
 
-    public sealed class ListIotHubResourceKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListIotHubResourceKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the IoT hub.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.Devices.V20191104
         public ListIotHubResourceKeysArgs()
         {
         }
+        public static new ListIotHubResourceKeysArgs Empty => new ListIotHubResourceKeysArgs();
     }
 
-    public sealed class ListIotHubResourceKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListIotHubResourceKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the IoT hub.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.Devices.V20191104
         public ListIotHubResourceKeysInvokeArgs()
         {
         }
+        public static new ListIotHubResourceKeysInvokeArgs Empty => new ListIotHubResourceKeysInvokeArgs();
     }
 
 

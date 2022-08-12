@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
     /// <summary>
     /// VMwareV2 fabric provider specific settings.
     /// </summary>
-    public sealed class VMwareV2FabricCreationInputArgs : Pulumi.ResourceArgs
+    public sealed class VMwareV2FabricCreationInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets the class type.
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         public VMwareV2FabricCreationInputArgs()
         {
         }
+        public static new VMwareV2FabricCreationInputArgs Empty => new VMwareV2FabricCreationInputArgs();
     }
 }

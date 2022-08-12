@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview.Inputs
     /// <summary>
     /// AAD profile of the connected cluster
     /// </summary>
-    public sealed class ConnectedClusterAADProfileArgs : Pulumi.ResourceArgs
+    public sealed class ConnectedClusterAADProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client app id configured on target K8 cluster 
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview.Inputs
         public ConnectedClusterAADProfileArgs()
         {
         }
+        public static new ConnectedClusterAADProfileArgs Empty => new ConnectedClusterAADProfileArgs();
     }
 }

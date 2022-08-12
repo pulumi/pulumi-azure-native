@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview.Inputs
 {
 
-    public sealed class EncryptionPropertyArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Bring-Your-Own cosmosdb account that customer brings to store data
@@ -51,5 +51,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview.Inputs
         public EncryptionPropertyArgs()
         {
         }
+        public static new EncryptionPropertyArgs Empty => new EncryptionPropertyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
     /// <summary>
     /// Properties of certificate imported from key vault.
     /// </summary>
-    public sealed class ContentCertificatePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ContentCertificatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of uploaded certificate.
@@ -31,5 +31,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview.Inputs
         public ContentCertificatePropertiesArgs()
         {
         }
+        public static new ContentCertificatePropertiesArgs Empty => new ContentCertificatePropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
     /// <summary>
     /// Yearly retention schedule.
     /// </summary>
-    public sealed class YearlyRetentionScheduleArgs : Pulumi.ResourceArgs
+    public sealed class YearlyRetentionScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("monthsOfYear")]
         private InputList<Pulumi.AzureNative.RecoveryServices.V20210201Preview.MonthOfYear>? _monthsOfYear;
@@ -66,5 +66,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
         public YearlyRetentionScheduleArgs()
         {
         }
+        public static new YearlyRetentionScheduleArgs Empty => new YearlyRetentionScheduleArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Education
     /// API Version: 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:education:Lab")]
-    public partial class Lab : Pulumi.CustomResource
+    public partial class Lab : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Default monetary cap for each student in this lab
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Education
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:education/v20211201preview:Lab"},
+                    new global::Pulumi.Alias { Type = "azure-native:education/v20211201preview:Lab"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Education
         }
     }
 
-    public sealed class LabArgs : Pulumi.ResourceArgs
+    public sealed class LabArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Billing account name.
@@ -200,5 +200,6 @@ namespace Pulumi.AzureNative.Education
         public LabArgs()
         {
         }
+        public static new LabArgs Empty => new LabArgs();
     }
 }

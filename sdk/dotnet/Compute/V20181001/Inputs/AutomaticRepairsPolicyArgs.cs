@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20181001.Inputs
     /// <summary>
     /// Specifies the configuration parameters for automatic repairs on the virtual machine scale set.
     /// </summary>
-    public sealed class AutomaticRepairsPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AutomaticRepairsPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether automatic repairs should be enabled on the virtual machine scale set. The default value is false.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Compute.V20181001.Inputs
         public AutomaticRepairsPolicyArgs()
         {
         }
+        public static new AutomaticRepairsPolicyArgs Empty => new AutomaticRepairsPolicyArgs();
     }
 }

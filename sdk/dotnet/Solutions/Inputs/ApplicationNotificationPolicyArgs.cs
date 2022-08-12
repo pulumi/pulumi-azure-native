@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions.Inputs
     /// <summary>
     /// Managed application notification policy.
     /// </summary>
-    public sealed class ApplicationNotificationPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationNotificationPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("notificationEndpoints", required: true)]
         private InputList<Inputs.ApplicationNotificationEndpointArgs>? _notificationEndpoints;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Solutions.Inputs
         public ApplicationNotificationPolicyArgs()
         {
         }
+        public static new ApplicationNotificationPolicyArgs Empty => new ApplicationNotificationPolicyArgs();
     }
 }

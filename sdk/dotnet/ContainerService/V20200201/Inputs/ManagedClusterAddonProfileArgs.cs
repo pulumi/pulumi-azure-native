@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20200201.Inputs
     /// <summary>
     /// A Kubernetes add-on profile for a managed cluster.
     /// </summary>
-    public sealed class ManagedClusterAddonProfileArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterAddonProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("config")]
         private InputMap<string>? _config;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.ContainerService.V20200201.Inputs
         public ManagedClusterAddonProfileArgs()
         {
         }
+        public static new ManagedClusterAddonProfileArgs Empty => new ManagedClusterAddonProfileArgs();
     }
 }

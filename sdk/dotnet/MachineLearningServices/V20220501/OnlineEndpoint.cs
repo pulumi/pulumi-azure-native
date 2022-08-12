@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220501
 {
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220501:OnlineEndpoint")]
-    public partial class OnlineEndpoint : Pulumi.CustomResource
+    public partial class OnlineEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
@@ -91,10 +91,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:OnlineEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:OnlineEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:OnlineEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         }
     }
 
-    public sealed class OnlineEndpointArgs : Pulumi.ResourceArgs
+    public sealed class OnlineEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Online Endpoint name.
@@ -181,5 +181,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
         public OnlineEndpointArgs()
         {
         }
+        public static new OnlineEndpointArgs Empty => new OnlineEndpointArgs();
     }
 }

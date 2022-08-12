@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Inputs
     /// <summary>
     /// The properties of the Azure File volume. Azure File shares are mounted as volumes.
     /// </summary>
-    public sealed class AzureFileVolumeArgs : Pulumi.ResourceArgs
+    public sealed class AzureFileVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flag indicating whether the Azure File shared mounted as a volume is read-only.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Inputs
         public AzureFileVolumeArgs()
         {
         }
+        public static new AzureFileVolumeArgs Empty => new AzureFileVolumeArgs();
     }
 }

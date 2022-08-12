@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     /// <summary>
     /// Private endpoint connection properties.
     /// </summary>
-    public sealed class PrivateEndpointConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// State of the private endpoint connection.
@@ -24,5 +24,6 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public PrivateEndpointConnectionPropertiesArgs()
         {
         }
+        public static new PrivateEndpointConnectionPropertiesArgs Empty => new PrivateEndpointConnectionPropertiesArgs();
     }
 }

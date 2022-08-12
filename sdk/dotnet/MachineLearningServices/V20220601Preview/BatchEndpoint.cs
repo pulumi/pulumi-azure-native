@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
 {
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220601preview:BatchEndpoint")]
-    public partial class BatchEndpoint : Pulumi.CustomResource
+    public partial class BatchEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -91,10 +91,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:BatchEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:BatchEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:BatchEndpoint"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:BatchEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:BatchEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:BatchEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:BatchEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:BatchEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         }
     }
 
-    public sealed class BatchEndpointArgs : Pulumi.ResourceArgs
+    public sealed class BatchEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Additional attributes of the entity.
@@ -181,5 +181,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
         public BatchEndpointArgs()
         {
         }
+        public static new BatchEndpointArgs Empty => new BatchEndpointArgs();
     }
 }

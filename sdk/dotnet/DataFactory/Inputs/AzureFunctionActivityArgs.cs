@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// <summary>
     /// Azure Function activity.
     /// </summary>
-    public sealed class AzureFunctionActivityArgs : Pulumi.ResourceArgs
+    public sealed class AzureFunctionActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
@@ -97,5 +97,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public AzureFunctionActivityArgs()
         {
         }
+        public static new AzureFunctionActivityArgs Empty => new AzureFunctionActivityArgs();
     }
 }

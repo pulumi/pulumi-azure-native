@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview.Inputs
     /// <summary>
     /// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
     /// </summary>
-    public sealed class AgentUpdatePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AgentUpdatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview.Inputs
         public AgentUpdatePropertiesArgs()
         {
         }
+        public static new AgentUpdatePropertiesArgs Empty => new AgentUpdatePropertiesArgs();
     }
 }

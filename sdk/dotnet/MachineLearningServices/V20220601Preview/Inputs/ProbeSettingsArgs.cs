@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Deployment container liveness/readiness probe configuration.
     /// </summary>
-    public sealed class ProbeSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ProbeSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of failures to allow before returning an unhealthy status.
@@ -52,5 +52,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             SuccessThreshold = 1;
             Timeout = "PT2S";
         }
+        public static new ProbeSettingsArgs Empty => new ProbeSettingsArgs();
     }
 }

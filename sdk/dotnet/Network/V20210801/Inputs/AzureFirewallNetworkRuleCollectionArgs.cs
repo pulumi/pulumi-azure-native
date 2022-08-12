@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
     /// <summary>
     /// Network rule collection resource.
     /// </summary>
-    public sealed class AzureFirewallNetworkRuleCollectionArgs : Pulumi.ResourceArgs
+    public sealed class AzureFirewallNetworkRuleCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action type of a rule collection.
@@ -54,5 +54,6 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public AzureFirewallNetworkRuleCollectionArgs()
         {
         }
+        public static new AzureFirewallNetworkRuleCollectionArgs Empty => new AzureFirewallNetworkRuleCollectionArgs();
     }
 }

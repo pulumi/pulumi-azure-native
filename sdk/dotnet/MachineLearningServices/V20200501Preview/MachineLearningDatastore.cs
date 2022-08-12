@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
     /// Machine Learning datastore object wrapped into ARM resource envelope.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore")]
-    public partial class MachineLearningDatastore : Pulumi.CustomResource
+    public partial class MachineLearningDatastore : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity of the resource.
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningDatastore"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:MachineLearningDatastore"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:MachineLearningDatastore"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:MachineLearningDatastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningDatastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:MachineLearningDatastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:MachineLearningDatastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:MachineLearningDatastore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         }
     }
 
-    public sealed class MachineLearningDatastoreArgs : Pulumi.ResourceArgs
+    public sealed class MachineLearningDatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account Key of storage account.
@@ -319,5 +319,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
             EnforceSSL = true;
             IncludeSecret = true;
         }
+        public static new MachineLearningDatastoreArgs Empty => new MachineLearningDatastoreArgs();
     }
 }

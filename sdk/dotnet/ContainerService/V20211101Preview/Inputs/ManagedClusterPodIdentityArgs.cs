@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService.V20211101Preview.Inputs
     /// <summary>
     /// Details about the pod identity assigned to the Managed Cluster.
     /// </summary>
-    public sealed class ManagedClusterPodIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterPodIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The binding selector to use for the AzureIdentityBinding resource.
@@ -42,5 +42,6 @@ namespace Pulumi.AzureNative.ContainerService.V20211101Preview.Inputs
         public ManagedClusterPodIdentityArgs()
         {
         }
+        public static new ManagedClusterPodIdentityArgs Empty => new ManagedClusterPodIdentityArgs();
     }
 }

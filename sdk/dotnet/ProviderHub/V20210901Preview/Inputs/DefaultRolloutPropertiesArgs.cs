@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
     /// <summary>
     /// Properties of the rollout.
     /// </summary>
-    public sealed class DefaultRolloutPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DefaultRolloutPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The provisioned state of the resource.
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview.Inputs
         public DefaultRolloutPropertiesArgs()
         {
         }
+        public static new DefaultRolloutPropertiesArgs Empty => new DefaultRolloutPropertiesArgs();
     }
 }

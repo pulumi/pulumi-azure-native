@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Authorization.V20150701
     /// </summary>
     [Obsolete(@"Version 2015-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:authorization/v20150701:RoleDefinition")]
-    public partial class RoleDefinition : Pulumi.CustomResource
+    public partial class RoleDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Role definition assignable scopes.
@@ -83,9 +83,9 @@ namespace Pulumi.AzureNative.Authorization.V20150701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:authorization:RoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20180101preview:RoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20220401:RoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization:RoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180101preview:RoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20220401:RoleDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Authorization.V20150701
         }
     }
 
-    public sealed class RoleDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class RoleDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("assignableScopes")]
         private InputList<string>? _assignableScopes;
@@ -166,5 +166,6 @@ namespace Pulumi.AzureNative.Authorization.V20150701
         public RoleDefinitionArgs()
         {
         }
+        public static new RoleDefinitionArgs Empty => new RoleDefinitionArgs();
     }
 }

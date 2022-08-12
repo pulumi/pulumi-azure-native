@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// <summary>
     /// Sweep job definition.
     /// </summary>
-    public sealed class SweepJobArgs : Pulumi.ResourceArgs
+    public sealed class SweepJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [Required] Type of the hyperparameter sampling algorithms
@@ -135,5 +135,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public SweepJobArgs()
         {
         }
+        public static new SweepJobArgs Empty => new SweepJobArgs();
     }
 }

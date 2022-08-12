@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
     }
 
 
-    public sealed class ListSourceControlRepositoriesArgs : Pulumi.InvokeArgs
+    public sealed class ListSourceControlRepositoriesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,9 +42,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
         public ListSourceControlRepositoriesArgs()
         {
         }
+        public static new ListSourceControlRepositoriesArgs Empty => new ListSourceControlRepositoriesArgs();
     }
 
-    public sealed class ListSourceControlRepositoriesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListSourceControlRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -61,6 +62,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
         public ListSourceControlRepositoriesInvokeArgs()
         {
         }
+        public static new ListSourceControlRepositoriesInvokeArgs Empty => new ListSourceControlRepositoriesInvokeArgs();
     }
 
 

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
 
-    public sealed class GetAuthorizationArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ExpressRoute Circuit Authorization in the private cloud
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.AVS
         public GetAuthorizationArgs()
         {
         }
+        public static new GetAuthorizationArgs Empty => new GetAuthorizationArgs();
     }
 
-    public sealed class GetAuthorizationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ExpressRoute Circuit Authorization in the private cloud
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.AVS
         public GetAuthorizationInvokeArgs()
         {
         }
+        public static new GetAuthorizationInvokeArgs Empty => new GetAuthorizationInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
     /// <summary>
     /// The encryption settings on the storage account.
     /// </summary>
-    public sealed class EncryptionArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
@@ -43,5 +43,6 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
         {
             KeySource = "Microsoft.Storage";
         }
+        public static new EncryptionArgs Empty => new EncryptionArgs();
     }
 }

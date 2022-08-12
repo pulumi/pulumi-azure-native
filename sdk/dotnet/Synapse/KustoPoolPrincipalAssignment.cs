@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse
     /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:KustoPoolPrincipalAssignment")]
-    public partial class KustoPoolPrincipalAssignment : Pulumi.CustomResource
+    public partial class KustoPoolPrincipalAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the resource
@@ -101,8 +101,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Synapse
         }
     }
 
-    public sealed class KustoPoolPrincipalAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class KustoPoolPrincipalAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -177,5 +177,6 @@ namespace Pulumi.AzureNative.Synapse
         public KustoPoolPrincipalAssignmentArgs()
         {
         }
+        public static new KustoPoolPrincipalAssignmentArgs Empty => new KustoPoolPrincipalAssignmentArgs();
     }
 }

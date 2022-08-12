@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
     /// <summary>
     /// A rule that specifies a set of actions and conditions
     /// </summary>
-    public sealed class DeliveryRuleArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.DeliveryRuleCacheExpirationActionArgs>? _actions;
@@ -48,5 +48,6 @@ namespace Pulumi.AzureNative.Cdn.V20171012.Inputs
         public DeliveryRuleArgs()
         {
         }
+        public static new DeliveryRuleArgs Empty => new DeliveryRuleArgs();
     }
 }

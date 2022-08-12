@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
     /// <summary>
     /// Describes a storage profile.
     /// </summary>
-    public sealed class ImageStorageProfileArgs : Pulumi.ResourceArgs
+    public sealed class ImageStorageProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
         private InputList<Inputs.ImageDataDiskArgs>? _dataDisks;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
         public ImageStorageProfileArgs()
         {
         }
+        public static new ImageStorageProfileArgs Empty => new ImageStorageProfileArgs();
     }
 }

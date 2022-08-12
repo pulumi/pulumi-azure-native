@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// AuthenticationPolicy of type Open.
     /// </summary>
-    public sealed class OpenAuthenticationAccessPoliciesArgs : Pulumi.ResourceArgs
+    public sealed class OpenAuthenticationAccessPoliciesArgs : global::Pulumi.ResourceArgs
     {
         [Input("policies")]
         private InputMap<Inputs.OpenAuthenticationAccessPolicyArgs>? _policies;
@@ -30,5 +30,6 @@ namespace Pulumi.AzureNative.Logic.Inputs
         public OpenAuthenticationAccessPoliciesArgs()
         {
         }
+        public static new OpenAuthenticationAccessPoliciesArgs Empty => new OpenAuthenticationAccessPoliciesArgs();
     }
 }

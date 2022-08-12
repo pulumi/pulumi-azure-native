@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     /// API Version: 2016-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique identifier associated with this Data Lake Analytics account.
@@ -239,9 +239,9 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:Account"},
-                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:Account"},
-                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20191101preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20191101preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -263,7 +263,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Lake Analytics account.
@@ -407,5 +407,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
             NewTier = Pulumi.AzureNative.DataLakeAnalytics.TierType.Consumption;
             QueryStoreRetention = 30;
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

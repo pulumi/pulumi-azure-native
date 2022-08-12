@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
     /// <summary>
     /// Advances setting to customize StackEnsemble run.
     /// </summary>
-    public sealed class StackEnsembleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class StackEnsembleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional parameters to pass to the initializer of the meta-learner.
@@ -38,5 +38,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview.Inputs
             StackMetaLearnerTrainPercentage = 0.2;
             StackMetaLearnerType = "None";
         }
+        public static new StackEnsembleSettingsArgs Empty => new StackEnsembleSettingsArgs();
     }
 }

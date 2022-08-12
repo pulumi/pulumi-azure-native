@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Resources
     }
 
 
-    public sealed class GetTemplateSpecVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetTemplateSpecVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.Resources
         public GetTemplateSpecVersionArgs()
         {
         }
+        public static new GetTemplateSpecVersionArgs Empty => new GetTemplateSpecVersionArgs();
     }
 
-    public sealed class GetTemplateSpecVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTemplateSpecVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -75,6 +76,7 @@ namespace Pulumi.AzureNative.Resources
         public GetTemplateSpecVersionInvokeArgs()
         {
         }
+        public static new GetTemplateSpecVersionInvokeArgs Empty => new GetTemplateSpecVersionInvokeArgs();
     }
 
 

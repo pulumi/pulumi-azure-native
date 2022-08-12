@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Resources
     }
 
 
-    public sealed class GetDeploymentScriptArgs : Pulumi.InvokeArgs
+    public sealed class GetDeploymentScriptArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -45,9 +45,10 @@ namespace Pulumi.AzureNative.Resources
         public GetDeploymentScriptArgs()
         {
         }
+        public static new GetDeploymentScriptArgs Empty => new GetDeploymentScriptArgs();
     }
 
-    public sealed class GetDeploymentScriptInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeploymentScriptInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -64,6 +65,7 @@ namespace Pulumi.AzureNative.Resources
         public GetDeploymentScriptInvokeArgs()
         {
         }
+        public static new GetDeploymentScriptInvokeArgs Empty => new GetDeploymentScriptInvokeArgs();
     }
 
 

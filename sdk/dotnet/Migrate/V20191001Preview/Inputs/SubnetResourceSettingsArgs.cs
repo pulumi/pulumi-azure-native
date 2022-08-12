@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
     /// <summary>
     /// Defines the virtual network subnets resource settings.
     /// </summary>
-    public sealed class SubnetResourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class SubnetResourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets address prefix for the subnet.
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
         public SubnetResourceSettingsArgs()
         {
         }
+        public static new SubnetResourceSettingsArgs Empty => new SubnetResourceSettingsArgs();
     }
 }

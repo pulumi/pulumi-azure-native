@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20171201.Inputs
     /// <summary>
     /// Identity for the virtual machine.
     /// </summary>
-    public sealed class VirtualMachineIdentityArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -36,5 +36,6 @@ namespace Pulumi.AzureNative.Compute.V20171201.Inputs
         public VirtualMachineIdentityArgs()
         {
         }
+        public static new VirtualMachineIdentityArgs Empty => new VirtualMachineIdentityArgs();
     }
 }

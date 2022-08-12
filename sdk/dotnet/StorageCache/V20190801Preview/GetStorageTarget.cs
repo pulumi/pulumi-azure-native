@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview
     }
 
 
-    public sealed class GetStorageTargetArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageTargetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of cache.
@@ -49,9 +49,10 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview
         public GetStorageTargetArgs()
         {
         }
+        public static new GetStorageTargetArgs Empty => new GetStorageTargetArgs();
     }
 
-    public sealed class GetStorageTargetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of cache.
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.StorageCache.V20190801Preview
         public GetStorageTargetInvokeArgs()
         {
         }
+        public static new GetStorageTargetInvokeArgs Empty => new GetStorageTargetInvokeArgs();
     }
 
 

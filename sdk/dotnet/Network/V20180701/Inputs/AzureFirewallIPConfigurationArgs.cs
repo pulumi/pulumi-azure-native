@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180701.Inputs
     /// <summary>
     /// IP configuration of an Azure Firewall.
     /// </summary>
-    public sealed class AzureFirewallIPConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AzureFirewallIPConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -60,5 +60,6 @@ namespace Pulumi.AzureNative.Network.V20180701.Inputs
         public AzureFirewallIPConfigurationArgs()
         {
         }
+        public static new AzureFirewallIPConfigurationArgs Empty => new AzureFirewallIPConfigurationArgs();
     }
 }

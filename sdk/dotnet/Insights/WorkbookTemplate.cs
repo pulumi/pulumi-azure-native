@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Insights
     /// API Version: 2019-10-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:WorkbookTemplate")]
-    public partial class WorkbookTemplate : Pulumi.CustomResource
+    public partial class WorkbookTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Information about the author of the workbook template.
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:insights/v20191017preview:WorkbookTemplate"},
-                    new Pulumi.Alias { Type = "azure-native:insights/v20201120:WorkbookTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20191017preview:WorkbookTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20201120:WorkbookTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Insights
         }
     }
 
-    public sealed class WorkbookTemplateArgs : Pulumi.ResourceArgs
+    public sealed class WorkbookTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the author of the workbook template.
@@ -195,5 +195,6 @@ namespace Pulumi.AzureNative.Insights
         public WorkbookTemplateArgs()
         {
         }
+        public static new WorkbookTemplateArgs Empty => new WorkbookTemplateArgs();
     }
 }

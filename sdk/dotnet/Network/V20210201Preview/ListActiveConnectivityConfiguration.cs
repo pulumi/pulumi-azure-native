@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     }
 
 
-    public sealed class ListActiveConnectivityConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class ListActiveConnectivityConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager.
@@ -60,9 +60,10 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public ListActiveConnectivityConfigurationArgs()
         {
         }
+        public static new ListActiveConnectivityConfigurationArgs Empty => new ListActiveConnectivityConfigurationArgs();
     }
 
-    public sealed class ListActiveConnectivityConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ListActiveConnectivityConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the network manager.
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public ListActiveConnectivityConfigurationInvokeArgs()
         {
         }
+        public static new ListActiveConnectivityConfigurationInvokeArgs Empty => new ListActiveConnectivityConfigurationInvokeArgs();
     }
 
 
