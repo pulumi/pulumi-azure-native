@@ -332,7 +332,7 @@ public final class AutomationFunctions {
     }
     /**
      * Definition of hybrid runbook worker group.
-     * API Version: 2022-02-22.
+     * API Version: 2021-06-22.
      * 
      */
     public static Output<GetHybridRunbookWorkerGroupResult> getHybridRunbookWorkerGroup(GetHybridRunbookWorkerGroupArgs args) {
@@ -340,7 +340,7 @@ public final class AutomationFunctions {
     }
     /**
      * Definition of hybrid runbook worker group.
-     * API Version: 2022-02-22.
+     * API Version: 2021-06-22.
      * 
      */
     public static CompletableFuture<GetHybridRunbookWorkerGroupResult> getHybridRunbookWorkerGroupPlain(GetHybridRunbookWorkerGroupPlainArgs args) {
@@ -348,7 +348,7 @@ public final class AutomationFunctions {
     }
     /**
      * Definition of hybrid runbook worker group.
-     * API Version: 2022-02-22.
+     * API Version: 2021-06-22.
      * 
      */
     public static Output<GetHybridRunbookWorkerGroupResult> getHybridRunbookWorkerGroup(GetHybridRunbookWorkerGroupArgs args, InvokeOptions options) {
@@ -356,7 +356,7 @@ public final class AutomationFunctions {
     }
     /**
      * Definition of hybrid runbook worker group.
-     * API Version: 2022-02-22.
+     * API Version: 2021-06-22.
      * 
      */
     public static CompletableFuture<GetHybridRunbookWorkerGroupResult> getHybridRunbookWorkerGroupPlain(GetHybridRunbookWorkerGroupPlainArgs args, InvokeOptions options) {

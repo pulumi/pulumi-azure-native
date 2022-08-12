@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var availabilitySet = new AvailabilitySet(&#34;availabilitySet&#34;, AvailabilitySetArgs.builder()        
- *             .availabilitySetName(&#34;hr-avset&#34;)
+ *             .availabilitySetName(&#34;HRAvailabilitySet&#34;)
  *             .extendedLocation(Map.ofEntries(
  *                 Map.entry(&#34;name&#34;, &#34;/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso&#34;),
  *                 Map.entry(&#34;type&#34;, &#34;customLocation&#34;)

@@ -3,10 +3,12 @@
 
 package com.pulumi.azurenative.automation.outputs;
 
+import com.pulumi.azurenative.automation.outputs.HybridRunbookWorkerLegacyResponse;
 import com.pulumi.azurenative.automation.outputs.RunAsCredentialAssociationPropertyResponse;
 import com.pulumi.azurenative.automation.outputs.SystemDataResponse;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,15 +26,20 @@ public final class GetHybridRunbookWorkerGroupResult {
      */
     private @Nullable String groupType;
     /**
-     * @return Fully qualified resource Id for the resource
+     * @return Gets or sets the list of hybrid runbook workers.
      * 
      */
-    private String id;
+    private @Nullable List<HybridRunbookWorkerLegacyResponse> hybridRunbookWorkers;
     /**
-     * @return The name of the resource
+     * @return Gets or sets the id of the resource.
      * 
      */
-    private String name;
+    private @Nullable String id;
+    /**
+     * @return Gets or sets the name of the group.
+     * 
+     */
+    private @Nullable String name;
     /**
      * @return Resource system metadata.
      * 
@@ -60,18 +67,25 @@ public final class GetHybridRunbookWorkerGroupResult {
         return Optional.ofNullable(this.groupType);
     }
     /**
-     * @return Fully qualified resource Id for the resource
+     * @return Gets or sets the list of hybrid runbook workers.
      * 
      */
-    public String id() {
-        return this.id;
+    public List<HybridRunbookWorkerLegacyResponse> hybridRunbookWorkers() {
+        return this.hybridRunbookWorkers == null ? List.of() : this.hybridRunbookWorkers;
     }
     /**
-     * @return The name of the resource
+     * @return Gets or sets the id of the resource.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+    /**
+     * @return Gets or sets the name of the group.
+     * 
+     */
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Resource system metadata.
@@ -99,8 +113,9 @@ public final class GetHybridRunbookWorkerGroupResult {
     public static final class Builder {
         private @Nullable RunAsCredentialAssociationPropertyResponse credential;
         private @Nullable String groupType;
-        private String id;
-        private String name;
+        private @Nullable List<HybridRunbookWorkerLegacyResponse> hybridRunbookWorkers;
+        private @Nullable String id;
+        private @Nullable String name;
         private SystemDataResponse systemData;
         private String type;
         public Builder() {}
@@ -108,6 +123,7 @@ public final class GetHybridRunbookWorkerGroupResult {
     	      Objects.requireNonNull(defaults);
     	      this.credential = defaults.credential;
     	      this.groupType = defaults.groupType;
+    	      this.hybridRunbookWorkers = defaults.hybridRunbookWorkers;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.systemData = defaults.systemData;
@@ -125,13 +141,21 @@ public final class GetHybridRunbookWorkerGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder hybridRunbookWorkers(@Nullable List<HybridRunbookWorkerLegacyResponse> hybridRunbookWorkers) {
+            this.hybridRunbookWorkers = hybridRunbookWorkers;
+            return this;
+        }
+        public Builder hybridRunbookWorkers(HybridRunbookWorkerLegacyResponse... hybridRunbookWorkers) {
+            return hybridRunbookWorkers(List.of(hybridRunbookWorkers));
+        }
+        @CustomType.Setter
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -148,6 +172,7 @@ public final class GetHybridRunbookWorkerGroupResult {
             final var o = new GetHybridRunbookWorkerGroupResult();
             o.credential = credential;
             o.groupType = groupType;
+            o.hybridRunbookWorkers = hybridRunbookWorkers;
             o.id = id;
             o.name = name;
             o.systemData = systemData;

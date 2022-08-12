@@ -5,6 +5,7 @@ package com.pulumi.azurenative.automation;
 
 import com.pulumi.azurenative.Utilities;
 import com.pulumi.azurenative.automation.HybridRunbookWorkerGroupArgs;
+import com.pulumi.azurenative.automation.outputs.HybridRunbookWorkerLegacyResponse;
 import com.pulumi.azurenative.automation.outputs.RunAsCredentialAssociationPropertyResponse;
 import com.pulumi.azurenative.automation.outputs.SystemDataResponse;
 import com.pulumi.core.Alias;
@@ -19,7 +20,7 @@ import javax.annotation.Nullable;
 
 /**
  * Definition of hybrid runbook worker group.
- * API Version: 2022-02-22.
+ * API Version: 2021-06-22.
  * 
  * ## Example Usage
  * ### Create a hybrid worker group
@@ -90,18 +91,32 @@ public class HybridRunbookWorkerGroup extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.groupType);
     }
     /**
-     * The name of the resource
+     * Gets or sets the list of hybrid runbook workers.
+     * 
+     */
+    @Export(name="hybridRunbookWorkers", type=List.class, parameters={HybridRunbookWorkerLegacyResponse.class})
+    private Output</* @Nullable */ List<HybridRunbookWorkerLegacyResponse>> hybridRunbookWorkers;
+
+    /**
+     * @return Gets or sets the list of hybrid runbook workers.
+     * 
+     */
+    public Output<Optional<List<HybridRunbookWorkerLegacyResponse>>> hybridRunbookWorkers() {
+        return Codegen.optional(this.hybridRunbookWorkers);
+    }
+    /**
+     * Gets or sets the name of the group.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
-     * @return The name of the resource
+     * @return Gets or sets the name of the group.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * Resource system metadata.

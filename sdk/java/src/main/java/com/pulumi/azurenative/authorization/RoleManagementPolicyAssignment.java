@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .policyId(&#34;/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleManagementPolicies/b959d571-f0b5-4042-88a7-01be6cb22db9&#34;)
  *             .roleDefinitionId(&#34;/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleDefinitions/a1705bd2-3a8f-45a5-8683-466fcfd5cc24&#34;)
  *             .roleManagementPolicyAssignmentName(&#34;b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24&#34;)
- *             .scope(&#34;providers/Microsoft.Subscription/subscriptions/129ff972-28f8-46b8-a726-e497be039368&#34;)
+ *             .scope(&#34;/subscriptions/129ff972-28f8-46b8-a726-e497be039368&#34;)
  *             .build());
  * 
  *     }

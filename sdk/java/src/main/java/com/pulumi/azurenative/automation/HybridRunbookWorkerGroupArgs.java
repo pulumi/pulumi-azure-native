@@ -62,21 +62,6 @@ public final class HybridRunbookWorkerGroupArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Gets or sets the name of the resource.
-     * 
-     */
-    @Import(name="name")
-    private @Nullable Output<String> name;
-
-    /**
-     * @return Gets or sets the name of the resource.
-     * 
-     */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
-    }
-
-    /**
      * Name of an Azure Resource group.
      * 
      */
@@ -97,7 +82,6 @@ public final class HybridRunbookWorkerGroupArgs extends com.pulumi.resources.Res
         this.automationAccountName = $.automationAccountName;
         this.credential = $.credential;
         this.hybridRunbookWorkerGroupName = $.hybridRunbookWorkerGroupName;
-        this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
     }
 
@@ -180,27 +164,6 @@ public final class HybridRunbookWorkerGroupArgs extends com.pulumi.resources.Res
          */
         public Builder hybridRunbookWorkerGroupName(String hybridRunbookWorkerGroupName) {
             return hybridRunbookWorkerGroupName(Output.of(hybridRunbookWorkerGroupName));
-        }
-
-        /**
-         * @param name Gets or sets the name of the resource.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder name(@Nullable Output<String> name) {
-            $.name = name;
-            return this;
-        }
-
-        /**
-         * @param name Gets or sets the name of the resource.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder name(String name) {
-            return name(Output.of(name));
         }
 
         /**

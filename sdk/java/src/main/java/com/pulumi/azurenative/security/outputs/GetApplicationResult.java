@@ -3,21 +3,14 @@
 
 package com.pulumi.azurenative.security.outputs;
 
-import com.pulumi.azurenative.security.outputs.ApplicationConditionResponse;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApplicationResult {
-    /**
-     * @return The application conditionSets - see examples
-     * 
-     */
-    private List<List<List<ApplicationConditionResponse>>> conditionSets;
     /**
      * @return description of the application
      * 
@@ -50,13 +43,6 @@ public final class GetApplicationResult {
     private String type;
 
     private GetApplicationResult() {}
-    /**
-     * @return The application conditionSets - see examples
-     * 
-     */
-    public List<List<List<ApplicationConditionResponse>>> conditionSets() {
-        return this.conditionSets;
-    }
     /**
      * @return description of the application
      * 
@@ -109,7 +95,6 @@ public final class GetApplicationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<List<List<ApplicationConditionResponse>>> conditionSets;
         private @Nullable String description;
         private @Nullable String displayName;
         private String id;
@@ -119,7 +104,6 @@ public final class GetApplicationResult {
         public Builder() {}
         public Builder(GetApplicationResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.conditionSets = defaults.conditionSets;
     	      this.description = defaults.description;
     	      this.displayName = defaults.displayName;
     	      this.id = defaults.id;
@@ -128,11 +112,6 @@ public final class GetApplicationResult {
     	      this.type = defaults.type;
         }
 
-        @CustomType.Setter
-        public Builder conditionSets(List<List<List<ApplicationConditionResponse>>> conditionSets) {
-            this.conditionSets = Objects.requireNonNull(conditionSets);
-            return this;
-        }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
@@ -165,7 +144,6 @@ public final class GetApplicationResult {
         }
         public GetApplicationResult build() {
             final var o = new GetApplicationResult();
-            o.conditionSets = conditionSets;
             o.description = description;
             o.displayName = displayName;
             o.id = id;

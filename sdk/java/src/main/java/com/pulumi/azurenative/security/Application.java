@@ -5,7 +5,6 @@ package com.pulumi.azurenative.security;
 
 import com.pulumi.azurenative.Utilities;
 import com.pulumi.azurenative.security.ApplicationArgs;
-import com.pulumi.azurenative.security.outputs.ApplicationConditionResponse;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -39,11 +38,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var application = new Application(&#34;application&#34;, ApplicationArgs.builder()        
  *             .applicationId(&#34;ad9a8e26-29d9-4829-bb30-e597a58cdbb8&#34;)
- *             .conditionSets(Map.of(&#34;conditions&#34;, Map.ofEntries(
- *                 Map.entry(&#34;operator&#34;, &#34;contains&#34;),
- *                 Map.entry(&#34;property&#34;, &#34;$.Id&#34;),
- *                 Map.entry(&#34;value&#34;, &#34;-bil-&#34;)
- *             )))
  *             .description(&#34;An application on critical recommendations&#34;)
  *             .displayName(&#34;Admin&#39;s application&#34;)
  *             .sourceResourceType(&#34;Assessments&#34;)
@@ -65,20 +59,6 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure-native:security:Application")
 public class Application extends com.pulumi.resources.CustomResource {
-    /**
-     * The application conditionSets - see examples
-     * 
-     */
-    @Export(name="conditionSets", type=List.class, parameters={List.class})
-    private Output<List<List<List<ApplicationConditionResponse>>>> conditionSets;
-
-    /**
-     * @return The application conditionSets - see examples
-     * 
-     */
-    public Output<List<List<List<ApplicationConditionResponse>>>> conditionSets() {
-        return this.conditionSets;
-    }
     /**
      * description of the application
      * 

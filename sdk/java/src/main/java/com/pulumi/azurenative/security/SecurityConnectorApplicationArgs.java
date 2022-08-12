@@ -4,12 +4,10 @@
 package com.pulumi.azurenative.security;
 
 import com.pulumi.azurenative.security.enums.ApplicationSourceResourceType;
-import com.pulumi.azurenative.security.inputs.ApplicationConditionArgs;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -32,21 +30,6 @@ public final class SecurityConnectorApplicationArgs extends com.pulumi.resources
      */
     public Optional<Output<String>> applicationId() {
         return Optional.ofNullable(this.applicationId);
-    }
-
-    /**
-     * The application conditionSets - see examples
-     * 
-     */
-    @Import(name="conditionSets", required=true)
-    private Output<List<List<List<ApplicationConditionArgs>>>> conditionSets;
-
-    /**
-     * @return The application conditionSets - see examples
-     * 
-     */
-    public Output<List<List<List<ApplicationConditionArgs>>>> conditionSets() {
-        return this.conditionSets;
     }
 
     /**
@@ -128,7 +111,6 @@ public final class SecurityConnectorApplicationArgs extends com.pulumi.resources
 
     private SecurityConnectorApplicationArgs(SecurityConnectorApplicationArgs $) {
         this.applicationId = $.applicationId;
-        this.conditionSets = $.conditionSets;
         this.description = $.description;
         this.displayName = $.displayName;
         this.resourceGroupName = $.resourceGroupName;
@@ -173,37 +155,6 @@ public final class SecurityConnectorApplicationArgs extends com.pulumi.resources
          */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
-        }
-
-        /**
-         * @param conditionSets The application conditionSets - see examples
-         * 
-         * @return builder
-         * 
-         */
-        public Builder conditionSets(Output<List<List<List<ApplicationConditionArgs>>>> conditionSets) {
-            $.conditionSets = conditionSets;
-            return this;
-        }
-
-        /**
-         * @param conditionSets The application conditionSets - see examples
-         * 
-         * @return builder
-         * 
-         */
-        public Builder conditionSets(List<List<List<ApplicationConditionArgs>>> conditionSets) {
-            return conditionSets(Output.of(conditionSets));
-        }
-
-        /**
-         * @param conditionSets The application conditionSets - see examples
-         * 
-         * @return builder
-         * 
-         */
-        public Builder conditionSets(List<List<ApplicationConditionArgs>>... conditionSets) {
-            return conditionSets(List.of(conditionSets));
         }
 
         /**
@@ -332,7 +283,6 @@ public final class SecurityConnectorApplicationArgs extends com.pulumi.resources
         }
 
         public SecurityConnectorApplicationArgs build() {
-            $.conditionSets = Objects.requireNonNull($.conditionSets, "expected parameter 'conditionSets' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             $.securityConnectorName = Objects.requireNonNull($.securityConnectorName, "expected parameter 'securityConnectorName' to be non-null");
             $.sourceResourceType = Objects.requireNonNull($.sourceResourceType, "expected parameter 'sourceResourceType' to be non-null");
