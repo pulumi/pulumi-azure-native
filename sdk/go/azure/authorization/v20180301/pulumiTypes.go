@@ -21,7 +21,7 @@ type PolicyDefinitionReference struct {
 // PolicyDefinitionReferenceInput is an input type that accepts PolicyDefinitionReferenceArgs and PolicyDefinitionReferenceOutput values.
 // You can construct a concrete instance of `PolicyDefinitionReferenceInput` via:
 //
-//          PolicyDefinitionReferenceArgs{...}
+//	PolicyDefinitionReferenceArgs{...}
 type PolicyDefinitionReferenceInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i PolicyDefinitionReferenceArgs) ToPolicyDefinitionReferenceOutputWithCont
 // PolicyDefinitionReferenceArrayInput is an input type that accepts PolicyDefinitionReferenceArray and PolicyDefinitionReferenceArrayOutput values.
 // You can construct a concrete instance of `PolicyDefinitionReferenceArrayInput` via:
 //
-//          PolicyDefinitionReferenceArray{ PolicyDefinitionReferenceArgs{...} }
+//	PolicyDefinitionReferenceArray{ PolicyDefinitionReferenceArgs{...} }
 type PolicyDefinitionReferenceArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +183,7 @@ type PolicySku struct {
 // PolicySkuInput is an input type that accepts PolicySkuArgs and PolicySkuOutput values.
 // You can construct a concrete instance of `PolicySkuInput` via:
 //
-//          PolicySkuArgs{...}
+//	PolicySkuArgs{...}
 type PolicySkuInput interface {
 	pulumi.Input
 
@@ -222,11 +222,11 @@ func (i PolicySkuArgs) ToPolicySkuPtrOutputWithContext(ctx context.Context) Poli
 // PolicySkuPtrInput is an input type that accepts PolicySkuArgs, PolicySkuPtr and PolicySkuPtrOutput values.
 // You can construct a concrete instance of `PolicySkuPtrInput` via:
 //
-//          PolicySkuArgs{...}
+//	        PolicySkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicySkuPtrInput interface {
 	pulumi.Input
 

@@ -150,7 +150,7 @@ func (o DataEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // DataEncryptionTypeInput is an input type that accepts DataEncryptionTypeArgs and DataEncryptionTypeOutput values.
 // You can construct a concrete instance of `DataEncryptionTypeInput` via:
 //
-//          DataEncryptionTypeArgs{...}
+//	DataEncryptionTypeArgs{...}
 type DataEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -331,7 +331,7 @@ func (o ManagedServiceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 // ManagedServiceIdentityTypeInput is an input type that accepts ManagedServiceIdentityTypeArgs and ManagedServiceIdentityTypeOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityTypeInput` via:
 //
-//          ManagedServiceIdentityTypeArgs{...}
+//	ManagedServiceIdentityTypeArgs{...}
 type ManagedServiceIdentityTypeInput interface {
 	pulumi.Input
 

@@ -81,7 +81,7 @@ type ApplicationAuthorization struct {
 // ApplicationAuthorizationInput is an input type that accepts ApplicationAuthorizationArgs and ApplicationAuthorizationOutput values.
 // You can construct a concrete instance of `ApplicationAuthorizationInput` via:
 //
-//          ApplicationAuthorizationArgs{...}
+//	ApplicationAuthorizationArgs{...}
 type ApplicationAuthorizationInput interface {
 	pulumi.Input
 
@@ -112,7 +112,7 @@ func (i ApplicationAuthorizationArgs) ToApplicationAuthorizationOutputWithContex
 // ApplicationAuthorizationArrayInput is an input type that accepts ApplicationAuthorizationArray and ApplicationAuthorizationArrayOutput values.
 // You can construct a concrete instance of `ApplicationAuthorizationArrayInput` via:
 //
-//          ApplicationAuthorizationArray{ ApplicationAuthorizationArgs{...} }
+//	ApplicationAuthorizationArray{ ApplicationAuthorizationArgs{...} }
 type ApplicationAuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -311,7 +311,7 @@ type ApplicationDefinitionArtifact struct {
 // ApplicationDefinitionArtifactInput is an input type that accepts ApplicationDefinitionArtifactArgs and ApplicationDefinitionArtifactOutput values.
 // You can construct a concrete instance of `ApplicationDefinitionArtifactInput` via:
 //
-//          ApplicationDefinitionArtifactArgs{...}
+//	ApplicationDefinitionArtifactArgs{...}
 type ApplicationDefinitionArtifactInput interface {
 	pulumi.Input
 
@@ -344,7 +344,7 @@ func (i ApplicationDefinitionArtifactArgs) ToApplicationDefinitionArtifactOutput
 // ApplicationDefinitionArtifactArrayInput is an input type that accepts ApplicationDefinitionArtifactArray and ApplicationDefinitionArtifactArrayOutput values.
 // You can construct a concrete instance of `ApplicationDefinitionArtifactArrayInput` via:
 //
-//          ApplicationDefinitionArtifactArray{ ApplicationDefinitionArtifactArgs{...} }
+//	ApplicationDefinitionArtifactArray{ ApplicationDefinitionArtifactArgs{...} }
 type ApplicationDefinitionArtifactArrayInput interface {
 	pulumi.Input
 
@@ -485,7 +485,7 @@ type ApplicationDeploymentPolicy struct {
 // ApplicationDeploymentPolicyInput is an input type that accepts ApplicationDeploymentPolicyArgs and ApplicationDeploymentPolicyOutput values.
 // You can construct a concrete instance of `ApplicationDeploymentPolicyInput` via:
 //
-//          ApplicationDeploymentPolicyArgs{...}
+//	ApplicationDeploymentPolicyArgs{...}
 type ApplicationDeploymentPolicyInput interface {
 	pulumi.Input
 
@@ -522,11 +522,11 @@ func (i ApplicationDeploymentPolicyArgs) ToApplicationDeploymentPolicyPtrOutputW
 // ApplicationDeploymentPolicyPtrInput is an input type that accepts ApplicationDeploymentPolicyArgs, ApplicationDeploymentPolicyPtr and ApplicationDeploymentPolicyPtrOutput values.
 // You can construct a concrete instance of `ApplicationDeploymentPolicyPtrInput` via:
 //
-//          ApplicationDeploymentPolicyArgs{...}
+//	        ApplicationDeploymentPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationDeploymentPolicyPtrInput interface {
 	pulumi.Input
 
@@ -691,7 +691,7 @@ type ApplicationJitAccessPolicy struct {
 // ApplicationJitAccessPolicyInput is an input type that accepts ApplicationJitAccessPolicyArgs and ApplicationJitAccessPolicyOutput values.
 // You can construct a concrete instance of `ApplicationJitAccessPolicyInput` via:
 //
-//          ApplicationJitAccessPolicyArgs{...}
+//	ApplicationJitAccessPolicyArgs{...}
 type ApplicationJitAccessPolicyInput interface {
 	pulumi.Input
 
@@ -734,11 +734,11 @@ func (i ApplicationJitAccessPolicyArgs) ToApplicationJitAccessPolicyPtrOutputWit
 // ApplicationJitAccessPolicyPtrInput is an input type that accepts ApplicationJitAccessPolicyArgs, ApplicationJitAccessPolicyPtr and ApplicationJitAccessPolicyPtrOutput values.
 // You can construct a concrete instance of `ApplicationJitAccessPolicyPtrInput` via:
 //
-//          ApplicationJitAccessPolicyArgs{...}
+//	        ApplicationJitAccessPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationJitAccessPolicyPtrInput interface {
 	pulumi.Input
 
@@ -993,7 +993,7 @@ type ApplicationManagementPolicy struct {
 // ApplicationManagementPolicyInput is an input type that accepts ApplicationManagementPolicyArgs and ApplicationManagementPolicyOutput values.
 // You can construct a concrete instance of `ApplicationManagementPolicyInput` via:
 //
-//          ApplicationManagementPolicyArgs{...}
+//	ApplicationManagementPolicyArgs{...}
 type ApplicationManagementPolicyInput interface {
 	pulumi.Input
 
@@ -1030,11 +1030,11 @@ func (i ApplicationManagementPolicyArgs) ToApplicationManagementPolicyPtrOutputW
 // ApplicationManagementPolicyPtrInput is an input type that accepts ApplicationManagementPolicyArgs, ApplicationManagementPolicyPtr and ApplicationManagementPolicyPtrOutput values.
 // You can construct a concrete instance of `ApplicationManagementPolicyPtrInput` via:
 //
-//          ApplicationManagementPolicyArgs{...}
+//	        ApplicationManagementPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationManagementPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1193,7 +1193,7 @@ type ApplicationNotificationEndpoint struct {
 // ApplicationNotificationEndpointInput is an input type that accepts ApplicationNotificationEndpointArgs and ApplicationNotificationEndpointOutput values.
 // You can construct a concrete instance of `ApplicationNotificationEndpointInput` via:
 //
-//          ApplicationNotificationEndpointArgs{...}
+//	ApplicationNotificationEndpointArgs{...}
 type ApplicationNotificationEndpointInput interface {
 	pulumi.Input
 
@@ -1222,7 +1222,7 @@ func (i ApplicationNotificationEndpointArgs) ToApplicationNotificationEndpointOu
 // ApplicationNotificationEndpointArrayInput is an input type that accepts ApplicationNotificationEndpointArray and ApplicationNotificationEndpointArrayOutput values.
 // You can construct a concrete instance of `ApplicationNotificationEndpointArrayInput` via:
 //
-//          ApplicationNotificationEndpointArray{ ApplicationNotificationEndpointArgs{...} }
+//	ApplicationNotificationEndpointArray{ ApplicationNotificationEndpointArgs{...} }
 type ApplicationNotificationEndpointArrayInput interface {
 	pulumi.Input
 
@@ -1339,7 +1339,7 @@ type ApplicationNotificationPolicy struct {
 // ApplicationNotificationPolicyInput is an input type that accepts ApplicationNotificationPolicyArgs and ApplicationNotificationPolicyOutput values.
 // You can construct a concrete instance of `ApplicationNotificationPolicyInput` via:
 //
-//          ApplicationNotificationPolicyArgs{...}
+//	ApplicationNotificationPolicyArgs{...}
 type ApplicationNotificationPolicyInput interface {
 	pulumi.Input
 
@@ -1376,11 +1376,11 @@ func (i ApplicationNotificationPolicyArgs) ToApplicationNotificationPolicyPtrOut
 // ApplicationNotificationPolicyPtrInput is an input type that accepts ApplicationNotificationPolicyArgs, ApplicationNotificationPolicyPtr and ApplicationNotificationPolicyPtrOutput values.
 // You can construct a concrete instance of `ApplicationNotificationPolicyPtrInput` via:
 //
-//          ApplicationNotificationPolicyArgs{...}
+//	        ApplicationNotificationPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationNotificationPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1585,7 +1585,7 @@ type ApplicationPackageLockingPolicyDefinition struct {
 // ApplicationPackageLockingPolicyDefinitionInput is an input type that accepts ApplicationPackageLockingPolicyDefinitionArgs and ApplicationPackageLockingPolicyDefinitionOutput values.
 // You can construct a concrete instance of `ApplicationPackageLockingPolicyDefinitionInput` via:
 //
-//          ApplicationPackageLockingPolicyDefinitionArgs{...}
+//	ApplicationPackageLockingPolicyDefinitionArgs{...}
 type ApplicationPackageLockingPolicyDefinitionInput interface {
 	pulumi.Input
 
@@ -1624,11 +1624,11 @@ func (i ApplicationPackageLockingPolicyDefinitionArgs) ToApplicationPackageLocki
 // ApplicationPackageLockingPolicyDefinitionPtrInput is an input type that accepts ApplicationPackageLockingPolicyDefinitionArgs, ApplicationPackageLockingPolicyDefinitionPtr and ApplicationPackageLockingPolicyDefinitionPtrOutput values.
 // You can construct a concrete instance of `ApplicationPackageLockingPolicyDefinitionPtrInput` via:
 //
-//          ApplicationPackageLockingPolicyDefinitionArgs{...}
+//	        ApplicationPackageLockingPolicyDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationPackageLockingPolicyDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -1856,7 +1856,7 @@ type ApplicationPolicy struct {
 // ApplicationPolicyInput is an input type that accepts ApplicationPolicyArgs and ApplicationPolicyOutput values.
 // You can construct a concrete instance of `ApplicationPolicyInput` via:
 //
-//          ApplicationPolicyArgs{...}
+//	ApplicationPolicyArgs{...}
 type ApplicationPolicyInput interface {
 	pulumi.Input
 
@@ -1889,7 +1889,7 @@ func (i ApplicationPolicyArgs) ToApplicationPolicyOutputWithContext(ctx context.
 // ApplicationPolicyArrayInput is an input type that accepts ApplicationPolicyArray and ApplicationPolicyArrayOutput values.
 // You can construct a concrete instance of `ApplicationPolicyArrayInput` via:
 //
-//          ApplicationPolicyArray{ ApplicationPolicyArgs{...} }
+//	ApplicationPolicyArray{ ApplicationPolicyArgs{...} }
 type ApplicationPolicyArrayInput interface {
 	pulumi.Input
 
@@ -2032,7 +2032,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -2071,11 +2071,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -2306,7 +2306,7 @@ type JitApproverDefinition struct {
 // JitApproverDefinitionInput is an input type that accepts JitApproverDefinitionArgs and JitApproverDefinitionOutput values.
 // You can construct a concrete instance of `JitApproverDefinitionInput` via:
 //
-//          JitApproverDefinitionArgs{...}
+//	JitApproverDefinitionArgs{...}
 type JitApproverDefinitionInput interface {
 	pulumi.Input
 
@@ -2339,7 +2339,7 @@ func (i JitApproverDefinitionArgs) ToJitApproverDefinitionOutputWithContext(ctx 
 // JitApproverDefinitionArrayInput is an input type that accepts JitApproverDefinitionArray and JitApproverDefinitionArrayOutput values.
 // You can construct a concrete instance of `JitApproverDefinitionArrayInput` via:
 //
-//          JitApproverDefinitionArray{ JitApproverDefinitionArgs{...} }
+//	JitApproverDefinitionArray{ JitApproverDefinitionArgs{...} }
 type JitApproverDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -2482,7 +2482,7 @@ type JitAuthorizationPolicies struct {
 // JitAuthorizationPoliciesInput is an input type that accepts JitAuthorizationPoliciesArgs and JitAuthorizationPoliciesOutput values.
 // You can construct a concrete instance of `JitAuthorizationPoliciesInput` via:
 //
-//          JitAuthorizationPoliciesArgs{...}
+//	JitAuthorizationPoliciesArgs{...}
 type JitAuthorizationPoliciesInput interface {
 	pulumi.Input
 
@@ -2513,7 +2513,7 @@ func (i JitAuthorizationPoliciesArgs) ToJitAuthorizationPoliciesOutputWithContex
 // JitAuthorizationPoliciesArrayInput is an input type that accepts JitAuthorizationPoliciesArray and JitAuthorizationPoliciesArrayOutput values.
 // You can construct a concrete instance of `JitAuthorizationPoliciesArrayInput` via:
 //
-//          JitAuthorizationPoliciesArray{ JitAuthorizationPoliciesArgs{...} }
+//	JitAuthorizationPoliciesArray{ JitAuthorizationPoliciesArgs{...} }
 type JitAuthorizationPoliciesArrayInput interface {
 	pulumi.Input
 
@@ -2645,7 +2645,7 @@ type JitSchedulingPolicy struct {
 // JitSchedulingPolicyInput is an input type that accepts JitSchedulingPolicyArgs and JitSchedulingPolicyOutput values.
 // You can construct a concrete instance of `JitSchedulingPolicyInput` via:
 //
-//          JitSchedulingPolicyArgs{...}
+//	JitSchedulingPolicyArgs{...}
 type JitSchedulingPolicyInput interface {
 	pulumi.Input
 
@@ -2758,7 +2758,7 @@ type Plan struct {
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
 // You can construct a concrete instance of `PlanInput` via:
 //
-//          PlanArgs{...}
+//	PlanArgs{...}
 type PlanInput interface {
 	pulumi.Input
 
@@ -2803,11 +2803,11 @@ func (i PlanArgs) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput 
 // PlanPtrInput is an input type that accepts PlanArgs, PlanPtr and PlanPtrOutput values.
 // You can construct a concrete instance of `PlanPtrInput` via:
 //
-//          PlanArgs{...}
+//	        PlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlanPtrInput interface {
 	pulumi.Input
 
@@ -3104,7 +3104,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -3151,11 +3151,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 

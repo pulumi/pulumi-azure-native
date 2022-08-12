@@ -28,7 +28,7 @@ type ResourceSku struct {
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
 // You can construct a concrete instance of `ResourceSkuInput` via:
 //
-//          ResourceSkuArgs{...}
+//	ResourceSkuArgs{...}
 type ResourceSkuInput interface {
 	pulumi.Input
 
@@ -74,11 +74,11 @@ func (i ResourceSkuArgs) ToResourceSkuPtrOutputWithContext(ctx context.Context) 
 // ResourceSkuPtrInput is an input type that accepts ResourceSkuArgs, ResourceSkuPtr and ResourceSkuPtrOutput values.
 // You can construct a concrete instance of `ResourceSkuPtrInput` via:
 //
-//          ResourceSkuArgs{...}
+//	        ResourceSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSkuPtrInput interface {
 	pulumi.Input
 
@@ -371,7 +371,7 @@ type SignalRCreateOrUpdateProperties struct {
 // SignalRCreateOrUpdatePropertiesInput is an input type that accepts SignalRCreateOrUpdatePropertiesArgs and SignalRCreateOrUpdatePropertiesOutput values.
 // You can construct a concrete instance of `SignalRCreateOrUpdatePropertiesInput` via:
 //
-//          SignalRCreateOrUpdatePropertiesArgs{...}
+//	SignalRCreateOrUpdatePropertiesArgs{...}
 type SignalRCreateOrUpdatePropertiesInput interface {
 	pulumi.Input
 
@@ -409,11 +409,11 @@ func (i SignalRCreateOrUpdatePropertiesArgs) ToSignalRCreateOrUpdatePropertiesPt
 // SignalRCreateOrUpdatePropertiesPtrInput is an input type that accepts SignalRCreateOrUpdatePropertiesArgs, SignalRCreateOrUpdatePropertiesPtr and SignalRCreateOrUpdatePropertiesPtrOutput values.
 // You can construct a concrete instance of `SignalRCreateOrUpdatePropertiesPtrInput` via:
 //
-//          SignalRCreateOrUpdatePropertiesArgs{...}
+//	        SignalRCreateOrUpdatePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SignalRCreateOrUpdatePropertiesPtrInput interface {
 	pulumi.Input
 

@@ -21,7 +21,7 @@ type AttestationServiceCreationSpecificParams struct {
 // AttestationServiceCreationSpecificParamsInput is an input type that accepts AttestationServiceCreationSpecificParamsArgs and AttestationServiceCreationSpecificParamsOutput values.
 // You can construct a concrete instance of `AttestationServiceCreationSpecificParamsInput` via:
 //
-//          AttestationServiceCreationSpecificParamsArgs{...}
+//	AttestationServiceCreationSpecificParamsArgs{...}
 type AttestationServiceCreationSpecificParamsInput interface {
 	pulumi.Input
 
@@ -139,7 +139,7 @@ type JSONWebKey struct {
 // JSONWebKeyInput is an input type that accepts JSONWebKeyArgs and JSONWebKeyOutput values.
 // You can construct a concrete instance of `JSONWebKeyInput` via:
 //
-//          JSONWebKeyArgs{...}
+//	JSONWebKeyArgs{...}
 type JSONWebKeyInput interface {
 	pulumi.Input
 
@@ -224,7 +224,7 @@ func (i JSONWebKeyArgs) ToJSONWebKeyOutputWithContext(ctx context.Context) JSONW
 // JSONWebKeyArrayInput is an input type that accepts JSONWebKeyArray and JSONWebKeyArrayOutput values.
 // You can construct a concrete instance of `JSONWebKeyArrayInput` via:
 //
-//          JSONWebKeyArray{ JSONWebKeyArgs{...} }
+//	JSONWebKeyArray{ JSONWebKeyArgs{...} }
 type JSONWebKeyArrayInput interface {
 	pulumi.Input
 
@@ -402,7 +402,7 @@ type JSONWebKeySet struct {
 // JSONWebKeySetInput is an input type that accepts JSONWebKeySetArgs and JSONWebKeySetOutput values.
 // You can construct a concrete instance of `JSONWebKeySetInput` via:
 //
-//          JSONWebKeySetArgs{...}
+//	JSONWebKeySetArgs{...}
 type JSONWebKeySetInput interface {
 	pulumi.Input
 
@@ -442,11 +442,11 @@ func (i JSONWebKeySetArgs) ToJSONWebKeySetPtrOutputWithContext(ctx context.Conte
 // JSONWebKeySetPtrInput is an input type that accepts JSONWebKeySetArgs, JSONWebKeySetPtr and JSONWebKeySetPtrOutput values.
 // You can construct a concrete instance of `JSONWebKeySetPtrInput` via:
 //
-//          JSONWebKeySetArgs{...}
+//	        JSONWebKeySetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JSONWebKeySetPtrInput interface {
 	pulumi.Input
 
@@ -699,7 +699,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 

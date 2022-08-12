@@ -21,7 +21,7 @@ type CustomLocationPropertiesAuthentication struct {
 // CustomLocationPropertiesAuthenticationInput is an input type that accepts CustomLocationPropertiesAuthenticationArgs and CustomLocationPropertiesAuthenticationOutput values.
 // You can construct a concrete instance of `CustomLocationPropertiesAuthenticationInput` via:
 //
-//          CustomLocationPropertiesAuthenticationArgs{...}
+//	CustomLocationPropertiesAuthenticationArgs{...}
 type CustomLocationPropertiesAuthenticationInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i CustomLocationPropertiesAuthenticationArgs) ToCustomLocationPropertiesAu
 // CustomLocationPropertiesAuthenticationPtrInput is an input type that accepts CustomLocationPropertiesAuthenticationArgs, CustomLocationPropertiesAuthenticationPtr and CustomLocationPropertiesAuthenticationPtrOutput values.
 // You can construct a concrete instance of `CustomLocationPropertiesAuthenticationPtrInput` via:
 //
-//          CustomLocationPropertiesAuthenticationArgs{...}
+//	        CustomLocationPropertiesAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CustomLocationPropertiesAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -238,7 +238,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -275,11 +275,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 

@@ -73,7 +73,7 @@ type NetworkRuleSet struct {
 // NetworkRuleSetInput is an input type that accepts NetworkRuleSetArgs and NetworkRuleSetOutput values.
 // You can construct a concrete instance of `NetworkRuleSetInput` via:
 //
-//          NetworkRuleSetArgs{...}
+//	NetworkRuleSetArgs{...}
 type NetworkRuleSetInput interface {
 	pulumi.Input
 
@@ -110,11 +110,11 @@ func (i NetworkRuleSetArgs) ToNetworkRuleSetPtrOutputWithContext(ctx context.Con
 // NetworkRuleSetPtrInput is an input type that accepts NetworkRuleSetArgs, NetworkRuleSetPtr and NetworkRuleSetPtrOutput values.
 // You can construct a concrete instance of `NetworkRuleSetPtrInput` via:
 //
-//          NetworkRuleSetArgs{...}
+//	        NetworkRuleSetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkRuleSetPtrInput interface {
 	pulumi.Input
 
@@ -275,7 +275,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -314,11 +314,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -511,7 +511,7 @@ type SourceCreationData struct {
 // SourceCreationDataInput is an input type that accepts SourceCreationDataArgs and SourceCreationDataOutput values.
 // You can construct a concrete instance of `SourceCreationDataInput` via:
 //
-//          SourceCreationDataArgs{...}
+//	SourceCreationDataArgs{...}
 type SourceCreationDataInput interface {
 	pulumi.Input
 
@@ -550,11 +550,11 @@ func (i SourceCreationDataArgs) ToSourceCreationDataPtrOutputWithContext(ctx con
 // SourceCreationDataPtrInput is an input type that accepts SourceCreationDataArgs, SourceCreationDataPtr and SourceCreationDataPtrOutput values.
 // You can construct a concrete instance of `SourceCreationDataPtrInput` via:
 //
-//          SourceCreationDataArgs{...}
+//	        SourceCreationDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SourceCreationDataPtrInput interface {
 	pulumi.Input
 
@@ -821,7 +821,7 @@ func (val *VirtualNetworkRule) Defaults() *VirtualNetworkRule {
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleInput` via:
 //
-//          VirtualNetworkRuleArgs{...}
+//	VirtualNetworkRuleArgs{...}
 type VirtualNetworkRuleInput interface {
 	pulumi.Input
 
@@ -863,7 +863,7 @@ func (i VirtualNetworkRuleArgs) ToVirtualNetworkRuleOutputWithContext(ctx contex
 // VirtualNetworkRuleArrayInput is an input type that accepts VirtualNetworkRuleArray and VirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleArrayInput` via:
 //
-//          VirtualNetworkRuleArray{ VirtualNetworkRuleArgs{...} }
+//	VirtualNetworkRuleArray{ VirtualNetworkRuleArgs{...} }
 type VirtualNetworkRuleArrayInput interface {
 	pulumi.Input
 

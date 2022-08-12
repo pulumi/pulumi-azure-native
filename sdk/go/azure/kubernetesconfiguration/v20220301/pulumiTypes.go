@@ -52,7 +52,7 @@ func (val *BucketDefinition) Defaults() *BucketDefinition {
 // BucketDefinitionInput is an input type that accepts BucketDefinitionArgs and BucketDefinitionOutput values.
 // You can construct a concrete instance of `BucketDefinitionInput` via:
 //
-//          BucketDefinitionArgs{...}
+//	BucketDefinitionArgs{...}
 type BucketDefinitionInput interface {
 	pulumi.Input
 
@@ -118,11 +118,11 @@ func (i BucketDefinitionArgs) ToBucketDefinitionPtrOutputWithContext(ctx context
 // BucketDefinitionPtrInput is an input type that accepts BucketDefinitionArgs, BucketDefinitionPtr and BucketDefinitionPtrOutput values.
 // You can construct a concrete instance of `BucketDefinitionPtrInput` via:
 //
-//          BucketDefinitionArgs{...}
+//	        BucketDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -668,7 +668,7 @@ type ExtensionAksAssignedIdentity struct {
 // ExtensionAksAssignedIdentityInput is an input type that accepts ExtensionAksAssignedIdentityArgs and ExtensionAksAssignedIdentityOutput values.
 // You can construct a concrete instance of `ExtensionAksAssignedIdentityInput` via:
 //
-//          ExtensionAksAssignedIdentityArgs{...}
+//	ExtensionAksAssignedIdentityArgs{...}
 type ExtensionAksAssignedIdentityInput interface {
 	pulumi.Input
 
@@ -705,11 +705,11 @@ func (i ExtensionAksAssignedIdentityArgs) ToExtensionAksAssignedIdentityPtrOutpu
 // ExtensionAksAssignedIdentityPtrInput is an input type that accepts ExtensionAksAssignedIdentityArgs, ExtensionAksAssignedIdentityPtr and ExtensionAksAssignedIdentityPtrOutput values.
 // You can construct a concrete instance of `ExtensionAksAssignedIdentityPtrInput` via:
 //
-//          ExtensionAksAssignedIdentityArgs{...}
+//	        ExtensionAksAssignedIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExtensionAksAssignedIdentityPtrInput interface {
 	pulumi.Input
 
@@ -923,7 +923,7 @@ func (val *ExtensionStatus) Defaults() *ExtensionStatus {
 // ExtensionStatusInput is an input type that accepts ExtensionStatusArgs and ExtensionStatusOutput values.
 // You can construct a concrete instance of `ExtensionStatusInput` via:
 //
-//          ExtensionStatusArgs{...}
+//	ExtensionStatusArgs{...}
 type ExtensionStatusInput interface {
 	pulumi.Input
 
@@ -971,7 +971,7 @@ func (i ExtensionStatusArgs) ToExtensionStatusOutputWithContext(ctx context.Cont
 // ExtensionStatusArrayInput is an input type that accepts ExtensionStatusArray and ExtensionStatusArrayOutput values.
 // You can construct a concrete instance of `ExtensionStatusArrayInput` via:
 //
-//          ExtensionStatusArray{ ExtensionStatusArgs{...} }
+//	ExtensionStatusArray{ ExtensionStatusArgs{...} }
 type ExtensionStatusArrayInput interface {
 	pulumi.Input
 
@@ -1180,7 +1180,7 @@ func (val *GitRepositoryDefinition) Defaults() *GitRepositoryDefinition {
 // GitRepositoryDefinitionInput is an input type that accepts GitRepositoryDefinitionArgs and GitRepositoryDefinitionOutput values.
 // You can construct a concrete instance of `GitRepositoryDefinitionInput` via:
 //
-//          GitRepositoryDefinitionArgs{...}
+//	GitRepositoryDefinitionArgs{...}
 type GitRepositoryDefinitionInput interface {
 	pulumi.Input
 
@@ -1245,11 +1245,11 @@ func (i GitRepositoryDefinitionArgs) ToGitRepositoryDefinitionPtrOutputWithConte
 // GitRepositoryDefinitionPtrInput is an input type that accepts GitRepositoryDefinitionArgs, GitRepositoryDefinitionPtr and GitRepositoryDefinitionPtrOutput values.
 // You can construct a concrete instance of `GitRepositoryDefinitionPtrInput` via:
 //
-//          GitRepositoryDefinitionArgs{...}
+//	        GitRepositoryDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GitRepositoryDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -1651,7 +1651,7 @@ type HelmOperatorProperties struct {
 // HelmOperatorPropertiesInput is an input type that accepts HelmOperatorPropertiesArgs and HelmOperatorPropertiesOutput values.
 // You can construct a concrete instance of `HelmOperatorPropertiesInput` via:
 //
-//          HelmOperatorPropertiesArgs{...}
+//	HelmOperatorPropertiesArgs{...}
 type HelmOperatorPropertiesInput interface {
 	pulumi.Input
 
@@ -1690,11 +1690,11 @@ func (i HelmOperatorPropertiesArgs) ToHelmOperatorPropertiesPtrOutputWithContext
 // HelmOperatorPropertiesPtrInput is an input type that accepts HelmOperatorPropertiesArgs, HelmOperatorPropertiesPtr and HelmOperatorPropertiesPtrOutput values.
 // You can construct a concrete instance of `HelmOperatorPropertiesPtrInput` via:
 //
-//          HelmOperatorPropertiesArgs{...}
+//	        HelmOperatorPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HelmOperatorPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2015,7 +2015,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -2052,11 +2052,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -2290,7 +2290,7 @@ func (val *KustomizationDefinition) Defaults() *KustomizationDefinition {
 // KustomizationDefinitionInput is an input type that accepts KustomizationDefinitionArgs and KustomizationDefinitionOutput values.
 // You can construct a concrete instance of `KustomizationDefinitionInput` via:
 //
-//          KustomizationDefinitionArgs{...}
+//	KustomizationDefinitionArgs{...}
 type KustomizationDefinitionInput interface {
 	pulumi.Input
 
@@ -2354,7 +2354,7 @@ func (i KustomizationDefinitionArgs) ToKustomizationDefinitionOutputWithContext(
 // KustomizationDefinitionMapInput is an input type that accepts KustomizationDefinitionMap and KustomizationDefinitionMapOutput values.
 // You can construct a concrete instance of `KustomizationDefinitionMapInput` via:
 //
-//          KustomizationDefinitionMap{ "key": KustomizationDefinitionArgs{...} }
+//	KustomizationDefinitionMap{ "key": KustomizationDefinitionArgs{...} }
 type KustomizationDefinitionMapInput interface {
 	pulumi.Input
 
@@ -2828,7 +2828,7 @@ type RepositoryRefDefinition struct {
 // RepositoryRefDefinitionInput is an input type that accepts RepositoryRefDefinitionArgs and RepositoryRefDefinitionOutput values.
 // You can construct a concrete instance of `RepositoryRefDefinitionInput` via:
 //
-//          RepositoryRefDefinitionArgs{...}
+//	RepositoryRefDefinitionArgs{...}
 type RepositoryRefDefinitionInput interface {
 	pulumi.Input
 
@@ -2871,11 +2871,11 @@ func (i RepositoryRefDefinitionArgs) ToRepositoryRefDefinitionPtrOutputWithConte
 // RepositoryRefDefinitionPtrInput is an input type that accepts RepositoryRefDefinitionArgs, RepositoryRefDefinitionPtr and RepositoryRefDefinitionPtrOutput values.
 // You can construct a concrete instance of `RepositoryRefDefinitionPtrInput` via:
 //
-//          RepositoryRefDefinitionArgs{...}
+//	        RepositoryRefDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryRefDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -3132,7 +3132,7 @@ type Scope struct {
 // ScopeInput is an input type that accepts ScopeArgs and ScopeOutput values.
 // You can construct a concrete instance of `ScopeInput` via:
 //
-//          ScopeArgs{...}
+//	ScopeArgs{...}
 type ScopeInput interface {
 	pulumi.Input
 
@@ -3171,11 +3171,11 @@ func (i ScopeArgs) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutp
 // ScopePtrInput is an input type that accepts ScopeArgs, ScopePtr and ScopePtrOutput values.
 // You can construct a concrete instance of `ScopePtrInput` via:
 //
-//          ScopeArgs{...}
+//	        ScopeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScopePtrInput interface {
 	pulumi.Input
 
@@ -3289,7 +3289,7 @@ type ScopeCluster struct {
 // ScopeClusterInput is an input type that accepts ScopeClusterArgs and ScopeClusterOutput values.
 // You can construct a concrete instance of `ScopeClusterInput` via:
 //
-//          ScopeClusterArgs{...}
+//	ScopeClusterArgs{...}
 type ScopeClusterInput interface {
 	pulumi.Input
 
@@ -3326,11 +3326,11 @@ func (i ScopeClusterArgs) ToScopeClusterPtrOutputWithContext(ctx context.Context
 // ScopeClusterPtrInput is an input type that accepts ScopeClusterArgs, ScopeClusterPtr and ScopeClusterPtrOutput values.
 // You can construct a concrete instance of `ScopeClusterPtrInput` via:
 //
-//          ScopeClusterArgs{...}
+//	        ScopeClusterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScopeClusterPtrInput interface {
 	pulumi.Input
 
@@ -3489,7 +3489,7 @@ type ScopeNamespace struct {
 // ScopeNamespaceInput is an input type that accepts ScopeNamespaceArgs and ScopeNamespaceOutput values.
 // You can construct a concrete instance of `ScopeNamespaceInput` via:
 //
-//          ScopeNamespaceArgs{...}
+//	ScopeNamespaceArgs{...}
 type ScopeNamespaceInput interface {
 	pulumi.Input
 
@@ -3526,11 +3526,11 @@ func (i ScopeNamespaceArgs) ToScopeNamespacePtrOutputWithContext(ctx context.Con
 // ScopeNamespacePtrInput is an input type that accepts ScopeNamespaceArgs, ScopeNamespacePtr and ScopeNamespacePtrOutput values.
 // You can construct a concrete instance of `ScopeNamespacePtrInput` via:
 //
-//          ScopeNamespaceArgs{...}
+//	        ScopeNamespaceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScopeNamespacePtrInput interface {
 	pulumi.Input
 

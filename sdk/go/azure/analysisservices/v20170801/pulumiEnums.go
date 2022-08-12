@@ -140,7 +140,7 @@ func (o ConnectionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // ConnectionModeInput is an input type that accepts ConnectionModeArgs and ConnectionModeOutput values.
 // You can construct a concrete instance of `ConnectionModeInput` via:
 //
-//          ConnectionModeArgs{...}
+//	ConnectionModeArgs{...}
 type ConnectionModeInput interface {
 	pulumi.Input
 

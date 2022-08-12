@@ -148,7 +148,7 @@ func (o AutoExecuteStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // AutoExecuteStatusInput is an input type that accepts AutoExecuteStatusArgs and AutoExecuteStatusOutput values.
 // You can construct a concrete instance of `AutoExecuteStatusInput` via:
 //
-//          AutoExecuteStatusArgs{...}
+//	AutoExecuteStatusArgs{...}
 type AutoExecuteStatusInput interface {
 	pulumi.Input
 
@@ -313,7 +313,7 @@ func (o BlobAuditingPolicyStatePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // BlobAuditingPolicyStateInput is an input type that accepts BlobAuditingPolicyStateArgs and BlobAuditingPolicyStateOutput values.
 // You can construct a concrete instance of `BlobAuditingPolicyStateInput` via:
 //
-//          BlobAuditingPolicyStateArgs{...}
+//	BlobAuditingPolicyStateArgs{...}
 type BlobAuditingPolicyStateInput interface {
 	pulumi.Input
 
@@ -518,7 +518,7 @@ func (o DataMaskingStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // DataMaskingStateInput is an input type that accepts DataMaskingStateArgs and DataMaskingStateOutput values.
 // You can construct a concrete instance of `DataMaskingStateInput` via:
 //
-//          DataMaskingStateArgs{...}
+//	DataMaskingStateArgs{...}
 type DataMaskingStateInput interface {
 	pulumi.Input
 
@@ -707,7 +707,7 @@ func (o GeoBackupPolicyStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // GeoBackupPolicyStateEnumInput is an input type that accepts GeoBackupPolicyStateEnumArgs and GeoBackupPolicyStateEnumOutput values.
 // You can construct a concrete instance of `GeoBackupPolicyStateEnumInput` via:
 //
-//          GeoBackupPolicyStateEnumArgs{...}
+//	GeoBackupPolicyStateEnumArgs{...}
 type GeoBackupPolicyStateEnumInput interface {
 	pulumi.Input
 
@@ -890,7 +890,7 @@ func (o JobScheduleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // JobScheduleTypeInput is an input type that accepts JobScheduleTypeArgs and JobScheduleTypeOutput values.
 // You can construct a concrete instance of `JobScheduleTypeInput` via:
 //
-//          JobScheduleTypeArgs{...}
+//	JobScheduleTypeArgs{...}
 type JobScheduleTypeInput interface {
 	pulumi.Input
 
@@ -1076,7 +1076,7 @@ func (o JobTargetGroupMembershipTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 // JobTargetGroupMembershipTypeInput is an input type that accepts JobTargetGroupMembershipTypeArgs and JobTargetGroupMembershipTypeOutput values.
 // You can construct a concrete instance of `JobTargetGroupMembershipTypeInput` via:
 //
-//          JobTargetGroupMembershipTypeArgs{...}
+//	JobTargetGroupMembershipTypeArgs{...}
 type JobTargetGroupMembershipTypeInput interface {
 	pulumi.Input
 
@@ -1368,7 +1368,7 @@ func (o SecurityAlertsPolicyStatePtrOutput) ToStringPtrOutputWithContext(ctx con
 // SecurityAlertsPolicyStateInput is an input type that accepts SecurityAlertsPolicyStateArgs and SecurityAlertsPolicyStateOutput values.
 // You can construct a concrete instance of `SecurityAlertsPolicyStateInput` via:
 //
-//          SecurityAlertsPolicyStateArgs{...}
+//	SecurityAlertsPolicyStateArgs{...}
 type SecurityAlertsPolicyStateInput interface {
 	pulumi.Input
 
@@ -1535,7 +1535,7 @@ func (o SensitivityLabelRankPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // SensitivityLabelRankInput is an input type that accepts SensitivityLabelRankArgs and SensitivityLabelRankOutput values.
 // You can construct a concrete instance of `SensitivityLabelRankInput` via:
 //
-//          SensitivityLabelRankArgs{...}
+//	SensitivityLabelRankArgs{...}
 type SensitivityLabelRankInput interface {
 	pulumi.Input
 

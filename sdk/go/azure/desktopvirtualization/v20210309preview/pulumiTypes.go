@@ -21,7 +21,7 @@ type MigrationRequestProperties struct {
 // MigrationRequestPropertiesInput is an input type that accepts MigrationRequestPropertiesArgs and MigrationRequestPropertiesOutput values.
 // You can construct a concrete instance of `MigrationRequestPropertiesInput` via:
 //
-//          MigrationRequestPropertiesArgs{...}
+//	MigrationRequestPropertiesArgs{...}
 type MigrationRequestPropertiesInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i MigrationRequestPropertiesArgs) ToMigrationRequestPropertiesPtrOutputWit
 // MigrationRequestPropertiesPtrInput is an input type that accepts MigrationRequestPropertiesArgs, MigrationRequestPropertiesPtr and MigrationRequestPropertiesPtrOutput values.
 // You can construct a concrete instance of `MigrationRequestPropertiesPtrInput` via:
 //
-//          MigrationRequestPropertiesArgs{...}
+//	        MigrationRequestPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MigrationRequestPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -267,7 +267,7 @@ type MsixPackageApplications struct {
 // MsixPackageApplicationsInput is an input type that accepts MsixPackageApplicationsArgs and MsixPackageApplicationsOutput values.
 // You can construct a concrete instance of `MsixPackageApplicationsInput` via:
 //
-//          MsixPackageApplicationsArgs{...}
+//	MsixPackageApplicationsArgs{...}
 type MsixPackageApplicationsInput interface {
 	pulumi.Input
 
@@ -308,7 +308,7 @@ func (i MsixPackageApplicationsArgs) ToMsixPackageApplicationsOutputWithContext(
 // MsixPackageApplicationsArrayInput is an input type that accepts MsixPackageApplicationsArray and MsixPackageApplicationsArrayOutput values.
 // You can construct a concrete instance of `MsixPackageApplicationsArrayInput` via:
 //
-//          MsixPackageApplicationsArray{ MsixPackageApplicationsArgs{...} }
+//	MsixPackageApplicationsArray{ MsixPackageApplicationsArgs{...} }
 type MsixPackageApplicationsArrayInput interface {
 	pulumi.Input
 
@@ -501,7 +501,7 @@ type MsixPackageDependencies struct {
 // MsixPackageDependenciesInput is an input type that accepts MsixPackageDependenciesArgs and MsixPackageDependenciesOutput values.
 // You can construct a concrete instance of `MsixPackageDependenciesInput` via:
 //
-//          MsixPackageDependenciesArgs{...}
+//	MsixPackageDependenciesArgs{...}
 type MsixPackageDependenciesInput interface {
 	pulumi.Input
 
@@ -534,7 +534,7 @@ func (i MsixPackageDependenciesArgs) ToMsixPackageDependenciesOutputWithContext(
 // MsixPackageDependenciesArrayInput is an input type that accepts MsixPackageDependenciesArray and MsixPackageDependenciesArrayOutput values.
 // You can construct a concrete instance of `MsixPackageDependenciesArrayInput` via:
 //
-//          MsixPackageDependenciesArray{ MsixPackageDependenciesArgs{...} }
+//	MsixPackageDependenciesArray{ MsixPackageDependenciesArgs{...} }
 type MsixPackageDependenciesArrayInput interface {
 	pulumi.Input
 
@@ -679,7 +679,7 @@ type RegistrationInfo struct {
 // RegistrationInfoInput is an input type that accepts RegistrationInfoArgs and RegistrationInfoOutput values.
 // You can construct a concrete instance of `RegistrationInfoInput` via:
 //
-//          RegistrationInfoArgs{...}
+//	RegistrationInfoArgs{...}
 type RegistrationInfoInput interface {
 	pulumi.Input
 
@@ -720,11 +720,11 @@ func (i RegistrationInfoArgs) ToRegistrationInfoPtrOutputWithContext(ctx context
 // RegistrationInfoPtrInput is an input type that accepts RegistrationInfoArgs, RegistrationInfoPtr and RegistrationInfoPtrOutput values.
 // You can construct a concrete instance of `RegistrationInfoPtrInput` via:
 //
-//          RegistrationInfoArgs{...}
+//	        RegistrationInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RegistrationInfoPtrInput interface {
 	pulumi.Input
 
@@ -946,7 +946,7 @@ type ResourceModelWithAllowedPropertySetIdentity struct {
 // ResourceModelWithAllowedPropertySetIdentityInput is an input type that accepts ResourceModelWithAllowedPropertySetIdentityArgs and ResourceModelWithAllowedPropertySetIdentityOutput values.
 // You can construct a concrete instance of `ResourceModelWithAllowedPropertySetIdentityInput` via:
 //
-//          ResourceModelWithAllowedPropertySetIdentityArgs{...}
+//	ResourceModelWithAllowedPropertySetIdentityArgs{...}
 type ResourceModelWithAllowedPropertySetIdentityInput interface {
 	pulumi.Input
 
@@ -982,11 +982,11 @@ func (i ResourceModelWithAllowedPropertySetIdentityArgs) ToResourceModelWithAllo
 // ResourceModelWithAllowedPropertySetIdentityPtrInput is an input type that accepts ResourceModelWithAllowedPropertySetIdentityArgs, ResourceModelWithAllowedPropertySetIdentityPtr and ResourceModelWithAllowedPropertySetIdentityPtrOutput values.
 // You can construct a concrete instance of `ResourceModelWithAllowedPropertySetIdentityPtrInput` via:
 //
-//          ResourceModelWithAllowedPropertySetIdentityArgs{...}
+//	        ResourceModelWithAllowedPropertySetIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceModelWithAllowedPropertySetIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1091,7 +1091,7 @@ type ResourceModelWithAllowedPropertySetPlan struct {
 // ResourceModelWithAllowedPropertySetPlanInput is an input type that accepts ResourceModelWithAllowedPropertySetPlanArgs and ResourceModelWithAllowedPropertySetPlanOutput values.
 // You can construct a concrete instance of `ResourceModelWithAllowedPropertySetPlanInput` via:
 //
-//          ResourceModelWithAllowedPropertySetPlanArgs{...}
+//	ResourceModelWithAllowedPropertySetPlanArgs{...}
 type ResourceModelWithAllowedPropertySetPlanInput interface {
 	pulumi.Input
 
@@ -1135,11 +1135,11 @@ func (i ResourceModelWithAllowedPropertySetPlanArgs) ToResourceModelWithAllowedP
 // ResourceModelWithAllowedPropertySetPlanPtrInput is an input type that accepts ResourceModelWithAllowedPropertySetPlanArgs, ResourceModelWithAllowedPropertySetPlanPtr and ResourceModelWithAllowedPropertySetPlanPtrOutput values.
 // You can construct a concrete instance of `ResourceModelWithAllowedPropertySetPlanPtrInput` via:
 //
-//          ResourceModelWithAllowedPropertySetPlanArgs{...}
+//	        ResourceModelWithAllowedPropertySetPlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceModelWithAllowedPropertySetPlanPtrInput interface {
 	pulumi.Input
 
@@ -1648,7 +1648,7 @@ type ResourceModelWithAllowedPropertySetSku struct {
 // ResourceModelWithAllowedPropertySetSkuInput is an input type that accepts ResourceModelWithAllowedPropertySetSkuArgs and ResourceModelWithAllowedPropertySetSkuOutput values.
 // You can construct a concrete instance of `ResourceModelWithAllowedPropertySetSkuInput` via:
 //
-//          ResourceModelWithAllowedPropertySetSkuArgs{...}
+//	ResourceModelWithAllowedPropertySetSkuArgs{...}
 type ResourceModelWithAllowedPropertySetSkuInput interface {
 	pulumi.Input
 
@@ -1692,11 +1692,11 @@ func (i ResourceModelWithAllowedPropertySetSkuArgs) ToResourceModelWithAllowedPr
 // ResourceModelWithAllowedPropertySetSkuPtrInput is an input type that accepts ResourceModelWithAllowedPropertySetSkuArgs, ResourceModelWithAllowedPropertySetSkuPtr and ResourceModelWithAllowedPropertySetSkuPtrOutput values.
 // You can construct a concrete instance of `ResourceModelWithAllowedPropertySetSkuPtrInput` via:
 //
-//          ResourceModelWithAllowedPropertySetSkuArgs{...}
+//	        ResourceModelWithAllowedPropertySetSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceModelWithAllowedPropertySetSkuPtrInput interface {
 	pulumi.Input
 
@@ -1856,7 +1856,7 @@ type ScalingHostPoolReference struct {
 // ScalingHostPoolReferenceInput is an input type that accepts ScalingHostPoolReferenceArgs and ScalingHostPoolReferenceOutput values.
 // You can construct a concrete instance of `ScalingHostPoolReferenceInput` via:
 //
-//          ScalingHostPoolReferenceArgs{...}
+//	ScalingHostPoolReferenceArgs{...}
 type ScalingHostPoolReferenceInput interface {
 	pulumi.Input
 
@@ -1887,7 +1887,7 @@ func (i ScalingHostPoolReferenceArgs) ToScalingHostPoolReferenceOutputWithContex
 // ScalingHostPoolReferenceArrayInput is an input type that accepts ScalingHostPoolReferenceArray and ScalingHostPoolReferenceArrayOutput values.
 // You can construct a concrete instance of `ScalingHostPoolReferenceArrayInput` via:
 //
-//          ScalingHostPoolReferenceArray{ ScalingHostPoolReferenceArgs{...} }
+//	ScalingHostPoolReferenceArray{ ScalingHostPoolReferenceArgs{...} }
 type ScalingHostPoolReferenceArrayInput interface {
 	pulumi.Input
 
@@ -2050,7 +2050,7 @@ type ScalingSchedule struct {
 // ScalingScheduleInput is an input type that accepts ScalingScheduleArgs and ScalingScheduleOutput values.
 // You can construct a concrete instance of `ScalingScheduleInput` via:
 //
-//          ScalingScheduleArgs{...}
+//	ScalingScheduleArgs{...}
 type ScalingScheduleInput interface {
 	pulumi.Input
 
@@ -2113,7 +2113,7 @@ func (i ScalingScheduleArgs) ToScalingScheduleOutputWithContext(ctx context.Cont
 // ScalingScheduleArrayInput is an input type that accepts ScalingScheduleArray and ScalingScheduleArrayOutput values.
 // You can construct a concrete instance of `ScalingScheduleArrayInput` via:
 //
-//          ScalingScheduleArray{ ScalingScheduleArgs{...} }
+//	ScalingScheduleArray{ ScalingScheduleArgs{...} }
 type ScalingScheduleArrayInput interface {
 	pulumi.Input
 

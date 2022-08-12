@@ -140,7 +140,7 @@ func (o PoolAllocationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // PoolAllocationModeInput is an input type that accepts PoolAllocationModeArgs and PoolAllocationModeOutput values.
 // You can construct a concrete instance of `PoolAllocationModeInput` via:
 //
-//          PoolAllocationModeArgs{...}
+//	PoolAllocationModeArgs{...}
 type PoolAllocationModeInput interface {
 	pulumi.Input
 

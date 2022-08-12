@@ -21,7 +21,7 @@ type BasicLoginInformation struct {
 // BasicLoginInformationInput is an input type that accepts BasicLoginInformationArgs and BasicLoginInformationOutput values.
 // You can construct a concrete instance of `BasicLoginInformationInput` via:
 //
-//          BasicLoginInformationArgs{...}
+//	BasicLoginInformationArgs{...}
 type BasicLoginInformationInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i BasicLoginInformationArgs) ToBasicLoginInformationPtrOutputWithContext(c
 // BasicLoginInformationPtrInput is an input type that accepts BasicLoginInformationArgs, BasicLoginInformationPtr and BasicLoginInformationPtrOutput values.
 // You can construct a concrete instance of `BasicLoginInformationPtrInput` via:
 //
-//          BasicLoginInformationArgs{...}
+//	        BasicLoginInformationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BasicLoginInformationPtrInput interface {
 	pulumi.Input
 
@@ -250,7 +250,7 @@ type DataControllerProperties struct {
 // DataControllerPropertiesInput is an input type that accepts DataControllerPropertiesArgs and DataControllerPropertiesOutput values.
 // You can construct a concrete instance of `DataControllerPropertiesInput` via:
 //
-//          DataControllerPropertiesArgs{...}
+//	DataControllerPropertiesArgs{...}
 type DataControllerPropertiesInput interface {
 	pulumi.Input
 
@@ -428,7 +428,7 @@ type ExtendedLocation struct {
 // ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
 // You can construct a concrete instance of `ExtendedLocationInput` via:
 //
-//          ExtendedLocationArgs{...}
+//	ExtendedLocationArgs{...}
 type ExtendedLocationInput interface {
 	pulumi.Input
 
@@ -467,11 +467,11 @@ func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context
 // ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
 // You can construct a concrete instance of `ExtendedLocationPtrInput` via:
 //
-//          ExtendedLocationArgs{...}
+//	        ExtendedLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExtendedLocationPtrInput interface {
 	pulumi.Input
 
@@ -664,7 +664,7 @@ type LogAnalyticsWorkspaceConfig struct {
 // LogAnalyticsWorkspaceConfigInput is an input type that accepts LogAnalyticsWorkspaceConfigArgs and LogAnalyticsWorkspaceConfigOutput values.
 // You can construct a concrete instance of `LogAnalyticsWorkspaceConfigInput` via:
 //
-//          LogAnalyticsWorkspaceConfigArgs{...}
+//	LogAnalyticsWorkspaceConfigArgs{...}
 type LogAnalyticsWorkspaceConfigInput interface {
 	pulumi.Input
 
@@ -703,11 +703,11 @@ func (i LogAnalyticsWorkspaceConfigArgs) ToLogAnalyticsWorkspaceConfigPtrOutputW
 // LogAnalyticsWorkspaceConfigPtrInput is an input type that accepts LogAnalyticsWorkspaceConfigArgs, LogAnalyticsWorkspaceConfigPtr and LogAnalyticsWorkspaceConfigPtrOutput values.
 // You can construct a concrete instance of `LogAnalyticsWorkspaceConfigPtrInput` via:
 //
-//          LogAnalyticsWorkspaceConfigArgs{...}
+//	        LogAnalyticsWorkspaceConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LogAnalyticsWorkspaceConfigPtrInput interface {
 	pulumi.Input
 
@@ -885,7 +885,7 @@ type OnPremiseProperty struct {
 // OnPremisePropertyInput is an input type that accepts OnPremisePropertyArgs and OnPremisePropertyOutput values.
 // You can construct a concrete instance of `OnPremisePropertyInput` via:
 //
-//          OnPremisePropertyArgs{...}
+//	OnPremisePropertyArgs{...}
 type OnPremisePropertyInput interface {
 	pulumi.Input
 
@@ -926,11 +926,11 @@ func (i OnPremisePropertyArgs) ToOnPremisePropertyPtrOutputWithContext(ctx conte
 // OnPremisePropertyPtrInput is an input type that accepts OnPremisePropertyArgs, OnPremisePropertyPtr and OnPremisePropertyPtrOutput values.
 // You can construct a concrete instance of `OnPremisePropertyPtrInput` via:
 //
-//          OnPremisePropertyArgs{...}
+//	        OnPremisePropertyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OnPremisePropertyPtrInput interface {
 	pulumi.Input
 
@@ -1161,7 +1161,7 @@ type PostgresInstanceProperties struct {
 // PostgresInstancePropertiesInput is an input type that accepts PostgresInstancePropertiesArgs and PostgresInstancePropertiesOutput values.
 // You can construct a concrete instance of `PostgresInstancePropertiesInput` via:
 //
-//          PostgresInstancePropertiesArgs{...}
+//	PostgresInstancePropertiesArgs{...}
 type PostgresInstancePropertiesInput interface {
 	pulumi.Input
 
@@ -1332,7 +1332,7 @@ func (val *PostgresInstanceSku) Defaults() *PostgresInstanceSku {
 // PostgresInstanceSkuInput is an input type that accepts PostgresInstanceSkuArgs and PostgresInstanceSkuOutput values.
 // You can construct a concrete instance of `PostgresInstanceSkuInput` via:
 //
-//          PostgresInstanceSkuArgs{...}
+//	PostgresInstanceSkuArgs{...}
 type PostgresInstanceSkuInput interface {
 	pulumi.Input
 
@@ -1393,11 +1393,11 @@ func (i PostgresInstanceSkuArgs) ToPostgresInstanceSkuPtrOutputWithContext(ctx c
 // PostgresInstanceSkuPtrInput is an input type that accepts PostgresInstanceSkuArgs, PostgresInstanceSkuPtr and PostgresInstanceSkuPtrOutput values.
 // You can construct a concrete instance of `PostgresInstanceSkuPtrInput` via:
 //
-//          PostgresInstanceSkuArgs{...}
+//	        PostgresInstanceSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PostgresInstanceSkuPtrInput interface {
 	pulumi.Input
 
@@ -1745,7 +1745,7 @@ type SqlManagedInstanceProperties struct {
 // SqlManagedInstancePropertiesInput is an input type that accepts SqlManagedInstancePropertiesArgs and SqlManagedInstancePropertiesOutput values.
 // You can construct a concrete instance of `SqlManagedInstancePropertiesInput` via:
 //
-//          SqlManagedInstancePropertiesArgs{...}
+//	SqlManagedInstancePropertiesArgs{...}
 type SqlManagedInstancePropertiesInput interface {
 	pulumi.Input
 
@@ -1944,7 +1944,7 @@ func (val *SqlManagedInstanceSku) Defaults() *SqlManagedInstanceSku {
 // SqlManagedInstanceSkuInput is an input type that accepts SqlManagedInstanceSkuArgs and SqlManagedInstanceSkuOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceSkuInput` via:
 //
-//          SqlManagedInstanceSkuArgs{...}
+//	SqlManagedInstanceSkuArgs{...}
 type SqlManagedInstanceSkuInput interface {
 	pulumi.Input
 
@@ -2005,11 +2005,11 @@ func (i SqlManagedInstanceSkuArgs) ToSqlManagedInstanceSkuPtrOutputWithContext(c
 // SqlManagedInstanceSkuPtrInput is an input type that accepts SqlManagedInstanceSkuArgs, SqlManagedInstanceSkuPtr and SqlManagedInstanceSkuPtrOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceSkuPtrInput` via:
 //
-//          SqlManagedInstanceSkuArgs{...}
+//	        SqlManagedInstanceSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SqlManagedInstanceSkuPtrInput interface {
 	pulumi.Input
 
@@ -2369,7 +2369,7 @@ type SqlServerInstanceProperties struct {
 // SqlServerInstancePropertiesInput is an input type that accepts SqlServerInstancePropertiesArgs and SqlServerInstancePropertiesOutput values.
 // You can construct a concrete instance of `SqlServerInstancePropertiesInput` via:
 //
-//          SqlServerInstancePropertiesArgs{...}
+//	SqlServerInstancePropertiesArgs{...}
 type SqlServerInstancePropertiesInput interface {
 	pulumi.Input
 
@@ -2430,11 +2430,11 @@ func (i SqlServerInstancePropertiesArgs) ToSqlServerInstancePropertiesPtrOutputW
 // SqlServerInstancePropertiesPtrInput is an input type that accepts SqlServerInstancePropertiesArgs, SqlServerInstancePropertiesPtr and SqlServerInstancePropertiesPtrOutput values.
 // You can construct a concrete instance of `SqlServerInstancePropertiesPtrInput` via:
 //
-//          SqlServerInstancePropertiesArgs{...}
+//	        SqlServerInstancePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SqlServerInstancePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2902,7 +2902,7 @@ type UploadServicePrincipal struct {
 // UploadServicePrincipalInput is an input type that accepts UploadServicePrincipalArgs and UploadServicePrincipalOutput values.
 // You can construct a concrete instance of `UploadServicePrincipalInput` via:
 //
-//          UploadServicePrincipalArgs{...}
+//	UploadServicePrincipalArgs{...}
 type UploadServicePrincipalInput interface {
 	pulumi.Input
 
@@ -2945,11 +2945,11 @@ func (i UploadServicePrincipalArgs) ToUploadServicePrincipalPtrOutputWithContext
 // UploadServicePrincipalPtrInput is an input type that accepts UploadServicePrincipalArgs, UploadServicePrincipalPtr and UploadServicePrincipalPtrOutput values.
 // You can construct a concrete instance of `UploadServicePrincipalPtrInput` via:
 //
-//          UploadServicePrincipalArgs{...}
+//	        UploadServicePrincipalArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UploadServicePrincipalPtrInput interface {
 	pulumi.Input
 
@@ -3191,7 +3191,7 @@ type UploadWatermark struct {
 // UploadWatermarkInput is an input type that accepts UploadWatermarkArgs and UploadWatermarkOutput values.
 // You can construct a concrete instance of `UploadWatermarkInput` via:
 //
-//          UploadWatermarkArgs{...}
+//	UploadWatermarkArgs{...}
 type UploadWatermarkInput interface {
 	pulumi.Input
 
@@ -3232,11 +3232,11 @@ func (i UploadWatermarkArgs) ToUploadWatermarkPtrOutputWithContext(ctx context.C
 // UploadWatermarkPtrInput is an input type that accepts UploadWatermarkArgs, UploadWatermarkPtr and UploadWatermarkPtrOutput values.
 // You can construct a concrete instance of `UploadWatermarkPtrInput` via:
 //
-//          UploadWatermarkArgs{...}
+//	        UploadWatermarkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UploadWatermarkPtrInput interface {
 	pulumi.Input
 

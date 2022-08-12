@@ -72,7 +72,7 @@ type AppliancePropertiesInfrastructureConfig struct {
 // AppliancePropertiesInfrastructureConfigInput is an input type that accepts AppliancePropertiesInfrastructureConfigArgs and AppliancePropertiesInfrastructureConfigOutput values.
 // You can construct a concrete instance of `AppliancePropertiesInfrastructureConfigInput` via:
 //
-//          AppliancePropertiesInfrastructureConfigArgs{...}
+//	AppliancePropertiesInfrastructureConfigArgs{...}
 type AppliancePropertiesInfrastructureConfigInput interface {
 	pulumi.Input
 
@@ -109,11 +109,11 @@ func (i AppliancePropertiesInfrastructureConfigArgs) ToAppliancePropertiesInfras
 // AppliancePropertiesInfrastructureConfigPtrInput is an input type that accepts AppliancePropertiesInfrastructureConfigArgs, AppliancePropertiesInfrastructureConfigPtr and AppliancePropertiesInfrastructureConfigPtrOutput values.
 // You can construct a concrete instance of `AppliancePropertiesInfrastructureConfigPtrInput` via:
 //
-//          AppliancePropertiesInfrastructureConfigArgs{...}
+//	        AppliancePropertiesInfrastructureConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AppliancePropertiesInfrastructureConfigPtrInput interface {
 	pulumi.Input
 
@@ -319,7 +319,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -356,11 +356,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 

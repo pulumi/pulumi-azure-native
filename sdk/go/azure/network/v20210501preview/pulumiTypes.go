@@ -471,7 +471,7 @@ type ConnectivityGroupItem struct {
 // ConnectivityGroupItemInput is an input type that accepts ConnectivityGroupItemArgs and ConnectivityGroupItemOutput values.
 // You can construct a concrete instance of `ConnectivityGroupItemInput` via:
 //
-//          ConnectivityGroupItemArgs{...}
+//	ConnectivityGroupItemArgs{...}
 type ConnectivityGroupItemInput interface {
 	pulumi.Input
 
@@ -506,7 +506,7 @@ func (i ConnectivityGroupItemArgs) ToConnectivityGroupItemOutputWithContext(ctx 
 // ConnectivityGroupItemArrayInput is an input type that accepts ConnectivityGroupItemArray and ConnectivityGroupItemArrayOutput values.
 // You can construct a concrete instance of `ConnectivityGroupItemArrayInput` via:
 //
-//          ConnectivityGroupItemArray{ ConnectivityGroupItemArgs{...} }
+//	ConnectivityGroupItemArray{ ConnectivityGroupItemArgs{...} }
 type ConnectivityGroupItemArrayInput interface {
 	pulumi.Input
 
@@ -982,7 +982,7 @@ type Hub struct {
 // HubInput is an input type that accepts HubArgs and HubOutput values.
 // You can construct a concrete instance of `HubInput` via:
 //
-//          HubArgs{...}
+//	HubArgs{...}
 type HubInput interface {
 	pulumi.Input
 
@@ -1013,7 +1013,7 @@ func (i HubArgs) ToHubOutputWithContext(ctx context.Context) HubOutput {
 // HubArrayInput is an input type that accepts HubArray and HubArrayOutput values.
 // You can construct a concrete instance of `HubArrayInput` via:
 //
-//          HubArray{ HubArgs{...} }
+//	HubArray{ HubArgs{...} }
 type HubArrayInput interface {
 	pulumi.Input
 
@@ -1225,7 +1225,7 @@ type NetworkManagerPropertiesNetworkManagerScopes struct {
 // NetworkManagerPropertiesNetworkManagerScopesInput is an input type that accepts NetworkManagerPropertiesNetworkManagerScopesArgs and NetworkManagerPropertiesNetworkManagerScopesOutput values.
 // You can construct a concrete instance of `NetworkManagerPropertiesNetworkManagerScopesInput` via:
 //
-//          NetworkManagerPropertiesNetworkManagerScopesArgs{...}
+//	NetworkManagerPropertiesNetworkManagerScopesArgs{...}
 type NetworkManagerPropertiesNetworkManagerScopesInput interface {
 	pulumi.Input
 
@@ -1329,7 +1329,7 @@ type NetworkManagerSecurityGroupItem struct {
 // NetworkManagerSecurityGroupItemInput is an input type that accepts NetworkManagerSecurityGroupItemArgs and NetworkManagerSecurityGroupItemOutput values.
 // You can construct a concrete instance of `NetworkManagerSecurityGroupItemInput` via:
 //
-//          NetworkManagerSecurityGroupItemArgs{...}
+//	NetworkManagerSecurityGroupItemArgs{...}
 type NetworkManagerSecurityGroupItemInput interface {
 	pulumi.Input
 
@@ -1358,7 +1358,7 @@ func (i NetworkManagerSecurityGroupItemArgs) ToNetworkManagerSecurityGroupItemOu
 // NetworkManagerSecurityGroupItemArrayInput is an input type that accepts NetworkManagerSecurityGroupItemArray and NetworkManagerSecurityGroupItemArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerSecurityGroupItemArrayInput` via:
 //
-//          NetworkManagerSecurityGroupItemArray{ NetworkManagerSecurityGroupItemArgs{...} }
+//	NetworkManagerSecurityGroupItemArray{ NetworkManagerSecurityGroupItemArgs{...} }
 type NetworkManagerSecurityGroupItemArrayInput interface {
 	pulumi.Input
 

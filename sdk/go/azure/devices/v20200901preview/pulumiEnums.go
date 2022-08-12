@@ -168,7 +168,7 @@ func (o IpFilterActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // IpFilterActionTypeInput is an input type that accepts IpFilterActionTypeArgs and IpFilterActionTypeOutput values.
 // You can construct a concrete instance of `IpFilterActionTypeInput` via:
 //
-//          IpFilterActionTypeArgs{...}
+//	IpFilterActionTypeArgs{...}
 type IpFilterActionTypeInput interface {
 	pulumi.Input
 
@@ -334,7 +334,7 @@ func (o IpFilterTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // IpFilterTargetTypeInput is an input type that accepts IpFilterTargetTypeArgs and IpFilterTargetTypeOutput values.
 // You can construct a concrete instance of `IpFilterTargetTypeInput` via:
 //
-//          IpFilterTargetTypeArgs{...}
+//	IpFilterTargetTypeArgs{...}
 type IpFilterTargetTypeInput interface {
 	pulumi.Input
 

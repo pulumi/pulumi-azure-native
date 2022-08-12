@@ -23,7 +23,7 @@ type AssignmentPrincipal struct {
 // AssignmentPrincipalInput is an input type that accepts AssignmentPrincipalArgs and AssignmentPrincipalOutput values.
 // You can construct a concrete instance of `AssignmentPrincipalInput` via:
 //
-//          AssignmentPrincipalArgs{...}
+//	AssignmentPrincipalArgs{...}
 type AssignmentPrincipalInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i AssignmentPrincipalArgs) ToAssignmentPrincipalOutputWithContext(ctx cont
 // AssignmentPrincipalArrayInput is an input type that accepts AssignmentPrincipalArray and AssignmentPrincipalArrayOutput values.
 // You can construct a concrete instance of `AssignmentPrincipalArrayInput` via:
 //
-//          AssignmentPrincipalArray{ AssignmentPrincipalArgs{...} }
+//	AssignmentPrincipalArray{ AssignmentPrincipalArgs{...} }
 type AssignmentPrincipalArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type ConnectorMappingAvailability struct {
 // ConnectorMappingAvailabilityInput is an input type that accepts ConnectorMappingAvailabilityArgs and ConnectorMappingAvailabilityOutput values.
 // You can construct a concrete instance of `ConnectorMappingAvailabilityInput` via:
 //
-//          ConnectorMappingAvailabilityArgs{...}
+//	ConnectorMappingAvailabilityArgs{...}
 type ConnectorMappingAvailabilityInput interface {
 	pulumi.Input
 
@@ -296,7 +296,7 @@ type ConnectorMappingCompleteOperation struct {
 // ConnectorMappingCompleteOperationInput is an input type that accepts ConnectorMappingCompleteOperationArgs and ConnectorMappingCompleteOperationOutput values.
 // You can construct a concrete instance of `ConnectorMappingCompleteOperationInput` via:
 //
-//          ConnectorMappingCompleteOperationArgs{...}
+//	ConnectorMappingCompleteOperationArgs{...}
 type ConnectorMappingCompleteOperationInput interface {
 	pulumi.Input
 
@@ -393,7 +393,7 @@ type ConnectorMappingErrorManagement struct {
 // ConnectorMappingErrorManagementInput is an input type that accepts ConnectorMappingErrorManagementArgs and ConnectorMappingErrorManagementOutput values.
 // You can construct a concrete instance of `ConnectorMappingErrorManagementInput` via:
 //
-//          ConnectorMappingErrorManagementArgs{...}
+//	ConnectorMappingErrorManagementArgs{...}
 type ConnectorMappingErrorManagementInput interface {
 	pulumi.Input
 
@@ -498,7 +498,7 @@ type ConnectorMappingFormat struct {
 // ConnectorMappingFormatInput is an input type that accepts ConnectorMappingFormatArgs and ConnectorMappingFormatOutput values.
 // You can construct a concrete instance of `ConnectorMappingFormatInput` via:
 //
-//          ConnectorMappingFormatArgs{...}
+//	ConnectorMappingFormatArgs{...}
 type ConnectorMappingFormatInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ type ConnectorMappingProperties struct {
 // ConnectorMappingPropertiesInput is an input type that accepts ConnectorMappingPropertiesArgs and ConnectorMappingPropertiesOutput values.
 // You can construct a concrete instance of `ConnectorMappingPropertiesInput` via:
 //
-//          ConnectorMappingPropertiesArgs{...}
+//	ConnectorMappingPropertiesArgs{...}
 type ConnectorMappingPropertiesInput interface {
 	pulumi.Input
 
@@ -852,7 +852,7 @@ type ConnectorMappingStructure struct {
 // ConnectorMappingStructureInput is an input type that accepts ConnectorMappingStructureArgs and ConnectorMappingStructureOutput values.
 // You can construct a concrete instance of `ConnectorMappingStructureInput` via:
 //
-//          ConnectorMappingStructureArgs{...}
+//	ConnectorMappingStructureArgs{...}
 type ConnectorMappingStructureInput interface {
 	pulumi.Input
 
@@ -887,7 +887,7 @@ func (i ConnectorMappingStructureArgs) ToConnectorMappingStructureOutputWithCont
 // ConnectorMappingStructureArrayInput is an input type that accepts ConnectorMappingStructureArray and ConnectorMappingStructureArrayOutput values.
 // You can construct a concrete instance of `ConnectorMappingStructureArrayInput` via:
 //
-//          ConnectorMappingStructureArray{ ConnectorMappingStructureArgs{...} }
+//	ConnectorMappingStructureArray{ ConnectorMappingStructureArgs{...} }
 type ConnectorMappingStructureArrayInput interface {
 	pulumi.Input
 
@@ -1125,7 +1125,7 @@ type HubBillingInfoFormat struct {
 // HubBillingInfoFormatInput is an input type that accepts HubBillingInfoFormatArgs and HubBillingInfoFormatOutput values.
 // You can construct a concrete instance of `HubBillingInfoFormatInput` via:
 //
-//          HubBillingInfoFormatArgs{...}
+//	HubBillingInfoFormatArgs{...}
 type HubBillingInfoFormatInput interface {
 	pulumi.Input
 
@@ -1166,11 +1166,11 @@ func (i HubBillingInfoFormatArgs) ToHubBillingInfoFormatPtrOutputWithContext(ctx
 // HubBillingInfoFormatPtrInput is an input type that accepts HubBillingInfoFormatArgs, HubBillingInfoFormatPtr and HubBillingInfoFormatPtrOutput values.
 // You can construct a concrete instance of `HubBillingInfoFormatPtrInput` via:
 //
-//          HubBillingInfoFormatArgs{...}
+//	        HubBillingInfoFormatArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HubBillingInfoFormatPtrInput interface {
 	pulumi.Input
 
@@ -1395,7 +1395,7 @@ type KpiAlias struct {
 // KpiAliasInput is an input type that accepts KpiAliasArgs and KpiAliasOutput values.
 // You can construct a concrete instance of `KpiAliasInput` via:
 //
-//          KpiAliasArgs{...}
+//	KpiAliasArgs{...}
 type KpiAliasInput interface {
 	pulumi.Input
 
@@ -1426,7 +1426,7 @@ func (i KpiAliasArgs) ToKpiAliasOutputWithContext(ctx context.Context) KpiAliasO
 // KpiAliasArrayInput is an input type that accepts KpiAliasArray and KpiAliasArrayOutput values.
 // You can construct a concrete instance of `KpiAliasArrayInput` via:
 //
-//          KpiAliasArray{ KpiAliasArgs{...} }
+//	KpiAliasArray{ KpiAliasArgs{...} }
 type KpiAliasArrayInput interface {
 	pulumi.Input
 
@@ -1557,7 +1557,7 @@ type KpiExtract struct {
 // KpiExtractInput is an input type that accepts KpiExtractArgs and KpiExtractOutput values.
 // You can construct a concrete instance of `KpiExtractInput` via:
 //
-//          KpiExtractArgs{...}
+//	KpiExtractArgs{...}
 type KpiExtractInput interface {
 	pulumi.Input
 
@@ -1588,7 +1588,7 @@ func (i KpiExtractArgs) ToKpiExtractOutputWithContext(ctx context.Context) KpiEx
 // KpiExtractArrayInput is an input type that accepts KpiExtractArray and KpiExtractArrayOutput values.
 // You can construct a concrete instance of `KpiExtractArrayInput` via:
 //
-//          KpiExtractArray{ KpiExtractArgs{...} }
+//	KpiExtractArray{ KpiExtractArgs{...} }
 type KpiExtractArrayInput interface {
 	pulumi.Input
 
@@ -1827,7 +1827,7 @@ type KpiThresholds struct {
 // KpiThresholdsInput is an input type that accepts KpiThresholdsArgs and KpiThresholdsOutput values.
 // You can construct a concrete instance of `KpiThresholdsInput` via:
 //
-//          KpiThresholdsArgs{...}
+//	KpiThresholdsArgs{...}
 type KpiThresholdsInput interface {
 	pulumi.Input
 
@@ -1868,11 +1868,11 @@ func (i KpiThresholdsArgs) ToKpiThresholdsPtrOutputWithContext(ctx context.Conte
 // KpiThresholdsPtrInput is an input type that accepts KpiThresholdsArgs, KpiThresholdsPtr and KpiThresholdsPtrOutput values.
 // You can construct a concrete instance of `KpiThresholdsPtrInput` via:
 //
-//          KpiThresholdsArgs{...}
+//	        KpiThresholdsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KpiThresholdsPtrInput interface {
 	pulumi.Input
 
@@ -2097,7 +2097,7 @@ type ParticipantPropertyReference struct {
 // ParticipantPropertyReferenceInput is an input type that accepts ParticipantPropertyReferenceArgs and ParticipantPropertyReferenceOutput values.
 // You can construct a concrete instance of `ParticipantPropertyReferenceInput` via:
 //
-//          ParticipantPropertyReferenceArgs{...}
+//	ParticipantPropertyReferenceArgs{...}
 type ParticipantPropertyReferenceInput interface {
 	pulumi.Input
 
@@ -2128,7 +2128,7 @@ func (i ParticipantPropertyReferenceArgs) ToParticipantPropertyReferenceOutputWi
 // ParticipantPropertyReferenceArrayInput is an input type that accepts ParticipantPropertyReferenceArray and ParticipantPropertyReferenceArrayOutput values.
 // You can construct a concrete instance of `ParticipantPropertyReferenceArrayInput` via:
 //
-//          ParticipantPropertyReferenceArray{ ParticipantPropertyReferenceArgs{...} }
+//	ParticipantPropertyReferenceArray{ ParticipantPropertyReferenceArgs{...} }
 type ParticipantPropertyReferenceArrayInput interface {
 	pulumi.Input
 
@@ -2259,7 +2259,7 @@ type ProfileEnumValidValuesFormat struct {
 // ProfileEnumValidValuesFormatInput is an input type that accepts ProfileEnumValidValuesFormatArgs and ProfileEnumValidValuesFormatOutput values.
 // You can construct a concrete instance of `ProfileEnumValidValuesFormatInput` via:
 //
-//          ProfileEnumValidValuesFormatArgs{...}
+//	ProfileEnumValidValuesFormatArgs{...}
 type ProfileEnumValidValuesFormatInput interface {
 	pulumi.Input
 
@@ -2290,7 +2290,7 @@ func (i ProfileEnumValidValuesFormatArgs) ToProfileEnumValidValuesFormatOutputWi
 // ProfileEnumValidValuesFormatArrayInput is an input type that accepts ProfileEnumValidValuesFormatArray and ProfileEnumValidValuesFormatArrayOutput values.
 // You can construct a concrete instance of `ProfileEnumValidValuesFormatArrayInput` via:
 //
-//          ProfileEnumValidValuesFormatArray{ ProfileEnumValidValuesFormatArgs{...} }
+//	ProfileEnumValidValuesFormatArray{ ProfileEnumValidValuesFormatArgs{...} }
 type ProfileEnumValidValuesFormatArrayInput interface {
 	pulumi.Input
 
@@ -2447,7 +2447,7 @@ type PropertyDefinition struct {
 // PropertyDefinitionInput is an input type that accepts PropertyDefinitionArgs and PropertyDefinitionOutput values.
 // You can construct a concrete instance of `PropertyDefinitionInput` via:
 //
-//          PropertyDefinitionArgs{...}
+//	PropertyDefinitionArgs{...}
 type PropertyDefinitionInput interface {
 	pulumi.Input
 
@@ -2504,7 +2504,7 @@ func (i PropertyDefinitionArgs) ToPropertyDefinitionOutputWithContext(ctx contex
 // PropertyDefinitionArrayInput is an input type that accepts PropertyDefinitionArray and PropertyDefinitionArrayOutput values.
 // You can construct a concrete instance of `PropertyDefinitionArrayInput` via:
 //
-//          PropertyDefinitionArray{ PropertyDefinitionArgs{...} }
+//	PropertyDefinitionArray{ PropertyDefinitionArgs{...} }
 type PropertyDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -2800,7 +2800,7 @@ type RelationshipLinkFieldMapping struct {
 // RelationshipLinkFieldMappingInput is an input type that accepts RelationshipLinkFieldMappingArgs and RelationshipLinkFieldMappingOutput values.
 // You can construct a concrete instance of `RelationshipLinkFieldMappingInput` via:
 //
-//          RelationshipLinkFieldMappingArgs{...}
+//	RelationshipLinkFieldMappingArgs{...}
 type RelationshipLinkFieldMappingInput interface {
 	pulumi.Input
 
@@ -2833,7 +2833,7 @@ func (i RelationshipLinkFieldMappingArgs) ToRelationshipLinkFieldMappingOutputWi
 // RelationshipLinkFieldMappingArrayInput is an input type that accepts RelationshipLinkFieldMappingArray and RelationshipLinkFieldMappingArrayOutput values.
 // You can construct a concrete instance of `RelationshipLinkFieldMappingArrayInput` via:
 //
-//          RelationshipLinkFieldMappingArray{ RelationshipLinkFieldMappingArgs{...} }
+//	RelationshipLinkFieldMappingArray{ RelationshipLinkFieldMappingArgs{...} }
 type RelationshipLinkFieldMappingArrayInput interface {
 	pulumi.Input
 
@@ -2976,7 +2976,7 @@ type RelationshipTypeFieldMapping struct {
 // RelationshipTypeFieldMappingInput is an input type that accepts RelationshipTypeFieldMappingArgs and RelationshipTypeFieldMappingOutput values.
 // You can construct a concrete instance of `RelationshipTypeFieldMappingInput` via:
 //
-//          RelationshipTypeFieldMappingArgs{...}
+//	RelationshipTypeFieldMappingArgs{...}
 type RelationshipTypeFieldMappingInput interface {
 	pulumi.Input
 
@@ -3007,7 +3007,7 @@ func (i RelationshipTypeFieldMappingArgs) ToRelationshipTypeFieldMappingOutputWi
 // RelationshipTypeFieldMappingArrayInput is an input type that accepts RelationshipTypeFieldMappingArray and RelationshipTypeFieldMappingArrayOutput values.
 // You can construct a concrete instance of `RelationshipTypeFieldMappingArrayInput` via:
 //
-//          RelationshipTypeFieldMappingArray{ RelationshipTypeFieldMappingArgs{...} }
+//	RelationshipTypeFieldMappingArray{ RelationshipTypeFieldMappingArgs{...} }
 type RelationshipTypeFieldMappingArrayInput interface {
 	pulumi.Input
 
@@ -3136,7 +3136,7 @@ type RelationshipTypeMapping struct {
 // RelationshipTypeMappingInput is an input type that accepts RelationshipTypeMappingArgs and RelationshipTypeMappingOutput values.
 // You can construct a concrete instance of `RelationshipTypeMappingInput` via:
 //
-//          RelationshipTypeMappingArgs{...}
+//	RelationshipTypeMappingArgs{...}
 type RelationshipTypeMappingInput interface {
 	pulumi.Input
 
@@ -3165,7 +3165,7 @@ func (i RelationshipTypeMappingArgs) ToRelationshipTypeMappingOutputWithContext(
 // RelationshipTypeMappingArrayInput is an input type that accepts RelationshipTypeMappingArray and RelationshipTypeMappingArrayOutput values.
 // You can construct a concrete instance of `RelationshipTypeMappingArrayInput` via:
 //
-//          RelationshipTypeMappingArray{ RelationshipTypeMappingArgs{...} }
+//	RelationshipTypeMappingArray{ RelationshipTypeMappingArgs{...} }
 type RelationshipTypeMappingArrayInput interface {
 	pulumi.Input
 
@@ -3284,7 +3284,7 @@ type ResourceSetDescription struct {
 // ResourceSetDescriptionInput is an input type that accepts ResourceSetDescriptionArgs and ResourceSetDescriptionOutput values.
 // You can construct a concrete instance of `ResourceSetDescriptionInput` via:
 //
-//          ResourceSetDescriptionArgs{...}
+//	ResourceSetDescriptionArgs{...}
 type ResourceSetDescriptionInput interface {
 	pulumi.Input
 
@@ -3323,11 +3323,11 @@ func (i ResourceSetDescriptionArgs) ToResourceSetDescriptionPtrOutputWithContext
 // ResourceSetDescriptionPtrInput is an input type that accepts ResourceSetDescriptionArgs, ResourceSetDescriptionPtr and ResourceSetDescriptionPtrOutput values.
 // You can construct a concrete instance of `ResourceSetDescriptionPtrInput` via:
 //
-//          ResourceSetDescriptionArgs{...}
+//	        ResourceSetDescriptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetDescriptionPtrInput interface {
 	pulumi.Input
 
@@ -3524,7 +3524,7 @@ type StrongId struct {
 // StrongIdInput is an input type that accepts StrongIdArgs and StrongIdOutput values.
 // You can construct a concrete instance of `StrongIdInput` via:
 //
-//          StrongIdArgs{...}
+//	StrongIdArgs{...}
 type StrongIdInput interface {
 	pulumi.Input
 
@@ -3559,7 +3559,7 @@ func (i StrongIdArgs) ToStrongIdOutputWithContext(ctx context.Context) StrongIdO
 // StrongIdArrayInput is an input type that accepts StrongIdArray and StrongIdArrayOutput values.
 // You can construct a concrete instance of `StrongIdArrayInput` via:
 //
-//          StrongIdArray{ StrongIdArgs{...} }
+//	StrongIdArray{ StrongIdArgs{...} }
 type StrongIdArrayInput interface {
 	pulumi.Input
 
@@ -3718,7 +3718,7 @@ type TypePropertiesMapping struct {
 // TypePropertiesMappingInput is an input type that accepts TypePropertiesMappingArgs and TypePropertiesMappingOutput values.
 // You can construct a concrete instance of `TypePropertiesMappingInput` via:
 //
-//          TypePropertiesMappingArgs{...}
+//	TypePropertiesMappingArgs{...}
 type TypePropertiesMappingInput interface {
 	pulumi.Input
 
@@ -3753,7 +3753,7 @@ func (i TypePropertiesMappingArgs) ToTypePropertiesMappingOutputWithContext(ctx 
 // TypePropertiesMappingArrayInput is an input type that accepts TypePropertiesMappingArray and TypePropertiesMappingArrayOutput values.
 // You can construct a concrete instance of `TypePropertiesMappingArrayInput` via:
 //
-//          TypePropertiesMappingArray{ TypePropertiesMappingArgs{...} }
+//	TypePropertiesMappingArray{ TypePropertiesMappingArgs{...} }
 type TypePropertiesMappingArrayInput interface {
 	pulumi.Input
 
@@ -3790,7 +3790,7 @@ func (o TypePropertiesMappingOutput) ToTypePropertiesMappingOutputWithContext(ct
 	return o
 }
 
-//  Property name on the source Interaction Type.
+// Property name on the source Interaction Type.
 func (o TypePropertiesMappingOutput) InteractionTypePropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v TypePropertiesMapping) string { return v.InteractionTypePropertyName }).(pulumi.StringOutput)
 }
@@ -3857,7 +3857,7 @@ func (o TypePropertiesMappingResponseOutput) ToTypePropertiesMappingResponseOutp
 	return o
 }
 
-//  Property name on the source Interaction Type.
+// Property name on the source Interaction Type.
 func (o TypePropertiesMappingResponseOutput) InteractionTypePropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v TypePropertiesMappingResponse) string { return v.InteractionTypePropertyName }).(pulumi.StringOutput)
 }

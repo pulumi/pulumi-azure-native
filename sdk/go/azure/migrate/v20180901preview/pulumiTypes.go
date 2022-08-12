@@ -47,7 +47,7 @@ type MigrateProjectProperties struct {
 // MigrateProjectPropertiesInput is an input type that accepts MigrateProjectPropertiesArgs and MigrateProjectPropertiesOutput values.
 // You can construct a concrete instance of `MigrateProjectPropertiesInput` via:
 //
-//          MigrateProjectPropertiesArgs{...}
+//	MigrateProjectPropertiesArgs{...}
 type MigrateProjectPropertiesInput interface {
 	pulumi.Input
 
@@ -86,11 +86,11 @@ func (i MigrateProjectPropertiesArgs) ToMigrateProjectPropertiesPtrOutputWithCon
 // MigrateProjectPropertiesPtrInput is an input type that accepts MigrateProjectPropertiesArgs, MigrateProjectPropertiesPtr and MigrateProjectPropertiesPtrOutput values.
 // You can construct a concrete instance of `MigrateProjectPropertiesPtrInput` via:
 //
-//          MigrateProjectPropertiesArgs{...}
+//	        MigrateProjectPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MigrateProjectPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -314,7 +314,7 @@ type MigrateProjectTags struct {
 // MigrateProjectTagsInput is an input type that accepts MigrateProjectTagsArgs and MigrateProjectTagsOutput values.
 // You can construct a concrete instance of `MigrateProjectTagsInput` via:
 //
-//          MigrateProjectTagsArgs{...}
+//	MigrateProjectTagsArgs{...}
 type MigrateProjectTagsInput interface {
 	pulumi.Input
 
@@ -350,11 +350,11 @@ func (i MigrateProjectTagsArgs) ToMigrateProjectTagsPtrOutputWithContext(ctx con
 // MigrateProjectTagsPtrInput is an input type that accepts MigrateProjectTagsArgs, MigrateProjectTagsPtr and MigrateProjectTagsPtrOutput values.
 // You can construct a concrete instance of `MigrateProjectTagsPtrInput` via:
 //
-//          MigrateProjectTagsArgs{...}
+//	        MigrateProjectTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MigrateProjectTagsPtrInput interface {
 	pulumi.Input
 
@@ -495,7 +495,7 @@ type SolutionDetails struct {
 // SolutionDetailsInput is an input type that accepts SolutionDetailsArgs and SolutionDetailsOutput values.
 // You can construct a concrete instance of `SolutionDetailsInput` via:
 //
-//          SolutionDetailsArgs{...}
+//	SolutionDetailsArgs{...}
 type SolutionDetailsInput interface {
 	pulumi.Input
 
@@ -536,11 +536,11 @@ func (i SolutionDetailsArgs) ToSolutionDetailsPtrOutputWithContext(ctx context.C
 // SolutionDetailsPtrInput is an input type that accepts SolutionDetailsArgs, SolutionDetailsPtr and SolutionDetailsPtrOutput values.
 // You can construct a concrete instance of `SolutionDetailsPtrInput` via:
 //
-//          SolutionDetailsArgs{...}
+//	        SolutionDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SolutionDetailsPtrInput interface {
 	pulumi.Input
 
@@ -773,7 +773,7 @@ type SolutionProperties struct {
 // SolutionPropertiesInput is an input type that accepts SolutionPropertiesArgs and SolutionPropertiesOutput values.
 // You can construct a concrete instance of `SolutionPropertiesInput` via:
 //
-//          SolutionPropertiesArgs{...}
+//	SolutionPropertiesArgs{...}
 type SolutionPropertiesInput interface {
 	pulumi.Input
 
@@ -820,11 +820,11 @@ func (i SolutionPropertiesArgs) ToSolutionPropertiesPtrOutputWithContext(ctx con
 // SolutionPropertiesPtrInput is an input type that accepts SolutionPropertiesArgs, SolutionPropertiesPtr and SolutionPropertiesPtrOutput values.
 // You can construct a concrete instance of `SolutionPropertiesPtrInput` via:
 //
-//          SolutionPropertiesArgs{...}
+//	        SolutionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SolutionPropertiesPtrInput interface {
 	pulumi.Input
 

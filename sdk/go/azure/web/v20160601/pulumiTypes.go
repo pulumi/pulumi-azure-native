@@ -33,7 +33,7 @@ type ApiConnectionDefinitionProperties struct {
 // ApiConnectionDefinitionPropertiesInput is an input type that accepts ApiConnectionDefinitionPropertiesArgs and ApiConnectionDefinitionPropertiesOutput values.
 // You can construct a concrete instance of `ApiConnectionDefinitionPropertiesInput` via:
 //
-//          ApiConnectionDefinitionPropertiesArgs{...}
+//	ApiConnectionDefinitionPropertiesArgs{...}
 type ApiConnectionDefinitionPropertiesInput interface {
 	pulumi.Input
 
@@ -84,11 +84,11 @@ func (i ApiConnectionDefinitionPropertiesArgs) ToApiConnectionDefinitionProperti
 // ApiConnectionDefinitionPropertiesPtrInput is an input type that accepts ApiConnectionDefinitionPropertiesArgs, ApiConnectionDefinitionPropertiesPtr and ApiConnectionDefinitionPropertiesPtrOutput values.
 // You can construct a concrete instance of `ApiConnectionDefinitionPropertiesPtrInput` via:
 //
-//          ApiConnectionDefinitionPropertiesArgs{...}
+//	        ApiConnectionDefinitionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiConnectionDefinitionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -386,7 +386,7 @@ type ApiConnectionTestLink struct {
 // ApiConnectionTestLinkInput is an input type that accepts ApiConnectionTestLinkArgs and ApiConnectionTestLinkOutput values.
 // You can construct a concrete instance of `ApiConnectionTestLinkInput` via:
 //
-//          ApiConnectionTestLinkArgs{...}
+//	ApiConnectionTestLinkArgs{...}
 type ApiConnectionTestLinkInput interface {
 	pulumi.Input
 
@@ -417,7 +417,7 @@ func (i ApiConnectionTestLinkArgs) ToApiConnectionTestLinkOutputWithContext(ctx 
 // ApiConnectionTestLinkArrayInput is an input type that accepts ApiConnectionTestLinkArray and ApiConnectionTestLinkArrayOutput values.
 // You can construct a concrete instance of `ApiConnectionTestLinkArrayInput` via:
 //
-//          ApiConnectionTestLinkArray{ ApiConnectionTestLinkArgs{...} }
+//	ApiConnectionTestLinkArray{ ApiConnectionTestLinkArgs{...} }
 type ApiConnectionTestLinkArrayInput interface {
 	pulumi.Input
 
@@ -558,7 +558,7 @@ type ApiOAuthSettings struct {
 // ApiOAuthSettingsInput is an input type that accepts ApiOAuthSettingsArgs and ApiOAuthSettingsOutput values.
 // You can construct a concrete instance of `ApiOAuthSettingsInput` via:
 //
-//          ApiOAuthSettingsArgs{...}
+//	ApiOAuthSettingsArgs{...}
 type ApiOAuthSettingsInput interface {
 	pulumi.Input
 
@@ -607,11 +607,11 @@ func (i ApiOAuthSettingsArgs) ToApiOAuthSettingsPtrOutputWithContext(ctx context
 // ApiOAuthSettingsPtrInput is an input type that accepts ApiOAuthSettingsArgs, ApiOAuthSettingsPtr and ApiOAuthSettingsPtrOutput values.
 // You can construct a concrete instance of `ApiOAuthSettingsPtrInput` via:
 //
-//          ApiOAuthSettingsArgs{...}
+//	        ApiOAuthSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiOAuthSettingsPtrInput interface {
 	pulumi.Input
 
@@ -804,7 +804,7 @@ type ApiOAuthSettingsParameter struct {
 // ApiOAuthSettingsParameterInput is an input type that accepts ApiOAuthSettingsParameterArgs and ApiOAuthSettingsParameterOutput values.
 // You can construct a concrete instance of `ApiOAuthSettingsParameterInput` via:
 //
-//          ApiOAuthSettingsParameterArgs{...}
+//	ApiOAuthSettingsParameterArgs{...}
 type ApiOAuthSettingsParameterInput interface {
 	pulumi.Input
 
@@ -837,7 +837,7 @@ func (i ApiOAuthSettingsParameterArgs) ToApiOAuthSettingsParameterOutputWithCont
 // ApiOAuthSettingsParameterMapInput is an input type that accepts ApiOAuthSettingsParameterMap and ApiOAuthSettingsParameterMapOutput values.
 // You can construct a concrete instance of `ApiOAuthSettingsParameterMapInput` via:
 //
-//          ApiOAuthSettingsParameterMap{ "key": ApiOAuthSettingsParameterArgs{...} }
+//	ApiOAuthSettingsParameterMap{ "key": ApiOAuthSettingsParameterArgs{...} }
 type ApiOAuthSettingsParameterMapInput interface {
 	pulumi.Input
 
@@ -1155,7 +1155,7 @@ type ApiReference struct {
 // ApiReferenceInput is an input type that accepts ApiReferenceArgs and ApiReferenceOutput values.
 // You can construct a concrete instance of `ApiReferenceInput` via:
 //
-//          ApiReferenceArgs{...}
+//	ApiReferenceArgs{...}
 type ApiReferenceInput interface {
 	pulumi.Input
 
@@ -1205,11 +1205,11 @@ func (i ApiReferenceArgs) ToApiReferencePtrOutputWithContext(ctx context.Context
 // ApiReferencePtrInput is an input type that accepts ApiReferenceArgs, ApiReferencePtr and ApiReferencePtrOutput values.
 // You can construct a concrete instance of `ApiReferencePtrInput` via:
 //
-//          ApiReferenceArgs{...}
+//	        ApiReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiReferencePtrInput interface {
 	pulumi.Input
 
@@ -1589,7 +1589,7 @@ type ApiResourceBackendService struct {
 // ApiResourceBackendServiceInput is an input type that accepts ApiResourceBackendServiceArgs and ApiResourceBackendServiceOutput values.
 // You can construct a concrete instance of `ApiResourceBackendServiceInput` via:
 //
-//          ApiResourceBackendServiceArgs{...}
+//	ApiResourceBackendServiceArgs{...}
 type ApiResourceBackendServiceInput interface {
 	pulumi.Input
 
@@ -1626,11 +1626,11 @@ func (i ApiResourceBackendServiceArgs) ToApiResourceBackendServicePtrOutputWithC
 // ApiResourceBackendServicePtrInput is an input type that accepts ApiResourceBackendServiceArgs, ApiResourceBackendServicePtr and ApiResourceBackendServicePtrOutput values.
 // You can construct a concrete instance of `ApiResourceBackendServicePtrInput` via:
 //
-//          ApiResourceBackendServiceArgs{...}
+//	        ApiResourceBackendServiceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiResourceBackendServicePtrInput interface {
 	pulumi.Input
 
@@ -1791,7 +1791,7 @@ type ApiResourceDefinitions struct {
 // ApiResourceDefinitionsInput is an input type that accepts ApiResourceDefinitionsArgs and ApiResourceDefinitionsOutput values.
 // You can construct a concrete instance of `ApiResourceDefinitionsInput` via:
 //
-//          ApiResourceDefinitionsArgs{...}
+//	ApiResourceDefinitionsArgs{...}
 type ApiResourceDefinitionsInput interface {
 	pulumi.Input
 
@@ -1830,11 +1830,11 @@ func (i ApiResourceDefinitionsArgs) ToApiResourceDefinitionsPtrOutputWithContext
 // ApiResourceDefinitionsPtrInput is an input type that accepts ApiResourceDefinitionsArgs, ApiResourceDefinitionsPtr and ApiResourceDefinitionsPtrOutput values.
 // You can construct a concrete instance of `ApiResourceDefinitionsPtrInput` via:
 //
-//          ApiResourceDefinitionsArgs{...}
+//	        ApiResourceDefinitionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiResourceDefinitionsPtrInput interface {
 	pulumi.Input
 
@@ -2033,7 +2033,7 @@ type ConnectionError struct {
 // ConnectionErrorInput is an input type that accepts ConnectionErrorArgs and ConnectionErrorOutput values.
 // You can construct a concrete instance of `ConnectionErrorInput` via:
 //
-//          ConnectionErrorArgs{...}
+//	ConnectionErrorArgs{...}
 type ConnectionErrorInput interface {
 	pulumi.Input
 
@@ -2078,11 +2078,11 @@ func (i ConnectionErrorArgs) ToConnectionErrorPtrOutputWithContext(ctx context.C
 // ConnectionErrorPtrInput is an input type that accepts ConnectionErrorArgs, ConnectionErrorPtr and ConnectionErrorPtrOutput values.
 // You can construct a concrete instance of `ConnectionErrorPtrInput` via:
 //
-//          ConnectionErrorArgs{...}
+//	        ConnectionErrorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionErrorPtrInput interface {
 	pulumi.Input
 
@@ -2431,7 +2431,7 @@ type ConnectionGatewayDefinitionProperties struct {
 // ConnectionGatewayDefinitionPropertiesInput is an input type that accepts ConnectionGatewayDefinitionPropertiesArgs and ConnectionGatewayDefinitionPropertiesOutput values.
 // You can construct a concrete instance of `ConnectionGatewayDefinitionPropertiesInput` via:
 //
-//          ConnectionGatewayDefinitionPropertiesArgs{...}
+//	ConnectionGatewayDefinitionPropertiesArgs{...}
 type ConnectionGatewayDefinitionPropertiesInput interface {
 	pulumi.Input
 
@@ -2479,11 +2479,11 @@ func (i ConnectionGatewayDefinitionPropertiesArgs) ToConnectionGatewayDefinition
 // ConnectionGatewayDefinitionPropertiesPtrInput is an input type that accepts ConnectionGatewayDefinitionPropertiesArgs, ConnectionGatewayDefinitionPropertiesPtr and ConnectionGatewayDefinitionPropertiesPtrOutput values.
 // You can construct a concrete instance of `ConnectionGatewayDefinitionPropertiesPtrInput` via:
 //
-//          ConnectionGatewayDefinitionPropertiesArgs{...}
+//	        ConnectionGatewayDefinitionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionGatewayDefinitionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2747,7 +2747,7 @@ type ConnectionGatewayReference struct {
 // ConnectionGatewayReferenceInput is an input type that accepts ConnectionGatewayReferenceArgs and ConnectionGatewayReferenceOutput values.
 // You can construct a concrete instance of `ConnectionGatewayReferenceInput` via:
 //
-//          ConnectionGatewayReferenceArgs{...}
+//	ConnectionGatewayReferenceArgs{...}
 type ConnectionGatewayReferenceInput interface {
 	pulumi.Input
 
@@ -2790,11 +2790,11 @@ func (i ConnectionGatewayReferenceArgs) ToConnectionGatewayReferencePtrOutputWit
 // ConnectionGatewayReferencePtrInput is an input type that accepts ConnectionGatewayReferenceArgs, ConnectionGatewayReferencePtr and ConnectionGatewayReferencePtrOutput values.
 // You can construct a concrete instance of `ConnectionGatewayReferencePtrInput` via:
 //
-//          ConnectionGatewayReferenceArgs{...}
+//	        ConnectionGatewayReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionGatewayReferencePtrInput interface {
 	pulumi.Input
 
@@ -3051,7 +3051,7 @@ type ConnectionParameter struct {
 // ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
 // You can construct a concrete instance of `ConnectionParameterInput` via:
 //
-//          ConnectionParameterArgs{...}
+//	ConnectionParameterArgs{...}
 type ConnectionParameterInput interface {
 	pulumi.Input
 
@@ -3082,7 +3082,7 @@ func (i ConnectionParameterArgs) ToConnectionParameterOutputWithContext(ctx cont
 // ConnectionParameterMapInput is an input type that accepts ConnectionParameterMap and ConnectionParameterMapOutput values.
 // You can construct a concrete instance of `ConnectionParameterMapInput` via:
 //
-//          ConnectionParameterMap{ "key": ConnectionParameterArgs{...} }
+//	ConnectionParameterMap{ "key": ConnectionParameterArgs{...} }
 type ConnectionParameterMapInput interface {
 	pulumi.Input
 
@@ -3215,7 +3215,7 @@ type ConnectionStatusDefinition struct {
 // ConnectionStatusDefinitionInput is an input type that accepts ConnectionStatusDefinitionArgs and ConnectionStatusDefinitionOutput values.
 // You can construct a concrete instance of `ConnectionStatusDefinitionInput` via:
 //
-//          ConnectionStatusDefinitionArgs{...}
+//	ConnectionStatusDefinitionArgs{...}
 type ConnectionStatusDefinitionInput interface {
 	pulumi.Input
 
@@ -3248,7 +3248,7 @@ func (i ConnectionStatusDefinitionArgs) ToConnectionStatusDefinitionOutputWithCo
 // ConnectionStatusDefinitionArrayInput is an input type that accepts ConnectionStatusDefinitionArray and ConnectionStatusDefinitionArrayOutput values.
 // You can construct a concrete instance of `ConnectionStatusDefinitionArrayInput` via:
 //
-//          ConnectionStatusDefinitionArray{ ConnectionStatusDefinitionArgs{...} }
+//	ConnectionStatusDefinitionArray{ ConnectionStatusDefinitionArgs{...} }
 type ConnectionStatusDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -3462,7 +3462,7 @@ type ConsentLinkParameterDefinition struct {
 // ConsentLinkParameterDefinitionInput is an input type that accepts ConsentLinkParameterDefinitionArgs and ConsentLinkParameterDefinitionOutput values.
 // You can construct a concrete instance of `ConsentLinkParameterDefinitionInput` via:
 //
-//          ConsentLinkParameterDefinitionArgs{...}
+//	ConsentLinkParameterDefinitionArgs{...}
 type ConsentLinkParameterDefinitionInput interface {
 	pulumi.Input
 
@@ -3497,7 +3497,7 @@ func (i ConsentLinkParameterDefinitionArgs) ToConsentLinkParameterDefinitionOutp
 // ConsentLinkParameterDefinitionArrayInput is an input type that accepts ConsentLinkParameterDefinitionArray and ConsentLinkParameterDefinitionArrayOutput values.
 // You can construct a concrete instance of `ConsentLinkParameterDefinitionArrayInput` via:
 //
-//          ConsentLinkParameterDefinitionArray{ ConsentLinkParameterDefinitionArgs{...} }
+//	ConsentLinkParameterDefinitionArray{ ConsentLinkParameterDefinitionArgs{...} }
 type ConsentLinkParameterDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -3605,7 +3605,7 @@ type CustomApiPropertiesDefinition struct {
 // CustomApiPropertiesDefinitionInput is an input type that accepts CustomApiPropertiesDefinitionArgs and CustomApiPropertiesDefinitionOutput values.
 // You can construct a concrete instance of `CustomApiPropertiesDefinitionInput` via:
 //
-//          CustomApiPropertiesDefinitionArgs{...}
+//	CustomApiPropertiesDefinitionArgs{...}
 type CustomApiPropertiesDefinitionInput interface {
 	pulumi.Input
 
@@ -3664,11 +3664,11 @@ func (i CustomApiPropertiesDefinitionArgs) ToCustomApiPropertiesDefinitionPtrOut
 // CustomApiPropertiesDefinitionPtrInput is an input type that accepts CustomApiPropertiesDefinitionArgs, CustomApiPropertiesDefinitionPtr and CustomApiPropertiesDefinitionPtrOutput values.
 // You can construct a concrete instance of `CustomApiPropertiesDefinitionPtrInput` via:
 //
-//          CustomApiPropertiesDefinitionArgs{...}
+//	        CustomApiPropertiesDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CustomApiPropertiesDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -4045,7 +4045,7 @@ type WsdlDefinition struct {
 // WsdlDefinitionInput is an input type that accepts WsdlDefinitionArgs and WsdlDefinitionOutput values.
 // You can construct a concrete instance of `WsdlDefinitionInput` via:
 //
-//          WsdlDefinitionArgs{...}
+//	WsdlDefinitionArgs{...}
 type WsdlDefinitionInput interface {
 	pulumi.Input
 
@@ -4088,11 +4088,11 @@ func (i WsdlDefinitionArgs) ToWsdlDefinitionPtrOutputWithContext(ctx context.Con
 // WsdlDefinitionPtrInput is an input type that accepts WsdlDefinitionArgs, WsdlDefinitionPtr and WsdlDefinitionPtrOutput values.
 // You can construct a concrete instance of `WsdlDefinitionPtrInput` via:
 //
-//          WsdlDefinitionArgs{...}
+//	        WsdlDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WsdlDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -4349,7 +4349,7 @@ type WsdlService struct {
 // WsdlServiceInput is an input type that accepts WsdlServiceArgs and WsdlServiceOutput values.
 // You can construct a concrete instance of `WsdlServiceInput` via:
 //
-//          WsdlServiceArgs{...}
+//	WsdlServiceArgs{...}
 type WsdlServiceInput interface {
 	pulumi.Input
 
@@ -4388,11 +4388,11 @@ func (i WsdlServiceArgs) ToWsdlServicePtrOutputWithContext(ctx context.Context) 
 // WsdlServicePtrInput is an input type that accepts WsdlServiceArgs, WsdlServicePtr and WsdlServicePtrOutput values.
 // You can construct a concrete instance of `WsdlServicePtrInput` via:
 //
-//          WsdlServiceArgs{...}
+//	        WsdlServiceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WsdlServicePtrInput interface {
 	pulumi.Input
 

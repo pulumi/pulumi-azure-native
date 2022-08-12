@@ -19,7 +19,7 @@ type DatabaseVulnerabilityAssessmentRuleBaselineItem struct {
 // DatabaseVulnerabilityAssessmentRuleBaselineItemInput is an input type that accepts DatabaseVulnerabilityAssessmentRuleBaselineItemArgs and DatabaseVulnerabilityAssessmentRuleBaselineItemOutput values.
 // You can construct a concrete instance of `DatabaseVulnerabilityAssessmentRuleBaselineItemInput` via:
 //
-//          DatabaseVulnerabilityAssessmentRuleBaselineItemArgs{...}
+//	DatabaseVulnerabilityAssessmentRuleBaselineItemArgs{...}
 type DatabaseVulnerabilityAssessmentRuleBaselineItemInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i DatabaseVulnerabilityAssessmentRuleBaselineItemArgs) ToDatabaseVulnerabi
 // DatabaseVulnerabilityAssessmentRuleBaselineItemArrayInput is an input type that accepts DatabaseVulnerabilityAssessmentRuleBaselineItemArray and DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput values.
 // You can construct a concrete instance of `DatabaseVulnerabilityAssessmentRuleBaselineItemArrayInput` via:
 //
-//          DatabaseVulnerabilityAssessmentRuleBaselineItemArray{ DatabaseVulnerabilityAssessmentRuleBaselineItemArgs{...} }
+//	DatabaseVulnerabilityAssessmentRuleBaselineItemArray{ DatabaseVulnerabilityAssessmentRuleBaselineItemArgs{...} }
 type DatabaseVulnerabilityAssessmentRuleBaselineItemArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +194,7 @@ func (val *JobSchedule) Defaults() *JobSchedule {
 // JobScheduleInput is an input type that accepts JobScheduleArgs and JobScheduleOutput values.
 // You can construct a concrete instance of `JobScheduleInput` via:
 //
-//          JobScheduleArgs{...}
+//	JobScheduleArgs{...}
 type JobScheduleInput interface {
 	pulumi.Input
 
@@ -256,11 +256,11 @@ func (i JobScheduleArgs) ToJobSchedulePtrOutputWithContext(ctx context.Context) 
 // JobSchedulePtrInput is an input type that accepts JobScheduleArgs, JobSchedulePtr and JobSchedulePtrOutput values.
 // You can construct a concrete instance of `JobSchedulePtrInput` via:
 //
-//          JobScheduleArgs{...}
+//	        JobScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobSchedulePtrInput interface {
 	pulumi.Input
 
@@ -589,7 +589,7 @@ func (val *JobStepAction) Defaults() *JobStepAction {
 // JobStepActionInput is an input type that accepts JobStepActionArgs and JobStepActionOutput values.
 // You can construct a concrete instance of `JobStepActionInput` via:
 //
-//          JobStepActionArgs{...}
+//	JobStepActionArgs{...}
 type JobStepActionInput interface {
 	pulumi.Input
 
@@ -766,7 +766,7 @@ func (val *JobStepExecutionOptions) Defaults() *JobStepExecutionOptions {
 // JobStepExecutionOptionsInput is an input type that accepts JobStepExecutionOptionsArgs and JobStepExecutionOptionsOutput values.
 // You can construct a concrete instance of `JobStepExecutionOptionsInput` via:
 //
-//          JobStepExecutionOptionsArgs{...}
+//	JobStepExecutionOptionsArgs{...}
 type JobStepExecutionOptionsInput interface {
 	pulumi.Input
 
@@ -834,11 +834,11 @@ func (i JobStepExecutionOptionsArgs) ToJobStepExecutionOptionsPtrOutputWithConte
 // JobStepExecutionOptionsPtrInput is an input type that accepts JobStepExecutionOptionsArgs, JobStepExecutionOptionsPtr and JobStepExecutionOptionsPtrOutput values.
 // You can construct a concrete instance of `JobStepExecutionOptionsPtrInput` via:
 //
-//          JobStepExecutionOptionsArgs{...}
+//	        JobStepExecutionOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobStepExecutionOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1185,7 +1185,7 @@ func (val *JobStepOutputType) Defaults() *JobStepOutputType {
 // JobStepOutputTypeInput is an input type that accepts JobStepOutputTypeArgs and JobStepOutputTypeOutput values.
 // You can construct a concrete instance of `JobStepOutputTypeInput` via:
 //
-//          JobStepOutputTypeArgs{...}
+//	JobStepOutputTypeArgs{...}
 type JobStepOutputTypeInput interface {
 	pulumi.Input
 
@@ -1250,11 +1250,11 @@ func (i JobStepOutputTypeArgs) ToJobStepOutputTypePtrOutputWithContext(ctx conte
 // JobStepOutputTypePtrInput is an input type that accepts JobStepOutputTypeArgs, JobStepOutputTypePtr and JobStepOutputTypePtrOutput values.
 // You can construct a concrete instance of `JobStepOutputTypePtrInput` via:
 //
-//          JobStepOutputTypeArgs{...}
+//	        JobStepOutputTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobStepOutputTypePtrInput interface {
 	pulumi.Input
 
@@ -1679,7 +1679,7 @@ func (val *JobTarget) Defaults() *JobTarget {
 // JobTargetInput is an input type that accepts JobTargetArgs and JobTargetOutput values.
 // You can construct a concrete instance of `JobTargetInput` via:
 //
-//          JobTargetArgs{...}
+//	JobTargetArgs{...}
 type JobTargetInput interface {
 	pulumi.Input
 
@@ -1731,7 +1731,7 @@ func (i JobTargetArgs) ToJobTargetOutputWithContext(ctx context.Context) JobTarg
 // JobTargetArrayInput is an input type that accepts JobTargetArray and JobTargetArrayOutput values.
 // You can construct a concrete instance of `JobTargetArrayInput` via:
 //
-//          JobTargetArray{ JobTargetArgs{...} }
+//	JobTargetArray{ JobTargetArgs{...} }
 type JobTargetArrayInput interface {
 	pulumi.Input
 
@@ -1941,7 +1941,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1986,11 +1986,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -2294,7 +2294,7 @@ func (val *VulnerabilityAssessmentRecurringScansProperties) Defaults() *Vulnerab
 // VulnerabilityAssessmentRecurringScansPropertiesInput is an input type that accepts VulnerabilityAssessmentRecurringScansPropertiesArgs and VulnerabilityAssessmentRecurringScansPropertiesOutput values.
 // You can construct a concrete instance of `VulnerabilityAssessmentRecurringScansPropertiesInput` via:
 //
-//          VulnerabilityAssessmentRecurringScansPropertiesArgs{...}
+//	VulnerabilityAssessmentRecurringScansPropertiesArgs{...}
 type VulnerabilityAssessmentRecurringScansPropertiesInput interface {
 	pulumi.Input
 
@@ -2346,11 +2346,11 @@ func (i VulnerabilityAssessmentRecurringScansPropertiesArgs) ToVulnerabilityAsse
 // VulnerabilityAssessmentRecurringScansPropertiesPtrInput is an input type that accepts VulnerabilityAssessmentRecurringScansPropertiesArgs, VulnerabilityAssessmentRecurringScansPropertiesPtr and VulnerabilityAssessmentRecurringScansPropertiesPtrOutput values.
 // You can construct a concrete instance of `VulnerabilityAssessmentRecurringScansPropertiesPtrInput` via:
 //
-//          VulnerabilityAssessmentRecurringScansPropertiesArgs{...}
+//	        VulnerabilityAssessmentRecurringScansPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VulnerabilityAssessmentRecurringScansPropertiesPtrInput interface {
 	pulumi.Input
 

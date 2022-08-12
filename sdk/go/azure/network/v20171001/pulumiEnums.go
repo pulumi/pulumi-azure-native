@@ -584,7 +584,7 @@ func (o ZoneTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 // ZoneTypeInput is an input type that accepts ZoneTypeArgs and ZoneTypeOutput values.
 // You can construct a concrete instance of `ZoneTypeInput` via:
 //
-//          ZoneTypeArgs{...}
+//	ZoneTypeArgs{...}
 type ZoneTypeInput interface {
 	pulumi.Input
 

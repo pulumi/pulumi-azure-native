@@ -19,7 +19,7 @@ type EnterprisePolicyIdentity struct {
 // EnterprisePolicyIdentityInput is an input type that accepts EnterprisePolicyIdentityArgs and EnterprisePolicyIdentityOutput values.
 // You can construct a concrete instance of `EnterprisePolicyIdentityInput` via:
 //
-//          EnterprisePolicyIdentityArgs{...}
+//	EnterprisePolicyIdentityArgs{...}
 type EnterprisePolicyIdentityInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i EnterprisePolicyIdentityArgs) ToEnterprisePolicyIdentityPtrOutputWithCon
 // EnterprisePolicyIdentityPtrInput is an input type that accepts EnterprisePolicyIdentityArgs, EnterprisePolicyIdentityPtr and EnterprisePolicyIdentityPtrOutput values.
 // You can construct a concrete instance of `EnterprisePolicyIdentityPtrInput` via:
 //
-//          EnterprisePolicyIdentityArgs{...}
+//	        EnterprisePolicyIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnterprisePolicyIdentityPtrInput interface {
 	pulumi.Input
 
@@ -255,7 +255,7 @@ type KeyProperties struct {
 // KeyPropertiesInput is an input type that accepts KeyPropertiesArgs and KeyPropertiesOutput values.
 // You can construct a concrete instance of `KeyPropertiesInput` via:
 //
-//          KeyPropertiesArgs{...}
+//	KeyPropertiesArgs{...}
 type KeyPropertiesInput interface {
 	pulumi.Input
 
@@ -294,11 +294,11 @@ func (i KeyPropertiesArgs) ToKeyPropertiesPtrOutputWithContext(ctx context.Conte
 // KeyPropertiesPtrInput is an input type that accepts KeyPropertiesArgs, KeyPropertiesPtr and KeyPropertiesPtrOutput values.
 // You can construct a concrete instance of `KeyPropertiesPtrInput` via:
 //
-//          KeyPropertiesArgs{...}
+//	        KeyPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KeyPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -491,7 +491,7 @@ type KeyVaultProperties struct {
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesInput` via:
 //
-//          KeyVaultPropertiesArgs{...}
+//	KeyVaultPropertiesArgs{...}
 type KeyVaultPropertiesInput interface {
 	pulumi.Input
 
@@ -530,11 +530,11 @@ func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx con
 // KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
 //
-//          KeyVaultPropertiesArgs{...}
+//	        KeyVaultPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KeyVaultPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -789,7 +789,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -900,7 +900,7 @@ type PropertiesEncryption struct {
 // PropertiesEncryptionInput is an input type that accepts PropertiesEncryptionArgs and PropertiesEncryptionOutput values.
 // You can construct a concrete instance of `PropertiesEncryptionInput` via:
 //
-//          PropertiesEncryptionArgs{...}
+//	PropertiesEncryptionArgs{...}
 type PropertiesEncryptionInput interface {
 	pulumi.Input
 
@@ -939,11 +939,11 @@ func (i PropertiesEncryptionArgs) ToPropertiesEncryptionPtrOutputWithContext(ctx
 // PropertiesEncryptionPtrInput is an input type that accepts PropertiesEncryptionArgs, PropertiesEncryptionPtr and PropertiesEncryptionPtrOutput values.
 // You can construct a concrete instance of `PropertiesEncryptionPtrInput` via:
 //
-//          PropertiesEncryptionArgs{...}
+//	        PropertiesEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PropertiesEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -1057,7 +1057,7 @@ type PropertiesLockbox struct {
 // PropertiesLockboxInput is an input type that accepts PropertiesLockboxArgs and PropertiesLockboxOutput values.
 // You can construct a concrete instance of `PropertiesLockboxInput` via:
 //
-//          PropertiesLockboxArgs{...}
+//	PropertiesLockboxArgs{...}
 type PropertiesLockboxInput interface {
 	pulumi.Input
 
@@ -1094,11 +1094,11 @@ func (i PropertiesLockboxArgs) ToPropertiesLockboxPtrOutputWithContext(ctx conte
 // PropertiesLockboxPtrInput is an input type that accepts PropertiesLockboxArgs, PropertiesLockboxPtr and PropertiesLockboxPtrOutput values.
 // You can construct a concrete instance of `PropertiesLockboxPtrInput` via:
 //
-//          PropertiesLockboxArgs{...}
+//	        PropertiesLockboxArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PropertiesLockboxPtrInput interface {
 	pulumi.Input
 
@@ -1197,7 +1197,7 @@ type PropertiesNetworkInjection struct {
 // PropertiesNetworkInjectionInput is an input type that accepts PropertiesNetworkInjectionArgs and PropertiesNetworkInjectionOutput values.
 // You can construct a concrete instance of `PropertiesNetworkInjectionInput` via:
 //
-//          PropertiesNetworkInjectionArgs{...}
+//	PropertiesNetworkInjectionArgs{...}
 type PropertiesNetworkInjectionInput interface {
 	pulumi.Input
 
@@ -1234,11 +1234,11 @@ func (i PropertiesNetworkInjectionArgs) ToPropertiesNetworkInjectionPtrOutputWit
 // PropertiesNetworkInjectionPtrInput is an input type that accepts PropertiesNetworkInjectionArgs, PropertiesNetworkInjectionPtr and PropertiesNetworkInjectionPtrOutput values.
 // You can construct a concrete instance of `PropertiesNetworkInjectionPtrInput` via:
 //
-//          PropertiesNetworkInjectionArgs{...}
+//	        PropertiesNetworkInjectionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PropertiesNetworkInjectionPtrInput interface {
 	pulumi.Input
 
@@ -1536,7 +1536,7 @@ type SubnetProperties struct {
 // SubnetPropertiesInput is an input type that accepts SubnetPropertiesArgs and SubnetPropertiesOutput values.
 // You can construct a concrete instance of `SubnetPropertiesInput` via:
 //
-//          SubnetPropertiesArgs{...}
+//	SubnetPropertiesArgs{...}
 type SubnetPropertiesInput interface {
 	pulumi.Input
 
@@ -1573,11 +1573,11 @@ func (i SubnetPropertiesArgs) ToSubnetPropertiesPtrOutputWithContext(ctx context
 // SubnetPropertiesPtrInput is an input type that accepts SubnetPropertiesArgs, SubnetPropertiesPtr and SubnetPropertiesPtrOutput values.
 // You can construct a concrete instance of `SubnetPropertiesPtrInput` via:
 //
-//          SubnetPropertiesArgs{...}
+//	        SubnetPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubnetPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1799,7 +1799,7 @@ type VirtualNetworkProperties struct {
 // VirtualNetworkPropertiesInput is an input type that accepts VirtualNetworkPropertiesArgs and VirtualNetworkPropertiesOutput values.
 // You can construct a concrete instance of `VirtualNetworkPropertiesInput` via:
 //
-//          VirtualNetworkPropertiesArgs{...}
+//	VirtualNetworkPropertiesArgs{...}
 type VirtualNetworkPropertiesInput interface {
 	pulumi.Input
 
@@ -1830,7 +1830,7 @@ func (i VirtualNetworkPropertiesArgs) ToVirtualNetworkPropertiesOutputWithContex
 // VirtualNetworkPropertiesArrayInput is an input type that accepts VirtualNetworkPropertiesArray and VirtualNetworkPropertiesArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkPropertiesArrayInput` via:
 //
-//          VirtualNetworkPropertiesArray{ VirtualNetworkPropertiesArgs{...} }
+//	VirtualNetworkPropertiesArray{ VirtualNetworkPropertiesArgs{...} }
 type VirtualNetworkPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -1908,7 +1908,7 @@ type VirtualNetworkPropertiesList struct {
 // VirtualNetworkPropertiesListInput is an input type that accepts VirtualNetworkPropertiesListArgs and VirtualNetworkPropertiesListOutput values.
 // You can construct a concrete instance of `VirtualNetworkPropertiesListInput` via:
 //
-//          VirtualNetworkPropertiesListArgs{...}
+//	VirtualNetworkPropertiesListArgs{...}
 type VirtualNetworkPropertiesListInput interface {
 	pulumi.Input
 
@@ -1947,11 +1947,11 @@ func (i VirtualNetworkPropertiesListArgs) ToVirtualNetworkPropertiesListPtrOutpu
 // VirtualNetworkPropertiesListPtrInput is an input type that accepts VirtualNetworkPropertiesListArgs, VirtualNetworkPropertiesListPtr and VirtualNetworkPropertiesListPtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkPropertiesListPtrInput` via:
 //
-//          VirtualNetworkPropertiesListArgs{...}
+//	        VirtualNetworkPropertiesListArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualNetworkPropertiesListPtrInput interface {
 	pulumi.Input
 

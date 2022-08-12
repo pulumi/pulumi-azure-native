@@ -95,7 +95,7 @@ func (o LookupUserAssignedIdentityResultOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserAssignedIdentityResult) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-//  The ManagedServiceIdentity DataPlane URL that can be queried to obtain the identity credentials.
+// The ManagedServiceIdentity DataPlane URL that can be queried to obtain the identity credentials.
 func (o LookupUserAssignedIdentityResultOutput) ClientSecretUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserAssignedIdentityResult) string { return v.ClientSecretUrl }).(pulumi.StringOutput)
 }

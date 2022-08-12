@@ -25,7 +25,7 @@ type CommunityGalleryInfo struct {
 // CommunityGalleryInfoInput is an input type that accepts CommunityGalleryInfoArgs and CommunityGalleryInfoOutput values.
 // You can construct a concrete instance of `CommunityGalleryInfoInput` via:
 //
-//          CommunityGalleryInfoArgs{...}
+//	CommunityGalleryInfoArgs{...}
 type CommunityGalleryInfoInput interface {
 	pulumi.Input
 
@@ -68,11 +68,11 @@ func (i CommunityGalleryInfoArgs) ToCommunityGalleryInfoPtrOutputWithContext(ctx
 // CommunityGalleryInfoPtrInput is an input type that accepts CommunityGalleryInfoArgs, CommunityGalleryInfoPtr and CommunityGalleryInfoPtrOutput values.
 // You can construct a concrete instance of `CommunityGalleryInfoPtrInput` via:
 //
-//          CommunityGalleryInfoArgs{...}
+//	        CommunityGalleryInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CommunityGalleryInfoPtrInput interface {
 	pulumi.Input
 
@@ -363,7 +363,7 @@ type DataDiskImageEncryption struct {
 // DataDiskImageEncryptionInput is an input type that accepts DataDiskImageEncryptionArgs and DataDiskImageEncryptionOutput values.
 // You can construct a concrete instance of `DataDiskImageEncryptionInput` via:
 //
-//          DataDiskImageEncryptionArgs{...}
+//	DataDiskImageEncryptionArgs{...}
 type DataDiskImageEncryptionInput interface {
 	pulumi.Input
 
@@ -394,7 +394,7 @@ func (i DataDiskImageEncryptionArgs) ToDataDiskImageEncryptionOutputWithContext(
 // DataDiskImageEncryptionArrayInput is an input type that accepts DataDiskImageEncryptionArray and DataDiskImageEncryptionArrayOutput values.
 // You can construct a concrete instance of `DataDiskImageEncryptionArrayInput` via:
 //
-//          DataDiskImageEncryptionArray{ DataDiskImageEncryptionArgs{...} }
+//	DataDiskImageEncryptionArray{ DataDiskImageEncryptionArgs{...} }
 type DataDiskImageEncryptionArrayInput interface {
 	pulumi.Input
 
@@ -523,7 +523,7 @@ type Disallowed struct {
 // DisallowedInput is an input type that accepts DisallowedArgs and DisallowedOutput values.
 // You can construct a concrete instance of `DisallowedInput` via:
 //
-//          DisallowedArgs{...}
+//	DisallowedArgs{...}
 type DisallowedInput interface {
 	pulumi.Input
 
@@ -560,11 +560,11 @@ func (i DisallowedArgs) ToDisallowedPtrOutputWithContext(ctx context.Context) Di
 // DisallowedPtrInput is an input type that accepts DisallowedArgs, DisallowedPtr and DisallowedPtrOutput values.
 // You can construct a concrete instance of `DisallowedPtrInput` via:
 //
-//          DisallowedArgs{...}
+//	        DisallowedArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DisallowedPtrInput interface {
 	pulumi.Input
 
@@ -725,7 +725,7 @@ type EncryptionImages struct {
 // EncryptionImagesInput is an input type that accepts EncryptionImagesArgs and EncryptionImagesOutput values.
 // You can construct a concrete instance of `EncryptionImagesInput` via:
 //
-//          EncryptionImagesArgs{...}
+//	EncryptionImagesArgs{...}
 type EncryptionImagesInput interface {
 	pulumi.Input
 
@@ -764,11 +764,11 @@ func (i EncryptionImagesArgs) ToEncryptionImagesPtrOutputWithContext(ctx context
 // EncryptionImagesPtrInput is an input type that accepts EncryptionImagesArgs, EncryptionImagesPtr and EncryptionImagesPtrOutput values.
 // You can construct a concrete instance of `EncryptionImagesPtrInput` via:
 //
-//          EncryptionImagesArgs{...}
+//	        EncryptionImagesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EncryptionImagesPtrInput interface {
 	pulumi.Input
 
@@ -976,7 +976,7 @@ type GalleryApplicationVersionPublishingProfile struct {
 // GalleryApplicationVersionPublishingProfileInput is an input type that accepts GalleryApplicationVersionPublishingProfileArgs and GalleryApplicationVersionPublishingProfileOutput values.
 // You can construct a concrete instance of `GalleryApplicationVersionPublishingProfileInput` via:
 //
-//          GalleryApplicationVersionPublishingProfileArgs{...}
+//	GalleryApplicationVersionPublishingProfileArgs{...}
 type GalleryApplicationVersionPublishingProfileInput interface {
 	pulumi.Input
 
@@ -1196,7 +1196,7 @@ type GalleryArtifactVersionSource struct {
 // GalleryArtifactVersionSourceInput is an input type that accepts GalleryArtifactVersionSourceArgs and GalleryArtifactVersionSourceOutput values.
 // You can construct a concrete instance of `GalleryArtifactVersionSourceInput` via:
 //
-//          GalleryArtifactVersionSourceArgs{...}
+//	GalleryArtifactVersionSourceArgs{...}
 type GalleryArtifactVersionSourceInput interface {
 	pulumi.Input
 
@@ -1235,11 +1235,11 @@ func (i GalleryArtifactVersionSourceArgs) ToGalleryArtifactVersionSourcePtrOutpu
 // GalleryArtifactVersionSourcePtrInput is an input type that accepts GalleryArtifactVersionSourceArgs, GalleryArtifactVersionSourcePtr and GalleryArtifactVersionSourcePtrOutput values.
 // You can construct a concrete instance of `GalleryArtifactVersionSourcePtrInput` via:
 //
-//          GalleryArtifactVersionSourceArgs{...}
+//	        GalleryArtifactVersionSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GalleryArtifactVersionSourcePtrInput interface {
 	pulumi.Input
 
@@ -1434,7 +1434,7 @@ type GalleryDataDiskImage struct {
 // GalleryDataDiskImageInput is an input type that accepts GalleryDataDiskImageArgs and GalleryDataDiskImageOutput values.
 // You can construct a concrete instance of `GalleryDataDiskImageInput` via:
 //
-//          GalleryDataDiskImageArgs{...}
+//	GalleryDataDiskImageArgs{...}
 type GalleryDataDiskImageInput interface {
 	pulumi.Input
 
@@ -1467,7 +1467,7 @@ func (i GalleryDataDiskImageArgs) ToGalleryDataDiskImageOutputWithContext(ctx co
 // GalleryDataDiskImageArrayInput is an input type that accepts GalleryDataDiskImageArray and GalleryDataDiskImageArrayOutput values.
 // You can construct a concrete instance of `GalleryDataDiskImageArrayInput` via:
 //
-//          GalleryDataDiskImageArray{ GalleryDataDiskImageArgs{...} }
+//	GalleryDataDiskImageArray{ GalleryDataDiskImageArgs{...} }
 type GalleryDataDiskImageArrayInput interface {
 	pulumi.Input
 
@@ -1616,7 +1616,7 @@ type GalleryExtendedLocation struct {
 // GalleryExtendedLocationInput is an input type that accepts GalleryExtendedLocationArgs and GalleryExtendedLocationOutput values.
 // You can construct a concrete instance of `GalleryExtendedLocationInput` via:
 //
-//          GalleryExtendedLocationArgs{...}
+//	GalleryExtendedLocationArgs{...}
 type GalleryExtendedLocationInput interface {
 	pulumi.Input
 
@@ -1654,11 +1654,11 @@ func (i GalleryExtendedLocationArgs) ToGalleryExtendedLocationPtrOutputWithConte
 // GalleryExtendedLocationPtrInput is an input type that accepts GalleryExtendedLocationArgs, GalleryExtendedLocationPtr and GalleryExtendedLocationPtrOutput values.
 // You can construct a concrete instance of `GalleryExtendedLocationPtrInput` via:
 //
-//          GalleryExtendedLocationArgs{...}
+//	        GalleryExtendedLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GalleryExtendedLocationPtrInput interface {
 	pulumi.Input
 
@@ -1906,7 +1906,7 @@ type GalleryImageFeature struct {
 // GalleryImageFeatureInput is an input type that accepts GalleryImageFeatureArgs and GalleryImageFeatureOutput values.
 // You can construct a concrete instance of `GalleryImageFeatureInput` via:
 //
-//          GalleryImageFeatureArgs{...}
+//	GalleryImageFeatureArgs{...}
 type GalleryImageFeatureInput interface {
 	pulumi.Input
 
@@ -1937,7 +1937,7 @@ func (i GalleryImageFeatureArgs) ToGalleryImageFeatureOutputWithContext(ctx cont
 // GalleryImageFeatureArrayInput is an input type that accepts GalleryImageFeatureArray and GalleryImageFeatureArrayOutput values.
 // You can construct a concrete instance of `GalleryImageFeatureArrayInput` via:
 //
-//          GalleryImageFeatureArray{ GalleryImageFeatureArgs{...} }
+//	GalleryImageFeatureArray{ GalleryImageFeatureArgs{...} }
 type GalleryImageFeatureArrayInput interface {
 	pulumi.Input
 
@@ -2070,7 +2070,7 @@ type GalleryImageIdentifier struct {
 // GalleryImageIdentifierInput is an input type that accepts GalleryImageIdentifierArgs and GalleryImageIdentifierOutput values.
 // You can construct a concrete instance of `GalleryImageIdentifierInput` via:
 //
-//          GalleryImageIdentifierArgs{...}
+//	GalleryImageIdentifierArgs{...}
 type GalleryImageIdentifierInput interface {
 	pulumi.Input
 
@@ -2191,7 +2191,7 @@ type GalleryImageVersionPublishingProfile struct {
 // GalleryImageVersionPublishingProfileInput is an input type that accepts GalleryImageVersionPublishingProfileArgs and GalleryImageVersionPublishingProfileOutput values.
 // You can construct a concrete instance of `GalleryImageVersionPublishingProfileInput` via:
 //
-//          GalleryImageVersionPublishingProfileArgs{...}
+//	GalleryImageVersionPublishingProfileArgs{...}
 type GalleryImageVersionPublishingProfileInput interface {
 	pulumi.Input
 
@@ -2240,11 +2240,11 @@ func (i GalleryImageVersionPublishingProfileArgs) ToGalleryImageVersionPublishin
 // GalleryImageVersionPublishingProfilePtrInput is an input type that accepts GalleryImageVersionPublishingProfileArgs, GalleryImageVersionPublishingProfilePtr and GalleryImageVersionPublishingProfilePtrOutput values.
 // You can construct a concrete instance of `GalleryImageVersionPublishingProfilePtrInput` via:
 //
-//          GalleryImageVersionPublishingProfileArgs{...}
+//	        GalleryImageVersionPublishingProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GalleryImageVersionPublishingProfilePtrInput interface {
 	pulumi.Input
 
@@ -2620,7 +2620,7 @@ type GalleryImageVersionStorageProfile struct {
 // GalleryImageVersionStorageProfileInput is an input type that accepts GalleryImageVersionStorageProfileArgs and GalleryImageVersionStorageProfileOutput values.
 // You can construct a concrete instance of `GalleryImageVersionStorageProfileInput` via:
 //
-//          GalleryImageVersionStorageProfileArgs{...}
+//	GalleryImageVersionStorageProfileArgs{...}
 type GalleryImageVersionStorageProfileInput interface {
 	pulumi.Input
 
@@ -2735,7 +2735,7 @@ type GalleryOSDiskImage struct {
 // GalleryOSDiskImageInput is an input type that accepts GalleryOSDiskImageArgs and GalleryOSDiskImageOutput values.
 // You can construct a concrete instance of `GalleryOSDiskImageInput` via:
 //
-//          GalleryOSDiskImageArgs{...}
+//	GalleryOSDiskImageArgs{...}
 type GalleryOSDiskImageInput interface {
 	pulumi.Input
 
@@ -2774,11 +2774,11 @@ func (i GalleryOSDiskImageArgs) ToGalleryOSDiskImagePtrOutputWithContext(ctx con
 // GalleryOSDiskImagePtrInput is an input type that accepts GalleryOSDiskImageArgs, GalleryOSDiskImagePtr and GalleryOSDiskImagePtrOutput values.
 // You can construct a concrete instance of `GalleryOSDiskImagePtrInput` via:
 //
-//          GalleryOSDiskImageArgs{...}
+//	        GalleryOSDiskImageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GalleryOSDiskImagePtrInput interface {
 	pulumi.Input
 
@@ -2993,7 +2993,7 @@ type GalleryTargetExtendedLocation struct {
 // GalleryTargetExtendedLocationInput is an input type that accepts GalleryTargetExtendedLocationArgs and GalleryTargetExtendedLocationOutput values.
 // You can construct a concrete instance of `GalleryTargetExtendedLocationInput` via:
 //
-//          GalleryTargetExtendedLocationArgs{...}
+//	GalleryTargetExtendedLocationArgs{...}
 type GalleryTargetExtendedLocationInput interface {
 	pulumi.Input
 
@@ -3029,7 +3029,7 @@ func (i GalleryTargetExtendedLocationArgs) ToGalleryTargetExtendedLocationOutput
 // GalleryTargetExtendedLocationArrayInput is an input type that accepts GalleryTargetExtendedLocationArray and GalleryTargetExtendedLocationArrayOutput values.
 // You can construct a concrete instance of `GalleryTargetExtendedLocationArrayInput` via:
 //
-//          GalleryTargetExtendedLocationArray{ GalleryTargetExtendedLocationArgs{...} }
+//	GalleryTargetExtendedLocationArray{ GalleryTargetExtendedLocationArgs{...} }
 type GalleryTargetExtendedLocationArrayInput interface {
 	pulumi.Input
 
@@ -3197,7 +3197,7 @@ type ImagePurchasePlan struct {
 // ImagePurchasePlanInput is an input type that accepts ImagePurchasePlanArgs and ImagePurchasePlanOutput values.
 // You can construct a concrete instance of `ImagePurchasePlanInput` via:
 //
-//          ImagePurchasePlanArgs{...}
+//	ImagePurchasePlanArgs{...}
 type ImagePurchasePlanInput interface {
 	pulumi.Input
 
@@ -3238,11 +3238,11 @@ func (i ImagePurchasePlanArgs) ToImagePurchasePlanPtrOutputWithContext(ctx conte
 // ImagePurchasePlanPtrInput is an input type that accepts ImagePurchasePlanArgs, ImagePurchasePlanPtr and ImagePurchasePlanPtrOutput values.
 // You can construct a concrete instance of `ImagePurchasePlanPtrInput` via:
 //
-//          ImagePurchasePlanArgs{...}
+//	        ImagePurchasePlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImagePurchasePlanPtrInput interface {
 	pulumi.Input
 
@@ -3467,7 +3467,7 @@ type OSDiskImageEncryption struct {
 // OSDiskImageEncryptionInput is an input type that accepts OSDiskImageEncryptionArgs and OSDiskImageEncryptionOutput values.
 // You can construct a concrete instance of `OSDiskImageEncryptionInput` via:
 //
-//          OSDiskImageEncryptionArgs{...}
+//	OSDiskImageEncryptionArgs{...}
 type OSDiskImageEncryptionInput interface {
 	pulumi.Input
 
@@ -3506,11 +3506,11 @@ func (i OSDiskImageEncryptionArgs) ToOSDiskImageEncryptionPtrOutputWithContext(c
 // OSDiskImageEncryptionPtrInput is an input type that accepts OSDiskImageEncryptionArgs, OSDiskImageEncryptionPtr and OSDiskImageEncryptionPtrOutput values.
 // You can construct a concrete instance of `OSDiskImageEncryptionPtrInput` via:
 //
-//          OSDiskImageEncryptionArgs{...}
+//	        OSDiskImageEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OSDiskImageEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -3703,7 +3703,7 @@ type OSDiskImageSecurityProfile struct {
 // OSDiskImageSecurityProfileInput is an input type that accepts OSDiskImageSecurityProfileArgs and OSDiskImageSecurityProfileOutput values.
 // You can construct a concrete instance of `OSDiskImageSecurityProfileInput` via:
 //
-//          OSDiskImageSecurityProfileArgs{...}
+//	OSDiskImageSecurityProfileArgs{...}
 type OSDiskImageSecurityProfileInput interface {
 	pulumi.Input
 
@@ -3742,11 +3742,11 @@ func (i OSDiskImageSecurityProfileArgs) ToOSDiskImageSecurityProfilePtrOutputWit
 // OSDiskImageSecurityProfilePtrInput is an input type that accepts OSDiskImageSecurityProfileArgs, OSDiskImageSecurityProfilePtr and OSDiskImageSecurityProfilePtrOutput values.
 // You can construct a concrete instance of `OSDiskImageSecurityProfilePtrInput` via:
 //
-//          OSDiskImageSecurityProfileArgs{...}
+//	        OSDiskImageSecurityProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OSDiskImageSecurityProfilePtrInput interface {
 	pulumi.Input
 
@@ -3939,7 +3939,7 @@ type RecommendedMachineConfiguration struct {
 // RecommendedMachineConfigurationInput is an input type that accepts RecommendedMachineConfigurationArgs and RecommendedMachineConfigurationOutput values.
 // You can construct a concrete instance of `RecommendedMachineConfigurationInput` via:
 //
-//          RecommendedMachineConfigurationArgs{...}
+//	RecommendedMachineConfigurationArgs{...}
 type RecommendedMachineConfigurationInput interface {
 	pulumi.Input
 
@@ -3978,11 +3978,11 @@ func (i RecommendedMachineConfigurationArgs) ToRecommendedMachineConfigurationPt
 // RecommendedMachineConfigurationPtrInput is an input type that accepts RecommendedMachineConfigurationArgs, RecommendedMachineConfigurationPtr and RecommendedMachineConfigurationPtrOutput values.
 // You can construct a concrete instance of `RecommendedMachineConfigurationPtrInput` via:
 //
-//          RecommendedMachineConfigurationArgs{...}
+//	        RecommendedMachineConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RecommendedMachineConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4335,7 +4335,7 @@ type ResourceRange struct {
 // ResourceRangeInput is an input type that accepts ResourceRangeArgs and ResourceRangeOutput values.
 // You can construct a concrete instance of `ResourceRangeInput` via:
 //
-//          ResourceRangeArgs{...}
+//	ResourceRangeArgs{...}
 type ResourceRangeInput interface {
 	pulumi.Input
 
@@ -4374,11 +4374,11 @@ func (i ResourceRangeArgs) ToResourceRangePtrOutputWithContext(ctx context.Conte
 // ResourceRangePtrInput is an input type that accepts ResourceRangeArgs, ResourceRangePtr and ResourceRangePtrOutput values.
 // You can construct a concrete instance of `ResourceRangePtrInput` via:
 //
-//          ResourceRangeArgs{...}
+//	        ResourceRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceRangePtrInput interface {
 	pulumi.Input
 
@@ -4571,7 +4571,7 @@ type SharingProfile struct {
 // SharingProfileInput is an input type that accepts SharingProfileArgs and SharingProfileOutput values.
 // You can construct a concrete instance of `SharingProfileInput` via:
 //
-//          SharingProfileArgs{...}
+//	SharingProfileArgs{...}
 type SharingProfileInput interface {
 	pulumi.Input
 
@@ -4610,11 +4610,11 @@ func (i SharingProfileArgs) ToSharingProfilePtrOutputWithContext(ctx context.Con
 // SharingProfilePtrInput is an input type that accepts SharingProfileArgs, SharingProfilePtr and SharingProfilePtrOutput values.
 // You can construct a concrete instance of `SharingProfilePtrInput` via:
 //
-//          SharingProfileArgs{...}
+//	        SharingProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SharingProfilePtrInput interface {
 	pulumi.Input
 
@@ -4908,7 +4908,7 @@ type SoftDeletePolicy struct {
 // SoftDeletePolicyInput is an input type that accepts SoftDeletePolicyArgs and SoftDeletePolicyOutput values.
 // You can construct a concrete instance of `SoftDeletePolicyInput` via:
 //
-//          SoftDeletePolicyArgs{...}
+//	SoftDeletePolicyArgs{...}
 type SoftDeletePolicyInput interface {
 	pulumi.Input
 
@@ -4945,11 +4945,11 @@ func (i SoftDeletePolicyArgs) ToSoftDeletePolicyPtrOutputWithContext(ctx context
 // SoftDeletePolicyPtrInput is an input type that accepts SoftDeletePolicyArgs, SoftDeletePolicyPtr and SoftDeletePolicyPtrOutput values.
 // You can construct a concrete instance of `SoftDeletePolicyPtrInput` via:
 //
-//          SoftDeletePolicyArgs{...}
+//	        SoftDeletePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SoftDeletePolicyPtrInput interface {
 	pulumi.Input
 
@@ -5114,7 +5114,7 @@ type TargetRegion struct {
 // TargetRegionInput is an input type that accepts TargetRegionArgs and TargetRegionOutput values.
 // You can construct a concrete instance of `TargetRegionInput` via:
 //
-//          TargetRegionArgs{...}
+//	TargetRegionArgs{...}
 type TargetRegionInput interface {
 	pulumi.Input
 
@@ -5149,7 +5149,7 @@ func (i TargetRegionArgs) ToTargetRegionOutputWithContext(ctx context.Context) T
 // TargetRegionArrayInput is an input type that accepts TargetRegionArray and TargetRegionArrayOutput values.
 // You can construct a concrete instance of `TargetRegionArrayInput` via:
 //
-//          TargetRegionArray{ TargetRegionArgs{...} }
+//	TargetRegionArray{ TargetRegionArgs{...} }
 type TargetRegionArrayInput interface {
 	pulumi.Input
 
@@ -5305,7 +5305,7 @@ type UserArtifactManage struct {
 // UserArtifactManageInput is an input type that accepts UserArtifactManageArgs and UserArtifactManageOutput values.
 // You can construct a concrete instance of `UserArtifactManageInput` via:
 //
-//          UserArtifactManageArgs{...}
+//	UserArtifactManageArgs{...}
 type UserArtifactManageInput interface {
 	pulumi.Input
 
@@ -5345,11 +5345,11 @@ func (i UserArtifactManageArgs) ToUserArtifactManagePtrOutputWithContext(ctx con
 // UserArtifactManagePtrInput is an input type that accepts UserArtifactManageArgs, UserArtifactManagePtr and UserArtifactManagePtrOutput values.
 // You can construct a concrete instance of `UserArtifactManagePtrInput` via:
 //
-//          UserArtifactManageArgs{...}
+//	        UserArtifactManageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UserArtifactManagePtrInput interface {
 	pulumi.Input
 
@@ -5571,7 +5571,7 @@ type UserArtifactSource struct {
 // UserArtifactSourceInput is an input type that accepts UserArtifactSourceArgs and UserArtifactSourceOutput values.
 // You can construct a concrete instance of `UserArtifactSourceInput` via:
 //
-//          UserArtifactSourceArgs{...}
+//	UserArtifactSourceArgs{...}
 type UserArtifactSourceInput interface {
 	pulumi.Input
 

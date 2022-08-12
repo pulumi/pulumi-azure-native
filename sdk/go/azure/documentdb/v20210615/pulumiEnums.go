@@ -217,7 +217,7 @@ func (o DatabaseAccountOfferTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // DatabaseAccountOfferTypeInput is an input type that accepts DatabaseAccountOfferTypeArgs and DatabaseAccountOfferTypeOutput values.
 // You can construct a concrete instance of `DatabaseAccountOfferTypeInput` via:
 //
-//          DatabaseAccountOfferTypeArgs{...}
+//	DatabaseAccountOfferTypeArgs{...}
 type DatabaseAccountOfferTypeInput interface {
 	pulumi.Input
 
@@ -385,7 +385,7 @@ func (o DefaultConsistencyLevelPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // DefaultConsistencyLevelInput is an input type that accepts DefaultConsistencyLevelArgs and DefaultConsistencyLevelOutput values.
 // You can construct a concrete instance of `DefaultConsistencyLevelInput` via:
 //
-//          DefaultConsistencyLevelArgs{...}
+//	DefaultConsistencyLevelArgs{...}
 type DefaultConsistencyLevelInput interface {
 	pulumi.Input
 
@@ -568,7 +568,7 @@ func (o NetworkAclBypassPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // NetworkAclBypassInput is an input type that accepts NetworkAclBypassArgs and NetworkAclBypassOutput values.
 // You can construct a concrete instance of `NetworkAclBypassInput` via:
 //
-//          NetworkAclBypassArgs{...}
+//	NetworkAclBypassArgs{...}
 type NetworkAclBypassInput interface {
 	pulumi.Input
 
@@ -752,7 +752,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//          ResourceIdentityTypeArgs{...}
+//	ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 
@@ -924,7 +924,7 @@ func (o RoleDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // RoleDefinitionTypeInput is an input type that accepts RoleDefinitionTypeArgs and RoleDefinitionTypeOutput values.
 // You can construct a concrete instance of `RoleDefinitionTypeInput` via:
 //
-//          RoleDefinitionTypeArgs{...}
+//	RoleDefinitionTypeArgs{...}
 type RoleDefinitionTypeInput interface {
 	pulumi.Input
 

@@ -184,7 +184,7 @@ func (o ManagedIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // ManagedIdentityTypeInput is an input type that accepts ManagedIdentityTypeArgs and ManagedIdentityTypeOutput values.
 // You can construct a concrete instance of `ManagedIdentityTypeInput` via:
 //
-//          ManagedIdentityTypeArgs{...}
+//	ManagedIdentityTypeArgs{...}
 type ManagedIdentityTypeInput interface {
 	pulumi.Input
 

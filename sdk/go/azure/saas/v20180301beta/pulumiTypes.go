@@ -41,7 +41,7 @@ type SaasCreationProperties struct {
 // SaasCreationPropertiesInput is an input type that accepts SaasCreationPropertiesArgs and SaasCreationPropertiesOutput values.
 // You can construct a concrete instance of `SaasCreationPropertiesInput` via:
 //
-//          SaasCreationPropertiesArgs{...}
+//	SaasCreationPropertiesArgs{...}
 type SaasCreationPropertiesInput interface {
 	pulumi.Input
 
@@ -100,11 +100,11 @@ func (i SaasCreationPropertiesArgs) ToSaasCreationPropertiesPtrOutputWithContext
 // SaasCreationPropertiesPtrInput is an input type that accepts SaasCreationPropertiesArgs, SaasCreationPropertiesPtr and SaasCreationPropertiesPtrOutput values.
 // You can construct a concrete instance of `SaasCreationPropertiesPtrInput` via:
 //
-//          SaasCreationPropertiesArgs{...}
+//	        SaasCreationPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SaasCreationPropertiesPtrInput interface {
 	pulumi.Input
 

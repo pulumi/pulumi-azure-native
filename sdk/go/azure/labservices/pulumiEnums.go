@@ -162,7 +162,7 @@ func (o ConnectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // ConnectionTypeInput is an input type that accepts ConnectionTypeArgs and ConnectionTypeOutput values.
 // You can construct a concrete instance of `ConnectionTypeInput` via:
 //
-//          ConnectionTypeArgs{...}
+//	ConnectionTypeArgs{...}
 type ConnectionTypeInput interface {
 	pulumi.Input
 
@@ -327,7 +327,7 @@ func (o EnableStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // EnableStateInput is an input type that accepts EnableStateArgs and EnableStateOutput values.
 // You can construct a concrete instance of `EnableStateInput` via:
 //
-//          EnableStateArgs{...}
+//	EnableStateArgs{...}
 type EnableStateInput interface {
 	pulumi.Input
 
@@ -516,7 +516,7 @@ func (o RecurrenceFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // RecurrenceFrequencyInput is an input type that accepts RecurrenceFrequencyArgs and RecurrenceFrequencyOutput values.
 // You can construct a concrete instance of `RecurrenceFrequencyInput` via:
 //
-//          RecurrenceFrequencyArgs{...}
+//	RecurrenceFrequencyArgs{...}
 type RecurrenceFrequencyInput interface {
 	pulumi.Input
 
@@ -685,7 +685,7 @@ func (o ShutdownOnIdleModePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // ShutdownOnIdleModeInput is an input type that accepts ShutdownOnIdleModeArgs and ShutdownOnIdleModeOutput values.
 // You can construct a concrete instance of `ShutdownOnIdleModeInput` via:
 //
-//          ShutdownOnIdleModeArgs{...}
+//	ShutdownOnIdleModeArgs{...}
 type ShutdownOnIdleModeInput interface {
 	pulumi.Input
 
@@ -862,7 +862,7 @@ func (o WeekDayPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // WeekDayInput is an input type that accepts WeekDayArgs and WeekDayOutput values.
 // You can construct a concrete instance of `WeekDayInput` via:
 //
-//          WeekDayArgs{...}
+//	WeekDayArgs{...}
 type WeekDayInput interface {
 	pulumi.Input
 
@@ -900,7 +900,7 @@ func (in *weekDayPtr) ToWeekDayPtrOutputWithContext(ctx context.Context) WeekDay
 // WeekDayArrayInput is an input type that accepts WeekDayArray and WeekDayArrayOutput values.
 // You can construct a concrete instance of `WeekDayArrayInput` via:
 //
-//          WeekDayArray{ WeekDayArgs{...} }
+//	WeekDayArray{ WeekDayArgs{...} }
 type WeekDayArrayInput interface {
 	pulumi.Input
 

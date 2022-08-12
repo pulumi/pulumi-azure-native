@@ -60,7 +60,7 @@ func (val *AlertProcessingRuleProperties) Defaults() *AlertProcessingRulePropert
 // AlertProcessingRulePropertiesInput is an input type that accepts AlertProcessingRulePropertiesArgs and AlertProcessingRulePropertiesOutput values.
 // You can construct a concrete instance of `AlertProcessingRulePropertiesInput` via:
 //
-//          AlertProcessingRulePropertiesArgs{...}
+//	AlertProcessingRulePropertiesArgs{...}
 type AlertProcessingRulePropertiesInput interface {
 	pulumi.Input
 
@@ -118,11 +118,11 @@ func (i AlertProcessingRulePropertiesArgs) ToAlertProcessingRulePropertiesPtrOut
 // AlertProcessingRulePropertiesPtrInput is an input type that accepts AlertProcessingRulePropertiesArgs, AlertProcessingRulePropertiesPtr and AlertProcessingRulePropertiesPtrOutput values.
 // You can construct a concrete instance of `AlertProcessingRulePropertiesPtrInput` via:
 //
-//          AlertProcessingRulePropertiesArgs{...}
+//	        AlertProcessingRulePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlertProcessingRulePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -374,7 +374,7 @@ type Condition struct {
 // ConditionInput is an input type that accepts ConditionArgs and ConditionOutput values.
 // You can construct a concrete instance of `ConditionInput` via:
 //
-//          ConditionArgs{...}
+//	ConditionArgs{...}
 type ConditionInput interface {
 	pulumi.Input
 
@@ -407,7 +407,7 @@ func (i ConditionArgs) ToConditionOutputWithContext(ctx context.Context) Conditi
 // ConditionArrayInput is an input type that accepts ConditionArray and ConditionArrayOutput values.
 // You can construct a concrete instance of `ConditionArrayInput` via:
 //
-//          ConditionArray{ ConditionArgs{...} }
+//	ConditionArray{ ConditionArgs{...} }
 type ConditionArrayInput interface {
 	pulumi.Input
 
@@ -616,7 +616,7 @@ type Schedule struct {
 // ScheduleInput is an input type that accepts ScheduleArgs and ScheduleOutput values.
 // You can construct a concrete instance of `ScheduleInput` via:
 //
-//          ScheduleArgs{...}
+//	ScheduleArgs{...}
 type ScheduleInput interface {
 	pulumi.Input
 
@@ -659,11 +659,11 @@ func (i ScheduleArgs) ToSchedulePtrOutputWithContext(ctx context.Context) Schedu
 // SchedulePtrInput is an input type that accepts ScheduleArgs, SchedulePtr and SchedulePtrOutput values.
 // You can construct a concrete instance of `SchedulePtrInput` via:
 //
-//          ScheduleArgs{...}
+//	        ScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SchedulePtrInput interface {
 	pulumi.Input
 

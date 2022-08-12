@@ -165,7 +165,7 @@ func (val *SubscriptionFeatureRegistrationProperties) Defaults() *SubscriptionFe
 // SubscriptionFeatureRegistrationPropertiesInput is an input type that accepts SubscriptionFeatureRegistrationPropertiesArgs and SubscriptionFeatureRegistrationPropertiesOutput values.
 // You can construct a concrete instance of `SubscriptionFeatureRegistrationPropertiesInput` via:
 //
-//          SubscriptionFeatureRegistrationPropertiesArgs{...}
+//	SubscriptionFeatureRegistrationPropertiesArgs{...}
 type SubscriptionFeatureRegistrationPropertiesInput interface {
 	pulumi.Input
 
@@ -218,11 +218,11 @@ func (i SubscriptionFeatureRegistrationPropertiesArgs) ToSubscriptionFeatureRegi
 // SubscriptionFeatureRegistrationPropertiesPtrInput is an input type that accepts SubscriptionFeatureRegistrationPropertiesArgs, SubscriptionFeatureRegistrationPropertiesPtr and SubscriptionFeatureRegistrationPropertiesPtrOutput values.
 // You can construct a concrete instance of `SubscriptionFeatureRegistrationPropertiesPtrInput` via:
 //
-//          SubscriptionFeatureRegistrationPropertiesArgs{...}
+//	        SubscriptionFeatureRegistrationPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubscriptionFeatureRegistrationPropertiesPtrInput interface {
 	pulumi.Input
 

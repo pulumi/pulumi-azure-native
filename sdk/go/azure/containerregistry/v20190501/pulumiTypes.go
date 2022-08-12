@@ -572,7 +572,7 @@ func (val *IPRule) Defaults() *IPRule {
 // IPRuleInput is an input type that accepts IPRuleArgs and IPRuleOutput values.
 // You can construct a concrete instance of `IPRuleInput` via:
 //
-//          IPRuleArgs{...}
+//	IPRuleArgs{...}
 type IPRuleInput interface {
 	pulumi.Input
 
@@ -614,7 +614,7 @@ func (i IPRuleArgs) ToIPRuleOutputWithContext(ctx context.Context) IPRuleOutput 
 // IPRuleArrayInput is an input type that accepts IPRuleArray and IPRuleArrayOutput values.
 // You can construct a concrete instance of `IPRuleArrayInput` via:
 //
-//          IPRuleArray{ IPRuleArgs{...} }
+//	IPRuleArray{ IPRuleArgs{...} }
 type IPRuleArrayInput interface {
 	pulumi.Input
 
@@ -772,7 +772,7 @@ func (val *NetworkRuleSet) Defaults() *NetworkRuleSet {
 // NetworkRuleSetInput is an input type that accepts NetworkRuleSetArgs and NetworkRuleSetOutput values.
 // You can construct a concrete instance of `NetworkRuleSetInput` via:
 //
-//          NetworkRuleSetArgs{...}
+//	NetworkRuleSetArgs{...}
 type NetworkRuleSetInput interface {
 	pulumi.Input
 
@@ -824,11 +824,11 @@ func (i NetworkRuleSetArgs) ToNetworkRuleSetPtrOutputWithContext(ctx context.Con
 // NetworkRuleSetPtrInput is an input type that accepts NetworkRuleSetArgs, NetworkRuleSetPtr and NetworkRuleSetPtrOutput values.
 // You can construct a concrete instance of `NetworkRuleSetPtrInput` via:
 //
-//          NetworkRuleSetArgs{...}
+//	        NetworkRuleSetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkRuleSetPtrInput interface {
 	pulumi.Input
 
@@ -1082,7 +1082,7 @@ func (val *Policies) Defaults() *Policies {
 // PoliciesInput is an input type that accepts PoliciesArgs and PoliciesOutput values.
 // You can construct a concrete instance of `PoliciesInput` via:
 //
-//          PoliciesArgs{...}
+//	PoliciesArgs{...}
 type PoliciesInput interface {
 	pulumi.Input
 
@@ -1132,11 +1132,11 @@ func (i PoliciesArgs) ToPoliciesPtrOutputWithContext(ctx context.Context) Polici
 // PoliciesPtrInput is an input type that accepts PoliciesArgs, PoliciesPtr and PoliciesPtrOutput values.
 // You can construct a concrete instance of `PoliciesPtrInput` via:
 //
-//          PoliciesArgs{...}
+//	        PoliciesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PoliciesPtrInput interface {
 	pulumi.Input
 
@@ -1387,7 +1387,7 @@ func (val *QuarantinePolicy) Defaults() *QuarantinePolicy {
 // QuarantinePolicyInput is an input type that accepts QuarantinePolicyArgs and QuarantinePolicyOutput values.
 // You can construct a concrete instance of `QuarantinePolicyInput` via:
 //
-//          QuarantinePolicyArgs{...}
+//	QuarantinePolicyArgs{...}
 type QuarantinePolicyInput interface {
 	pulumi.Input
 
@@ -1435,11 +1435,11 @@ func (i QuarantinePolicyArgs) ToQuarantinePolicyPtrOutputWithContext(ctx context
 // QuarantinePolicyPtrInput is an input type that accepts QuarantinePolicyArgs, QuarantinePolicyPtr and QuarantinePolicyPtrOutput values.
 // You can construct a concrete instance of `QuarantinePolicyPtrInput` via:
 //
-//          QuarantinePolicyArgs{...}
+//	        QuarantinePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type QuarantinePolicyPtrInput interface {
 	pulumi.Input
 
@@ -1811,7 +1811,7 @@ func (val *RetentionPolicy) Defaults() *RetentionPolicy {
 // RetentionPolicyInput is an input type that accepts RetentionPolicyArgs and RetentionPolicyOutput values.
 // You can construct a concrete instance of `RetentionPolicyInput` via:
 //
-//          RetentionPolicyArgs{...}
+//	RetentionPolicyArgs{...}
 type RetentionPolicyInput interface {
 	pulumi.Input
 
@@ -1864,11 +1864,11 @@ func (i RetentionPolicyArgs) ToRetentionPolicyPtrOutputWithContext(ctx context.C
 // RetentionPolicyPtrInput is an input type that accepts RetentionPolicyArgs, RetentionPolicyPtr and RetentionPolicyPtrOutput values.
 // You can construct a concrete instance of `RetentionPolicyPtrInput` via:
 //
-//          RetentionPolicyArgs{...}
+//	        RetentionPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RetentionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -2093,7 +2093,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -2298,7 +2298,7 @@ type StorageAccountProperties struct {
 // StorageAccountPropertiesInput is an input type that accepts StorageAccountPropertiesArgs and StorageAccountPropertiesOutput values.
 // You can construct a concrete instance of `StorageAccountPropertiesInput` via:
 //
-//          StorageAccountPropertiesArgs{...}
+//	StorageAccountPropertiesArgs{...}
 type StorageAccountPropertiesInput interface {
 	pulumi.Input
 
@@ -2335,11 +2335,11 @@ func (i StorageAccountPropertiesArgs) ToStorageAccountPropertiesPtrOutputWithCon
 // StorageAccountPropertiesPtrInput is an input type that accepts StorageAccountPropertiesArgs, StorageAccountPropertiesPtr and StorageAccountPropertiesPtrOutput values.
 // You can construct a concrete instance of `StorageAccountPropertiesPtrInput` via:
 //
-//          StorageAccountPropertiesArgs{...}
+//	        StorageAccountPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageAccountPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2713,7 +2713,7 @@ func (val *TrustPolicy) Defaults() *TrustPolicy {
 // TrustPolicyInput is an input type that accepts TrustPolicyArgs and TrustPolicyOutput values.
 // You can construct a concrete instance of `TrustPolicyInput` via:
 //
-//          TrustPolicyArgs{...}
+//	TrustPolicyArgs{...}
 type TrustPolicyInput interface {
 	pulumi.Input
 
@@ -2766,11 +2766,11 @@ func (i TrustPolicyArgs) ToTrustPolicyPtrOutputWithContext(ctx context.Context) 
 // TrustPolicyPtrInput is an input type that accepts TrustPolicyArgs, TrustPolicyPtr and TrustPolicyPtrOutput values.
 // You can construct a concrete instance of `TrustPolicyPtrInput` via:
 //
-//          TrustPolicyArgs{...}
+//	        TrustPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TrustPolicyPtrInput interface {
 	pulumi.Input
 
@@ -2993,7 +2993,7 @@ func (val *VirtualNetworkRule) Defaults() *VirtualNetworkRule {
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleInput` via:
 //
-//          VirtualNetworkRuleArgs{...}
+//	VirtualNetworkRuleArgs{...}
 type VirtualNetworkRuleInput interface {
 	pulumi.Input
 
@@ -3035,7 +3035,7 @@ func (i VirtualNetworkRuleArgs) ToVirtualNetworkRuleOutputWithContext(ctx contex
 // VirtualNetworkRuleArrayInput is an input type that accepts VirtualNetworkRuleArray and VirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleArrayInput` via:
 //
-//          VirtualNetworkRuleArray{ VirtualNetworkRuleArgs{...} }
+//	VirtualNetworkRuleArray{ VirtualNetworkRuleArgs{...} }
 type VirtualNetworkRuleArrayInput interface {
 	pulumi.Input
 

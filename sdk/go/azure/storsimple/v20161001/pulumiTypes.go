@@ -23,7 +23,7 @@ type AsymmetricEncryptedSecret struct {
 // AsymmetricEncryptedSecretInput is an input type that accepts AsymmetricEncryptedSecretArgs and AsymmetricEncryptedSecretOutput values.
 // You can construct a concrete instance of `AsymmetricEncryptedSecretInput` via:
 //
-//          AsymmetricEncryptedSecretArgs{...}
+//	AsymmetricEncryptedSecretArgs{...}
 type AsymmetricEncryptedSecretInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i AsymmetricEncryptedSecretArgs) ToAsymmetricEncryptedSecretPtrOutputWithC
 // AsymmetricEncryptedSecretPtrInput is an input type that accepts AsymmetricEncryptedSecretArgs, AsymmetricEncryptedSecretPtr and AsymmetricEncryptedSecretPtrOutput values.
 // You can construct a concrete instance of `AsymmetricEncryptedSecretPtrInput` via:
 //
-//          AsymmetricEncryptedSecretArgs{...}
+//	        AsymmetricEncryptedSecretArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AsymmetricEncryptedSecretPtrInput interface {
 	pulumi.Input
 
@@ -291,7 +291,7 @@ type ManagerIntrinsicSettings struct {
 // ManagerIntrinsicSettingsInput is an input type that accepts ManagerIntrinsicSettingsArgs and ManagerIntrinsicSettingsOutput values.
 // You can construct a concrete instance of `ManagerIntrinsicSettingsInput` via:
 //
-//          ManagerIntrinsicSettingsArgs{...}
+//	ManagerIntrinsicSettingsArgs{...}
 type ManagerIntrinsicSettingsInput interface {
 	pulumi.Input
 
@@ -328,11 +328,11 @@ func (i ManagerIntrinsicSettingsArgs) ToManagerIntrinsicSettingsPtrOutputWithCon
 // ManagerIntrinsicSettingsPtrInput is an input type that accepts ManagerIntrinsicSettingsArgs, ManagerIntrinsicSettingsPtr and ManagerIntrinsicSettingsPtrOutput values.
 // You can construct a concrete instance of `ManagerIntrinsicSettingsPtrInput` via:
 //
-//          ManagerIntrinsicSettingsArgs{...}
+//	        ManagerIntrinsicSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagerIntrinsicSettingsPtrInput interface {
 	pulumi.Input
 
@@ -491,7 +491,7 @@ type ManagerSku struct {
 // ManagerSkuInput is an input type that accepts ManagerSkuArgs and ManagerSkuOutput values.
 // You can construct a concrete instance of `ManagerSkuInput` via:
 //
-//          ManagerSkuArgs{...}
+//	ManagerSkuArgs{...}
 type ManagerSkuInput interface {
 	pulumi.Input
 
@@ -528,11 +528,11 @@ func (i ManagerSkuArgs) ToManagerSkuPtrOutputWithContext(ctx context.Context) Ma
 // ManagerSkuPtrInput is an input type that accepts ManagerSkuArgs, ManagerSkuPtr and ManagerSkuPtrOutput values.
 // You can construct a concrete instance of `ManagerSkuPtrInput` via:
 //
-//          ManagerSkuArgs{...}
+//	        ManagerSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagerSkuPtrInput interface {
 	pulumi.Input
 
@@ -693,7 +693,7 @@ type Time struct {
 // TimeInput is an input type that accepts TimeArgs and TimeOutput values.
 // You can construct a concrete instance of `TimeInput` via:
 //
-//          TimeArgs{...}
+//	TimeArgs{...}
 type TimeInput interface {
 	pulumi.Input
 

@@ -102,7 +102,7 @@ type PrivateEndpointProperty struct {
 // PrivateEndpointPropertyInput is an input type that accepts PrivateEndpointPropertyArgs and PrivateEndpointPropertyOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertyInput` via:
 //
-//          PrivateEndpointPropertyArgs{...}
+//	PrivateEndpointPropertyArgs{...}
 type PrivateEndpointPropertyInput interface {
 	pulumi.Input
 
@@ -139,11 +139,11 @@ func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyPtrOutputWithConte
 // PrivateEndpointPropertyPtrInput is an input type that accepts PrivateEndpointPropertyArgs, PrivateEndpointPropertyPtr and PrivateEndpointPropertyPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPropertyPtrInput` via:
 //
-//          PrivateEndpointPropertyArgs{...}
+//	        PrivateEndpointPropertyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateEndpointPropertyPtrInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ type PrivateLinkServiceConnectionStateProperty struct {
 // PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyInput` via:
 //
-//          PrivateLinkServiceConnectionStatePropertyArgs{...}
+//	PrivateLinkServiceConnectionStatePropertyArgs{...}
 type PrivateLinkServiceConnectionStatePropertyInput interface {
 	pulumi.Input
 
@@ -343,11 +343,11 @@ func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConne
 // PrivateLinkServiceConnectionStatePropertyPtrInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs, PrivateLinkServiceConnectionStatePropertyPtr and PrivateLinkServiceConnectionStatePropertyPtrOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyPtrInput` via:
 //
-//          PrivateLinkServiceConnectionStatePropertyArgs{...}
+//	        PrivateLinkServiceConnectionStatePropertyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateLinkServiceConnectionStatePropertyPtrInput interface {
 	pulumi.Input
 
@@ -563,7 +563,7 @@ type WorkbookTemplateGallery struct {
 // WorkbookTemplateGalleryInput is an input type that accepts WorkbookTemplateGalleryArgs and WorkbookTemplateGalleryOutput values.
 // You can construct a concrete instance of `WorkbookTemplateGalleryInput` via:
 //
-//          WorkbookTemplateGalleryArgs{...}
+//	WorkbookTemplateGalleryArgs{...}
 type WorkbookTemplateGalleryInput interface {
 	pulumi.Input
 
@@ -600,7 +600,7 @@ func (i WorkbookTemplateGalleryArgs) ToWorkbookTemplateGalleryOutputWithContext(
 // WorkbookTemplateGalleryArrayInput is an input type that accepts WorkbookTemplateGalleryArray and WorkbookTemplateGalleryArrayOutput values.
 // You can construct a concrete instance of `WorkbookTemplateGalleryArrayInput` via:
 //
-//          WorkbookTemplateGalleryArray{ WorkbookTemplateGalleryArgs{...} }
+//	WorkbookTemplateGalleryArray{ WorkbookTemplateGalleryArgs{...} }
 type WorkbookTemplateGalleryArrayInput interface {
 	pulumi.Input
 
@@ -767,7 +767,7 @@ type WorkbookTemplateLocalizedGallery struct {
 // WorkbookTemplateLocalizedGalleryInput is an input type that accepts WorkbookTemplateLocalizedGalleryArgs and WorkbookTemplateLocalizedGalleryOutput values.
 // You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryInput` via:
 //
-//          WorkbookTemplateLocalizedGalleryArgs{...}
+//	WorkbookTemplateLocalizedGalleryArgs{...}
 type WorkbookTemplateLocalizedGalleryInput interface {
 	pulumi.Input
 
@@ -798,7 +798,7 @@ func (i WorkbookTemplateLocalizedGalleryArgs) ToWorkbookTemplateLocalizedGallery
 // WorkbookTemplateLocalizedGalleryArrayInput is an input type that accepts WorkbookTemplateLocalizedGalleryArray and WorkbookTemplateLocalizedGalleryArrayOutput values.
 // You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryArrayInput` via:
 //
-//          WorkbookTemplateLocalizedGalleryArray{ WorkbookTemplateLocalizedGalleryArgs{...} }
+//	WorkbookTemplateLocalizedGalleryArray{ WorkbookTemplateLocalizedGalleryArgs{...} }
 type WorkbookTemplateLocalizedGalleryArrayInput interface {
 	pulumi.Input
 
@@ -935,7 +935,7 @@ func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGal
 // WorkbookTemplateLocalizedGalleryArrayMapInput is an input type that accepts WorkbookTemplateLocalizedGalleryArrayMap and WorkbookTemplateLocalizedGalleryArrayMapOutput values.
 // You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryArrayMapInput` via:
 //
-//          WorkbookTemplateLocalizedGalleryArrayMap{ "key": WorkbookTemplateLocalizedGalleryArray{ WorkbookTemplateLocalizedGalleryArgs{...} } }
+//	WorkbookTemplateLocalizedGalleryArrayMap{ "key": WorkbookTemplateLocalizedGalleryArray{ WorkbookTemplateLocalizedGalleryArgs{...} } }
 type WorkbookTemplateLocalizedGalleryArrayMapInput interface {
 	pulumi.Input
 

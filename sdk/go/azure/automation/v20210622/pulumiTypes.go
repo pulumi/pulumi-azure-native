@@ -23,7 +23,7 @@ type EncryptionProperties struct {
 // EncryptionPropertiesInput is an input type that accepts EncryptionPropertiesArgs and EncryptionPropertiesOutput values.
 // You can construct a concrete instance of `EncryptionPropertiesInput` via:
 //
-//          EncryptionPropertiesArgs{...}
+//	EncryptionPropertiesArgs{...}
 type EncryptionPropertiesInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i EncryptionPropertiesArgs) ToEncryptionPropertiesPtrOutputWithContext(ctx
 // EncryptionPropertiesPtrInput is an input type that accepts EncryptionPropertiesArgs, EncryptionPropertiesPtr and EncryptionPropertiesPtrOutput values.
 // You can construct a concrete instance of `EncryptionPropertiesPtrInput` via:
 //
-//          EncryptionPropertiesArgs{...}
+//	        EncryptionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EncryptionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -197,7 +197,7 @@ type EncryptionPropertiesIdentity struct {
 // EncryptionPropertiesIdentityInput is an input type that accepts EncryptionPropertiesIdentityArgs and EncryptionPropertiesIdentityOutput values.
 // You can construct a concrete instance of `EncryptionPropertiesIdentityInput` via:
 //
-//          EncryptionPropertiesIdentityArgs{...}
+//	EncryptionPropertiesIdentityArgs{...}
 type EncryptionPropertiesIdentityInput interface {
 	pulumi.Input
 
@@ -234,11 +234,11 @@ func (i EncryptionPropertiesIdentityArgs) ToEncryptionPropertiesIdentityPtrOutpu
 // EncryptionPropertiesIdentityPtrInput is an input type that accepts EncryptionPropertiesIdentityArgs, EncryptionPropertiesIdentityPtr and EncryptionPropertiesIdentityPtrOutput values.
 // You can construct a concrete instance of `EncryptionPropertiesIdentityPtrInput` via:
 //
-//          EncryptionPropertiesIdentityArgs{...}
+//	        EncryptionPropertiesIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EncryptionPropertiesIdentityPtrInput interface {
 	pulumi.Input
 
@@ -560,7 +560,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -599,11 +599,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -945,7 +945,7 @@ type KeyVaultProperties struct {
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesInput` via:
 //
-//          KeyVaultPropertiesArgs{...}
+//	KeyVaultPropertiesArgs{...}
 type KeyVaultPropertiesInput interface {
 	pulumi.Input
 
@@ -986,11 +986,11 @@ func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx con
 // KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
 // You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
 //
-//          KeyVaultPropertiesArgs{...}
+//	        KeyVaultPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KeyVaultPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1450,7 +1450,7 @@ type RunAsCredentialAssociationProperty struct {
 // RunAsCredentialAssociationPropertyInput is an input type that accepts RunAsCredentialAssociationPropertyArgs and RunAsCredentialAssociationPropertyOutput values.
 // You can construct a concrete instance of `RunAsCredentialAssociationPropertyInput` via:
 //
-//          RunAsCredentialAssociationPropertyArgs{...}
+//	RunAsCredentialAssociationPropertyArgs{...}
 type RunAsCredentialAssociationPropertyInput interface {
 	pulumi.Input
 
@@ -1487,11 +1487,11 @@ func (i RunAsCredentialAssociationPropertyArgs) ToRunAsCredentialAssociationProp
 // RunAsCredentialAssociationPropertyPtrInput is an input type that accepts RunAsCredentialAssociationPropertyArgs, RunAsCredentialAssociationPropertyPtr and RunAsCredentialAssociationPropertyPtrOutput values.
 // You can construct a concrete instance of `RunAsCredentialAssociationPropertyPtrInput` via:
 //
-//          RunAsCredentialAssociationPropertyArgs{...}
+//	        RunAsCredentialAssociationPropertyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RunAsCredentialAssociationPropertyPtrInput interface {
 	pulumi.Input
 
@@ -1654,7 +1654,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1695,11 +1695,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 

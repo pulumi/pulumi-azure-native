@@ -21,7 +21,7 @@ type ConnectionState struct {
 // ConnectionStateInput is an input type that accepts ConnectionStateArgs and ConnectionStateOutput values.
 // You can construct a concrete instance of `ConnectionStateInput` via:
 //
-//          ConnectionStateArgs{...}
+//	ConnectionStateArgs{...}
 type ConnectionStateInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ConnectionStateArgs) ToConnectionStatePtrOutputWithContext(ctx context.C
 // ConnectionStatePtrInput is an input type that accepts ConnectionStateArgs, ConnectionStatePtr and ConnectionStatePtrOutput values.
 // You can construct a concrete instance of `ConnectionStatePtrInput` via:
 //
-//          ConnectionStateArgs{...}
+//	        ConnectionStateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionStatePtrInput interface {
 	pulumi.Input
 
@@ -255,7 +255,7 @@ type PrivateEndpoint struct {
 // PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
 // You can construct a concrete instance of `PrivateEndpointInput` via:
 //
-//          PrivateEndpointArgs{...}
+//	PrivateEndpointArgs{...}
 type PrivateEndpointInput interface {
 	pulumi.Input
 
@@ -292,11 +292,11 @@ func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.C
 // PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
 // You can construct a concrete instance of `PrivateEndpointPtrInput` via:
 //
-//          PrivateEndpointArgs{...}
+//	        PrivateEndpointArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateEndpointPtrInput interface {
 	pulumi.Input
 
@@ -399,7 +399,7 @@ type PrivateEndpointConnectionType struct {
 // PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
 //
-//          PrivateEndpointConnectionTypeArgs{...}
+//	PrivateEndpointConnectionTypeArgs{...}
 type PrivateEndpointConnectionTypeInput interface {
 	pulumi.Input
 
@@ -432,7 +432,7 @@ func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput
 // PrivateEndpointConnectionTypeArrayInput is an input type that accepts PrivateEndpointConnectionTypeArray and PrivateEndpointConnectionTypeArrayOutput values.
 // You can construct a concrete instance of `PrivateEndpointConnectionTypeArrayInput` via:
 //
-//          PrivateEndpointConnectionTypeArray{ PrivateEndpointConnectionTypeArgs{...} }
+//	PrivateEndpointConnectionTypeArray{ PrivateEndpointConnectionTypeArgs{...} }
 type PrivateEndpointConnectionTypeArrayInput interface {
 	pulumi.Input
 
@@ -672,7 +672,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -711,11 +711,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 

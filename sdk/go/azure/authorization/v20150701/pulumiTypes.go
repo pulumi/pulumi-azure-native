@@ -21,7 +21,7 @@ type Permission struct {
 // PermissionInput is an input type that accepts PermissionArgs and PermissionOutput values.
 // You can construct a concrete instance of `PermissionInput` via:
 //
-//          PermissionArgs{...}
+//	PermissionArgs{...}
 type PermissionInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i PermissionArgs) ToPermissionOutputWithContext(ctx context.Context) Permi
 // PermissionArrayInput is an input type that accepts PermissionArray and PermissionArrayOutput values.
 // You can construct a concrete instance of `PermissionArrayInput` via:
 //
-//          PermissionArray{ PermissionArgs{...} }
+//	PermissionArray{ PermissionArgs{...} }
 type PermissionArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +183,7 @@ type RoleAssignmentProperties struct {
 // RoleAssignmentPropertiesInput is an input type that accepts RoleAssignmentPropertiesArgs and RoleAssignmentPropertiesOutput values.
 // You can construct a concrete instance of `RoleAssignmentPropertiesInput` via:
 //
-//          RoleAssignmentPropertiesArgs{...}
+//	RoleAssignmentPropertiesArgs{...}
 type RoleAssignmentPropertiesInput interface {
 	pulumi.Input
 

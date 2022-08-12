@@ -21,7 +21,7 @@ type CustomDomain struct {
 // CustomDomainInput is an input type that accepts CustomDomainArgs and CustomDomainOutput values.
 // You can construct a concrete instance of `CustomDomainInput` via:
 //
-//          CustomDomainArgs{...}
+//	CustomDomainArgs{...}
 type CustomDomainInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i CustomDomainArgs) ToCustomDomainPtrOutputWithContext(ctx context.Context
 // CustomDomainPtrInput is an input type that accepts CustomDomainArgs, CustomDomainPtr and CustomDomainPtrOutput values.
 // You can construct a concrete instance of `CustomDomainPtrInput` via:
 //
-//          CustomDomainArgs{...}
+//	        CustomDomainArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CustomDomainPtrInput interface {
 	pulumi.Input
 
@@ -213,7 +213,7 @@ type Encryption struct {
 // EncryptionInput is an input type that accepts EncryptionArgs and EncryptionOutput values.
 // You can construct a concrete instance of `EncryptionInput` via:
 //
-//          EncryptionArgs{...}
+//	EncryptionArgs{...}
 type EncryptionInput interface {
 	pulumi.Input
 
@@ -252,11 +252,11 @@ func (i EncryptionArgs) ToEncryptionPtrOutputWithContext(ctx context.Context) En
 // EncryptionPtrInput is an input type that accepts EncryptionArgs, EncryptionPtr and EncryptionPtrOutput values.
 // You can construct a concrete instance of `EncryptionPtrInput` via:
 //
-//          EncryptionArgs{...}
+//	        EncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EncryptionPtrInput interface {
 	pulumi.Input
 
@@ -403,7 +403,7 @@ type EncryptionService struct {
 // EncryptionServiceInput is an input type that accepts EncryptionServiceArgs and EncryptionServiceOutput values.
 // You can construct a concrete instance of `EncryptionServiceInput` via:
 //
-//          EncryptionServiceArgs{...}
+//	EncryptionServiceArgs{...}
 type EncryptionServiceInput interface {
 	pulumi.Input
 
@@ -440,11 +440,11 @@ func (i EncryptionServiceArgs) ToEncryptionServicePtrOutputWithContext(ctx conte
 // EncryptionServicePtrInput is an input type that accepts EncryptionServiceArgs, EncryptionServicePtr and EncryptionServicePtrOutput values.
 // You can construct a concrete instance of `EncryptionServicePtrInput` via:
 //
-//          EncryptionServiceArgs{...}
+//	        EncryptionServiceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EncryptionServicePtrInput interface {
 	pulumi.Input
 
@@ -622,7 +622,7 @@ type EncryptionServices struct {
 // EncryptionServicesInput is an input type that accepts EncryptionServicesArgs and EncryptionServicesOutput values.
 // You can construct a concrete instance of `EncryptionServicesInput` via:
 //
-//          EncryptionServicesArgs{...}
+//	EncryptionServicesArgs{...}
 type EncryptionServicesInput interface {
 	pulumi.Input
 
@@ -661,11 +661,11 @@ func (i EncryptionServicesArgs) ToEncryptionServicesPtrOutputWithContext(ctx con
 // EncryptionServicesPtrInput is an input type that accepts EncryptionServicesArgs, EncryptionServicesPtr and EncryptionServicesPtrOutput values.
 // You can construct a concrete instance of `EncryptionServicesPtrInput` via:
 //
-//          EncryptionServicesArgs{...}
+//	        EncryptionServicesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EncryptionServicesPtrInput interface {
 	pulumi.Input
 
@@ -937,7 +937,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

@@ -139,7 +139,7 @@ func (o ActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 // ActionInput is an input type that accepts ActionArgs and ActionOutput values.
 // You can construct a concrete instance of `ActionInput` via:
 //
-//          ActionArgs{...}
+//	ActionArgs{...}
 type ActionInput interface {
 	pulumi.Input
 
@@ -337,7 +337,7 @@ func (o VolumeCreateOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // VolumeCreateOptionInput is an input type that accepts VolumeCreateOptionArgs and VolumeCreateOptionOutput values.
 // You can construct a concrete instance of `VolumeCreateOptionInput` via:
 //
-//          VolumeCreateOptionArgs{...}
+//	VolumeCreateOptionArgs{...}
 type VolumeCreateOptionInput interface {
 	pulumi.Input
 

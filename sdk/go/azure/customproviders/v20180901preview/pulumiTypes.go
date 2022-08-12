@@ -23,7 +23,7 @@ type CustomRPActionRouteDefinition struct {
 // CustomRPActionRouteDefinitionInput is an input type that accepts CustomRPActionRouteDefinitionArgs and CustomRPActionRouteDefinitionOutput values.
 // You can construct a concrete instance of `CustomRPActionRouteDefinitionInput` via:
 //
-//          CustomRPActionRouteDefinitionArgs{...}
+//	CustomRPActionRouteDefinitionArgs{...}
 type CustomRPActionRouteDefinitionInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i CustomRPActionRouteDefinitionArgs) ToCustomRPActionRouteDefinitionOutput
 // CustomRPActionRouteDefinitionArrayInput is an input type that accepts CustomRPActionRouteDefinitionArray and CustomRPActionRouteDefinitionArrayOutput values.
 // You can construct a concrete instance of `CustomRPActionRouteDefinitionArrayInput` via:
 //
-//          CustomRPActionRouteDefinitionArray{ CustomRPActionRouteDefinitionArgs{...} }
+//	CustomRPActionRouteDefinitionArray{ CustomRPActionRouteDefinitionArgs{...} }
 type CustomRPActionRouteDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +201,7 @@ type CustomRPResourceTypeRouteDefinition struct {
 // CustomRPResourceTypeRouteDefinitionInput is an input type that accepts CustomRPResourceTypeRouteDefinitionArgs and CustomRPResourceTypeRouteDefinitionOutput values.
 // You can construct a concrete instance of `CustomRPResourceTypeRouteDefinitionInput` via:
 //
-//          CustomRPResourceTypeRouteDefinitionArgs{...}
+//	CustomRPResourceTypeRouteDefinitionArgs{...}
 type CustomRPResourceTypeRouteDefinitionInput interface {
 	pulumi.Input
 
@@ -234,7 +234,7 @@ func (i CustomRPResourceTypeRouteDefinitionArgs) ToCustomRPResourceTypeRouteDefi
 // CustomRPResourceTypeRouteDefinitionArrayInput is an input type that accepts CustomRPResourceTypeRouteDefinitionArray and CustomRPResourceTypeRouteDefinitionArrayOutput values.
 // You can construct a concrete instance of `CustomRPResourceTypeRouteDefinitionArrayInput` via:
 //
-//          CustomRPResourceTypeRouteDefinitionArray{ CustomRPResourceTypeRouteDefinitionArgs{...} }
+//	CustomRPResourceTypeRouteDefinitionArray{ CustomRPResourceTypeRouteDefinitionArgs{...} }
 type CustomRPResourceTypeRouteDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -377,7 +377,7 @@ type CustomRPValidations struct {
 // CustomRPValidationsInput is an input type that accepts CustomRPValidationsArgs and CustomRPValidationsOutput values.
 // You can construct a concrete instance of `CustomRPValidationsInput` via:
 //
-//          CustomRPValidationsArgs{...}
+//	CustomRPValidationsArgs{...}
 type CustomRPValidationsInput interface {
 	pulumi.Input
 
@@ -408,7 +408,7 @@ func (i CustomRPValidationsArgs) ToCustomRPValidationsOutputWithContext(ctx cont
 // CustomRPValidationsArrayInput is an input type that accepts CustomRPValidationsArray and CustomRPValidationsArrayOutput values.
 // You can construct a concrete instance of `CustomRPValidationsArrayInput` via:
 //
-//          CustomRPValidationsArray{ CustomRPValidationsArgs{...} }
+//	CustomRPValidationsArray{ CustomRPValidationsArgs{...} }
 type CustomRPValidationsArrayInput interface {
 	pulumi.Input
 

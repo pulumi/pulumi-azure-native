@@ -145,7 +145,7 @@ func (o AssessmentDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // AssessmentDayOfWeekInput is an input type that accepts AssessmentDayOfWeekArgs and AssessmentDayOfWeekOutput values.
 // You can construct a concrete instance of `AssessmentDayOfWeekInput` via:
 //
-//          AssessmentDayOfWeekArgs{...}
+//	AssessmentDayOfWeekArgs{...}
 type AssessmentDayOfWeekInput interface {
 	pulumi.Input
 
@@ -361,7 +361,7 @@ func (o DayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // DayOfWeekInput is an input type that accepts DayOfWeekArgs and DayOfWeekOutput values.
 // You can construct a concrete instance of `DayOfWeekInput` via:
 //
-//          DayOfWeekArgs{...}
+//	DayOfWeekArgs{...}
 type DayOfWeekInput interface {
 	pulumi.Input
 

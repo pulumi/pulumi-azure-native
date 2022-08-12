@@ -143,7 +143,7 @@ func (o AuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // AuthenticationTypeInput is an input type that accepts AuthenticationTypeArgs and AuthenticationTypeOutput values.
 // You can construct a concrete instance of `AuthenticationTypeInput` via:
 //
-//          AuthenticationTypeArgs{...}
+//	AuthenticationTypeArgs{...}
 type AuthenticationTypeInput interface {
 	pulumi.Input
 
@@ -308,7 +308,7 @@ func (o ProjectSourcePlatformPtrOutput) ToStringPtrOutputWithContext(ctx context
 // ProjectSourcePlatformInput is an input type that accepts ProjectSourcePlatformArgs and ProjectSourcePlatformOutput values.
 // You can construct a concrete instance of `ProjectSourcePlatformInput` via:
 //
-//          ProjectSourcePlatformArgs{...}
+//	ProjectSourcePlatformArgs{...}
 type ProjectSourcePlatformInput interface {
 	pulumi.Input
 
@@ -473,7 +473,7 @@ func (o ProjectTargetPlatformPtrOutput) ToStringPtrOutputWithContext(ctx context
 // ProjectTargetPlatformInput is an input type that accepts ProjectTargetPlatformArgs and ProjectTargetPlatformOutput values.
 // You can construct a concrete instance of `ProjectTargetPlatformInput` via:
 //
-//          ProjectTargetPlatformArgs{...}
+//	ProjectTargetPlatformArgs{...}
 type ProjectTargetPlatformInput interface {
 	pulumi.Input
 

@@ -29,7 +29,7 @@ type Address struct {
 // AddressInput is an input type that accepts AddressArgs and AddressOutput values.
 // You can construct a concrete instance of `AddressInput` via:
 //
-//          AddressArgs{...}
+//	AddressArgs{...}
 type AddressInput interface {
 	pulumi.Input
 
@@ -76,11 +76,11 @@ func (i AddressArgs) ToAddressPtrOutputWithContext(ctx context.Context) AddressP
 // AddressPtrInput is an input type that accepts AddressArgs, AddressPtr and AddressPtrOutput values.
 // You can construct a concrete instance of `AddressPtrInput` via:
 //
-//          AddressArgs{...}
+//	        AddressArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AddressPtrInput interface {
 	pulumi.Input
 
@@ -271,7 +271,7 @@ type Contact struct {
 // ContactInput is an input type that accepts ContactArgs and ContactOutput values.
 // You can construct a concrete instance of `ContactInput` via:
 //
-//          ContactArgs{...}
+//	ContactArgs{...}
 type ContactInput interface {
 	pulumi.Input
 
@@ -388,7 +388,7 @@ type DomainPurchaseConsent struct {
 // DomainPurchaseConsentInput is an input type that accepts DomainPurchaseConsentArgs and DomainPurchaseConsentOutput values.
 // You can construct a concrete instance of `DomainPurchaseConsentInput` via:
 //
-//          DomainPurchaseConsentArgs{...}
+//	DomainPurchaseConsentArgs{...}
 type DomainPurchaseConsentInput interface {
 	pulumi.Input
 

@@ -255,12 +255,13 @@ func (o ServerFarmRouteForVnetOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The type of route this is:
-//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-//             INHERITED - Routes inherited from the real Virtual Network routes
-//             STATIC - Static route set on the web app only
 //
-//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-//             with new INHERITED routes.
+//	DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+//	INHERITED - Routes inherited from the real Virtual Network routes
+//	STATIC - Static route set on the web app only
+//
+//	These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+//	with new INHERITED routes.
 func (o ServerFarmRouteForVnetOutput) RouteType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerFarmRouteForVnet) pulumi.StringPtrOutput { return v.RouteType }).(pulumi.StringPtrOutput)
 }

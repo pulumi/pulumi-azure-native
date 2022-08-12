@@ -31,7 +31,7 @@ type MsixPackageApplications struct {
 // MsixPackageApplicationsInput is an input type that accepts MsixPackageApplicationsArgs and MsixPackageApplicationsOutput values.
 // You can construct a concrete instance of `MsixPackageApplicationsInput` via:
 //
-//          MsixPackageApplicationsArgs{...}
+//	MsixPackageApplicationsArgs{...}
 type MsixPackageApplicationsInput interface {
 	pulumi.Input
 
@@ -72,7 +72,7 @@ func (i MsixPackageApplicationsArgs) ToMsixPackageApplicationsOutputWithContext(
 // MsixPackageApplicationsArrayInput is an input type that accepts MsixPackageApplicationsArray and MsixPackageApplicationsArrayOutput values.
 // You can construct a concrete instance of `MsixPackageApplicationsArrayInput` via:
 //
-//          MsixPackageApplicationsArray{ MsixPackageApplicationsArgs{...} }
+//	MsixPackageApplicationsArray{ MsixPackageApplicationsArgs{...} }
 type MsixPackageApplicationsArrayInput interface {
 	pulumi.Input
 
@@ -265,7 +265,7 @@ type MsixPackageDependencies struct {
 // MsixPackageDependenciesInput is an input type that accepts MsixPackageDependenciesArgs and MsixPackageDependenciesOutput values.
 // You can construct a concrete instance of `MsixPackageDependenciesInput` via:
 //
-//          MsixPackageDependenciesArgs{...}
+//	MsixPackageDependenciesArgs{...}
 type MsixPackageDependenciesInput interface {
 	pulumi.Input
 
@@ -298,7 +298,7 @@ func (i MsixPackageDependenciesArgs) ToMsixPackageDependenciesOutputWithContext(
 // MsixPackageDependenciesArrayInput is an input type that accepts MsixPackageDependenciesArray and MsixPackageDependenciesArrayOutput values.
 // You can construct a concrete instance of `MsixPackageDependenciesArrayInput` via:
 //
-//          MsixPackageDependenciesArray{ MsixPackageDependenciesArgs{...} }
+//	MsixPackageDependenciesArray{ MsixPackageDependenciesArgs{...} }
 type MsixPackageDependenciesArrayInput interface {
 	pulumi.Input
 
@@ -443,7 +443,7 @@ type RegistrationInfo struct {
 // RegistrationInfoInput is an input type that accepts RegistrationInfoArgs and RegistrationInfoOutput values.
 // You can construct a concrete instance of `RegistrationInfoInput` via:
 //
-//          RegistrationInfoArgs{...}
+//	RegistrationInfoArgs{...}
 type RegistrationInfoInput interface {
 	pulumi.Input
 
@@ -484,11 +484,11 @@ func (i RegistrationInfoArgs) ToRegistrationInfoPtrOutputWithContext(ctx context
 // RegistrationInfoPtrInput is an input type that accepts RegistrationInfoArgs, RegistrationInfoPtr and RegistrationInfoPtrOutput values.
 // You can construct a concrete instance of `RegistrationInfoPtrInput` via:
 //
-//          RegistrationInfoArgs{...}
+//	        RegistrationInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RegistrationInfoPtrInput interface {
 	pulumi.Input
 

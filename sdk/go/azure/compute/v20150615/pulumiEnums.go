@@ -141,7 +141,7 @@ func (o CachingTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // CachingTypesInput is an input type that accepts CachingTypesArgs and CachingTypesOutput values.
 // You can construct a concrete instance of `CachingTypesInput` via:
 //
-//          CachingTypesArgs{...}
+//	CachingTypesArgs{...}
 type CachingTypesInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o ComponentNamesPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // ComponentNamesInput is an input type that accepts ComponentNamesArgs and ComponentNamesOutput values.
 // You can construct a concrete instance of `ComponentNamesInput` via:
 //
-//          ComponentNamesArgs{...}
+//	ComponentNamesArgs{...}
 type ComponentNamesInput interface {
 	pulumi.Input
 
@@ -471,7 +471,7 @@ func (o DiskCreateOptionTypesPtrOutput) ToStringPtrOutputWithContext(ctx context
 // DiskCreateOptionTypesInput is an input type that accepts DiskCreateOptionTypesArgs and DiskCreateOptionTypesOutput values.
 // You can construct a concrete instance of `DiskCreateOptionTypesInput` via:
 //
-//          DiskCreateOptionTypesArgs{...}
+//	DiskCreateOptionTypesArgs{...}
 type DiskCreateOptionTypesInput interface {
 	pulumi.Input
 
@@ -636,7 +636,7 @@ func (o OperatingSystemTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // OperatingSystemTypesInput is an input type that accepts OperatingSystemTypesArgs and OperatingSystemTypesOutput values.
 // You can construct a concrete instance of `OperatingSystemTypesInput` via:
 //
-//          OperatingSystemTypesArgs{...}
+//	OperatingSystemTypesArgs{...}
 type OperatingSystemTypesInput interface {
 	pulumi.Input
 
@@ -800,7 +800,7 @@ func (o PassNamesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // PassNamesInput is an input type that accepts PassNamesArgs and PassNamesOutput values.
 // You can construct a concrete instance of `PassNamesInput` via:
 //
-//          PassNamesArgs{...}
+//	PassNamesArgs{...}
 type PassNamesInput interface {
 	pulumi.Input
 
@@ -965,7 +965,7 @@ func (o ProtocolTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // ProtocolTypesInput is an input type that accepts ProtocolTypesArgs and ProtocolTypesOutput values.
 // You can construct a concrete instance of `ProtocolTypesInput` via:
 //
-//          ProtocolTypesArgs{...}
+//	ProtocolTypesArgs{...}
 type ProtocolTypesInput interface {
 	pulumi.Input
 
@@ -1130,7 +1130,7 @@ func (o SettingNamesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // SettingNamesInput is an input type that accepts SettingNamesArgs and SettingNamesOutput values.
 // You can construct a concrete instance of `SettingNamesInput` via:
 //
-//          SettingNamesArgs{...}
+//	SettingNamesArgs{...}
 type SettingNamesInput interface {
 	pulumi.Input
 
@@ -1296,7 +1296,7 @@ func (o StatusLevelTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // StatusLevelTypesInput is an input type that accepts StatusLevelTypesArgs and StatusLevelTypesOutput values.
 // You can construct a concrete instance of `StatusLevelTypesInput` via:
 //
-//          StatusLevelTypesArgs{...}
+//	StatusLevelTypesArgs{...}
 type StatusLevelTypesInput interface {
 	pulumi.Input
 
@@ -1461,7 +1461,7 @@ func (o UpgradeModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // UpgradeModeInput is an input type that accepts UpgradeModeArgs and UpgradeModeOutput values.
 // You can construct a concrete instance of `UpgradeModeInput` via:
 //
-//          UpgradeModeArgs{...}
+//	UpgradeModeArgs{...}
 type UpgradeModeInput interface {
 	pulumi.Input
 

@@ -21,7 +21,7 @@ type ManagementGroupLogSettings struct {
 // ManagementGroupLogSettingsInput is an input type that accepts ManagementGroupLogSettingsArgs and ManagementGroupLogSettingsOutput values.
 // You can construct a concrete instance of `ManagementGroupLogSettingsInput` via:
 //
-//          ManagementGroupLogSettingsArgs{...}
+//	ManagementGroupLogSettingsArgs{...}
 type ManagementGroupLogSettingsInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ManagementGroupLogSettingsArgs) ToManagementGroupLogSettingsOutputWithCo
 // ManagementGroupLogSettingsArrayInput is an input type that accepts ManagementGroupLogSettingsArray and ManagementGroupLogSettingsArrayOutput values.
 // You can construct a concrete instance of `ManagementGroupLogSettingsArrayInput` via:
 //
-//          ManagementGroupLogSettingsArray{ ManagementGroupLogSettingsArgs{...} }
+//	ManagementGroupLogSettingsArray{ ManagementGroupLogSettingsArgs{...} }
 type ManagementGroupLogSettingsArrayInput interface {
 	pulumi.Input
 

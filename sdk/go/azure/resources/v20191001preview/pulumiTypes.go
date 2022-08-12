@@ -19,7 +19,7 @@ type ContainerConfiguration struct {
 // ContainerConfigurationInput is an input type that accepts ContainerConfigurationArgs and ContainerConfigurationOutput values.
 // You can construct a concrete instance of `ContainerConfigurationInput` via:
 //
-//          ContainerConfigurationArgs{...}
+//	ContainerConfigurationArgs{...}
 type ContainerConfigurationInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ContainerConfigurationArgs) ToContainerConfigurationPtrOutputWithContext
 // ContainerConfigurationPtrInput is an input type that accepts ContainerConfigurationArgs, ContainerConfigurationPtr and ContainerConfigurationPtrOutput values.
 // You can construct a concrete instance of `ContainerConfigurationPtrInput` via:
 //
-//          ContainerConfigurationArgs{...}
+//	        ContainerConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -223,7 +223,7 @@ type EnvironmentVariable struct {
 // EnvironmentVariableInput is an input type that accepts EnvironmentVariableArgs and EnvironmentVariableOutput values.
 // You can construct a concrete instance of `EnvironmentVariableInput` via:
 //
-//          EnvironmentVariableArgs{...}
+//	EnvironmentVariableArgs{...}
 type EnvironmentVariableInput interface {
 	pulumi.Input
 
@@ -256,7 +256,7 @@ func (i EnvironmentVariableArgs) ToEnvironmentVariableOutputWithContext(ctx cont
 // EnvironmentVariableArrayInput is an input type that accepts EnvironmentVariableArray and EnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `EnvironmentVariableArrayInput` via:
 //
-//          EnvironmentVariableArray{ EnvironmentVariableArgs{...} }
+//	EnvironmentVariableArray{ EnvironmentVariableArgs{...} }
 type EnvironmentVariableArrayInput interface {
 	pulumi.Input
 
@@ -600,7 +600,7 @@ type ManagedServiceIdentity struct {
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityInput` via:
 //
-//          ManagedServiceIdentityArgs{...}
+//	ManagedServiceIdentityArgs{...}
 type ManagedServiceIdentityInput interface {
 	pulumi.Input
 
@@ -767,7 +767,7 @@ type StorageAccountConfiguration struct {
 // StorageAccountConfigurationInput is an input type that accepts StorageAccountConfigurationArgs and StorageAccountConfigurationOutput values.
 // You can construct a concrete instance of `StorageAccountConfigurationInput` via:
 //
-//          StorageAccountConfigurationArgs{...}
+//	StorageAccountConfigurationArgs{...}
 type StorageAccountConfigurationInput interface {
 	pulumi.Input
 
@@ -806,11 +806,11 @@ func (i StorageAccountConfigurationArgs) ToStorageAccountConfigurationPtrOutputW
 // StorageAccountConfigurationPtrInput is an input type that accepts StorageAccountConfigurationArgs, StorageAccountConfigurationPtr and StorageAccountConfigurationPtrOutput values.
 // You can construct a concrete instance of `StorageAccountConfigurationPtrInput` via:
 //
-//          StorageAccountConfigurationArgs{...}
+//	        StorageAccountConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageAccountConfigurationPtrInput interface {
 	pulumi.Input
 

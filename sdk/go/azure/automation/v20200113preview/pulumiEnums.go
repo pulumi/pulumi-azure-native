@@ -148,7 +148,7 @@ func (o EncryptionKeySourceTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // EncryptionKeySourceTypeInput is an input type that accepts EncryptionKeySourceTypeArgs and EncryptionKeySourceTypeOutput values.
 // You can construct a concrete instance of `EncryptionKeySourceTypeInput` via:
 //
-//          EncryptionKeySourceTypeArgs{...}
+//	EncryptionKeySourceTypeArgs{...}
 type EncryptionKeySourceTypeInput interface {
 	pulumi.Input
 
@@ -315,7 +315,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//          ResourceIdentityTypeArgs{...}
+//	ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 

@@ -185,7 +185,7 @@ type RemediationDeploymentSummary struct {
 // RemediationDeploymentSummaryInput is an input type that accepts RemediationDeploymentSummaryArgs and RemediationDeploymentSummaryOutput values.
 // You can construct a concrete instance of `RemediationDeploymentSummaryInput` via:
 //
-//          RemediationDeploymentSummaryArgs{...}
+//	RemediationDeploymentSummaryArgs{...}
 type RemediationDeploymentSummaryInput interface {
 	pulumi.Input
 
@@ -226,11 +226,11 @@ func (i RemediationDeploymentSummaryArgs) ToRemediationDeploymentSummaryPtrOutpu
 // RemediationDeploymentSummaryPtrInput is an input type that accepts RemediationDeploymentSummaryArgs, RemediationDeploymentSummaryPtr and RemediationDeploymentSummaryPtrOutput values.
 // You can construct a concrete instance of `RemediationDeploymentSummaryPtrInput` via:
 //
-//          RemediationDeploymentSummaryArgs{...}
+//	        RemediationDeploymentSummaryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemediationDeploymentSummaryPtrInput interface {
 	pulumi.Input
 
@@ -453,7 +453,7 @@ type RemediationFilters struct {
 // RemediationFiltersInput is an input type that accepts RemediationFiltersArgs and RemediationFiltersOutput values.
 // You can construct a concrete instance of `RemediationFiltersInput` via:
 //
-//          RemediationFiltersArgs{...}
+//	RemediationFiltersArgs{...}
 type RemediationFiltersInput interface {
 	pulumi.Input
 
@@ -490,11 +490,11 @@ func (i RemediationFiltersArgs) ToRemediationFiltersPtrOutputWithContext(ctx con
 // RemediationFiltersPtrInput is an input type that accepts RemediationFiltersArgs, RemediationFiltersPtr and RemediationFiltersPtrOutput values.
 // You can construct a concrete instance of `RemediationFiltersPtrInput` via:
 //
-//          RemediationFiltersArgs{...}
+//	        RemediationFiltersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemediationFiltersPtrInput interface {
 	pulumi.Input
 

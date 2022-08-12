@@ -308,7 +308,7 @@ func (o LiveEventEncodingTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // LiveEventEncodingTypeInput is an input type that accepts LiveEventEncodingTypeArgs and LiveEventEncodingTypeOutput values.
 // You can construct a concrete instance of `LiveEventEncodingTypeInput` via:
 //
-//          LiveEventEncodingTypeArgs{...}
+//	LiveEventEncodingTypeArgs{...}
 type LiveEventEncodingTypeInput interface {
 	pulumi.Input
 
@@ -473,7 +473,7 @@ func (o LiveEventInputProtocolPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // LiveEventInputProtocolInput is an input type that accepts LiveEventInputProtocolArgs and LiveEventInputProtocolOutput values.
 // You can construct a concrete instance of `LiveEventInputProtocolInput` via:
 //
-//          LiveEventInputProtocolArgs{...}
+//	LiveEventInputProtocolArgs{...}
 type LiveEventInputProtocolInput interface {
 	pulumi.Input
 
@@ -687,7 +687,7 @@ func (o StreamOptionsFlagPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // StreamOptionsFlagInput is an input type that accepts StreamOptionsFlagArgs and StreamOptionsFlagOutput values.
 // You can construct a concrete instance of `StreamOptionsFlagInput` via:
 //
-//          StreamOptionsFlagArgs{...}
+//	StreamOptionsFlagArgs{...}
 type StreamOptionsFlagInput interface {
 	pulumi.Input
 
@@ -725,7 +725,7 @@ func (in *streamOptionsFlagPtr) ToStreamOptionsFlagPtrOutputWithContext(ctx cont
 // StreamOptionsFlagArrayInput is an input type that accepts StreamOptionsFlagArray and StreamOptionsFlagArrayOutput values.
 // You can construct a concrete instance of `StreamOptionsFlagArrayInput` via:
 //
-//          StreamOptionsFlagArray{ StreamOptionsFlagArgs{...} }
+//	StreamOptionsFlagArray{ StreamOptionsFlagArgs{...} }
 type StreamOptionsFlagArrayInput interface {
 	pulumi.Input
 

@@ -21,7 +21,7 @@ type SiteAgentProperties struct {
 // SiteAgentPropertiesInput is an input type that accepts SiteAgentPropertiesArgs and SiteAgentPropertiesOutput values.
 // You can construct a concrete instance of `SiteAgentPropertiesInput` via:
 //
-//          SiteAgentPropertiesArgs{...}
+//	SiteAgentPropertiesArgs{...}
 type SiteAgentPropertiesInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i SiteAgentPropertiesArgs) ToSiteAgentPropertiesPtrOutputWithContext(ctx c
 // SiteAgentPropertiesPtrInput is an input type that accepts SiteAgentPropertiesArgs, SiteAgentPropertiesPtr and SiteAgentPropertiesPtrOutput values.
 // You can construct a concrete instance of `SiteAgentPropertiesPtrInput` via:
 //
-//          SiteAgentPropertiesArgs{...}
+//	        SiteAgentPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SiteAgentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ type SiteProperties struct {
 // SitePropertiesInput is an input type that accepts SitePropertiesArgs and SitePropertiesOutput values.
 // You can construct a concrete instance of `SitePropertiesInput` via:
 //
-//          SitePropertiesArgs{...}
+//	SitePropertiesArgs{...}
 type SitePropertiesInput interface {
 	pulumi.Input
 
@@ -355,11 +355,11 @@ func (i SitePropertiesArgs) ToSitePropertiesPtrOutputWithContext(ctx context.Con
 // SitePropertiesPtrInput is an input type that accepts SitePropertiesArgs, SitePropertiesPtr and SitePropertiesPtrOutput values.
 // You can construct a concrete instance of `SitePropertiesPtrInput` via:
 //
-//          SitePropertiesArgs{...}
+//	        SitePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SitePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -567,7 +567,7 @@ type SiteSpnProperties struct {
 // SiteSpnPropertiesInput is an input type that accepts SiteSpnPropertiesArgs and SiteSpnPropertiesOutput values.
 // You can construct a concrete instance of `SiteSpnPropertiesInput` via:
 //
-//          SiteSpnPropertiesArgs{...}
+//	SiteSpnPropertiesArgs{...}
 type SiteSpnPropertiesInput interface {
 	pulumi.Input
 
@@ -614,11 +614,11 @@ func (i SiteSpnPropertiesArgs) ToSiteSpnPropertiesPtrOutputWithContext(ctx conte
 // SiteSpnPropertiesPtrInput is an input type that accepts SiteSpnPropertiesArgs, SiteSpnPropertiesPtr and SiteSpnPropertiesPtrOutput values.
 // You can construct a concrete instance of `SiteSpnPropertiesPtrInput` via:
 //
-//          SiteSpnPropertiesArgs{...}
+//	        SiteSpnPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SiteSpnPropertiesPtrInput interface {
 	pulumi.Input
 

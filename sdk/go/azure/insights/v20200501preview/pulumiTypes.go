@@ -21,7 +21,7 @@ type Action struct {
 // ActionInput is an input type that accepts ActionArgs and ActionOutput values.
 // You can construct a concrete instance of `ActionInput` via:
 //
-//          ActionArgs{...}
+//	ActionArgs{...}
 type ActionInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ActionArgs) ToActionOutputWithContext(ctx context.Context) ActionOutput 
 // ActionArrayInput is an input type that accepts ActionArray and ActionArrayOutput values.
 // You can construct a concrete instance of `ActionArrayInput` via:
 //
-//          ActionArray{ ActionArgs{...} }
+//	ActionArray{ ActionArgs{...} }
 type ActionArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +206,7 @@ func (val *Condition) Defaults() *Condition {
 // ConditionInput is an input type that accepts ConditionArgs and ConditionOutput values.
 // You can construct a concrete instance of `ConditionInput` via:
 //
-//          ConditionArgs{...}
+//	ConditionArgs{...}
 type ConditionInput interface {
 	pulumi.Input
 
@@ -258,7 +258,7 @@ func (i ConditionArgs) ToConditionOutputWithContext(ctx context.Context) Conditi
 // ConditionArrayInput is an input type that accepts ConditionArray and ConditionArrayOutput values.
 // You can construct a concrete instance of `ConditionArrayInput` via:
 //
-//          ConditionArray{ ConditionArgs{...} }
+//	ConditionArray{ ConditionArgs{...} }
 type ConditionArrayInput interface {
 	pulumi.Input
 
@@ -383,7 +383,7 @@ func (val *ConditionFailingPeriods) Defaults() *ConditionFailingPeriods {
 // ConditionFailingPeriodsInput is an input type that accepts ConditionFailingPeriodsArgs and ConditionFailingPeriodsOutput values.
 // You can construct a concrete instance of `ConditionFailingPeriodsInput` via:
 //
-//          ConditionFailingPeriodsArgs{...}
+//	ConditionFailingPeriodsArgs{...}
 type ConditionFailingPeriodsInput interface {
 	pulumi.Input
 
@@ -436,11 +436,11 @@ func (i ConditionFailingPeriodsArgs) ToConditionFailingPeriodsPtrOutputWithConte
 // ConditionFailingPeriodsPtrInput is an input type that accepts ConditionFailingPeriodsArgs, ConditionFailingPeriodsPtr and ConditionFailingPeriodsPtrOutput values.
 // You can construct a concrete instance of `ConditionFailingPeriodsPtrInput` via:
 //
-//          ConditionFailingPeriodsArgs{...}
+//	        ConditionFailingPeriodsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConditionFailingPeriodsPtrInput interface {
 	pulumi.Input
 
@@ -758,7 +758,7 @@ type Dimension struct {
 // DimensionInput is an input type that accepts DimensionArgs and DimensionOutput values.
 // You can construct a concrete instance of `DimensionInput` via:
 //
-//          DimensionArgs{...}
+//	DimensionArgs{...}
 type DimensionInput interface {
 	pulumi.Input
 
@@ -791,7 +791,7 @@ func (i DimensionArgs) ToDimensionOutputWithContext(ctx context.Context) Dimensi
 // DimensionArrayInput is an input type that accepts DimensionArray and DimensionArrayOutput values.
 // You can construct a concrete instance of `DimensionArrayInput` via:
 //
-//          DimensionArray{ DimensionArgs{...} }
+//	DimensionArray{ DimensionArgs{...} }
 type DimensionArrayInput interface {
 	pulumi.Input
 
@@ -932,7 +932,7 @@ type ScheduledQueryRuleCriteria struct {
 // ScheduledQueryRuleCriteriaInput is an input type that accepts ScheduledQueryRuleCriteriaArgs and ScheduledQueryRuleCriteriaOutput values.
 // You can construct a concrete instance of `ScheduledQueryRuleCriteriaInput` via:
 //
-//          ScheduledQueryRuleCriteriaArgs{...}
+//	ScheduledQueryRuleCriteriaArgs{...}
 type ScheduledQueryRuleCriteriaInput interface {
 	pulumi.Input
 

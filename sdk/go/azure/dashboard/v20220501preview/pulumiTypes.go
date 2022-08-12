@@ -27,7 +27,7 @@ type ManagedGrafanaProperties struct {
 // ManagedGrafanaPropertiesInput is an input type that accepts ManagedGrafanaPropertiesArgs and ManagedGrafanaPropertiesOutput values.
 // You can construct a concrete instance of `ManagedGrafanaPropertiesInput` via:
 //
-//          ManagedGrafanaPropertiesArgs{...}
+//	ManagedGrafanaPropertiesArgs{...}
 type ManagedGrafanaPropertiesInput interface {
 	pulumi.Input
 
@@ -72,11 +72,11 @@ func (i ManagedGrafanaPropertiesArgs) ToManagedGrafanaPropertiesPtrOutputWithCon
 // ManagedGrafanaPropertiesPtrInput is an input type that accepts ManagedGrafanaPropertiesArgs, ManagedGrafanaPropertiesPtr and ManagedGrafanaPropertiesPtrOutput values.
 // You can construct a concrete instance of `ManagedGrafanaPropertiesPtrInput` via:
 //
-//          ManagedGrafanaPropertiesArgs{...}
+//	        ManagedGrafanaPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagedGrafanaPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -328,7 +328,7 @@ type ManagedServiceIdentity struct {
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityInput` via:
 //
-//          ManagedServiceIdentityArgs{...}
+//	ManagedServiceIdentityArgs{...}
 type ManagedServiceIdentityInput interface {
 	pulumi.Input
 
@@ -367,11 +367,11 @@ func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext
 // ManagedServiceIdentityPtrInput is an input type that accepts ManagedServiceIdentityArgs, ManagedServiceIdentityPtr and ManagedServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityPtrInput` via:
 //
-//          ManagedServiceIdentityArgs{...}
+//	        ManagedServiceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagedServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -759,7 +759,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -866,7 +866,7 @@ type ResourceSku struct {
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
 // You can construct a concrete instance of `ResourceSkuInput` via:
 //
-//          ResourceSkuArgs{...}
+//	ResourceSkuArgs{...}
 type ResourceSkuInput interface {
 	pulumi.Input
 
@@ -901,11 +901,11 @@ func (i ResourceSkuArgs) ToResourceSkuPtrOutputWithContext(ctx context.Context) 
 // ResourceSkuPtrInput is an input type that accepts ResourceSkuArgs, ResourceSkuPtr and ResourceSkuPtrOutput values.
 // You can construct a concrete instance of `ResourceSkuPtrInput` via:
 //
-//          ResourceSkuArgs{...}
+//	        ResourceSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSkuPtrInput interface {
 	pulumi.Input
 

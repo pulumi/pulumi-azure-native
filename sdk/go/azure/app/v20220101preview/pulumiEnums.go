@@ -172,7 +172,7 @@ func (o ClientCredentialMethodPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // ClientCredentialMethodInput is an input type that accepts ClientCredentialMethodArgs and ClientCredentialMethodOutput values.
 // You can construct a concrete instance of `ClientCredentialMethodInput` via:
 //
-//          ClientCredentialMethodArgs{...}
+//	ClientCredentialMethodArgs{...}
 type ClientCredentialMethodInput interface {
 	pulumi.Input
 
@@ -337,7 +337,7 @@ func (o CookieExpirationConventionPtrOutput) ToStringPtrOutputWithContext(ctx co
 // CookieExpirationConventionInput is an input type that accepts CookieExpirationConventionArgs and CookieExpirationConventionOutput values.
 // You can construct a concrete instance of `CookieExpirationConventionInput` via:
 //
-//          CookieExpirationConventionArgs{...}
+//	CookieExpirationConventionArgs{...}
 type CookieExpirationConventionInput interface {
 	pulumi.Input
 
@@ -503,7 +503,7 @@ func (o ForwardProxyConventionPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // ForwardProxyConventionInput is an input type that accepts ForwardProxyConventionArgs and ForwardProxyConventionOutput values.
 // You can construct a concrete instance of `ForwardProxyConventionInput` via:
 //
-//          ForwardProxyConventionArgs{...}
+//	ForwardProxyConventionArgs{...}
 type ForwardProxyConventionInput interface {
 	pulumi.Input
 
@@ -714,7 +714,7 @@ func (o UnauthenticatedClientActionV2PtrOutput) ToStringPtrOutputWithContext(ctx
 // UnauthenticatedClientActionV2Input is an input type that accepts UnauthenticatedClientActionV2Args and UnauthenticatedClientActionV2Output values.
 // You can construct a concrete instance of `UnauthenticatedClientActionV2Input` via:
 //
-//          UnauthenticatedClientActionV2Args{...}
+//	UnauthenticatedClientActionV2Args{...}
 type UnauthenticatedClientActionV2Input interface {
 	pulumi.Input
 

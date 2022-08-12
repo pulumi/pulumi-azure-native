@@ -19,7 +19,7 @@ type AccountEncryption struct {
 // AccountEncryptionInput is an input type that accepts AccountEncryptionArgs and AccountEncryptionOutput values.
 // You can construct a concrete instance of `AccountEncryptionInput` via:
 //
-//          AccountEncryptionArgs{...}
+//	AccountEncryptionArgs{...}
 type AccountEncryptionInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutputWithContext(ctx conte
 // AccountEncryptionPtrInput is an input type that accepts AccountEncryptionArgs, AccountEncryptionPtr and AccountEncryptionPtrOutput values.
 // You can construct a concrete instance of `AccountEncryptionPtrInput` via:
 //
-//          AccountEncryptionArgs{...}
+//	        AccountEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -262,7 +262,7 @@ func (val *ActiveDirectory) Defaults() *ActiveDirectory {
 // ActiveDirectoryInput is an input type that accepts ActiveDirectoryArgs and ActiveDirectoryOutput values.
 // You can construct a concrete instance of `ActiveDirectoryInput` via:
 //
-//          ActiveDirectoryArgs{...}
+//	ActiveDirectoryArgs{...}
 type ActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -332,7 +332,7 @@ func (i ActiveDirectoryArgs) ToActiveDirectoryOutputWithContext(ctx context.Cont
 // ActiveDirectoryArrayInput is an input type that accepts ActiveDirectoryArray and ActiveDirectoryArrayOutput values.
 // You can construct a concrete instance of `ActiveDirectoryArrayInput` via:
 //
-//          ActiveDirectoryArray{ ActiveDirectoryArgs{...} }
+//	ActiveDirectoryArray{ ActiveDirectoryArgs{...} }
 type ActiveDirectoryArrayInput interface {
 	pulumi.Input
 
@@ -662,7 +662,7 @@ type DailySchedule struct {
 // DailyScheduleInput is an input type that accepts DailyScheduleArgs and DailyScheduleOutput values.
 // You can construct a concrete instance of `DailyScheduleInput` via:
 //
-//          DailyScheduleArgs{...}
+//	DailyScheduleArgs{...}
 type DailyScheduleInput interface {
 	pulumi.Input
 
@@ -705,11 +705,11 @@ func (i DailyScheduleArgs) ToDailySchedulePtrOutputWithContext(ctx context.Conte
 // DailySchedulePtrInput is an input type that accepts DailyScheduleArgs, DailySchedulePtr and DailySchedulePtrOutput values.
 // You can construct a concrete instance of `DailySchedulePtrInput` via:
 //
-//          DailyScheduleArgs{...}
+//	        DailyScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DailySchedulePtrInput interface {
 	pulumi.Input
 
@@ -1027,7 +1027,7 @@ func (val *ExportPolicyRule) Defaults() *ExportPolicyRule {
 // ExportPolicyRuleInput is an input type that accepts ExportPolicyRuleArgs and ExportPolicyRuleOutput values.
 // You can construct a concrete instance of `ExportPolicyRuleInput` via:
 //
-//          ExportPolicyRuleArgs{...}
+//	ExportPolicyRuleArgs{...}
 type ExportPolicyRuleInput interface {
 	pulumi.Input
 
@@ -1111,7 +1111,7 @@ func (i ExportPolicyRuleArgs) ToExportPolicyRuleOutputWithContext(ctx context.Co
 // ExportPolicyRuleArrayInput is an input type that accepts ExportPolicyRuleArray and ExportPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `ExportPolicyRuleArrayInput` via:
 //
-//          ExportPolicyRuleArray{ ExportPolicyRuleArgs{...} }
+//	ExportPolicyRuleArray{ ExportPolicyRuleArgs{...} }
 type ExportPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -1425,7 +1425,7 @@ type HourlySchedule struct {
 // HourlyScheduleInput is an input type that accepts HourlyScheduleArgs and HourlyScheduleOutput values.
 // You can construct a concrete instance of `HourlyScheduleInput` via:
 //
-//          HourlyScheduleArgs{...}
+//	HourlyScheduleArgs{...}
 type HourlyScheduleInput interface {
 	pulumi.Input
 
@@ -1466,11 +1466,11 @@ func (i HourlyScheduleArgs) ToHourlySchedulePtrOutputWithContext(ctx context.Con
 // HourlySchedulePtrInput is an input type that accepts HourlyScheduleArgs, HourlySchedulePtr and HourlySchedulePtrOutput values.
 // You can construct a concrete instance of `HourlySchedulePtrInput` via:
 //
-//          HourlyScheduleArgs{...}
+//	        HourlyScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HourlySchedulePtrInput interface {
 	pulumi.Input
 
@@ -1701,7 +1701,7 @@ type MonthlySchedule struct {
 // MonthlyScheduleInput is an input type that accepts MonthlyScheduleArgs and MonthlyScheduleOutput values.
 // You can construct a concrete instance of `MonthlyScheduleInput` via:
 //
-//          MonthlyScheduleArgs{...}
+//	MonthlyScheduleArgs{...}
 type MonthlyScheduleInput interface {
 	pulumi.Input
 
@@ -1746,11 +1746,11 @@ func (i MonthlyScheduleArgs) ToMonthlySchedulePtrOutputWithContext(ctx context.C
 // MonthlySchedulePtrInput is an input type that accepts MonthlyScheduleArgs, MonthlySchedulePtr and MonthlySchedulePtrOutput values.
 // You can construct a concrete instance of `MonthlySchedulePtrInput` via:
 //
-//          MonthlyScheduleArgs{...}
+//	        MonthlyScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MonthlySchedulePtrInput interface {
 	pulumi.Input
 
@@ -2112,7 +2112,7 @@ type ReplicationObject struct {
 // ReplicationObjectInput is an input type that accepts ReplicationObjectArgs and ReplicationObjectOutput values.
 // You can construct a concrete instance of `ReplicationObjectInput` via:
 //
-//          ReplicationObjectArgs{...}
+//	ReplicationObjectArgs{...}
 type ReplicationObjectInput interface {
 	pulumi.Input
 
@@ -2157,11 +2157,11 @@ func (i ReplicationObjectArgs) ToReplicationObjectPtrOutputWithContext(ctx conte
 // ReplicationObjectPtrInput is an input type that accepts ReplicationObjectArgs, ReplicationObjectPtr and ReplicationObjectPtrOutput values.
 // You can construct a concrete instance of `ReplicationObjectPtrInput` via:
 //
-//          ReplicationObjectArgs{...}
+//	        ReplicationObjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReplicationObjectPtrInput interface {
 	pulumi.Input
 
@@ -2515,7 +2515,7 @@ type VolumeBackupProperties struct {
 // VolumeBackupPropertiesInput is an input type that accepts VolumeBackupPropertiesArgs and VolumeBackupPropertiesOutput values.
 // You can construct a concrete instance of `VolumeBackupPropertiesInput` via:
 //
-//          VolumeBackupPropertiesArgs{...}
+//	VolumeBackupPropertiesArgs{...}
 type VolumeBackupPropertiesInput interface {
 	pulumi.Input
 
@@ -2558,11 +2558,11 @@ func (i VolumeBackupPropertiesArgs) ToVolumeBackupPropertiesPtrOutputWithContext
 // VolumeBackupPropertiesPtrInput is an input type that accepts VolumeBackupPropertiesArgs, VolumeBackupPropertiesPtr and VolumeBackupPropertiesPtrOutput values.
 // You can construct a concrete instance of `VolumeBackupPropertiesPtrInput` via:
 //
-//          VolumeBackupPropertiesArgs{...}
+//	        VolumeBackupPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VolumeBackupPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2821,7 +2821,7 @@ type VolumeBackups struct {
 // VolumeBackupsInput is an input type that accepts VolumeBackupsArgs and VolumeBackupsOutput values.
 // You can construct a concrete instance of `VolumeBackupsInput` via:
 //
-//          VolumeBackupsArgs{...}
+//	VolumeBackupsArgs{...}
 type VolumeBackupsInput interface {
 	pulumi.Input
 
@@ -2854,7 +2854,7 @@ func (i VolumeBackupsArgs) ToVolumeBackupsOutputWithContext(ctx context.Context)
 // VolumeBackupsArrayInput is an input type that accepts VolumeBackupsArray and VolumeBackupsArrayOutput values.
 // You can construct a concrete instance of `VolumeBackupsArrayInput` via:
 //
-//          VolumeBackupsArray{ VolumeBackupsArgs{...} }
+//	VolumeBackupsArray{ VolumeBackupsArgs{...} }
 type VolumeBackupsArrayInput interface {
 	pulumi.Input
 
@@ -2999,7 +2999,7 @@ type VolumePropertiesDataProtection struct {
 // VolumePropertiesDataProtectionInput is an input type that accepts VolumePropertiesDataProtectionArgs and VolumePropertiesDataProtectionOutput values.
 // You can construct a concrete instance of `VolumePropertiesDataProtectionInput` via:
 //
-//          VolumePropertiesDataProtectionArgs{...}
+//	VolumePropertiesDataProtectionArgs{...}
 type VolumePropertiesDataProtectionInput interface {
 	pulumi.Input
 
@@ -3040,11 +3040,11 @@ func (i VolumePropertiesDataProtectionArgs) ToVolumePropertiesDataProtectionPtrO
 // VolumePropertiesDataProtectionPtrInput is an input type that accepts VolumePropertiesDataProtectionArgs, VolumePropertiesDataProtectionPtr and VolumePropertiesDataProtectionPtrOutput values.
 // You can construct a concrete instance of `VolumePropertiesDataProtectionPtrInput` via:
 //
-//          VolumePropertiesDataProtectionArgs{...}
+//	        VolumePropertiesDataProtectionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VolumePropertiesDataProtectionPtrInput interface {
 	pulumi.Input
 
@@ -3173,7 +3173,7 @@ type VolumePropertiesExportPolicy struct {
 // VolumePropertiesExportPolicyInput is an input type that accepts VolumePropertiesExportPolicyArgs and VolumePropertiesExportPolicyOutput values.
 // You can construct a concrete instance of `VolumePropertiesExportPolicyInput` via:
 //
-//          VolumePropertiesExportPolicyArgs{...}
+//	VolumePropertiesExportPolicyArgs{...}
 type VolumePropertiesExportPolicyInput interface {
 	pulumi.Input
 
@@ -3210,11 +3210,11 @@ func (i VolumePropertiesExportPolicyArgs) ToVolumePropertiesExportPolicyPtrOutpu
 // VolumePropertiesExportPolicyPtrInput is an input type that accepts VolumePropertiesExportPolicyArgs, VolumePropertiesExportPolicyPtr and VolumePropertiesExportPolicyPtrOutput values.
 // You can construct a concrete instance of `VolumePropertiesExportPolicyPtrInput` via:
 //
-//          VolumePropertiesExportPolicyArgs{...}
+//	        VolumePropertiesExportPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VolumePropertiesExportPolicyPtrInput interface {
 	pulumi.Input
 
@@ -3467,7 +3467,7 @@ type VolumeSnapshotProperties struct {
 // VolumeSnapshotPropertiesInput is an input type that accepts VolumeSnapshotPropertiesArgs and VolumeSnapshotPropertiesOutput values.
 // You can construct a concrete instance of `VolumeSnapshotPropertiesInput` via:
 //
-//          VolumeSnapshotPropertiesArgs{...}
+//	VolumeSnapshotPropertiesArgs{...}
 type VolumeSnapshotPropertiesInput interface {
 	pulumi.Input
 
@@ -3504,11 +3504,11 @@ func (i VolumeSnapshotPropertiesArgs) ToVolumeSnapshotPropertiesPtrOutputWithCon
 // VolumeSnapshotPropertiesPtrInput is an input type that accepts VolumeSnapshotPropertiesArgs, VolumeSnapshotPropertiesPtr and VolumeSnapshotPropertiesPtrOutput values.
 // You can construct a concrete instance of `VolumeSnapshotPropertiesPtrInput` via:
 //
-//          VolumeSnapshotPropertiesArgs{...}
+//	        VolumeSnapshotPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VolumeSnapshotPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3675,7 +3675,7 @@ type WeeklySchedule struct {
 // WeeklyScheduleInput is an input type that accepts WeeklyScheduleArgs and WeeklyScheduleOutput values.
 // You can construct a concrete instance of `WeeklyScheduleInput` via:
 //
-//          WeeklyScheduleArgs{...}
+//	WeeklyScheduleArgs{...}
 type WeeklyScheduleInput interface {
 	pulumi.Input
 
@@ -3720,11 +3720,11 @@ func (i WeeklyScheduleArgs) ToWeeklySchedulePtrOutputWithContext(ctx context.Con
 // WeeklySchedulePtrInput is an input type that accepts WeeklyScheduleArgs, WeeklySchedulePtr and WeeklySchedulePtrOutput values.
 // You can construct a concrete instance of `WeeklySchedulePtrInput` via:
 //
-//          WeeklyScheduleArgs{...}
+//	        WeeklyScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WeeklySchedulePtrInput interface {
 	pulumi.Input
 

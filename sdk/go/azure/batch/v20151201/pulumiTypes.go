@@ -107,7 +107,7 @@ type AutoStorageBaseProperties struct {
 // AutoStorageBasePropertiesInput is an input type that accepts AutoStorageBasePropertiesArgs and AutoStorageBasePropertiesOutput values.
 // You can construct a concrete instance of `AutoStorageBasePropertiesInput` via:
 //
-//          AutoStorageBasePropertiesArgs{...}
+//	AutoStorageBasePropertiesArgs{...}
 type AutoStorageBasePropertiesInput interface {
 	pulumi.Input
 
@@ -144,11 +144,11 @@ func (i AutoStorageBasePropertiesArgs) ToAutoStorageBasePropertiesPtrOutputWithC
 // AutoStorageBasePropertiesPtrInput is an input type that accepts AutoStorageBasePropertiesArgs, AutoStorageBasePropertiesPtr and AutoStorageBasePropertiesPtrOutput values.
 // You can construct a concrete instance of `AutoStorageBasePropertiesPtrInput` via:
 //
-//          AutoStorageBasePropertiesArgs{...}
+//	        AutoStorageBasePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoStorageBasePropertiesPtrInput interface {
 	pulumi.Input
 

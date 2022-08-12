@@ -21,7 +21,7 @@ type AddDataLakeStoreWithAccountParameters struct {
 // AddDataLakeStoreWithAccountParametersInput is an input type that accepts AddDataLakeStoreWithAccountParametersArgs and AddDataLakeStoreWithAccountParametersOutput values.
 // You can construct a concrete instance of `AddDataLakeStoreWithAccountParametersInput` via:
 //
-//          AddDataLakeStoreWithAccountParametersArgs{...}
+//	AddDataLakeStoreWithAccountParametersArgs{...}
 type AddDataLakeStoreWithAccountParametersInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i AddDataLakeStoreWithAccountParametersArgs) ToAddDataLakeStoreWithAccount
 // AddDataLakeStoreWithAccountParametersArrayInput is an input type that accepts AddDataLakeStoreWithAccountParametersArray and AddDataLakeStoreWithAccountParametersArrayOutput values.
 // You can construct a concrete instance of `AddDataLakeStoreWithAccountParametersArrayInput` via:
 //
-//          AddDataLakeStoreWithAccountParametersArray{ AddDataLakeStoreWithAccountParametersArgs{...} }
+//	AddDataLakeStoreWithAccountParametersArray{ AddDataLakeStoreWithAccountParametersArgs{...} }
 type AddDataLakeStoreWithAccountParametersArrayInput interface {
 	pulumi.Input
 
@@ -145,7 +145,7 @@ func (val *AddStorageAccountWithAccountParameters) Defaults() *AddStorageAccount
 // AddStorageAccountWithAccountParametersInput is an input type that accepts AddStorageAccountWithAccountParametersArgs and AddStorageAccountWithAccountParametersOutput values.
 // You can construct a concrete instance of `AddStorageAccountWithAccountParametersInput` via:
 //
-//          AddStorageAccountWithAccountParametersArgs{...}
+//	AddStorageAccountWithAccountParametersArgs{...}
 type AddStorageAccountWithAccountParametersInput interface {
 	pulumi.Input
 
@@ -189,7 +189,7 @@ func (i AddStorageAccountWithAccountParametersArgs) ToAddStorageAccountWithAccou
 // AddStorageAccountWithAccountParametersArrayInput is an input type that accepts AddStorageAccountWithAccountParametersArray and AddStorageAccountWithAccountParametersArrayOutput values.
 // You can construct a concrete instance of `AddStorageAccountWithAccountParametersArrayInput` via:
 //
-//          AddStorageAccountWithAccountParametersArray{ AddStorageAccountWithAccountParametersArgs{...} }
+//	AddStorageAccountWithAccountParametersArray{ AddStorageAccountWithAccountParametersArgs{...} }
 type AddStorageAccountWithAccountParametersArrayInput interface {
 	pulumi.Input
 
@@ -366,7 +366,7 @@ type CreateComputePolicyWithAccountParameters struct {
 // CreateComputePolicyWithAccountParametersInput is an input type that accepts CreateComputePolicyWithAccountParametersArgs and CreateComputePolicyWithAccountParametersOutput values.
 // You can construct a concrete instance of `CreateComputePolicyWithAccountParametersInput` via:
 //
-//          CreateComputePolicyWithAccountParametersArgs{...}
+//	CreateComputePolicyWithAccountParametersArgs{...}
 type CreateComputePolicyWithAccountParametersInput interface {
 	pulumi.Input
 
@@ -403,7 +403,7 @@ func (i CreateComputePolicyWithAccountParametersArgs) ToCreateComputePolicyWithA
 // CreateComputePolicyWithAccountParametersArrayInput is an input type that accepts CreateComputePolicyWithAccountParametersArray and CreateComputePolicyWithAccountParametersArrayOutput values.
 // You can construct a concrete instance of `CreateComputePolicyWithAccountParametersArrayInput` via:
 //
-//          CreateComputePolicyWithAccountParametersArray{ CreateComputePolicyWithAccountParametersArgs{...} }
+//	CreateComputePolicyWithAccountParametersArray{ CreateComputePolicyWithAccountParametersArgs{...} }
 type CreateComputePolicyWithAccountParametersArrayInput interface {
 	pulumi.Input
 
@@ -498,7 +498,7 @@ type CreateFirewallRuleWithAccountParameters struct {
 // CreateFirewallRuleWithAccountParametersInput is an input type that accepts CreateFirewallRuleWithAccountParametersArgs and CreateFirewallRuleWithAccountParametersOutput values.
 // You can construct a concrete instance of `CreateFirewallRuleWithAccountParametersInput` via:
 //
-//          CreateFirewallRuleWithAccountParametersArgs{...}
+//	CreateFirewallRuleWithAccountParametersArgs{...}
 type CreateFirewallRuleWithAccountParametersInput interface {
 	pulumi.Input
 
@@ -531,7 +531,7 @@ func (i CreateFirewallRuleWithAccountParametersArgs) ToCreateFirewallRuleWithAcc
 // CreateFirewallRuleWithAccountParametersArrayInput is an input type that accepts CreateFirewallRuleWithAccountParametersArray and CreateFirewallRuleWithAccountParametersArrayOutput values.
 // You can construct a concrete instance of `CreateFirewallRuleWithAccountParametersArrayInput` via:
 //
-//          CreateFirewallRuleWithAccountParametersArray{ CreateFirewallRuleWithAccountParametersArgs{...} }
+//	CreateFirewallRuleWithAccountParametersArray{ CreateFirewallRuleWithAccountParametersArgs{...} }
 type CreateFirewallRuleWithAccountParametersArrayInput interface {
 	pulumi.Input
 

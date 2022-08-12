@@ -144,7 +144,7 @@ func (o DaysOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // DaysOfWeekInput is an input type that accepts DaysOfWeekArgs and DaysOfWeekOutput values.
 // You can construct a concrete instance of `DaysOfWeekInput` via:
 //
-//          DaysOfWeekArgs{...}
+//	DaysOfWeekArgs{...}
 type DaysOfWeekInput interface {
 	pulumi.Input
 
@@ -182,7 +182,7 @@ func (in *daysOfWeekPtr) ToDaysOfWeekPtrOutputWithContext(ctx context.Context) D
 // DaysOfWeekArrayInput is an input type that accepts DaysOfWeekArray and DaysOfWeekArrayOutput values.
 // You can construct a concrete instance of `DaysOfWeekArrayInput` via:
 //
-//          DaysOfWeekArray{ DaysOfWeekArgs{...} }
+//	DaysOfWeekArray{ DaysOfWeekArgs{...} }
 type DaysOfWeekArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +353,7 @@ func (o DirectoryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // DirectoryTypeInput is an input type that accepts DirectoryTypeArgs and DirectoryTypeOutput values.
 // You can construct a concrete instance of `DirectoryTypeInput` via:
 //
-//          DirectoryTypeArgs{...}
+//	DirectoryTypeArgs{...}
 type DirectoryTypeInput interface {
 	pulumi.Input
 
@@ -527,7 +527,7 @@ func (o OSTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 // OSTypeInput is an input type that accepts OSTypeArgs and OSTypeOutput values.
 // You can construct a concrete instance of `OSTypeInput` via:
 //
-//          OSTypeArgs{...}
+//	OSTypeArgs{...}
 type OSTypeInput interface {
 	pulumi.Input
 
@@ -702,7 +702,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//          ResourceIdentityTypeArgs{...}
+//	ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 
@@ -875,7 +875,7 @@ func (o TierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 // TierInput is an input type that accepts TierArgs and TierOutput values.
 // You can construct a concrete instance of `TierInput` via:
 //
-//          TierArgs{...}
+//	TierArgs{...}
 type TierInput interface {
 	pulumi.Input
 
