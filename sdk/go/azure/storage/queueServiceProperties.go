@@ -62,6 +62,9 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:storage/v20210901:QueueServiceProperties"),
 		},
+		{
+			Type: pulumi.String("azure-native:storage/v20220501:QueueServiceProperties"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource QueueServiceProperties

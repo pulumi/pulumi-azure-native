@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstanceAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstanceAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstanceAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedInstanceAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedInstanceAdministrator"},
                 },
             };

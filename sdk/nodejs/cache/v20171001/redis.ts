@@ -176,7 +176,7 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache:Redis" }, { type: "azure-native:cache/v20150801:Redis" }, { type: "azure-native:cache/v20160401:Redis" }, { type: "azure-native:cache/v20170201:Redis" }, { type: "azure-native:cache/v20180301:Redis" }, { type: "azure-native:cache/v20190701:Redis" }, { type: "azure-native:cache/v20200601:Redis" }, { type: "azure-native:cache/v20201201:Redis" }, { type: "azure-native:cache/v20210601:Redis" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:Redis" }, { type: "azure-native:cache/v20150801:Redis" }, { type: "azure-native:cache/v20160401:Redis" }, { type: "azure-native:cache/v20170201:Redis" }, { type: "azure-native:cache/v20180301:Redis" }, { type: "azure-native:cache/v20190701:Redis" }, { type: "azure-native:cache/v20200601:Redis" }, { type: "azure-native:cache/v20201201:Redis" }, { type: "azure-native:cache/v20210601:Redis" }, { type: "azure-native:cache/v20220501:Redis" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Redis.__pulumiType, name, resourceInputs, opts);
     }

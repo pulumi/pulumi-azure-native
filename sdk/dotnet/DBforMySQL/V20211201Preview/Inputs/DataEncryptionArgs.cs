@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
         /// <summary>
         /// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
         /// </summary>
-        [Input("geoBackupKeyUri")]
-        public Input<string>? GeoBackupKeyUri { get; set; }
+        [Input("geoBackupKeyURI")]
+        public Input<string>? GeoBackupKeyURI { get; set; }
 
         /// <summary>
         /// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
         /// <summary>
         /// Primary key uri
         /// </summary>
-        [Input("primaryKeyUri")]
-        public Input<string>? PrimaryKeyUri { get; set; }
+        [Input("primaryKeyURI")]
+        public Input<string>? PrimaryKeyURI { get; set; }
 
         /// <summary>
         /// Primary user identity resource id

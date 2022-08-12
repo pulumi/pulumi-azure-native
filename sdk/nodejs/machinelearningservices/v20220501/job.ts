@@ -86,7 +86,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:Job" }, { type: "azure-native:machinelearningservices/v20210301preview:Job" }, { type: "azure-native:machinelearningservices/v20220201preview:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:Job" }, { type: "azure-native:machinelearningservices/v20210301preview:Job" }, { type: "azure-native:machinelearningservices/v20220201preview:Job" }, { type: "azure-native:machinelearningservices/v20220601preview:Job" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, resourceInputs, opts);
     }

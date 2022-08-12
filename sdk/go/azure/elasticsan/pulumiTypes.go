@@ -267,7 +267,7 @@ func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRul
 // The SKU name. Required for account creation; optional for update.
 type Sku struct {
 	// The sku name.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The sku tier.
 	Tier *string `pulumi:"tier"`
 }
@@ -286,7 +286,7 @@ type SkuInput interface {
 // The SKU name. Required for account creation; optional for update.
 type SkuArgs struct {
 	// The sku name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// The sku tier.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
@@ -301,47 +301,6 @@ func (i SkuArgs) ToSkuOutput() SkuOutput {
 
 func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
-}
-
-func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
-}
-
-// SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
-// You can construct a concrete instance of `SkuPtrInput` via:
-//
-//	        SkuArgs{...}
-//
-//	or:
-//
-//	        nil
-type SkuPtrInput interface {
-	pulumi.Input
-
-	ToSkuPtrOutput() SkuPtrOutput
-	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
-}
-
-type skuPtrType SkuArgs
-
-func SkuPtr(v *SkuArgs) SkuPtrInput {
-	return (*skuPtrType)(v)
-}
-
-func (*skuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
 // The SKU name. Required for account creation; optional for update.
@@ -359,19 +318,9 @@ func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return o
 }
 
-func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
-		return &v
-	}).(SkuPtrOutput)
-}
-
 // The sku name.
-func (o SkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The sku tier.
@@ -379,54 +328,10 @@ func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-type SkuPtrOutput struct{ *pulumi.OutputState }
-
-func (SkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
-}
-
-// The sku name.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The sku tier.
-func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
 // The SKU name. Required for account creation; optional for update.
 type SkuResponse struct {
 	// The sku name.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The sku tier.
 	Tier *string `pulumi:"tier"`
 }
@@ -447,8 +352,8 @@ func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) S
 }
 
 // The sku name.
-func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The sku tier.
@@ -456,54 +361,10 @@ func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-type SkuResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o
-}
-
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o
-}
-
-func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
-}
-
-// The sku name.
-func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The sku tier.
-func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
 // Data source used when creating the volume.
 type SourceCreationData struct {
 	// This enumerates the possible sources of a volume creation.
-	CreateSource VolumeCreateOption `pulumi:"createSource"`
+	CreateSource *VolumeCreateOption `pulumi:"createSource"`
 	// If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
 	SourceUri *string `pulumi:"sourceUri"`
 }
@@ -522,7 +383,7 @@ type SourceCreationDataInput interface {
 // Data source used when creating the volume.
 type SourceCreationDataArgs struct {
 	// This enumerates the possible sources of a volume creation.
-	CreateSource VolumeCreateOptionInput `pulumi:"createSource"`
+	CreateSource VolumeCreateOptionPtrInput `pulumi:"createSource"`
 	// If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
 	SourceUri pulumi.StringPtrInput `pulumi:"sourceUri"`
 }
@@ -606,8 +467,8 @@ func (o SourceCreationDataOutput) ToSourceCreationDataPtrOutputWithContext(ctx c
 }
 
 // This enumerates the possible sources of a volume creation.
-func (o SourceCreationDataOutput) CreateSource() VolumeCreateOptionOutput {
-	return o.ApplyT(func(v SourceCreationData) VolumeCreateOption { return v.CreateSource }).(VolumeCreateOptionOutput)
+func (o SourceCreationDataOutput) CreateSource() VolumeCreateOptionPtrOutput {
+	return o.ApplyT(func(v SourceCreationData) *VolumeCreateOption { return v.CreateSource }).(VolumeCreateOptionPtrOutput)
 }
 
 // If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
@@ -645,7 +506,7 @@ func (o SourceCreationDataPtrOutput) CreateSource() VolumeCreateOptionPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return &v.CreateSource
+		return v.CreateSource
 	}).(VolumeCreateOptionPtrOutput)
 }
 
@@ -662,7 +523,7 @@ func (o SourceCreationDataPtrOutput) SourceUri() pulumi.StringPtrOutput {
 // Data source used when creating the volume.
 type SourceCreationDataResponse struct {
 	// This enumerates the possible sources of a volume creation.
-	CreateSource string `pulumi:"createSource"`
+	CreateSource *string `pulumi:"createSource"`
 	// If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
 	SourceUri *string `pulumi:"sourceUri"`
 }
@@ -683,8 +544,8 @@ func (o SourceCreationDataResponseOutput) ToSourceCreationDataResponseOutputWith
 }
 
 // This enumerates the possible sources of a volume creation.
-func (o SourceCreationDataResponseOutput) CreateSource() pulumi.StringOutput {
-	return o.ApplyT(func(v SourceCreationDataResponse) string { return v.CreateSource }).(pulumi.StringOutput)
+func (o SourceCreationDataResponseOutput) CreateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceCreationDataResponse) *string { return v.CreateSource }).(pulumi.StringPtrOutput)
 }
 
 // If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
@@ -722,7 +583,7 @@ func (o SourceCreationDataResponsePtrOutput) CreateSource() pulumi.StringPtrOutp
 		if v == nil {
 			return nil
 		}
-		return &v.CreateSource
+		return v.CreateSource
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1010,9 +871,7 @@ func init() {
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
-	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
-	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceCreationDataOutput{})
 	pulumi.RegisterOutputType(SourceCreationDataPtrOutput{})
 	pulumi.RegisterOutputType(SourceCreationDataResponseOutput{})

@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:WorkspaceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:WorkspaceConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

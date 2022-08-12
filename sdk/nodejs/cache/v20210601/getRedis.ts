@@ -96,7 +96,7 @@ export interface GetRedisResult {
      */
     readonly redisConfiguration?: outputs.cache.v20210601.RedisCommonPropertiesResponseRedisConfiguration;
     /**
-     * Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+     * Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
      */
     readonly redisVersion?: string;
     /**

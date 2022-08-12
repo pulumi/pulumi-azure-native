@@ -82,7 +82,7 @@ export class IPv6FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:IPv6FirewallRule" }, { type: "azure-native:sql/v20210801preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20211101preview:IPv6FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:IPv6FirewallRule" }, { type: "azure-native:sql/v20210801preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20211101:IPv6FirewallRule" }, { type: "azure-native:sql/v20211101preview:IPv6FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IPv6FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

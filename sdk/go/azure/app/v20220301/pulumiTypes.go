@@ -6842,6 +6842,119 @@ func (o CustomDomainResponseArrayOutput) Index(i pulumi.IntInput) CustomDomainRe
 	}).(CustomDomainResponseOutput)
 }
 
+// Raw failure information if DNS verification fails.
+type CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo struct {
+	// Standardized string to programmatically identify the error.
+	Code string `pulumi:"code"`
+	// Details or the error
+	Details []CustomHostnameAnalysisResultResponseDetails `pulumi:"details"`
+	// Detailed error description and debugging information.
+	Message string `pulumi:"message"`
+	// Detailed error description and debugging information.
+	Target string `pulumi:"target"`
+}
+
+// Raw failure information if DNS verification fails.
+type CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput struct{ *pulumi.OutputState }
+
+func (CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo)(nil)).Elem()
+}
+
+func (o CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput) ToCustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput() CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput {
+	return o
+}
+
+func (o CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput) ToCustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutputWithContext(ctx context.Context) CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput {
+	return o
+}
+
+// Standardized string to programmatically identify the error.
+func (o CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Details or the error
+func (o CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput) Details() CustomHostnameAnalysisResultResponseDetailsArrayOutput {
+	return o.ApplyT(func(v CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo) []CustomHostnameAnalysisResultResponseDetails {
+		return v.Details
+	}).(CustomHostnameAnalysisResultResponseDetailsArrayOutput)
+}
+
+// Detailed error description and debugging information.
+func (o CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo) string {
+		return v.Message
+	}).(pulumi.StringOutput)
+}
+
+// Detailed error description and debugging information.
+func (o CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo) string {
+		return v.Target
+	}).(pulumi.StringOutput)
+}
+
+// Detailed errors.
+type CustomHostnameAnalysisResultResponseDetails struct {
+	// Standardized string to programmatically identify the error.
+	Code string `pulumi:"code"`
+	// Detailed error description and debugging information.
+	Message string `pulumi:"message"`
+	// Detailed error description and debugging information.
+	Target string `pulumi:"target"`
+}
+
+// Detailed errors.
+type CustomHostnameAnalysisResultResponseDetailsOutput struct{ *pulumi.OutputState }
+
+func (CustomHostnameAnalysisResultResponseDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomHostnameAnalysisResultResponseDetails)(nil)).Elem()
+}
+
+func (o CustomHostnameAnalysisResultResponseDetailsOutput) ToCustomHostnameAnalysisResultResponseDetailsOutput() CustomHostnameAnalysisResultResponseDetailsOutput {
+	return o
+}
+
+func (o CustomHostnameAnalysisResultResponseDetailsOutput) ToCustomHostnameAnalysisResultResponseDetailsOutputWithContext(ctx context.Context) CustomHostnameAnalysisResultResponseDetailsOutput {
+	return o
+}
+
+// Standardized string to programmatically identify the error.
+func (o CustomHostnameAnalysisResultResponseDetailsOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomHostnameAnalysisResultResponseDetails) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Detailed error description and debugging information.
+func (o CustomHostnameAnalysisResultResponseDetailsOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomHostnameAnalysisResultResponseDetails) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Detailed error description and debugging information.
+func (o CustomHostnameAnalysisResultResponseDetailsOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomHostnameAnalysisResultResponseDetails) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type CustomHostnameAnalysisResultResponseDetailsArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomHostnameAnalysisResultResponseDetailsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomHostnameAnalysisResultResponseDetails)(nil)).Elem()
+}
+
+func (o CustomHostnameAnalysisResultResponseDetailsArrayOutput) ToCustomHostnameAnalysisResultResponseDetailsArrayOutput() CustomHostnameAnalysisResultResponseDetailsArrayOutput {
+	return o
+}
+
+func (o CustomHostnameAnalysisResultResponseDetailsArrayOutput) ToCustomHostnameAnalysisResultResponseDetailsArrayOutputWithContext(ctx context.Context) CustomHostnameAnalysisResultResponseDetailsArrayOutput {
+	return o
+}
+
+func (o CustomHostnameAnalysisResultResponseDetailsArrayOutput) Index(i pulumi.IntInput) CustomHostnameAnalysisResultResponseDetailsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomHostnameAnalysisResultResponseDetails {
+		return vs[0].([]CustomHostnameAnalysisResultResponseDetails)[vs[1].(int)]
+	}).(CustomHostnameAnalysisResultResponseDetailsOutput)
+}
+
 // The configuration settings of the custom Open ID Connect provider.
 type CustomOpenIdConnectProvider struct {
 	// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
@@ -8019,146 +8132,6 @@ func (o DefaultAuthorizationPolicyResponsePtrOutput) AllowedPrincipals() Allowed
 		}
 		return v.AllowedPrincipals
 	}).(AllowedPrincipalsResponsePtrOutput)
-}
-
-// App Service error response.
-type DefaultErrorResponseResponse struct {
-	// Error model.
-	Error DefaultErrorResponseResponseError `pulumi:"error"`
-}
-
-// App Service error response.
-type DefaultErrorResponseResponseOutput struct{ *pulumi.OutputState }
-
-func (DefaultErrorResponseResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultErrorResponseResponse)(nil)).Elem()
-}
-
-func (o DefaultErrorResponseResponseOutput) ToDefaultErrorResponseResponseOutput() DefaultErrorResponseResponseOutput {
-	return o
-}
-
-func (o DefaultErrorResponseResponseOutput) ToDefaultErrorResponseResponseOutputWithContext(ctx context.Context) DefaultErrorResponseResponseOutput {
-	return o
-}
-
-// Error model.
-func (o DefaultErrorResponseResponseOutput) Error() DefaultErrorResponseResponseErrorOutput {
-	return o.ApplyT(func(v DefaultErrorResponseResponse) DefaultErrorResponseResponseError { return v.Error }).(DefaultErrorResponseResponseErrorOutput)
-}
-
-// Detailed errors.
-type DefaultErrorResponseResponseDetails struct {
-	// Standardized string to programmatically identify the error.
-	Code string `pulumi:"code"`
-	// Detailed error description and debugging information.
-	Message string `pulumi:"message"`
-	// Detailed error description and debugging information.
-	Target string `pulumi:"target"`
-}
-
-// Detailed errors.
-type DefaultErrorResponseResponseDetailsOutput struct{ *pulumi.OutputState }
-
-func (DefaultErrorResponseResponseDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultErrorResponseResponseDetails)(nil)).Elem()
-}
-
-func (o DefaultErrorResponseResponseDetailsOutput) ToDefaultErrorResponseResponseDetailsOutput() DefaultErrorResponseResponseDetailsOutput {
-	return o
-}
-
-func (o DefaultErrorResponseResponseDetailsOutput) ToDefaultErrorResponseResponseDetailsOutputWithContext(ctx context.Context) DefaultErrorResponseResponseDetailsOutput {
-	return o
-}
-
-// Standardized string to programmatically identify the error.
-func (o DefaultErrorResponseResponseDetailsOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v DefaultErrorResponseResponseDetails) string { return v.Code }).(pulumi.StringOutput)
-}
-
-// Detailed error description and debugging information.
-func (o DefaultErrorResponseResponseDetailsOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v DefaultErrorResponseResponseDetails) string { return v.Message }).(pulumi.StringOutput)
-}
-
-// Detailed error description and debugging information.
-func (o DefaultErrorResponseResponseDetailsOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v DefaultErrorResponseResponseDetails) string { return v.Target }).(pulumi.StringOutput)
-}
-
-type DefaultErrorResponseResponseDetailsArrayOutput struct{ *pulumi.OutputState }
-
-func (DefaultErrorResponseResponseDetailsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DefaultErrorResponseResponseDetails)(nil)).Elem()
-}
-
-func (o DefaultErrorResponseResponseDetailsArrayOutput) ToDefaultErrorResponseResponseDetailsArrayOutput() DefaultErrorResponseResponseDetailsArrayOutput {
-	return o
-}
-
-func (o DefaultErrorResponseResponseDetailsArrayOutput) ToDefaultErrorResponseResponseDetailsArrayOutputWithContext(ctx context.Context) DefaultErrorResponseResponseDetailsArrayOutput {
-	return o
-}
-
-func (o DefaultErrorResponseResponseDetailsArrayOutput) Index(i pulumi.IntInput) DefaultErrorResponseResponseDetailsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefaultErrorResponseResponseDetails {
-		return vs[0].([]DefaultErrorResponseResponseDetails)[vs[1].(int)]
-	}).(DefaultErrorResponseResponseDetailsOutput)
-}
-
-// Error model.
-type DefaultErrorResponseResponseError struct {
-	// Standardized string to programmatically identify the error.
-	Code string `pulumi:"code"`
-	// Details or the error
-	Details []DefaultErrorResponseResponseDetails `pulumi:"details"`
-	// More information to debug error.
-	Innererror string `pulumi:"innererror"`
-	// Detailed error description and debugging information.
-	Message string `pulumi:"message"`
-	// Detailed error description and debugging information.
-	Target string `pulumi:"target"`
-}
-
-// Error model.
-type DefaultErrorResponseResponseErrorOutput struct{ *pulumi.OutputState }
-
-func (DefaultErrorResponseResponseErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultErrorResponseResponseError)(nil)).Elem()
-}
-
-func (o DefaultErrorResponseResponseErrorOutput) ToDefaultErrorResponseResponseErrorOutput() DefaultErrorResponseResponseErrorOutput {
-	return o
-}
-
-func (o DefaultErrorResponseResponseErrorOutput) ToDefaultErrorResponseResponseErrorOutputWithContext(ctx context.Context) DefaultErrorResponseResponseErrorOutput {
-	return o
-}
-
-// Standardized string to programmatically identify the error.
-func (o DefaultErrorResponseResponseErrorOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v DefaultErrorResponseResponseError) string { return v.Code }).(pulumi.StringOutput)
-}
-
-// Details or the error
-func (o DefaultErrorResponseResponseErrorOutput) Details() DefaultErrorResponseResponseDetailsArrayOutput {
-	return o.ApplyT(func(v DefaultErrorResponseResponseError) []DefaultErrorResponseResponseDetails { return v.Details }).(DefaultErrorResponseResponseDetailsArrayOutput)
-}
-
-// More information to debug error.
-func (o DefaultErrorResponseResponseErrorOutput) Innererror() pulumi.StringOutput {
-	return o.ApplyT(func(v DefaultErrorResponseResponseError) string { return v.Innererror }).(pulumi.StringOutput)
-}
-
-// Detailed error description and debugging information.
-func (o DefaultErrorResponseResponseErrorOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v DefaultErrorResponseResponseError) string { return v.Message }).(pulumi.StringOutput)
-}
-
-// Detailed error description and debugging information.
-func (o DefaultErrorResponseResponseErrorOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v DefaultErrorResponseResponseError) string { return v.Target }).(pulumi.StringOutput)
 }
 
 // Container App container environment variable.
@@ -18307,6 +18280,9 @@ func init() {
 	pulumi.RegisterOutputType(CustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponseArrayOutput{})
+	pulumi.RegisterOutputType(CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput{})
+	pulumi.RegisterOutputType(CustomHostnameAnalysisResultResponseDetailsOutput{})
+	pulumi.RegisterOutputType(CustomHostnameAnalysisResultResponseDetailsArrayOutput{})
 	pulumi.RegisterOutputType(CustomOpenIdConnectProviderOutput{})
 	pulumi.RegisterOutputType(CustomOpenIdConnectProviderMapOutput{})
 	pulumi.RegisterOutputType(CustomOpenIdConnectProviderResponseOutput{})
@@ -18327,10 +18303,6 @@ func init() {
 	pulumi.RegisterOutputType(DefaultAuthorizationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DefaultAuthorizationPolicyResponseOutput{})
 	pulumi.RegisterOutputType(DefaultAuthorizationPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(DefaultErrorResponseResponseOutput{})
-	pulumi.RegisterOutputType(DefaultErrorResponseResponseDetailsOutput{})
-	pulumi.RegisterOutputType(DefaultErrorResponseResponseDetailsArrayOutput{})
-	pulumi.RegisterOutputType(DefaultErrorResponseResponseErrorOutput{})
 	pulumi.RegisterOutputType(EnvironmentVarOutput{})
 	pulumi.RegisterOutputType(EnvironmentVarArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentVarResponseOutput{})

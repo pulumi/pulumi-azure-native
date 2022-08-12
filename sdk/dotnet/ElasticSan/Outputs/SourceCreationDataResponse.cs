@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ElasticSan.Outputs
         /// <summary>
         /// This enumerates the possible sources of a volume creation.
         /// </summary>
-        public readonly string CreateSource;
+        public readonly string? CreateSource;
         /// <summary>
         /// If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ElasticSan.Outputs
 
         [OutputConstructor]
         private SourceCreationDataResponse(
-            string createSource,
+            string? createSource,
 
             string? sourceUri)
         {

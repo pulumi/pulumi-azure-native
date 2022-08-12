@@ -25,7 +25,8 @@ class MonitorArgs:
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  monitor_subnet: Optional[pulumi.Input[str]] = None,
                  routing_preference: Optional[pulumi.Input[Union[str, 'RoutingPreference']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy_preference: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -38,6 +39,7 @@ class MonitorArgs:
         :param pulumi.Input[str] monitor_subnet: The subnet which the SAP monitor will be deployed in
         :param pulumi.Input[Union[str, 'RoutingPreference']] routing_preference: Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] zone_redundancy_preference: Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_location is not None:
@@ -58,6 +60,8 @@ class MonitorArgs:
             pulumi.set(__self__, "routing_preference", routing_preference)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zone_redundancy_preference is not None:
+            pulumi.set(__self__, "zone_redundancy_preference", zone_redundancy_preference)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -179,6 +183,18 @@ class MonitorArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundancyPreference")
+    def zone_redundancy_preference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+        """
+        return pulumi.get(self, "zone_redundancy_preference")
+
+    @zone_redundancy_preference.setter
+    def zone_redundancy_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone_redundancy_preference", value)
+
 
 class Monitor(pulumi.CustomResource):
     @overload
@@ -195,6 +211,7 @@ class Monitor(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_preference: Optional[pulumi.Input[Union[str, 'RoutingPreference']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy_preference: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
@@ -211,6 +228,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'RoutingPreference']] routing_preference: Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] zone_redundancy_preference: Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
         """
         ...
     @overload
@@ -246,6 +264,7 @@ class Monitor(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_preference: Optional[pulumi.Input[Union[str, 'RoutingPreference']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy_preference: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -270,6 +289,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routing_preference"] = routing_preference
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["zone_redundancy_preference"] = zone_redundancy_preference
             __props__.__dict__["errors"] = None
             __props__.__dict__["msi_arm_id"] = None
             __props__.__dict__["name"] = None
@@ -314,6 +334,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["zone_redundancy_preference"] = None
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -427,4 +448,12 @@ class Monitor(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="zoneRedundancyPreference")
+    def zone_redundancy_preference(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+        """
+        return pulumi.get(self, "zone_redundancy_preference")
 

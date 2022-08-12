@@ -11,6 +11,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AzureMonitorWorkspaceIntegrationResponse',
+    'GrafanaIntegrationsResponse',
     'ManagedGrafanaPropertiesResponse',
     'ManagedServiceIdentityResponse',
     'PrivateEndpointConnectionResponse',
@@ -20,6 +22,82 @@ __all__ = [
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class AzureMonitorWorkspaceIntegrationResponse(dict):
+    """
+    Integrations for Azure Monitor Workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureMonitorWorkspaceResourceId":
+            suggest = "azure_monitor_workspace_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspaceIntegrationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMonitorWorkspaceIntegrationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMonitorWorkspaceIntegrationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_monitor_workspace_resource_id: Optional[str] = None):
+        """
+        Integrations for Azure Monitor Workspace.
+        :param str azure_monitor_workspace_resource_id: The resource Id of the connected Azure Monitor Workspace.
+        """
+        if azure_monitor_workspace_resource_id is not None:
+            pulumi.set(__self__, "azure_monitor_workspace_resource_id", azure_monitor_workspace_resource_id)
+
+    @property
+    @pulumi.getter(name="azureMonitorWorkspaceResourceId")
+    def azure_monitor_workspace_resource_id(self) -> Optional[str]:
+        """
+        The resource Id of the connected Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "azure_monitor_workspace_resource_id")
+
+
+@pulumi.output_type
+class GrafanaIntegrationsResponse(dict):
+    """
+    GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureMonitorWorkspaceIntegrations":
+            suggest = "azure_monitor_workspace_integrations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrafanaIntegrationsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrafanaIntegrationsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrafanaIntegrationsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_monitor_workspace_integrations: Optional[Sequence['outputs.AzureMonitorWorkspaceIntegrationResponse']] = None):
+        """
+        GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+        """
+        if azure_monitor_workspace_integrations is not None:
+            pulumi.set(__self__, "azure_monitor_workspace_integrations", azure_monitor_workspace_integrations)
+
+    @property
+    @pulumi.getter(name="azureMonitorWorkspaceIntegrations")
+    def azure_monitor_workspace_integrations(self) -> Optional[Sequence['outputs.AzureMonitorWorkspaceIntegrationResponse']]:
+        return pulumi.get(self, "azure_monitor_workspace_integrations")
+
 
 @pulumi.output_type
 class ManagedGrafanaPropertiesResponse(dict):
@@ -43,6 +121,8 @@ class ManagedGrafanaPropertiesResponse(dict):
             suggest = "auto_generated_domain_name_label_scope"
         elif key == "deterministicOutboundIP":
             suggest = "deterministic_outbound_ip"
+        elif key == "grafanaIntegrations":
+            suggest = "grafana_integrations"
         elif key == "publicNetworkAccess":
             suggest = "public_network_access"
         elif key == "zoneRedundancy":
@@ -68,6 +148,7 @@ class ManagedGrafanaPropertiesResponse(dict):
                  api_key: Optional[str] = None,
                  auto_generated_domain_name_label_scope: Optional[str] = None,
                  deterministic_outbound_ip: Optional[str] = None,
+                 grafana_integrations: Optional['outputs.GrafanaIntegrationsResponse'] = None,
                  public_network_access: Optional[str] = None,
                  zone_redundancy: Optional[str] = None):
         """
@@ -80,6 +161,7 @@ class ManagedGrafanaPropertiesResponse(dict):
         :param str api_key: The api key setting of the Grafana instance.
         :param str auto_generated_domain_name_label_scope: Scope for dns deterministic name hash calculation.
         :param str deterministic_outbound_ip: Whether a Grafana instance uses deterministic outbound IPs.
+        :param 'GrafanaIntegrationsResponse' grafana_integrations: GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
         :param str public_network_access: Indicate the state for enable or disable traffic over the public interface.
         :param str zone_redundancy: The zone redundancy setting of the Grafana instance.
         """
@@ -94,6 +176,8 @@ class ManagedGrafanaPropertiesResponse(dict):
             pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if deterministic_outbound_ip is not None:
             pulumi.set(__self__, "deterministic_outbound_ip", deterministic_outbound_ip)
+        if grafana_integrations is not None:
+            pulumi.set(__self__, "grafana_integrations", grafana_integrations)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if zone_redundancy is not None:
@@ -162,6 +246,14 @@ class ManagedGrafanaPropertiesResponse(dict):
         Whether a Grafana instance uses deterministic outbound IPs.
         """
         return pulumi.get(self, "deterministic_outbound_ip")
+
+    @property
+    @pulumi.getter(name="grafanaIntegrations")
+    def grafana_integrations(self) -> Optional['outputs.GrafanaIntegrationsResponse']:
+        """
+        GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+        """
+        return pulumi.get(self, "grafana_integrations")
 
     @property
     @pulumi.getter(name="publicNetworkAccess")

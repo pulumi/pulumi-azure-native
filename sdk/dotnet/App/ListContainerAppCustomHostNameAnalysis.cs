@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Raw failure information if DNS verification fails.
         /// </summary>
-        public readonly Outputs.DefaultErrorResponseResponse CustomDomainVerificationFailureInfo;
+        public readonly Outputs.CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo CustomDomainVerificationFailureInfo;
         /// <summary>
         /// DNS verification test result.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.App
 
             string conflictingContainerAppResourceId,
 
-            Outputs.DefaultErrorResponseResponse customDomainVerificationFailureInfo,
+            Outputs.CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo customDomainVerificationFailureInfo,
 
             string customDomainVerificationTest,
 

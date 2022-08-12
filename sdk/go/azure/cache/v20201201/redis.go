@@ -41,7 +41,7 @@ type Redis struct {
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration RedisCommonPropertiesResponseRedisConfigurationPtrOutput `pulumi:"redisConfiguration"`
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+	// Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
 	RedisVersion pulumi.StringPtrOutput `pulumi:"redisVersion"`
 	// The number of replicas to be created per primary.
 	ReplicasPerMaster pulumi.IntPtrOutput `pulumi:"replicasPerMaster"`
@@ -114,6 +114,9 @@ func NewRedis(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cache/v20210601:Redis"),
 		},
+		{
+			Type: pulumi.String("azure-native:cache/v20220501:Redis"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Redis
@@ -160,7 +163,7 @@ type redisArgs struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration *RedisCommonPropertiesRedisConfiguration `pulumi:"redisConfiguration"`
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+	// Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
 	RedisVersion *string `pulumi:"redisVersion"`
 	// The number of replicas to be created per primary.
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
@@ -198,7 +201,7 @@ type RedisArgs struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration RedisCommonPropertiesRedisConfigurationPtrInput
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+	// Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
 	RedisVersion pulumi.StringPtrInput
 	// The number of replicas to be created per primary.
 	ReplicasPerMaster pulumi.IntPtrInput
@@ -324,7 +327,7 @@ func (o RedisOutput) RedisConfiguration() RedisCommonPropertiesResponseRedisConf
 	return o.ApplyT(func(v *Redis) RedisCommonPropertiesResponseRedisConfigurationPtrOutput { return v.RedisConfiguration }).(RedisCommonPropertiesResponseRedisConfigurationPtrOutput)
 }
 
-// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+// Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
 func (o RedisOutput) RedisVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Redis) pulumi.StringPtrOutput { return v.RedisVersion }).(pulumi.StringPtrOutput)
 }

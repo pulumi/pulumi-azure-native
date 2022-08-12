@@ -88,7 +88,7 @@ class DataEncryptionArgs:
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="geoBackupKeyUri")
+    @pulumi.getter(name="geoBackupKeyURI")
     def geo_backup_key_uri(self) -> Optional[pulumi.Input[str]]:
         """
         Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
@@ -112,7 +112,7 @@ class DataEncryptionArgs:
         pulumi.set(self, "geo_backup_user_assigned_identity_id", value)
 
     @property
-    @pulumi.getter(name="primaryKeyUri")
+    @pulumi.getter(name="primaryKeyURI")
     def primary_key_uri(self) -> Optional[pulumi.Input[str]]:
         """
         Primary key uri

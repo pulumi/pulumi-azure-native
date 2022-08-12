@@ -75,6 +75,9 @@ func NewInstancePool(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210501preview:InstancePool"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:InstancePool"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:InstancePool"),
 		},
 		{

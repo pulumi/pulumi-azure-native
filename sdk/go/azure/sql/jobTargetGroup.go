@@ -66,6 +66,9 @@ func NewJobTargetGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210801preview:JobTargetGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:JobTargetGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:JobTargetGroup"),
 		},
 		{

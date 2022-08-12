@@ -21,7 +21,7 @@ class GetmonitorResult:
     """
     SAP monitor info on Azure (ARM properties and SAP monitor properties)
     """
-    def __init__(__self__, app_location=None, errors=None, id=None, identity=None, location=None, log_analytics_workspace_arm_id=None, managed_resource_group_configuration=None, monitor_subnet=None, msi_arm_id=None, name=None, provisioning_state=None, routing_preference=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, app_location=None, errors=None, id=None, identity=None, location=None, log_analytics_workspace_arm_id=None, managed_resource_group_configuration=None, monitor_subnet=None, msi_arm_id=None, name=None, provisioning_state=None, routing_preference=None, system_data=None, tags=None, type=None, zone_redundancy_preference=None):
         if app_location and not isinstance(app_location, str):
             raise TypeError("Expected argument 'app_location' to be a str")
         pulumi.set(__self__, "app_location", app_location)
@@ -67,6 +67,9 @@ class GetmonitorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if zone_redundancy_preference and not isinstance(zone_redundancy_preference, str):
+            raise TypeError("Expected argument 'zone_redundancy_preference' to be a str")
+        pulumi.set(__self__, "zone_redundancy_preference", zone_redundancy_preference)
 
     @property
     @pulumi.getter(name="appLocation")
@@ -188,6 +191,14 @@ class GetmonitorResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="zoneRedundancyPreference")
+    def zone_redundancy_preference(self) -> Optional[str]:
+        """
+        Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+        """
+        return pulumi.get(self, "zone_redundancy_preference")
+
 
 class AwaitableGetmonitorResult(GetmonitorResult):
     # pylint: disable=using-constant-test
@@ -209,7 +220,8 @@ class AwaitableGetmonitorResult(GetmonitorResult):
             routing_preference=self.routing_preference,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            zone_redundancy_preference=self.zone_redundancy_preference)
 
 
 def getmonitor(monitor_name: Optional[str] = None,
@@ -246,7 +258,8 @@ def getmonitor(monitor_name: Optional[str] = None,
         routing_preference=__ret__.routing_preference,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type)
+        type=__ret__.type,
+        zone_redundancy_preference=__ret__.zone_redundancy_preference)
 
 
 @_utilities.lift_output_func(getmonitor)

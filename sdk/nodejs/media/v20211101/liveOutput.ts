@@ -147,7 +147,7 @@ export class LiveOutput extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media:LiveOutput" }, { type: "azure-native:media/v20180330preview:LiveOutput" }, { type: "azure-native:media/v20180601preview:LiveOutput" }, { type: "azure-native:media/v20180701:LiveOutput" }, { type: "azure-native:media/v20190501preview:LiveOutput" }, { type: "azure-native:media/v20200501:LiveOutput" }, { type: "azure-native:media/v20210601:LiveOutput" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:LiveOutput" }, { type: "azure-native:media/v20180330preview:LiveOutput" }, { type: "azure-native:media/v20180601preview:LiveOutput" }, { type: "azure-native:media/v20180701:LiveOutput" }, { type: "azure-native:media/v20190501preview:LiveOutput" }, { type: "azure-native:media/v20200501:LiveOutput" }, { type: "azure-native:media/v20210601:LiveOutput" }, { type: "azure-native:media/v20220801:LiveOutput" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LiveOutput.__pulumiType, name, resourceInputs, opts);
     }

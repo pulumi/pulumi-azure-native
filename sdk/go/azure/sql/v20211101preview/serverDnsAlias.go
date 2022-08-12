@@ -62,6 +62,9 @@ func NewServerDnsAlias(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210801preview:ServerDnsAlias"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:ServerDnsAlias"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20220201preview:ServerDnsAlias"),
 		},
 	})

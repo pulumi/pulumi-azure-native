@@ -38,7 +38,7 @@ export class VolumeGroup extends pulumi.CustomResource {
     /**
      * Type of encryption
      */
-    public readonly encryption!: pulumi.Output<string>;
+    public readonly encryption!: pulumi.Output<string | undefined>;
     /**
      * Azure resource name.
      */
@@ -50,7 +50,7 @@ export class VolumeGroup extends pulumi.CustomResource {
     /**
      * Type of storage target
      */
-    public readonly protocolType!: pulumi.Output<string>;
+    public readonly protocolType!: pulumi.Output<string | undefined>;
     /**
      * State of the operation on the resource.
      */
@@ -81,12 +81,6 @@ export class VolumeGroup extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.elasticSanName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'elasticSanName'");
-            }
-            if ((!args || args.encryption === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'encryption'");
-            }
-            if ((!args || args.protocolType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'protocolType'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -130,7 +124,7 @@ export interface VolumeGroupArgs {
     /**
      * Type of encryption
      */
-    encryption: pulumi.Input<string | enums.elasticsan.v20211120preview.EncryptionType>;
+    encryption?: pulumi.Input<string | enums.elasticsan.v20211120preview.EncryptionType>;
     /**
      * A collection of rules governing the accessibility from specific network locations.
      */
@@ -138,7 +132,7 @@ export interface VolumeGroupArgs {
     /**
      * Type of storage target
      */
-    protocolType: pulumi.Input<string | enums.elasticsan.v20211120preview.StorageTargetType>;
+    protocolType?: pulumi.Input<string | enums.elasticsan.v20211120preview.StorageTargetType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

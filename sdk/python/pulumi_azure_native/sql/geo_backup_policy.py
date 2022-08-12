@@ -178,7 +178,7 @@ class GeoBackupPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["storage_type"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:GeoBackupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:GeoBackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GeoBackupPolicy, __self__).__init__(
             'azure-native:sql:GeoBackupPolicy',

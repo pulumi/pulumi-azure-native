@@ -234,6 +234,7 @@ namespace Pulumi.AzureNative.Sql.V20171001Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:Database"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:Database"},
                 },

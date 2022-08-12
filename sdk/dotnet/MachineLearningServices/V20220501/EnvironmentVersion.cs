@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:EnvironmentVersion"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:EnvironmentVersion"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:EnvironmentVersion"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:EnvironmentVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -5,8 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./azureADAdministrator";
 export * from "./database";
 export * from "./firewallRule";
+export * from "./getAzureADAdministrator";
 export * from "./getDatabase";
 export * from "./getFirewallRule";
 export * from "./getGetPrivateDnsZoneSuffixExecute";
@@ -17,6 +19,7 @@ export * from "./server";
 export * from "../../types/enums/dbformysql/v20211201preview";
 
 // Import resources to register:
+import { AzureADAdministrator } from "./azureADAdministrator";
 import { Database } from "./database";
 import { FirewallRule } from "./firewallRule";
 import { Server } from "./server";
@@ -25,6 +28,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:dbformysql/v20211201preview:AzureADAdministrator":
+                return new AzureADAdministrator(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20211201preview:Database":
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20211201preview:FirewallRule":

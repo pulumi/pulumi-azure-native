@@ -60,6 +60,9 @@ func NewDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DiskAccessAPrivateEndpointConnection

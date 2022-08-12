@@ -38,7 +38,7 @@ export class ElasticSan extends pulumi.CustomResource {
     /**
      * Logical zone for Elastic San resource; example: ["1"].
      */
-    public readonly availabilityZones!: pulumi.Output<string[]>;
+    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
      * Base size of the Elastic San appliance in TiB.
      */
@@ -62,7 +62,7 @@ export class ElasticSan extends pulumi.CustomResource {
     /**
      * resource sku
      */
-    public readonly sku!: pulumi.Output<outputs.elasticsan.v20211120preview.SkuResponse | undefined>;
+    public readonly sku!: pulumi.Output<outputs.elasticsan.v20211120preview.SkuResponse>;
     /**
      * Resource metadata required by ARM RPC
      */
@@ -107,9 +107,6 @@ export class ElasticSan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZones === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'availabilityZones'");
-            }
             if ((!args || args.baseSizeTiB === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baseSizeTiB'");
             }
@@ -118,6 +115,9 @@ export class ElasticSan extends pulumi.CustomResource {
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if ((!args || args.sku === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sku'");
             }
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["baseSizeTiB"] = args ? args.baseSizeTiB : undefined;
@@ -167,7 +167,7 @@ export interface ElasticSanArgs {
     /**
      * Logical zone for Elastic San resource; example: ["1"].
      */
-    availabilityZones: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Base size of the Elastic San appliance in TiB.
      */
@@ -191,7 +191,7 @@ export interface ElasticSanArgs {
     /**
      * resource sku
      */
-    sku?: pulumi.Input<inputs.elasticsan.v20211120preview.SkuArgs>;
+    sku: pulumi.Input<inputs.elasticsan.v20211120preview.SkuArgs>;
     /**
      * Azure resource tags.
      */

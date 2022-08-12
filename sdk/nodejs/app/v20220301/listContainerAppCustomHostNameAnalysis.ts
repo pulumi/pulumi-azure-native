@@ -63,7 +63,7 @@ export interface ListContainerAppCustomHostNameAnalysisResult {
     /**
      * Raw failure information if DNS verification fails.
      */
-    readonly customDomainVerificationFailureInfo: outputs.app.v20220301.DefaultErrorResponseResponse;
+    readonly customDomainVerificationFailureInfo: outputs.app.v20220301.CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo;
     /**
      * DNS verification test result.
      */

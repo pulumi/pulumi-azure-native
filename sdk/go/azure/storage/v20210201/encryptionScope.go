@@ -71,6 +71,9 @@ func NewEncryptionScope(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:storage/v20210901:EncryptionScope"),
 		},
+		{
+			Type: pulumi.String("azure-native:storage/v20220501:EncryptionScope"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource EncryptionScope

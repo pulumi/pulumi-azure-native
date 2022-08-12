@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ElasticSan.Outputs
         /// <summary>
         /// The sku name.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// The sku tier.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.ElasticSan.Outputs
 
         [OutputConstructor]
         private SkuResponse(
-            string? name,
+            string name,
 
             string? tier)
         {

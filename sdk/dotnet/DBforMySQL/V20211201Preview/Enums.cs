@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
 {
     /// <summary>
+    /// Type of the sever administrator.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdministratorType : IEquatable<AdministratorType>
+    {
+        private readonly string _value;
+
+        private AdministratorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdministratorType ActiveDirectory { get; } = new AdministratorType("ActiveDirectory");
+
+        public static bool operator ==(AdministratorType left, AdministratorType right) => left.Equals(right);
+        public static bool operator !=(AdministratorType left, AdministratorType right) => !left.Equals(right);
+
+        public static explicit operator string(AdministratorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdministratorType other && Equals(other);
+        public bool Equals(AdministratorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The mode to create a new MySQL server.
     /// </summary>
     [EnumType]

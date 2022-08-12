@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstancePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstancePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedInstancePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstancePrivateEndpointConnection"},
                 },
             };

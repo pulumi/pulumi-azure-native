@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
                     new Pulumi.Alias { Type = "azure-native:databricks:vNetPeering"},
                     new Pulumi.Alias { Type = "azure-native:databricks/v20180401:vNetPeering"},
                     new Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:vNetPeering"},
+                    new Pulumi.Alias { Type = "azure-native:databricks/v20221001preview:vNetPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

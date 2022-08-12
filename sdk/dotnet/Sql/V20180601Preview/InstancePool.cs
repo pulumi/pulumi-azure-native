@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:InstancePool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:InstancePool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:InstancePool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:InstancePool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:InstancePool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:InstancePool"},
                 },

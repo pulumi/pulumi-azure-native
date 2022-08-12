@@ -155,21 +155,20 @@ class SkuResponse(dict):
     The SKU name. Required for account creation; optional for update.
     """
     def __init__(__self__, *,
-                 name: Optional[str] = None,
+                 name: str,
                  tier: Optional[str] = None):
         """
         The SKU name. Required for account creation; optional for update.
         :param str name: The sku name.
         :param str tier: The sku tier.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "name", name)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
         The sku name.
         """
@@ -209,20 +208,21 @@ class SourceCreationDataResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 create_source: str,
+                 create_source: Optional[str] = None,
                  source_uri: Optional[str] = None):
         """
         Data source used when creating the volume.
         :param str create_source: This enumerates the possible sources of a volume creation.
         :param str source_uri: If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
         """
-        pulumi.set(__self__, "create_source", create_source)
+        if create_source is not None:
+            pulumi.set(__self__, "create_source", create_source)
         if source_uri is not None:
             pulumi.set(__self__, "source_uri", source_uri)
 
     @property
     @pulumi.getter(name="createSource")
-    def create_source(self) -> str:
+    def create_source(self) -> Optional[str]:
         """
         This enumerates the possible sources of a volume creation.
         """

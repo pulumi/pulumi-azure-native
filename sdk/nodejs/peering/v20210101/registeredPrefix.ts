@@ -100,7 +100,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering:RegisteredPrefix" }, { type: "azure-native:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-native:peering/v20200401:RegisteredPrefix" }, { type: "azure-native:peering/v20201001:RegisteredPrefix" }, { type: "azure-native:peering/v20210601:RegisteredPrefix" }, { type: "azure-native:peering/v20220101:RegisteredPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering:RegisteredPrefix" }, { type: "azure-native:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-native:peering/v20200401:RegisteredPrefix" }, { type: "azure-native:peering/v20201001:RegisteredPrefix" }, { type: "azure-native:peering/v20210601:RegisteredPrefix" }, { type: "azure-native:peering/v20220101:RegisteredPrefix" }, { type: "azure-native:peering/v20220601:RegisteredPrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegisteredPrefix.__pulumiType, name, resourceInputs, opts);
     }

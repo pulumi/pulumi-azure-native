@@ -164,6 +164,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Server"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Server"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:Server"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Server"},
                 },
             };

@@ -113,7 +113,7 @@ export class OnlineEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:OnlineEndpoint" }, { type: "azure-native:machinelearningservices/v20210301preview:OnlineEndpoint" }, { type: "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:OnlineEndpoint" }, { type: "azure-native:machinelearningservices/v20210301preview:OnlineEndpoint" }, { type: "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint" }, { type: "azure-native:machinelearningservices/v20220601preview:OnlineEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OnlineEndpoint.__pulumiType, name, resourceInputs, opts);
     }

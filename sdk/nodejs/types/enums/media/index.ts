@@ -11,6 +11,7 @@ import * as v20200501 from "./v20200501";
 import * as v20210501 from "./v20210501";
 import * as v20210601 from "./v20210601";
 import * as v20211101 from "./v20211101";
+import * as v20220801 from "./v20220801";
 
 export {
     v20180330preview,
@@ -22,6 +23,7 @@ export {
     v20210501,
     v20210601,
     v20211101,
+    v20220801,
 };
 
 export const AacAudioProfile = {

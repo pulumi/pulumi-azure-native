@@ -141,7 +141,7 @@ export class SensitivityLabel extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:SensitivityLabel" }, { type: "azure-native:sql/v20170301preview:SensitivityLabel" }, { type: "azure-native:sql/v20200202preview:SensitivityLabel" }, { type: "azure-native:sql/v20200801preview:SensitivityLabel" }, { type: "azure-native:sql/v20201101preview:SensitivityLabel" }, { type: "azure-native:sql/v20210201preview:SensitivityLabel" }, { type: "azure-native:sql/v20210501preview:SensitivityLabel" }, { type: "azure-native:sql/v20211101preview:SensitivityLabel" }, { type: "azure-native:sql/v20220201preview:SensitivityLabel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:SensitivityLabel" }, { type: "azure-native:sql/v20170301preview:SensitivityLabel" }, { type: "azure-native:sql/v20200202preview:SensitivityLabel" }, { type: "azure-native:sql/v20200801preview:SensitivityLabel" }, { type: "azure-native:sql/v20201101preview:SensitivityLabel" }, { type: "azure-native:sql/v20210201preview:SensitivityLabel" }, { type: "azure-native:sql/v20210501preview:SensitivityLabel" }, { type: "azure-native:sql/v20211101:SensitivityLabel" }, { type: "azure-native:sql/v20211101preview:SensitivityLabel" }, { type: "azure-native:sql/v20220201preview:SensitivityLabel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SensitivityLabel.__pulumiType, name, resourceInputs, opts);
     }

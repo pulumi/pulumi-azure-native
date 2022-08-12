@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Peering.V20210101
                     new Pulumi.Alias { Type = "azure-native:peering/v20201001:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20210601:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20220101:RegisteredAsn"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20220601:RegisteredAsn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

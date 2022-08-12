@@ -48,6 +48,9 @@ func NewServerTrustCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210501preview:ServerTrustCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:ServerTrustCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:ServerTrustCertificate"),
 		},
 		{

@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobTargetGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobTargetGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobTargetGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:JobTargetGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:JobTargetGroup"},
                 },
             };

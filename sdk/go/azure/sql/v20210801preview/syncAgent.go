@@ -69,6 +69,9 @@ func NewSyncAgent(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210501preview:SyncAgent"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:SyncAgent"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:SyncAgent"),
 		},
 		{

@@ -53,6 +53,9 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql:GeoBackupPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:GeoBackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20220201preview:GeoBackupPolicy"),
 		},
 	})

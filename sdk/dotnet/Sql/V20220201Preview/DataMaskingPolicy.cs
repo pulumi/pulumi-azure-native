@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:sql:DataMaskingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:DataMaskingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:DataMaskingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

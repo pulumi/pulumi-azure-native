@@ -84,6 +84,9 @@ func NewDatabaseThreatDetectionPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210801preview:DatabaseThreatDetectionPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:DatabaseThreatDetectionPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:DatabaseThreatDetectionPolicy"),
 		},
 		{

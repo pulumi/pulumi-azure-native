@@ -32,7 +32,7 @@ type LookupVolumeGroupArgs struct {
 // Response for Volume Group request.
 type LookupVolumeGroupResult struct {
 	// Type of encryption
-	Encryption string `pulumi:"encryption"`
+	Encryption *string `pulumi:"encryption"`
 	// Azure resource identifier.
 	Id string `pulumi:"id"`
 	// Azure resource name.
@@ -40,7 +40,7 @@ type LookupVolumeGroupResult struct {
 	// A collection of rules governing the accessibility from specific network locations.
 	NetworkAcls *NetworkRuleSetResponse `pulumi:"networkAcls"`
 	// Type of storage target
-	ProtocolType string `pulumi:"protocolType"`
+	ProtocolType *string `pulumi:"protocolType"`
 	// State of the operation on the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource metadata required by ARM RPC
@@ -93,8 +93,8 @@ func (o LookupVolumeGroupResultOutput) ToLookupVolumeGroupResultOutputWithContex
 }
 
 // Type of encryption
-func (o LookupVolumeGroupResultOutput) Encryption() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVolumeGroupResult) string { return v.Encryption }).(pulumi.StringOutput)
+func (o LookupVolumeGroupResultOutput) Encryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeGroupResult) *string { return v.Encryption }).(pulumi.StringPtrOutput)
 }
 
 // Azure resource identifier.
@@ -113,8 +113,8 @@ func (o LookupVolumeGroupResultOutput) NetworkAcls() NetworkRuleSetResponsePtrOu
 }
 
 // Type of storage target
-func (o LookupVolumeGroupResultOutput) ProtocolType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVolumeGroupResult) string { return v.ProtocolType }).(pulumi.StringOutput)
+func (o LookupVolumeGroupResultOutput) ProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeGroupResult) *string { return v.ProtocolType }).(pulumi.StringPtrOutput)
 }
 
 // State of the operation on the resource.

@@ -95,6 +95,10 @@ export interface GetmonitorResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+     */
+    readonly zoneRedundancyPreference?: string;
 }
 
 export function getmonitorOutput(args: GetmonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmonitorResult> {

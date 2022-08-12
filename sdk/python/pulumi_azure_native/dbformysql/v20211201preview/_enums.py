@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AdministratorType',
     'CreateMode',
     'DataEncryptionType',
     'EnableStatusEnum',
@@ -14,6 +15,13 @@ __all__ = [
     'ServerVersion',
     'SkuTier',
 ]
+
+
+class AdministratorType(str, Enum):
+    """
+    Type of the sever administrator.
+    """
+    ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
 class CreateMode(str, Enum):

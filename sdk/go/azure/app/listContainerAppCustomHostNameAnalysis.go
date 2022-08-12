@@ -43,7 +43,7 @@ type ListContainerAppCustomHostNameAnalysisResult struct {
 	// Name of the conflicting Container App on the Managed Environment if it's within the same subscription.
 	ConflictingContainerAppResourceId string `pulumi:"conflictingContainerAppResourceId"`
 	// Raw failure information if DNS verification fails.
-	CustomDomainVerificationFailureInfo DefaultErrorResponseResponse `pulumi:"customDomainVerificationFailureInfo"`
+	CustomDomainVerificationFailureInfo CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo `pulumi:"customDomainVerificationFailureInfo"`
 	// DNS verification test result.
 	CustomDomainVerificationTest string `pulumi:"customDomainVerificationTest"`
 	// <code>true</code> if there is a conflict on the Container App's managed environment; otherwise, <code>false</code>.
@@ -125,10 +125,10 @@ func (o ListContainerAppCustomHostNameAnalysisResultOutput) ConflictingContainer
 }
 
 // Raw failure information if DNS verification fails.
-func (o ListContainerAppCustomHostNameAnalysisResultOutput) CustomDomainVerificationFailureInfo() DefaultErrorResponseResponseOutput {
-	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) DefaultErrorResponseResponse {
+func (o ListContainerAppCustomHostNameAnalysisResultOutput) CustomDomainVerificationFailureInfo() CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput {
+	return o.ApplyT(func(v ListContainerAppCustomHostNameAnalysisResult) CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo {
 		return v.CustomDomainVerificationFailureInfo
-	}).(DefaultErrorResponseResponseOutput)
+	}).(CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfoOutput)
 }
 
 // DNS verification test result.

@@ -10,6 +10,349 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Integrations for Azure Monitor Workspace.
+type AzureMonitorWorkspaceIntegration struct {
+	// The resource Id of the connected Azure Monitor Workspace.
+	AzureMonitorWorkspaceResourceId *string `pulumi:"azureMonitorWorkspaceResourceId"`
+}
+
+// AzureMonitorWorkspaceIntegrationInput is an input type that accepts AzureMonitorWorkspaceIntegrationArgs and AzureMonitorWorkspaceIntegrationOutput values.
+// You can construct a concrete instance of `AzureMonitorWorkspaceIntegrationInput` via:
+//
+//	AzureMonitorWorkspaceIntegrationArgs{...}
+type AzureMonitorWorkspaceIntegrationInput interface {
+	pulumi.Input
+
+	ToAzureMonitorWorkspaceIntegrationOutput() AzureMonitorWorkspaceIntegrationOutput
+	ToAzureMonitorWorkspaceIntegrationOutputWithContext(context.Context) AzureMonitorWorkspaceIntegrationOutput
+}
+
+// Integrations for Azure Monitor Workspace.
+type AzureMonitorWorkspaceIntegrationArgs struct {
+	// The resource Id of the connected Azure Monitor Workspace.
+	AzureMonitorWorkspaceResourceId pulumi.StringPtrInput `pulumi:"azureMonitorWorkspaceResourceId"`
+}
+
+func (AzureMonitorWorkspaceIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (i AzureMonitorWorkspaceIntegrationArgs) ToAzureMonitorWorkspaceIntegrationOutput() AzureMonitorWorkspaceIntegrationOutput {
+	return i.ToAzureMonitorWorkspaceIntegrationOutputWithContext(context.Background())
+}
+
+func (i AzureMonitorWorkspaceIntegrationArgs) ToAzureMonitorWorkspaceIntegrationOutputWithContext(ctx context.Context) AzureMonitorWorkspaceIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorWorkspaceIntegrationOutput)
+}
+
+// AzureMonitorWorkspaceIntegrationArrayInput is an input type that accepts AzureMonitorWorkspaceIntegrationArray and AzureMonitorWorkspaceIntegrationArrayOutput values.
+// You can construct a concrete instance of `AzureMonitorWorkspaceIntegrationArrayInput` via:
+//
+//	AzureMonitorWorkspaceIntegrationArray{ AzureMonitorWorkspaceIntegrationArgs{...} }
+type AzureMonitorWorkspaceIntegrationArrayInput interface {
+	pulumi.Input
+
+	ToAzureMonitorWorkspaceIntegrationArrayOutput() AzureMonitorWorkspaceIntegrationArrayOutput
+	ToAzureMonitorWorkspaceIntegrationArrayOutputWithContext(context.Context) AzureMonitorWorkspaceIntegrationArrayOutput
+}
+
+type AzureMonitorWorkspaceIntegrationArray []AzureMonitorWorkspaceIntegrationInput
+
+func (AzureMonitorWorkspaceIntegrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (i AzureMonitorWorkspaceIntegrationArray) ToAzureMonitorWorkspaceIntegrationArrayOutput() AzureMonitorWorkspaceIntegrationArrayOutput {
+	return i.ToAzureMonitorWorkspaceIntegrationArrayOutputWithContext(context.Background())
+}
+
+func (i AzureMonitorWorkspaceIntegrationArray) ToAzureMonitorWorkspaceIntegrationArrayOutputWithContext(ctx context.Context) AzureMonitorWorkspaceIntegrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorWorkspaceIntegrationArrayOutput)
+}
+
+// Integrations for Azure Monitor Workspace.
+type AzureMonitorWorkspaceIntegrationOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorWorkspaceIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (o AzureMonitorWorkspaceIntegrationOutput) ToAzureMonitorWorkspaceIntegrationOutput() AzureMonitorWorkspaceIntegrationOutput {
+	return o
+}
+
+func (o AzureMonitorWorkspaceIntegrationOutput) ToAzureMonitorWorkspaceIntegrationOutputWithContext(ctx context.Context) AzureMonitorWorkspaceIntegrationOutput {
+	return o
+}
+
+// The resource Id of the connected Azure Monitor Workspace.
+func (o AzureMonitorWorkspaceIntegrationOutput) AzureMonitorWorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMonitorWorkspaceIntegration) *string { return v.AzureMonitorWorkspaceResourceId }).(pulumi.StringPtrOutput)
+}
+
+type AzureMonitorWorkspaceIntegrationArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorWorkspaceIntegrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (o AzureMonitorWorkspaceIntegrationArrayOutput) ToAzureMonitorWorkspaceIntegrationArrayOutput() AzureMonitorWorkspaceIntegrationArrayOutput {
+	return o
+}
+
+func (o AzureMonitorWorkspaceIntegrationArrayOutput) ToAzureMonitorWorkspaceIntegrationArrayOutputWithContext(ctx context.Context) AzureMonitorWorkspaceIntegrationArrayOutput {
+	return o
+}
+
+func (o AzureMonitorWorkspaceIntegrationArrayOutput) Index(i pulumi.IntInput) AzureMonitorWorkspaceIntegrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureMonitorWorkspaceIntegration {
+		return vs[0].([]AzureMonitorWorkspaceIntegration)[vs[1].(int)]
+	}).(AzureMonitorWorkspaceIntegrationOutput)
+}
+
+// Integrations for Azure Monitor Workspace.
+type AzureMonitorWorkspaceIntegrationResponse struct {
+	// The resource Id of the connected Azure Monitor Workspace.
+	AzureMonitorWorkspaceResourceId *string `pulumi:"azureMonitorWorkspaceResourceId"`
+}
+
+// Integrations for Azure Monitor Workspace.
+type AzureMonitorWorkspaceIntegrationResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorWorkspaceIntegrationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorWorkspaceIntegrationResponse)(nil)).Elem()
+}
+
+func (o AzureMonitorWorkspaceIntegrationResponseOutput) ToAzureMonitorWorkspaceIntegrationResponseOutput() AzureMonitorWorkspaceIntegrationResponseOutput {
+	return o
+}
+
+func (o AzureMonitorWorkspaceIntegrationResponseOutput) ToAzureMonitorWorkspaceIntegrationResponseOutputWithContext(ctx context.Context) AzureMonitorWorkspaceIntegrationResponseOutput {
+	return o
+}
+
+// The resource Id of the connected Azure Monitor Workspace.
+func (o AzureMonitorWorkspaceIntegrationResponseOutput) AzureMonitorWorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMonitorWorkspaceIntegrationResponse) *string { return v.AzureMonitorWorkspaceResourceId }).(pulumi.StringPtrOutput)
+}
+
+type AzureMonitorWorkspaceIntegrationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorWorkspaceIntegrationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMonitorWorkspaceIntegrationResponse)(nil)).Elem()
+}
+
+func (o AzureMonitorWorkspaceIntegrationResponseArrayOutput) ToAzureMonitorWorkspaceIntegrationResponseArrayOutput() AzureMonitorWorkspaceIntegrationResponseArrayOutput {
+	return o
+}
+
+func (o AzureMonitorWorkspaceIntegrationResponseArrayOutput) ToAzureMonitorWorkspaceIntegrationResponseArrayOutputWithContext(ctx context.Context) AzureMonitorWorkspaceIntegrationResponseArrayOutput {
+	return o
+}
+
+func (o AzureMonitorWorkspaceIntegrationResponseArrayOutput) Index(i pulumi.IntInput) AzureMonitorWorkspaceIntegrationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureMonitorWorkspaceIntegrationResponse {
+		return vs[0].([]AzureMonitorWorkspaceIntegrationResponse)[vs[1].(int)]
+	}).(AzureMonitorWorkspaceIntegrationResponseOutput)
+}
+
+// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+type GrafanaIntegrations struct {
+	AzureMonitorWorkspaceIntegrations []AzureMonitorWorkspaceIntegration `pulumi:"azureMonitorWorkspaceIntegrations"`
+}
+
+// GrafanaIntegrationsInput is an input type that accepts GrafanaIntegrationsArgs and GrafanaIntegrationsOutput values.
+// You can construct a concrete instance of `GrafanaIntegrationsInput` via:
+//
+//	GrafanaIntegrationsArgs{...}
+type GrafanaIntegrationsInput interface {
+	pulumi.Input
+
+	ToGrafanaIntegrationsOutput() GrafanaIntegrationsOutput
+	ToGrafanaIntegrationsOutputWithContext(context.Context) GrafanaIntegrationsOutput
+}
+
+// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+type GrafanaIntegrationsArgs struct {
+	AzureMonitorWorkspaceIntegrations AzureMonitorWorkspaceIntegrationArrayInput `pulumi:"azureMonitorWorkspaceIntegrations"`
+}
+
+func (GrafanaIntegrationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrafanaIntegrations)(nil)).Elem()
+}
+
+func (i GrafanaIntegrationsArgs) ToGrafanaIntegrationsOutput() GrafanaIntegrationsOutput {
+	return i.ToGrafanaIntegrationsOutputWithContext(context.Background())
+}
+
+func (i GrafanaIntegrationsArgs) ToGrafanaIntegrationsOutputWithContext(ctx context.Context) GrafanaIntegrationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrafanaIntegrationsOutput)
+}
+
+func (i GrafanaIntegrationsArgs) ToGrafanaIntegrationsPtrOutput() GrafanaIntegrationsPtrOutput {
+	return i.ToGrafanaIntegrationsPtrOutputWithContext(context.Background())
+}
+
+func (i GrafanaIntegrationsArgs) ToGrafanaIntegrationsPtrOutputWithContext(ctx context.Context) GrafanaIntegrationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrafanaIntegrationsOutput).ToGrafanaIntegrationsPtrOutputWithContext(ctx)
+}
+
+// GrafanaIntegrationsPtrInput is an input type that accepts GrafanaIntegrationsArgs, GrafanaIntegrationsPtr and GrafanaIntegrationsPtrOutput values.
+// You can construct a concrete instance of `GrafanaIntegrationsPtrInput` via:
+//
+//	        GrafanaIntegrationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GrafanaIntegrationsPtrInput interface {
+	pulumi.Input
+
+	ToGrafanaIntegrationsPtrOutput() GrafanaIntegrationsPtrOutput
+	ToGrafanaIntegrationsPtrOutputWithContext(context.Context) GrafanaIntegrationsPtrOutput
+}
+
+type grafanaIntegrationsPtrType GrafanaIntegrationsArgs
+
+func GrafanaIntegrationsPtr(v *GrafanaIntegrationsArgs) GrafanaIntegrationsPtrInput {
+	return (*grafanaIntegrationsPtrType)(v)
+}
+
+func (*grafanaIntegrationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrafanaIntegrations)(nil)).Elem()
+}
+
+func (i *grafanaIntegrationsPtrType) ToGrafanaIntegrationsPtrOutput() GrafanaIntegrationsPtrOutput {
+	return i.ToGrafanaIntegrationsPtrOutputWithContext(context.Background())
+}
+
+func (i *grafanaIntegrationsPtrType) ToGrafanaIntegrationsPtrOutputWithContext(ctx context.Context) GrafanaIntegrationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrafanaIntegrationsPtrOutput)
+}
+
+// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+type GrafanaIntegrationsOutput struct{ *pulumi.OutputState }
+
+func (GrafanaIntegrationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrafanaIntegrations)(nil)).Elem()
+}
+
+func (o GrafanaIntegrationsOutput) ToGrafanaIntegrationsOutput() GrafanaIntegrationsOutput {
+	return o
+}
+
+func (o GrafanaIntegrationsOutput) ToGrafanaIntegrationsOutputWithContext(ctx context.Context) GrafanaIntegrationsOutput {
+	return o
+}
+
+func (o GrafanaIntegrationsOutput) ToGrafanaIntegrationsPtrOutput() GrafanaIntegrationsPtrOutput {
+	return o.ToGrafanaIntegrationsPtrOutputWithContext(context.Background())
+}
+
+func (o GrafanaIntegrationsOutput) ToGrafanaIntegrationsPtrOutputWithContext(ctx context.Context) GrafanaIntegrationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrafanaIntegrations) *GrafanaIntegrations {
+		return &v
+	}).(GrafanaIntegrationsPtrOutput)
+}
+
+func (o GrafanaIntegrationsOutput) AzureMonitorWorkspaceIntegrations() AzureMonitorWorkspaceIntegrationArrayOutput {
+	return o.ApplyT(func(v GrafanaIntegrations) []AzureMonitorWorkspaceIntegration {
+		return v.AzureMonitorWorkspaceIntegrations
+	}).(AzureMonitorWorkspaceIntegrationArrayOutput)
+}
+
+type GrafanaIntegrationsPtrOutput struct{ *pulumi.OutputState }
+
+func (GrafanaIntegrationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrafanaIntegrations)(nil)).Elem()
+}
+
+func (o GrafanaIntegrationsPtrOutput) ToGrafanaIntegrationsPtrOutput() GrafanaIntegrationsPtrOutput {
+	return o
+}
+
+func (o GrafanaIntegrationsPtrOutput) ToGrafanaIntegrationsPtrOutputWithContext(ctx context.Context) GrafanaIntegrationsPtrOutput {
+	return o
+}
+
+func (o GrafanaIntegrationsPtrOutput) Elem() GrafanaIntegrationsOutput {
+	return o.ApplyT(func(v *GrafanaIntegrations) GrafanaIntegrations {
+		if v != nil {
+			return *v
+		}
+		var ret GrafanaIntegrations
+		return ret
+	}).(GrafanaIntegrationsOutput)
+}
+
+func (o GrafanaIntegrationsPtrOutput) AzureMonitorWorkspaceIntegrations() AzureMonitorWorkspaceIntegrationArrayOutput {
+	return o.ApplyT(func(v *GrafanaIntegrations) []AzureMonitorWorkspaceIntegration {
+		if v == nil {
+			return nil
+		}
+		return v.AzureMonitorWorkspaceIntegrations
+	}).(AzureMonitorWorkspaceIntegrationArrayOutput)
+}
+
+// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+type GrafanaIntegrationsResponse struct {
+	AzureMonitorWorkspaceIntegrations []AzureMonitorWorkspaceIntegrationResponse `pulumi:"azureMonitorWorkspaceIntegrations"`
+}
+
+// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+type GrafanaIntegrationsResponseOutput struct{ *pulumi.OutputState }
+
+func (GrafanaIntegrationsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrafanaIntegrationsResponse)(nil)).Elem()
+}
+
+func (o GrafanaIntegrationsResponseOutput) ToGrafanaIntegrationsResponseOutput() GrafanaIntegrationsResponseOutput {
+	return o
+}
+
+func (o GrafanaIntegrationsResponseOutput) ToGrafanaIntegrationsResponseOutputWithContext(ctx context.Context) GrafanaIntegrationsResponseOutput {
+	return o
+}
+
+func (o GrafanaIntegrationsResponseOutput) AzureMonitorWorkspaceIntegrations() AzureMonitorWorkspaceIntegrationResponseArrayOutput {
+	return o.ApplyT(func(v GrafanaIntegrationsResponse) []AzureMonitorWorkspaceIntegrationResponse {
+		return v.AzureMonitorWorkspaceIntegrations
+	}).(AzureMonitorWorkspaceIntegrationResponseArrayOutput)
+}
+
+type GrafanaIntegrationsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GrafanaIntegrationsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrafanaIntegrationsResponse)(nil)).Elem()
+}
+
+func (o GrafanaIntegrationsResponsePtrOutput) ToGrafanaIntegrationsResponsePtrOutput() GrafanaIntegrationsResponsePtrOutput {
+	return o
+}
+
+func (o GrafanaIntegrationsResponsePtrOutput) ToGrafanaIntegrationsResponsePtrOutputWithContext(ctx context.Context) GrafanaIntegrationsResponsePtrOutput {
+	return o
+}
+
+func (o GrafanaIntegrationsResponsePtrOutput) Elem() GrafanaIntegrationsResponseOutput {
+	return o.ApplyT(func(v *GrafanaIntegrationsResponse) GrafanaIntegrationsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GrafanaIntegrationsResponse
+		return ret
+	}).(GrafanaIntegrationsResponseOutput)
+}
+
+func (o GrafanaIntegrationsResponsePtrOutput) AzureMonitorWorkspaceIntegrations() AzureMonitorWorkspaceIntegrationResponseArrayOutput {
+	return o.ApplyT(func(v *GrafanaIntegrationsResponse) []AzureMonitorWorkspaceIntegrationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureMonitorWorkspaceIntegrations
+	}).(AzureMonitorWorkspaceIntegrationResponseArrayOutput)
+}
+
 // Properties specific to the grafana resource.
 type ManagedGrafanaProperties struct {
 	// The api key setting of the Grafana instance.
@@ -18,6 +361,8 @@ type ManagedGrafanaProperties struct {
 	AutoGeneratedDomainNameLabelScope *string `pulumi:"autoGeneratedDomainNameLabelScope"`
 	// Whether a Grafana instance uses deterministic outbound IPs.
 	DeterministicOutboundIP *string `pulumi:"deterministicOutboundIP"`
+	// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+	GrafanaIntegrations *GrafanaIntegrations `pulumi:"grafanaIntegrations"`
 	// Indicate the state for enable or disable traffic over the public interface.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The zone redundancy setting of the Grafana instance.
@@ -43,6 +388,8 @@ type ManagedGrafanaPropertiesArgs struct {
 	AutoGeneratedDomainNameLabelScope pulumi.StringPtrInput `pulumi:"autoGeneratedDomainNameLabelScope"`
 	// Whether a Grafana instance uses deterministic outbound IPs.
 	DeterministicOutboundIP pulumi.StringPtrInput `pulumi:"deterministicOutboundIP"`
+	// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+	GrafanaIntegrations GrafanaIntegrationsPtrInput `pulumi:"grafanaIntegrations"`
 	// Indicate the state for enable or disable traffic over the public interface.
 	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// The zone redundancy setting of the Grafana instance.
@@ -142,6 +489,11 @@ func (o ManagedGrafanaPropertiesOutput) DeterministicOutboundIP() pulumi.StringP
 	return o.ApplyT(func(v ManagedGrafanaProperties) *string { return v.DeterministicOutboundIP }).(pulumi.StringPtrOutput)
 }
 
+// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+func (o ManagedGrafanaPropertiesOutput) GrafanaIntegrations() GrafanaIntegrationsPtrOutput {
+	return o.ApplyT(func(v ManagedGrafanaProperties) *GrafanaIntegrations { return v.GrafanaIntegrations }).(GrafanaIntegrationsPtrOutput)
+}
+
 // Indicate the state for enable or disable traffic over the public interface.
 func (o ManagedGrafanaPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedGrafanaProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
@@ -206,6 +558,16 @@ func (o ManagedGrafanaPropertiesPtrOutput) DeterministicOutboundIP() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+func (o ManagedGrafanaPropertiesPtrOutput) GrafanaIntegrations() GrafanaIntegrationsPtrOutput {
+	return o.ApplyT(func(v *ManagedGrafanaProperties) *GrafanaIntegrations {
+		if v == nil {
+			return nil
+		}
+		return v.GrafanaIntegrations
+	}).(GrafanaIntegrationsPtrOutput)
+}
+
 // Indicate the state for enable or disable traffic over the public interface.
 func (o ManagedGrafanaPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedGrafanaProperties) *string {
@@ -236,6 +598,8 @@ type ManagedGrafanaPropertiesResponse struct {
 	DeterministicOutboundIP *string `pulumi:"deterministicOutboundIP"`
 	// The endpoint of the Grafana instance.
 	Endpoint string `pulumi:"endpoint"`
+	// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+	GrafanaIntegrations *GrafanaIntegrationsResponse `pulumi:"grafanaIntegrations"`
 	// The Grafana software version.
 	GrafanaVersion string `pulumi:"grafanaVersion"`
 	// List of outbound IPs if deterministicOutboundIP is enabled.
@@ -283,6 +647,11 @@ func (o ManagedGrafanaPropertiesResponseOutput) DeterministicOutboundIP() pulumi
 // The endpoint of the Grafana instance.
 func (o ManagedGrafanaPropertiesResponseOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedGrafanaPropertiesResponse) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+func (o ManagedGrafanaPropertiesResponseOutput) GrafanaIntegrations() GrafanaIntegrationsResponsePtrOutput {
+	return o.ApplyT(func(v ManagedGrafanaPropertiesResponse) *GrafanaIntegrationsResponse { return v.GrafanaIntegrations }).(GrafanaIntegrationsResponsePtrOutput)
 }
 
 // The Grafana software version.
@@ -1162,6 +1531,14 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 }
 
 func init() {
+	pulumi.RegisterOutputType(AzureMonitorWorkspaceIntegrationOutput{})
+	pulumi.RegisterOutputType(AzureMonitorWorkspaceIntegrationArrayOutput{})
+	pulumi.RegisterOutputType(AzureMonitorWorkspaceIntegrationResponseOutput{})
+	pulumi.RegisterOutputType(AzureMonitorWorkspaceIntegrationResponseArrayOutput{})
+	pulumi.RegisterOutputType(GrafanaIntegrationsOutput{})
+	pulumi.RegisterOutputType(GrafanaIntegrationsPtrOutput{})
+	pulumi.RegisterOutputType(GrafanaIntegrationsResponseOutput{})
+	pulumi.RegisterOutputType(GrafanaIntegrationsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedGrafanaPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedGrafanaPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ManagedGrafanaPropertiesResponseOutput{})

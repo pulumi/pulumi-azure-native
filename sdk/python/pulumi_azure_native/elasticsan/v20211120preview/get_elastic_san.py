@@ -73,7 +73,7 @@ class GetElasticSanResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         """
         Logical zone for Elastic San resource; example: ["1"].
         """
@@ -129,7 +129,7 @@ class GetElasticSanResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> 'outputs.SkuResponse':
         """
         resource sku
         """

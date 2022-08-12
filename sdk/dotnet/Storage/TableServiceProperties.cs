@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.Storage
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210801:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210901:TableServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20220501:TableServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

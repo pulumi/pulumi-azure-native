@@ -123,6 +123,14 @@ if typing.TYPE_CHECKING:
     v20211101 = __v20211101
     import pulumi_azure_native.compute.v20211201 as __v20211201
     v20211201 = __v20211201
+    import pulumi_azure_native.compute.v20220103 as __v20220103
+    v20220103 = __v20220103
+    import pulumi_azure_native.compute.v20220301 as __v20220301
+    v20220301 = __v20220301
+    import pulumi_azure_native.compute.v20220302 as __v20220302
+    v20220302 = __v20220302
+    import pulumi_azure_native.compute.v20220404 as __v20220404
+    v20220404 = __v20220404
 else:
     v20150615 = _utilities.lazy_import('pulumi_azure_native.compute.v20150615')
     v20160330 = _utilities.lazy_import('pulumi_azure_native.compute.v20160330')
@@ -150,4 +158,8 @@ else:
     v20211001 = _utilities.lazy_import('pulumi_azure_native.compute.v20211001')
     v20211101 = _utilities.lazy_import('pulumi_azure_native.compute.v20211101')
     v20211201 = _utilities.lazy_import('pulumi_azure_native.compute.v20211201')
+    v20220103 = _utilities.lazy_import('pulumi_azure_native.compute.v20220103')
+    v20220301 = _utilities.lazy_import('pulumi_azure_native.compute.v20220301')
+    v20220302 = _utilities.lazy_import('pulumi_azure_native.compute.v20220302')
+    v20220404 = _utilities.lazy_import('pulumi_azure_native.compute.v20220404')
 

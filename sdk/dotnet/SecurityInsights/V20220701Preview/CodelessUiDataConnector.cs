@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:CodelessUiDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:CodelessUiDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:CodelessUiDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:CodelessUiDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

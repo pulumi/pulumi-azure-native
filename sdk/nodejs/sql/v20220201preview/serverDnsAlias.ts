@@ -76,7 +76,7 @@ export class ServerDnsAlias extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerDnsAlias" }, { type: "azure-native:sql/v20170301preview:ServerDnsAlias" }, { type: "azure-native:sql/v20200202preview:ServerDnsAlias" }, { type: "azure-native:sql/v20200801preview:ServerDnsAlias" }, { type: "azure-native:sql/v20201101preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210201preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210501preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210801preview:ServerDnsAlias" }, { type: "azure-native:sql/v20211101preview:ServerDnsAlias" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerDnsAlias" }, { type: "azure-native:sql/v20170301preview:ServerDnsAlias" }, { type: "azure-native:sql/v20200202preview:ServerDnsAlias" }, { type: "azure-native:sql/v20200801preview:ServerDnsAlias" }, { type: "azure-native:sql/v20201101preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210201preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210501preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210801preview:ServerDnsAlias" }, { type: "azure-native:sql/v20211101:ServerDnsAlias" }, { type: "azure-native:sql/v20211101preview:ServerDnsAlias" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerDnsAlias.__pulumiType, name, resourceInputs, opts);
     }

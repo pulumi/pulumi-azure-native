@@ -92,7 +92,7 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly redisConfiguration!: pulumi.Output<outputs.cache.v20210601.RedisCommonPropertiesResponseRedisConfiguration | undefined>;
     /**
-     * Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+     * Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
      */
     public readonly redisVersion!: pulumi.Output<string | undefined>;
     /**
@@ -213,7 +213,7 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache:Redis" }, { type: "azure-native:cache/v20150801:Redis" }, { type: "azure-native:cache/v20160401:Redis" }, { type: "azure-native:cache/v20170201:Redis" }, { type: "azure-native:cache/v20171001:Redis" }, { type: "azure-native:cache/v20180301:Redis" }, { type: "azure-native:cache/v20190701:Redis" }, { type: "azure-native:cache/v20200601:Redis" }, { type: "azure-native:cache/v20201201:Redis" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:Redis" }, { type: "azure-native:cache/v20150801:Redis" }, { type: "azure-native:cache/v20160401:Redis" }, { type: "azure-native:cache/v20170201:Redis" }, { type: "azure-native:cache/v20171001:Redis" }, { type: "azure-native:cache/v20180301:Redis" }, { type: "azure-native:cache/v20190701:Redis" }, { type: "azure-native:cache/v20200601:Redis" }, { type: "azure-native:cache/v20201201:Redis" }, { type: "azure-native:cache/v20220501:Redis" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Redis.__pulumiType, name, resourceInputs, opts);
     }
@@ -252,7 +252,7 @@ export interface RedisArgs {
      */
     redisConfiguration?: pulumi.Input<inputs.cache.v20210601.RedisCommonPropertiesRedisConfigurationArgs>;
     /**
-     * Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+     * Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
      */
     redisVersion?: pulumi.Input<string>;
     /**

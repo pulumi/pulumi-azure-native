@@ -28,7 +28,7 @@ type ElasticSan struct {
 	// State of the operation on the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// resource sku
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	Sku SkuResponseOutput `pulumi:"sku"`
 	// Resource metadata required by ARM RPC
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource tags.
@@ -54,9 +54,6 @@ func NewElasticSan(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AvailabilityZones == nil {
-		return nil, errors.New("invalid value for required argument 'AvailabilityZones'")
-	}
 	if args.BaseSizeTiB == nil {
 		return nil, errors.New("invalid value for required argument 'BaseSizeTiB'")
 	}
@@ -65,6 +62,9 @@ func NewElasticSan(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -117,7 +117,7 @@ type elasticSanArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// resource sku
-	Sku *Sku `pulumi:"sku"`
+	Sku Sku `pulumi:"sku"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -137,7 +137,7 @@ type ElasticSanArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// resource sku
-	Sku SkuPtrInput
+	Sku SkuInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
 }
@@ -210,8 +210,8 @@ func (o ElasticSanOutput) ProvisioningState() pulumi.StringOutput {
 }
 
 // resource sku
-func (o ElasticSanOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v *ElasticSan) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+func (o ElasticSanOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *ElasticSan) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
 }
 
 // Resource metadata required by ARM RPC

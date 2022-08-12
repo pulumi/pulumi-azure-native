@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Dashboard.V20220801.Inputs
         public InputUnion<string, Pulumi.AzureNative.Dashboard.V20220801.DeterministicOutboundIP>? DeterministicOutboundIP { get; set; }
 
         /// <summary>
+        /// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+        /// </summary>
+        [Input("grafanaIntegrations")]
+        public Input<Inputs.GrafanaIntegrationsArgs>? GrafanaIntegrations { get; set; }
+
+        /// <summary>
         /// Indicate the state for enable or disable traffic over the public interface.
         /// </summary>
         [Input("publicNetworkAccess")]

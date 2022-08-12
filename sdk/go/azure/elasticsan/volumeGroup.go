@@ -17,13 +17,13 @@ type VolumeGroup struct {
 	pulumi.CustomResourceState
 
 	// Type of encryption
-	Encryption pulumi.StringOutput `pulumi:"encryption"`
+	Encryption pulumi.StringPtrOutput `pulumi:"encryption"`
 	// Azure resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A collection of rules governing the accessibility from specific network locations.
 	NetworkAcls NetworkRuleSetResponsePtrOutput `pulumi:"networkAcls"`
 	// Type of storage target
-	ProtocolType pulumi.StringOutput `pulumi:"protocolType"`
+	ProtocolType pulumi.StringPtrOutput `pulumi:"protocolType"`
 	// State of the operation on the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource metadata required by ARM RPC
@@ -43,12 +43,6 @@ func NewVolumeGroup(ctx *pulumi.Context,
 
 	if args.ElasticSanName == nil {
 		return nil, errors.New("invalid value for required argument 'ElasticSanName'")
-	}
-	if args.Encryption == nil {
-		return nil, errors.New("invalid value for required argument 'Encryption'")
-	}
-	if args.ProtocolType == nil {
-		return nil, errors.New("invalid value for required argument 'ProtocolType'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -94,11 +88,11 @@ type volumeGroupArgs struct {
 	// The name of the ElasticSan.
 	ElasticSanName string `pulumi:"elasticSanName"`
 	// Type of encryption
-	Encryption string `pulumi:"encryption"`
+	Encryption *string `pulumi:"encryption"`
 	// A collection of rules governing the accessibility from specific network locations.
 	NetworkAcls *NetworkRuleSet `pulumi:"networkAcls"`
 	// Type of storage target
-	ProtocolType string `pulumi:"protocolType"`
+	ProtocolType *string `pulumi:"protocolType"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Azure resource tags.
@@ -112,11 +106,11 @@ type VolumeGroupArgs struct {
 	// The name of the ElasticSan.
 	ElasticSanName pulumi.StringInput
 	// Type of encryption
-	Encryption pulumi.StringInput
+	Encryption pulumi.StringPtrInput
 	// A collection of rules governing the accessibility from specific network locations.
 	NetworkAcls NetworkRuleSetPtrInput
 	// Type of storage target
-	ProtocolType pulumi.StringInput
+	ProtocolType pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Azure resource tags.
@@ -163,8 +157,8 @@ func (o VolumeGroupOutput) ToVolumeGroupOutputWithContext(ctx context.Context) V
 }
 
 // Type of encryption
-func (o VolumeGroupOutput) Encryption() pulumi.StringOutput {
-	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.Encryption }).(pulumi.StringOutput)
+func (o VolumeGroupOutput) Encryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringPtrOutput { return v.Encryption }).(pulumi.StringPtrOutput)
 }
 
 // Azure resource name.
@@ -178,8 +172,8 @@ func (o VolumeGroupOutput) NetworkAcls() NetworkRuleSetResponsePtrOutput {
 }
 
 // Type of storage target
-func (o VolumeGroupOutput) ProtocolType() pulumi.StringOutput {
-	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.ProtocolType }).(pulumi.StringOutput)
+func (o VolumeGroupOutput) ProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringPtrOutput { return v.ProtocolType }).(pulumi.StringPtrOutput)
 }
 
 // State of the operation on the resource.

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Outputs
         /// <summary>
         /// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
         /// </summary>
-        public readonly string? GeoBackupKeyUri;
+        public readonly string? GeoBackupKeyURI;
         /// <summary>
         /// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Outputs
         /// <summary>
         /// Primary key uri
         /// </summary>
-        public readonly string? PrimaryKeyUri;
+        public readonly string? PrimaryKeyURI;
         /// <summary>
         /// Primary user identity resource id
         /// </summary>
@@ -39,19 +39,19 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Outputs
 
         [OutputConstructor]
         private DataEncryptionResponse(
-            string? geoBackupKeyUri,
+            string? geoBackupKeyURI,
 
             string? geoBackupUserAssignedIdentityId,
 
-            string? primaryKeyUri,
+            string? primaryKeyURI,
 
             string? primaryUserAssignedIdentityId,
 
             string? type)
         {
-            GeoBackupKeyUri = geoBackupKeyUri;
+            GeoBackupKeyURI = geoBackupKeyURI;
             GeoBackupUserAssignedIdentityId = geoBackupUserAssignedIdentityId;
-            PrimaryKeyUri = primaryKeyUri;
+            PrimaryKeyURI = primaryKeyURI;
             PrimaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
             Type = type;
         }

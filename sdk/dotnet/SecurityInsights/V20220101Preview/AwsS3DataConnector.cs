@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:AwsS3DataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:AwsS3DataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:AwsS3DataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:AwsS3DataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

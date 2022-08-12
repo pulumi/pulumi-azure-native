@@ -44,6 +44,8 @@ type Monitor struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+	ZoneRedundancyPreference pulumi.StringPtrOutput `pulumi:"zoneRedundancyPreference"`
 }
 
 // NewMonitor registers a new resource with the given unique name, arguments, and options.
@@ -114,6 +116,8 @@ type monitorArgs struct {
 	RoutingPreference *string `pulumi:"routingPreference"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+	ZoneRedundancyPreference *string `pulumi:"zoneRedundancyPreference"`
 }
 
 // The set of arguments for constructing a Monitor resource.
@@ -138,6 +142,8 @@ type MonitorArgs struct {
 	RoutingPreference pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+	ZoneRedundancyPreference pulumi.StringPtrInput
 }
 
 func (MonitorArgs) ElementType() reflect.Type {
@@ -245,6 +251,11 @@ func (o MonitorOutput) Tags() pulumi.StringMapOutput {
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o MonitorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+func (o MonitorOutput) ZoneRedundancyPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.ZoneRedundancyPreference }).(pulumi.StringPtrOutput)
 }
 
 func init() {

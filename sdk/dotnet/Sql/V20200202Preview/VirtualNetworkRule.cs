@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20220201preview:VirtualNetworkRule"},
                 },

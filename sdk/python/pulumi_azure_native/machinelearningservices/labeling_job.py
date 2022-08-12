@@ -156,7 +156,7 @@ class LabelingJob(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:LabelingJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:LabelingJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LabelingJob, __self__).__init__(
             'azure-native:machinelearningservices:LabelingJob',

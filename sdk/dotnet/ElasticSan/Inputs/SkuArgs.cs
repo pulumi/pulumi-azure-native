@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.ElasticSan.Inputs
         /// <summary>
         /// The sku name.
         /// </summary>
-        [Input("name")]
-        public InputUnion<string, Pulumi.AzureNative.ElasticSan.Name>? Name { get; set; }
+        [Input("name", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.ElasticSan.Name> Name { get; set; } = null!;
 
         /// <summary>
         /// The sku tier.

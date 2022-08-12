@@ -59,6 +59,9 @@ func NewServerAzureADOnlyAuthentication(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:sql/v20210801preview:ServerAzureADOnlyAuthentication"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20211101:ServerAzureADOnlyAuthentication"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20211101preview:ServerAzureADOnlyAuthentication"),
 		},
 		{

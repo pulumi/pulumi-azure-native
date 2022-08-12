@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:CodelessApiPollingDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:CodelessApiPollingDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:CodelessApiPollingDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:CodelessApiPollingDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
