@@ -26443,6 +26443,7 @@
       {
         "resourceType": "chambers",
         "apiVersions": [
+          "2022-07-01",
           "2021-07-01",
           "2020-07-01-preview",
           "2019-08-01-preview"
@@ -26451,6 +26452,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2022-07-01",
           "2021-07-01",
           "2020-07-01-preview",
           "2019-08-01-preview"
@@ -26459,6 +26461,7 @@
       {
         "resourceType": "operationResults",
         "apiVersions": [
+          "2022-07-01",
           "2021-07-01",
           "2020-07-01-preview",
           "2019-08-01-preview"
@@ -26467,6 +26470,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-07-01",
           "2021-07-01",
           "2020-07-01-preview",
           "2019-08-01-preview"
