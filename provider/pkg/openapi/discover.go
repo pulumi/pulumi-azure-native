@@ -7,10 +7,10 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"os"
 	"path/filepath"
 	"regexp"
-	"sort"
 	"strings"
 )
 
@@ -198,16 +198,19 @@ func swaggerLocations() ([]string, error) {
 		return nil, err
 	}
 
-	pattern := filepath.Join(dir, "/azure-rest-api-specs*/specification/**/resource-manager/Microsoft.*/**/20*/*.json")
+	pattern := filepath.Join(dir, "/azure-rest-api-specs*/specification/*/resource-manager/Microsoft.*/*/20*/*.json")
 	files, err := filepath.Glob(pattern)
 	if err != nil {
 		return nil, err
 	}
 
-	// Sorting alphabetically means the schemas with the latest API version are the last.
-	sort.Strings(files)
+	pattern2 := filepath.Join(dir, "/azure-rest-api-specs*/specification/*/resource-manager/Microsoft.*/*/*/20*/*.json")
+	files2, err := filepath.Glob(pattern2)
 
-	return files, nil
+	// Sorting alphabetically means the schemas with the latest API version are the last.
+	fileSet := codegen.NewStringSet(append(files, files2...)...)
+
+	return fileSet.SortedValues(), nil
 }
 
 var excludeRegexes = []*regexp.Regexp{
