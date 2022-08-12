@@ -640,6 +640,7 @@
         "ScalingPlanPooledSchedule": "2022-04-01-preview",
         "Workspace": "2021-02-01-preview"
     },
+    "DevCenter": {},
     "DevHub": {
         "Workflow": "2022-04-01-preview",
         "getGitHubOAuth": "2022-04-01-preview"
@@ -1825,6 +1826,7 @@
         "Cache": "2021-03-01",
         "StorageTarget": "2021-03-01"
     },
+    "StorageMover": {},
     "StoragePool": {
         "DiskPool": "2020-03-15-preview",
         "IscsiTarget": "2020-03-15-preview"
