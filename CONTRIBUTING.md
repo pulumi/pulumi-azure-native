@@ -75,18 +75,18 @@ The default version is calculated and written to a 'lock' file which list every 
 
 To provide simpler discovery and usability, the Pulumi Azure Native provider adds a single 'default' version for each API which is the combination of one or more API versions. The aim is to include all resources, at the latest available version, where possible.
 
-#### Provider v1
+Originally the default version was recalculated every time a new API version was released. This led to frequent breaking changes which had to be fixed before release of an update.
 
-In version 1 of the provider, the default version was recalculated every time a new API version was released. This led to frequent breaking changes which had to be fixed before release of an update.
+Now, we aim to specify more precisely the versions to combine into the 'default version' to avoid SDK instability. This is specified in the [`v1-config.yaml`](./versions/v1-config.yaml) and [`v2-config.yaml`](./versions/v2-config.yaml). For each API the config can specify a `Tracking` version and `Additions`.
 
-#### Provider v2
+- `tracking` specifies a single version of the API to fetch all resources from.
+- `additions` specified a map of specific resource (or invoke) name to API version to include in the default version.
 
-In version 2 of the provider we aim to specify more precisely the versions to combine into the 'default version' to avoid SDK instability. This is specified in the [`v2-config.yaml`](./v2-config.yaml). For each API the config can specify a `Tracking` version and `Additions`.
+Both `tracking` and `additions` can be specified together but if the set of resources overlaps (the same resource exists) in both the tracking version and the additions, then the versioning program will fail with an error.
 
-- `Tracking` specifies a single version of the API to fetch all resources from.
-- `Additions` specified a map of specific resource (or invoke) name to API version to include in the default version.
+From a config YAML file, we can generate a version 'lock' JSON file ([`v1.json`](./versions/v1.json) and [`v2.json`](./versions/v2.json)) which contain the fully expanded set of default resources. These are the files used at the point of generating the schema.
 
-Both `Tracking` and `Additions` can be specified together but if the set of resources overlaps (the same resource exists) in both the tracking version and the additions, then the versioning program will fail with an error.
+To re-calculate the default version selection, run `make versions`.
 
 #### Next default version config
 
