@@ -21,7 +21,7 @@ type BudgetTimePeriod struct {
 // BudgetTimePeriodInput is an input type that accepts BudgetTimePeriodArgs and BudgetTimePeriodOutput values.
 // You can construct a concrete instance of `BudgetTimePeriodInput` via:
 //
-//          BudgetTimePeriodArgs{...}
+//	BudgetTimePeriodArgs{...}
 type BudgetTimePeriodInput interface {
 	pulumi.Input
 
@@ -155,7 +155,7 @@ type Filters struct {
 // FiltersInput is an input type that accepts FiltersArgs and FiltersOutput values.
 // You can construct a concrete instance of `FiltersInput` via:
 //
-//          FiltersArgs{...}
+//	FiltersArgs{...}
 type FiltersInput interface {
 	pulumi.Input
 
@@ -198,11 +198,11 @@ func (i FiltersArgs) ToFiltersPtrOutputWithContext(ctx context.Context) FiltersP
 // FiltersPtrInput is an input type that accepts FiltersArgs, FiltersPtr and FiltersPtrOutput values.
 // You can construct a concrete instance of `FiltersPtrInput` via:
 //
-//          FiltersArgs{...}
+//	        FiltersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FiltersPtrInput interface {
 	pulumi.Input
 
@@ -467,7 +467,7 @@ type Notification struct {
 // NotificationInput is an input type that accepts NotificationArgs and NotificationOutput values.
 // You can construct a concrete instance of `NotificationInput` via:
 //
-//          NotificationArgs{...}
+//	NotificationArgs{...}
 type NotificationInput interface {
 	pulumi.Input
 
@@ -506,7 +506,7 @@ func (i NotificationArgs) ToNotificationOutputWithContext(ctx context.Context) N
 // NotificationMapInput is an input type that accepts NotificationMap and NotificationMapOutput values.
 // You can construct a concrete instance of `NotificationMapInput` via:
 //
-//          NotificationMap{ "key": NotificationArgs{...} }
+//	NotificationMap{ "key": NotificationArgs{...} }
 type NotificationMapInput interface {
 	pulumi.Input
 

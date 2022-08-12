@@ -148,7 +148,7 @@ func (o EncryptionKeySourceTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // EncryptionKeySourceTypeInput is an input type that accepts EncryptionKeySourceTypeArgs and EncryptionKeySourceTypeOutput values.
 // You can construct a concrete instance of `EncryptionKeySourceTypeInput` via:
 //
-//          EncryptionKeySourceTypeArgs{...}
+//	EncryptionKeySourceTypeArgs{...}
 type EncryptionKeySourceTypeInput interface {
 	pulumi.Input
 
@@ -323,7 +323,7 @@ func (o OperatingSystemTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // OperatingSystemTypeInput is an input type that accepts OperatingSystemTypeArgs and OperatingSystemTypeOutput values.
 // You can construct a concrete instance of `OperatingSystemTypeInput` via:
 //
-//          OperatingSystemTypeArgs{...}
+//	OperatingSystemTypeArgs{...}
 type OperatingSystemTypeInput interface {
 	pulumi.Input
 
@@ -490,7 +490,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//          ResourceIdentityTypeArgs{...}
+//	ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 
@@ -712,7 +712,7 @@ func (o TagOperatorsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // TagOperatorsInput is an input type that accepts TagOperatorsArgs and TagOperatorsOutput values.
 // You can construct a concrete instance of `TagOperatorsInput` via:
 //
-//          TagOperatorsArgs{...}
+//	TagOperatorsArgs{...}
 type TagOperatorsInput interface {
 	pulumi.Input
 

@@ -563,7 +563,7 @@ type FunctionType struct {
 // FunctionTypeInput is an input type that accepts FunctionTypeArgs and FunctionTypeOutput values.
 // You can construct a concrete instance of `FunctionTypeInput` via:
 //
-//          FunctionTypeArgs{...}
+//	FunctionTypeArgs{...}
 type FunctionTypeInput interface {
 	pulumi.Input
 
@@ -594,7 +594,7 @@ func (i FunctionTypeArgs) ToFunctionTypeOutputWithContext(ctx context.Context) F
 // FunctionTypeArrayInput is an input type that accepts FunctionTypeArray and FunctionTypeArrayOutput values.
 // You can construct a concrete instance of `FunctionTypeArrayInput` via:
 //
-//          FunctionTypeArray{ FunctionTypeArgs{...} }
+//	FunctionTypeArray{ FunctionTypeArgs{...} }
 type FunctionTypeArrayInput interface {
 	pulumi.Input
 
@@ -672,7 +672,7 @@ type FunctionInputType struct {
 // FunctionInputTypeInput is an input type that accepts FunctionInputTypeArgs and FunctionInputTypeOutput values.
 // You can construct a concrete instance of `FunctionInputTypeInput` via:
 //
-//          FunctionInputTypeArgs{...}
+//	FunctionInputTypeArgs{...}
 type FunctionInputTypeInput interface {
 	pulumi.Input
 
@@ -703,7 +703,7 @@ func (i FunctionInputTypeArgs) ToFunctionInputTypeOutputWithContext(ctx context.
 // FunctionInputTypeArrayInput is an input type that accepts FunctionInputTypeArray and FunctionInputTypeArrayOutput values.
 // You can construct a concrete instance of `FunctionInputTypeArrayInput` via:
 //
-//          FunctionInputTypeArray{ FunctionInputTypeArgs{...} }
+//	FunctionInputTypeArray{ FunctionInputTypeArgs{...} }
 type FunctionInputTypeArrayInput interface {
 	pulumi.Input
 
@@ -832,7 +832,7 @@ type FunctionOutputType struct {
 // FunctionOutputTypeInput is an input type that accepts FunctionOutputTypeArgs and FunctionOutputTypeOutput values.
 // You can construct a concrete instance of `FunctionOutputTypeInput` via:
 //
-//          FunctionOutputTypeArgs{...}
+//	FunctionOutputTypeArgs{...}
 type FunctionOutputTypeInput interface {
 	pulumi.Input
 
@@ -869,11 +869,11 @@ func (i FunctionOutputTypeArgs) ToFunctionOutputTypePtrOutputWithContext(ctx con
 // FunctionOutputTypePtrInput is an input type that accepts FunctionOutputTypeArgs, FunctionOutputTypePtr and FunctionOutputTypePtrOutput values.
 // You can construct a concrete instance of `FunctionOutputTypePtrInput` via:
 //
-//          FunctionOutputTypeArgs{...}
+//	        FunctionOutputTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionOutputTypePtrInput interface {
 	pulumi.Input
 
@@ -1101,7 +1101,7 @@ type InputType struct {
 // InputTypeInput is an input type that accepts InputTypeArgs and InputTypeOutput values.
 // You can construct a concrete instance of `InputTypeInput` via:
 //
-//          InputTypeArgs{...}
+//	InputTypeArgs{...}
 type InputTypeInput interface {
 	pulumi.Input
 
@@ -1132,7 +1132,7 @@ func (i InputTypeArgs) ToInputTypeOutputWithContext(ctx context.Context) InputTy
 // InputTypeArrayInput is an input type that accepts InputTypeArray and InputTypeArrayOutput values.
 // You can construct a concrete instance of `InputTypeArrayInput` via:
 //
-//          InputTypeArray{ InputTypeArgs{...} }
+//	InputTypeArray{ InputTypeArgs{...} }
 type InputTypeArrayInput interface {
 	pulumi.Input
 
@@ -1353,7 +1353,7 @@ type OutputType struct {
 // OutputTypeInput is an input type that accepts OutputTypeArgs and OutputTypeOutput values.
 // You can construct a concrete instance of `OutputTypeInput` via:
 //
-//          OutputTypeArgs{...}
+//	OutputTypeArgs{...}
 type OutputTypeInput interface {
 	pulumi.Input
 
@@ -1386,7 +1386,7 @@ func (i OutputTypeArgs) ToOutputTypeOutputWithContext(ctx context.Context) Outpu
 // OutputTypeArrayInput is an input type that accepts OutputTypeArray and OutputTypeArrayOutput values.
 // You can construct a concrete instance of `OutputTypeArrayInput` via:
 //
-//          OutputTypeArray{ OutputTypeArgs{...} }
+//	OutputTypeArray{ OutputTypeArgs{...} }
 type OutputTypeArrayInput interface {
 	pulumi.Input
 
@@ -1630,7 +1630,7 @@ type ScalarFunctionProperties struct {
 // ScalarFunctionPropertiesInput is an input type that accepts ScalarFunctionPropertiesArgs and ScalarFunctionPropertiesOutput values.
 // You can construct a concrete instance of `ScalarFunctionPropertiesInput` via:
 //
-//          ScalarFunctionPropertiesArgs{...}
+//	ScalarFunctionPropertiesArgs{...}
 type ScalarFunctionPropertiesInput interface {
 	pulumi.Input
 
@@ -1674,11 +1674,11 @@ func (i ScalarFunctionPropertiesArgs) ToScalarFunctionPropertiesPtrOutputWithCon
 // ScalarFunctionPropertiesPtrInput is an input type that accepts ScalarFunctionPropertiesArgs, ScalarFunctionPropertiesPtr and ScalarFunctionPropertiesPtrOutput values.
 // You can construct a concrete instance of `ScalarFunctionPropertiesPtrInput` via:
 //
-//          ScalarFunctionPropertiesArgs{...}
+//	        ScalarFunctionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalarFunctionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2023,7 +2023,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -2060,11 +2060,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -2269,7 +2269,7 @@ type Transformation struct {
 // TransformationInput is an input type that accepts TransformationArgs and TransformationOutput values.
 // You can construct a concrete instance of `TransformationInput` via:
 //
-//          TransformationArgs{...}
+//	TransformationArgs{...}
 type TransformationInput interface {
 	pulumi.Input
 
@@ -2310,11 +2310,11 @@ func (i TransformationArgs) ToTransformationPtrOutputWithContext(ctx context.Con
 // TransformationPtrInput is an input type that accepts TransformationArgs, TransformationPtr and TransformationPtrOutput values.
 // You can construct a concrete instance of `TransformationPtrInput` via:
 //
-//          TransformationArgs{...}
+//	        TransformationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TransformationPtrInput interface {
 	pulumi.Input
 

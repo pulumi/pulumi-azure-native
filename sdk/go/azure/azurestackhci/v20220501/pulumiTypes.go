@@ -19,7 +19,7 @@ type ArcConnectivityProperties struct {
 // ArcConnectivityPropertiesInput is an input type that accepts ArcConnectivityPropertiesArgs and ArcConnectivityPropertiesOutput values.
 // You can construct a concrete instance of `ArcConnectivityPropertiesInput` via:
 //
-//          ArcConnectivityPropertiesArgs{...}
+//	ArcConnectivityPropertiesArgs{...}
 type ArcConnectivityPropertiesInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i ArcConnectivityPropertiesArgs) ToArcConnectivityPropertiesOutputWithCont
 // ArcConnectivityPropertiesArrayInput is an input type that accepts ArcConnectivityPropertiesArray and ArcConnectivityPropertiesArrayOutput values.
 // You can construct a concrete instance of `ArcConnectivityPropertiesArrayInput` via:
 //
-//          ArcConnectivityPropertiesArray{ ArcConnectivityPropertiesArgs{...} }
+//	ArcConnectivityPropertiesArray{ ArcConnectivityPropertiesArgs{...} }
 type ArcConnectivityPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -167,7 +167,7 @@ type ClusterDesiredProperties struct {
 // ClusterDesiredPropertiesInput is an input type that accepts ClusterDesiredPropertiesArgs and ClusterDesiredPropertiesOutput values.
 // You can construct a concrete instance of `ClusterDesiredPropertiesInput` via:
 //
-//          ClusterDesiredPropertiesArgs{...}
+//	ClusterDesiredPropertiesArgs{...}
 type ClusterDesiredPropertiesInput interface {
 	pulumi.Input
 
@@ -206,11 +206,11 @@ func (i ClusterDesiredPropertiesArgs) ToClusterDesiredPropertiesPtrOutputWithCon
 // ClusterDesiredPropertiesPtrInput is an input type that accepts ClusterDesiredPropertiesArgs, ClusterDesiredPropertiesPtr and ClusterDesiredPropertiesPtrOutput values.
 // You can construct a concrete instance of `ClusterDesiredPropertiesPtrInput` via:
 //
-//          ClusterDesiredPropertiesArgs{...}
+//	        ClusterDesiredPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterDesiredPropertiesPtrInput interface {
 	pulumi.Input
 

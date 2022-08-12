@@ -19,7 +19,7 @@ type AppSkuInfo struct {
 // AppSkuInfoInput is an input type that accepts AppSkuInfoArgs and AppSkuInfoOutput values.
 // You can construct a concrete instance of `AppSkuInfoInput` via:
 //
-//          AppSkuInfoArgs{...}
+//	AppSkuInfoArgs{...}
 type AppSkuInfoInput interface {
 	pulumi.Input
 
@@ -102,7 +102,7 @@ type NetworkRuleSetIpRule struct {
 // NetworkRuleSetIpRuleInput is an input type that accepts NetworkRuleSetIpRuleArgs and NetworkRuleSetIpRuleOutput values.
 // You can construct a concrete instance of `NetworkRuleSetIpRuleInput` via:
 //
-//          NetworkRuleSetIpRuleArgs{...}
+//	NetworkRuleSetIpRuleArgs{...}
 type NetworkRuleSetIpRuleInput interface {
 	pulumi.Input
 
@@ -133,7 +133,7 @@ func (i NetworkRuleSetIpRuleArgs) ToNetworkRuleSetIpRuleOutputWithContext(ctx co
 // NetworkRuleSetIpRuleArrayInput is an input type that accepts NetworkRuleSetIpRuleArray and NetworkRuleSetIpRuleArrayOutput values.
 // You can construct a concrete instance of `NetworkRuleSetIpRuleArrayInput` via:
 //
-//          NetworkRuleSetIpRuleArray{ NetworkRuleSetIpRuleArgs{...} }
+//	NetworkRuleSetIpRuleArray{ NetworkRuleSetIpRuleArgs{...} }
 type NetworkRuleSetIpRuleArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +275,7 @@ type NetworkRuleSets struct {
 // NetworkRuleSetsInput is an input type that accepts NetworkRuleSetsArgs and NetworkRuleSetsOutput values.
 // You can construct a concrete instance of `NetworkRuleSetsInput` via:
 //
-//          NetworkRuleSetsArgs{...}
+//	NetworkRuleSetsArgs{...}
 type NetworkRuleSetsInput interface {
 	pulumi.Input
 
@@ -318,11 +318,11 @@ func (i NetworkRuleSetsArgs) ToNetworkRuleSetsPtrOutputWithContext(ctx context.C
 // NetworkRuleSetsPtrInput is an input type that accepts NetworkRuleSetsArgs, NetworkRuleSetsPtr and NetworkRuleSetsPtrOutput values.
 // You can construct a concrete instance of `NetworkRuleSetsPtrInput` via:
 //
-//          NetworkRuleSetsArgs{...}
+//	        NetworkRuleSetsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkRuleSetsPtrInput interface {
 	pulumi.Input
 
@@ -738,7 +738,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -847,7 +847,7 @@ type SystemAssignedServiceIdentity struct {
 // SystemAssignedServiceIdentityInput is an input type that accepts SystemAssignedServiceIdentityArgs and SystemAssignedServiceIdentityOutput values.
 // You can construct a concrete instance of `SystemAssignedServiceIdentityInput` via:
 //
-//          SystemAssignedServiceIdentityArgs{...}
+//	SystemAssignedServiceIdentityArgs{...}
 type SystemAssignedServiceIdentityInput interface {
 	pulumi.Input
 
@@ -884,11 +884,11 @@ func (i SystemAssignedServiceIdentityArgs) ToSystemAssignedServiceIdentityPtrOut
 // SystemAssignedServiceIdentityPtrInput is an input type that accepts SystemAssignedServiceIdentityArgs, SystemAssignedServiceIdentityPtr and SystemAssignedServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `SystemAssignedServiceIdentityPtrInput` via:
 //
-//          SystemAssignedServiceIdentityArgs{...}
+//	        SystemAssignedServiceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SystemAssignedServiceIdentityPtrInput interface {
 	pulumi.Input
 

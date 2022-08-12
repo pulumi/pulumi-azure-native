@@ -23,7 +23,7 @@ type ApplicationCondition struct {
 // ApplicationConditionInput is an input type that accepts ApplicationConditionArgs and ApplicationConditionOutput values.
 // You can construct a concrete instance of `ApplicationConditionInput` via:
 //
-//          ApplicationConditionArgs{...}
+//	ApplicationConditionArgs{...}
 type ApplicationConditionInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i ApplicationConditionArgs) ToApplicationConditionOutputWithContext(ctx co
 // ApplicationConditionArrayInput is an input type that accepts ApplicationConditionArray and ApplicationConditionArrayOutput values.
 // You can construct a concrete instance of `ApplicationConditionArrayInput` via:
 //
-//          ApplicationConditionArray{ ApplicationConditionArgs{...} }
+//	ApplicationConditionArray{ ApplicationConditionArgs{...} }
 type ApplicationConditionArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +205,7 @@ func (i ApplicationConditionArgsArrayArrayArray) ToApplicationConditionArgsArray
 // ApplicationConditionArgsArrayArrayArrayInput is an input type that accepts ApplicationConditionArgsArrayArrayArray and ApplicationConditionArgsArrayArrayArrayOutput values.
 // You can construct a concrete instance of `ApplicationConditionArgsArrayArrayArrayInput` via:
 //
-//          ApplicationConditionArgsArrayArrayArray{ ApplicationConditionArgsArrayArray{ ApplicationConditionArgsArray{ ApplicationConditionArgsArgs{...} } } }
+//	ApplicationConditionArgsArrayArrayArray{ ApplicationConditionArgsArrayArray{ ApplicationConditionArgsArray{ ApplicationConditionArgsArgs{...} } } }
 type ApplicationConditionArgsArrayArrayArrayInput interface {
 	pulumi.Input
 
@@ -250,7 +250,7 @@ func (i ApplicationConditionArrayArray) ToApplicationConditionArrayArrayOutputWi
 // ApplicationConditionArrayArrayInput is an input type that accepts ApplicationConditionArrayArray and ApplicationConditionArrayArrayOutput values.
 // You can construct a concrete instance of `ApplicationConditionArrayArrayInput` via:
 //
-//          ApplicationConditionArrayArray{ ApplicationConditionArray{ ApplicationConditionArgs{...} } }
+//	ApplicationConditionArrayArray{ ApplicationConditionArray{ ApplicationConditionArgs{...} } }
 type ApplicationConditionArrayArrayInput interface {
 	pulumi.Input
 

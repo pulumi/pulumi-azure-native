@@ -140,7 +140,7 @@ func (o AccessRightsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // AccessRightsInput is an input type that accepts AccessRightsArgs and AccessRightsOutput values.
 // You can construct a concrete instance of `AccessRightsInput` via:
 //
-//          AccessRightsArgs{...}
+//	AccessRightsArgs{...}
 type AccessRightsInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (in *accessRightsPtr) ToAccessRightsPtrOutputWithContext(ctx context.Contex
 // AccessRightsArrayInput is an input type that accepts AccessRightsArray and AccessRightsArrayOutput values.
 // You can construct a concrete instance of `AccessRightsArrayInput` via:
 //
-//          AccessRightsArray{ AccessRightsArgs{...} }
+//	AccessRightsArray{ AccessRightsArgs{...} }
 type AccessRightsArrayInput interface {
 	pulumi.Input
 
@@ -377,7 +377,7 @@ func (o EntityStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // EntityStatusInput is an input type that accepts EntityStatusArgs and EntityStatusOutput values.
 // You can construct a concrete instance of `EntityStatusInput` via:
 //
-//          EntityStatusArgs{...}
+//	EntityStatusArgs{...}
 type EntityStatusInput interface {
 	pulumi.Input
 
@@ -542,7 +542,7 @@ func (o FilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // FilterTypeInput is an input type that accepts FilterTypeArgs and FilterTypeOutput values.
 // You can construct a concrete instance of `FilterTypeInput` via:
 //
-//          FilterTypeArgs{...}
+//	FilterTypeArgs{...}
 type FilterTypeInput interface {
 	pulumi.Input
 
@@ -706,7 +706,7 @@ func (o KeySourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // KeySourceInput is an input type that accepts KeySourceArgs and KeySourceOutput values.
 // You can construct a concrete instance of `KeySourceInput` via:
 //
-//          KeySourceArgs{...}
+//	KeySourceArgs{...}
 type KeySourceInput interface {
 	pulumi.Input
 
@@ -873,7 +873,7 @@ func (o ManagedServiceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 // ManagedServiceIdentityTypeInput is an input type that accepts ManagedServiceIdentityTypeArgs and ManagedServiceIdentityTypeOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityTypeInput` via:
 //
-//          ManagedServiceIdentityTypeArgs{...}
+//	ManagedServiceIdentityTypeArgs{...}
 type ManagedServiceIdentityTypeInput interface {
 	pulumi.Input
 
@@ -1064,7 +1064,7 @@ func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
 // You can construct a concrete instance of `SkuNameInput` via:
 //
-//          SkuNameArgs{...}
+//	SkuNameArgs{...}
 type SkuNameInput interface {
 	pulumi.Input
 
@@ -1230,7 +1230,7 @@ func (o SkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuTierInput is an input type that accepts SkuTierArgs and SkuTierOutput values.
 // You can construct a concrete instance of `SkuTierInput` via:
 //
-//          SkuTierArgs{...}
+//	SkuTierArgs{...}
 type SkuTierInput interface {
 	pulumi.Input
 

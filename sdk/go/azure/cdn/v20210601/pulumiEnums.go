@@ -167,7 +167,7 @@ func (o AfdMinimumTlsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // AfdMinimumTlsVersionInput is an input type that accepts AfdMinimumTlsVersionArgs and AfdMinimumTlsVersionOutput values.
 // You can construct a concrete instance of `AfdMinimumTlsVersionInput` via:
 //
-//          AfdMinimumTlsVersionArgs{...}
+//	AfdMinimumTlsVersionArgs{...}
 type AfdMinimumTlsVersionInput interface {
 	pulumi.Input
 
@@ -456,7 +456,7 @@ func (o GeoFilterActionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // GeoFilterActionsInput is an input type that accepts GeoFilterActionsArgs and GeoFilterActionsOutput values.
 // You can construct a concrete instance of `GeoFilterActionsInput` via:
 //
-//          GeoFilterActionsArgs{...}
+//	GeoFilterActionsArgs{...}
 type GeoFilterActionsInput interface {
 	pulumi.Input
 
@@ -631,7 +631,7 @@ func (o HealthProbeRequestTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // HealthProbeRequestTypeInput is an input type that accepts HealthProbeRequestTypeArgs and HealthProbeRequestTypeOutput values.
 // You can construct a concrete instance of `HealthProbeRequestTypeInput` via:
 //
-//          HealthProbeRequestTypeArgs{...}
+//	HealthProbeRequestTypeArgs{...}
 type HealthProbeRequestTypeInput interface {
 	pulumi.Input
 
@@ -954,7 +954,7 @@ func (o ProbeProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // ProbeProtocolInput is an input type that accepts ProbeProtocolArgs and ProbeProtocolOutput values.
 // You can construct a concrete instance of `ProbeProtocolInput` via:
 //
-//          ProbeProtocolArgs{...}
+//	ProbeProtocolArgs{...}
 type ProbeProtocolInput interface {
 	pulumi.Input
 
@@ -1131,7 +1131,7 @@ func (o QueryStringCachingBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx co
 // QueryStringCachingBehaviorInput is an input type that accepts QueryStringCachingBehaviorArgs and QueryStringCachingBehaviorOutput values.
 // You can construct a concrete instance of `QueryStringCachingBehaviorInput` via:
 //
-//          QueryStringCachingBehaviorArgs{...}
+//	QueryStringCachingBehaviorArgs{...}
 type QueryStringCachingBehaviorInput interface {
 	pulumi.Input
 
@@ -1387,7 +1387,7 @@ func (o ResponseBasedDetectedErrorTypesPtrOutput) ToStringPtrOutputWithContext(c
 // ResponseBasedDetectedErrorTypesInput is an input type that accepts ResponseBasedDetectedErrorTypesArgs and ResponseBasedDetectedErrorTypesOutput values.
 // You can construct a concrete instance of `ResponseBasedDetectedErrorTypesInput` via:
 //
-//          ResponseBasedDetectedErrorTypesArgs{...}
+//	ResponseBasedDetectedErrorTypesArgs{...}
 type ResponseBasedDetectedErrorTypesInput interface {
 	pulumi.Input
 
@@ -1615,7 +1615,7 @@ func (o SharedPrivateLinkResourceStatusPtrOutput) ToStringPtrOutputWithContext(c
 // SharedPrivateLinkResourceStatusInput is an input type that accepts SharedPrivateLinkResourceStatusArgs and SharedPrivateLinkResourceStatusOutput values.
 // You can construct a concrete instance of `SharedPrivateLinkResourceStatusInput` via:
 //
-//          SharedPrivateLinkResourceStatusArgs{...}
+//	SharedPrivateLinkResourceStatusArgs{...}
 type SharedPrivateLinkResourceStatusInput interface {
 	pulumi.Input
 

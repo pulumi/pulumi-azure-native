@@ -23,7 +23,7 @@ type CreateFirewallRuleWithAccountParameters struct {
 // CreateFirewallRuleWithAccountParametersInput is an input type that accepts CreateFirewallRuleWithAccountParametersArgs and CreateFirewallRuleWithAccountParametersOutput values.
 // You can construct a concrete instance of `CreateFirewallRuleWithAccountParametersInput` via:
 //
-//          CreateFirewallRuleWithAccountParametersArgs{...}
+//	CreateFirewallRuleWithAccountParametersArgs{...}
 type CreateFirewallRuleWithAccountParametersInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i CreateFirewallRuleWithAccountParametersArgs) ToCreateFirewallRuleWithAcc
 // CreateFirewallRuleWithAccountParametersArrayInput is an input type that accepts CreateFirewallRuleWithAccountParametersArray and CreateFirewallRuleWithAccountParametersArrayOutput values.
 // You can construct a concrete instance of `CreateFirewallRuleWithAccountParametersArrayInput` via:
 //
-//          CreateFirewallRuleWithAccountParametersArray{ CreateFirewallRuleWithAccountParametersArgs{...} }
+//	CreateFirewallRuleWithAccountParametersArray{ CreateFirewallRuleWithAccountParametersArgs{...} }
 type CreateFirewallRuleWithAccountParametersArrayInput interface {
 	pulumi.Input
 
@@ -139,7 +139,7 @@ type CreateTrustedIdProviderWithAccountParameters struct {
 // CreateTrustedIdProviderWithAccountParametersInput is an input type that accepts CreateTrustedIdProviderWithAccountParametersArgs and CreateTrustedIdProviderWithAccountParametersOutput values.
 // You can construct a concrete instance of `CreateTrustedIdProviderWithAccountParametersInput` via:
 //
-//          CreateTrustedIdProviderWithAccountParametersArgs{...}
+//	CreateTrustedIdProviderWithAccountParametersArgs{...}
 type CreateTrustedIdProviderWithAccountParametersInput interface {
 	pulumi.Input
 
@@ -170,7 +170,7 @@ func (i CreateTrustedIdProviderWithAccountParametersArgs) ToCreateTrustedIdProvi
 // CreateTrustedIdProviderWithAccountParametersArrayInput is an input type that accepts CreateTrustedIdProviderWithAccountParametersArray and CreateTrustedIdProviderWithAccountParametersArrayOutput values.
 // You can construct a concrete instance of `CreateTrustedIdProviderWithAccountParametersArrayInput` via:
 //
-//          CreateTrustedIdProviderWithAccountParametersArray{ CreateTrustedIdProviderWithAccountParametersArgs{...} }
+//	CreateTrustedIdProviderWithAccountParametersArray{ CreateTrustedIdProviderWithAccountParametersArgs{...} }
 type CreateTrustedIdProviderWithAccountParametersArrayInput interface {
 	pulumi.Input
 
@@ -248,7 +248,7 @@ type CreateVirtualNetworkRuleWithAccountParameters struct {
 // CreateVirtualNetworkRuleWithAccountParametersInput is an input type that accepts CreateVirtualNetworkRuleWithAccountParametersArgs and CreateVirtualNetworkRuleWithAccountParametersOutput values.
 // You can construct a concrete instance of `CreateVirtualNetworkRuleWithAccountParametersInput` via:
 //
-//          CreateVirtualNetworkRuleWithAccountParametersArgs{...}
+//	CreateVirtualNetworkRuleWithAccountParametersArgs{...}
 type CreateVirtualNetworkRuleWithAccountParametersInput interface {
 	pulumi.Input
 
@@ -279,7 +279,7 @@ func (i CreateVirtualNetworkRuleWithAccountParametersArgs) ToCreateVirtualNetwor
 // CreateVirtualNetworkRuleWithAccountParametersArrayInput is an input type that accepts CreateVirtualNetworkRuleWithAccountParametersArray and CreateVirtualNetworkRuleWithAccountParametersArrayOutput values.
 // You can construct a concrete instance of `CreateVirtualNetworkRuleWithAccountParametersArrayInput` via:
 //
-//          CreateVirtualNetworkRuleWithAccountParametersArray{ CreateVirtualNetworkRuleWithAccountParametersArgs{...} }
+//	CreateVirtualNetworkRuleWithAccountParametersArray{ CreateVirtualNetworkRuleWithAccountParametersArgs{...} }
 type CreateVirtualNetworkRuleWithAccountParametersArrayInput interface {
 	pulumi.Input
 
@@ -357,7 +357,7 @@ type EncryptionConfig struct {
 // EncryptionConfigInput is an input type that accepts EncryptionConfigArgs and EncryptionConfigOutput values.
 // You can construct a concrete instance of `EncryptionConfigInput` via:
 //
-//          EncryptionConfigArgs{...}
+//	EncryptionConfigArgs{...}
 type EncryptionConfigInput interface {
 	pulumi.Input
 
@@ -396,11 +396,11 @@ func (i EncryptionConfigArgs) ToEncryptionConfigPtrOutputWithContext(ctx context
 // EncryptionConfigPtrInput is an input type that accepts EncryptionConfigArgs, EncryptionConfigPtr and EncryptionConfigPtrOutput values.
 // You can construct a concrete instance of `EncryptionConfigPtrInput` via:
 //
-//          EncryptionConfigArgs{...}
+//	        EncryptionConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EncryptionConfigPtrInput interface {
 	pulumi.Input
 
@@ -547,7 +547,7 @@ type EncryptionIdentity struct {
 // EncryptionIdentityInput is an input type that accepts EncryptionIdentityArgs and EncryptionIdentityOutput values.
 // You can construct a concrete instance of `EncryptionIdentityInput` via:
 //
-//          EncryptionIdentityArgs{...}
+//	EncryptionIdentityArgs{...}
 type EncryptionIdentityInput interface {
 	pulumi.Input
 
@@ -584,11 +584,11 @@ func (i EncryptionIdentityArgs) ToEncryptionIdentityPtrOutputWithContext(ctx con
 // EncryptionIdentityPtrInput is an input type that accepts EncryptionIdentityArgs, EncryptionIdentityPtr and EncryptionIdentityPtrOutput values.
 // You can construct a concrete instance of `EncryptionIdentityPtrInput` via:
 //
-//          EncryptionIdentityArgs{...}
+//	        EncryptionIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EncryptionIdentityPtrInput interface {
 	pulumi.Input
 
@@ -805,7 +805,7 @@ type KeyVaultMetaInfo struct {
 // KeyVaultMetaInfoInput is an input type that accepts KeyVaultMetaInfoArgs and KeyVaultMetaInfoOutput values.
 // You can construct a concrete instance of `KeyVaultMetaInfoInput` via:
 //
-//          KeyVaultMetaInfoArgs{...}
+//	KeyVaultMetaInfoArgs{...}
 type KeyVaultMetaInfoInput interface {
 	pulumi.Input
 
@@ -846,11 +846,11 @@ func (i KeyVaultMetaInfoArgs) ToKeyVaultMetaInfoPtrOutputWithContext(ctx context
 // KeyVaultMetaInfoPtrInput is an input type that accepts KeyVaultMetaInfoArgs, KeyVaultMetaInfoPtr and KeyVaultMetaInfoPtrOutput values.
 // You can construct a concrete instance of `KeyVaultMetaInfoPtrInput` via:
 //
-//          KeyVaultMetaInfoArgs{...}
+//	        KeyVaultMetaInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KeyVaultMetaInfoPtrInput interface {
 	pulumi.Input
 

@@ -572,7 +572,7 @@ func (val *IPRule) Defaults() *IPRule {
 // IPRuleInput is an input type that accepts IPRuleArgs and IPRuleOutput values.
 // You can construct a concrete instance of `IPRuleInput` via:
 //
-//          IPRuleArgs{...}
+//	IPRuleArgs{...}
 type IPRuleInput interface {
 	pulumi.Input
 
@@ -614,7 +614,7 @@ func (i IPRuleArgs) ToIPRuleOutputWithContext(ctx context.Context) IPRuleOutput 
 // IPRuleArrayInput is an input type that accepts IPRuleArray and IPRuleArrayOutput values.
 // You can construct a concrete instance of `IPRuleArrayInput` via:
 //
-//          IPRuleArray{ IPRuleArgs{...} }
+//	IPRuleArray{ IPRuleArgs{...} }
 type IPRuleArrayInput interface {
 	pulumi.Input
 
@@ -772,7 +772,7 @@ func (val *NetworkRuleSet) Defaults() *NetworkRuleSet {
 // NetworkRuleSetInput is an input type that accepts NetworkRuleSetArgs and NetworkRuleSetOutput values.
 // You can construct a concrete instance of `NetworkRuleSetInput` via:
 //
-//          NetworkRuleSetArgs{...}
+//	NetworkRuleSetArgs{...}
 type NetworkRuleSetInput interface {
 	pulumi.Input
 
@@ -824,11 +824,11 @@ func (i NetworkRuleSetArgs) ToNetworkRuleSetPtrOutputWithContext(ctx context.Con
 // NetworkRuleSetPtrInput is an input type that accepts NetworkRuleSetArgs, NetworkRuleSetPtr and NetworkRuleSetPtrOutput values.
 // You can construct a concrete instance of `NetworkRuleSetPtrInput` via:
 //
-//          NetworkRuleSetArgs{...}
+//	        NetworkRuleSetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkRuleSetPtrInput interface {
 	pulumi.Input
 
@@ -1244,7 +1244,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -1449,7 +1449,7 @@ type StorageAccountProperties struct {
 // StorageAccountPropertiesInput is an input type that accepts StorageAccountPropertiesArgs and StorageAccountPropertiesOutput values.
 // You can construct a concrete instance of `StorageAccountPropertiesInput` via:
 //
-//          StorageAccountPropertiesArgs{...}
+//	StorageAccountPropertiesArgs{...}
 type StorageAccountPropertiesInput interface {
 	pulumi.Input
 
@@ -1486,11 +1486,11 @@ func (i StorageAccountPropertiesArgs) ToStorageAccountPropertiesPtrOutputWithCon
 // StorageAccountPropertiesPtrInput is an input type that accepts StorageAccountPropertiesArgs, StorageAccountPropertiesPtr and StorageAccountPropertiesPtrOutput values.
 // You can construct a concrete instance of `StorageAccountPropertiesPtrInput` via:
 //
-//          StorageAccountPropertiesArgs{...}
+//	        StorageAccountPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageAccountPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1860,7 +1860,7 @@ func (val *VirtualNetworkRule) Defaults() *VirtualNetworkRule {
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleInput` via:
 //
-//          VirtualNetworkRuleArgs{...}
+//	VirtualNetworkRuleArgs{...}
 type VirtualNetworkRuleInput interface {
 	pulumi.Input
 
@@ -1902,7 +1902,7 @@ func (i VirtualNetworkRuleArgs) ToVirtualNetworkRuleOutputWithContext(ctx contex
 // VirtualNetworkRuleArrayInput is an input type that accepts VirtualNetworkRuleArray and VirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleArrayInput` via:
 //
-//          VirtualNetworkRuleArray{ VirtualNetworkRuleArgs{...} }
+//	VirtualNetworkRuleArray{ VirtualNetworkRuleArgs{...} }
 type VirtualNetworkRuleArrayInput interface {
 	pulumi.Input
 

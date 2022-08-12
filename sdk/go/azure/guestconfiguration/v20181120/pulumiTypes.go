@@ -21,7 +21,7 @@ type ConfigurationParameter struct {
 // ConfigurationParameterInput is an input type that accepts ConfigurationParameterArgs and ConfigurationParameterOutput values.
 // You can construct a concrete instance of `ConfigurationParameterInput` via:
 //
-//          ConfigurationParameterArgs{...}
+//	ConfigurationParameterArgs{...}
 type ConfigurationParameterInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ConfigurationParameterArgs) ToConfigurationParameterOutputWithContext(ct
 // ConfigurationParameterArrayInput is an input type that accepts ConfigurationParameterArray and ConfigurationParameterArrayOutput values.
 // You can construct a concrete instance of `ConfigurationParameterArrayInput` via:
 //
-//          ConfigurationParameterArray{ ConfigurationParameterArgs{...} }
+//	ConfigurationParameterArray{ ConfigurationParameterArgs{...} }
 type ConfigurationParameterArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +208,7 @@ func (val *ConfigurationSetting) Defaults() *ConfigurationSetting {
 // ConfigurationSettingInput is an input type that accepts ConfigurationSettingArgs and ConfigurationSettingOutput values.
 // You can construct a concrete instance of `ConfigurationSettingInput` via:
 //
-//          ConfigurationSettingArgs{...}
+//	ConfigurationSettingArgs{...}
 type ConfigurationSettingInput interface {
 	pulumi.Input
 
@@ -269,11 +269,11 @@ func (i ConfigurationSettingArgs) ToConfigurationSettingPtrOutputWithContext(ctx
 // ConfigurationSettingPtrInput is an input type that accepts ConfigurationSettingArgs, ConfigurationSettingPtr and ConfigurationSettingPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSettingPtrInput` via:
 //
-//          ConfigurationSettingArgs{...}
+//	        ConfigurationSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSettingPtrInput interface {
 	pulumi.Input
 
@@ -622,7 +622,7 @@ func (val *GuestConfigurationAssignmentProperties) Defaults() *GuestConfiguratio
 // GuestConfigurationAssignmentPropertiesInput is an input type that accepts GuestConfigurationAssignmentPropertiesArgs and GuestConfigurationAssignmentPropertiesOutput values.
 // You can construct a concrete instance of `GuestConfigurationAssignmentPropertiesInput` via:
 //
-//          GuestConfigurationAssignmentPropertiesArgs{...}
+//	GuestConfigurationAssignmentPropertiesArgs{...}
 type GuestConfigurationAssignmentPropertiesInput interface {
 	pulumi.Input
 
@@ -670,11 +670,11 @@ func (i GuestConfigurationAssignmentPropertiesArgs) ToGuestConfigurationAssignme
 // GuestConfigurationAssignmentPropertiesPtrInput is an input type that accepts GuestConfigurationAssignmentPropertiesArgs, GuestConfigurationAssignmentPropertiesPtr and GuestConfigurationAssignmentPropertiesPtrOutput values.
 // You can construct a concrete instance of `GuestConfigurationAssignmentPropertiesPtrInput` via:
 //
-//          GuestConfigurationAssignmentPropertiesArgs{...}
+//	        GuestConfigurationAssignmentPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GuestConfigurationAssignmentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -919,7 +919,7 @@ func (val *GuestConfigurationNavigation) Defaults() *GuestConfigurationNavigatio
 // GuestConfigurationNavigationInput is an input type that accepts GuestConfigurationNavigationArgs and GuestConfigurationNavigationOutput values.
 // You can construct a concrete instance of `GuestConfigurationNavigationInput` via:
 //
-//          GuestConfigurationNavigationArgs{...}
+//	GuestConfigurationNavigationArgs{...}
 type GuestConfigurationNavigationInput interface {
 	pulumi.Input
 
@@ -981,11 +981,11 @@ func (i GuestConfigurationNavigationArgs) ToGuestConfigurationNavigationPtrOutpu
 // GuestConfigurationNavigationPtrInput is an input type that accepts GuestConfigurationNavigationArgs, GuestConfigurationNavigationPtr and GuestConfigurationNavigationPtrOutput values.
 // You can construct a concrete instance of `GuestConfigurationNavigationPtrInput` via:
 //
-//          GuestConfigurationNavigationArgs{...}
+//	        GuestConfigurationNavigationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GuestConfigurationNavigationPtrInput interface {
 	pulumi.Input
 

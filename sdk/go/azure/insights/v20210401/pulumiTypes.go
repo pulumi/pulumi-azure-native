@@ -19,7 +19,7 @@ type DataCollectionEndpointNetworkAcls struct {
 // DataCollectionEndpointNetworkAclsInput is an input type that accepts DataCollectionEndpointNetworkAclsArgs and DataCollectionEndpointNetworkAclsOutput values.
 // You can construct a concrete instance of `DataCollectionEndpointNetworkAclsInput` via:
 //
-//          DataCollectionEndpointNetworkAclsArgs{...}
+//	DataCollectionEndpointNetworkAclsArgs{...}
 type DataCollectionEndpointNetworkAclsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i DataCollectionEndpointNetworkAclsArgs) ToDataCollectionEndpointNetworkAc
 // DataCollectionEndpointNetworkAclsPtrInput is an input type that accepts DataCollectionEndpointNetworkAclsArgs, DataCollectionEndpointNetworkAclsPtr and DataCollectionEndpointNetworkAclsPtrOutput values.
 // You can construct a concrete instance of `DataCollectionEndpointNetworkAclsPtrInput` via:
 //
-//          DataCollectionEndpointNetworkAclsArgs{...}
+//	        DataCollectionEndpointNetworkAclsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataCollectionEndpointNetworkAclsPtrInput interface {
 	pulumi.Input
 
@@ -476,7 +476,7 @@ type DataCollectionRuleDataSources struct {
 // DataCollectionRuleDataSourcesInput is an input type that accepts DataCollectionRuleDataSourcesArgs and DataCollectionRuleDataSourcesOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesInput` via:
 //
-//          DataCollectionRuleDataSourcesArgs{...}
+//	DataCollectionRuleDataSourcesArgs{...}
 type DataCollectionRuleDataSourcesInput interface {
 	pulumi.Input
 
@@ -520,11 +520,11 @@ func (i DataCollectionRuleDataSourcesArgs) ToDataCollectionRuleDataSourcesPtrOut
 // DataCollectionRuleDataSourcesPtrInput is an input type that accepts DataCollectionRuleDataSourcesArgs, DataCollectionRuleDataSourcesPtr and DataCollectionRuleDataSourcesPtrOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesPtrInput` via:
 //
-//          DataCollectionRuleDataSourcesArgs{...}
+//	        DataCollectionRuleDataSourcesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataCollectionRuleDataSourcesPtrInput interface {
 	pulumi.Input
 
@@ -671,7 +671,7 @@ type DataCollectionRuleDestinations struct {
 // DataCollectionRuleDestinationsInput is an input type that accepts DataCollectionRuleDestinationsArgs and DataCollectionRuleDestinationsOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDestinationsInput` via:
 //
-//          DataCollectionRuleDestinationsArgs{...}
+//	DataCollectionRuleDestinationsArgs{...}
 type DataCollectionRuleDestinationsInput interface {
 	pulumi.Input
 
@@ -710,11 +710,11 @@ func (i DataCollectionRuleDestinationsArgs) ToDataCollectionRuleDestinationsPtrO
 // DataCollectionRuleDestinationsPtrInput is an input type that accepts DataCollectionRuleDestinationsArgs, DataCollectionRuleDestinationsPtr and DataCollectionRuleDestinationsPtrOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDestinationsPtrInput` via:
 //
-//          DataCollectionRuleDestinationsArgs{...}
+//	        DataCollectionRuleDestinationsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataCollectionRuleDestinationsPtrInput interface {
 	pulumi.Input
 
@@ -1091,7 +1091,7 @@ type DataFlow struct {
 // DataFlowInput is an input type that accepts DataFlowArgs and DataFlowOutput values.
 // You can construct a concrete instance of `DataFlowInput` via:
 //
-//          DataFlowArgs{...}
+//	DataFlowArgs{...}
 type DataFlowInput interface {
 	pulumi.Input
 
@@ -1122,7 +1122,7 @@ func (i DataFlowArgs) ToDataFlowOutputWithContext(ctx context.Context) DataFlowO
 // DataFlowArrayInput is an input type that accepts DataFlowArray and DataFlowArrayOutput values.
 // You can construct a concrete instance of `DataFlowArrayInput` via:
 //
-//          DataFlowArray{ DataFlowArgs{...} }
+//	DataFlowArray{ DataFlowArgs{...} }
 type DataFlowArrayInput interface {
 	pulumi.Input
 
@@ -1252,7 +1252,7 @@ type DestinationsSpecAzureMonitorMetrics struct {
 // DestinationsSpecAzureMonitorMetricsInput is an input type that accepts DestinationsSpecAzureMonitorMetricsArgs and DestinationsSpecAzureMonitorMetricsOutput values.
 // You can construct a concrete instance of `DestinationsSpecAzureMonitorMetricsInput` via:
 //
-//          DestinationsSpecAzureMonitorMetricsArgs{...}
+//	DestinationsSpecAzureMonitorMetricsArgs{...}
 type DestinationsSpecAzureMonitorMetricsInput interface {
 	pulumi.Input
 
@@ -1290,11 +1290,11 @@ func (i DestinationsSpecAzureMonitorMetricsArgs) ToDestinationsSpecAzureMonitorM
 // DestinationsSpecAzureMonitorMetricsPtrInput is an input type that accepts DestinationsSpecAzureMonitorMetricsArgs, DestinationsSpecAzureMonitorMetricsPtr and DestinationsSpecAzureMonitorMetricsPtrOutput values.
 // You can construct a concrete instance of `DestinationsSpecAzureMonitorMetricsPtrInput` via:
 //
-//          DestinationsSpecAzureMonitorMetricsArgs{...}
+//	        DestinationsSpecAzureMonitorMetricsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DestinationsSpecAzureMonitorMetricsPtrInput interface {
 	pulumi.Input
 
@@ -1469,7 +1469,7 @@ type ExtensionDataSource struct {
 // ExtensionDataSourceInput is an input type that accepts ExtensionDataSourceArgs and ExtensionDataSourceOutput values.
 // You can construct a concrete instance of `ExtensionDataSourceInput` via:
 //
-//          ExtensionDataSourceArgs{...}
+//	ExtensionDataSourceArgs{...}
 type ExtensionDataSourceInput interface {
 	pulumi.Input
 
@@ -1509,7 +1509,7 @@ func (i ExtensionDataSourceArgs) ToExtensionDataSourceOutputWithContext(ctx cont
 // ExtensionDataSourceArrayInput is an input type that accepts ExtensionDataSourceArray and ExtensionDataSourceArrayOutput values.
 // You can construct a concrete instance of `ExtensionDataSourceArrayInput` via:
 //
-//          ExtensionDataSourceArray{ ExtensionDataSourceArgs{...} }
+//	ExtensionDataSourceArray{ ExtensionDataSourceArgs{...} }
 type ExtensionDataSourceArrayInput interface {
 	pulumi.Input
 
@@ -1686,7 +1686,7 @@ type LogAnalyticsDestination struct {
 // LogAnalyticsDestinationInput is an input type that accepts LogAnalyticsDestinationArgs and LogAnalyticsDestinationOutput values.
 // You can construct a concrete instance of `LogAnalyticsDestinationInput` via:
 //
-//          LogAnalyticsDestinationArgs{...}
+//	LogAnalyticsDestinationArgs{...}
 type LogAnalyticsDestinationInput interface {
 	pulumi.Input
 
@@ -1718,7 +1718,7 @@ func (i LogAnalyticsDestinationArgs) ToLogAnalyticsDestinationOutputWithContext(
 // LogAnalyticsDestinationArrayInput is an input type that accepts LogAnalyticsDestinationArray and LogAnalyticsDestinationArrayOutput values.
 // You can construct a concrete instance of `LogAnalyticsDestinationArrayInput` via:
 //
-//          LogAnalyticsDestinationArray{ LogAnalyticsDestinationArgs{...} }
+//	LogAnalyticsDestinationArray{ LogAnalyticsDestinationArgs{...} }
 type LogAnalyticsDestinationArrayInput interface {
 	pulumi.Input
 
@@ -1868,7 +1868,7 @@ type PerfCounterDataSource struct {
 // PerfCounterDataSourceInput is an input type that accepts PerfCounterDataSourceArgs and PerfCounterDataSourceOutput values.
 // You can construct a concrete instance of `PerfCounterDataSourceInput` via:
 //
-//          PerfCounterDataSourceArgs{...}
+//	PerfCounterDataSourceArgs{...}
 type PerfCounterDataSourceInput interface {
 	pulumi.Input
 
@@ -1908,7 +1908,7 @@ func (i PerfCounterDataSourceArgs) ToPerfCounterDataSourceOutputWithContext(ctx 
 // PerfCounterDataSourceArrayInput is an input type that accepts PerfCounterDataSourceArray and PerfCounterDataSourceArrayOutput values.
 // You can construct a concrete instance of `PerfCounterDataSourceArrayInput` via:
 //
-//          PerfCounterDataSourceArray{ PerfCounterDataSourceArgs{...} }
+//	PerfCounterDataSourceArray{ PerfCounterDataSourceArgs{...} }
 type PerfCounterDataSourceArrayInput interface {
 	pulumi.Input
 
@@ -2085,7 +2085,7 @@ type SyslogDataSource struct {
 // SyslogDataSourceInput is an input type that accepts SyslogDataSourceArgs and SyslogDataSourceOutput values.
 // You can construct a concrete instance of `SyslogDataSourceInput` via:
 //
-//          SyslogDataSourceArgs{...}
+//	SyslogDataSourceArgs{...}
 type SyslogDataSourceInput interface {
 	pulumi.Input
 
@@ -2123,7 +2123,7 @@ func (i SyslogDataSourceArgs) ToSyslogDataSourceOutputWithContext(ctx context.Co
 // SyslogDataSourceArrayInput is an input type that accepts SyslogDataSourceArray and SyslogDataSourceArrayOutput values.
 // You can construct a concrete instance of `SyslogDataSourceArrayInput` via:
 //
-//          SyslogDataSourceArray{ SyslogDataSourceArgs{...} }
+//	SyslogDataSourceArray{ SyslogDataSourceArgs{...} }
 type SyslogDataSourceArrayInput interface {
 	pulumi.Input
 
@@ -2292,7 +2292,7 @@ type WindowsEventLogDataSource struct {
 // WindowsEventLogDataSourceInput is an input type that accepts WindowsEventLogDataSourceArgs and WindowsEventLogDataSourceOutput values.
 // You can construct a concrete instance of `WindowsEventLogDataSourceInput` via:
 //
-//          WindowsEventLogDataSourceArgs{...}
+//	WindowsEventLogDataSourceArgs{...}
 type WindowsEventLogDataSourceInput interface {
 	pulumi.Input
 
@@ -2328,7 +2328,7 @@ func (i WindowsEventLogDataSourceArgs) ToWindowsEventLogDataSourceOutputWithCont
 // WindowsEventLogDataSourceArrayInput is an input type that accepts WindowsEventLogDataSourceArray and WindowsEventLogDataSourceArrayOutput values.
 // You can construct a concrete instance of `WindowsEventLogDataSourceArrayInput` via:
 //
-//          WindowsEventLogDataSourceArray{ WindowsEventLogDataSourceArgs{...} }
+//	WindowsEventLogDataSourceArray{ WindowsEventLogDataSourceArgs{...} }
 type WindowsEventLogDataSourceArrayInput interface {
 	pulumi.Input
 

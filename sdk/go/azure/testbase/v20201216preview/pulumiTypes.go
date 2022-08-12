@@ -37,7 +37,7 @@ type Command struct {
 // CommandInput is an input type that accepts CommandArgs and CommandOutput values.
 // You can construct a concrete instance of `CommandInput` via:
 //
-//          CommandArgs{...}
+//	CommandArgs{...}
 type CommandInput interface {
 	pulumi.Input
 
@@ -84,7 +84,7 @@ func (i CommandArgs) ToCommandOutputWithContext(ctx context.Context) CommandOutp
 // CommandArrayInput is an input type that accepts CommandArray and CommandArrayOutput values.
 // You can construct a concrete instance of `CommandArrayInput` via:
 //
-//          CommandArray{ CommandArgs{...} }
+//	CommandArray{ CommandArgs{...} }
 type CommandArrayInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ type DistributionGroupListReceiverValue struct {
 // DistributionGroupListReceiverValueInput is an input type that accepts DistributionGroupListReceiverValueArgs and DistributionGroupListReceiverValueOutput values.
 // You can construct a concrete instance of `DistributionGroupListReceiverValueInput` via:
 //
-//          DistributionGroupListReceiverValueArgs{...}
+//	DistributionGroupListReceiverValueArgs{...}
 type DistributionGroupListReceiverValueInput interface {
 	pulumi.Input
 
@@ -346,11 +346,11 @@ func (i DistributionGroupListReceiverValueArgs) ToDistributionGroupListReceiverV
 // DistributionGroupListReceiverValuePtrInput is an input type that accepts DistributionGroupListReceiverValueArgs, DistributionGroupListReceiverValuePtr and DistributionGroupListReceiverValuePtrOutput values.
 // You can construct a concrete instance of `DistributionGroupListReceiverValuePtrInput` via:
 //
-//          DistributionGroupListReceiverValueArgs{...}
+//	        DistributionGroupListReceiverValueArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionGroupListReceiverValuePtrInput interface {
 	pulumi.Input
 
@@ -511,7 +511,7 @@ type NotificationEventReceiver struct {
 // NotificationEventReceiverInput is an input type that accepts NotificationEventReceiverArgs and NotificationEventReceiverOutput values.
 // You can construct a concrete instance of `NotificationEventReceiverInput` via:
 //
-//          NotificationEventReceiverArgs{...}
+//	NotificationEventReceiverArgs{...}
 type NotificationEventReceiverInput interface {
 	pulumi.Input
 
@@ -542,7 +542,7 @@ func (i NotificationEventReceiverArgs) ToNotificationEventReceiverOutputWithCont
 // NotificationEventReceiverArrayInput is an input type that accepts NotificationEventReceiverArray and NotificationEventReceiverArrayOutput values.
 // You can construct a concrete instance of `NotificationEventReceiverArrayInput` via:
 //
-//          NotificationEventReceiverArray{ NotificationEventReceiverArgs{...} }
+//	NotificationEventReceiverArray{ NotificationEventReceiverArgs{...} }
 type NotificationEventReceiverArrayInput interface {
 	pulumi.Input
 
@@ -675,7 +675,7 @@ type NotificationReceiverValue struct {
 // NotificationReceiverValueInput is an input type that accepts NotificationReceiverValueArgs and NotificationReceiverValueOutput values.
 // You can construct a concrete instance of `NotificationReceiverValueInput` via:
 //
-//          NotificationReceiverValueArgs{...}
+//	NotificationReceiverValueArgs{...}
 type NotificationReceiverValueInput interface {
 	pulumi.Input
 
@@ -716,11 +716,11 @@ func (i NotificationReceiverValueArgs) ToNotificationReceiverValuePtrOutputWithC
 // NotificationReceiverValuePtrInput is an input type that accepts NotificationReceiverValueArgs, NotificationReceiverValuePtr and NotificationReceiverValuePtrOutput values.
 // You can construct a concrete instance of `NotificationReceiverValuePtrInput` via:
 //
-//          NotificationReceiverValueArgs{...}
+//	        NotificationReceiverValueArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NotificationReceiverValuePtrInput interface {
 	pulumi.Input
 
@@ -1015,7 +1015,7 @@ type SubscriptionReceiverValue struct {
 // SubscriptionReceiverValueInput is an input type that accepts SubscriptionReceiverValueArgs and SubscriptionReceiverValueOutput values.
 // You can construct a concrete instance of `SubscriptionReceiverValueInput` via:
 //
-//          SubscriptionReceiverValueArgs{...}
+//	SubscriptionReceiverValueArgs{...}
 type SubscriptionReceiverValueInput interface {
 	pulumi.Input
 
@@ -1056,11 +1056,11 @@ func (i SubscriptionReceiverValueArgs) ToSubscriptionReceiverValuePtrOutputWithC
 // SubscriptionReceiverValuePtrInput is an input type that accepts SubscriptionReceiverValueArgs, SubscriptionReceiverValuePtr and SubscriptionReceiverValuePtrOutput values.
 // You can construct a concrete instance of `SubscriptionReceiverValuePtrInput` via:
 //
-//          SubscriptionReceiverValueArgs{...}
+//	        SubscriptionReceiverValueArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubscriptionReceiverValuePtrInput interface {
 	pulumi.Input
 
@@ -1346,7 +1346,7 @@ type TargetOSInfo struct {
 // TargetOSInfoInput is an input type that accepts TargetOSInfoArgs and TargetOSInfoOutput values.
 // You can construct a concrete instance of `TargetOSInfoInput` via:
 //
-//          TargetOSInfoArgs{...}
+//	TargetOSInfoArgs{...}
 type TargetOSInfoInput interface {
 	pulumi.Input
 
@@ -1377,7 +1377,7 @@ func (i TargetOSInfoArgs) ToTargetOSInfoOutputWithContext(ctx context.Context) T
 // TargetOSInfoArrayInput is an input type that accepts TargetOSInfoArray and TargetOSInfoArrayOutput values.
 // You can construct a concrete instance of `TargetOSInfoArrayInput` via:
 //
-//          TargetOSInfoArray{ TargetOSInfoArgs{...} }
+//	TargetOSInfoArray{ TargetOSInfoArgs{...} }
 type TargetOSInfoArrayInput interface {
 	pulumi.Input
 
@@ -1510,7 +1510,7 @@ type Test struct {
 // TestInput is an input type that accepts TestArgs and TestOutput values.
 // You can construct a concrete instance of `TestInput` via:
 //
-//          TestArgs{...}
+//	TestArgs{...}
 type TestInput interface {
 	pulumi.Input
 
@@ -1543,7 +1543,7 @@ func (i TestArgs) ToTestOutputWithContext(ctx context.Context) TestOutput {
 // TestArrayInput is an input type that accepts TestArray and TestArrayOutput values.
 // You can construct a concrete instance of `TestArrayInput` via:
 //
-//          TestArray{ TestArgs{...} }
+//	TestArray{ TestArgs{...} }
 type TestArrayInput interface {
 	pulumi.Input
 
@@ -1630,7 +1630,7 @@ type TestBaseAccountSKU struct {
 // TestBaseAccountSKUInput is an input type that accepts TestBaseAccountSKUArgs and TestBaseAccountSKUOutput values.
 // You can construct a concrete instance of `TestBaseAccountSKUInput` via:
 //
-//          TestBaseAccountSKUArgs{...}
+//	TestBaseAccountSKUArgs{...}
 type TestBaseAccountSKUInput interface {
 	pulumi.Input
 
@@ -1880,7 +1880,7 @@ type UserObjectReceiverValue struct {
 // UserObjectReceiverValueInput is an input type that accepts UserObjectReceiverValueArgs and UserObjectReceiverValueOutput values.
 // You can construct a concrete instance of `UserObjectReceiverValueInput` via:
 //
-//          UserObjectReceiverValueArgs{...}
+//	UserObjectReceiverValueArgs{...}
 type UserObjectReceiverValueInput interface {
 	pulumi.Input
 
@@ -1917,11 +1917,11 @@ func (i UserObjectReceiverValueArgs) ToUserObjectReceiverValuePtrOutputWithConte
 // UserObjectReceiverValuePtrInput is an input type that accepts UserObjectReceiverValueArgs, UserObjectReceiverValuePtr and UserObjectReceiverValuePtrOutput values.
 // You can construct a concrete instance of `UserObjectReceiverValuePtrInput` via:
 //
-//          UserObjectReceiverValueArgs{...}
+//	        UserObjectReceiverValueArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UserObjectReceiverValuePtrInput interface {
 	pulumi.Input
 

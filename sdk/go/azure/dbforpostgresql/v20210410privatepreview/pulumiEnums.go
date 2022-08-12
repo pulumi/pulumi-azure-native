@@ -157,7 +157,7 @@ func (o HAEnabledEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // HAEnabledEnumInput is an input type that accepts HAEnabledEnumArgs and HAEnabledEnumOutput values.
 // You can construct a concrete instance of `HAEnabledEnumInput` via:
 //
-//          HAEnabledEnumArgs{...}
+//	HAEnabledEnumArgs{...}
 type HAEnabledEnumInput interface {
 	pulumi.Input
 
@@ -321,7 +321,7 @@ func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
 // You can construct a concrete instance of `ResourceIdentityTypeInput` via:
 //
-//          ResourceIdentityTypeArgs{...}
+//	ResourceIdentityTypeArgs{...}
 type ResourceIdentityTypeInput interface {
 	pulumi.Input
 

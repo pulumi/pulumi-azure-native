@@ -403,7 +403,7 @@ type DebugSetting struct {
 // DebugSettingInput is an input type that accepts DebugSettingArgs and DebugSettingOutput values.
 // You can construct a concrete instance of `DebugSettingInput` via:
 //
-//          DebugSettingArgs{...}
+//	DebugSettingArgs{...}
 type DebugSettingInput interface {
 	pulumi.Input
 
@@ -440,11 +440,11 @@ func (i DebugSettingArgs) ToDebugSettingPtrOutputWithContext(ctx context.Context
 // DebugSettingPtrInput is an input type that accepts DebugSettingArgs, DebugSettingPtr and DebugSettingPtrOutput values.
 // You can construct a concrete instance of `DebugSettingPtrInput` via:
 //
-//          DebugSettingArgs{...}
+//	        DebugSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DebugSettingPtrInput interface {
 	pulumi.Input
 
@@ -650,7 +650,7 @@ type DeploymentProperties struct {
 // DeploymentPropertiesInput is an input type that accepts DeploymentPropertiesArgs and DeploymentPropertiesOutput values.
 // You can construct a concrete instance of `DeploymentPropertiesInput` via:
 //
-//          DeploymentPropertiesArgs{...}
+//	DeploymentPropertiesArgs{...}
 type DeploymentPropertiesInput interface {
 	pulumi.Input
 
@@ -1021,7 +1021,7 @@ type ExpressionEvaluationOptions struct {
 // ExpressionEvaluationOptionsInput is an input type that accepts ExpressionEvaluationOptionsArgs and ExpressionEvaluationOptionsOutput values.
 // You can construct a concrete instance of `ExpressionEvaluationOptionsInput` via:
 //
-//          ExpressionEvaluationOptionsArgs{...}
+//	ExpressionEvaluationOptionsArgs{...}
 type ExpressionEvaluationOptionsInput interface {
 	pulumi.Input
 
@@ -1058,11 +1058,11 @@ func (i ExpressionEvaluationOptionsArgs) ToExpressionEvaluationOptionsPtrOutputW
 // ExpressionEvaluationOptionsPtrInput is an input type that accepts ExpressionEvaluationOptionsArgs, ExpressionEvaluationOptionsPtr and ExpressionEvaluationOptionsPtrOutput values.
 // You can construct a concrete instance of `ExpressionEvaluationOptionsPtrInput` via:
 //
-//          ExpressionEvaluationOptionsArgs{...}
+//	        ExpressionEvaluationOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExpressionEvaluationOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1163,7 +1163,7 @@ type ExtendedLocation struct {
 // ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
 // You can construct a concrete instance of `ExtendedLocationInput` via:
 //
-//          ExtendedLocationArgs{...}
+//	ExtendedLocationArgs{...}
 type ExtendedLocationInput interface {
 	pulumi.Input
 
@@ -1202,11 +1202,11 @@ func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context
 // ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
 // You can construct a concrete instance of `ExtendedLocationPtrInput` via:
 //
-//          ExtendedLocationArgs{...}
+//	        ExtendedLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExtendedLocationPtrInput interface {
 	pulumi.Input
 
@@ -1399,7 +1399,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -1438,11 +1438,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -1722,7 +1722,7 @@ type OnErrorDeployment struct {
 // OnErrorDeploymentInput is an input type that accepts OnErrorDeploymentArgs and OnErrorDeploymentOutput values.
 // You can construct a concrete instance of `OnErrorDeploymentInput` via:
 //
-//          OnErrorDeploymentArgs{...}
+//	OnErrorDeploymentArgs{...}
 type OnErrorDeploymentInput interface {
 	pulumi.Input
 
@@ -1761,11 +1761,11 @@ func (i OnErrorDeploymentArgs) ToOnErrorDeploymentPtrOutputWithContext(ctx conte
 // OnErrorDeploymentPtrInput is an input type that accepts OnErrorDeploymentArgs, OnErrorDeploymentPtr and OnErrorDeploymentPtrOutput values.
 // You can construct a concrete instance of `OnErrorDeploymentPtrInput` via:
 //
-//          OnErrorDeploymentArgs{...}
+//	        OnErrorDeploymentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OnErrorDeploymentPtrInput interface {
 	pulumi.Input
 
@@ -1921,7 +1921,7 @@ type ParametersLink struct {
 // ParametersLinkInput is an input type that accepts ParametersLinkArgs and ParametersLinkOutput values.
 // You can construct a concrete instance of `ParametersLinkInput` via:
 //
-//          ParametersLinkArgs{...}
+//	ParametersLinkArgs{...}
 type ParametersLinkInput interface {
 	pulumi.Input
 
@@ -1960,11 +1960,11 @@ func (i ParametersLinkArgs) ToParametersLinkPtrOutputWithContext(ctx context.Con
 // ParametersLinkPtrInput is an input type that accepts ParametersLinkArgs, ParametersLinkPtr and ParametersLinkPtrOutput values.
 // You can construct a concrete instance of `ParametersLinkPtrInput` via:
 //
-//          ParametersLinkArgs{...}
+//	        ParametersLinkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ParametersLinkPtrInput interface {
 	pulumi.Input
 
@@ -2119,7 +2119,7 @@ type Plan struct {
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
 // You can construct a concrete instance of `PlanInput` via:
 //
-//          PlanArgs{...}
+//	PlanArgs{...}
 type PlanInput interface {
 	pulumi.Input
 
@@ -2164,11 +2164,11 @@ func (i PlanArgs) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput 
 // PlanPtrInput is an input type that accepts PlanArgs, PlanPtr and PlanPtrOutput values.
 // You can construct a concrete instance of `PlanPtrInput` via:
 //
-//          PlanArgs{...}
+//	        PlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlanPtrInput interface {
 	pulumi.Input
 
@@ -2778,7 +2778,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -2825,11 +2825,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -3147,7 +3147,7 @@ type Tags struct {
 // TagsInput is an input type that accepts TagsArgs and TagsOutput values.
 // You can construct a concrete instance of `TagsInput` via:
 //
-//          TagsArgs{...}
+//	TagsArgs{...}
 type TagsInput interface {
 	pulumi.Input
 
@@ -3232,7 +3232,7 @@ type TemplateLink struct {
 // TemplateLinkInput is an input type that accepts TemplateLinkArgs and TemplateLinkOutput values.
 // You can construct a concrete instance of `TemplateLinkInput` via:
 //
-//          TemplateLinkArgs{...}
+//	TemplateLinkArgs{...}
 type TemplateLinkInput interface {
 	pulumi.Input
 
@@ -3277,11 +3277,11 @@ func (i TemplateLinkArgs) ToTemplateLinkPtrOutputWithContext(ctx context.Context
 // TemplateLinkPtrInput is an input type that accepts TemplateLinkArgs, TemplateLinkPtr and TemplateLinkPtrOutput values.
 // You can construct a concrete instance of `TemplateLinkPtrInput` via:
 //
-//          TemplateLinkArgs{...}
+//	        TemplateLinkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TemplateLinkPtrInput interface {
 	pulumi.Input
 

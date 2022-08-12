@@ -21,7 +21,7 @@ type BlobNfsTarget struct {
 // BlobNfsTargetInput is an input type that accepts BlobNfsTargetArgs and BlobNfsTargetOutput values.
 // You can construct a concrete instance of `BlobNfsTargetInput` via:
 //
-//          BlobNfsTargetArgs{...}
+//	BlobNfsTargetArgs{...}
 type BlobNfsTargetInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i BlobNfsTargetArgs) ToBlobNfsTargetPtrOutputWithContext(ctx context.Conte
 // BlobNfsTargetPtrInput is an input type that accepts BlobNfsTargetArgs, BlobNfsTargetPtr and BlobNfsTargetPtrOutput values.
 // You can construct a concrete instance of `BlobNfsTargetPtrInput` via:
 //
-//          BlobNfsTargetArgs{...}
+//	        BlobNfsTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BlobNfsTargetPtrInput interface {
 	pulumi.Input
 
@@ -265,7 +265,7 @@ type CacheActiveDirectorySettings struct {
 // CacheActiveDirectorySettingsInput is an input type that accepts CacheActiveDirectorySettingsArgs and CacheActiveDirectorySettingsOutput values.
 // You can construct a concrete instance of `CacheActiveDirectorySettingsInput` via:
 //
-//          CacheActiveDirectorySettingsArgs{...}
+//	CacheActiveDirectorySettingsArgs{...}
 type CacheActiveDirectorySettingsInput interface {
 	pulumi.Input
 
@@ -312,11 +312,11 @@ func (i CacheActiveDirectorySettingsArgs) ToCacheActiveDirectorySettingsPtrOutpu
 // CacheActiveDirectorySettingsPtrInput is an input type that accepts CacheActiveDirectorySettingsArgs, CacheActiveDirectorySettingsPtr and CacheActiveDirectorySettingsPtrOutput values.
 // You can construct a concrete instance of `CacheActiveDirectorySettingsPtrInput` via:
 //
-//          CacheActiveDirectorySettingsArgs{...}
+//	        CacheActiveDirectorySettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheActiveDirectorySettingsPtrInput interface {
 	pulumi.Input
 
@@ -492,7 +492,7 @@ type CacheActiveDirectorySettingsCredentials struct {
 // CacheActiveDirectorySettingsCredentialsInput is an input type that accepts CacheActiveDirectorySettingsCredentialsArgs and CacheActiveDirectorySettingsCredentialsOutput values.
 // You can construct a concrete instance of `CacheActiveDirectorySettingsCredentialsInput` via:
 //
-//          CacheActiveDirectorySettingsCredentialsArgs{...}
+//	CacheActiveDirectorySettingsCredentialsArgs{...}
 type CacheActiveDirectorySettingsCredentialsInput interface {
 	pulumi.Input
 
@@ -531,11 +531,11 @@ func (i CacheActiveDirectorySettingsCredentialsArgs) ToCacheActiveDirectorySetti
 // CacheActiveDirectorySettingsCredentialsPtrInput is an input type that accepts CacheActiveDirectorySettingsCredentialsArgs, CacheActiveDirectorySettingsCredentialsPtr and CacheActiveDirectorySettingsCredentialsPtrOutput values.
 // You can construct a concrete instance of `CacheActiveDirectorySettingsCredentialsPtrInput` via:
 //
-//          CacheActiveDirectorySettingsCredentialsArgs{...}
+//	        CacheActiveDirectorySettingsCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheActiveDirectorySettingsCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -903,7 +903,7 @@ func (val *CacheDirectorySettings) Defaults() *CacheDirectorySettings {
 // CacheDirectorySettingsInput is an input type that accepts CacheDirectorySettingsArgs and CacheDirectorySettingsOutput values.
 // You can construct a concrete instance of `CacheDirectorySettingsInput` via:
 //
-//          CacheDirectorySettingsArgs{...}
+//	CacheDirectorySettingsArgs{...}
 type CacheDirectorySettingsInput interface {
 	pulumi.Input
 
@@ -951,11 +951,11 @@ func (i CacheDirectorySettingsArgs) ToCacheDirectorySettingsPtrOutputWithContext
 // CacheDirectorySettingsPtrInput is an input type that accepts CacheDirectorySettingsArgs, CacheDirectorySettingsPtr and CacheDirectorySettingsPtrOutput values.
 // You can construct a concrete instance of `CacheDirectorySettingsPtrInput` via:
 //
-//          CacheDirectorySettingsArgs{...}
+//	        CacheDirectorySettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheDirectorySettingsPtrInput interface {
 	pulumi.Input
 
@@ -1159,7 +1159,7 @@ type CacheEncryptionSettings struct {
 // CacheEncryptionSettingsInput is an input type that accepts CacheEncryptionSettingsArgs and CacheEncryptionSettingsOutput values.
 // You can construct a concrete instance of `CacheEncryptionSettingsInput` via:
 //
-//          CacheEncryptionSettingsArgs{...}
+//	CacheEncryptionSettingsArgs{...}
 type CacheEncryptionSettingsInput interface {
 	pulumi.Input
 
@@ -1196,11 +1196,11 @@ func (i CacheEncryptionSettingsArgs) ToCacheEncryptionSettingsPtrOutputWithConte
 // CacheEncryptionSettingsPtrInput is an input type that accepts CacheEncryptionSettingsArgs, CacheEncryptionSettingsPtr and CacheEncryptionSettingsPtrOutput values.
 // You can construct a concrete instance of `CacheEncryptionSettingsPtrInput` via:
 //
-//          CacheEncryptionSettingsArgs{...}
+//	        CacheEncryptionSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheEncryptionSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1399,7 +1399,7 @@ type CacheIdentity struct {
 // CacheIdentityInput is an input type that accepts CacheIdentityArgs and CacheIdentityOutput values.
 // You can construct a concrete instance of `CacheIdentityInput` via:
 //
-//          CacheIdentityArgs{...}
+//	CacheIdentityArgs{...}
 type CacheIdentityInput interface {
 	pulumi.Input
 
@@ -1436,11 +1436,11 @@ func (i CacheIdentityArgs) ToCacheIdentityPtrOutputWithContext(ctx context.Conte
 // CacheIdentityPtrInput is an input type that accepts CacheIdentityArgs, CacheIdentityPtr and CacheIdentityPtrOutput values.
 // You can construct a concrete instance of `CacheIdentityPtrInput` via:
 //
-//          CacheIdentityArgs{...}
+//	        CacheIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1656,7 +1656,7 @@ func (val *CacheNetworkSettings) Defaults() *CacheNetworkSettings {
 // CacheNetworkSettingsInput is an input type that accepts CacheNetworkSettingsArgs and CacheNetworkSettingsOutput values.
 // You can construct a concrete instance of `CacheNetworkSettingsInput` via:
 //
-//          CacheNetworkSettingsArgs{...}
+//	CacheNetworkSettingsArgs{...}
 type CacheNetworkSettingsInput interface {
 	pulumi.Input
 
@@ -1713,11 +1713,11 @@ func (i CacheNetworkSettingsArgs) ToCacheNetworkSettingsPtrOutputWithContext(ctx
 // CacheNetworkSettingsPtrInput is an input type that accepts CacheNetworkSettingsArgs, CacheNetworkSettingsPtr and CacheNetworkSettingsPtrOutput values.
 // You can construct a concrete instance of `CacheNetworkSettingsPtrInput` via:
 //
-//          CacheNetworkSettingsArgs{...}
+//	        CacheNetworkSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheNetworkSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2066,7 +2066,7 @@ type CacheSecuritySettings struct {
 // CacheSecuritySettingsInput is an input type that accepts CacheSecuritySettingsArgs and CacheSecuritySettingsOutput values.
 // You can construct a concrete instance of `CacheSecuritySettingsInput` via:
 //
-//          CacheSecuritySettingsArgs{...}
+//	CacheSecuritySettingsArgs{...}
 type CacheSecuritySettingsInput interface {
 	pulumi.Input
 
@@ -2103,11 +2103,11 @@ func (i CacheSecuritySettingsArgs) ToCacheSecuritySettingsPtrOutputWithContext(c
 // CacheSecuritySettingsPtrInput is an input type that accepts CacheSecuritySettingsArgs, CacheSecuritySettingsPtr and CacheSecuritySettingsPtrOutput values.
 // You can construct a concrete instance of `CacheSecuritySettingsPtrInput` via:
 //
-//          CacheSecuritySettingsArgs{...}
+//	        CacheSecuritySettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheSecuritySettingsPtrInput interface {
 	pulumi.Input
 
@@ -2266,7 +2266,7 @@ type CacheSku struct {
 // CacheSkuInput is an input type that accepts CacheSkuArgs and CacheSkuOutput values.
 // You can construct a concrete instance of `CacheSkuInput` via:
 //
-//          CacheSkuArgs{...}
+//	CacheSkuArgs{...}
 type CacheSkuInput interface {
 	pulumi.Input
 
@@ -2303,11 +2303,11 @@ func (i CacheSkuArgs) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheS
 // CacheSkuPtrInput is an input type that accepts CacheSkuArgs, CacheSkuPtr and CacheSkuPtrOutput values.
 // You can construct a concrete instance of `CacheSkuPtrInput` via:
 //
-//          CacheSkuArgs{...}
+//	        CacheSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheSkuPtrInput interface {
 	pulumi.Input
 
@@ -2567,7 +2567,7 @@ func (val *CacheUsernameDownloadSettings) Defaults() *CacheUsernameDownloadSetti
 // CacheUsernameDownloadSettingsInput is an input type that accepts CacheUsernameDownloadSettingsArgs and CacheUsernameDownloadSettingsOutput values.
 // You can construct a concrete instance of `CacheUsernameDownloadSettingsInput` via:
 //
-//          CacheUsernameDownloadSettingsArgs{...}
+//	CacheUsernameDownloadSettingsArgs{...}
 type CacheUsernameDownloadSettingsInput interface {
 	pulumi.Input
 
@@ -2635,11 +2635,11 @@ func (i CacheUsernameDownloadSettingsArgs) ToCacheUsernameDownloadSettingsPtrOut
 // CacheUsernameDownloadSettingsPtrInput is an input type that accepts CacheUsernameDownloadSettingsArgs, CacheUsernameDownloadSettingsPtr and CacheUsernameDownloadSettingsPtrOutput values.
 // You can construct a concrete instance of `CacheUsernameDownloadSettingsPtrInput` via:
 //
-//          CacheUsernameDownloadSettingsArgs{...}
+//	        CacheUsernameDownloadSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheUsernameDownloadSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2890,7 +2890,7 @@ type CacheUsernameDownloadSettingsCredentials struct {
 // CacheUsernameDownloadSettingsCredentialsInput is an input type that accepts CacheUsernameDownloadSettingsCredentialsArgs and CacheUsernameDownloadSettingsCredentialsOutput values.
 // You can construct a concrete instance of `CacheUsernameDownloadSettingsCredentialsInput` via:
 //
-//          CacheUsernameDownloadSettingsCredentialsArgs{...}
+//	CacheUsernameDownloadSettingsCredentialsArgs{...}
 type CacheUsernameDownloadSettingsCredentialsInput interface {
 	pulumi.Input
 
@@ -2929,11 +2929,11 @@ func (i CacheUsernameDownloadSettingsCredentialsArgs) ToCacheUsernameDownloadSet
 // CacheUsernameDownloadSettingsCredentialsPtrInput is an input type that accepts CacheUsernameDownloadSettingsCredentialsArgs, CacheUsernameDownloadSettingsCredentialsPtr and CacheUsernameDownloadSettingsCredentialsPtrOutput values.
 // You can construct a concrete instance of `CacheUsernameDownloadSettingsCredentialsPtrInput` via:
 //
-//          CacheUsernameDownloadSettingsCredentialsArgs{...}
+//	        CacheUsernameDownloadSettingsCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheUsernameDownloadSettingsCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -3386,7 +3386,7 @@ type ClfsTarget struct {
 // ClfsTargetInput is an input type that accepts ClfsTargetArgs and ClfsTargetOutput values.
 // You can construct a concrete instance of `ClfsTargetInput` via:
 //
-//          ClfsTargetArgs{...}
+//	ClfsTargetArgs{...}
 type ClfsTargetInput interface {
 	pulumi.Input
 
@@ -3423,11 +3423,11 @@ func (i ClfsTargetArgs) ToClfsTargetPtrOutputWithContext(ctx context.Context) Cl
 // ClfsTargetPtrInput is an input type that accepts ClfsTargetArgs, ClfsTargetPtr and ClfsTargetPtrOutput values.
 // You can construct a concrete instance of `ClfsTargetPtrInput` via:
 //
-//          ClfsTargetArgs{...}
+//	        ClfsTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClfsTargetPtrInput interface {
 	pulumi.Input
 
@@ -3641,7 +3641,7 @@ type KeyVaultKeyReference struct {
 // KeyVaultKeyReferenceInput is an input type that accepts KeyVaultKeyReferenceArgs and KeyVaultKeyReferenceOutput values.
 // You can construct a concrete instance of `KeyVaultKeyReferenceInput` via:
 //
-//          KeyVaultKeyReferenceArgs{...}
+//	KeyVaultKeyReferenceArgs{...}
 type KeyVaultKeyReferenceInput interface {
 	pulumi.Input
 
@@ -3680,11 +3680,11 @@ func (i KeyVaultKeyReferenceArgs) ToKeyVaultKeyReferencePtrOutputWithContext(ctx
 // KeyVaultKeyReferencePtrInput is an input type that accepts KeyVaultKeyReferenceArgs, KeyVaultKeyReferencePtr and KeyVaultKeyReferencePtrOutput values.
 // You can construct a concrete instance of `KeyVaultKeyReferencePtrInput` via:
 //
-//          KeyVaultKeyReferenceArgs{...}
+//	        KeyVaultKeyReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KeyVaultKeyReferencePtrInput interface {
 	pulumi.Input
 
@@ -3935,7 +3935,7 @@ type KeyVaultKeyReferenceSourceVault struct {
 // KeyVaultKeyReferenceSourceVaultInput is an input type that accepts KeyVaultKeyReferenceSourceVaultArgs and KeyVaultKeyReferenceSourceVaultOutput values.
 // You can construct a concrete instance of `KeyVaultKeyReferenceSourceVaultInput` via:
 //
-//          KeyVaultKeyReferenceSourceVaultArgs{...}
+//	KeyVaultKeyReferenceSourceVaultArgs{...}
 type KeyVaultKeyReferenceSourceVaultInput interface {
 	pulumi.Input
 
@@ -3972,11 +3972,11 @@ func (i KeyVaultKeyReferenceSourceVaultArgs) ToKeyVaultKeyReferenceSourceVaultPt
 // KeyVaultKeyReferenceSourceVaultPtrInput is an input type that accepts KeyVaultKeyReferenceSourceVaultArgs, KeyVaultKeyReferenceSourceVaultPtr and KeyVaultKeyReferenceSourceVaultPtrOutput values.
 // You can construct a concrete instance of `KeyVaultKeyReferenceSourceVaultPtrInput` via:
 //
-//          KeyVaultKeyReferenceSourceVaultArgs{...}
+//	        KeyVaultKeyReferenceSourceVaultArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KeyVaultKeyReferenceSourceVaultPtrInput interface {
 	pulumi.Input
 
@@ -4094,7 +4094,7 @@ func (val *NamespaceJunction) Defaults() *NamespaceJunction {
 // NamespaceJunctionInput is an input type that accepts NamespaceJunctionArgs and NamespaceJunctionOutput values.
 // You can construct a concrete instance of `NamespaceJunctionInput` via:
 //
-//          NamespaceJunctionArgs{...}
+//	NamespaceJunctionArgs{...}
 type NamespaceJunctionInput interface {
 	pulumi.Input
 
@@ -4140,7 +4140,7 @@ func (i NamespaceJunctionArgs) ToNamespaceJunctionOutputWithContext(ctx context.
 // NamespaceJunctionArrayInput is an input type that accepts NamespaceJunctionArray and NamespaceJunctionArrayOutput values.
 // You can construct a concrete instance of `NamespaceJunctionArrayInput` via:
 //
-//          NamespaceJunctionArray{ NamespaceJunctionArgs{...} }
+//	NamespaceJunctionArray{ NamespaceJunctionArgs{...} }
 type NamespaceJunctionArrayInput interface {
 	pulumi.Input
 
@@ -4308,7 +4308,7 @@ type Nfs3Target struct {
 // Nfs3TargetInput is an input type that accepts Nfs3TargetArgs and Nfs3TargetOutput values.
 // You can construct a concrete instance of `Nfs3TargetInput` via:
 //
-//          Nfs3TargetArgs{...}
+//	Nfs3TargetArgs{...}
 type Nfs3TargetInput interface {
 	pulumi.Input
 
@@ -4347,11 +4347,11 @@ func (i Nfs3TargetArgs) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nf
 // Nfs3TargetPtrInput is an input type that accepts Nfs3TargetArgs, Nfs3TargetPtr and Nfs3TargetPtrOutput values.
 // You can construct a concrete instance of `Nfs3TargetPtrInput` via:
 //
-//          Nfs3TargetArgs{...}
+//	        Nfs3TargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type Nfs3TargetPtrInput interface {
 	pulumi.Input
 
@@ -4544,7 +4544,7 @@ type NfsAccessPolicy struct {
 // NfsAccessPolicyInput is an input type that accepts NfsAccessPolicyArgs and NfsAccessPolicyOutput values.
 // You can construct a concrete instance of `NfsAccessPolicyInput` via:
 //
-//          NfsAccessPolicyArgs{...}
+//	NfsAccessPolicyArgs{...}
 type NfsAccessPolicyInput interface {
 	pulumi.Input
 
@@ -4575,7 +4575,7 @@ func (i NfsAccessPolicyArgs) ToNfsAccessPolicyOutputWithContext(ctx context.Cont
 // NfsAccessPolicyArrayInput is an input type that accepts NfsAccessPolicyArray and NfsAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `NfsAccessPolicyArrayInput` via:
 //
-//          NfsAccessPolicyArray{ NfsAccessPolicyArgs{...} }
+//	NfsAccessPolicyArray{ NfsAccessPolicyArgs{...} }
 type NfsAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -4718,7 +4718,7 @@ type NfsAccessRule struct {
 // NfsAccessRuleInput is an input type that accepts NfsAccessRuleArgs and NfsAccessRuleOutput values.
 // You can construct a concrete instance of `NfsAccessRuleInput` via:
 //
-//          NfsAccessRuleArgs{...}
+//	NfsAccessRuleArgs{...}
 type NfsAccessRuleInput interface {
 	pulumi.Input
 
@@ -4761,7 +4761,7 @@ func (i NfsAccessRuleArgs) ToNfsAccessRuleOutputWithContext(ctx context.Context)
 // NfsAccessRuleArrayInput is an input type that accepts NfsAccessRuleArray and NfsAccessRuleArrayOutput values.
 // You can construct a concrete instance of `NfsAccessRuleArrayInput` via:
 //
-//          NfsAccessRuleArray{ NfsAccessRuleArgs{...} }
+//	NfsAccessRuleArray{ NfsAccessRuleArgs{...} }
 type NfsAccessRuleArrayInput interface {
 	pulumi.Input
 
@@ -5023,7 +5023,7 @@ type UnknownTarget struct {
 // UnknownTargetInput is an input type that accepts UnknownTargetArgs and UnknownTargetOutput values.
 // You can construct a concrete instance of `UnknownTargetInput` via:
 //
-//          UnknownTargetArgs{...}
+//	UnknownTargetArgs{...}
 type UnknownTargetInput interface {
 	pulumi.Input
 
@@ -5060,11 +5060,11 @@ func (i UnknownTargetArgs) ToUnknownTargetPtrOutputWithContext(ctx context.Conte
 // UnknownTargetPtrInput is an input type that accepts UnknownTargetArgs, UnknownTargetPtr and UnknownTargetPtrOutput values.
 // You can construct a concrete instance of `UnknownTargetPtrInput` via:
 //
-//          UnknownTargetArgs{...}
+//	        UnknownTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UnknownTargetPtrInput interface {
 	pulumi.Input
 

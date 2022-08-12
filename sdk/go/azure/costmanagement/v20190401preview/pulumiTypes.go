@@ -21,7 +21,7 @@ type BudgetTimePeriod struct {
 // BudgetTimePeriodInput is an input type that accepts BudgetTimePeriodArgs and BudgetTimePeriodOutput values.
 // You can construct a concrete instance of `BudgetTimePeriodInput` via:
 //
-//          BudgetTimePeriodArgs{...}
+//	BudgetTimePeriodArgs{...}
 type BudgetTimePeriodInput interface {
 	pulumi.Input
 
@@ -153,7 +153,7 @@ type KpiProperties struct {
 // KpiPropertiesInput is an input type that accepts KpiPropertiesArgs and KpiPropertiesOutput values.
 // You can construct a concrete instance of `KpiPropertiesInput` via:
 //
-//          KpiPropertiesArgs{...}
+//	KpiPropertiesArgs{...}
 type KpiPropertiesInput interface {
 	pulumi.Input
 
@@ -186,7 +186,7 @@ func (i KpiPropertiesArgs) ToKpiPropertiesOutputWithContext(ctx context.Context)
 // KpiPropertiesArrayInput is an input type that accepts KpiPropertiesArray and KpiPropertiesArrayOutput values.
 // You can construct a concrete instance of `KpiPropertiesArrayInput` via:
 //
-//          KpiPropertiesArray{ KpiPropertiesArgs{...} }
+//	KpiPropertiesArray{ KpiPropertiesArgs{...} }
 type KpiPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -337,7 +337,7 @@ type Notification struct {
 // NotificationInput is an input type that accepts NotificationArgs and NotificationOutput values.
 // You can construct a concrete instance of `NotificationInput` via:
 //
-//          NotificationArgs{...}
+//	NotificationArgs{...}
 type NotificationInput interface {
 	pulumi.Input
 
@@ -376,7 +376,7 @@ func (i NotificationArgs) ToNotificationOutputWithContext(ctx context.Context) N
 // NotificationMapInput is an input type that accepts NotificationMap and NotificationMapOutput values.
 // You can construct a concrete instance of `NotificationMapInput` via:
 //
-//          NotificationMap{ "key": NotificationArgs{...} }
+//	NotificationMap{ "key": NotificationArgs{...} }
 type NotificationMapInput interface {
 	pulumi.Input
 
@@ -555,7 +555,7 @@ type PivotProperties struct {
 // PivotPropertiesInput is an input type that accepts PivotPropertiesArgs and PivotPropertiesOutput values.
 // You can construct a concrete instance of `PivotPropertiesInput` via:
 //
-//          PivotPropertiesArgs{...}
+//	PivotPropertiesArgs{...}
 type PivotPropertiesInput interface {
 	pulumi.Input
 
@@ -586,7 +586,7 @@ func (i PivotPropertiesArgs) ToPivotPropertiesOutputWithContext(ctx context.Cont
 // PivotPropertiesArrayInput is an input type that accepts PivotPropertiesArray and PivotPropertiesArrayOutput values.
 // You can construct a concrete instance of `PivotPropertiesArrayInput` via:
 //
-//          PivotPropertiesArray{ PivotPropertiesArgs{...} }
+//	PivotPropertiesArray{ PivotPropertiesArgs{...} }
 type PivotPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -717,7 +717,7 @@ type ReportConfigAggregation struct {
 // ReportConfigAggregationInput is an input type that accepts ReportConfigAggregationArgs and ReportConfigAggregationOutput values.
 // You can construct a concrete instance of `ReportConfigAggregationInput` via:
 //
-//          ReportConfigAggregationArgs{...}
+//	ReportConfigAggregationArgs{...}
 type ReportConfigAggregationInput interface {
 	pulumi.Input
 
@@ -748,7 +748,7 @@ func (i ReportConfigAggregationArgs) ToReportConfigAggregationOutputWithContext(
 // ReportConfigAggregationMapInput is an input type that accepts ReportConfigAggregationMap and ReportConfigAggregationMapOutput values.
 // You can construct a concrete instance of `ReportConfigAggregationMapInput` via:
 //
-//          ReportConfigAggregationMap{ "key": ReportConfigAggregationArgs{...} }
+//	ReportConfigAggregationMap{ "key": ReportConfigAggregationArgs{...} }
 type ReportConfigAggregationMapInput interface {
 	pulumi.Input
 
@@ -881,7 +881,7 @@ type ReportConfigComparisonExpression struct {
 // ReportConfigComparisonExpressionInput is an input type that accepts ReportConfigComparisonExpressionArgs and ReportConfigComparisonExpressionOutput values.
 // You can construct a concrete instance of `ReportConfigComparisonExpressionInput` via:
 //
-//          ReportConfigComparisonExpressionArgs{...}
+//	ReportConfigComparisonExpressionArgs{...}
 type ReportConfigComparisonExpressionInput interface {
 	pulumi.Input
 
@@ -922,11 +922,11 @@ func (i ReportConfigComparisonExpressionArgs) ToReportConfigComparisonExpression
 // ReportConfigComparisonExpressionPtrInput is an input type that accepts ReportConfigComparisonExpressionArgs, ReportConfigComparisonExpressionPtr and ReportConfigComparisonExpressionPtrOutput values.
 // You can construct a concrete instance of `ReportConfigComparisonExpressionPtrInput` via:
 //
-//          ReportConfigComparisonExpressionArgs{...}
+//	        ReportConfigComparisonExpressionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReportConfigComparisonExpressionPtrInput interface {
 	pulumi.Input
 
@@ -1159,7 +1159,7 @@ type ReportConfigDataset struct {
 // ReportConfigDatasetInput is an input type that accepts ReportConfigDatasetArgs and ReportConfigDatasetOutput values.
 // You can construct a concrete instance of `ReportConfigDatasetInput` via:
 //
-//          ReportConfigDatasetArgs{...}
+//	ReportConfigDatasetArgs{...}
 type ReportConfigDatasetInput interface {
 	pulumi.Input
 
@@ -1206,11 +1206,11 @@ func (i ReportConfigDatasetArgs) ToReportConfigDatasetPtrOutputWithContext(ctx c
 // ReportConfigDatasetPtrInput is an input type that accepts ReportConfigDatasetArgs, ReportConfigDatasetPtr and ReportConfigDatasetPtrOutput values.
 // You can construct a concrete instance of `ReportConfigDatasetPtrInput` via:
 //
-//          ReportConfigDatasetArgs{...}
+//	        ReportConfigDatasetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReportConfigDatasetPtrInput interface {
 	pulumi.Input
 
@@ -1384,7 +1384,7 @@ type ReportConfigDatasetConfiguration struct {
 // ReportConfigDatasetConfigurationInput is an input type that accepts ReportConfigDatasetConfigurationArgs and ReportConfigDatasetConfigurationOutput values.
 // You can construct a concrete instance of `ReportConfigDatasetConfigurationInput` via:
 //
-//          ReportConfigDatasetConfigurationArgs{...}
+//	ReportConfigDatasetConfigurationArgs{...}
 type ReportConfigDatasetConfigurationInput interface {
 	pulumi.Input
 
@@ -1421,11 +1421,11 @@ func (i ReportConfigDatasetConfigurationArgs) ToReportConfigDatasetConfiguration
 // ReportConfigDatasetConfigurationPtrInput is an input type that accepts ReportConfigDatasetConfigurationArgs, ReportConfigDatasetConfigurationPtr and ReportConfigDatasetConfigurationPtrOutput values.
 // You can construct a concrete instance of `ReportConfigDatasetConfigurationPtrInput` via:
 //
-//          ReportConfigDatasetConfigurationArgs{...}
+//	        ReportConfigDatasetConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReportConfigDatasetConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1737,7 +1737,7 @@ type ReportConfigFilter struct {
 // ReportConfigFilterInput is an input type that accepts ReportConfigFilterArgs and ReportConfigFilterOutput values.
 // You can construct a concrete instance of `ReportConfigFilterInput` via:
 //
-//          ReportConfigFilterArgs{...}
+//	ReportConfigFilterArgs{...}
 type ReportConfigFilterInput interface {
 	pulumi.Input
 
@@ -1782,11 +1782,11 @@ func (i ReportConfigFilterArgs) ToReportConfigFilterPtrOutputWithContext(ctx con
 // ReportConfigFilterPtrInput is an input type that accepts ReportConfigFilterArgs, ReportConfigFilterPtr and ReportConfigFilterPtrOutput values.
 // You can construct a concrete instance of `ReportConfigFilterPtrInput` via:
 //
-//          ReportConfigFilterArgs{...}
+//	        ReportConfigFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReportConfigFilterPtrInput interface {
 	pulumi.Input
 
@@ -1815,7 +1815,7 @@ func (i *reportConfigFilterPtrType) ToReportConfigFilterPtrOutputWithContext(ctx
 // ReportConfigFilterArrayInput is an input type that accepts ReportConfigFilterArray and ReportConfigFilterArrayOutput values.
 // You can construct a concrete instance of `ReportConfigFilterArrayInput` via:
 //
-//          ReportConfigFilterArray{ ReportConfigFilterArgs{...} }
+//	ReportConfigFilterArray{ ReportConfigFilterArgs{...} }
 type ReportConfigFilterArrayInput interface {
 	pulumi.Input
 
@@ -2140,7 +2140,7 @@ type ReportConfigGrouping struct {
 // ReportConfigGroupingInput is an input type that accepts ReportConfigGroupingArgs and ReportConfigGroupingOutput values.
 // You can construct a concrete instance of `ReportConfigGroupingInput` via:
 //
-//          ReportConfigGroupingArgs{...}
+//	ReportConfigGroupingArgs{...}
 type ReportConfigGroupingInput interface {
 	pulumi.Input
 
@@ -2171,7 +2171,7 @@ func (i ReportConfigGroupingArgs) ToReportConfigGroupingOutputWithContext(ctx co
 // ReportConfigGroupingArrayInput is an input type that accepts ReportConfigGroupingArray and ReportConfigGroupingArrayOutput values.
 // You can construct a concrete instance of `ReportConfigGroupingArrayInput` via:
 //
-//          ReportConfigGroupingArray{ ReportConfigGroupingArgs{...} }
+//	ReportConfigGroupingArray{ ReportConfigGroupingArgs{...} }
 type ReportConfigGroupingArrayInput interface {
 	pulumi.Input
 
@@ -2302,7 +2302,7 @@ type ReportConfigSorting struct {
 // ReportConfigSortingInput is an input type that accepts ReportConfigSortingArgs and ReportConfigSortingOutput values.
 // You can construct a concrete instance of `ReportConfigSortingInput` via:
 //
-//          ReportConfigSortingArgs{...}
+//	ReportConfigSortingArgs{...}
 type ReportConfigSortingInput interface {
 	pulumi.Input
 
@@ -2333,7 +2333,7 @@ func (i ReportConfigSortingArgs) ToReportConfigSortingOutputWithContext(ctx cont
 // ReportConfigSortingArrayInput is an input type that accepts ReportConfigSortingArray and ReportConfigSortingArrayOutput values.
 // You can construct a concrete instance of `ReportConfigSortingArrayInput` via:
 //
-//          ReportConfigSortingArray{ ReportConfigSortingArgs{...} }
+//	ReportConfigSortingArray{ ReportConfigSortingArgs{...} }
 type ReportConfigSortingArrayInput interface {
 	pulumi.Input
 
@@ -2464,7 +2464,7 @@ type ReportConfigTimePeriod struct {
 // ReportConfigTimePeriodInput is an input type that accepts ReportConfigTimePeriodArgs and ReportConfigTimePeriodOutput values.
 // You can construct a concrete instance of `ReportConfigTimePeriodInput` via:
 //
-//          ReportConfigTimePeriodArgs{...}
+//	ReportConfigTimePeriodArgs{...}
 type ReportConfigTimePeriodInput interface {
 	pulumi.Input
 
@@ -2503,11 +2503,11 @@ func (i ReportConfigTimePeriodArgs) ToReportConfigTimePeriodPtrOutputWithContext
 // ReportConfigTimePeriodPtrInput is an input type that accepts ReportConfigTimePeriodArgs, ReportConfigTimePeriodPtr and ReportConfigTimePeriodPtrOutput values.
 // You can construct a concrete instance of `ReportConfigTimePeriodPtrInput` via:
 //
-//          ReportConfigTimePeriodArgs{...}
+//	        ReportConfigTimePeriodArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReportConfigTimePeriodPtrInput interface {
 	pulumi.Input
 

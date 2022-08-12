@@ -90,7 +90,7 @@ type LocationData struct {
 // LocationDataInput is an input type that accepts LocationDataArgs and LocationDataOutput values.
 // You can construct a concrete instance of `LocationDataInput` via:
 //
-//          LocationDataArgs{...}
+//	LocationDataArgs{...}
 type LocationDataInput interface {
 	pulumi.Input
 
@@ -133,11 +133,11 @@ func (i LocationDataArgs) ToLocationDataPtrOutputWithContext(ctx context.Context
 // LocationDataPtrInput is an input type that accepts LocationDataArgs, LocationDataPtr and LocationDataPtrOutput values.
 // You can construct a concrete instance of `LocationDataPtrInput` via:
 //
-//          LocationDataArgs{...}
+//	        LocationDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LocationDataPtrInput interface {
 	pulumi.Input
 
@@ -701,7 +701,7 @@ type MachineIdentity struct {
 // MachineIdentityInput is an input type that accepts MachineIdentityArgs and MachineIdentityOutput values.
 // You can construct a concrete instance of `MachineIdentityInput` via:
 //
-//          MachineIdentityArgs{...}
+//	MachineIdentityArgs{...}
 type MachineIdentityInput interface {
 	pulumi.Input
 
@@ -737,11 +737,11 @@ func (i MachineIdentityArgs) ToMachineIdentityPtrOutputWithContext(ctx context.C
 // MachineIdentityPtrInput is an input type that accepts MachineIdentityArgs, MachineIdentityPtr and MachineIdentityPtrOutput values.
 // You can construct a concrete instance of `MachineIdentityPtrInput` via:
 //
-//          MachineIdentityArgs{...}
+//	        MachineIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MachineIdentityPtrInput interface {
 	pulumi.Input
 

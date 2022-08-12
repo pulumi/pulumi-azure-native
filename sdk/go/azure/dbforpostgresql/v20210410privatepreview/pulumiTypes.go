@@ -19,7 +19,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -259,7 +259,7 @@ type MaintenanceWindow struct {
 // MaintenanceWindowInput is an input type that accepts MaintenanceWindowArgs and MaintenanceWindowOutput values.
 // You can construct a concrete instance of `MaintenanceWindowInput` via:
 //
-//          MaintenanceWindowArgs{...}
+//	MaintenanceWindowArgs{...}
 type MaintenanceWindowInput interface {
 	pulumi.Input
 
@@ -302,11 +302,11 @@ func (i MaintenanceWindowArgs) ToMaintenanceWindowPtrOutputWithContext(ctx conte
 // MaintenanceWindowPtrInput is an input type that accepts MaintenanceWindowArgs, MaintenanceWindowPtr and MaintenanceWindowPtrOutput values.
 // You can construct a concrete instance of `MaintenanceWindowPtrInput` via:
 //
-//          MaintenanceWindowArgs{...}
+//	        MaintenanceWindowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MaintenanceWindowPtrInput interface {
 	pulumi.Input
 
@@ -560,7 +560,7 @@ type ServerPropertiesDelegatedSubnetArguments struct {
 // ServerPropertiesDelegatedSubnetArgumentsInput is an input type that accepts ServerPropertiesDelegatedSubnetArgumentsArgs and ServerPropertiesDelegatedSubnetArgumentsOutput values.
 // You can construct a concrete instance of `ServerPropertiesDelegatedSubnetArgumentsInput` via:
 //
-//          ServerPropertiesDelegatedSubnetArgumentsArgs{...}
+//	ServerPropertiesDelegatedSubnetArgumentsArgs{...}
 type ServerPropertiesDelegatedSubnetArgumentsInput interface {
 	pulumi.Input
 
@@ -596,11 +596,11 @@ func (i ServerPropertiesDelegatedSubnetArgumentsArgs) ToServerPropertiesDelegate
 // ServerPropertiesDelegatedSubnetArgumentsPtrInput is an input type that accepts ServerPropertiesDelegatedSubnetArgumentsArgs, ServerPropertiesDelegatedSubnetArgumentsPtr and ServerPropertiesDelegatedSubnetArgumentsPtrOutput values.
 // You can construct a concrete instance of `ServerPropertiesDelegatedSubnetArgumentsPtrInput` via:
 //
-//          ServerPropertiesDelegatedSubnetArgumentsArgs{...}
+//	        ServerPropertiesDelegatedSubnetArgumentsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerPropertiesDelegatedSubnetArgumentsPtrInput interface {
 	pulumi.Input
 
@@ -697,7 +697,7 @@ type ServerPropertiesPrivateDnsZoneArguments struct {
 // ServerPropertiesPrivateDnsZoneArgumentsInput is an input type that accepts ServerPropertiesPrivateDnsZoneArgumentsArgs and ServerPropertiesPrivateDnsZoneArgumentsOutput values.
 // You can construct a concrete instance of `ServerPropertiesPrivateDnsZoneArgumentsInput` via:
 //
-//          ServerPropertiesPrivateDnsZoneArgumentsArgs{...}
+//	ServerPropertiesPrivateDnsZoneArgumentsArgs{...}
 type ServerPropertiesPrivateDnsZoneArgumentsInput interface {
 	pulumi.Input
 
@@ -733,11 +733,11 @@ func (i ServerPropertiesPrivateDnsZoneArgumentsArgs) ToServerPropertiesPrivateDn
 // ServerPropertiesPrivateDnsZoneArgumentsPtrInput is an input type that accepts ServerPropertiesPrivateDnsZoneArgumentsArgs, ServerPropertiesPrivateDnsZoneArgumentsPtr and ServerPropertiesPrivateDnsZoneArgumentsPtrOutput values.
 // You can construct a concrete instance of `ServerPropertiesPrivateDnsZoneArgumentsPtrInput` via:
 //
-//          ServerPropertiesPrivateDnsZoneArgumentsArgs{...}
+//	        ServerPropertiesPrivateDnsZoneArgumentsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerPropertiesPrivateDnsZoneArgumentsPtrInput interface {
 	pulumi.Input
 
@@ -953,7 +953,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -992,11 +992,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -1191,7 +1191,7 @@ type StorageProfile struct {
 // StorageProfileInput is an input type that accepts StorageProfileArgs and StorageProfileOutput values.
 // You can construct a concrete instance of `StorageProfileInput` via:
 //
-//          StorageProfileArgs{...}
+//	StorageProfileArgs{...}
 type StorageProfileInput interface {
 	pulumi.Input
 
@@ -1232,11 +1232,11 @@ func (i StorageProfileArgs) ToStorageProfilePtrOutputWithContext(ctx context.Con
 // StorageProfilePtrInput is an input type that accepts StorageProfileArgs, StorageProfilePtr and StorageProfilePtrOutput values.
 // You can construct a concrete instance of `StorageProfilePtrInput` via:
 //
-//          StorageProfileArgs{...}
+//	        StorageProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageProfilePtrInput interface {
 	pulumi.Input
 

@@ -49,7 +49,7 @@ type AssessmentStatus struct {
 // AssessmentStatusInput is an input type that accepts AssessmentStatusArgs and AssessmentStatusOutput values.
 // You can construct a concrete instance of `AssessmentStatusInput` via:
 //
-//          AssessmentStatusArgs{...}
+//	AssessmentStatusArgs{...}
 type AssessmentStatusInput interface {
 	pulumi.Input
 
@@ -260,7 +260,7 @@ type SecurityAssessmentMetadataPartnerData struct {
 // SecurityAssessmentMetadataPartnerDataInput is an input type that accepts SecurityAssessmentMetadataPartnerDataArgs and SecurityAssessmentMetadataPartnerDataOutput values.
 // You can construct a concrete instance of `SecurityAssessmentMetadataPartnerDataInput` via:
 //
-//          SecurityAssessmentMetadataPartnerDataArgs{...}
+//	SecurityAssessmentMetadataPartnerDataArgs{...}
 type SecurityAssessmentMetadataPartnerDataInput interface {
 	pulumi.Input
 
@@ -301,11 +301,11 @@ func (i SecurityAssessmentMetadataPartnerDataArgs) ToSecurityAssessmentMetadataP
 // SecurityAssessmentMetadataPartnerDataPtrInput is an input type that accepts SecurityAssessmentMetadataPartnerDataArgs, SecurityAssessmentMetadataPartnerDataPtr and SecurityAssessmentMetadataPartnerDataPtrOutput values.
 // You can construct a concrete instance of `SecurityAssessmentMetadataPartnerDataPtrInput` via:
 //
-//          SecurityAssessmentMetadataPartnerDataArgs{...}
+//	        SecurityAssessmentMetadataPartnerDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SecurityAssessmentMetadataPartnerDataPtrInput interface {
 	pulumi.Input
 
@@ -546,7 +546,7 @@ type SecurityAssessmentMetadataProperties struct {
 // SecurityAssessmentMetadataPropertiesInput is an input type that accepts SecurityAssessmentMetadataPropertiesArgs and SecurityAssessmentMetadataPropertiesOutput values.
 // You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesInput` via:
 //
-//          SecurityAssessmentMetadataPropertiesArgs{...}
+//	SecurityAssessmentMetadataPropertiesArgs{...}
 type SecurityAssessmentMetadataPropertiesInput interface {
 	pulumi.Input
 
@@ -601,11 +601,11 @@ func (i SecurityAssessmentMetadataPropertiesArgs) ToSecurityAssessmentMetadataPr
 // SecurityAssessmentMetadataPropertiesPtrInput is an input type that accepts SecurityAssessmentMetadataPropertiesArgs, SecurityAssessmentMetadataPropertiesPtr and SecurityAssessmentMetadataPropertiesPtrOutput values.
 // You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesPtrInput` via:
 //
-//          SecurityAssessmentMetadataPropertiesArgs{...}
+//	        SecurityAssessmentMetadataPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SecurityAssessmentMetadataPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1094,7 +1094,7 @@ type SecurityAssessmentMetadataPropertiesResponsePublishDates struct {
 // SecurityAssessmentMetadataPropertiesResponsePublishDatesInput is an input type that accepts SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs and SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput values.
 // You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesResponsePublishDatesInput` via:
 //
-//          SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs{...}
+//	SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs{...}
 type SecurityAssessmentMetadataPropertiesResponsePublishDatesInput interface {
 	pulumi.Input
 
@@ -1130,11 +1130,11 @@ func (i SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs) ToSecurity
 // SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrInput is an input type that accepts SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs, SecurityAssessmentMetadataPropertiesResponsePublishDatesPtr and SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput values.
 // You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrInput` via:
 //
-//          SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs{...}
+//	        SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrInput interface {
 	pulumi.Input
 
@@ -1314,7 +1314,7 @@ type SecurityAssessmentPartnerData struct {
 // SecurityAssessmentPartnerDataInput is an input type that accepts SecurityAssessmentPartnerDataArgs and SecurityAssessmentPartnerDataOutput values.
 // You can construct a concrete instance of `SecurityAssessmentPartnerDataInput` via:
 //
-//          SecurityAssessmentPartnerDataArgs{...}
+//	SecurityAssessmentPartnerDataArgs{...}
 type SecurityAssessmentPartnerDataInput interface {
 	pulumi.Input
 
@@ -1353,11 +1353,11 @@ func (i SecurityAssessmentPartnerDataArgs) ToSecurityAssessmentPartnerDataPtrOut
 // SecurityAssessmentPartnerDataPtrInput is an input type that accepts SecurityAssessmentPartnerDataArgs, SecurityAssessmentPartnerDataPtr and SecurityAssessmentPartnerDataPtrOutput values.
 // You can construct a concrete instance of `SecurityAssessmentPartnerDataPtrInput` via:
 //
-//          SecurityAssessmentPartnerDataArgs{...}
+//	        SecurityAssessmentPartnerDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SecurityAssessmentPartnerDataPtrInput interface {
 	pulumi.Input
 

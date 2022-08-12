@@ -25,7 +25,7 @@ type PutAliasRequestAdditionalProperties struct {
 // PutAliasRequestAdditionalPropertiesInput is an input type that accepts PutAliasRequestAdditionalPropertiesArgs and PutAliasRequestAdditionalPropertiesOutput values.
 // You can construct a concrete instance of `PutAliasRequestAdditionalPropertiesInput` via:
 //
-//          PutAliasRequestAdditionalPropertiesArgs{...}
+//	PutAliasRequestAdditionalPropertiesArgs{...}
 type PutAliasRequestAdditionalPropertiesInput interface {
 	pulumi.Input
 
@@ -68,11 +68,11 @@ func (i PutAliasRequestAdditionalPropertiesArgs) ToPutAliasRequestAdditionalProp
 // PutAliasRequestAdditionalPropertiesPtrInput is an input type that accepts PutAliasRequestAdditionalPropertiesArgs, PutAliasRequestAdditionalPropertiesPtr and PutAliasRequestAdditionalPropertiesPtrOutput values.
 // You can construct a concrete instance of `PutAliasRequestAdditionalPropertiesPtrInput` via:
 //
-//          PutAliasRequestAdditionalPropertiesArgs{...}
+//	        PutAliasRequestAdditionalPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PutAliasRequestAdditionalPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -229,7 +229,7 @@ type PutAliasRequestProperties struct {
 // PutAliasRequestPropertiesInput is an input type that accepts PutAliasRequestPropertiesArgs and PutAliasRequestPropertiesOutput values.
 // You can construct a concrete instance of `PutAliasRequestPropertiesInput` via:
 //
-//          PutAliasRequestPropertiesArgs{...}
+//	PutAliasRequestPropertiesArgs{...}
 type PutAliasRequestPropertiesInput interface {
 	pulumi.Input
 
@@ -279,11 +279,11 @@ func (i PutAliasRequestPropertiesArgs) ToPutAliasRequestPropertiesPtrOutputWithC
 // PutAliasRequestPropertiesPtrInput is an input type that accepts PutAliasRequestPropertiesArgs, PutAliasRequestPropertiesPtr and PutAliasRequestPropertiesPtrOutput values.
 // You can construct a concrete instance of `PutAliasRequestPropertiesPtrInput` via:
 //
-//          PutAliasRequestPropertiesArgs{...}
+//	        PutAliasRequestPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PutAliasRequestPropertiesPtrInput interface {
 	pulumi.Input
 

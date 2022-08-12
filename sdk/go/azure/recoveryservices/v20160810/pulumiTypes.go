@@ -223,7 +223,7 @@ type AddVCenterRequestProperties struct {
 // AddVCenterRequestPropertiesInput is an input type that accepts AddVCenterRequestPropertiesArgs and AddVCenterRequestPropertiesOutput values.
 // You can construct a concrete instance of `AddVCenterRequestPropertiesInput` via:
 //
-//          AddVCenterRequestPropertiesArgs{...}
+//	AddVCenterRequestPropertiesArgs{...}
 type AddVCenterRequestPropertiesInput interface {
 	pulumi.Input
 
@@ -268,11 +268,11 @@ func (i AddVCenterRequestPropertiesArgs) ToAddVCenterRequestPropertiesPtrOutputW
 // AddVCenterRequestPropertiesPtrInput is an input type that accepts AddVCenterRequestPropertiesArgs, AddVCenterRequestPropertiesPtr and AddVCenterRequestPropertiesPtrOutput values.
 // You can construct a concrete instance of `AddVCenterRequestPropertiesPtrInput` via:
 //
-//          AddVCenterRequestPropertiesArgs{...}
+//	        AddVCenterRequestPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AddVCenterRequestPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -494,7 +494,7 @@ type CreateNetworkMappingInputProperties struct {
 // CreateNetworkMappingInputPropertiesInput is an input type that accepts CreateNetworkMappingInputPropertiesArgs and CreateNetworkMappingInputPropertiesOutput values.
 // You can construct a concrete instance of `CreateNetworkMappingInputPropertiesInput` via:
 //
-//          CreateNetworkMappingInputPropertiesArgs{...}
+//	CreateNetworkMappingInputPropertiesArgs{...}
 type CreateNetworkMappingInputPropertiesInput interface {
 	pulumi.Input
 
@@ -535,11 +535,11 @@ func (i CreateNetworkMappingInputPropertiesArgs) ToCreateNetworkMappingInputProp
 // CreateNetworkMappingInputPropertiesPtrInput is an input type that accepts CreateNetworkMappingInputPropertiesArgs, CreateNetworkMappingInputPropertiesPtr and CreateNetworkMappingInputPropertiesPtrOutput values.
 // You can construct a concrete instance of `CreateNetworkMappingInputPropertiesPtrInput` via:
 //
-//          CreateNetworkMappingInputPropertiesArgs{...}
+//	        CreateNetworkMappingInputPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CreateNetworkMappingInputPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -668,7 +668,7 @@ type CreatePolicyInputProperties struct {
 // CreatePolicyInputPropertiesInput is an input type that accepts CreatePolicyInputPropertiesArgs and CreatePolicyInputPropertiesOutput values.
 // You can construct a concrete instance of `CreatePolicyInputPropertiesInput` via:
 //
-//          CreatePolicyInputPropertiesArgs{...}
+//	CreatePolicyInputPropertiesArgs{...}
 type CreatePolicyInputPropertiesInput interface {
 	pulumi.Input
 
@@ -705,11 +705,11 @@ func (i CreatePolicyInputPropertiesArgs) ToCreatePolicyInputPropertiesPtrOutputW
 // CreatePolicyInputPropertiesPtrInput is an input type that accepts CreatePolicyInputPropertiesArgs, CreatePolicyInputPropertiesPtr and CreatePolicyInputPropertiesPtrOutput values.
 // You can construct a concrete instance of `CreatePolicyInputPropertiesPtrInput` via:
 //
-//          CreatePolicyInputPropertiesArgs{...}
+//	        CreatePolicyInputPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CreatePolicyInputPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -812,7 +812,7 @@ type CreateProtectionContainerMappingInputProperties struct {
 // CreateProtectionContainerMappingInputPropertiesInput is an input type that accepts CreateProtectionContainerMappingInputPropertiesArgs and CreateProtectionContainerMappingInputPropertiesOutput values.
 // You can construct a concrete instance of `CreateProtectionContainerMappingInputPropertiesInput` via:
 //
-//          CreateProtectionContainerMappingInputPropertiesArgs{...}
+//	CreateProtectionContainerMappingInputPropertiesArgs{...}
 type CreateProtectionContainerMappingInputPropertiesInput interface {
 	pulumi.Input
 
@@ -853,11 +853,11 @@ func (i CreateProtectionContainerMappingInputPropertiesArgs) ToCreateProtectionC
 // CreateProtectionContainerMappingInputPropertiesPtrInput is an input type that accepts CreateProtectionContainerMappingInputPropertiesArgs, CreateProtectionContainerMappingInputPropertiesPtr and CreateProtectionContainerMappingInputPropertiesPtrOutput values.
 // You can construct a concrete instance of `CreateProtectionContainerMappingInputPropertiesPtrInput` via:
 //
-//          CreateProtectionContainerMappingInputPropertiesArgs{...}
+//	        CreateProtectionContainerMappingInputPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CreateProtectionContainerMappingInputPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -994,7 +994,7 @@ type CreateRecoveryPlanInputProperties struct {
 // CreateRecoveryPlanInputPropertiesInput is an input type that accepts CreateRecoveryPlanInputPropertiesArgs and CreateRecoveryPlanInputPropertiesOutput values.
 // You can construct a concrete instance of `CreateRecoveryPlanInputPropertiesInput` via:
 //
-//          CreateRecoveryPlanInputPropertiesArgs{...}
+//	CreateRecoveryPlanInputPropertiesArgs{...}
 type CreateRecoveryPlanInputPropertiesInput interface {
 	pulumi.Input
 
@@ -1194,7 +1194,7 @@ type EnableProtectionInputProperties struct {
 // EnableProtectionInputPropertiesInput is an input type that accepts EnableProtectionInputPropertiesArgs and EnableProtectionInputPropertiesOutput values.
 // You can construct a concrete instance of `EnableProtectionInputPropertiesInput` via:
 //
-//          EnableProtectionInputPropertiesArgs{...}
+//	EnableProtectionInputPropertiesArgs{...}
 type EnableProtectionInputPropertiesInput interface {
 	pulumi.Input
 
@@ -1235,11 +1235,11 @@ func (i EnableProtectionInputPropertiesArgs) ToEnableProtectionInputPropertiesPt
 // EnableProtectionInputPropertiesPtrInput is an input type that accepts EnableProtectionInputPropertiesArgs, EnableProtectionInputPropertiesPtr and EnableProtectionInputPropertiesPtrOutput values.
 // You can construct a concrete instance of `EnableProtectionInputPropertiesPtrInput` via:
 //
-//          EnableProtectionInputPropertiesArgs{...}
+//	        EnableProtectionInputPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnableProtectionInputPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2847,7 +2847,7 @@ type RecoveryPlanAction struct {
 // RecoveryPlanActionInput is an input type that accepts RecoveryPlanActionArgs and RecoveryPlanActionOutput values.
 // You can construct a concrete instance of `RecoveryPlanActionInput` via:
 //
-//          RecoveryPlanActionArgs{...}
+//	RecoveryPlanActionArgs{...}
 type RecoveryPlanActionInput interface {
 	pulumi.Input
 
@@ -2880,7 +2880,7 @@ func (i RecoveryPlanActionArgs) ToRecoveryPlanActionOutputWithContext(ctx contex
 // RecoveryPlanActionArrayInput is an input type that accepts RecoveryPlanActionArray and RecoveryPlanActionArrayOutput values.
 // You can construct a concrete instance of `RecoveryPlanActionArrayInput` via:
 //
-//          RecoveryPlanActionArray{ RecoveryPlanActionArgs{...} }
+//	RecoveryPlanActionArray{ RecoveryPlanActionArgs{...} }
 type RecoveryPlanActionArrayInput interface {
 	pulumi.Input
 
@@ -3047,7 +3047,7 @@ type RecoveryPlanGroup struct {
 // RecoveryPlanGroupInput is an input type that accepts RecoveryPlanGroupArgs and RecoveryPlanGroupOutput values.
 // You can construct a concrete instance of `RecoveryPlanGroupInput` via:
 //
-//          RecoveryPlanGroupArgs{...}
+//	RecoveryPlanGroupArgs{...}
 type RecoveryPlanGroupInput interface {
 	pulumi.Input
 
@@ -3082,7 +3082,7 @@ func (i RecoveryPlanGroupArgs) ToRecoveryPlanGroupOutputWithContext(ctx context.
 // RecoveryPlanGroupArrayInput is an input type that accepts RecoveryPlanGroupArray and RecoveryPlanGroupArrayOutput values.
 // You can construct a concrete instance of `RecoveryPlanGroupArrayInput` via:
 //
-//          RecoveryPlanGroupArray{ RecoveryPlanGroupArgs{...} }
+//	RecoveryPlanGroupArray{ RecoveryPlanGroupArgs{...} }
 type RecoveryPlanGroupArrayInput interface {
 	pulumi.Input
 
@@ -3372,7 +3372,7 @@ type RecoveryPlanProtectedItem struct {
 // RecoveryPlanProtectedItemInput is an input type that accepts RecoveryPlanProtectedItemArgs and RecoveryPlanProtectedItemOutput values.
 // You can construct a concrete instance of `RecoveryPlanProtectedItemInput` via:
 //
-//          RecoveryPlanProtectedItemArgs{...}
+//	RecoveryPlanProtectedItemArgs{...}
 type RecoveryPlanProtectedItemInput interface {
 	pulumi.Input
 
@@ -3403,7 +3403,7 @@ func (i RecoveryPlanProtectedItemArgs) ToRecoveryPlanProtectedItemOutputWithCont
 // RecoveryPlanProtectedItemArrayInput is an input type that accepts RecoveryPlanProtectedItemArray and RecoveryPlanProtectedItemArrayOutput values.
 // You can construct a concrete instance of `RecoveryPlanProtectedItemArrayInput` via:
 //
-//          RecoveryPlanProtectedItemArray{ RecoveryPlanProtectedItemArgs{...} }
+//	RecoveryPlanProtectedItemArray{ RecoveryPlanProtectedItemArgs{...} }
 type RecoveryPlanProtectedItemArrayInput interface {
 	pulumi.Input
 
@@ -3763,7 +3763,7 @@ type ReplicationProviderSpecificContainerMappingInput struct {
 // ReplicationProviderSpecificContainerMappingInputInput is an input type that accepts ReplicationProviderSpecificContainerMappingInputArgs and ReplicationProviderSpecificContainerMappingInputOutput values.
 // You can construct a concrete instance of `ReplicationProviderSpecificContainerMappingInputInput` via:
 //
-//          ReplicationProviderSpecificContainerMappingInputArgs{...}
+//	ReplicationProviderSpecificContainerMappingInputArgs{...}
 type ReplicationProviderSpecificContainerMappingInputInput interface {
 	pulumi.Input
 
@@ -3800,11 +3800,11 @@ func (i ReplicationProviderSpecificContainerMappingInputArgs) ToReplicationProvi
 // ReplicationProviderSpecificContainerMappingInputPtrInput is an input type that accepts ReplicationProviderSpecificContainerMappingInputArgs, ReplicationProviderSpecificContainerMappingInputPtr and ReplicationProviderSpecificContainerMappingInputPtrOutput values.
 // You can construct a concrete instance of `ReplicationProviderSpecificContainerMappingInputPtrInput` via:
 //
-//          ReplicationProviderSpecificContainerMappingInputArgs{...}
+//	        ReplicationProviderSpecificContainerMappingInputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReplicationProviderSpecificContainerMappingInputPtrInput interface {
 	pulumi.Input
 
@@ -3970,7 +3970,7 @@ type StorageMappingInputProperties struct {
 // StorageMappingInputPropertiesInput is an input type that accepts StorageMappingInputPropertiesArgs and StorageMappingInputPropertiesOutput values.
 // You can construct a concrete instance of `StorageMappingInputPropertiesInput` via:
 //
-//          StorageMappingInputPropertiesArgs{...}
+//	StorageMappingInputPropertiesArgs{...}
 type StorageMappingInputPropertiesInput interface {
 	pulumi.Input
 
@@ -4007,11 +4007,11 @@ func (i StorageMappingInputPropertiesArgs) ToStorageMappingInputPropertiesPtrOut
 // StorageMappingInputPropertiesPtrInput is an input type that accepts StorageMappingInputPropertiesArgs, StorageMappingInputPropertiesPtr and StorageMappingInputPropertiesPtrOutput values.
 // You can construct a concrete instance of `StorageMappingInputPropertiesPtrInput` via:
 //
-//          StorageMappingInputPropertiesArgs{...}
+//	        StorageMappingInputPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageMappingInputPropertiesPtrInput interface {
 	pulumi.Input
 

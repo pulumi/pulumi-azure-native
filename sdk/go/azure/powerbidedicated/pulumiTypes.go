@@ -23,7 +23,7 @@ type AutoScaleVCoreSku struct {
 // AutoScaleVCoreSkuInput is an input type that accepts AutoScaleVCoreSkuArgs and AutoScaleVCoreSkuOutput values.
 // You can construct a concrete instance of `AutoScaleVCoreSkuInput` via:
 //
-//          AutoScaleVCoreSkuArgs{...}
+//	AutoScaleVCoreSkuArgs{...}
 type AutoScaleVCoreSkuInput interface {
 	pulumi.Input
 
@@ -136,7 +136,7 @@ type CapacitySku struct {
 // CapacitySkuInput is an input type that accepts CapacitySkuArgs and CapacitySkuOutput values.
 // You can construct a concrete instance of `CapacitySkuInput` via:
 //
-//          CapacitySkuArgs{...}
+//	CapacitySkuArgs{...}
 type CapacitySkuInput interface {
 	pulumi.Input
 
@@ -245,7 +245,7 @@ type DedicatedCapacityAdministrators struct {
 // DedicatedCapacityAdministratorsInput is an input type that accepts DedicatedCapacityAdministratorsArgs and DedicatedCapacityAdministratorsOutput values.
 // You can construct a concrete instance of `DedicatedCapacityAdministratorsInput` via:
 //
-//          DedicatedCapacityAdministratorsArgs{...}
+//	DedicatedCapacityAdministratorsArgs{...}
 type DedicatedCapacityAdministratorsInput interface {
 	pulumi.Input
 
@@ -282,11 +282,11 @@ func (i DedicatedCapacityAdministratorsArgs) ToDedicatedCapacityAdministratorsPt
 // DedicatedCapacityAdministratorsPtrInput is an input type that accepts DedicatedCapacityAdministratorsArgs, DedicatedCapacityAdministratorsPtr and DedicatedCapacityAdministratorsPtrOutput values.
 // You can construct a concrete instance of `DedicatedCapacityAdministratorsPtrInput` via:
 //
-//          DedicatedCapacityAdministratorsArgs{...}
+//	        DedicatedCapacityAdministratorsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DedicatedCapacityAdministratorsPtrInput interface {
 	pulumi.Input
 
@@ -455,7 +455,7 @@ type SystemData struct {
 // SystemDataInput is an input type that accepts SystemDataArgs and SystemDataOutput values.
 // You can construct a concrete instance of `SystemDataInput` via:
 //
-//          SystemDataArgs{...}
+//	SystemDataArgs{...}
 type SystemDataInput interface {
 	pulumi.Input
 
@@ -502,11 +502,11 @@ func (i SystemDataArgs) ToSystemDataPtrOutputWithContext(ctx context.Context) Sy
 // SystemDataPtrInput is an input type that accepts SystemDataArgs, SystemDataPtr and SystemDataPtrOutput values.
 // You can construct a concrete instance of `SystemDataPtrInput` via:
 //
-//          SystemDataArgs{...}
+//	        SystemDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SystemDataPtrInput interface {
 	pulumi.Input
 

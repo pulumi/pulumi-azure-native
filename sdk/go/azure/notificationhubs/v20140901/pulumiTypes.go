@@ -19,7 +19,7 @@ type AdmCredential struct {
 // AdmCredentialInput is an input type that accepts AdmCredentialArgs and AdmCredentialOutput values.
 // You can construct a concrete instance of `AdmCredentialInput` via:
 //
-//          AdmCredentialArgs{...}
+//	AdmCredentialArgs{...}
 type AdmCredentialInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AdmCredentialArgs) ToAdmCredentialPtrOutputWithContext(ctx context.Conte
 // AdmCredentialPtrInput is an input type that accepts AdmCredentialArgs, AdmCredentialPtr and AdmCredentialPtrOutput values.
 // You can construct a concrete instance of `AdmCredentialPtrInput` via:
 //
-//          AdmCredentialArgs{...}
+//	        AdmCredentialArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AdmCredentialPtrInput interface {
 	pulumi.Input
 
@@ -163,7 +163,7 @@ type AdmCredentialProperties struct {
 // AdmCredentialPropertiesInput is an input type that accepts AdmCredentialPropertiesArgs and AdmCredentialPropertiesOutput values.
 // You can construct a concrete instance of `AdmCredentialPropertiesInput` via:
 //
-//          AdmCredentialPropertiesArgs{...}
+//	AdmCredentialPropertiesArgs{...}
 type AdmCredentialPropertiesInput interface {
 	pulumi.Input
 
@@ -204,11 +204,11 @@ func (i AdmCredentialPropertiesArgs) ToAdmCredentialPropertiesPtrOutputWithConte
 // AdmCredentialPropertiesPtrInput is an input type that accepts AdmCredentialPropertiesArgs, AdmCredentialPropertiesPtr and AdmCredentialPropertiesPtrOutput values.
 // You can construct a concrete instance of `AdmCredentialPropertiesPtrInput` via:
 //
-//          AdmCredentialPropertiesArgs{...}
+//	        AdmCredentialPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AdmCredentialPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -491,7 +491,7 @@ type ApnsCredential struct {
 // ApnsCredentialInput is an input type that accepts ApnsCredentialArgs and ApnsCredentialOutput values.
 // You can construct a concrete instance of `ApnsCredentialInput` via:
 //
-//          ApnsCredentialArgs{...}
+//	ApnsCredentialArgs{...}
 type ApnsCredentialInput interface {
 	pulumi.Input
 
@@ -528,11 +528,11 @@ func (i ApnsCredentialArgs) ToApnsCredentialPtrOutputWithContext(ctx context.Con
 // ApnsCredentialPtrInput is an input type that accepts ApnsCredentialArgs, ApnsCredentialPtr and ApnsCredentialPtrOutput values.
 // You can construct a concrete instance of `ApnsCredentialPtrInput` via:
 //
-//          ApnsCredentialArgs{...}
+//	        ApnsCredentialArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApnsCredentialPtrInput interface {
 	pulumi.Input
 
@@ -637,7 +637,7 @@ type ApnsCredentialProperties struct {
 // ApnsCredentialPropertiesInput is an input type that accepts ApnsCredentialPropertiesArgs and ApnsCredentialPropertiesOutput values.
 // You can construct a concrete instance of `ApnsCredentialPropertiesInput` via:
 //
-//          ApnsCredentialPropertiesArgs{...}
+//	ApnsCredentialPropertiesArgs{...}
 type ApnsCredentialPropertiesInput interface {
 	pulumi.Input
 
@@ -680,11 +680,11 @@ func (i ApnsCredentialPropertiesArgs) ToApnsCredentialPropertiesPtrOutputWithCon
 // ApnsCredentialPropertiesPtrInput is an input type that accepts ApnsCredentialPropertiesArgs, ApnsCredentialPropertiesPtr and ApnsCredentialPropertiesPtrOutput values.
 // You can construct a concrete instance of `ApnsCredentialPropertiesPtrInput` via:
 //
-//          ApnsCredentialPropertiesArgs{...}
+//	        ApnsCredentialPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApnsCredentialPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -999,7 +999,7 @@ type BaiduCredential struct {
 // BaiduCredentialInput is an input type that accepts BaiduCredentialArgs and BaiduCredentialOutput values.
 // You can construct a concrete instance of `BaiduCredentialInput` via:
 //
-//          BaiduCredentialArgs{...}
+//	BaiduCredentialArgs{...}
 type BaiduCredentialInput interface {
 	pulumi.Input
 
@@ -1036,11 +1036,11 @@ func (i BaiduCredentialArgs) ToBaiduCredentialPtrOutputWithContext(ctx context.C
 // BaiduCredentialPtrInput is an input type that accepts BaiduCredentialArgs, BaiduCredentialPtr and BaiduCredentialPtrOutput values.
 // You can construct a concrete instance of `BaiduCredentialPtrInput` via:
 //
-//          BaiduCredentialArgs{...}
+//	        BaiduCredentialArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BaiduCredentialPtrInput interface {
 	pulumi.Input
 
@@ -1143,7 +1143,7 @@ type BaiduCredentialProperties struct {
 // BaiduCredentialPropertiesInput is an input type that accepts BaiduCredentialPropertiesArgs and BaiduCredentialPropertiesOutput values.
 // You can construct a concrete instance of `BaiduCredentialPropertiesInput` via:
 //
-//          BaiduCredentialPropertiesArgs{...}
+//	BaiduCredentialPropertiesArgs{...}
 type BaiduCredentialPropertiesInput interface {
 	pulumi.Input
 
@@ -1184,11 +1184,11 @@ func (i BaiduCredentialPropertiesArgs) ToBaiduCredentialPropertiesPtrOutputWithC
 // BaiduCredentialPropertiesPtrInput is an input type that accepts BaiduCredentialPropertiesArgs, BaiduCredentialPropertiesPtr and BaiduCredentialPropertiesPtrOutput values.
 // You can construct a concrete instance of `BaiduCredentialPropertiesPtrInput` via:
 //
-//          BaiduCredentialPropertiesArgs{...}
+//	        BaiduCredentialPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BaiduCredentialPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1471,7 +1471,7 @@ type GcmCredential struct {
 // GcmCredentialInput is an input type that accepts GcmCredentialArgs and GcmCredentialOutput values.
 // You can construct a concrete instance of `GcmCredentialInput` via:
 //
-//          GcmCredentialArgs{...}
+//	GcmCredentialArgs{...}
 type GcmCredentialInput interface {
 	pulumi.Input
 
@@ -1508,11 +1508,11 @@ func (i GcmCredentialArgs) ToGcmCredentialPtrOutputWithContext(ctx context.Conte
 // GcmCredentialPtrInput is an input type that accepts GcmCredentialArgs, GcmCredentialPtr and GcmCredentialPtrOutput values.
 // You can construct a concrete instance of `GcmCredentialPtrInput` via:
 //
-//          GcmCredentialArgs{...}
+//	        GcmCredentialArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcmCredentialPtrInput interface {
 	pulumi.Input
 
@@ -1613,7 +1613,7 @@ type GcmCredentialProperties struct {
 // GcmCredentialPropertiesInput is an input type that accepts GcmCredentialPropertiesArgs and GcmCredentialPropertiesOutput values.
 // You can construct a concrete instance of `GcmCredentialPropertiesInput` via:
 //
-//          GcmCredentialPropertiesArgs{...}
+//	GcmCredentialPropertiesArgs{...}
 type GcmCredentialPropertiesInput interface {
 	pulumi.Input
 
@@ -1652,11 +1652,11 @@ func (i GcmCredentialPropertiesArgs) ToGcmCredentialPropertiesPtrOutputWithConte
 // GcmCredentialPropertiesPtrInput is an input type that accepts GcmCredentialPropertiesArgs, GcmCredentialPropertiesPtr and GcmCredentialPropertiesPtrOutput values.
 // You can construct a concrete instance of `GcmCredentialPropertiesPtrInput` via:
 //
-//          GcmCredentialPropertiesArgs{...}
+//	        GcmCredentialPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcmCredentialPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1907,7 +1907,7 @@ type MpnsCredential struct {
 // MpnsCredentialInput is an input type that accepts MpnsCredentialArgs and MpnsCredentialOutput values.
 // You can construct a concrete instance of `MpnsCredentialInput` via:
 //
-//          MpnsCredentialArgs{...}
+//	MpnsCredentialArgs{...}
 type MpnsCredentialInput interface {
 	pulumi.Input
 
@@ -1944,11 +1944,11 @@ func (i MpnsCredentialArgs) ToMpnsCredentialPtrOutputWithContext(ctx context.Con
 // MpnsCredentialPtrInput is an input type that accepts MpnsCredentialArgs, MpnsCredentialPtr and MpnsCredentialPtrOutput values.
 // You can construct a concrete instance of `MpnsCredentialPtrInput` via:
 //
-//          MpnsCredentialArgs{...}
+//	        MpnsCredentialArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MpnsCredentialPtrInput interface {
 	pulumi.Input
 
@@ -2051,7 +2051,7 @@ type MpnsCredentialProperties struct {
 // MpnsCredentialPropertiesInput is an input type that accepts MpnsCredentialPropertiesArgs and MpnsCredentialPropertiesOutput values.
 // You can construct a concrete instance of `MpnsCredentialPropertiesInput` via:
 //
-//          MpnsCredentialPropertiesArgs{...}
+//	MpnsCredentialPropertiesArgs{...}
 type MpnsCredentialPropertiesInput interface {
 	pulumi.Input
 
@@ -2092,11 +2092,11 @@ func (i MpnsCredentialPropertiesArgs) ToMpnsCredentialPropertiesPtrOutputWithCon
 // MpnsCredentialPropertiesPtrInput is an input type that accepts MpnsCredentialPropertiesArgs, MpnsCredentialPropertiesPtr and MpnsCredentialPropertiesPtrOutput values.
 // You can construct a concrete instance of `MpnsCredentialPropertiesPtrInput` via:
 //
-//          MpnsCredentialPropertiesArgs{...}
+//	        MpnsCredentialPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MpnsCredentialPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2399,7 +2399,7 @@ type NamespaceProperties struct {
 // NamespacePropertiesInput is an input type that accepts NamespacePropertiesArgs and NamespacePropertiesOutput values.
 // You can construct a concrete instance of `NamespacePropertiesInput` via:
 //
-//          NamespacePropertiesArgs{...}
+//	NamespacePropertiesArgs{...}
 type NamespacePropertiesInput interface {
 	pulumi.Input
 
@@ -2636,7 +2636,7 @@ type NotificationHubProperties struct {
 // NotificationHubPropertiesInput is an input type that accepts NotificationHubPropertiesArgs and NotificationHubPropertiesOutput values.
 // You can construct a concrete instance of `NotificationHubPropertiesInput` via:
 //
-//          NotificationHubPropertiesArgs{...}
+//	NotificationHubPropertiesArgs{...}
 type NotificationHubPropertiesInput interface {
 	pulumi.Input
 
@@ -2849,7 +2849,7 @@ type SharedAccessAuthorizationRuleProperties struct {
 // SharedAccessAuthorizationRulePropertiesInput is an input type that accepts SharedAccessAuthorizationRulePropertiesArgs and SharedAccessAuthorizationRulePropertiesOutput values.
 // You can construct a concrete instance of `SharedAccessAuthorizationRulePropertiesInput` via:
 //
-//          SharedAccessAuthorizationRulePropertiesArgs{...}
+//	SharedAccessAuthorizationRulePropertiesArgs{...}
 type SharedAccessAuthorizationRulePropertiesInput interface {
 	pulumi.Input
 
@@ -2894,7 +2894,7 @@ func (i SharedAccessAuthorizationRulePropertiesArgs) ToSharedAccessAuthorization
 // SharedAccessAuthorizationRulePropertiesArrayInput is an input type that accepts SharedAccessAuthorizationRulePropertiesArray and SharedAccessAuthorizationRulePropertiesArrayOutput values.
 // You can construct a concrete instance of `SharedAccessAuthorizationRulePropertiesArrayInput` via:
 //
-//          SharedAccessAuthorizationRulePropertiesArray{ SharedAccessAuthorizationRulePropertiesArgs{...} }
+//	SharedAccessAuthorizationRulePropertiesArray{ SharedAccessAuthorizationRulePropertiesArgs{...} }
 type SharedAccessAuthorizationRulePropertiesArrayInput interface {
 	pulumi.Input
 
@@ -3107,7 +3107,7 @@ type WnsCredential struct {
 // WnsCredentialInput is an input type that accepts WnsCredentialArgs and WnsCredentialOutput values.
 // You can construct a concrete instance of `WnsCredentialInput` via:
 //
-//          WnsCredentialArgs{...}
+//	WnsCredentialArgs{...}
 type WnsCredentialInput interface {
 	pulumi.Input
 
@@ -3144,11 +3144,11 @@ func (i WnsCredentialArgs) ToWnsCredentialPtrOutputWithContext(ctx context.Conte
 // WnsCredentialPtrInput is an input type that accepts WnsCredentialArgs, WnsCredentialPtr and WnsCredentialPtrOutput values.
 // You can construct a concrete instance of `WnsCredentialPtrInput` via:
 //
-//          WnsCredentialArgs{...}
+//	        WnsCredentialArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WnsCredentialPtrInput interface {
 	pulumi.Input
 
@@ -3251,7 +3251,7 @@ type WnsCredentialProperties struct {
 // WnsCredentialPropertiesInput is an input type that accepts WnsCredentialPropertiesArgs and WnsCredentialPropertiesOutput values.
 // You can construct a concrete instance of `WnsCredentialPropertiesInput` via:
 //
-//          WnsCredentialPropertiesArgs{...}
+//	WnsCredentialPropertiesArgs{...}
 type WnsCredentialPropertiesInput interface {
 	pulumi.Input
 
@@ -3292,11 +3292,11 @@ func (i WnsCredentialPropertiesArgs) ToWnsCredentialPropertiesPtrOutputWithConte
 // WnsCredentialPropertiesPtrInput is an input type that accepts WnsCredentialPropertiesArgs, WnsCredentialPropertiesPtr and WnsCredentialPropertiesPtrOutput values.
 // You can construct a concrete instance of `WnsCredentialPropertiesPtrInput` via:
 //
-//          WnsCredentialPropertiesArgs{...}
+//	        WnsCredentialPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WnsCredentialPropertiesPtrInput interface {
 	pulumi.Input
 

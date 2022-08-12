@@ -130,7 +130,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -171,11 +171,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -665,7 +665,7 @@ type MoveCollectionProperties struct {
 // MoveCollectionPropertiesInput is an input type that accepts MoveCollectionPropertiesArgs and MoveCollectionPropertiesOutput values.
 // You can construct a concrete instance of `MoveCollectionPropertiesInput` via:
 //
-//          MoveCollectionPropertiesArgs{...}
+//	MoveCollectionPropertiesArgs{...}
 type MoveCollectionPropertiesInput interface {
 	pulumi.Input
 
@@ -704,11 +704,11 @@ func (i MoveCollectionPropertiesArgs) ToMoveCollectionPropertiesPtrOutputWithCon
 // MoveCollectionPropertiesPtrInput is an input type that accepts MoveCollectionPropertiesArgs, MoveCollectionPropertiesPtr and MoveCollectionPropertiesPtrOutput values.
 // You can construct a concrete instance of `MoveCollectionPropertiesPtrInput` via:
 //
-//          MoveCollectionPropertiesArgs{...}
+//	        MoveCollectionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MoveCollectionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -898,7 +898,7 @@ type MoveResourceDependencyOverride struct {
 // MoveResourceDependencyOverrideInput is an input type that accepts MoveResourceDependencyOverrideArgs and MoveResourceDependencyOverrideOutput values.
 // You can construct a concrete instance of `MoveResourceDependencyOverrideInput` via:
 //
-//          MoveResourceDependencyOverrideArgs{...}
+//	MoveResourceDependencyOverrideArgs{...}
 type MoveResourceDependencyOverrideInput interface {
 	pulumi.Input
 
@@ -930,7 +930,7 @@ func (i MoveResourceDependencyOverrideArgs) ToMoveResourceDependencyOverrideOutp
 // MoveResourceDependencyOverrideArrayInput is an input type that accepts MoveResourceDependencyOverrideArray and MoveResourceDependencyOverrideArrayOutput values.
 // You can construct a concrete instance of `MoveResourceDependencyOverrideArrayInput` via:
 //
-//          MoveResourceDependencyOverrideArray{ MoveResourceDependencyOverrideArgs{...} }
+//	MoveResourceDependencyOverrideArray{ MoveResourceDependencyOverrideArgs{...} }
 type MoveResourceDependencyOverrideArrayInput interface {
 	pulumi.Input
 
@@ -1349,7 +1349,7 @@ type MoveResourceProperties struct {
 // MoveResourcePropertiesInput is an input type that accepts MoveResourcePropertiesArgs and MoveResourcePropertiesOutput values.
 // You can construct a concrete instance of `MoveResourcePropertiesInput` via:
 //
-//          MoveResourcePropertiesArgs{...}
+//	MoveResourcePropertiesArgs{...}
 type MoveResourcePropertiesInput interface {
 	pulumi.Input
 
@@ -1392,11 +1392,11 @@ func (i MoveResourcePropertiesArgs) ToMoveResourcePropertiesPtrOutputWithContext
 // MoveResourcePropertiesPtrInput is an input type that accepts MoveResourcePropertiesArgs, MoveResourcePropertiesPtr and MoveResourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `MoveResourcePropertiesPtrInput` via:
 //
-//          MoveResourcePropertiesArgs{...}
+//	        MoveResourcePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MoveResourcePropertiesPtrInput interface {
 	pulumi.Input
 

@@ -21,7 +21,7 @@ type ManagedServiceIdentity struct {
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityInput` via:
 //
-//          ManagedServiceIdentityArgs{...}
+//	ManagedServiceIdentityArgs{...}
 type ManagedServiceIdentityInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext
 // ManagedServiceIdentityPtrInput is an input type that accepts ManagedServiceIdentityArgs, ManagedServiceIdentityPtr and ManagedServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityPtrInput` via:
 //
-//          ManagedServiceIdentityArgs{...}
+//	        ManagedServiceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagedServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -438,7 +438,7 @@ type PrivateLinkServiceConnectionState struct {
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
 // You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
 //
-//          PrivateLinkServiceConnectionStateArgs{...}
+//	PrivateLinkServiceConnectionStateArgs{...}
 type PrivateLinkServiceConnectionStateInput interface {
 	pulumi.Input
 
@@ -602,7 +602,7 @@ type RedisCommonPropertiesRedisConfiguration struct {
 // RedisCommonPropertiesRedisConfigurationInput is an input type that accepts RedisCommonPropertiesRedisConfigurationArgs and RedisCommonPropertiesRedisConfigurationOutput values.
 // You can construct a concrete instance of `RedisCommonPropertiesRedisConfigurationInput` via:
 //
-//          RedisCommonPropertiesRedisConfigurationArgs{...}
+//	RedisCommonPropertiesRedisConfigurationArgs{...}
 type RedisCommonPropertiesRedisConfigurationInput interface {
 	pulumi.Input
 
@@ -661,11 +661,11 @@ func (i RedisCommonPropertiesRedisConfigurationArgs) ToRedisCommonPropertiesRedi
 // RedisCommonPropertiesRedisConfigurationPtrInput is an input type that accepts RedisCommonPropertiesRedisConfigurationArgs, RedisCommonPropertiesRedisConfigurationPtr and RedisCommonPropertiesRedisConfigurationPtrOutput values.
 // You can construct a concrete instance of `RedisCommonPropertiesRedisConfigurationPtrInput` via:
 //
-//          RedisCommonPropertiesRedisConfigurationArgs{...}
+//	        RedisCommonPropertiesRedisConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RedisCommonPropertiesRedisConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1381,7 +1381,7 @@ type ScheduleEntry struct {
 // ScheduleEntryInput is an input type that accepts ScheduleEntryArgs and ScheduleEntryOutput values.
 // You can construct a concrete instance of `ScheduleEntryInput` via:
 //
-//          ScheduleEntryArgs{...}
+//	ScheduleEntryArgs{...}
 type ScheduleEntryInput interface {
 	pulumi.Input
 
@@ -1414,7 +1414,7 @@ func (i ScheduleEntryArgs) ToScheduleEntryOutputWithContext(ctx context.Context)
 // ScheduleEntryArrayInput is an input type that accepts ScheduleEntryArray and ScheduleEntryArrayOutput values.
 // You can construct a concrete instance of `ScheduleEntryArrayInput` via:
 //
-//          ScheduleEntryArray{ ScheduleEntryArgs{...} }
+//	ScheduleEntryArray{ ScheduleEntryArgs{...} }
 type ScheduleEntryArrayInput interface {
 	pulumi.Input
 
@@ -1559,7 +1559,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 

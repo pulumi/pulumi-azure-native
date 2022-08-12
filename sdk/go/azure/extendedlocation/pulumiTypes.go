@@ -21,7 +21,7 @@ type CustomLocationPropertiesAuthentication struct {
 // CustomLocationPropertiesAuthenticationInput is an input type that accepts CustomLocationPropertiesAuthenticationArgs and CustomLocationPropertiesAuthenticationOutput values.
 // You can construct a concrete instance of `CustomLocationPropertiesAuthenticationInput` via:
 //
-//          CustomLocationPropertiesAuthenticationArgs{...}
+//	CustomLocationPropertiesAuthenticationArgs{...}
 type CustomLocationPropertiesAuthenticationInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i CustomLocationPropertiesAuthenticationArgs) ToCustomLocationPropertiesAu
 // CustomLocationPropertiesAuthenticationPtrInput is an input type that accepts CustomLocationPropertiesAuthenticationArgs, CustomLocationPropertiesAuthenticationPtr and CustomLocationPropertiesAuthenticationPtrOutput values.
 // You can construct a concrete instance of `CustomLocationPropertiesAuthenticationPtrInput` via:
 //
-//          CustomLocationPropertiesAuthenticationArgs{...}
+//	        CustomLocationPropertiesAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CustomLocationPropertiesAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -298,7 +298,7 @@ type ResourceSyncRulePropertiesSelector struct {
 // ResourceSyncRulePropertiesSelectorInput is an input type that accepts ResourceSyncRulePropertiesSelectorArgs and ResourceSyncRulePropertiesSelectorOutput values.
 // You can construct a concrete instance of `ResourceSyncRulePropertiesSelectorInput` via:
 //
-//          ResourceSyncRulePropertiesSelectorArgs{...}
+//	ResourceSyncRulePropertiesSelectorArgs{...}
 type ResourceSyncRulePropertiesSelectorInput interface {
 	pulumi.Input
 
@@ -335,11 +335,11 @@ func (i ResourceSyncRulePropertiesSelectorArgs) ToResourceSyncRulePropertiesSele
 // ResourceSyncRulePropertiesSelectorPtrInput is an input type that accepts ResourceSyncRulePropertiesSelectorArgs, ResourceSyncRulePropertiesSelectorPtr and ResourceSyncRulePropertiesSelectorPtrOutput values.
 // You can construct a concrete instance of `ResourceSyncRulePropertiesSelectorPtrInput` via:
 //
-//          ResourceSyncRulePropertiesSelectorArgs{...}
+//	        ResourceSyncRulePropertiesSelectorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSyncRulePropertiesSelectorPtrInput interface {
 	pulumi.Input
 

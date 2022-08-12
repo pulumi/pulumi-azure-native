@@ -25,7 +25,7 @@ type DataPoolEncryption struct {
 // DataPoolEncryptionInput is an input type that accepts DataPoolEncryptionArgs and DataPoolEncryptionOutput values.
 // You can construct a concrete instance of `DataPoolEncryptionInput` via:
 //
-//          DataPoolEncryptionArgs{...}
+//	DataPoolEncryptionArgs{...}
 type DataPoolEncryptionInput interface {
 	pulumi.Input
 
@@ -68,11 +68,11 @@ func (i DataPoolEncryptionArgs) ToDataPoolEncryptionPtrOutputWithContext(ctx con
 // DataPoolEncryptionPtrInput is an input type that accepts DataPoolEncryptionArgs, DataPoolEncryptionPtr and DataPoolEncryptionPtrOutput values.
 // You can construct a concrete instance of `DataPoolEncryptionPtrInput` via:
 //
-//          DataPoolEncryptionArgs{...}
+//	        DataPoolEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataPoolEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -333,7 +333,7 @@ type DataPoolLocation struct {
 // DataPoolLocationInput is an input type that accepts DataPoolLocationArgs and DataPoolLocationOutput values.
 // You can construct a concrete instance of `DataPoolLocationInput` via:
 //
-//          DataPoolLocationArgs{...}
+//	DataPoolLocationArgs{...}
 type DataPoolLocationInput interface {
 	pulumi.Input
 
@@ -368,7 +368,7 @@ func (i DataPoolLocationArgs) ToDataPoolLocationOutputWithContext(ctx context.Co
 // DataPoolLocationArrayInput is an input type that accepts DataPoolLocationArray and DataPoolLocationArrayOutput values.
 // You can construct a concrete instance of `DataPoolLocationArrayInput` via:
 //
-//          DataPoolLocationArray{ DataPoolLocationArgs{...} }
+//	DataPoolLocationArray{ DataPoolLocationArgs{...} }
 type DataPoolLocationArrayInput interface {
 	pulumi.Input
 
@@ -521,7 +521,7 @@ type StorageSku struct {
 // StorageSkuInput is an input type that accepts StorageSkuArgs and StorageSkuOutput values.
 // You can construct a concrete instance of `StorageSkuInput` via:
 //
-//          StorageSkuArgs{...}
+//	StorageSkuArgs{...}
 type StorageSkuInput interface {
 	pulumi.Input
 
@@ -558,11 +558,11 @@ func (i StorageSkuArgs) ToStorageSkuPtrOutputWithContext(ctx context.Context) St
 // StorageSkuPtrInput is an input type that accepts StorageSkuArgs, StorageSkuPtr and StorageSkuPtrOutput values.
 // You can construct a concrete instance of `StorageSkuPtrInput` via:
 //
-//          StorageSkuArgs{...}
+//	        StorageSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageSkuPtrInput interface {
 	pulumi.Input
 

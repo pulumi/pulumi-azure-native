@@ -77,7 +77,7 @@ type ImageTemplateIdentity struct {
 // ImageTemplateIdentityInput is an input type that accepts ImageTemplateIdentityArgs and ImageTemplateIdentityOutput values.
 // You can construct a concrete instance of `ImageTemplateIdentityInput` via:
 //
-//          ImageTemplateIdentityArgs{...}
+//	ImageTemplateIdentityArgs{...}
 type ImageTemplateIdentityInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ func (val *ImageTemplatePropertiesValidate) Defaults() *ImageTemplatePropertiesV
 // ImageTemplatePropertiesValidateInput is an input type that accepts ImageTemplatePropertiesValidateArgs and ImageTemplatePropertiesValidateOutput values.
 // You can construct a concrete instance of `ImageTemplatePropertiesValidateInput` via:
 //
-//          ImageTemplatePropertiesValidateArgs{...}
+//	ImageTemplatePropertiesValidateArgs{...}
 type ImageTemplatePropertiesValidateInput interface {
 	pulumi.Input
 
@@ -718,11 +718,11 @@ func (i ImageTemplatePropertiesValidateArgs) ToImageTemplatePropertiesValidatePt
 // ImageTemplatePropertiesValidatePtrInput is an input type that accepts ImageTemplatePropertiesValidateArgs, ImageTemplatePropertiesValidatePtr and ImageTemplatePropertiesValidatePtrOutput values.
 // You can construct a concrete instance of `ImageTemplatePropertiesValidatePtrInput` via:
 //
-//          ImageTemplatePropertiesValidateArgs{...}
+//	        ImageTemplatePropertiesValidateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImageTemplatePropertiesValidatePtrInput interface {
 	pulumi.Input
 
@@ -1122,7 +1122,7 @@ func (val *ImageTemplateVmProfile) Defaults() *ImageTemplateVmProfile {
 // ImageTemplateVmProfileInput is an input type that accepts ImageTemplateVmProfileArgs and ImageTemplateVmProfileOutput values.
 // You can construct a concrete instance of `ImageTemplateVmProfileInput` via:
 //
-//          ImageTemplateVmProfileArgs{...}
+//	ImageTemplateVmProfileArgs{...}
 type ImageTemplateVmProfileInput interface {
 	pulumi.Input
 
@@ -1180,11 +1180,11 @@ func (i ImageTemplateVmProfileArgs) ToImageTemplateVmProfilePtrOutputWithContext
 // ImageTemplateVmProfilePtrInput is an input type that accepts ImageTemplateVmProfileArgs, ImageTemplateVmProfilePtr and ImageTemplateVmProfilePtrOutput values.
 // You can construct a concrete instance of `ImageTemplateVmProfilePtrInput` via:
 //
-//          ImageTemplateVmProfileArgs{...}
+//	        ImageTemplateVmProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImageTemplateVmProfilePtrInput interface {
 	pulumi.Input
 
@@ -1617,7 +1617,7 @@ func (val *VirtualNetworkConfig) Defaults() *VirtualNetworkConfig {
 // VirtualNetworkConfigInput is an input type that accepts VirtualNetworkConfigArgs and VirtualNetworkConfigOutput values.
 // You can construct a concrete instance of `VirtualNetworkConfigInput` via:
 //
-//          VirtualNetworkConfigArgs{...}
+//	VirtualNetworkConfigArgs{...}
 type VirtualNetworkConfigInput interface {
 	pulumi.Input
 
@@ -1667,11 +1667,11 @@ func (i VirtualNetworkConfigArgs) ToVirtualNetworkConfigPtrOutputWithContext(ctx
 // VirtualNetworkConfigPtrInput is an input type that accepts VirtualNetworkConfigArgs, VirtualNetworkConfigPtr and VirtualNetworkConfigPtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkConfigPtrInput` via:
 //
-//          VirtualNetworkConfigArgs{...}
+//	        VirtualNetworkConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualNetworkConfigPtrInput interface {
 	pulumi.Input
 

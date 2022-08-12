@@ -21,7 +21,7 @@ type StorageAccount struct {
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
 // You can construct a concrete instance of `StorageAccountInput` via:
 //
-//          StorageAccountArgs{...}
+//	StorageAccountArgs{...}
 type StorageAccountInput interface {
 	pulumi.Input
 
@@ -151,7 +151,7 @@ type Tag struct {
 // TagInput is an input type that accepts TagArgs and TagOutput values.
 // You can construct a concrete instance of `TagInput` via:
 //
-//          TagArgs{...}
+//	TagArgs{...}
 type TagInput interface {
 	pulumi.Input
 
@@ -182,7 +182,7 @@ func (i TagArgs) ToTagOutputWithContext(ctx context.Context) TagOutput {
 // TagArrayInput is an input type that accepts TagArray and TagArrayOutput values.
 // You can construct a concrete instance of `TagArrayInput` via:
 //
-//          TagArray{ TagArgs{...} }
+//	TagArray{ TagArgs{...} }
 type TagArrayInput interface {
 	pulumi.Input
 

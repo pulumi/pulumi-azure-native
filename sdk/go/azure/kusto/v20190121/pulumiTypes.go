@@ -23,7 +23,7 @@ type AzureSku struct {
 // AzureSkuInput is an input type that accepts AzureSkuArgs and AzureSkuOutput values.
 // You can construct a concrete instance of `AzureSkuInput` via:
 //
-//          AzureSkuArgs{...}
+//	AzureSkuArgs{...}
 type AzureSkuInput interface {
 	pulumi.Input
 
@@ -239,7 +239,7 @@ type TrustedExternalTenant struct {
 // TrustedExternalTenantInput is an input type that accepts TrustedExternalTenantArgs and TrustedExternalTenantOutput values.
 // You can construct a concrete instance of `TrustedExternalTenantInput` via:
 //
-//          TrustedExternalTenantArgs{...}
+//	TrustedExternalTenantArgs{...}
 type TrustedExternalTenantInput interface {
 	pulumi.Input
 
@@ -268,7 +268,7 @@ func (i TrustedExternalTenantArgs) ToTrustedExternalTenantOutputWithContext(ctx 
 // TrustedExternalTenantArrayInput is an input type that accepts TrustedExternalTenantArray and TrustedExternalTenantArrayOutput values.
 // You can construct a concrete instance of `TrustedExternalTenantArrayInput` via:
 //
-//          TrustedExternalTenantArray{ TrustedExternalTenantArgs{...} }
+//	TrustedExternalTenantArray{ TrustedExternalTenantArgs{...} }
 type TrustedExternalTenantArrayInput interface {
 	pulumi.Input
 

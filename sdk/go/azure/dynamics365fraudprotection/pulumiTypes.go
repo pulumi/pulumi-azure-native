@@ -19,7 +19,7 @@ type DFPInstanceAdministrators struct {
 // DFPInstanceAdministratorsInput is an input type that accepts DFPInstanceAdministratorsArgs and DFPInstanceAdministratorsOutput values.
 // You can construct a concrete instance of `DFPInstanceAdministratorsInput` via:
 //
-//          DFPInstanceAdministratorsArgs{...}
+//	DFPInstanceAdministratorsArgs{...}
 type DFPInstanceAdministratorsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i DFPInstanceAdministratorsArgs) ToDFPInstanceAdministratorsPtrOutputWithC
 // DFPInstanceAdministratorsPtrInput is an input type that accepts DFPInstanceAdministratorsArgs, DFPInstanceAdministratorsPtr and DFPInstanceAdministratorsPtrOutput values.
 // You can construct a concrete instance of `DFPInstanceAdministratorsPtrInput` via:
 //
-//          DFPInstanceAdministratorsArgs{...}
+//	        DFPInstanceAdministratorsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DFPInstanceAdministratorsPtrInput interface {
 	pulumi.Input
 

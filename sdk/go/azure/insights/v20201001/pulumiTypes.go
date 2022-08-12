@@ -21,7 +21,7 @@ type ActionGroup struct {
 // ActionGroupInput is an input type that accepts ActionGroupArgs and ActionGroupOutput values.
 // You can construct a concrete instance of `ActionGroupInput` via:
 //
-//          ActionGroupArgs{...}
+//	ActionGroupArgs{...}
 type ActionGroupInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ActionGroupArgs) ToActionGroupOutputWithContext(ctx context.Context) Act
 // ActionGroupArrayInput is an input type that accepts ActionGroupArray and ActionGroupArrayOutput values.
 // You can construct a concrete instance of `ActionGroupArrayInput` via:
 //
-//          ActionGroupArray{ ActionGroupArgs{...} }
+//	ActionGroupArray{ ActionGroupArgs{...} }
 type ActionGroupArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +181,7 @@ type ActionList struct {
 // ActionListInput is an input type that accepts ActionListArgs and ActionListOutput values.
 // You can construct a concrete instance of `ActionListInput` via:
 //
-//          ActionListArgs{...}
+//	ActionListArgs{...}
 type ActionListInput interface {
 	pulumi.Input
 
@@ -262,7 +262,7 @@ type AlertRuleAllOfCondition struct {
 // AlertRuleAllOfConditionInput is an input type that accepts AlertRuleAllOfConditionArgs and AlertRuleAllOfConditionOutput values.
 // You can construct a concrete instance of `AlertRuleAllOfConditionInput` via:
 //
-//          AlertRuleAllOfConditionArgs{...}
+//	AlertRuleAllOfConditionArgs{...}
 type AlertRuleAllOfConditionInput interface {
 	pulumi.Input
 
@@ -337,10 +337,10 @@ func (o AlertRuleAllOfConditionResponseOutput) AllOf() AlertRuleAnyOfOrLeafCondi
 // An Activity Log Alert rule condition that is met when all its member conditions are met.
 // Each condition can be of one of the following types:
 // __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+//   - __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//     _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   - __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//     _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafCondition struct {
 	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
 	AnyOf []AlertRuleLeafCondition `pulumi:"anyOf"`
@@ -356,7 +356,7 @@ type AlertRuleAnyOfOrLeafCondition struct {
 // AlertRuleAnyOfOrLeafConditionInput is an input type that accepts AlertRuleAnyOfOrLeafConditionArgs and AlertRuleAnyOfOrLeafConditionOutput values.
 // You can construct a concrete instance of `AlertRuleAnyOfOrLeafConditionInput` via:
 //
-//          AlertRuleAnyOfOrLeafConditionArgs{...}
+//	AlertRuleAnyOfOrLeafConditionArgs{...}
 type AlertRuleAnyOfOrLeafConditionInput interface {
 	pulumi.Input
 
@@ -367,10 +367,10 @@ type AlertRuleAnyOfOrLeafConditionInput interface {
 // An Activity Log Alert rule condition that is met when all its member conditions are met.
 // Each condition can be of one of the following types:
 // __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+//   - __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//     _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   - __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//     _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionArgs struct {
 	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
 	AnyOf AlertRuleLeafConditionArrayInput `pulumi:"anyOf"`
@@ -398,7 +398,7 @@ func (i AlertRuleAnyOfOrLeafConditionArgs) ToAlertRuleAnyOfOrLeafConditionOutput
 // AlertRuleAnyOfOrLeafConditionArrayInput is an input type that accepts AlertRuleAnyOfOrLeafConditionArray and AlertRuleAnyOfOrLeafConditionArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnyOfOrLeafConditionArrayInput` via:
 //
-//          AlertRuleAnyOfOrLeafConditionArray{ AlertRuleAnyOfOrLeafConditionArgs{...} }
+//	AlertRuleAnyOfOrLeafConditionArray{ AlertRuleAnyOfOrLeafConditionArgs{...} }
 type AlertRuleAnyOfOrLeafConditionArrayInput interface {
 	pulumi.Input
 
@@ -423,10 +423,10 @@ func (i AlertRuleAnyOfOrLeafConditionArray) ToAlertRuleAnyOfOrLeafConditionArray
 // An Activity Log Alert rule condition that is met when all its member conditions are met.
 // Each condition can be of one of the following types:
 // __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+//   - __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//     _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   - __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//     _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnyOfOrLeafConditionOutput) ElementType() reflect.Type {
@@ -485,10 +485,10 @@ func (o AlertRuleAnyOfOrLeafConditionArrayOutput) Index(i pulumi.IntInput) Alert
 // An Activity Log Alert rule condition that is met when all its member conditions are met.
 // Each condition can be of one of the following types:
 // __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+//   - __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//     _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   - __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//     _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionResponse struct {
 	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
 	AnyOf []AlertRuleLeafConditionResponse `pulumi:"anyOf"`
@@ -504,10 +504,10 @@ type AlertRuleAnyOfOrLeafConditionResponse struct {
 // An Activity Log Alert rule condition that is met when all its member conditions are met.
 // Each condition can be of one of the following types:
 // __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+//   - __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//     _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   - __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//     _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
 type AlertRuleAnyOfOrLeafConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnyOfOrLeafConditionResponseOutput) ElementType() reflect.Type {
@@ -578,7 +578,7 @@ type AlertRuleLeafCondition struct {
 // AlertRuleLeafConditionInput is an input type that accepts AlertRuleLeafConditionArgs and AlertRuleLeafConditionOutput values.
 // You can construct a concrete instance of `AlertRuleLeafConditionInput` via:
 //
-//          AlertRuleLeafConditionArgs{...}
+//	AlertRuleLeafConditionArgs{...}
 type AlertRuleLeafConditionInput interface {
 	pulumi.Input
 
@@ -613,7 +613,7 @@ func (i AlertRuleLeafConditionArgs) ToAlertRuleLeafConditionOutputWithContext(ct
 // AlertRuleLeafConditionArrayInput is an input type that accepts AlertRuleLeafConditionArray and AlertRuleLeafConditionArrayOutput values.
 // You can construct a concrete instance of `AlertRuleLeafConditionArrayInput` via:
 //
-//          AlertRuleLeafConditionArray{ AlertRuleLeafConditionArgs{...} }
+//	AlertRuleLeafConditionArray{ AlertRuleLeafConditionArgs{...} }
 type AlertRuleLeafConditionArrayInput interface {
 	pulumi.Input
 

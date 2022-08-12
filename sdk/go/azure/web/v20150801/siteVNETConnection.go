@@ -234,7 +234,8 @@ func (o SiteVNETConnectionOutput) ToSiteVNETConnectionOutputWithContext(ctx cont
 }
 
 // A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-//             Point-To-Site VPN connection.
+//
+//	Point-To-Site VPN connection.
 func (o SiteVNETConnectionOutput) CertBlob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteVNETConnection) pulumi.StringPtrOutput { return v.CertBlob }).(pulumi.StringPtrOutput)
 }

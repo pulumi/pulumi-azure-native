@@ -61,7 +61,7 @@ func (val *EventSubscriptionFilter) Defaults() *EventSubscriptionFilter {
 // EventSubscriptionFilterInput is an input type that accepts EventSubscriptionFilterArgs and EventSubscriptionFilterOutput values.
 // You can construct a concrete instance of `EventSubscriptionFilterInput` via:
 //
-//          EventSubscriptionFilterArgs{...}
+//	EventSubscriptionFilterArgs{...}
 type EventSubscriptionFilterInput interface {
 	pulumi.Input
 
@@ -120,11 +120,11 @@ func (i EventSubscriptionFilterArgs) ToEventSubscriptionFilterPtrOutputWithConte
 // EventSubscriptionFilterPtrInput is an input type that accepts EventSubscriptionFilterArgs, EventSubscriptionFilterPtr and EventSubscriptionFilterPtrOutput values.
 // You can construct a concrete instance of `EventSubscriptionFilterPtrInput` via:
 //
-//          EventSubscriptionFilterArgs{...}
+//	        EventSubscriptionFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventSubscriptionFilterPtrInput interface {
 	pulumi.Input
 

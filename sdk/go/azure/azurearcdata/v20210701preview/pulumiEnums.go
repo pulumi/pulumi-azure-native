@@ -151,7 +151,7 @@ func (o InfrastructurePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // InfrastructureInput is an input type that accepts InfrastructureArgs and InfrastructureOutput values.
 // You can construct a concrete instance of `InfrastructureInput` via:
 //
-//          InfrastructureArgs{...}
+//	InfrastructureArgs{...}
 type InfrastructureInput interface {
 	pulumi.Input
 
@@ -316,7 +316,7 @@ func (o LicenseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // LicenseTypeInput is an input type that accepts LicenseTypeArgs and LicenseTypeOutput values.
 // You can construct a concrete instance of `LicenseTypeInput` via:
 //
-//          LicenseTypeArgs{...}
+//	LicenseTypeArgs{...}
 type LicenseTypeInput interface {
 	pulumi.Input
 
@@ -480,7 +480,7 @@ func (o PostgresInstanceSkuTierPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // PostgresInstanceSkuTierInput is an input type that accepts PostgresInstanceSkuTierArgs and PostgresInstanceSkuTierOutput values.
 // You can construct a concrete instance of `PostgresInstanceSkuTierInput` via:
 //
-//          PostgresInstanceSkuTierArgs{...}
+//	PostgresInstanceSkuTierArgs{...}
 type PostgresInstanceSkuTierInput interface {
 	pulumi.Input
 
@@ -645,7 +645,7 @@ func (o SqlManagedInstanceSkuTierPtrOutput) ToStringPtrOutputWithContext(ctx con
 // SqlManagedInstanceSkuTierInput is an input type that accepts SqlManagedInstanceSkuTierArgs and SqlManagedInstanceSkuTierOutput values.
 // You can construct a concrete instance of `SqlManagedInstanceSkuTierInput` via:
 //
-//          SqlManagedInstanceSkuTierArgs{...}
+//	SqlManagedInstanceSkuTierArgs{...}
 type SqlManagedInstanceSkuTierInput interface {
 	pulumi.Input
 

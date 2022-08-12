@@ -48,7 +48,7 @@ func (val *ContainerServiceAgentPoolProfile) Defaults() *ContainerServiceAgentPo
 // ContainerServiceAgentPoolProfileInput is an input type that accepts ContainerServiceAgentPoolProfileArgs and ContainerServiceAgentPoolProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceAgentPoolProfileInput` via:
 //
-//          ContainerServiceAgentPoolProfileArgs{...}
+//	ContainerServiceAgentPoolProfileArgs{...}
 type ContainerServiceAgentPoolProfileInput interface {
 	pulumi.Input
 
@@ -104,7 +104,7 @@ func (i ContainerServiceAgentPoolProfileArgs) ToContainerServiceAgentPoolProfile
 // ContainerServiceAgentPoolProfileArrayInput is an input type that accepts ContainerServiceAgentPoolProfileArray and ContainerServiceAgentPoolProfileArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceAgentPoolProfileArrayInput` via:
 //
-//          ContainerServiceAgentPoolProfileArray{ ContainerServiceAgentPoolProfileArgs{...} }
+//	ContainerServiceAgentPoolProfileArray{ ContainerServiceAgentPoolProfileArgs{...} }
 type ContainerServiceAgentPoolProfileArrayInput interface {
 	pulumi.Input
 
@@ -339,7 +339,7 @@ type ContainerServiceLinuxProfile struct {
 // ContainerServiceLinuxProfileInput is an input type that accepts ContainerServiceLinuxProfileArgs and ContainerServiceLinuxProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceLinuxProfileInput` via:
 //
-//          ContainerServiceLinuxProfileArgs{...}
+//	ContainerServiceLinuxProfileArgs{...}
 type ContainerServiceLinuxProfileInput interface {
 	pulumi.Input
 
@@ -378,11 +378,11 @@ func (i ContainerServiceLinuxProfileArgs) ToContainerServiceLinuxProfilePtrOutpu
 // ContainerServiceLinuxProfilePtrInput is an input type that accepts ContainerServiceLinuxProfileArgs, ContainerServiceLinuxProfilePtr and ContainerServiceLinuxProfilePtrOutput values.
 // You can construct a concrete instance of `ContainerServiceLinuxProfilePtrInput` via:
 //
-//          ContainerServiceLinuxProfileArgs{...}
+//	        ContainerServiceLinuxProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServiceLinuxProfilePtrInput interface {
 	pulumi.Input
 
@@ -577,7 +577,7 @@ type ContainerServiceServicePrincipalProfile struct {
 // ContainerServiceServicePrincipalProfileInput is an input type that accepts ContainerServiceServicePrincipalProfileArgs and ContainerServiceServicePrincipalProfileOutput values.
 // You can construct a concrete instance of `ContainerServiceServicePrincipalProfileInput` via:
 //
-//          ContainerServiceServicePrincipalProfileArgs{...}
+//	ContainerServiceServicePrincipalProfileArgs{...}
 type ContainerServiceServicePrincipalProfileInput interface {
 	pulumi.Input
 
@@ -618,11 +618,11 @@ func (i ContainerServiceServicePrincipalProfileArgs) ToContainerServiceServicePr
 // ContainerServiceServicePrincipalProfilePtrInput is an input type that accepts ContainerServiceServicePrincipalProfileArgs, ContainerServiceServicePrincipalProfilePtr and ContainerServiceServicePrincipalProfilePtrOutput values.
 // You can construct a concrete instance of `ContainerServiceServicePrincipalProfilePtrInput` via:
 //
-//          ContainerServiceServicePrincipalProfileArgs{...}
+//	        ContainerServiceServicePrincipalProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServiceServicePrincipalProfilePtrInput interface {
 	pulumi.Input
 
@@ -847,7 +847,7 @@ type ContainerServiceSshConfiguration struct {
 // ContainerServiceSshConfigurationInput is an input type that accepts ContainerServiceSshConfigurationArgs and ContainerServiceSshConfigurationOutput values.
 // You can construct a concrete instance of `ContainerServiceSshConfigurationInput` via:
 //
-//          ContainerServiceSshConfigurationArgs{...}
+//	ContainerServiceSshConfigurationArgs{...}
 type ContainerServiceSshConfigurationInput interface {
 	pulumi.Input
 
@@ -884,11 +884,11 @@ func (i ContainerServiceSshConfigurationArgs) ToContainerServiceSshConfiguration
 // ContainerServiceSshConfigurationPtrInput is an input type that accepts ContainerServiceSshConfigurationArgs, ContainerServiceSshConfigurationPtr and ContainerServiceSshConfigurationPtrOutput values.
 // You can construct a concrete instance of `ContainerServiceSshConfigurationPtrInput` via:
 //
-//          ContainerServiceSshConfigurationArgs{...}
+//	        ContainerServiceSshConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServiceSshConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1049,7 +1049,7 @@ type ContainerServiceSshPublicKey struct {
 // ContainerServiceSshPublicKeyInput is an input type that accepts ContainerServiceSshPublicKeyArgs and ContainerServiceSshPublicKeyOutput values.
 // You can construct a concrete instance of `ContainerServiceSshPublicKeyInput` via:
 //
-//          ContainerServiceSshPublicKeyArgs{...}
+//	ContainerServiceSshPublicKeyArgs{...}
 type ContainerServiceSshPublicKeyInput interface {
 	pulumi.Input
 
@@ -1078,7 +1078,7 @@ func (i ContainerServiceSshPublicKeyArgs) ToContainerServiceSshPublicKeyOutputWi
 // ContainerServiceSshPublicKeyArrayInput is an input type that accepts ContainerServiceSshPublicKeyArray and ContainerServiceSshPublicKeyArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceSshPublicKeyArrayInput` via:
 //
-//          ContainerServiceSshPublicKeyArray{ ContainerServiceSshPublicKeyArgs{...} }
+//	ContainerServiceSshPublicKeyArray{ ContainerServiceSshPublicKeyArgs{...} }
 type ContainerServiceSshPublicKeyArrayInput interface {
 	pulumi.Input
 
@@ -1199,7 +1199,7 @@ type KeyVaultSecretRef struct {
 // KeyVaultSecretRefInput is an input type that accepts KeyVaultSecretRefArgs and KeyVaultSecretRefOutput values.
 // You can construct a concrete instance of `KeyVaultSecretRefInput` via:
 //
-//          KeyVaultSecretRefArgs{...}
+//	KeyVaultSecretRefArgs{...}
 type KeyVaultSecretRefInput interface {
 	pulumi.Input
 
@@ -1240,11 +1240,11 @@ func (i KeyVaultSecretRefArgs) ToKeyVaultSecretRefPtrOutputWithContext(ctx conte
 // KeyVaultSecretRefPtrInput is an input type that accepts KeyVaultSecretRefArgs, KeyVaultSecretRefPtr and KeyVaultSecretRefPtrOutput values.
 // You can construct a concrete instance of `KeyVaultSecretRefPtrInput` via:
 //
-//          KeyVaultSecretRefArgs{...}
+//	        KeyVaultSecretRefArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KeyVaultSecretRefPtrInput interface {
 	pulumi.Input
 

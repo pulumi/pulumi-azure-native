@@ -156,7 +156,7 @@ func (o ConnectionParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // ConnectionParameterTypeInput is an input type that accepts ConnectionParameterTypeArgs and ConnectionParameterTypeOutput values.
 // You can construct a concrete instance of `ConnectionParameterTypeInput` via:
 //
-//          ConnectionParameterTypeArgs{...}
+//	ConnectionParameterTypeArgs{...}
 type ConnectionParameterTypeInput interface {
 	pulumi.Input
 

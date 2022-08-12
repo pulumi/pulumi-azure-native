@@ -174,7 +174,7 @@ func (o ComparisonOperationTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // ComparisonOperationTypeInput is an input type that accepts ComparisonOperationTypeArgs and ComparisonOperationTypeOutput values.
 // You can construct a concrete instance of `ComparisonOperationTypeInput` via:
 //
-//          ComparisonOperationTypeArgs{...}
+//	ComparisonOperationTypeArgs{...}
 type ComparisonOperationTypeInput interface {
 	pulumi.Input
 
@@ -394,7 +394,7 @@ func (o FavoriteTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // FavoriteTypeInput is an input type that accepts FavoriteTypeArgs and FavoriteTypeOutput values.
 // You can construct a concrete instance of `FavoriteTypeInput` via:
 //
-//          FavoriteTypeArgs{...}
+//	FavoriteTypeArgs{...}
 type FavoriteTypeInput interface {
 	pulumi.Input
 
@@ -708,7 +708,7 @@ func (o MetricStatisticTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // MetricStatisticTypeInput is an input type that accepts MetricStatisticTypeArgs and MetricStatisticTypeOutput values.
 // You can construct a concrete instance of `MetricStatisticTypeInput` via:
 //
-//          MetricStatisticTypeArgs{...}
+//	MetricStatisticTypeArgs{...}
 type MetricStatisticTypeInput interface {
 	pulumi.Input
 
@@ -889,7 +889,7 @@ func (o OperationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // OperationTypeInput is an input type that accepts OperationTypeArgs and OperationTypeOutput values.
 // You can construct a concrete instance of `OperationTypeInput` via:
 //
-//          OperationTypeArgs{...}
+//	OperationTypeArgs{...}
 type OperationTypeInput interface {
 	pulumi.Input
 
@@ -1074,7 +1074,7 @@ func (o RecurrenceFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // RecurrenceFrequencyInput is an input type that accepts RecurrenceFrequencyArgs and RecurrenceFrequencyOutput values.
 // You can construct a concrete instance of `RecurrenceFrequencyInput` via:
 //
-//          RecurrenceFrequencyArgs{...}
+//	RecurrenceFrequencyArgs{...}
 type RecurrenceFrequencyInput interface {
 	pulumi.Input
 
@@ -1247,7 +1247,7 @@ func (o ScaleDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // ScaleDirectionInput is an input type that accepts ScaleDirectionArgs and ScaleDirectionOutput values.
 // You can construct a concrete instance of `ScaleDirectionInput` via:
 //
-//          ScaleDirectionArgs{...}
+//	ScaleDirectionArgs{...}
 type ScaleDirectionInput interface {
 	pulumi.Input
 
@@ -1422,7 +1422,7 @@ func (o ScaleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // ScaleTypeInput is an input type that accepts ScaleTypeArgs and ScaleTypeOutput values.
 // You can construct a concrete instance of `ScaleTypeInput` via:
 //
-//          ScaleTypeArgs{...}
+//	ScaleTypeArgs{...}
 type ScaleTypeInput interface {
 	pulumi.Input
 
@@ -1602,7 +1602,7 @@ func (o TimeAggregationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // TimeAggregationTypeInput is an input type that accepts TimeAggregationTypeArgs and TimeAggregationTypeOutput values.
 // You can construct a concrete instance of `TimeAggregationTypeInput` via:
 //
-//          TimeAggregationTypeArgs{...}
+//	TimeAggregationTypeArgs{...}
 type TimeAggregationTypeInput interface {
 	pulumi.Input
 
@@ -1767,7 +1767,7 @@ func (o WebTestKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // WebTestKindInput is an input type that accepts WebTestKindArgs and WebTestKindOutput values.
 // You can construct a concrete instance of `WebTestKindInput` via:
 //
-//          WebTestKindArgs{...}
+//	WebTestKindArgs{...}
 type WebTestKindInput interface {
 	pulumi.Input
 

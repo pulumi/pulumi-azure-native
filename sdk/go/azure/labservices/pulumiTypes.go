@@ -50,7 +50,7 @@ func (val *AutoShutdownProfile) Defaults() *AutoShutdownProfile {
 // AutoShutdownProfileInput is an input type that accepts AutoShutdownProfileArgs and AutoShutdownProfileOutput values.
 // You can construct a concrete instance of `AutoShutdownProfileInput` via:
 //
-//          AutoShutdownProfileArgs{...}
+//	AutoShutdownProfileArgs{...}
 type AutoShutdownProfileInput interface {
 	pulumi.Input
 
@@ -114,11 +114,11 @@ func (i AutoShutdownProfileArgs) ToAutoShutdownProfilePtrOutputWithContext(ctx c
 // AutoShutdownProfilePtrInput is an input type that accepts AutoShutdownProfileArgs, AutoShutdownProfilePtr and AutoShutdownProfilePtrOutput values.
 // You can construct a concrete instance of `AutoShutdownProfilePtrInput` via:
 //
-//          AutoShutdownProfileArgs{...}
+//	        AutoShutdownProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoShutdownProfilePtrInput interface {
 	pulumi.Input
 
@@ -489,7 +489,7 @@ func (val *ConnectionProfile) Defaults() *ConnectionProfile {
 // ConnectionProfileInput is an input type that accepts ConnectionProfileArgs and ConnectionProfileOutput values.
 // You can construct a concrete instance of `ConnectionProfileInput` via:
 //
-//          ConnectionProfileArgs{...}
+//	ConnectionProfileArgs{...}
 type ConnectionProfileInput interface {
 	pulumi.Input
 
@@ -552,11 +552,11 @@ func (i ConnectionProfileArgs) ToConnectionProfilePtrOutputWithContext(ctx conte
 // ConnectionProfilePtrInput is an input type that accepts ConnectionProfileArgs, ConnectionProfilePtr and ConnectionProfilePtrOutput values.
 // You can construct a concrete instance of `ConnectionProfilePtrInput` via:
 //
-//          ConnectionProfileArgs{...}
+//	        ConnectionProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionProfilePtrInput interface {
 	pulumi.Input
 
@@ -1133,7 +1133,7 @@ type LabPlanNetworkProfile struct {
 // LabPlanNetworkProfileInput is an input type that accepts LabPlanNetworkProfileArgs and LabPlanNetworkProfileOutput values.
 // You can construct a concrete instance of `LabPlanNetworkProfileInput` via:
 //
-//          LabPlanNetworkProfileArgs{...}
+//	LabPlanNetworkProfileArgs{...}
 type LabPlanNetworkProfileInput interface {
 	pulumi.Input
 
@@ -1170,11 +1170,11 @@ func (i LabPlanNetworkProfileArgs) ToLabPlanNetworkProfilePtrOutputWithContext(c
 // LabPlanNetworkProfilePtrInput is an input type that accepts LabPlanNetworkProfileArgs, LabPlanNetworkProfilePtr and LabPlanNetworkProfilePtrOutput values.
 // You can construct a concrete instance of `LabPlanNetworkProfilePtrInput` via:
 //
-//          LabPlanNetworkProfileArgs{...}
+//	        LabPlanNetworkProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LabPlanNetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -1500,7 +1500,7 @@ type RecurrencePattern struct {
 // RecurrencePatternInput is an input type that accepts RecurrencePatternArgs and RecurrencePatternOutput values.
 // You can construct a concrete instance of `RecurrencePatternInput` via:
 //
-//          RecurrencePatternArgs{...}
+//	RecurrencePatternArgs{...}
 type RecurrencePatternInput interface {
 	pulumi.Input
 
@@ -1543,11 +1543,11 @@ func (i RecurrencePatternArgs) ToRecurrencePatternPtrOutputWithContext(ctx conte
 // RecurrencePatternPtrInput is an input type that accepts RecurrencePatternArgs, RecurrencePatternPtr and RecurrencePatternPtrOutput values.
 // You can construct a concrete instance of `RecurrencePatternPtrInput` via:
 //
-//          RecurrencePatternArgs{...}
+//	        RecurrencePatternArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RecurrencePatternPtrInput interface {
 	pulumi.Input
 
@@ -1804,7 +1804,7 @@ type ReferenceVm struct {
 // ReferenceVmInput is an input type that accepts ReferenceVmArgs and ReferenceVmOutput values.
 // You can construct a concrete instance of `ReferenceVmInput` via:
 //
-//          ReferenceVmArgs{...}
+//	ReferenceVmArgs{...}
 type ReferenceVmInput interface {
 	pulumi.Input
 
@@ -1968,7 +1968,7 @@ type ResourceSet struct {
 // ResourceSetInput is an input type that accepts ResourceSetArgs and ResourceSetOutput values.
 // You can construct a concrete instance of `ResourceSetInput` via:
 //
-//          ResourceSetArgs{...}
+//	ResourceSetArgs{...}
 type ResourceSetInput interface {
 	pulumi.Input
 
@@ -2007,11 +2007,11 @@ func (i ResourceSetArgs) ToResourceSetPtrOutputWithContext(ctx context.Context) 
 // ResourceSetPtrInput is an input type that accepts ResourceSetArgs, ResourceSetPtr and ResourceSetPtrOutput values.
 // You can construct a concrete instance of `ResourceSetPtrInput` via:
 //
-//          ResourceSetArgs{...}
+//	        ResourceSetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetPtrInput interface {
 	pulumi.Input
 
@@ -2206,7 +2206,7 @@ type ResourceSettings struct {
 // ResourceSettingsInput is an input type that accepts ResourceSettingsArgs and ResourceSettingsOutput values.
 // You can construct a concrete instance of `ResourceSettingsInput` via:
 //
-//          ResourceSettingsArgs{...}
+//	ResourceSettingsArgs{...}
 type ResourceSettingsInput interface {
 	pulumi.Input
 
@@ -2488,7 +2488,7 @@ type SupportInfo struct {
 // SupportInfoInput is an input type that accepts SupportInfoArgs and SupportInfoOutput values.
 // You can construct a concrete instance of `SupportInfoInput` via:
 //
-//          SupportInfoArgs{...}
+//	SupportInfoArgs{...}
 type SupportInfoInput interface {
 	pulumi.Input
 
@@ -2531,11 +2531,11 @@ func (i SupportInfoArgs) ToSupportInfoPtrOutputWithContext(ctx context.Context) 
 // SupportInfoPtrInput is an input type that accepts SupportInfoArgs, SupportInfoPtr and SupportInfoPtrOutput values.
 // You can construct a concrete instance of `SupportInfoPtrInput` via:
 //
-//          SupportInfoArgs{...}
+//	        SupportInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SupportInfoPtrInput interface {
 	pulumi.Input
 

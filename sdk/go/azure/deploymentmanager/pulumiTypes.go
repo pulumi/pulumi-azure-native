@@ -196,7 +196,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -388,7 +388,7 @@ type PrePostStep struct {
 // PrePostStepInput is an input type that accepts PrePostStepArgs and PrePostStepOutput values.
 // You can construct a concrete instance of `PrePostStepInput` via:
 //
-//          PrePostStepArgs{...}
+//	PrePostStepArgs{...}
 type PrePostStepInput interface {
 	pulumi.Input
 
@@ -417,7 +417,7 @@ func (i PrePostStepArgs) ToPrePostStepOutputWithContext(ctx context.Context) Pre
 // PrePostStepArrayInput is an input type that accepts PrePostStepArray and PrePostStepArrayOutput values.
 // You can construct a concrete instance of `PrePostStepArrayInput` via:
 //
-//          PrePostStepArray{ PrePostStepArgs{...} }
+//	PrePostStepArray{ PrePostStepArgs{...} }
 type PrePostStepArrayInput interface {
 	pulumi.Input
 
@@ -869,7 +869,7 @@ type SasAuthentication struct {
 // SasAuthenticationInput is an input type that accepts SasAuthenticationArgs and SasAuthenticationOutput values.
 // You can construct a concrete instance of `SasAuthenticationInput` via:
 //
-//          SasAuthenticationArgs{...}
+//	SasAuthenticationArgs{...}
 type SasAuthenticationInput interface {
 	pulumi.Input
 
@@ -1041,7 +1041,7 @@ type ServiceUnitArtifacts struct {
 // ServiceUnitArtifactsInput is an input type that accepts ServiceUnitArtifactsArgs and ServiceUnitArtifactsOutput values.
 // You can construct a concrete instance of `ServiceUnitArtifactsInput` via:
 //
-//          ServiceUnitArtifactsArgs{...}
+//	ServiceUnitArtifactsArgs{...}
 type ServiceUnitArtifactsInput interface {
 	pulumi.Input
 
@@ -1084,11 +1084,11 @@ func (i ServiceUnitArtifactsArgs) ToServiceUnitArtifactsPtrOutputWithContext(ctx
 // ServiceUnitArtifactsPtrInput is an input type that accepts ServiceUnitArtifactsArgs, ServiceUnitArtifactsPtr and ServiceUnitArtifactsPtrOutput values.
 // You can construct a concrete instance of `ServiceUnitArtifactsPtrInput` via:
 //
-//          ServiceUnitArtifactsArgs{...}
+//	        ServiceUnitArtifactsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceUnitArtifactsPtrInput interface {
 	pulumi.Input
 
@@ -1425,7 +1425,7 @@ type StepGroup struct {
 // StepGroupInput is an input type that accepts StepGroupArgs and StepGroupOutput values.
 // You can construct a concrete instance of `StepGroupInput` via:
 //
-//          StepGroupArgs{...}
+//	StepGroupArgs{...}
 type StepGroupInput interface {
 	pulumi.Input
 
@@ -1462,7 +1462,7 @@ func (i StepGroupArgs) ToStepGroupOutputWithContext(ctx context.Context) StepGro
 // StepGroupArrayInput is an input type that accepts StepGroupArray and StepGroupArrayOutput values.
 // You can construct a concrete instance of `StepGroupArrayInput` via:
 //
-//          StepGroupArray{ StepGroupArgs{...} }
+//	StepGroupArray{ StepGroupArgs{...} }
 type StepGroupArrayInput interface {
 	pulumi.Input
 

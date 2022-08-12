@@ -18,7 +18,7 @@ type HttpAuthentication struct {
 // HttpAuthenticationInput is an input type that accepts HttpAuthenticationArgs and HttpAuthenticationOutput values.
 // You can construct a concrete instance of `HttpAuthenticationInput` via:
 //
-//          HttpAuthenticationArgs{...}
+//	HttpAuthenticationArgs{...}
 type HttpAuthenticationInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i HttpAuthenticationArgs) ToHttpAuthenticationPtrOutputWithContext(ctx con
 // HttpAuthenticationPtrInput is an input type that accepts HttpAuthenticationArgs, HttpAuthenticationPtr and HttpAuthenticationPtrOutput values.
 // You can construct a concrete instance of `HttpAuthenticationPtrInput` via:
 //
-//          HttpAuthenticationArgs{...}
+//	        HttpAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HttpAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -221,7 +221,7 @@ type HttpRequest struct {
 // HttpRequestInput is an input type that accepts HttpRequestArgs and HttpRequestOutput values.
 // You can construct a concrete instance of `HttpRequestInput` via:
 //
-//          HttpRequestArgs{...}
+//	HttpRequestArgs{...}
 type HttpRequestInput interface {
 	pulumi.Input
 
@@ -265,11 +265,11 @@ func (i HttpRequestArgs) ToHttpRequestPtrOutputWithContext(ctx context.Context) 
 // HttpRequestPtrInput is an input type that accepts HttpRequestArgs, HttpRequestPtr and HttpRequestPtrOutput values.
 // You can construct a concrete instance of `HttpRequestPtrInput` via:
 //
-//          HttpRequestArgs{...}
+//	        HttpRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HttpRequestPtrInput interface {
 	pulumi.Input
 
@@ -564,7 +564,7 @@ type JobAction struct {
 // JobActionInput is an input type that accepts JobActionArgs and JobActionOutput values.
 // You can construct a concrete instance of `JobActionInput` via:
 //
-//          JobActionArgs{...}
+//	JobActionArgs{...}
 type JobActionInput interface {
 	pulumi.Input
 
@@ -612,11 +612,11 @@ func (i JobActionArgs) ToJobActionPtrOutputWithContext(ctx context.Context) JobA
 // JobActionPtrInput is an input type that accepts JobActionArgs, JobActionPtr and JobActionPtrOutput values.
 // You can construct a concrete instance of `JobActionPtrInput` via:
 //
-//          JobActionArgs{...}
+//	        JobActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobActionPtrInput interface {
 	pulumi.Input
 
@@ -967,7 +967,7 @@ type JobCollectionProperties struct {
 // JobCollectionPropertiesInput is an input type that accepts JobCollectionPropertiesArgs and JobCollectionPropertiesOutput values.
 // You can construct a concrete instance of `JobCollectionPropertiesInput` via:
 //
-//          JobCollectionPropertiesArgs{...}
+//	JobCollectionPropertiesArgs{...}
 type JobCollectionPropertiesInput interface {
 	pulumi.Input
 
@@ -1007,11 +1007,11 @@ func (i JobCollectionPropertiesArgs) ToJobCollectionPropertiesPtrOutputWithConte
 // JobCollectionPropertiesPtrInput is an input type that accepts JobCollectionPropertiesArgs, JobCollectionPropertiesPtr and JobCollectionPropertiesPtrOutput values.
 // You can construct a concrete instance of `JobCollectionPropertiesPtrInput` via:
 //
-//          JobCollectionPropertiesArgs{...}
+//	        JobCollectionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobCollectionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1180,7 +1180,7 @@ type JobCollectionQuota struct {
 // JobCollectionQuotaInput is an input type that accepts JobCollectionQuotaArgs and JobCollectionQuotaOutput values.
 // You can construct a concrete instance of `JobCollectionQuotaInput` via:
 //
-//          JobCollectionQuotaArgs{...}
+//	JobCollectionQuotaArgs{...}
 type JobCollectionQuotaInput interface {
 	pulumi.Input
 
@@ -1220,11 +1220,11 @@ func (i JobCollectionQuotaArgs) ToJobCollectionQuotaPtrOutputWithContext(ctx con
 // JobCollectionQuotaPtrInput is an input type that accepts JobCollectionQuotaArgs, JobCollectionQuotaPtr and JobCollectionQuotaPtrOutput values.
 // You can construct a concrete instance of `JobCollectionQuotaPtrInput` via:
 //
-//          JobCollectionQuotaArgs{...}
+//	        JobCollectionQuotaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobCollectionQuotaPtrInput interface {
 	pulumi.Input
 
@@ -1453,7 +1453,7 @@ type JobErrorAction struct {
 // JobErrorActionInput is an input type that accepts JobErrorActionArgs and JobErrorActionOutput values.
 // You can construct a concrete instance of `JobErrorActionInput` via:
 //
-//          JobErrorActionArgs{...}
+//	JobErrorActionArgs{...}
 type JobErrorActionInput interface {
 	pulumi.Input
 
@@ -1499,11 +1499,11 @@ func (i JobErrorActionArgs) ToJobErrorActionPtrOutputWithContext(ctx context.Con
 // JobErrorActionPtrInput is an input type that accepts JobErrorActionArgs, JobErrorActionPtr and JobErrorActionPtrOutput values.
 // You can construct a concrete instance of `JobErrorActionPtrInput` via:
 //
-//          JobErrorActionArgs{...}
+//	        JobErrorActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobErrorActionPtrInput interface {
 	pulumi.Input
 
@@ -1820,7 +1820,7 @@ type JobMaxRecurrence struct {
 // JobMaxRecurrenceInput is an input type that accepts JobMaxRecurrenceArgs and JobMaxRecurrenceOutput values.
 // You can construct a concrete instance of `JobMaxRecurrenceInput` via:
 //
-//          JobMaxRecurrenceArgs{...}
+//	JobMaxRecurrenceArgs{...}
 type JobMaxRecurrenceInput interface {
 	pulumi.Input
 
@@ -1858,11 +1858,11 @@ func (i JobMaxRecurrenceArgs) ToJobMaxRecurrencePtrOutputWithContext(ctx context
 // JobMaxRecurrencePtrInput is an input type that accepts JobMaxRecurrenceArgs, JobMaxRecurrencePtr and JobMaxRecurrencePtrOutput values.
 // You can construct a concrete instance of `JobMaxRecurrencePtrInput` via:
 //
-//          JobMaxRecurrenceArgs{...}
+//	        JobMaxRecurrenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobMaxRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -2055,7 +2055,7 @@ type JobProperties struct {
 // JobPropertiesInput is an input type that accepts JobPropertiesArgs and JobPropertiesOutput values.
 // You can construct a concrete instance of `JobPropertiesInput` via:
 //
-//          JobPropertiesArgs{...}
+//	JobPropertiesArgs{...}
 type JobPropertiesInput interface {
 	pulumi.Input
 
@@ -2097,11 +2097,11 @@ func (i JobPropertiesArgs) ToJobPropertiesPtrOutputWithContext(ctx context.Conte
 // JobPropertiesPtrInput is an input type that accepts JobPropertiesArgs, JobPropertiesPtr and JobPropertiesPtrOutput values.
 // You can construct a concrete instance of `JobPropertiesPtrInput` via:
 //
-//          JobPropertiesArgs{...}
+//	        JobPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2302,7 +2302,7 @@ type JobRecurrence struct {
 // JobRecurrenceInput is an input type that accepts JobRecurrenceArgs and JobRecurrenceOutput values.
 // You can construct a concrete instance of `JobRecurrenceInput` via:
 //
-//          JobRecurrenceArgs{...}
+//	JobRecurrenceArgs{...}
 type JobRecurrenceInput interface {
 	pulumi.Input
 
@@ -2345,11 +2345,11 @@ func (i JobRecurrenceArgs) ToJobRecurrencePtrOutputWithContext(ctx context.Conte
 // JobRecurrencePtrInput is an input type that accepts JobRecurrenceArgs, JobRecurrencePtr and JobRecurrencePtrOutput values.
 // You can construct a concrete instance of `JobRecurrencePtrInput` via:
 //
-//          JobRecurrenceArgs{...}
+//	        JobRecurrenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -2635,7 +2635,7 @@ type JobRecurrenceSchedule struct {
 // JobRecurrenceScheduleInput is an input type that accepts JobRecurrenceScheduleArgs and JobRecurrenceScheduleOutput values.
 // You can construct a concrete instance of `JobRecurrenceScheduleInput` via:
 //
-//          JobRecurrenceScheduleArgs{...}
+//	JobRecurrenceScheduleArgs{...}
 type JobRecurrenceScheduleInput interface {
 	pulumi.Input
 
@@ -2679,11 +2679,11 @@ func (i JobRecurrenceScheduleArgs) ToJobRecurrenceSchedulePtrOutputWithContext(c
 // JobRecurrenceSchedulePtrInput is an input type that accepts JobRecurrenceScheduleArgs, JobRecurrenceSchedulePtr and JobRecurrenceSchedulePtrOutput values.
 // You can construct a concrete instance of `JobRecurrenceSchedulePtrInput` via:
 //
-//          JobRecurrenceScheduleArgs{...}
+//	        JobRecurrenceScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobRecurrenceSchedulePtrInput interface {
 	pulumi.Input
 
@@ -2842,7 +2842,7 @@ type JobRecurrenceScheduleMonthlyOccurrence struct {
 // JobRecurrenceScheduleMonthlyOccurrenceInput is an input type that accepts JobRecurrenceScheduleMonthlyOccurrenceArgs and JobRecurrenceScheduleMonthlyOccurrenceOutput values.
 // You can construct a concrete instance of `JobRecurrenceScheduleMonthlyOccurrenceInput` via:
 //
-//          JobRecurrenceScheduleMonthlyOccurrenceArgs{...}
+//	JobRecurrenceScheduleMonthlyOccurrenceArgs{...}
 type JobRecurrenceScheduleMonthlyOccurrenceInput interface {
 	pulumi.Input
 
@@ -2872,7 +2872,7 @@ func (i JobRecurrenceScheduleMonthlyOccurrenceArgs) ToJobRecurrenceScheduleMonth
 // JobRecurrenceScheduleMonthlyOccurrenceArrayInput is an input type that accepts JobRecurrenceScheduleMonthlyOccurrenceArray and JobRecurrenceScheduleMonthlyOccurrenceArrayOutput values.
 // You can construct a concrete instance of `JobRecurrenceScheduleMonthlyOccurrenceArrayInput` via:
 //
-//          JobRecurrenceScheduleMonthlyOccurrenceArray{ JobRecurrenceScheduleMonthlyOccurrenceArgs{...} }
+//	JobRecurrenceScheduleMonthlyOccurrenceArray{ JobRecurrenceScheduleMonthlyOccurrenceArgs{...} }
 type JobRecurrenceScheduleMonthlyOccurrenceArrayInput interface {
 	pulumi.Input
 
@@ -3181,7 +3181,7 @@ type RetryPolicy struct {
 // RetryPolicyInput is an input type that accepts RetryPolicyArgs and RetryPolicyOutput values.
 // You can construct a concrete instance of `RetryPolicyInput` via:
 //
-//          RetryPolicyArgs{...}
+//	RetryPolicyArgs{...}
 type RetryPolicyInput interface {
 	pulumi.Input
 
@@ -3221,11 +3221,11 @@ func (i RetryPolicyArgs) ToRetryPolicyPtrOutputWithContext(ctx context.Context) 
 // RetryPolicyPtrInput is an input type that accepts RetryPolicyArgs, RetryPolicyPtr and RetryPolicyPtrOutput values.
 // You can construct a concrete instance of `RetryPolicyPtrInput` via:
 //
-//          RetryPolicyArgs{...}
+//	        RetryPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RetryPolicyPtrInput interface {
 	pulumi.Input
 
@@ -3448,7 +3448,7 @@ type ServiceBusAuthentication struct {
 // ServiceBusAuthenticationInput is an input type that accepts ServiceBusAuthenticationArgs and ServiceBusAuthenticationOutput values.
 // You can construct a concrete instance of `ServiceBusAuthenticationInput` via:
 //
-//          ServiceBusAuthenticationArgs{...}
+//	ServiceBusAuthenticationArgs{...}
 type ServiceBusAuthenticationInput interface {
 	pulumi.Input
 
@@ -3488,11 +3488,11 @@ func (i ServiceBusAuthenticationArgs) ToServiceBusAuthenticationPtrOutputWithCon
 // ServiceBusAuthenticationPtrInput is an input type that accepts ServiceBusAuthenticationArgs, ServiceBusAuthenticationPtr and ServiceBusAuthenticationPtrOutput values.
 // You can construct a concrete instance of `ServiceBusAuthenticationPtrInput` via:
 //
-//          ServiceBusAuthenticationArgs{...}
+//	        ServiceBusAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceBusAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -3735,7 +3735,7 @@ type ServiceBusBrokeredMessageProperties struct {
 // ServiceBusBrokeredMessagePropertiesInput is an input type that accepts ServiceBusBrokeredMessagePropertiesArgs and ServiceBusBrokeredMessagePropertiesOutput values.
 // You can construct a concrete instance of `ServiceBusBrokeredMessagePropertiesInput` via:
 //
-//          ServiceBusBrokeredMessagePropertiesArgs{...}
+//	ServiceBusBrokeredMessagePropertiesArgs{...}
 type ServiceBusBrokeredMessagePropertiesInput interface {
 	pulumi.Input
 
@@ -3795,11 +3795,11 @@ func (i ServiceBusBrokeredMessagePropertiesArgs) ToServiceBusBrokeredMessageProp
 // ServiceBusBrokeredMessagePropertiesPtrInput is an input type that accepts ServiceBusBrokeredMessagePropertiesArgs, ServiceBusBrokeredMessagePropertiesPtr and ServiceBusBrokeredMessagePropertiesPtrOutput values.
 // You can construct a concrete instance of `ServiceBusBrokeredMessagePropertiesPtrInput` via:
 //
-//          ServiceBusBrokeredMessagePropertiesArgs{...}
+//	        ServiceBusBrokeredMessagePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceBusBrokeredMessagePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -4350,7 +4350,7 @@ type ServiceBusQueueMessage struct {
 // ServiceBusQueueMessageInput is an input type that accepts ServiceBusQueueMessageArgs and ServiceBusQueueMessageOutput values.
 // You can construct a concrete instance of `ServiceBusQueueMessageInput` via:
 //
-//          ServiceBusQueueMessageArgs{...}
+//	ServiceBusQueueMessageArgs{...}
 type ServiceBusQueueMessageInput interface {
 	pulumi.Input
 
@@ -4398,11 +4398,11 @@ func (i ServiceBusQueueMessageArgs) ToServiceBusQueueMessagePtrOutputWithContext
 // ServiceBusQueueMessagePtrInput is an input type that accepts ServiceBusQueueMessageArgs, ServiceBusQueueMessagePtr and ServiceBusQueueMessagePtrOutput values.
 // You can construct a concrete instance of `ServiceBusQueueMessagePtrInput` via:
 //
-//          ServiceBusQueueMessageArgs{...}
+//	        ServiceBusQueueMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceBusQueueMessagePtrInput interface {
 	pulumi.Input
 
@@ -4765,7 +4765,7 @@ type ServiceBusTopicMessage struct {
 // ServiceBusTopicMessageInput is an input type that accepts ServiceBusTopicMessageArgs and ServiceBusTopicMessageOutput values.
 // You can construct a concrete instance of `ServiceBusTopicMessageInput` via:
 //
-//          ServiceBusTopicMessageArgs{...}
+//	ServiceBusTopicMessageArgs{...}
 type ServiceBusTopicMessageInput interface {
 	pulumi.Input
 
@@ -4813,11 +4813,11 @@ func (i ServiceBusTopicMessageArgs) ToServiceBusTopicMessagePtrOutputWithContext
 // ServiceBusTopicMessagePtrInput is an input type that accepts ServiceBusTopicMessageArgs, ServiceBusTopicMessagePtr and ServiceBusTopicMessagePtrOutput values.
 // You can construct a concrete instance of `ServiceBusTopicMessagePtrInput` via:
 //
-//          ServiceBusTopicMessageArgs{...}
+//	        ServiceBusTopicMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceBusTopicMessagePtrInput interface {
 	pulumi.Input
 
@@ -5168,7 +5168,7 @@ type Sku struct {
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
 // You can construct a concrete instance of `SkuInput` via:
 //
-//          SkuArgs{...}
+//	SkuArgs{...}
 type SkuInput interface {
 	pulumi.Input
 
@@ -5204,11 +5204,11 @@ func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 // SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
 // You can construct a concrete instance of `SkuPtrInput` via:
 //
-//          SkuArgs{...}
+//	        SkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkuPtrInput interface {
 	pulumi.Input
 
@@ -5369,7 +5369,7 @@ type StorageQueueMessage struct {
 // StorageQueueMessageInput is an input type that accepts StorageQueueMessageArgs and StorageQueueMessageOutput values.
 // You can construct a concrete instance of `StorageQueueMessageInput` via:
 //
-//          StorageQueueMessageArgs{...}
+//	StorageQueueMessageArgs{...}
 type StorageQueueMessageInput interface {
 	pulumi.Input
 
@@ -5411,11 +5411,11 @@ func (i StorageQueueMessageArgs) ToStorageQueueMessagePtrOutputWithContext(ctx c
 // StorageQueueMessagePtrInput is an input type that accepts StorageQueueMessageArgs, StorageQueueMessagePtr and StorageQueueMessagePtrOutput values.
 // You can construct a concrete instance of `StorageQueueMessagePtrInput` via:
 //
-//          StorageQueueMessageArgs{...}
+//	        StorageQueueMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageQueueMessagePtrInput interface {
 	pulumi.Input
 

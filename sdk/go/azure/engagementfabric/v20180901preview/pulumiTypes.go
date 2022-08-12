@@ -141,7 +141,7 @@ type SKU struct {
 // SKUInput is an input type that accepts SKUArgs and SKUOutput values.
 // You can construct a concrete instance of `SKUInput` via:
 //
-//          SKUArgs{...}
+//	SKUArgs{...}
 type SKUInput interface {
 	pulumi.Input
 

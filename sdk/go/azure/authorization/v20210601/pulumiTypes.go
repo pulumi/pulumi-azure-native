@@ -21,7 +21,7 @@ type Identity struct {
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
 // You can construct a concrete instance of `IdentityInput` via:
 //
-//          IdentityArgs{...}
+//	IdentityArgs{...}
 type IdentityInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) Identi
 // IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
 // You can construct a concrete instance of `IdentityPtrInput` via:
 //
-//          IdentityArgs{...}
+//	        IdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityPtrInput interface {
 	pulumi.Input
 
@@ -344,7 +344,7 @@ type NonComplianceMessage struct {
 // NonComplianceMessageInput is an input type that accepts NonComplianceMessageArgs and NonComplianceMessageOutput values.
 // You can construct a concrete instance of `NonComplianceMessageInput` via:
 //
-//          NonComplianceMessageArgs{...}
+//	NonComplianceMessageArgs{...}
 type NonComplianceMessageInput interface {
 	pulumi.Input
 
@@ -375,7 +375,7 @@ func (i NonComplianceMessageArgs) ToNonComplianceMessageOutputWithContext(ctx co
 // NonComplianceMessageArrayInput is an input type that accepts NonComplianceMessageArray and NonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `NonComplianceMessageArrayInput` via:
 //
-//          NonComplianceMessageArray{ NonComplianceMessageArgs{...} }
+//	NonComplianceMessageArray{ NonComplianceMessageArgs{...} }
 type NonComplianceMessageArrayInput interface {
 	pulumi.Input
 
@@ -510,7 +510,7 @@ type ParameterDefinitionsValue struct {
 // ParameterDefinitionsValueInput is an input type that accepts ParameterDefinitionsValueArgs and ParameterDefinitionsValueOutput values.
 // You can construct a concrete instance of `ParameterDefinitionsValueInput` via:
 //
-//          ParameterDefinitionsValueArgs{...}
+//	ParameterDefinitionsValueArgs{...}
 type ParameterDefinitionsValueInput interface {
 	pulumi.Input
 
@@ -545,7 +545,7 @@ func (i ParameterDefinitionsValueArgs) ToParameterDefinitionsValueOutputWithCont
 // ParameterDefinitionsValueMapInput is an input type that accepts ParameterDefinitionsValueMap and ParameterDefinitionsValueMapOutput values.
 // You can construct a concrete instance of `ParameterDefinitionsValueMapInput` via:
 //
-//          ParameterDefinitionsValueMap{ "key": ParameterDefinitionsValueArgs{...} }
+//	ParameterDefinitionsValueMap{ "key": ParameterDefinitionsValueArgs{...} }
 type ParameterDefinitionsValueMapInput interface {
 	pulumi.Input
 
@@ -637,7 +637,7 @@ type ParameterDefinitionsValueMetadata struct {
 // ParameterDefinitionsValueMetadataInput is an input type that accepts ParameterDefinitionsValueMetadataArgs and ParameterDefinitionsValueMetadataOutput values.
 // You can construct a concrete instance of `ParameterDefinitionsValueMetadataInput` via:
 //
-//          ParameterDefinitionsValueMetadataArgs{...}
+//	ParameterDefinitionsValueMetadataArgs{...}
 type ParameterDefinitionsValueMetadataInput interface {
 	pulumi.Input
 
@@ -680,11 +680,11 @@ func (i ParameterDefinitionsValueMetadataArgs) ToParameterDefinitionsValueMetada
 // ParameterDefinitionsValueMetadataPtrInput is an input type that accepts ParameterDefinitionsValueMetadataArgs, ParameterDefinitionsValueMetadataPtr and ParameterDefinitionsValueMetadataPtrOutput values.
 // You can construct a concrete instance of `ParameterDefinitionsValueMetadataPtrInput` via:
 //
-//          ParameterDefinitionsValueMetadataArgs{...}
+//	        ParameterDefinitionsValueMetadataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ParameterDefinitionsValueMetadataPtrInput interface {
 	pulumi.Input
 
@@ -1008,7 +1008,7 @@ type ParameterValuesValue struct {
 // ParameterValuesValueInput is an input type that accepts ParameterValuesValueArgs and ParameterValuesValueOutput values.
 // You can construct a concrete instance of `ParameterValuesValueInput` via:
 //
-//          ParameterValuesValueArgs{...}
+//	ParameterValuesValueArgs{...}
 type ParameterValuesValueInput interface {
 	pulumi.Input
 
@@ -1037,7 +1037,7 @@ func (i ParameterValuesValueArgs) ToParameterValuesValueOutputWithContext(ctx co
 // ParameterValuesValueMapInput is an input type that accepts ParameterValuesValueMap and ParameterValuesValueMapOutput values.
 // You can construct a concrete instance of `ParameterValuesValueMapInput` via:
 //
-//          ParameterValuesValueMap{ "key": ParameterValuesValueArgs{...} }
+//	ParameterValuesValueMap{ "key": ParameterValuesValueArgs{...} }
 type ParameterValuesValueMapInput interface {
 	pulumi.Input
 
@@ -1162,7 +1162,7 @@ type PolicyDefinitionGroup struct {
 // PolicyDefinitionGroupInput is an input type that accepts PolicyDefinitionGroupArgs and PolicyDefinitionGroupOutput values.
 // You can construct a concrete instance of `PolicyDefinitionGroupInput` via:
 //
-//          PolicyDefinitionGroupArgs{...}
+//	PolicyDefinitionGroupArgs{...}
 type PolicyDefinitionGroupInput interface {
 	pulumi.Input
 
@@ -1199,7 +1199,7 @@ func (i PolicyDefinitionGroupArgs) ToPolicyDefinitionGroupOutputWithContext(ctx 
 // PolicyDefinitionGroupArrayInput is an input type that accepts PolicyDefinitionGroupArray and PolicyDefinitionGroupArrayOutput values.
 // You can construct a concrete instance of `PolicyDefinitionGroupArrayInput` via:
 //
-//          PolicyDefinitionGroupArray{ PolicyDefinitionGroupArgs{...} }
+//	PolicyDefinitionGroupArray{ PolicyDefinitionGroupArgs{...} }
 type PolicyDefinitionGroupArrayInput interface {
 	pulumi.Input
 
@@ -1370,7 +1370,7 @@ type PolicyDefinitionReference struct {
 // PolicyDefinitionReferenceInput is an input type that accepts PolicyDefinitionReferenceArgs and PolicyDefinitionReferenceOutput values.
 // You can construct a concrete instance of `PolicyDefinitionReferenceInput` via:
 //
-//          PolicyDefinitionReferenceArgs{...}
+//	PolicyDefinitionReferenceArgs{...}
 type PolicyDefinitionReferenceInput interface {
 	pulumi.Input
 
@@ -1405,7 +1405,7 @@ func (i PolicyDefinitionReferenceArgs) ToPolicyDefinitionReferenceOutputWithCont
 // PolicyDefinitionReferenceArrayInput is an input type that accepts PolicyDefinitionReferenceArray and PolicyDefinitionReferenceArrayOutput values.
 // You can construct a concrete instance of `PolicyDefinitionReferenceArrayInput` via:
 //
-//          PolicyDefinitionReferenceArray{ PolicyDefinitionReferenceArgs{...} }
+//	PolicyDefinitionReferenceArray{ PolicyDefinitionReferenceArgs{...} }
 type PolicyDefinitionReferenceArrayInput interface {
 	pulumi.Input
 

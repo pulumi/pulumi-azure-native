@@ -142,7 +142,7 @@ func (o AgreementTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // AgreementTypeInput is an input type that accepts AgreementTypeArgs and AgreementTypeOutput values.
 // You can construct a concrete instance of `AgreementTypeInput` via:
 //
-//          AgreementTypeArgs{...}
+//	AgreementTypeArgs{...}
 type AgreementTypeInput interface {
 	pulumi.Input
 
@@ -320,7 +320,7 @@ func (o EdifactCharacterSetPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // EdifactCharacterSetInput is an input type that accepts EdifactCharacterSetArgs and EdifactCharacterSetOutput values.
 // You can construct a concrete instance of `EdifactCharacterSetInput` via:
 //
-//          EdifactCharacterSetArgs{...}
+//	EdifactCharacterSetArgs{...}
 type EdifactCharacterSetInput interface {
 	pulumi.Input
 
@@ -486,7 +486,7 @@ func (o EdifactDecimalIndicatorPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // EdifactDecimalIndicatorInput is an input type that accepts EdifactDecimalIndicatorArgs and EdifactDecimalIndicatorOutput values.
 // You can construct a concrete instance of `EdifactDecimalIndicatorInput` via:
 //
-//          EdifactDecimalIndicatorArgs{...}
+//	EdifactDecimalIndicatorArgs{...}
 type EdifactDecimalIndicatorInput interface {
 	pulumi.Input
 
@@ -656,7 +656,7 @@ func (o EncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // EncryptionAlgorithmInput is an input type that accepts EncryptionAlgorithmArgs and EncryptionAlgorithmOutput values.
 // You can construct a concrete instance of `EncryptionAlgorithmInput` via:
 //
-//          EncryptionAlgorithmArgs{...}
+//	EncryptionAlgorithmArgs{...}
 type EncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -824,7 +824,7 @@ func (o HashingAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // HashingAlgorithmInput is an input type that accepts HashingAlgorithmArgs and HashingAlgorithmOutput values.
 // You can construct a concrete instance of `HashingAlgorithmInput` via:
 //
-//          HashingAlgorithmArgs{...}
+//	HashingAlgorithmArgs{...}
 type HashingAlgorithmInput interface {
 	pulumi.Input
 
@@ -989,7 +989,7 @@ func (o MapTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // MapTypeInput is an input type that accepts MapTypeArgs and MapTypeOutput values.
 // You can construct a concrete instance of `MapTypeInput` via:
 //
-//          MapTypeArgs{...}
+//	MapTypeArgs{...}
 type MapTypeInput interface {
 	pulumi.Input
 
@@ -1155,7 +1155,7 @@ func (o MessageFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // MessageFilterTypeInput is an input type that accepts MessageFilterTypeArgs and MessageFilterTypeOutput values.
 // You can construct a concrete instance of `MessageFilterTypeInput` via:
 //
-//          MessageFilterTypeArgs{...}
+//	MessageFilterTypeArgs{...}
 type MessageFilterTypeInput interface {
 	pulumi.Input
 
@@ -1320,7 +1320,7 @@ func (o PartnerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // PartnerTypeInput is an input type that accepts PartnerTypeArgs and PartnerTypeOutput values.
 // You can construct a concrete instance of `PartnerTypeInput` via:
 //
-//          PartnerTypeArgs{...}
+//	PartnerTypeArgs{...}
 type PartnerTypeInput interface {
 	pulumi.Input
 
@@ -1485,7 +1485,7 @@ func (o SchemaTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // SchemaTypeInput is an input type that accepts SchemaTypeArgs and SchemaTypeOutput values.
 // You can construct a concrete instance of `SchemaTypeInput` via:
 //
-//          SchemaTypeArgs{...}
+//	SchemaTypeArgs{...}
 type SchemaTypeInput interface {
 	pulumi.Input
 
@@ -1653,7 +1653,7 @@ func (o SegmentTerminatorSuffixPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // SegmentTerminatorSuffixInput is an input type that accepts SegmentTerminatorSuffixArgs and SegmentTerminatorSuffixOutput values.
 // You can construct a concrete instance of `SegmentTerminatorSuffixInput` via:
 //
-//          SegmentTerminatorSuffixArgs{...}
+//	SegmentTerminatorSuffixArgs{...}
 type SegmentTerminatorSuffixInput interface {
 	pulumi.Input
 
@@ -1822,7 +1822,7 @@ func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
 // You can construct a concrete instance of `SkuNameInput` via:
 //
-//          SkuNameArgs{...}
+//	SkuNameArgs{...}
 type SkuNameInput interface {
 	pulumi.Input
 
@@ -1989,7 +1989,7 @@ func (o TrailingSeparatorPolicyPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // TrailingSeparatorPolicyInput is an input type that accepts TrailingSeparatorPolicyArgs and TrailingSeparatorPolicyOutput values.
 // You can construct a concrete instance of `TrailingSeparatorPolicyInput` via:
 //
-//          TrailingSeparatorPolicyArgs{...}
+//	TrailingSeparatorPolicyArgs{...}
 type TrailingSeparatorPolicyInput interface {
 	pulumi.Input
 
@@ -2156,7 +2156,7 @@ func (o UsageIndicatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // UsageIndicatorInput is an input type that accepts UsageIndicatorArgs and UsageIndicatorOutput values.
 // You can construct a concrete instance of `UsageIndicatorInput` via:
 //
-//          UsageIndicatorArgs{...}
+//	UsageIndicatorArgs{...}
 type UsageIndicatorInput interface {
 	pulumi.Input
 
@@ -2323,7 +2323,7 @@ func (o X12CharacterSetPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // X12CharacterSetInput is an input type that accepts X12CharacterSetArgs and X12CharacterSetOutput values.
 // You can construct a concrete instance of `X12CharacterSetInput` via:
 //
-//          X12CharacterSetArgs{...}
+//	X12CharacterSetArgs{...}
 type X12CharacterSetInput interface {
 	pulumi.Input
 
@@ -2489,7 +2489,7 @@ func (o X12DateFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // X12DateFormatInput is an input type that accepts X12DateFormatArgs and X12DateFormatOutput values.
 // You can construct a concrete instance of `X12DateFormatInput` via:
 //
-//          X12DateFormatArgs{...}
+//	X12DateFormatArgs{...}
 type X12DateFormatInput interface {
 	pulumi.Input
 
@@ -2657,7 +2657,7 @@ func (o X12TimeFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // X12TimeFormatInput is an input type that accepts X12TimeFormatArgs and X12TimeFormatOutput values.
 // You can construct a concrete instance of `X12TimeFormatInput` via:
 //
-//          X12TimeFormatArgs{...}
+//	X12TimeFormatArgs{...}
 type X12TimeFormatInput interface {
 	pulumi.Input
 

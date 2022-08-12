@@ -140,7 +140,7 @@ func (o AccessControlEntryActionPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // AccessControlEntryActionInput is an input type that accepts AccessControlEntryActionArgs and AccessControlEntryActionOutput values.
 // You can construct a concrete instance of `AccessControlEntryActionInput` via:
 //
-//          AccessControlEntryActionArgs{...}
+//	AccessControlEntryActionArgs{...}
 type AccessControlEntryActionInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o ComputeModeOptionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // ComputeModeOptionsInput is an input type that accepts ComputeModeOptionsArgs and ComputeModeOptionsOutput values.
 // You can construct a concrete instance of `ComputeModeOptionsInput` via:
 //
-//          ComputeModeOptionsArgs{...}
+//	ComputeModeOptionsArgs{...}
 type ComputeModeOptionsInput interface {
 	pulumi.Input
 
@@ -472,7 +472,7 @@ func (o InternalLoadBalancingModePtrOutput) ToStringPtrOutputWithContext(ctx con
 // InternalLoadBalancingModeInput is an input type that accepts InternalLoadBalancingModeArgs and InternalLoadBalancingModeOutput values.
 // You can construct a concrete instance of `InternalLoadBalancingModeInput` via:
 //
-//          InternalLoadBalancingModeArgs{...}
+//	InternalLoadBalancingModeArgs{...}
 type InternalLoadBalancingModeInput interface {
 	pulumi.Input
 

@@ -19,7 +19,7 @@ type FileDestination struct {
 // FileDestinationInput is an input type that accepts FileDestinationArgs and FileDestinationOutput values.
 // You can construct a concrete instance of `FileDestinationInput` via:
 //
-//          FileDestinationArgs{...}
+//	FileDestinationArgs{...}
 type FileDestinationInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i FileDestinationArgs) ToFileDestinationPtrOutputWithContext(ctx context.C
 // FileDestinationPtrInput is an input type that accepts FileDestinationArgs, FileDestinationPtr and FileDestinationPtrOutput values.
 // You can construct a concrete instance of `FileDestinationPtrInput` via:
 //
-//          FileDestinationArgs{...}
+//	        FileDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileDestinationPtrInput interface {
 	pulumi.Input
 
@@ -223,7 +223,7 @@ type NotificationProperties struct {
 // NotificationPropertiesInput is an input type that accepts NotificationPropertiesArgs and NotificationPropertiesOutput values.
 // You can construct a concrete instance of `NotificationPropertiesInput` via:
 //
-//          NotificationPropertiesArgs{...}
+//	NotificationPropertiesArgs{...}
 type NotificationPropertiesInput interface {
 	pulumi.Input
 
@@ -344,7 +344,7 @@ type ScheduleProperties struct {
 // SchedulePropertiesInput is an input type that accepts SchedulePropertiesArgs and SchedulePropertiesOutput values.
 // You can construct a concrete instance of `SchedulePropertiesInput` via:
 //
-//          SchedulePropertiesArgs{...}
+//	SchedulePropertiesArgs{...}
 type SchedulePropertiesInput interface {
 	pulumi.Input
 

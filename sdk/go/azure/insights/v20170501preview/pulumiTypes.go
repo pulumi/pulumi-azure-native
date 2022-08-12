@@ -23,7 +23,7 @@ type LogSettings struct {
 // LogSettingsInput is an input type that accepts LogSettingsArgs and LogSettingsOutput values.
 // You can construct a concrete instance of `LogSettingsInput` via:
 //
-//          LogSettingsArgs{...}
+//	LogSettingsArgs{...}
 type LogSettingsInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i LogSettingsArgs) ToLogSettingsOutputWithContext(ctx context.Context) Log
 // LogSettingsArrayInput is an input type that accepts LogSettingsArray and LogSettingsArrayOutput values.
 // You can construct a concrete instance of `LogSettingsArrayInput` via:
 //
-//          LogSettingsArray{ LogSettingsArgs{...} }
+//	LogSettingsArray{ LogSettingsArgs{...} }
 type LogSettingsArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +203,7 @@ type MetricSettings struct {
 // MetricSettingsInput is an input type that accepts MetricSettingsArgs and MetricSettingsOutput values.
 // You can construct a concrete instance of `MetricSettingsInput` via:
 //
-//          MetricSettingsArgs{...}
+//	MetricSettingsArgs{...}
 type MetricSettingsInput interface {
 	pulumi.Input
 
@@ -238,7 +238,7 @@ func (i MetricSettingsArgs) ToMetricSettingsOutputWithContext(ctx context.Contex
 // MetricSettingsArrayInput is an input type that accepts MetricSettingsArray and MetricSettingsArrayOutput values.
 // You can construct a concrete instance of `MetricSettingsArrayInput` via:
 //
-//          MetricSettingsArray{ MetricSettingsArgs{...} }
+//	MetricSettingsArray{ MetricSettingsArgs{...} }
 type MetricSettingsArrayInput interface {
 	pulumi.Input
 
@@ -393,7 +393,7 @@ type RetentionPolicy struct {
 // RetentionPolicyInput is an input type that accepts RetentionPolicyArgs and RetentionPolicyOutput values.
 // You can construct a concrete instance of `RetentionPolicyInput` via:
 //
-//          RetentionPolicyArgs{...}
+//	RetentionPolicyArgs{...}
 type RetentionPolicyInput interface {
 	pulumi.Input
 
@@ -432,11 +432,11 @@ func (i RetentionPolicyArgs) ToRetentionPolicyPtrOutputWithContext(ctx context.C
 // RetentionPolicyPtrInput is an input type that accepts RetentionPolicyArgs, RetentionPolicyPtr and RetentionPolicyPtrOutput values.
 // You can construct a concrete instance of `RetentionPolicyPtrInput` via:
 //
-//          RetentionPolicyArgs{...}
+//	        RetentionPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RetentionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -629,7 +629,7 @@ type SubscriptionLogSettings struct {
 // SubscriptionLogSettingsInput is an input type that accepts SubscriptionLogSettingsArgs and SubscriptionLogSettingsOutput values.
 // You can construct a concrete instance of `SubscriptionLogSettingsInput` via:
 //
-//          SubscriptionLogSettingsArgs{...}
+//	SubscriptionLogSettingsArgs{...}
 type SubscriptionLogSettingsInput interface {
 	pulumi.Input
 
@@ -660,7 +660,7 @@ func (i SubscriptionLogSettingsArgs) ToSubscriptionLogSettingsOutputWithContext(
 // SubscriptionLogSettingsArrayInput is an input type that accepts SubscriptionLogSettingsArray and SubscriptionLogSettingsArrayOutput values.
 // You can construct a concrete instance of `SubscriptionLogSettingsArrayInput` via:
 //
-//          SubscriptionLogSettingsArray{ SubscriptionLogSettingsArgs{...} }
+//	SubscriptionLogSettingsArray{ SubscriptionLogSettingsArgs{...} }
 type SubscriptionLogSettingsArrayInput interface {
 	pulumi.Input
 

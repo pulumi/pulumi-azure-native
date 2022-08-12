@@ -19,7 +19,7 @@ type AssignmentLockSettings struct {
 // AssignmentLockSettingsInput is an input type that accepts AssignmentLockSettingsArgs and AssignmentLockSettingsOutput values.
 // You can construct a concrete instance of `AssignmentLockSettingsInput` via:
 //
-//          AssignmentLockSettingsArgs{...}
+//	AssignmentLockSettingsArgs{...}
 type AssignmentLockSettingsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AssignmentLockSettingsArgs) ToAssignmentLockSettingsPtrOutputWithContext
 // AssignmentLockSettingsPtrInput is an input type that accepts AssignmentLockSettingsArgs, AssignmentLockSettingsPtr and AssignmentLockSettingsPtrOutput values.
 // You can construct a concrete instance of `AssignmentLockSettingsPtrInput` via:
 //
-//          AssignmentLockSettingsArgs{...}
+//	        AssignmentLockSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssignmentLockSettingsPtrInput interface {
 	pulumi.Input
 
@@ -289,7 +289,7 @@ type ManagedServiceIdentity struct {
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
 // You can construct a concrete instance of `ManagedServiceIdentityInput` via:
 //
-//          ManagedServiceIdentityArgs{...}
+//	ManagedServiceIdentityArgs{...}
 type ManagedServiceIdentityInput interface {
 	pulumi.Input
 
@@ -408,7 +408,7 @@ type ParameterDefinition struct {
 // ParameterDefinitionInput is an input type that accepts ParameterDefinitionArgs and ParameterDefinitionOutput values.
 // You can construct a concrete instance of `ParameterDefinitionInput` via:
 //
-//          ParameterDefinitionArgs{...}
+//	ParameterDefinitionArgs{...}
 type ParameterDefinitionInput interface {
 	pulumi.Input
 
@@ -447,7 +447,7 @@ func (i ParameterDefinitionArgs) ToParameterDefinitionOutputWithContext(ctx cont
 // ParameterDefinitionMapInput is an input type that accepts ParameterDefinitionMap and ParameterDefinitionMapOutput values.
 // You can construct a concrete instance of `ParameterDefinitionMapInput` via:
 //
-//          ParameterDefinitionMap{ "key": ParameterDefinitionArgs{...} }
+//	ParameterDefinitionMap{ "key": ParameterDefinitionArgs{...} }
 type ParameterDefinitionMapInput interface {
 	pulumi.Input
 
@@ -624,7 +624,7 @@ type ParameterValueBase struct {
 // ParameterValueBaseInput is an input type that accepts ParameterValueBaseArgs and ParameterValueBaseOutput values.
 // You can construct a concrete instance of `ParameterValueBaseInput` via:
 //
-//          ParameterValueBaseArgs{...}
+//	ParameterValueBaseArgs{...}
 type ParameterValueBaseInput interface {
 	pulumi.Input
 
@@ -653,7 +653,7 @@ func (i ParameterValueBaseArgs) ToParameterValueBaseOutputWithContext(ctx contex
 // ParameterValueBaseMapInput is an input type that accepts ParameterValueBaseMap and ParameterValueBaseMapOutput values.
 // You can construct a concrete instance of `ParameterValueBaseMapInput` via:
 //
-//          ParameterValueBaseMap{ "key": ParameterValueBaseArgs{...} }
+//	ParameterValueBaseMap{ "key": ParameterValueBaseArgs{...} }
 type ParameterValueBaseMapInput interface {
 	pulumi.Input
 
@@ -780,7 +780,7 @@ type ResourceGroupDefinition struct {
 // ResourceGroupDefinitionInput is an input type that accepts ResourceGroupDefinitionArgs and ResourceGroupDefinitionOutput values.
 // You can construct a concrete instance of `ResourceGroupDefinitionInput` via:
 //
-//          ResourceGroupDefinitionArgs{...}
+//	ResourceGroupDefinitionArgs{...}
 type ResourceGroupDefinitionInput interface {
 	pulumi.Input
 
@@ -819,7 +819,7 @@ func (i ResourceGroupDefinitionArgs) ToResourceGroupDefinitionOutputWithContext(
 // ResourceGroupDefinitionMapInput is an input type that accepts ResourceGroupDefinitionMap and ResourceGroupDefinitionMapOutput values.
 // You can construct a concrete instance of `ResourceGroupDefinitionMapInput` via:
 //
-//          ResourceGroupDefinitionMap{ "key": ResourceGroupDefinitionArgs{...} }
+//	ResourceGroupDefinitionMap{ "key": ResourceGroupDefinitionArgs{...} }
 type ResourceGroupDefinitionMapInput interface {
 	pulumi.Input
 
@@ -998,7 +998,7 @@ type ResourceGroupValue struct {
 // ResourceGroupValueInput is an input type that accepts ResourceGroupValueArgs and ResourceGroupValueOutput values.
 // You can construct a concrete instance of `ResourceGroupValueInput` via:
 //
-//          ResourceGroupValueArgs{...}
+//	ResourceGroupValueArgs{...}
 type ResourceGroupValueInput interface {
 	pulumi.Input
 
@@ -1029,7 +1029,7 @@ func (i ResourceGroupValueArgs) ToResourceGroupValueOutputWithContext(ctx contex
 // ResourceGroupValueMapInput is an input type that accepts ResourceGroupValueMap and ResourceGroupValueMapOutput values.
 // You can construct a concrete instance of `ResourceGroupValueMapInput` via:
 //
-//          ResourceGroupValueMap{ "key": ResourceGroupValueArgs{...} }
+//	ResourceGroupValueMap{ "key": ResourceGroupValueArgs{...} }
 type ResourceGroupValueMapInput interface {
 	pulumi.Input
 

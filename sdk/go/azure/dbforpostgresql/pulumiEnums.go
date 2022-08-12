@@ -207,7 +207,7 @@ func (o ServerSecurityAlertPolicyStateEnumPtrOutput) ToStringPtrOutputWithContex
 // ServerSecurityAlertPolicyStateEnumInput is an input type that accepts ServerSecurityAlertPolicyStateEnumArgs and ServerSecurityAlertPolicyStateEnumOutput values.
 // You can construct a concrete instance of `ServerSecurityAlertPolicyStateEnumInput` via:
 //
-//          ServerSecurityAlertPolicyStateEnumArgs{...}
+//	ServerSecurityAlertPolicyStateEnumArgs{...}
 type ServerSecurityAlertPolicyStateEnumInput interface {
 	pulumi.Input
 
