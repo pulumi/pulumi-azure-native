@@ -24,7 +24,7 @@ init_submodules::
 
 # Calls to pulumictl are slow, so we just do the call once if required and cache
 .version:
-	pulumictl get version > .version
+	echo "$(shell pulumictl sdf)" > .version
 
 update_submodules:: init_submodules
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
