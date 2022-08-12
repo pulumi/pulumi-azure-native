@@ -5,6 +5,7 @@
 ## 1.68.0 (2022-08-12)
 
 - Memory usage for most programs is greatly reduced [#1689](https://github.com/pulumi/pulumi-azure-native/pull/1689)
+- Changes to how AutoNaming works for the provider [#1901](https://github.com/pulumi/pulumi-azure-native/pull/1901)
 
 ### Upstream breaking changes
 
