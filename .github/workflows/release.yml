@@ -122,7 +122,7 @@ jobs:
         status: ${{ job.status }}
   build_sdks:
     needs: prerequisites
-    runs-on: ${{ matrix.language }} == 'dotnet' && 'macos-latest' || 'ubuntu-latest'
+    runs-on: ${{ matrix.language == 'dotnet' && 'macos-latest' || 'ubuntu-latest' }}
     strategy:
       fail-fast: true
       matrix:
